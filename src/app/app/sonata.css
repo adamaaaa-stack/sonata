@@ -1,0 +1,68 @@
+/* ============================================================
+   SONATA APP CSS — Keyframes, pseudo-elements, SVG overrides
+   ============================================================ */
+
+:root {
+  --bg: #0C0A09; --bg2: #1C1917; --bg3: #292524; --bg4: #44403C;
+  --text: #FAFAF9; --text2: #A8A29E; --text3: #78716C;
+  --gold: #C8A96E; --gold2: #A68B4B; --gold-bg: rgba(200,169,110,0.08);
+  --green: #4ADE80; --green-bg: rgba(74,222,128,0.12);
+  --yellow: #FACC15; --yellow-bg: rgba(250,204,21,0.12);
+  --orange: #FB923C; --orange-bg: rgba(251,146,60,0.12);
+  --red: #F87171; --red-bg: rgba(248,113,113,0.12);
+  --blue: #60A5FA; --blue-bg: rgba(96,165,250,0.12);
+  --r: 10px; --r2: 14px;
+  --serif: 'Instrument Serif', Georgia, serif;
+  --sans: 'Outfit', system-ui, -apple-system, sans-serif;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes keysFloat {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(-4px); }
+}
+@keyframes speakPulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.sonata-app { animation: fadeUp 0.4s ease; }
+
+/* ABCJS SVG dark theme overrides */
+.abcjs-note, .abcjs-note_selected { fill: #FAFAF9; stroke: #FAFAF9; }
+.abcjs-staff { stroke: #FAFAF9; }
+.abcjs-beam { fill: #FAFAF9; stroke: #FAFAF9; }
+.abcjs-stem { stroke: #FAFAF9; }
+.abcjs-ledger { stroke: #FAFAF9; }
+.abcjs-bar { stroke: #FAFAF9; fill: #FAFAF9; }
+.abcjs-brace { fill: #FAFAF9; stroke: #FAFAF9; }
+.abcjs-clef { fill: #FAFAF9; }
+.abcjs-key-signature { fill: #FAFAF9; }
+.abcjs-time-signature { fill: #FAFAF9; }
+.abcjs-rest { fill: #FAFAF9; }
+.abcjs-flag { fill: #FAFAF9; }
+.abcjs-accidental { fill: #FAFAF9; }
+.abcjs-dot { fill: #FAFAF9; }
+.abcjs-dynamics { fill: #FAFAF9; }
+.abcjs-decoration { fill: #FAFAF9; stroke: #FAFAF9; }
+
+/* Piano key pressed state */
+.key-white:active, .key-white.pressed {
+  background: linear-gradient(180deg, #E0DCD6, #D4D0C8) !important;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2) !important;
+}
+.key-black:active, .key-black.pressed {
+  background: linear-gradient(180deg, #3a3a3a, #1a1a1a) !important;
+}
+
+/* TTS playing animation */
+.speak-playing { animation: speakPulse 1.5s ease-in-out infinite; }
+
+/* Mobile responsive */
+@media (max-width: 640px) {
+  .sonata-grid-2 { grid-template-columns: 1fr !important; }
+  .sonata-grid-3 { grid-template-columns: 1fr !important; }
+}

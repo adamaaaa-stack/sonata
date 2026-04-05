@@ -1,0 +1,12 @@
+{
+  "name": "Sonata",
+  "short_name": "Sonata",
+  "description": "Learn to read piano sheet music",
+  "start_url": "/app",
+  "display": "standalone",
+  "background_color": "#0C0A09",
+  "theme_color": "#C8A96E",
+  "icons": [
+    { "src": "/icon.svg", "sizes": "any", "type": "image/svg+xml" }
+  ]
+}

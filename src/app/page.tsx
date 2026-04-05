@@ -1,101 +1,679 @@
-import Image from "next/image";
+"use client";
 
-export default function Home() {
+import { useEffect, useState } from "react";
+
+export default function LandingPage() {
+  const [scrollY, setScrollY] = useState(0);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    setVisible(true);
+    const onScroll = () => setScrollY(window.scrollY);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    <div style={styles.page}>
+      {/* Ambient glow */}
+      <div
+        style={{
+          position: "fixed",
+          top: 0,
+          left: 0,
+          right: 0,
+          height: "70vh",
+          background:
+            "radial-gradient(ellipse at 50% 0%, rgba(200,169,110,0.06) 0%, transparent 70%)",
+          pointerEvents: "none",
+          zIndex: 0,
+        }}
+      />
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
+      {/* Nav */}
+      <nav style={styles.nav}>
+        <span style={styles.navLogo}>Sonata</span>
+        <div style={styles.navLinks}>
+          <a href="#method" style={styles.navLink}>Method</a>
+          <a href="#features" style={styles.navLink}>Features</a>
+          <a href="#story" style={styles.navLink}>Story</a>
+          <a href="/login" style={styles.navCta}>Start learning</a>
+        </div>
+      </nav>
+
+      {/* Hero */}
+      <section
+        style={{
+          ...styles.hero,
+          opacity: visible ? 1 : 0,
+          transform: visible ? "translateY(0)" : "translateY(20px)",
+          transition: "all 0.8s ease",
+        }}
+      >
+        <div style={styles.heroBadge}>The interval method</div>
+        <h1 style={styles.heroTitle}>
+          I learned Gymnop&eacute;die No. 1<br />
+          <span style={styles.heroAccent}>in one night.</span>
+        </h1>
+        <p style={styles.heroSub}>
+          Not a simplified version. The real piece. Satie&apos;s actual notes, read
+          from the score, played with both hands. After years of thinking I
+          couldn&apos;t read sheet music, one method changed everything.
+        </p>
+        <div style={styles.heroButtons}>
+          <a href="/login" style={styles.primaryBtn}>
+            Start for free
           </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
+          <a href="#story" style={styles.ghostBtn}>
+            Read the story
           </a>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+
+        {/* Floating staff lines */}
+        <div
+          style={{
+            ...styles.staffLines,
+            transform: `translateY(${scrollY * 0.1}px)`,
+          }}
         >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+          {[0, 1, 2, 3, 4].map((i) => (
+            <div key={i} style={styles.staffLine} />
+          ))}
+        </div>
+      </section>
+
+      {/* The problem */}
+      <section style={styles.section}>
+        <div style={styles.sectionInner}>
+          <p style={styles.lede}>
+            Traditional music education has a problem.
+          </p>
+          <div style={styles.twoCol}>
+            <div style={styles.problemCard}>
+              <div style={styles.problemIcon}>&#x2717;</div>
+              <h3 style={styles.problemTitle}>The old way</h3>
+              <p style={styles.problemText}>
+                Memorise Every Good Boy Does Fine. Memorise FACE. Memorise bass
+                clef separately. Drill flashcards for months. Still pause on
+                every note. Still can&apos;t play anything real.
+              </p>
+            </div>
+            <div style={{ ...styles.problemCard, ...styles.solutionCard }}>
+              <div style={{ ...styles.problemIcon, color: "#C8A96E" }}>&#x2713;</div>
+              <h3 style={styles.problemTitle}>The Sonata method</h3>
+              <p style={styles.problemText}>
+                Learn 3 anchor notes. Read by distance, not by name. Steps,
+                skips, leaps. One visual rule classifies every interval
+                instantly. Play real pieces from lesson one.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* The method */}
+      <section id="method" style={{ ...styles.section, background: "#1C1917" }}>
+        <div style={styles.sectionInner}>
+          <h2 style={styles.sectionTitle}>The method in 60 seconds</h2>
+          <p style={styles.sectionSub}>
+            Three ideas that replace years of memorisation.
+          </p>
+          <div style={styles.threeCol}>
+            <div style={styles.methodCard}>
+              <div style={styles.methodNum}>1</div>
+              <h3 style={styles.methodTitle}>Three anchors</h3>
+              <p style={styles.methodText}>
+                Middle C, treble G, bass F. Three landmarks you always know.
+                Every other note is found by counting from the nearest anchor.
+                Like navigating a city from three landmarks instead of
+                memorising every street.
+              </p>
+            </div>
+            <div style={styles.methodCard}>
+              <div style={styles.methodNum}>2</div>
+              <h3 style={styles.methodTitle}>Read the distance</h3>
+              <p style={styles.methodText}>
+                Don&apos;t identify each note by name. Read how far it is from
+                the last note. Step up? Play the next key. Skip? Jump one key.
+                Your eyes track movement, your fingers mirror it. Like reading
+                words instead of spelling out letters.
+              </p>
+            </div>
+            <div style={styles.methodCard}>
+              <div style={styles.methodNum}>3</div>
+              <h3 style={styles.methodTitle}>The odd/even rule</h3>
+              <p style={styles.methodText}>
+                One glance tells you everything. Both notes on lines? Odd
+                interval (3rd, 5th, 7th). One on a line, one in a space? Even
+                (2nd, 4th, 6th). Half the classification done before you even
+                count. No other method teaches this.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* The story */}
+      <section id="story" style={styles.section}>
+        <div style={{ ...styles.sectionInner, maxWidth: 680 }}>
+          <h2 style={styles.sectionTitle}>The night everything changed</h2>
+          <div style={styles.story}>
+            <p style={styles.storyP}>
+              I&apos;d been playing piano for years. Casually, sure &mdash; by
+              ear, by YouTube tutorials, by watching someone else&apos;s fingers
+              and copying them. I could play things. But I couldn&apos;t{" "}
+              <em>read</em> anything.
+            </p>
+            <p style={styles.storyP}>
+              Sheet music was a wall of hieroglyphics. I&apos;d tried the
+              traditional route &mdash; Every Good Boy Does Fine, FACE in the
+              space, bass clef mnemonics. I&apos;d spend ten minutes decoding
+              four bars, forget them by the next day, and feel stupid for not
+              getting it.
+            </p>
+            <p style={styles.storyP}>
+              Then I discovered something: the problem wasn&apos;t me. The
+              problem was the method. Traditional note reading asks you to
+              memorise 20+ positions across two staves. That&apos;s a brute-force
+              approach to a pattern-recognition problem.
+            </p>
+            <p style={styles.storyHighlight}>
+              What if you only needed three notes?
+            </p>
+            <p style={styles.storyP}>
+              The interval method flips everything. You learn three anchor notes,
+              then read by <em>distance</em> &mdash; how far each note is from
+              the last one. Steps, skips, and leaps. Your eyes stop decoding
+              individual notes and start tracking movement. Like the difference
+              between reading a sentence letter-by-letter and actually reading
+              words.
+            </p>
+            <p style={styles.storyP}>
+              I sat down with Satie&apos;s Gymnop&eacute;die No. 1. The melody
+              is almost entirely steps and small skips &mdash; exactly what the
+              method teaches first. I read the intervals: skip up, step down,
+              step down, skip down, step up. My fingers followed. No pausing.
+              No counting lines. Just&hellip; reading.
+            </p>
+            <p style={styles.storyHighlight}>
+              By midnight, I was playing the whole piece. Both hands. From the
+              score. It was the first piece of real sheet music I&apos;d ever
+              sight-read in my life.
+            </p>
+            <p style={styles.storyP}>
+              I built Sonata because I wanted other people to have that same
+              moment. The curriculum takes you from zero to reading Moonlight
+              Sonata&apos;s 3rd movement in 15 lessons. Not by memorising &mdash;
+              by understanding.
+            </p>
+            <p style={styles.storySign}>Adam Morris</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Features */}
+      <section
+        id="features"
+        style={{ ...styles.section, background: "#1C1917" }}
+      >
+        <div style={styles.sectionInner}>
+          <h2 style={styles.sectionTitle}>Everything you need</h2>
+          <div style={styles.featureGrid}>
+            {[
+              {
+                icon: "15",
+                title: "Structured lessons",
+                desc: "From the staff basics to Moonlight Sonata 3rd movement. Each lesson builds on the last. Real pieces, not toy exercises.",
+              },
+              {
+                icon: "392",
+                title: "Score library",
+                desc: "Bach chorales, Chopin nocturnes, Debussy, Mozart, Beethoven. Full interactive sheet music rendered in your browser.",
+              },
+              {
+                icon: "AI",
+                title: "Targeted drills",
+                desc: "AI identifies your weakest intervals and generates exercises that attack exactly where you struggle.",
+              },
+              {
+                icon: "0.75x",
+                title: "Narrated lessons",
+                desc: "Every lesson step read aloud. Pause, slow down, replay. Learn at your own pace without reading walls of text.",
+              },
+              {
+                icon: "C5",
+                title: "Pitch detection",
+                desc: "Answer drills by playing your real piano. The app listens, detects the note, and scores you in real time.",
+              },
+              {
+                icon: "30d",
+                title: "Progress tracking",
+                desc: "Interval accuracy grid, practice calendar, streak counter. See exactly where you're strong and where to focus.",
+              },
+            ].map((f, i) => (
+              <div key={i} style={styles.featureCard}>
+                <div style={styles.featureIcon}>{f.icon}</div>
+                <h3 style={styles.featureTitle}>{f.title}</h3>
+                <p style={styles.featureDesc}>{f.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Journey */}
+      <section style={styles.section}>
+        <div style={styles.sectionInner}>
+          <h2 style={styles.sectionTitle}>From zero to Moonlight Sonata</h2>
+          <p style={styles.sectionSub}>
+            15 lessons. Each one ends with a real piece you can play.
+          </p>
+          <div style={styles.journey}>
+            {[
+              { n: "1-3", label: "The fundamentals", pieces: "Happy Birthday, Ode to Joy, Minuet in G", color: "#4ADE80" },
+              { n: "4-6", label: "Fluent reading", pieces: "Gymnop\u00e9die No.1, F\u00fcr Elise", color: "#FACC15" },
+              { n: "7-9", label: "Expression", pieces: "Clair de Lune, Arabesque No.1", color: "#FB923C" },
+              { n: "10-12", label: "Technique", pieces: "Bach Prelude BWV 846, Moonlight 1st mvt, Nocturne Op.9", color: "#F87171" },
+              { n: "13-15", label: "Mastery", pieces: "Rondo alla Turca, Moonlight Sonata 3rd mvt", color: "#C8A96E" },
+            ].map((j, i) => (
+              <div key={i} style={styles.journeyRow}>
+                <div
+                  style={{
+                    ...styles.journeyDot,
+                    background: j.color,
+                    boxShadow: `0 0 12px ${j.color}40`,
+                  }}
+                />
+                <div style={styles.journeyContent}>
+                  <div style={styles.journeyNum}>Lessons {j.n}</div>
+                  <div style={styles.journeyLabel}>{j.label}</div>
+                  <div style={styles.journeyPieces}>{j.pieces}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section
+        style={{
+          ...styles.section,
+          background: "#1C1917",
+          textAlign: "center" as const,
+        }}
+      >
+        <div style={styles.sectionInner}>
+          <h2
+            style={{
+              ...styles.sectionTitle,
+              fontSize: 40,
+              lineHeight: 1.2,
+            }}
+          >
+            Your Gymnop&eacute;die moment<br />is one night away.
+          </h2>
+          <p
+            style={{
+              ...styles.sectionSub,
+              maxWidth: 480,
+              margin: "0 auto 32px",
+            }}
+          >
+            Free to start. No credit card. 15 lessons from zero to reading real
+            sheet music.
+          </p>
+          <a href="/login" style={{ ...styles.primaryBtn, fontSize: 17, padding: "16px 48px" }}>
+            Start learning now
+          </a>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer style={styles.footer}>
+        <span style={styles.footerLogo}>Sonata</span>
+        <span style={styles.footerText}>
+          Built by Adam Morris
+        </span>
       </footer>
     </div>
   );
 }
+
+const styles: Record<string, React.CSSProperties> = {
+  page: {
+    background: "#0C0A09",
+    color: "#FAFAF9",
+    fontFamily: "'Outfit', system-ui, -apple-system, sans-serif",
+    fontWeight: 300,
+    lineHeight: 1.6,
+    overflowX: "hidden",
+    position: "relative",
+  },
+  nav: {
+    position: "fixed",
+    top: 0,
+    left: 0,
+    right: 0,
+    zIndex: 100,
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+    padding: "16px 32px",
+    background: "rgba(12,10,9,0.85)",
+    backdropFilter: "blur(12px)",
+    borderBottom: "1px solid rgba(200,169,110,0.08)",
+  },
+  navLogo: {
+    fontFamily: "'Instrument Serif', Georgia, serif",
+    fontSize: 22,
+    color: "#C8A96E",
+  },
+  navLinks: {
+    display: "flex",
+    alignItems: "center",
+    gap: 28,
+  },
+  navLink: {
+    color: "#78716C",
+    textDecoration: "none",
+    fontSize: 13,
+    fontWeight: 400,
+    transition: "color 0.2s",
+  },
+  navCta: {
+    color: "#0C0A09",
+    background: "#C8A96E",
+    textDecoration: "none",
+    fontSize: 13,
+    fontWeight: 500,
+    padding: "8px 20px",
+    borderRadius: 8,
+  },
+  hero: {
+    position: "relative",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    textAlign: "center",
+    padding: "160px 24px 120px",
+    maxWidth: 800,
+    margin: "0 auto",
+    zIndex: 1,
+  },
+  heroBadge: {
+    fontSize: 11,
+    textTransform: "uppercase" as const,
+    letterSpacing: "0.12em",
+    color: "#C8A96E",
+    border: "1px solid rgba(200,169,110,0.3)",
+    borderRadius: 20,
+    padding: "5px 16px",
+    marginBottom: 24,
+    fontWeight: 500,
+  },
+  heroTitle: {
+    fontFamily: "'Instrument Serif', Georgia, serif",
+    fontSize: 56,
+    fontWeight: 400,
+    lineHeight: 1.15,
+    letterSpacing: "-0.02em",
+    marginBottom: 20,
+  },
+  heroAccent: {
+    color: "#C8A96E",
+  },
+  heroSub: {
+    fontSize: 17,
+    color: "#A8A29E",
+    maxWidth: 560,
+    lineHeight: 1.8,
+    marginBottom: 36,
+  },
+  heroButtons: {
+    display: "flex",
+    gap: 12,
+    flexWrap: "wrap",
+    justifyContent: "center",
+  },
+  primaryBtn: {
+    display: "inline-block",
+    padding: "14px 36px",
+    background: "#C8A96E",
+    color: "#0C0A09",
+    borderRadius: 10,
+    textDecoration: "none",
+    fontSize: 15,
+    fontWeight: 500,
+    fontFamily: "'Outfit', system-ui, sans-serif",
+    transition: "all 0.2s",
+  },
+  ghostBtn: {
+    display: "inline-block",
+    padding: "14px 36px",
+    background: "transparent",
+    color: "#A8A29E",
+    border: "1px solid #292524",
+    borderRadius: 10,
+    textDecoration: "none",
+    fontSize: 15,
+    fontWeight: 400,
+    fontFamily: "'Outfit', system-ui, sans-serif",
+  },
+  staffLines: {
+    position: "absolute",
+    bottom: -20,
+    left: "50%",
+    transform: "translateX(-50%)",
+    width: 300,
+    display: "flex",
+    flexDirection: "column",
+    gap: 8,
+    opacity: 0.06,
+    pointerEvents: "none",
+  },
+  staffLine: {
+    height: 1,
+    background: "#C8A96E",
+    borderRadius: 1,
+  },
+  section: {
+    padding: "80px 24px",
+  },
+  sectionInner: {
+    maxWidth: 960,
+    margin: "0 auto",
+  },
+  sectionTitle: {
+    fontFamily: "'Instrument Serif', Georgia, serif",
+    fontSize: 32,
+    fontWeight: 400,
+    textAlign: "center" as const,
+    marginBottom: 12,
+    letterSpacing: "-0.02em",
+  },
+  sectionSub: {
+    fontSize: 15,
+    color: "#78716C",
+    textAlign: "center" as const,
+    marginBottom: 48,
+    fontWeight: 300,
+  },
+  lede: {
+    fontFamily: "'Instrument Serif', Georgia, serif",
+    fontSize: 28,
+    fontWeight: 400,
+    textAlign: "center" as const,
+    color: "#A8A29E",
+    marginBottom: 40,
+  },
+  twoCol: {
+    display: "grid",
+    gridTemplateColumns: "1fr 1fr",
+    gap: 16,
+  },
+  problemCard: {
+    padding: "32px 28px",
+    background: "#1C1917",
+    border: "1px solid #292524",
+    borderRadius: 14,
+  },
+  solutionCard: {
+    borderColor: "rgba(200,169,110,0.2)",
+    background:
+      "linear-gradient(135deg, rgba(200,169,110,0.04) 0%, #1C1917 60%)",
+  },
+  problemIcon: {
+    fontSize: 20,
+    color: "#F87171",
+    marginBottom: 12,
+  },
+  problemTitle: {
+    fontSize: 16,
+    fontWeight: 500,
+    marginBottom: 8,
+  },
+  problemText: {
+    fontSize: 14,
+    color: "#A8A29E",
+    lineHeight: 1.7,
+  },
+  threeCol: {
+    display: "grid",
+    gridTemplateColumns: "1fr 1fr 1fr",
+    gap: 16,
+  },
+  methodCard: {
+    padding: "28px 24px",
+    background: "#0C0A09",
+    border: "1px solid #292524",
+    borderRadius: 14,
+  },
+  methodNum: {
+    fontFamily: "'Instrument Serif', Georgia, serif",
+    fontSize: 32,
+    color: "#C8A96E",
+    marginBottom: 8,
+  },
+  methodTitle: {
+    fontSize: 15,
+    fontWeight: 500,
+    marginBottom: 8,
+  },
+  methodText: {
+    fontSize: 13,
+    color: "#A8A29E",
+    lineHeight: 1.7,
+  },
+  story: {
+    padding: "40px 0",
+  },
+  storyP: {
+    fontSize: 16,
+    color: "#A8A29E",
+    lineHeight: 1.9,
+    marginBottom: 24,
+  },
+  storyHighlight: {
+    fontFamily: "'Instrument Serif', Georgia, serif",
+    fontSize: 24,
+    color: "#C8A96E",
+    lineHeight: 1.5,
+    margin: "32px 0",
+    textAlign: "center" as const,
+  },
+  storySign: {
+    fontFamily: "'Instrument Serif', Georgia, serif",
+    fontSize: 18,
+    fontStyle: "italic" as const,
+    color: "#78716C",
+    marginTop: 40,
+  },
+  featureGrid: {
+    display: "grid",
+    gridTemplateColumns: "1fr 1fr 1fr",
+    gap: 16,
+  },
+  featureCard: {
+    padding: "28px 24px",
+    background: "#0C0A09",
+    border: "1px solid #292524",
+    borderRadius: 14,
+  },
+  featureIcon: {
+    fontFamily: "'Instrument Serif', Georgia, serif",
+    fontSize: 24,
+    color: "#C8A96E",
+    marginBottom: 12,
+  },
+  featureTitle: {
+    fontSize: 15,
+    fontWeight: 500,
+    marginBottom: 6,
+  },
+  featureDesc: {
+    fontSize: 13,
+    color: "#78716C",
+    lineHeight: 1.7,
+  },
+  journey: {
+    display: "flex",
+    flexDirection: "column",
+    gap: 0,
+    maxWidth: 520,
+    margin: "0 auto",
+    position: "relative",
+  },
+  journeyRow: {
+    display: "flex",
+    gap: 20,
+    alignItems: "flex-start",
+    position: "relative",
+    paddingBottom: 32,
+    paddingLeft: 6,
+  },
+  journeyDot: {
+    width: 12,
+    height: 12,
+    borderRadius: "50%",
+    flexShrink: 0,
+    marginTop: 4,
+  },
+  journeyContent: {
+    flex: 1,
+  },
+  journeyNum: {
+    fontSize: 11,
+    color: "#78716C",
+    textTransform: "uppercase" as const,
+    letterSpacing: "0.08em",
+    fontWeight: 500,
+  },
+  journeyLabel: {
+    fontSize: 16,
+    fontWeight: 500,
+    marginTop: 2,
+  },
+  journeyPieces: {
+    fontSize: 13,
+    color: "#78716C",
+    marginTop: 4,
+    fontStyle: "italic" as const,
+  },
+  footer: {
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+    padding: "24px 32px",
+    borderTop: "1px solid #292524",
+  },
+  footerLogo: {
+    fontFamily: "'Instrument Serif', Georgia, serif",
+    fontSize: 18,
+    color: "#C8A96E",
+  },
+  footerText: {
+    fontSize: 12,
+    color: "#44403C",
+  },
+};
