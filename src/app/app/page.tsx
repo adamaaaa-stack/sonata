@@ -423,7 +423,7 @@ export default function SonataApp() {
   // ============================================================
   if (state.screen === 'loading') {
     return (
-      <div style={s.page}>
+      <div style={s.page} className="sonata-page">
         <div style={s.app}>
           <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: '80vh' }}>
             <div style={{ fontFamily: 'var(--serif)', fontSize: 32, color: 'var(--gold)', marginBottom: 16 }}>Sonata</div>
@@ -436,7 +436,7 @@ export default function SonataApp() {
 
   return (
     <ErrorBoundary>
-      <div style={s.page}>
+      <div style={s.page} className="sonata-page">
         <div style={s.app} className="sonata-app">
           {state.screen === 'onboarding' && <OnboardingScreen slide={onboardSlide} setSlide={setOnboardSlide} dispatch={dispatch} renderNotation={renderNotation} />}
           {state.screen === 'menu' && <MenuScreen state={state} dispatch={dispatch} />}
@@ -461,7 +461,7 @@ export default function SonataApp() {
 
 function Header({ title, right }: { title: string; right?: React.ReactNode }) {
   return (
-    <div style={s.header}>
+    <div style={s.header} className="sonata-header">
       <h1 style={s.headerTitle}>{title}</h1>
       {right && <div style={s.headerStats}>{right}</div>}
     </div>
@@ -480,8 +480,8 @@ function PianoKeyboard({ startMidi = 48, endMidi = 84, highlights = {}, fingers 
   for (let m = startMidi; m <= endMidi; m++) {
     if (isBlack(m)) continue;
     keys.push(
-      <div key={m} style={{ ...s.keyWhite, position: 'relative' }} onClick={() => onClick?.(m)}>
-        {showNames && <span style={s.keyNoteName}>{NOTES[m % 12]}</span>}
+      <div key={m} className="sonata-key-white" style={{ ...s.keyWhite, position: 'relative' }} onClick={() => onClick?.(m)}>
+        {showNames && <span className="sonata-note-name" style={s.keyNoteName}>{NOTES[m % 12]}</span>}
         {highlights[m] && <div style={{ ...s.keyHighlight, background: highlights[m] }} />}
         {fingers[m] && <div style={s.fingerBadge}>{fingers[m]}</div>}
       </div>
@@ -489,7 +489,7 @@ function PianoKeyboard({ startMidi = 48, endMidi = 84, highlights = {}, fingers 
     const nb = m + 1;
     if (nb <= endMidi && isBlack(nb)) {
       keys.push(
-        <div key={nb} style={{ ...s.keyBlack, position: 'relative' }} onClick={() => onClick?.(nb)}>
+        <div key={nb} className="sonata-key-black" style={{ ...s.keyBlack, position: 'relative' }} onClick={() => onClick?.(nb)}>
           {highlights[nb] && <div style={{ ...s.keyHighlight, background: highlights[nb], opacity: 0.5 }} />}
           {fingers[nb] && <div style={{ ...s.fingerBadge, background: 'var(--text)', color: 'var(--bg)' }}>{fingers[nb]}</div>}
         </div>
@@ -497,7 +497,7 @@ function PianoKeyboard({ startMidi = 48, endMidi = 84, highlights = {}, fingers 
     }
   }
   return (
-    <div style={s.pianoContainer}>
+    <div style={s.pianoContainer} className="sonata-piano-container">
       <div style={s.piano}>{keys}</div>
     </div>
   );
@@ -515,7 +515,7 @@ function NotationDisplay({ abc, width = 350 }: { abc: string; width?: number }) 
       });
     });
   }, [abc, width]);
-  return <div ref={ref} style={s.notation} />;
+  return <div ref={ref} style={s.notation} className="sonata-notation" />;
 }
 
 // ============================================================
@@ -599,8 +599,8 @@ function MenuScreen({ state, dispatch }: { state: AppState; dispatch: React.Disp
           <div style={s.progressMini}><div style={{ ...s.progressMiniFill, width: lessonPct + '%' }} /></div>
         </div>
       } />
-      <div style={s.menu}>
-        <h2 style={s.menuTitle}>Learn to read music</h2>
+      <div style={s.menu} className="sonata-menu">
+        <h2 style={s.menuTitle} className="sonata-menu-title">Learn to read music</h2>
         <div style={{ fontFamily: 'var(--serif)', fontStyle: 'italic', fontSize: 13, color: 'var(--text3)', marginTop: -8, letterSpacing: '0.02em' }}>by Adam Morris</div>
 
         {/* Streak banner */}
@@ -648,7 +648,7 @@ function MenuScreen({ state, dispatch }: { state: AppState; dispatch: React.Disp
           </div>
         )}
 
-        <div style={s.menuGrid}>
+        <div style={s.menuGrid} className="sonata-menu-grid">
           {[
             { label: 'Lessons', desc: lessons.length + ' structured lessons', onClick: () => dispatch({ type: 'SET_SCREEN', screen: 'lessons' }) },
             { label: 'Quick Drill', desc: 'Timed exercises', onClick: () => dispatch({ type: 'SET_SCREEN', screen: 'config' }) },
@@ -775,7 +775,7 @@ function DrillScreen({ state, handleAnswer, handleEndDrill, renderNotation }: {
 
   return (
     <div style={{ flex: 1, display: 'flex', flexDirection: 'column' }} className="sonata-app">
-      <div style={s.drillTop}>
+      <div style={s.drillTop} className="sonata-drill-top">
         <span style={s.drillInfo}>Score: <b>{state.score}</b>/{state.currentQ} &nbsp; Streak: <b>{state.streak}</b></span>
         <span style={s.drillInfo}>Q<b>{state.currentQ + 1}</b>/{state.questions.length}</span>
         <button style={s.stopBtn} onClick={handleEndDrill}>Stop</button>
@@ -787,7 +787,7 @@ function DrillScreen({ state, handleAnswer, handleEndDrill, renderNotation }: {
         {q.isAI && <span style={{ background: 'var(--blue-bg)', color: 'var(--blue)', padding: '2px 8px', borderRadius: 10, fontSize: 10, marginRight: 6 }}>AI</span>}
         {q.type.replace(/([A-Z])/g, ' $1').trim()} — {q.clef} clef
       </div>
-      <div ref={notRef} style={s.notation} />
+      <div ref={notRef} style={s.notation} className="sonata-notation" />
       <div style={s.questionText}>{q.label || ''}</div>
       <div style={s.feedback}>
         {answered && (pickedAnswer === q.correctAnswer
@@ -795,7 +795,7 @@ function DrillScreen({ state, handleAnswer, handleEndDrill, renderNotation }: {
           : <span style={{ color: 'var(--red)' }}>{q.correctAnswer}</span>
         )}
       </div>
-      <div style={s.answers}>
+      <div style={s.answers} className="sonata-answers">
         {q.answerOptions.map((o, i) => (
           <button key={i} className="ans-btn" disabled={answered}
             style={{
@@ -948,7 +948,7 @@ function LessonConcepts({ lesson, state, dispatch, renderNotation }: {
             <div key={i} style={{ width: i === state.lessonStep ? 20 : 6, height: 6, borderRadius: 3, background: i < state.lessonStep ? 'var(--green)' : i === state.lessonStep ? 'var(--gold)' : 'var(--bg4)', transition: 'all 0.3s' }} />
           ))}
         </div>
-        <div style={s.teachText}>
+        <div style={s.teachText} className="sonata-teach-text">
           <div style={{ position: 'absolute', top: 10, right: 10, display: 'flex', gap: 4 }}>
             <button style={s.speakBtn} onClick={togglePause}>⏸</button>
             <button style={{ ...s.speakBtn, ...(getTTSSpeed() === 0.75 ? s.speakBtnActive : {}) }} onClick={() => { toggleSlow(); }}>½×</button>
@@ -956,9 +956,9 @@ function LessonConcepts({ lesson, state, dispatch, renderNotation }: {
           </div>
           {step.text}
         </div>
-        {step.abc && <div ref={notRef} style={s.notation} />}
+        {step.abc && <div ref={notRef} style={s.notation} className="sonata-notation" />}
         <PianoKeyboard highlights={step.piano || {}} fingers={step.fingers || {}} />
-        <div style={s.teachNav}>
+        <div style={s.teachNav} className="sonata-teach-nav">
           {state.lessonStep > 0 && <button style={s.navBtn} onClick={() => { stopSpeaking(); dispatch({ type: 'PREV_STEP' }); }}>Previous</button>}
           {state.lessonStep < lesson.steps.length - 1
             ? <button style={s.navBtnPrimary} onClick={() => { stopSpeaking(); dispatch({ type: 'NEXT_STEP' }); }}>Next</button>
@@ -1071,7 +1071,7 @@ function LibraryScreen({ state, dispatch, loadScore, playScore }: {
       <Header title="Sonata" />
       <BackLink onClick={() => dispatch({ type: 'SET_SCREEN', screen: 'menu' })} />
       <h3 style={{ marginBottom: 12 }}>Library <span style={{ fontSize: 13, color: 'var(--text3)', fontWeight: 300 }}>{CATALOG.length} pieces</span></h3>
-      <input value={state.libSearch} onChange={e => dispatch({ type: 'LIB_SEARCH', query: e.target.value })} placeholder="Search pieces or composers..." style={s.searchInput} />
+      <input value={state.libSearch} onChange={e => dispatch({ type: 'LIB_SEARCH', query: e.target.value })} placeholder="Search pieces or composers..." style={s.searchInput} className="sonata-search-input" />
       <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap', margin: '12px 0' }}>
         {['all','beginner','intermediate','advanced'].map(f => (
           <button key={f} style={state.libFilter === f ? s.chipActive : s.chip} onClick={() => dispatch({ type: 'LIB_FILTER', filter: f })}>
@@ -1104,7 +1104,7 @@ function LibraryScreen({ state, dispatch, loadScore, playScore }: {
 
 function PieceCard({ piece, onClick, dc }: { piece: CatalogEntry; onClick: () => void; dc: { bg: string; color: string } }) {
   return (
-    <div style={s.pieceCard} onClick={onClick}>
+    <div style={s.pieceCard} className="sonata-piece-card" onClick={onClick}>
       <div style={{ flex: 1, minWidth: 0 }}>
         <div style={{ fontSize: 14, fontWeight: 500, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{piece.t}</div>
         <div style={{ fontSize: 12, color: 'var(--text3)', marginTop: 2 }}>{piece.c}</div>
@@ -1290,7 +1290,7 @@ function SightReadingScreen({ dispatch, renderNotation }: {
           <span style={{ color: 'var(--green)', fontWeight: 500 }}>Combo: {srCombo}</span>
           <span style={{ fontSize: 16, fontWeight: 500, color: 'var(--gold)' }}>{srScore}/{srNotes.length}</span>
         </div>
-        <div ref={notRef} style={s.notation} />
+        <div ref={notRef} style={s.notation} className="sonata-notation" />
         {!srDone && srNotes[srIndex] && (
           <div style={{ textAlign: 'center', margin: '12px 0', fontSize: 13, color: 'var(--text3)' }}>
             Play note <b style={{ color: 'var(--gold)' }}>{srNotes[srIndex]?.[0]}</b> ({srNotes[srIndex]})

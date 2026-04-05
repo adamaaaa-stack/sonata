@@ -1,5 +1,5 @@
 /* ============================================================
-   SONATA APP CSS — Keyframes, pseudo-elements, SVG overrides
+   SONATA APP CSS — Keyframes, SVG overrides, responsive
    ============================================================ */
 
 :root {
@@ -28,6 +28,9 @@
   0%, 100% { opacity: 1; }
   50% { opacity: 0.5; }
 }
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
 
 .sonata-app { animation: fadeUp 0.4s ease; }
 
@@ -49,20 +52,212 @@
 .abcjs-dynamics { fill: #FAFAF9; }
 .abcjs-decoration { fill: #FAFAF9; stroke: #FAFAF9; }
 
-/* Piano key pressed state */
-.key-white:active, .key-white.pressed {
-  background: linear-gradient(180deg, #E0DCD6, #D4D0C8) !important;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.2) !important;
-}
-.key-black:active, .key-black.pressed {
-  background: linear-gradient(180deg, #3a3a3a, #1a1a1a) !important;
-}
-
 /* TTS playing animation */
 .speak-playing { animation: speakPulse 1.5s ease-in-out infinite; }
 
-/* Mobile responsive */
+/* ============================================================
+   MOBILE RESPONSIVE — 640px and below
+   ============================================================ */
 @media (max-width: 640px) {
-  .sonata-grid-2 { grid-template-columns: 1fr !important; }
-  .sonata-grid-3 { grid-template-columns: 1fr !important; }
+  /* App container */
+  .sonata-page > div {
+    padding: 12px 10px !important;
+  }
+
+  /* Header */
+  .sonata-header h1 {
+    font-size: 22px !important;
+  }
+  .sonata-header {
+    padding: 4px 0 12px !important;
+  }
+
+  /* Menu */
+  .sonata-menu-grid {
+    grid-template-columns: 1fr !important;
+    gap: 8px !important;
+  }
+  .sonata-menu-title {
+    font-size: 28px !important;
+  }
+  .sonata-menu {
+    padding: 32px 8px 24px !important;
+  }
+
+  /* Piano keys — smaller on mobile */
+  .sonata-key-white {
+    width: 26px !important;
+    height: 100px !important;
+  }
+  .sonata-key-black {
+    width: 16px !important;
+    height: 62px !important;
+    margin-left: -8px !important;
+    margin-right: -8px !important;
+  }
+  .sonata-key-white .sonata-note-name {
+    font-size: 7px !important;
+  }
+
+  /* Piano container */
+  .sonata-piano-container {
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Notation */
+  .sonata-notation {
+    padding: 8px 4px !important;
+    min-height: 100px !important;
+    overflow-x: auto !important;
+  }
+  .sonata-notation svg {
+    max-width: none !important;
+  }
+
+  /* Drill answers */
+  .sonata-answers {
+    gap: 4px !important;
+  }
+  .sonata-answers button {
+    padding: 10px 4px !important;
+    font-size: 12px !important;
+    min-width: 48px !important;
+  }
+
+  /* Teach text */
+  .sonata-teach-text {
+    padding: 16px !important;
+    font-size: 14px !important;
+    line-height: 1.7 !important;
+  }
+
+  /* Teach nav buttons */
+  .sonata-teach-nav button {
+    padding: 8px 16px !important;
+    font-size: 12px !important;
+  }
+
+  /* Config chips */
+  .sonata-config-chips {
+    gap: 4px !important;
+  }
+  .sonata-config-chips button {
+    padding: 6px 12px !important;
+    font-size: 12px !important;
+  }
+
+  /* Results */
+  .sonata-big-score {
+    font-size: 40px !important;
+  }
+
+  /* Lesson cards */
+  .sonata-lesson-card {
+    padding: 12px 14px !important;
+    gap: 10px !important;
+  }
+  .sonata-lesson-num {
+    font-size: 22px !important;
+    width: 28px !important;
+  }
+
+  /* Piece cards */
+  .sonata-piece-card {
+    padding: 10px 12px !important;
+  }
+
+  /* Score viewer */
+  .sonata-score-container {
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Continue card */
+  .sonata-continue-card {
+    padding: 14px 16px !important;
+  }
+
+  /* Step dots */
+  .sonata-step-dots {
+    gap: 4px !important;
+  }
+
+  /* Streak banner */
+  .sonata-streak-banner {
+    font-size: 12px !important;
+    padding: 6px 14px !important;
+  }
+
+  /* Primary button */
+  .sonata-primary-btn {
+    padding: 12px 24px !important;
+    font-size: 14px !important;
+  }
+
+  /* Progress stats row */
+  .sonata-stats-row {
+    gap: 8px !important;
+  }
+  .sonata-stats-row > div {
+    padding: 12px !important;
+  }
+  .sonata-stats-row .sonata-stat-value {
+    font-size: 22px !important;
+  }
+
+  /* Drill top bar */
+  .sonata-drill-top {
+    flex-wrap: wrap !important;
+    gap: 4px !important;
+  }
+
+  /* Search input */
+  .sonata-search-input {
+    font-size: 13px !important;
+    padding: 8px 10px !important;
+  }
+
+  /* Onboarding */
+  .sonata-onboarding-title {
+    font-size: 26px !important;
+  }
+
+  /* Score controls */
+  .sonata-score-controls {
+    gap: 4px !important;
+    padding: 6px 0 !important;
+  }
+  .sonata-score-controls button {
+    padding: 4px 10px !important;
+    font-size: 11px !important;
+  }
+}
+
+/* ============================================================
+   SMALL PHONES — 380px and below
+   ============================================================ */
+@media (max-width: 380px) {
+  .sonata-key-white {
+    width: 22px !important;
+    height: 85px !important;
+  }
+  .sonata-key-black {
+    width: 14px !important;
+    height: 52px !important;
+    margin-left: -7px !important;
+    margin-right: -7px !important;
+  }
+  .sonata-menu-title {
+    font-size: 24px !important;
+  }
+  .sonata-teach-text {
+    padding: 12px !important;
+    font-size: 13px !important;
+  }
+  .sonata-answers button {
+    min-width: 40px !important;
+    padding: 8px 2px !important;
+    font-size: 11px !important;
+  }
 }

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import "./landing.css";
 
 export default function LandingPage() {
   const [scrollY, setScrollY] = useState(0);
@@ -31,9 +32,9 @@ export default function LandingPage() {
       />
 
       {/* Nav */}
-      <nav style={styles.nav}>
+      <nav style={styles.nav} className="landing-nav">
         <span style={styles.navLogo}>Sonata</span>
-        <div style={styles.navLinks}>
+        <div style={styles.navLinks} className="landing-nav-links">
           <a href="#method" style={styles.navLink}>Method</a>
           <a href="#features" style={styles.navLink}>Features</a>
           <a href="#story" style={styles.navLink}>Story</a>
@@ -51,16 +52,16 @@ export default function LandingPage() {
         }}
       >
         <div style={styles.heroBadge}>The interval method</div>
-        <h1 style={styles.heroTitle}>
+        <h1 style={styles.heroTitle} className="landing-hero-title">
           I learned Gymnop&eacute;die No. 1<br />
           <span style={styles.heroAccent}>in one night.</span>
         </h1>
-        <p style={styles.heroSub}>
+        <p style={styles.heroSub} className="landing-hero-sub">
           Not a simplified version. The real piece. Satie&apos;s actual notes, read
           from the score, played with both hands. After years of thinking I
           couldn&apos;t read sheet music, one method changed everything.
         </p>
-        <div style={styles.heroButtons}>
+        <div style={styles.heroButtons} className="landing-hero-buttons">
           <a href="/login" style={styles.primaryBtn}>
             Start for free
           </a>
@@ -85,10 +86,10 @@ export default function LandingPage() {
       {/* The problem */}
       <section style={styles.section}>
         <div style={styles.sectionInner}>
-          <p style={styles.lede}>
+          <p style={styles.lede} className="landing-lede">
             Traditional music education has a problem.
           </p>
-          <div style={styles.twoCol}>
+          <div style={styles.twoCol} className="landing-two-col">
             <div style={styles.problemCard}>
               <div style={styles.problemIcon}>&#x2717;</div>
               <h3 style={styles.problemTitle}>The old way</h3>
@@ -114,11 +115,11 @@ export default function LandingPage() {
       {/* The method */}
       <section id="method" style={{ ...styles.section, background: "#1C1917" }}>
         <div style={styles.sectionInner}>
-          <h2 style={styles.sectionTitle}>The method in 60 seconds</h2>
+          <h2 style={styles.sectionTitle} className="landing-section-title">The method in 60 seconds</h2>
           <p style={styles.sectionSub}>
             Three ideas that replace years of memorisation.
           </p>
-          <div style={styles.threeCol}>
+          <div style={styles.threeCol} className="landing-three-col">
             <div style={styles.methodCard}>
               <div style={styles.methodNum}>1</div>
               <h3 style={styles.methodTitle}>Three anchors</h3>
@@ -156,7 +157,7 @@ export default function LandingPage() {
       {/* The story */}
       <section id="story" style={styles.section}>
         <div style={{ ...styles.sectionInner, maxWidth: 680 }}>
-          <h2 style={styles.sectionTitle}>The night everything changed</h2>
+          <h2 style={styles.sectionTitle} className="landing-section-title">The night everything changed</h2>
           <div style={styles.story}>
             <p style={styles.storyP}>
               I&apos;d been playing piano for years. Casually, sure &mdash; by
@@ -217,8 +218,8 @@ export default function LandingPage() {
         style={{ ...styles.section, background: "#1C1917" }}
       >
         <div style={styles.sectionInner}>
-          <h2 style={styles.sectionTitle}>Everything you need</h2>
-          <div style={styles.featureGrid}>
+          <h2 style={styles.sectionTitle} className="landing-section-title">Everything you need</h2>
+          <div style={styles.featureGrid} className="landing-feature-grid">
             {[
               {
                 icon: "15",
@@ -264,7 +265,7 @@ export default function LandingPage() {
       {/* Journey */}
       <section style={styles.section}>
         <div style={styles.sectionInner}>
-          <h2 style={styles.sectionTitle}>From zero to Moonlight Sonata</h2>
+          <h2 style={styles.sectionTitle} className="landing-section-title">From zero to Moonlight Sonata</h2>
           <p style={styles.sectionSub}>
             15 lessons. Each one ends with a real piece you can play.
           </p>
@@ -330,7 +331,7 @@ export default function LandingPage() {
       </section>
 
       {/* Footer */}
-      <footer style={styles.footer}>
+      <footer style={styles.footer} className="landing-footer">
         <span style={styles.footerLogo}>Sonata</span>
         <div style={{ display: 'flex', gap: 16, alignItems: 'center' }}>
           <a href="/terms" style={styles.footerText}>Terms</a>
