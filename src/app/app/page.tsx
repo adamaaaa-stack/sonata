@@ -518,9 +518,41 @@ function OnboardingScreen({ slide, setSlide, dispatch, renderNotation }: {
 // ============================================================
 // SCREEN: MENU
 // ============================================================
+function getNextLesson(completed: number[]): typeof lessons[0] | null {
+  for (const l of lessons) {
+    if (!completed.includes(l.id)) return l;
+  }
+  return null;
+}
+
+function getAchievements(state: AppState): { icon: string; label: string; done: boolean }[] {
+  const practiceDates = getPracticeDates();
+  let streak = 0;
+  for (let i = 0; i < 365; i++) {
+    const d = new Date(); d.setDate(d.getDate() - i);
+    if (practiceDates.includes(d.toISOString().slice(0, 10))) streak++; else break;
+  }
+  const weak = getWeakestIntervals(1);
+  const bestPct = weak.length > 0 ? 100 - weak[0].pct : 0;
+  return [
+    { icon: '🎹', label: 'First lesson', done: state.lessonsCompleted.length >= 1 },
+    { icon: '🎯', label: 'First drill', done: state.drillHistory.length >= 1 },
+    { icon: '🔥', label: '3-day streak', done: streak >= 3 },
+    { icon: '⚡', label: '7-day streak', done: streak >= 7 },
+    { icon: '📖', label: '10 lessons done', done: state.lessonsCompleted.length >= 10 },
+    { icon: '🏆', label: 'All lessons done', done: state.lessonsCompleted.length >= lessons.length },
+    { icon: '💯', label: '90%+ accuracy', done: bestPct >= 90 },
+    { icon: '🎵', label: '50 drills', done: state.drillHistory.length >= 50 },
+  ];
+}
+
 function MenuScreen({ state, dispatch }: { state: AppState; dispatch: React.Dispatch<Action> }) {
   const email = state.user?.email || '';
   const lessonPct = Math.round(state.lessonsCompleted.length / lessons.length * 100);
+  const nextLesson = getNextLesson(state.lessonsCompleted);
+  const achievements = getAchievements(state);
+  const newAchievements = achievements.filter(a => a.done);
+
   return (
     <>
       <Header title="Sonata" right={
@@ -532,10 +564,34 @@ function MenuScreen({ state, dispatch }: { state: AppState; dispatch: React.Disp
       <div style={s.menu}>
         <h2 style={s.menuTitle}>Learn to read music</h2>
         <div style={{ fontFamily: 'var(--serif)', fontStyle: 'italic', fontSize: 13, color: 'var(--text3)', marginTop: -8, letterSpacing: '0.02em' }}>by Adam Morris</div>
-        <p style={s.menuSub}>Interval-based sight reading. Steps, skips, leaps. No note-name memorisation.</p>
+
+        {/* Daily practice / Continue button */}
+        {nextLesson && (
+          <div onClick={() => dispatch({ type: 'START_LESSON', id: nextLesson.id })} style={{
+            width: '100%', maxWidth: 500, padding: '20px 24px', marginTop: 16, marginBottom: 8,
+            background: 'linear-gradient(135deg, rgba(200,169,110,0.08) 0%, var(--bg2) 60%)',
+            border: '1px solid rgba(200,169,110,0.2)', borderRadius: 14, cursor: 'pointer', textAlign: 'left',
+          }}>
+            <div style={{ fontSize: 11, color: 'var(--gold)', textTransform: 'uppercase', letterSpacing: '0.08em', fontWeight: 500, marginBottom: 6 }}>
+              Continue learning
+            </div>
+            <div style={{ fontSize: 16, fontWeight: 500 }}>Lesson {nextLesson.id}: {nextLesson.title}</div>
+            <div style={{ fontSize: 12, color: 'var(--text3)', marginTop: 4 }}>{nextLesson.sub} · {nextLesson.piece}</div>
+          </div>
+        )}
+
+        {/* Achievements row */}
+        {newAchievements.length > 0 && (
+          <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap', justifyContent: 'center', marginTop: 8, marginBottom: 4 }}>
+            {newAchievements.map((a, i) => (
+              <div key={i} title={a.label} style={{ fontSize: 16, opacity: 0.8 }}>{a.icon}</div>
+            ))}
+          </div>
+        )}
+
         <div style={s.menuGrid}>
           {[
-            { label: 'Lessons', desc: '15 structured lessons', onClick: () => dispatch({ type: 'SET_SCREEN', screen: 'lessons' }) },
+            { label: 'Lessons', desc: lessons.length + ' structured lessons', onClick: () => dispatch({ type: 'SET_SCREEN', screen: 'lessons' }) },
             { label: 'Quick Drill', desc: 'Timed exercises', onClick: () => dispatch({ type: 'SET_SCREEN', screen: 'config' }) },
             { label: 'Target Weak Spots', desc: 'AI-focused drills', onClick: () => dispatch({ type: 'SET_SCREEN', screen: 'config' }) },
             { label: 'Sight Reading', desc: 'Play along in real time', onClick: () => dispatch({ type: 'SET_SCREEN', screen: 'sightReading' }) },

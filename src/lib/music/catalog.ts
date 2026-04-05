@@ -23,6 +23,11 @@ export const CATALOG: CatalogEntry[] = [
   {t:'Arabesque No. 1 (Theme)',c:'Debussy',d:'intermediate',src:'local',f:'arabesque-simple.musicxml'},
   {t:'Prelude in C (Simple)',c:'Bach',d:'intermediate',src:'local',f:'prelude-c-simple.musicxml'},
 
+  // New lesson pieces
+  {t:'Key Signature Melody',c:'Traditional',d:'intermediate',src:'local',f:'key-signature-piece.musicxml'},
+  {t:'Simple Harmonies',c:'Traditional',d:'intermediate',src:'local',f:'two-notes-piece.musicxml'},
+  {t:'March with Repeats',c:'Traditional',d:'intermediate',src:'local',f:'repeat-signs-piece.musicxml'},
+
   // Simple rhythm lesson pieces
   {t:'Twinkle Twinkle (Rhythm)',c:'Traditional',d:'beginner',src:'local',f:'twinkle-rhythm.musicxml'},
   {t:'Amazing Grace (Simple)',c:'Traditional',d:'beginner',src:'local',f:'amazing-grace-simple.musicxml'},
@@ -184,16 +189,19 @@ export const LESSON_PIECE_MAP: Record<number, string> = {
   8: 'Gymnopédie No. 1 (Both Hands)',// Both Hands & Dynamics
   9: 'Für Elise (Opening)',          // Small Leaps
   10: 'Minuet in G Minor (Simple)',  // Articulation
-  11: 'Greensleeves (Simple)',       // Compound Time & Triplets
-  12: 'Clair de Lune (Theme)',       // Dynamics & Phrasing
-  13: 'Arabesque No. 1 (Theme)',     // Large Leaps & Octaves
-  14: 'Prelude in C (Simple)',       // Fingering & Scales
-  15: 'Moonlight Sonata 1st mvt',    // Arpeggios & Chords
-  16: 'Entertainer (Simple)',        // Rhythm Mastery
-  17: 'Nocturne Op. 9 No. 2',       // Pedalling
-  18: 'Rondo alla Turca',           // Speed Reading
-  19: 'Nocturne Op. 9 No. 1',       // Complex Rhythms
-  20: 'Moonlight Sonata 3rd mvt',    // Everything combined
+  11: 'Key Signature Melody',        // Key Signatures [NEW]
+  12: 'Simple Harmonies',            // Reading Two Notes [NEW]
+  13: 'Greensleeves (Simple)',       // Compound Time & Triplets
+  14: 'Clair de Lune (Theme)',       // Dynamics & Phrasing
+  15: 'Arabesque No. 1 (Theme)',     // Large Leaps & Octaves
+  16: 'Prelude in C (Simple)',       // Fingering & Scales
+  17: 'Moonlight Sonata 1st mvt',    // Arpeggios & Chords
+  18: 'March with Repeats',          // Repeat Signs [NEW]
+  19: 'Entertainer (Simple)',        // Rhythm Mastery
+  20: 'Nocturne Op. 9 No. 2',       // Pedalling
+  21: 'Rondo alla Turca',           // Speed Reading
+  22: 'Nocturne Op. 9 No. 1',       // Complex Rhythms
+  23: 'Moonlight Sonata 3rd mvt',    // Everything combined
 };
 
 export function findLessonCatalogIndex(lessonId: number): number {
