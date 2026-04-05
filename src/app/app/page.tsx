@@ -45,7 +45,9 @@ import {
   generateWeightedQuestion,
   genRhythmDrill,
   getPool, rnd, ri,
-  playCorrectSound, playWrongSound, playNote,
+  playCorrectSound, playWrongSound, playNote, playPianoKey,
+  playScoreNotes, stopScorePlayback,
+  type ScoreNote,
   speak, stopSpeaking, togglePause, toggleSlow, replaySpeak, getTTSSpeed, setTTSStateCallback,
   getIntervalAccuracy, updateIntervalAccuracy, getWeakestIntervals, recordPractice, getPracticeDates,
   getStoredLessons, setStoredLessons, getStoredDrills, setStoredDrills, isOnboarded, setOnboarded,
@@ -381,11 +383,11 @@ export default function SonataApp() {
   }
 
   // ---- Play score via Web Audio ----
-  function playScore(tempo: number = 100) {
+  function extractScoreNotes(): ScoreNote[] {
     const inst = osmdInstanceRef.current;
-    if (!inst || !inst.Sheet) return;
-    const notes: { midi: number; time: number; duration: number }[] = [];
-    const beatDur = 60 / tempo;
+    if (!inst || !inst.Sheet) return [];
+    const notes: ScoreNote[] = [];
+    const beatDur = 0.6; // base beat duration, tempo applied at playback
     let currentTime = 0;
     try {
       for (const measure of inst.Sheet.SourceMeasures) {
@@ -395,12 +397,11 @@ export default function SonataApp() {
             for (const voiceEntry of entry.VoiceEntries) {
               for (const note of voiceEntry.Notes) {
                 if (note.isRest()) continue;
-                const midi = note.halfTone + 12; // OSMD halfTone is semitones from C-1
+                const midi = note.halfTone + 12;
                 const dur = note.Length.RealValue * 4 * beatDur;
                 notes.push({ midi, time: currentTime, duration: Math.min(dur, 2) });
               }
             }
-            // Advance time by the shortest note in this entry
             /* eslint-disable @typescript-eslint/no-explicit-any */
             const shortest = Math.min(...Array.from(entry.VoiceEntries).flatMap((ve: any) =>
               Array.from(ve.Notes).filter((n: any) => !n.isRest()).map((n: any) => n.Length.RealValue * 4 * beatDur)
@@ -411,11 +412,13 @@ export default function SonataApp() {
         }
       }
     } catch { /* Some scores have unusual structures */ }
+    return notes;
+  }
+
+  function playScore(tempo: number = 100) {
+    const notes = extractScoreNotes();
     if (notes.length === 0) return;
-    // Deduplicate by time (chords produce multiple notes at same time)
-    notes.forEach(n => {
-      setTimeout(() => playNote(n.midi, Math.min(n.duration, 1.5)), n.time * 1000);
-    });
+    playScoreNotes(notes, tempo);
   }
 
   // ============================================================
@@ -480,7 +483,7 @@ function PianoKeyboard({ startMidi = 48, endMidi = 84, highlights = {}, fingers 
   for (let m = startMidi; m <= endMidi; m++) {
     if (isBlack(m)) continue;
     keys.push(
-      <div key={m} className="sonata-key-white" style={{ ...s.keyWhite, position: 'relative' }} onClick={() => onClick?.(m)}>
+      <div key={m} className="sonata-key-white" style={{ ...s.keyWhite, position: 'relative' }} onClick={() => { playPianoKey(m); onClick?.(m); }}>
         {showNames && <span className="sonata-note-name" style={s.keyNoteName}>{NOTES[m % 12]}</span>}
         {highlights[m] && <div style={{ ...s.keyHighlight, background: highlights[m] }} />}
         {fingers[m] && <div style={s.fingerBadge}>{fingers[m]}</div>}
@@ -489,7 +492,7 @@ function PianoKeyboard({ startMidi = 48, endMidi = 84, highlights = {}, fingers 
     const nb = m + 1;
     if (nb <= endMidi && isBlack(nb)) {
       keys.push(
-        <div key={nb} className="sonata-key-black" style={{ ...s.keyBlack, position: 'relative' }} onClick={() => onClick?.(nb)}>
+        <div key={nb} className="sonata-key-black" style={{ ...s.keyBlack, position: 'relative' }} onClick={() => { playPianoKey(nb); onClick?.(nb); }}>
           {highlights[nb] && <div style={{ ...s.keyHighlight, background: highlights[nb], opacity: 0.5 }} />}
           {fingers[nb] && <div style={{ ...s.fingerBadge, background: 'var(--text)', color: 'var(--bg)' }}>{fingers[nb]}</div>}
         </div>
@@ -1000,11 +1003,10 @@ function LessonPiece({ lesson, state, dispatch, loadScore, playScore }: {
       <div ref={scoreRef} style={{ minHeight: 300, padding: '16px 0', overflowX: 'auto' }}>
         <LoadingSpinner text="Loading score..." />
       </div>
-      <div style={{ marginTop: 16, textAlign: 'center', display: 'flex', gap: 8, justifyContent: 'center', flexWrap: 'wrap' }}>
-        <button style={{ ...s.primaryBtn, maxWidth: 200, background: 'var(--bg2)', border: '1px solid var(--bg3)', color: 'var(--text)' }} onClick={() => playScore(80)}>
-          ♪ Hear it played
-        </button>
-        <button style={{ ...s.primaryBtn, maxWidth: 200 }} onClick={() => {
+      <ScorePlaybackControls playScore={playScore} />
+      <div style={{ marginTop: 12, textAlign: 'center' }}>
+        <button style={{ ...s.primaryBtn, maxWidth: 250, margin: '0 auto' }} onClick={() => {
+          stopScorePlayback();
           dispatch({ type: 'COMPLETE_LESSON' });
           if (state.user) saveLessonComplete(state.user.id, state.currentLesson, 1.0);
           recordPractice();
@@ -1138,12 +1140,28 @@ function ScoreViewer({ index, dispatch, loadScore, playScore }: {
       <div ref={ref} style={{ minHeight: 300, padding: '16px 0', overflowX: 'auto' }}>
         <LoadingSpinner text="Loading score..." />
       </div>
-      <div style={{ textAlign: 'center', marginTop: 8 }}>
-        <button style={{ ...s.primaryBtn, maxWidth: 200, background: 'var(--bg2)', border: '1px solid var(--bg3)', color: 'var(--text)', margin: '0 auto' }} onClick={() => playScore(80)}>
-          ♪ Hear it played
-        </button>
-      </div>
+      <ScorePlaybackControls playScore={playScore} />
     </>
+  );
+}
+
+function ScorePlaybackControls({ playScore }: { playScore: (tempo: number) => void }) {
+  const [tempo, setTempo] = useState(80);
+  const [playing, setPlaying] = useState(false);
+
+  return (
+    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8, marginTop: 12, flexWrap: 'wrap' }}>
+      <button style={{ ...s.chip, padding: '6px 12px', fontSize: 12 }} onClick={() => setTempo(t => Math.max(40, t - 10))}>-</button>
+      <span style={{ fontSize: 12, color: 'var(--text3)', minWidth: 60, textAlign: 'center' }}>{tempo} BPM</span>
+      <button style={{ ...s.chip, padding: '6px 12px', fontSize: 12 }} onClick={() => setTempo(t => Math.min(200, t + 10))}>+</button>
+      <button style={{ ...s.primaryBtn, maxWidth: 160, padding: '8px 20px', fontSize: 13, marginTop: 0 }}
+        onClick={() => {
+          if (playing) { stopScorePlayback(); setPlaying(false); }
+          else { setPlaying(true); playScore(tempo); setTimeout(() => setPlaying(false), 30000); }
+        }}>
+        {playing ? '⏹ Stop' : '♪ Play'}
+      </button>
+    </div>
   );
 }
 
