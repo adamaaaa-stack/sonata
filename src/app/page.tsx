@@ -332,9 +332,11 @@ export default function LandingPage() {
       {/* Footer */}
       <footer style={styles.footer}>
         <span style={styles.footerLogo}>Sonata</span>
-        <span style={styles.footerText}>
-          Built by Adam Morris
-        </span>
+        <div style={{ display: 'flex', gap: 16, alignItems: 'center' }}>
+          <a href="/terms" style={styles.footerText}>Terms</a>
+          <a href="/privacy" style={styles.footerText}>Privacy</a>
+          <span style={styles.footerText}>Built by Adam Morris</span>
+        </div>
       </footer>
     </div>
   );

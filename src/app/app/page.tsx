@@ -380,6 +380,44 @@ export default function SonataApp() {
     }
   }
 
+  // ---- Play score via Web Audio ----
+  function playScore(tempo: number = 100) {
+    const inst = osmdInstanceRef.current;
+    if (!inst || !inst.Sheet) return;
+    const notes: { midi: number; time: number; duration: number }[] = [];
+    const beatDur = 60 / tempo;
+    let currentTime = 0;
+    try {
+      for (const measure of inst.Sheet.SourceMeasures) {
+        for (const staff of measure.VerticalSourceStaffEntryContainers) {
+          for (const entry of staff.StaffEntries) {
+            if (!entry) continue;
+            for (const voiceEntry of entry.VoiceEntries) {
+              for (const note of voiceEntry.Notes) {
+                if (note.isRest()) continue;
+                const midi = note.halfTone + 12; // OSMD halfTone is semitones from C-1
+                const dur = note.Length.RealValue * 4 * beatDur;
+                notes.push({ midi, time: currentTime, duration: Math.min(dur, 2) });
+              }
+            }
+            // Advance time by the shortest note in this entry
+            /* eslint-disable @typescript-eslint/no-explicit-any */
+            const shortest = Math.min(...Array.from(entry.VoiceEntries).flatMap((ve: any) =>
+              Array.from(ve.Notes).filter((n: any) => !n.isRest()).map((n: any) => n.Length.RealValue * 4 * beatDur)
+            ).filter((d: number) => d > 0), 1);
+            /* eslint-enable @typescript-eslint/no-explicit-any */
+            currentTime += shortest || beatDur;
+          }
+        }
+      }
+    } catch { /* Some scores have unusual structures */ }
+    if (notes.length === 0) return;
+    // Deduplicate by time (chords produce multiple notes at same time)
+    notes.forEach(n => {
+      setTimeout(() => playNote(n.midi, Math.min(n.duration, 1.5)), n.time * 1000);
+    });
+  }
+
   // ============================================================
   // RENDER
   // ============================================================
@@ -406,8 +444,8 @@ export default function SonataApp() {
           {state.screen === 'drill' && <DrillScreen state={state} handleAnswer={handleAnswer} handleEndDrill={handleEndDrill} renderNotation={renderNotation} />}
           {state.screen === 'results' && <ResultsScreen state={state} dispatch={dispatch} />}
           {state.screen === 'lessons' && <LessonsListScreen state={state} dispatch={dispatch} />}
-          {state.screen === 'lesson' && <LessonScreen state={state} dispatch={dispatch} renderNotation={renderNotation} loadScore={loadScore} />}
-          {state.screen === 'library' && <LibraryScreen state={state} dispatch={dispatch} loadScore={loadScore} />}
+          {state.screen === 'lesson' && <LessonScreen state={state} dispatch={dispatch} renderNotation={renderNotation} loadScore={loadScore} playScore={playScore} />}
+          {state.screen === 'library' && <LibraryScreen state={state} dispatch={dispatch} loadScore={loadScore} playScore={playScore} />}
           {state.screen === 'progress' && <ProgressScreen state={state} dispatch={dispatch} />}
           {state.screen === 'sightReading' && <SightReadingScreen dispatch={dispatch} renderNotation={renderNotation} />}
           {state.screen === 'rhythm' && <RhythmScreen dispatch={dispatch} />}
@@ -565,6 +603,27 @@ function MenuScreen({ state, dispatch }: { state: AppState; dispatch: React.Disp
         <h2 style={s.menuTitle}>Learn to read music</h2>
         <div style={{ fontFamily: 'var(--serif)', fontStyle: 'italic', fontSize: 13, color: 'var(--text3)', marginTop: -8, letterSpacing: '0.02em' }}>by Adam Morris</div>
 
+        {/* Streak banner */}
+        {(() => {
+          const dates = getPracticeDates();
+          let streak = 0;
+          for (let i = 0; i < 365; i++) {
+            const d = new Date(); d.setDate(d.getDate() - i);
+            if (dates.includes(d.toISOString().slice(0, 10))) streak++; else break;
+          }
+          if (streak >= 2) return (
+            <div style={{ marginTop: 12, padding: '8px 20px', background: 'var(--gold-bg)', border: '1px solid rgba(200,169,110,0.15)', borderRadius: 20, fontSize: 13, color: 'var(--gold)', fontWeight: 500 }}>
+              🔥 {streak}-day streak — keep it going!
+            </div>
+          );
+          if (streak === 0 && dates.length > 0) return (
+            <div style={{ marginTop: 12, padding: '8px 20px', background: 'var(--red-bg)', border: '1px solid rgba(248,113,113,0.15)', borderRadius: 20, fontSize: 13, color: 'var(--red)', fontWeight: 400 }}>
+              Your streak ended — practice today to start a new one
+            </div>
+          );
+          return null;
+        })()}
+
         {/* Daily practice / Continue button */}
         {nextLesson && (
           <div onClick={() => dispatch({ type: 'START_LESSON', id: nextLesson.id })} style={{
@@ -598,6 +657,7 @@ function MenuScreen({ state, dispatch }: { state: AppState; dispatch: React.Disp
             { label: 'Rhythm', desc: 'Tap in time', onClick: () => dispatch({ type: 'SET_SCREEN', screen: 'rhythm' }) },
             { label: 'Library', desc: CATALOG.length + ' pieces', onClick: () => dispatch({ type: 'SET_SCREEN', screen: 'library' }) },
             { label: 'Progress', desc: 'Stats & accuracy', onClick: () => dispatch({ type: 'SET_SCREEN', screen: 'progress' }) },
+            { label: 'Account', desc: 'Settings & password', onClick: () => { window.location.href = '/account'; } },
             { label: 'Sign Out', desc: 'Log out', onClick: () => signOut() },
           ].map((btn, i) => (
             <div key={i} style={s.menuBtn} onClick={btn.onClick}>
@@ -806,6 +866,12 @@ function ResultsScreen({ state, dispatch }: { state: AppState; dispatch: React.D
           <button style={{ ...s.primaryBtn, background: 'var(--bg2)', border: '1px solid var(--bg3)', color: 'var(--text)' }} onClick={() => dispatch({ type: 'SET_SCREEN', screen: 'config' })}>Drill Again</button>
           <button style={s.primaryBtn} onClick={() => dispatch({ type: 'SET_SCREEN', screen: 'menu' })}>Home</button>
         </div>
+        <button style={{ background: 'none', border: 'none', color: 'var(--text3)', fontSize: 12, cursor: 'pointer', marginTop: 12, fontFamily: 'var(--sans)', textDecoration: 'underline' }}
+          onClick={() => {
+            const text = `I just scored ${pct}% on a sight-reading drill on Sonata! 🎹 Learn to read piano sheet music at sonata.app`;
+            if (navigator.share) navigator.share({ text }).catch(() => {});
+            else { navigator.clipboard.writeText(text); alert('Copied to clipboard!'); }
+          }}>Share your result</button>
       </div>
     </>
   );
@@ -846,10 +912,11 @@ function LessonsListScreen({ state, dispatch }: { state: AppState; dispatch: Rea
 // ============================================================
 // SCREEN: LESSON (concepts / piece / complete)
 // ============================================================
-function LessonScreen({ state, dispatch, renderNotation, loadScore }: {
+function LessonScreen({ state, dispatch, renderNotation, loadScore, playScore }: {
   state: AppState; dispatch: React.Dispatch<Action>;
   renderNotation: (abc: string, el: HTMLDivElement | null, w?: number) => void;
   loadScore: (url: string, container: HTMLDivElement) => Promise<void>;
+  playScore: (tempo?: number) => void;
 }) {
   const lesson = lessons.find(l => l.id === state.currentLesson);
   if (!lesson) return null;
@@ -858,7 +925,7 @@ function LessonScreen({ state, dispatch, renderNotation, loadScore }: {
     return <LessonConcepts lesson={lesson} state={state} dispatch={dispatch} renderNotation={renderNotation} />;
   }
   if (state.lessonPhase === 'piece') {
-    return <LessonPiece lesson={lesson} state={state} dispatch={dispatch} loadScore={loadScore} />;
+    return <LessonPiece lesson={lesson} state={state} dispatch={dispatch} loadScore={loadScore} playScore={playScore} />;
   }
   return <LessonComplete lesson={lesson} dispatch={dispatch} />;
 }
@@ -904,9 +971,10 @@ function LessonConcepts({ lesson, state, dispatch, renderNotation }: {
   );
 }
 
-function LessonPiece({ lesson, state, dispatch, loadScore }: {
+function LessonPiece({ lesson, state, dispatch, loadScore, playScore }: {
   lesson: Lesson; state: AppState; dispatch: React.Dispatch<Action>;
   loadScore: (url: string, container: HTMLDivElement) => Promise<void>;
+  playScore: (tempo?: number) => void;
 }) {
   const ci = findLessonCatalogIndex(lesson.id);
   const scoreRef = useRef<HTMLDivElement>(null);
@@ -932,8 +1000,11 @@ function LessonPiece({ lesson, state, dispatch, loadScore }: {
       <div ref={scoreRef} style={{ minHeight: 300, padding: '16px 0', overflowX: 'auto' }}>
         <LoadingSpinner text="Loading score..." />
       </div>
-      <div style={{ marginTop: 16, textAlign: 'center' }}>
-        <button style={{ ...s.primaryBtn, maxWidth: 300, margin: '0 auto' }} onClick={() => {
+      <div style={{ marginTop: 16, textAlign: 'center', display: 'flex', gap: 8, justifyContent: 'center', flexWrap: 'wrap' }}>
+        <button style={{ ...s.primaryBtn, maxWidth: 200, background: 'var(--bg2)', border: '1px solid var(--bg3)', color: 'var(--text)' }} onClick={() => playScore(80)}>
+          ♪ Hear it played
+        </button>
+        <button style={{ ...s.primaryBtn, maxWidth: 200 }} onClick={() => {
           dispatch({ type: 'COMPLETE_LESSON' });
           if (state.user) saveLessonComplete(state.user.id, state.currentLesson, 1.0);
           recordPractice();
@@ -962,6 +1033,12 @@ function LessonComplete({ lesson, dispatch }: { lesson: Lesson; dispatch: React.
         <div style={{ marginTop: 8 }}>
           <button style={{ ...s.primaryBtn, background: 'var(--bg2)', border: '1px solid var(--bg3)', color: 'var(--text)' }} onClick={() => dispatch({ type: 'SET_SCREEN', screen: 'lessons' })}>Back to Lessons</button>
         </div>
+        <button style={{ background: 'none', border: 'none', color: 'var(--text3)', fontSize: 12, cursor: 'pointer', marginTop: 12, fontFamily: 'var(--sans)', textDecoration: 'underline' }}
+          onClick={() => {
+            const text = `I just completed Lesson ${lesson.id}: ${lesson.title} on Sonata! 🎹 Learning to read piano sheet music.`;
+            if (navigator.share) navigator.share({ text }).catch(() => {});
+            else { navigator.clipboard.writeText(text); alert('Copied to clipboard!'); }
+          }}>Share your progress</button>
       </div>
     </>
   );
@@ -970,12 +1047,13 @@ function LessonComplete({ lesson, dispatch }: { lesson: Lesson; dispatch: React.
 // ============================================================
 // SCREEN: LIBRARY
 // ============================================================
-function LibraryScreen({ state, dispatch, loadScore }: {
+function LibraryScreen({ state, dispatch, loadScore, playScore }: {
   state: AppState; dispatch: React.Dispatch<Action>;
   loadScore: (url: string, container: HTMLDivElement) => Promise<void>;
+  playScore: (tempo?: number) => void;
 }) {
   if (state.currentScoreIndex >= 0) {
-    return <ScoreViewer index={state.currentScoreIndex} dispatch={dispatch} loadScore={loadScore} />;
+    return <ScoreViewer index={state.currentScoreIndex} dispatch={dispatch} loadScore={loadScore} playScore={playScore} />;
   }
 
   let filtered = CATALOG as CatalogEntry[];
@@ -1036,9 +1114,10 @@ function PieceCard({ piece, onClick, dc }: { piece: CatalogEntry; onClick: () =>
   );
 }
 
-function ScoreViewer({ index, dispatch, loadScore }: {
+function ScoreViewer({ index, dispatch, loadScore, playScore }: {
   index: number; dispatch: React.Dispatch<Action>;
   loadScore: (url: string, container: HTMLDivElement) => Promise<void>;
+  playScore: (tempo?: number) => void;
 }) {
   const piece = CATALOG[index];
   const ref = useRef<HTMLDivElement>(null);
@@ -1058,6 +1137,11 @@ function ScoreViewer({ index, dispatch, loadScore }: {
       </div>
       <div ref={ref} style={{ minHeight: 300, padding: '16px 0', overflowX: 'auto' }}>
         <LoadingSpinner text="Loading score..." />
+      </div>
+      <div style={{ textAlign: 'center', marginTop: 8 }}>
+        <button style={{ ...s.primaryBtn, maxWidth: 200, background: 'var(--bg2)', border: '1px solid var(--bg3)', color: 'var(--text)', margin: '0 auto' }} onClick={() => playScore(80)}>
+          ♪ Hear it played
+        </button>
       </div>
     </>
   );
