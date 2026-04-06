@@ -84,14 +84,12 @@
     padding: 32px 8px 24px !important;
   }
 
-  /* Piano keys — smaller on mobile */
-  .sonata-key-white {
-    width: 28px !important;
-    height: 110px !important;
-  }
-  .sonata-key-black {
-    width: 18px !important;
-    height: 68px !important;
+  /* Piano keys — smaller on mobile via CSS custom properties */
+  .sonata-piano-container {
+    --key-w: 28px !important;
+    --key-h: 110px !important;
+    --bkey-w: 18px !important;
+    --bkey-h: 68px !important;
   }
 
   /* Piano container */
@@ -233,13 +231,11 @@
    SMALL PHONES — 380px and below
    ============================================================ */
 @media (max-width: 380px) {
-  .sonata-key-white {
-    width: 24px !important;
-    height: 95px !important;
-  }
-  .sonata-key-black {
-    width: 15px !important;
-    height: 58px !important;
+  .sonata-piano-container {
+    --key-w: 22px !important;
+    --key-h: 90px !important;
+    --bkey-w: 14px !important;
+    --bkey-h: 54px !important;
   }
   .sonata-menu-title {
     font-size: 24px !important;

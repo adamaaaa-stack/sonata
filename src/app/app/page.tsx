@@ -502,7 +502,10 @@ function PianoKeyboard({ startMidi = 48, endMidi = 84, highlights = {}, fingers 
       borderTop: '1px solid rgba(200,169,110,0.1)',
       display: 'flex', justifyContent: 'center',
       overflowX: 'auto', WebkitOverflowScrolling: 'touch',
-    }}>
+      // CSS custom properties for responsive sizing
+      '--key-w': '38px', '--key-h': '140px',
+      '--bkey-w': '24px', '--bkey-h': '90px',
+    } as React.CSSProperties}>
       <div style={{ position: 'relative', display: 'flex' }}>
         {whiteKeys.map((m) => {
           const isC = m % 12 === 0;
@@ -513,7 +516,7 @@ function PianoKeyboard({ startMidi = 48, endMidi = 84, highlights = {}, fingers 
               onMouseDown={() => handlePress(m)}
               onTouchStart={(e) => { e.preventDefault(); handlePress(m); }}
               style={{
-                width: 38, height: 140,
+                width: 'var(--key-w)', height: 'var(--key-h)',
                 background: isActive
                   ? 'linear-gradient(180deg, #D8D4CC, #C8C4BC)'
                   : 'linear-gradient(180deg, #FAFAF6, #EBE7DF)',
@@ -526,7 +529,7 @@ function PianoKeyboard({ startMidi = 48, endMidi = 84, highlights = {}, fingers 
                   : '0 6px 12px rgba(0,0,0,0.35), inset 0 -3px 0 rgba(0,0,0,0.04)',
                 transition: 'box-shadow 0.08s, background 0.08s',
                 userSelect: 'none',
-              }}>
+              } as React.CSSProperties}>
               {hl && <div style={{
                 position: 'absolute', inset: 0, borderRadius: 'inherit',
                 background: hl, opacity: 0.35, pointerEvents: 'none',
@@ -562,8 +565,8 @@ function PianoKeyboard({ startMidi = 48, endMidi = 84, highlights = {}, fingers 
               onTouchStart={(e) => { e.preventDefault(); e.stopPropagation(); handlePress(nb); }}
               style={{
                 position: 'absolute',
-                left: (i + 1) * 38 - 12,
-                top: 0, width: 24, height: 90,
+                left: `calc((${i + 1}) * var(--key-w) - var(--bkey-w) / 2)`,
+                top: 0, width: 'var(--bkey-w)', height: 'var(--bkey-h)',
                 background: isActive
                   ? 'linear-gradient(180deg, #444, #222)'
                   : 'linear-gradient(180deg, #333, #111)',
