@@ -47,7 +47,7 @@ export async function loadPianoSamples(): Promise<void> {
 export function playPianoKey(midiNum: number, duration: number = 2.0): void {
   if (pianoReady && pianoInstrument) {
     try {
-      pianoInstrument.play(midiToNoteName(midiNum), 0, { duration, gain: 3 });
+      pianoInstrument.play(midiToNoteName(midiNum), 0, { duration, gain: 8 });
       return;
     } catch { /* fallback to synth */ }
   }
@@ -57,7 +57,7 @@ export function playPianoKey(midiNum: number, duration: number = 2.0): void {
 export function playNote(midiNum: number, duration: number = 0.4): void {
   if (pianoReady && pianoInstrument) {
     try {
-      pianoInstrument.play(midiToNoteName(midiNum), 0, { duration, gain: 2 });
+      pianoInstrument.play(midiToNoteName(midiNum), 0, { duration, gain: 6 });
       return;
     } catch { /* fallback */ }
   }
@@ -78,7 +78,7 @@ function playPianoSynth(midiNum: number, velocity: number = 0.7, duration: numbe
   const freq = NOTE_FREQS[midiNum];
   if (!freq) return;
   const now = ctx.currentTime;
-  const vol = velocity * 0.2;
+  const vol = velocity * 0.5;
 
   const master = ctx.createGain();
   master.gain.setValueAtTime(0, now);

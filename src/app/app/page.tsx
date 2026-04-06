@@ -489,8 +489,13 @@ function PianoKeyboard({ startMidi = 48, endMidi = 84, highlights = {}, fingers 
   onClick?: (midi: number) => void; showNames?: boolean;
 }) {
   const [pressed, setPressed] = useState<Set<number>>(new Set());
+  const lastPressRef = useRef<number>(0);
 
   function handlePress(m: number) {
+    // Debounce: ignore presses within 100ms (prevents iOS double-fire)
+    const now = Date.now();
+    if (now - lastPressRef.current < 100) return;
+    lastPressRef.current = now;
     playPianoKey(m);
     onClick?.(m);
     setPressed(p => { const n = new Set(p); n.add(m); return n; });
@@ -520,7 +525,7 @@ function PianoKeyboard({ startMidi = 48, endMidi = 84, highlights = {}, fingers 
           const hl = highlights[m];
           return (
             <div key={m} className="sonata-key-white"
-              onMouseDown={() => handlePress(m)}
+              onClick={() => handlePress(m)}
               onTouchStart={(e) => { e.preventDefault(); handlePress(m); }}
               style={{
                 width: 'var(--key-w)', height: 'var(--key-h)',
@@ -568,7 +573,7 @@ function PianoKeyboard({ startMidi = 48, endMidi = 84, highlights = {}, fingers 
           const hl = highlights[nb];
           return (
             <div key={nb} className="sonata-key-black"
-              onMouseDown={(e) => { e.stopPropagation(); handlePress(nb); }}
+              onClick={(e) => { e.stopPropagation(); handlePress(nb); }}
               onTouchStart={(e) => { e.preventDefault(); e.stopPropagation(); handlePress(nb); }}
               style={{
                 position: 'absolute',
