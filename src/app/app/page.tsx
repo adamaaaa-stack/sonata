@@ -79,7 +79,7 @@ interface AppState {
   // Lessons
   currentLesson: number;
   lessonStep: number;
-  lessonPhase: 'concepts'|'piece'|'complete';
+  lessonPhase: 'concepts'|'quiz'|'piece'|'complete';
   lessonsCompleted: number[];
   returnToLesson: boolean;
   drillHistory: { timestamp: number; score: number; total: number }[];
@@ -104,6 +104,7 @@ type Action =
   | { type: 'START_LESSON'; id: number }
   | { type: 'NEXT_STEP' }
   | { type: 'PREV_STEP' }
+  | { type: 'START_QUIZ' }
   | { type: 'START_PIECE' }
   | { type: 'COMPLETE_LESSON' }
   | { type: 'LIB_FILTER'; filter: string }
@@ -147,6 +148,7 @@ function reducer(state: AppState, action: Action): AppState {
     case 'START_LESSON': return { ...state, screen: 'lesson', currentLesson: action.id, lessonStep: 0, lessonPhase: 'concepts' };
     case 'NEXT_STEP': return { ...state, lessonStep: state.lessonStep + 1 };
     case 'PREV_STEP': return { ...state, lessonStep: state.lessonStep - 1 };
+    case 'START_QUIZ': return { ...state, lessonPhase: 'quiz' };
     case 'START_PIECE': return { ...state, lessonPhase: 'piece' };
     case 'COMPLETE_LESSON': {
       const completed = state.lessonsCompleted.includes(state.currentLesson)
@@ -282,7 +284,7 @@ export default function SonataApp() {
         if (e.key === 'ArrowRight' || e.key === ' ') {
           e.preventDefault();
           if (lesson && state.lessonStep < lesson.steps.length - 1) { stopSpeaking(); dispatch({ type: 'NEXT_STEP' }); }
-          else if (lesson && state.lessonStep === lesson.steps.length - 1) { stopSpeaking(); dispatch({ type: 'START_PIECE' }); }
+          else if (lesson && state.lessonStep === lesson.steps.length - 1) { stopSpeaking(); dispatch({ type: 'START_QUIZ' }); }
         }
         if (e.key === 'ArrowLeft' && state.lessonStep > 0) { e.preventDefault(); stopSpeaking(); dispatch({ type: 'PREV_STEP' }); }
         if (e.key === 'p') togglePause();
@@ -1019,6 +1021,9 @@ function LessonScreen({ state, dispatch, renderNotation, loadScore, playScore }:
   if (state.lessonPhase === 'concepts') {
     return <LessonConcepts lesson={lesson} state={state} dispatch={dispatch} renderNotation={renderNotation} />;
   }
+  if (state.lessonPhase === 'quiz') {
+    return <LessonQuiz lesson={lesson} dispatch={dispatch} />;
+  }
   if (state.lessonPhase === 'piece') {
     return <LessonPiece lesson={lesson} state={state} dispatch={dispatch} loadScore={loadScore} playScore={playScore} />;
   }
@@ -1057,10 +1062,91 @@ function LessonConcepts({ lesson, state, dispatch, renderNotation }: {
           {state.lessonStep > 0 && <button style={s.navBtn} onClick={() => { stopSpeaking(); dispatch({ type: 'PREV_STEP' }); }}>Previous</button>}
           {state.lessonStep < lesson.steps.length - 1
             ? <button style={s.navBtnPrimary} onClick={() => { stopSpeaking(); dispatch({ type: 'NEXT_STEP' }); }}>Next</button>
-            : <button style={s.navBtnPrimary} onClick={() => { stopSpeaking(); dispatch({ type: 'START_PIECE' }); }}>Play the piece →</button>
+            : <button style={s.navBtnPrimary} onClick={() => { stopSpeaking(); dispatch({ type: 'START_QUIZ' }); }}>Quiz →</button>
           }
         </div>
         <div style={{ fontSize: 10, color: 'var(--bg4)', textAlign: 'center', marginTop: 4 }}>← → arrows · Space = next · P = pause · Esc = back</div>
+      </div>
+    </>
+  );
+}
+
+function LessonQuiz({ lesson, dispatch }: { lesson: Lesson; dispatch: React.Dispatch<Action> }) {
+  const [current, setCurrent] = useState(0);
+  const [score, setScore] = useState(0);
+  const [answered, setAnswered] = useState(false);
+  const [picked, setPicked] = useState(-1);
+
+  const quiz = lesson.quiz || [];
+  if (quiz.length === 0) {
+    // No quiz questions — skip to piece
+    dispatch({ type: 'START_PIECE' });
+    return null;
+  }
+
+  const q = quiz[current];
+  if (!q) { dispatch({ type: 'START_PIECE' }); return null; }
+
+  function handleAnswer(idx: number) {
+    if (answered) return;
+    setAnswered(true);
+    setPicked(idx);
+    if (idx === q.correct) { setScore(s => s + 1); playCorrectSound(); }
+    else { playWrongSound(); }
+  }
+
+  function next() {
+    if (current + 1 >= quiz.length) {
+      // Quiz done — go to piece
+      dispatch({ type: 'START_PIECE' });
+    } else {
+      setCurrent(c => c + 1);
+      setAnswered(false);
+      setPicked(-1);
+    }
+  }
+
+  return (
+    <>
+      <Header title={`Lesson ${lesson.id}`} right={<span style={{ fontSize: 13, color: 'var(--text3)' }}>Quiz</span>} />
+      <BackLink onClick={() => dispatch({ type: 'UPDATE_FIELD', field: 'lessonPhase', value: 'concepts' })} label="← Back to lesson" />
+      <div className="sonata-app" style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
+        <div style={{ fontSize: 11, color: 'var(--text3)', textAlign: 'center', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: 8 }}>
+          Question {current + 1} of {quiz.length} · Score: {score}/{current + (answered ? 1 : 0)}
+        </div>
+        <div style={{
+          padding: 24, background: 'var(--bg2)', border: '1px solid var(--bg3)',
+          borderRadius: 14, marginBottom: 16, fontSize: 15, lineHeight: 1.7, color: 'var(--text2)',
+        }}>
+          {q.q}
+        </div>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+          {q.options.map((opt, idx) => {
+            let bg = 'var(--bg2)';
+            let border = 'var(--bg3)';
+            let color = 'var(--text)';
+            if (answered) {
+              if (idx === q.correct) { bg = 'var(--green-bg)'; border = 'var(--green)'; color = 'var(--green)'; }
+              else if (idx === picked) { bg = 'var(--red-bg)'; border = 'var(--red)'; color = 'var(--red)'; }
+              else { color = 'var(--text3)'; }
+            }
+            return (
+              <button key={idx} onClick={() => handleAnswer(idx)} disabled={answered} style={{
+                padding: '14px 18px', background: bg, border: `1px solid ${border}`,
+                borderRadius: 10, color, fontSize: 14, textAlign: 'left', cursor: answered ? 'default' : 'pointer',
+                fontFamily: 'var(--sans)', transition: 'all 0.15s',
+                opacity: answered && idx !== q.correct && idx !== picked ? 0.4 : 1,
+              }}>
+                {opt}
+              </button>
+            );
+          })}
+        </div>
+        {answered && (
+          <button style={{ ...s.primaryBtn, maxWidth: 200, margin: '16px auto 0' }} onClick={next}>
+            {current + 1 >= quiz.length ? 'Play the piece →' : 'Next question'}
+          </button>
+        )}
       </div>
     </>
   );

@@ -12,12 +12,19 @@ export interface LessonStep {
   fingers?: Record<number, number>;
 }
 
+export interface QuizQuestion {
+  q: string;
+  options: string[];
+  correct: number; // index into options
+}
+
 export interface Lesson {
   id: number;
   title: string;
   sub: string;
   piece: string;
   steps: LessonStep[];
+  quiz: QuizQuestion[];
   drill: DrillConfig;
   advance: number;
 }
@@ -47,6 +54,13 @@ export const lessons: Lesson[] = [
     { text:"One more tip: a note on a line and the note in the very next space are ALWAYS adjacent letters. Line→space above = next letter. Space→line above = next letter. It alternates: line, space, line, space. Each position = next letter.", abc:makeABC(['C4','D4','E4','F4','G4','A4','B4','C5'],'treble'), piano:{} },
     { text:"Time for your first drill. See a note, figure out its name, tap the correct letter. No timer — take your time. Use your anchors: Middle C, G, F. After this, Lesson 2 teaches you to read WITHOUT counting. Ready?", abc:makeABC(['C4','G4'],'treble'), piano:{[60]:'#C8A96E',[67]:'#C8A96E',[53]:'#C8A96E'} },
   ],
+  quiz: [
+    {q:"How many lines does the staff have?", options:["3", "4", "5", "7"], correct:2},
+    {q:"What does the treble clef point at?", options:["Middle C", "The note F", "The note G", "The note A"], correct:2},
+    {q:"Where is Middle C on the treble staff?", options:["On the top line", "On the bottom line", "On a ledger line below the staff", "In the first space"], correct:2},
+    {q:"Which anchor note do the bass clef dots point at?", options:["G", "C", "F", "A"], correct:2},
+    {q:"How many letters does the musical alphabet use?", options:["5", "7", "8", "12"], correct:1},
+  ],
   drill:{types:['noteNaming'],clefs:['treble','bass'],range:'staff',intervals:[],timer:null,count:15}, advance:0.75 },
 
 { id:2, title:'The Pulse', sub:'Beats, tempo, and time signatures', piece:'Twinkle Twinkle (Rhythm)',
@@ -61,6 +75,12 @@ export const lessons: Lesson[] = [
     { text:"Why beats matter for reading: when you're sight-reading, your internal pulse is your anchor. Even if you miss a note, as long as you stay on the beat, you can recover. If you lose the beat, you're lost. Professional sight-readers say: 'wrong note at the right time is better than right note at the wrong time.' Keep the pulse going no matter what.", abc:'X:1\nM:4/4\nL:1/4\nK:C\nC E G c | G E C2 |', piano:{} },
     { text:"Practice exercise: put on a metronome (your phone has one, or search 'metronome' online). Set it to 60 BPM. Tap along perfectly. Now try 80. Now 100. Now try clapping on beats 1 and 3 only. Then 2 and 4 only. This trains your internal clock — the single most important musical skill after note reading.", abc:'X:1\nM:4/4\nL:1/4\nK:C\nC z C z | z C z C |', piano:{} },
     { text:"Twinkle Twinkle Little Star is the perfect first rhythm piece. It's in 4/4 time. Every note is a quarter note (1 beat each). The rhythm is as simple as it gets: one note per beat, four beats per bar. All you have to think about is the pulse. Tap along: C C G G A A G—. That held G on beat 4 is a half note — we'll learn those next.", abc:'X:1\nM:4/4\nL:1/4\nK:C\nC C G G | A A G2 | F F E E | D D C2 |', piano:{} },
+  ],
+  quiz: [
+    {q:"What is the steady recurring beat in music called?", options:["Tempo", "Rhythm", "Pulse", "Melody"], correct:2},
+    {q:"What does BPM stand for?", options:["Bars per minute", "Beats per measure", "Beats per minute", "Bass per measure"], correct:2},
+    {q:"In 4/4 time, how many beats are in each measure?", options:["2", "3", "4", "6"], correct:2},
+    {q:"What is 3/4 time commonly called?", options:["March time", "Waltz time", "Common time", "Cut time"], correct:1},
   ],
   drill:{types:['noteNaming','interval'],clefs:['treble'],range:'staff',intervals:[2,3],timer:null,count:10}, advance:0.75 },
 
@@ -82,6 +102,12 @@ export const lessons: Lesson[] = [
     { text:"Review: Step UP = next key right. Step DOWN = next key left. REPEAT = same key. With these three, you can read Ode to Joy, scales, and a massive amount of real music.", abc:makeABC(['C4','D4','E4','D4','C4'],'treble'), piano:{} },
     { text:"The drill mixes note naming with step identification. You'll see two notes and identify the interval. Look for: touching notes, alternating types = step. Which direction? That's your answer.", abc:makeABC(['F4','G4'],'treble'), piano:{[65]:'#4ADE80',[67]:'#4ADE80'} },
   ],
+  quiz: [
+    {q:"What is the smallest interval called?", options:["A skip", "A leap", "A step", "An octave"], correct:2},
+    {q:"A step is also called a:", options:["3rd", "2nd", "4th", "5th"], correct:1},
+    {q:"On the staff, a step moves from:", options:["Line to line", "Space to space", "Line to space or space to line", "Anywhere"], correct:2},
+    {q:"What should you track when reading music?", options:["Always the name", "Always the distance", "The distance between consecutive notes", "Neither"], correct:2},
+  ],
   drill:{types:['noteNaming','interval'],clefs:['treble','bass'],range:'staff',intervals:[2],timer:10,count:20}, advance:0.80 },
 
 { id:4, title:'Note Values', sub:'Whole, half, quarter, eighth', piece:'Amazing Grace (Simple)',
@@ -98,6 +124,12 @@ export const lessons: Lesson[] = [
     { text:"TIES: a curved line connecting two notes OF THE SAME PITCH. Unlike a slur (which connects different pitches for legato), a tie means hold through — don't re-strike the second note. A quarter note tied to another quarter note = one note held for 2 beats (same as a half note, but written across a bar line). Ties let you create durations that don't fit in one measure.", abc:'X:1\nM:4/4\nL:1/4\nK:C\nC D E F | G2-G2 | G F E D | C4 |', piano:{} },
     { text:"Reading tip: when you see a mix of note values, SCAN AHEAD and identify the shortest note value first. That's your subdivision — the smallest unit you need to track. If the shortest note is an eighth, count in eighths: 1-and-2-and-3-and-4-and. The longer notes just get held through multiple subdivisions.", abc:'X:1\nM:4/4\nL:1/8\nK:C\nC2 DE F2 G2 | A2 GF E2 C2 |', piano:{} },
     { text:"Amazing Grace is the perfect piece for practising mixed note values. It has dotted quarter notes, eighth notes, half notes, and quarter notes — all in a slow, forgiving tempo. The rhythm breathes: long notes on important words, short notes connecting them. You already know the melody. Now you can read the RHYTHM.", abc:'X:1\nM:3/4\nL:1/4\nK:G\nD | G2 B/2G/2 | B2 A | G2 E | D2 D | G2 B/2G/2 | B2 A | d3 |', piano:{} },
+  ],
+  quiz: [
+    {q:"How many beats does a whole note last in 4/4?", options:["1", "2", "3", "4"], correct:3},
+    {q:"A filled note head with a stem is a:", options:["Whole note", "Half note", "Quarter note", "Eighth note"], correct:2},
+    {q:"A dot after a note adds:", options:["Double the value", "Half the value", "One beat", "Nothing"], correct:1},
+    {q:"How many beats does a dotted half note get?", options:["2", "2.5", "3", "4"], correct:2},
   ],
   drill:{types:['noteNaming','interval'],clefs:['treble','bass'],range:'staff',intervals:[2,3,4],timer:10,count:15}, advance:0.75 },
 
@@ -119,6 +151,12 @@ export const lessons: Lesson[] = [
     { text:"Same rules in bass clef. F to A: both on lines, one gap = skip. F to G: cross types, touching = step. Clef changes the letter names but NOT the visual rules.", abc:makeABC(['F3','G3','F3','A3'],'bass'), piano:{} },
     { text:"Your drill tests note naming, intervals (step/skip with direction), and odd/even classification. See two notes → same type = odd, cross = even. Build that reflex.", abc:makeABC(['D4','F4'],'treble'), piano:{} },
   ],
+  quiz: [
+    {q:"A skip (3rd) jumps over how many notes?", options:["0", "1", "2", "3"], correct:1},
+    {q:"On the staff, a skip has both notes on:", options:["The same type (line-line or space-space)", "Different types", "Ledger lines", "Any position"], correct:0},
+    {q:"Odd intervals (3rd, 5th, 7th) stay on:", options:["Different types", "The same type", "Ledger lines", "Any position"], correct:1},
+    {q:"Even intervals (2nd, 4th, 6th) do what?", options:["Stay on the same type", "Cross between line and space", "Skip two notes", "Repeat the same note"], correct:1},
+  ],
   drill:{types:['noteNaming','interval','oddEven'],clefs:['treble','bass'],range:'staff',intervals:[2,3],timer:10,count:25}, advance:0.80 },
 
 { id:6, title:'Steps & Skips Combined', sub:'Fluent reading', piece:'Gymnopédie No. 1 (Melody)',
@@ -136,6 +174,11 @@ export const lessons: Lesson[] = [
     { text:"Mixed step/skip passages work identically in bass clef. Same visual rules. Same reading system. Both staves, one method.", abc:makeABC(['F3','G3','B3','A3'],'bass'), piano:{} },
     { text:"The drill adds pattern recognition: is a group of notes a scale (all steps), arpeggio (all skips), or chord? Timer: 7 seconds. Trust your instincts.", abc:makeABC(['E4','F4','G4','E4'],'treble'), piano:{} },
   ],
+  quiz: [
+    {q:"Steps and skips cover roughly what percent of melodies?", options:["50%", "60%", "80%", "95%"], correct:2},
+    {q:"Reading ahead means:", options:["Reading the title first", "Eyes 2-3 notes ahead of fingers", "Skipping difficult passages", "Reading the last bar first"], correct:1},
+    {q:"The contour of a melody is:", options:["Its volume", "Its speed", "Its overall shape", "Its key signature"], correct:2},
+  ],
   drill:{types:['noteNaming','interval','oddEven','pattern'],clefs:['treble','bass'],range:'staff',intervals:[2,3],timer:7,count:25}, advance:0.82 },
 
 { id:7, title:'Counting & Subdivision', sub:'The internal metronome', piece:'When the Saints (Simple)',
@@ -150,6 +193,12 @@ export const lessons: Lesson[] = [
     { text:"How to practise syncopation: first, clap the STRAIGHT rhythm (all downbeats). Then shift the claps to the 'ands.' It feels uncomfortable at first — like learning to pat your head and rub your stomach. But once you feel it, syncopation becomes addictive. It's what makes music groove.", abc:'X:1\nM:4/4\nL:1/8\nK:C\nCC CC CC CC | zC zC zC zC |', piano:{} },
     { text:"When reading rhythms in real music, DON'T try to calculate each note's exact duration. Instead, FEEL the subdivision. Set your internal metronome to eighth notes (1-and-2-and) and let notes fall naturally into that grid. Quarter notes take a full slot. Eighths take half. Your body knows the grid — trust it.", abc:'X:1\nM:4/4\nL:1/8\nK:C\nC2 DE F2 G2 | A4 G2 E2 | C2 DE F2 E2 | D6 z2 |', piano:{} },
     { text:"When the Saints Go Marching In uses pickups, syncopation, held notes, and quarter-eighth mixes. The melody starts before beat 1, holds across beats, and has that swinging feel. With counting and subdivision, you can read any rhythm in this piece — not by memorising, but by feeling the pulse and tracking subdivisions.", abc:'X:1\nM:4/4\nL:1/4\nK:C\nC E F | G3 C | E F G3 | E C E | D3 E | F G2 F | E C D | C3 z |', piano:{} },
+  ],
+  quiz: [
+    {q:"The ands between beats are called:", options:["Downbeats", "Upbeats", "Rests", "Accents"], correct:1},
+    {q:"A pickup (anacrusis) is:", options:["A very loud note", "Notes that start before beat 1", "A repeat sign", "The end of a piece"], correct:1},
+    {q:"Sixteenth notes divide each beat into:", options:["2 parts", "3 parts", "4 parts", "6 parts"], correct:2},
+    {q:"Syncopation is:", options:["Playing very fast", "Emphasis on unexpected beats", "Playing two notes at once", "A type of scale"], correct:1},
   ],
   drill:{types:['noteNaming','interval','oddEven'],clefs:['treble','bass'],range:'staff',intervals:[2,3,4,5],timer:7,count:20}, advance:0.78 },
 
@@ -167,6 +216,12 @@ export const lessons: Lesson[] = [
     { text:"Dynamic markings last until replaced. If you see mf at measure 1, stay at mf until a new marking appears. Hairpins are temporary modifications.", abc:makeABC(['C4','D4','E4','F4'],'treble'), piano:{} },
     { text:"Your drill adds bass clef note naming. You'll see notes on EITHER staff. Use your anchors. Interval rules are identical on both staves.", abc:makeABC(['F3','A3'],'bass'), piano:{} },
   ],
+  quiz: [
+    {q:"Which clef is for the right hand?", options:["Bass clef", "Treble clef", "Alto clef", "Tenor clef"], correct:1},
+    {q:"pp means:", options:["Very loud", "Medium soft", "Very soft", "Gradually louder"], correct:2},
+    {q:"A crescendo means:", options:["Get softer", "Get louder", "Get faster", "Repeat"], correct:1},
+    {q:"Sforzando (sfz) means:", options:["Very soft", "Sudden sharp accent", "Gradually slower", "Repeat from start"], correct:1},
+  ],
   drill:{types:['noteNaming','interval'],clefs:['treble','bass'],range:'staff',intervals:[2,3],timer:7,count:20}, advance:0.78 },
 
 { id:9, title:'Small Leaps', sub:'4ths and 5ths', piece:'Für Elise (Opening)',
@@ -179,6 +234,12 @@ export const lessons: Lesson[] = [
     { text:"Für Elise uses all four intervals: steps, skips, 4ths, 5ths. With four lessons of interval reading, you can read one of the most famous melodies ever written.", abc:'X:1\nM:3/8\nL:1/8\nK:Am\ne^d | e^d e B d c | A', piano:{} },
     { text:"When you see a larger interval, resist counting note names. Check same/cross (odd/even), estimate gap, move hand. Speed comes from pattern recognition, not calculation.", abc:makeABC(['E4','A4','G4','C5'],'treble'), piano:{} },
     { text:"Drill: all intervals up to 5ths, both clefs, 7 seconds. Trust odd/even. Don't count letters. Look and classify.", abc:makeABC(['G4','D4'],'treble'), piano:{} },
+  ],
+  quiz: [
+    {q:"A 4th spans how many letter names?", options:["2", "3", "4", "5"], correct:2},
+    {q:"A 4th crosses types (line to space)?", options:["True", "False"], correct:0},
+    {q:"A 5th stays on the same type?", options:["True (odd interval)", "False (even interval)"], correct:0},
+    {q:"Twinkle Twinkle starts with which interval?", options:["A 3rd", "A 4th", "A 5th", "An octave"], correct:2},
   ],
   drill:{types:['noteNaming','interval','oddEven'],clefs:['treble','bass'],range:'staff',intervals:[2,3,4,5],timer:7,count:25}, advance:0.75 },
 
@@ -194,6 +255,11 @@ export const lessons: Lesson[] = [
     { text:"Recognition guide: dot = staccato. Curve = legato. > = accent. Line = tenuto. Eye shape = fermata. These show up constantly — recognising them quickly matters as much as reading notes.", abc:makeABC(['C4'],'treble'), piano:{} },
     { text:"Drill adds articulation identification. You'll see a note with a marking and name it.", abc:makeABC(['C4','D4'],'treble'), piano:{} },
   ],
+  quiz: [
+    {q:"Staccato (dot) means:", options:["Hold longer", "Play short and detached", "Play louder", "Skip this note"], correct:1},
+    {q:"A slur connecting different pitches means:", options:["Tie them together", "Play legato (smooth)", "Play staccato", "Accent them"], correct:1},
+    {q:"A fermata means:", options:["Play faster", "Play softer", "Hold longer than written", "Skip to the end"], correct:2},
+  ],
   drill:{types:['noteNaming','interval','articulation'],clefs:['treble','bass'],range:'staff',intervals:[2,3,4,5],timer:10,count:20}, advance:0.85 },
 
 { id:11, title:'Key Signatures', sub:'Sharps, flats, and the circle of fifths', piece:'Key Signature Melody',
@@ -208,6 +274,12 @@ export const lessons: Lesson[] = [
     { text:"A practical shortcut: for sharp keys, the LAST sharp in the key signature is one step below the key name. One sharp (F#) means key of G (one above F#). Two sharps (F# C#) means key of D (one above C#). For flat keys, the SECOND-TO-LAST flat IS the key name. Two flats (Bb Eb) means key of Bb.", abc:'X:1\nM:4/4\nL:1/4\nK:C\nC D E F | G A B c |', piano:{} },
     { text:"From now on, pieces will use different key signatures. Don't panic — the interval reading system works identically. Steps are still steps, skips are still skips. The only difference is that some white keys become black keys. Your eyes read the DISTANCE on the staff, your fingers adjust for the key signature.", abc:'X:1\nM:4/4\nL:1/4\nK:G\nG A B d | c B A G |', piano:{} },
   ],
+  quiz: [
+    {q:"A key signature tells you:", options:["How fast to play", "Which notes are always sharp or flat", "How loud to play", "Which hand to use"], correct:1},
+    {q:"G major has how many sharps?", options:["0", "1", "2", "3"], correct:1},
+    {q:"An accidental is:", options:["A mistake", "A sharp/flat/natural next to a note", "A type of chord", "A rest"], correct:1},
+    {q:"A natural sign:", options:["Makes sharp", "Makes flat", "Cancels sharp or flat", "Makes louder"], correct:2},
+  ],
   drill:{types:['noteNaming','interval','keySignature'],clefs:['treble','bass'],range:'staff',intervals:[2,3,4,5],timer:10,count:20}, advance:0.78 },
 
 { id:12, title:'Reading Two Notes at Once', sub:'Simple harmonies and intervals on the staff', piece:'Simple Harmonies',
@@ -221,6 +293,11 @@ export const lessons: Lesson[] = [
     { text:"CONTRARY MOTION: the two notes move in OPPOSITE directions — top goes up while bottom goes down. Read each voice separately: bottom voice steps down, top voice steps up. This is harder than parallel motion but you only need to track two simple movements.", abc:makeABC(['E4','F4','G4','A4'],'treble'), piano:{} },
     { text:"Practice strategy: when you encounter two-note passages, SLOW DOWN. Read the first pair carefully: identify bottom note plus interval. For the next pair, just track how each note MOVED from the previous pair. Top went up a step? Play one key higher. Bottom stayed? Same key. Movement-based reading for two voices.", abc:makeChordABC(['C4','E4'],'treble'), piano:{[60]:'#FACC15',[64]:'#FACC15'} },
     { text:"This skill prepares you for full chords — three notes — in a few lessons. Once you can read two notes at once, three is just one more. And it prepares you for reading both hands simultaneously. Two-note reading is the bridge between melody and harmony.", abc:makeChordABC(['C4','E4','G4'],'treble'), piano:{[60]:'#FACC15',[64]:'#FACC15',[67]:'#FACC15'} },
+  ],
+  quiz: [
+    {q:"Two stacked notes should be:", options:["Played one at a time", "Played together", "Ignored", "Played backwards"], correct:1},
+    {q:"The odd/even rule works vertically too?", options:["True", "False"], correct:0},
+    {q:"Parallel motion means:", options:["Notes move opposite directions", "Both notes move same direction same amount", "Only one note moves", "Neither moves"], correct:1},
   ],
   drill:{types:['noteNaming','interval','oddEven','keySignature'],clefs:['treble','bass'],range:'staff',intervals:[2,3,4,5],timer:7,count:20}, advance:0.78 },
 
@@ -237,6 +314,11 @@ export const lessons: Lesson[] = [
     { text:"Sight-reading tip for compound time: when you see 6/8, mentally rewrite it as 'two big beats of three.' When you see triplets in 4/4, feel a temporary switch to compound. Both are the same underlying idea: dividing beats into three. Your body can switch between simple and compound once you've practised both feels.", abc:'X:1\nM:6/8\nL:1/8\nK:Am\nE3 E3 | E2A A2B | c3 B3 | A6 |', piano:{} },
     { text:"Greensleeves is in 3/4 time with an eighth-note feel that makes it sound almost compound. The melody lilts: quarter-eighth, quarter-eighth. It's the perfect bridge between simple and compound — you feel the three-beat waltz but the subdivisions add a gentle sway. With this, you can read any time signature in standard music.", abc:'X:1\nM:3/4\nL:1/8\nK:Am\nA2 | c2 d2 | e3 f e2 | d2 B2 | G3 A B2 | c2 A2 | A3 G A2 | B3 z E2 |', piano:{} },
   ],
+  quiz: [
+    {q:"6/8 time feels like how many big beats?", options:["6", "3", "2", "4"], correct:2},
+    {q:"A triplet divides a beat into:", options:["2 parts", "3 parts", "4 parts", "6 parts"], correct:1},
+    {q:"Top number 6, 9, or 12 means:", options:["Simple time", "Compound time", "Cut time", "Free time"], correct:1},
+  ],
   drill:{types:['noteNaming','interval','oddEven','pattern'],clefs:['treble','bass'],range:'staff',intervals:[2,3,4,5],timer:7,count:20}, advance:0.78 },
 
 { id:14, title:'Dynamics & Phrasing', sub:'Making music breathe', piece:'Clair de Lune (Theme)',
@@ -252,6 +334,11 @@ export const lessons: Lesson[] = [
     { text:"Practical exercise: play any melody you know three times — once pp, once ff, once with an arch shape (p→f→p). Same notes, completely different feeling each time.", abc:makeABC(['C4','D4','E4','F4','G4'],'treble'), piano:{} },
     { text:"Drill reinforces intervals up to 5ths plus odd/even. Dynamics are best practised at your real piano — drills keep interval reading sharp.", abc:makeABC(['E4','G4'],'treble'), piano:{} },
   ],
+  quiz: [
+    {q:"A crescendo hairpin looks like:", options:["> (closing)", "< (opening)", "A dot", "A line"], correct:1},
+    {q:"A phrase is:", options:["A single note", "A musical sentence", "A loud passage", "A rest"], correct:1},
+    {q:"Subito piano means:", options:["Gradually louder", "Suddenly soft", "Gradually softer", "Suddenly loud"], correct:1},
+  ],
   drill:{types:['noteNaming','interval','oddEven'],clefs:['treble','bass'],range:'staff',intervals:[2,3,4,5],timer:7,count:20}, advance:0.82 },
 
 { id:15, title:'Large Leaps & Octaves', sub:'Trusting the distance', piece:'Arabesque No. 1 (Theme)',
@@ -263,6 +350,11 @@ export const lessons: Lesson[] = [
     { text:"Build physical confidence: practise octaves. C4→C5. G4→G5. D4→D5. Don't look down. Your muscles learn the stretch.", abc:makeABC(['C4','C5','G4','G5'],'treble'), piano:{} },
     { text:"Debussy's Arabesque No.1: flowing lines with wide intervals. With 2nds through octaves covered, you can read virtually any interval in standard piano music.", abc:makeABC(['E4','C5','B4','G4'],'treble'), piano:{} },
     { text:"Drills: 5 seconds, intervals up to 7ths, both clefs. Trust odd/even. Trust gap estimation. Pure instinct.", abc:makeABC(['F4','D5'],'treble'), piano:{} },
+  ],
+  quiz: [
+    {q:"A 6th is:", options:["Odd (same type)", "Even (crosses types)"], correct:1},
+    {q:"An octave spans how many letter names?", options:["5", "6", "7", "8"], correct:3},
+    {q:"For large leaps you should:", options:["Always look at hands", "Commit without hesitation", "Slow down every time", "Avoid them"], correct:1},
   ],
   drill:{types:['noteNaming','interval','oddEven'],clefs:['treble','bass'],range:'ledger',intervals:[2,3,4,5,6,7],timer:5,count:30}, advance:0.72 },
 
@@ -276,6 +368,11 @@ export const lessons: Lesson[] = [
     { text:"Bach's Prelude in C Major BWV 846: built from broken chords with scale-like patterns. If you can play scales and arpeggios with proper fingering, you can read this piece.", abc:'X:1\nM:4/4\nL:1/16\nK:C\nCEGc eGce | CEGC EGCE |', piano:{} },
     { text:"Drill: intervals + pattern recognition. Identify scale fragments, arpeggios, chords from grouped notes.", abc:makeABC(['C4','D4','E4','F4'],'treble'), piano:{} },
   ],
+  quiz: [
+    {q:"Finger 1 is:", options:["Index", "Middle", "Ring", "Thumb"], correct:3},
+    {q:"The thumb tuck is:", options:["Thumb under palm", "Thumb under hand to next position", "Hiding thumb", "A chord"], correct:1},
+    {q:"In C major scale (RH), thumb tuck after:", options:["C", "D", "E", "F"], correct:2},
+  ],
   drill:{types:['noteNaming','interval','pattern'],clefs:['treble','bass'],range:'staff',intervals:[2,3,4,5],timer:7,count:20}, advance:0.82 },
 
 { id:17, title:'Arpeggios & Chords', sub:'Vertical and horizontal', piece:'Moonlight Sonata 1st mvt',
@@ -288,6 +385,11 @@ export const lessons: Lesson[] = [
     { text:"The ENTIRE Moonlight Sonata 1st movement = arpeggios. Every bar. Right hand rolls triplet arpeggios, left holds bass. Dense on the page, but extremely repetitive — same pattern, different chords.", abc:'X:1\nM:4/4\nL:1/8\nK:clef=treble\n(CEG) (CEG) (CEG) (CEG)|', piano:{} },
     { text:"When you see stacked notes or sequential skips, think CHORD SHAPE, not individual notes. Which chord? Major or minor? This harmonic thinking accelerates reading because chords are predictable.", abc:makeChordABC(['F4','A4','C5'],'treble'), piano:{} },
     { text:"Drill: pattern and chord identification. Scales (steps), arpeggios (skips), chords (stacked). Group, don't decode.", abc:makeABC(['C4','E4','G4'],'treble'), piano:{} },
+  ],
+  quiz: [
+    {q:"An arpeggio is:", options:["Notes played at once", "Chord played one note at a time", "A scale", "A rest"], correct:1},
+    {q:"A triad is:", options:["Two notes", "Three notes built from skips", "Four notes", "Five notes"], correct:1},
+    {q:"Alberti bass is:", options:["A very low note", "Broken chord pattern C-G-E-G", "A pedal marking", "A bass clef"], correct:1},
   ],
   drill:{types:['noteNaming','interval','pattern','oddEven'],clefs:['treble','bass'],range:'staff',intervals:[2,3,4,5],timer:7,count:20}, advance:0.78 },
 
@@ -303,6 +405,11 @@ export const lessons: Lesson[] = [
     { text:"DOUBLE BAR LINES: two thin lines mark the end of a section (like a paragraph break). A thin plus thick line marks the absolute end. A double bar with dots = repeat sign. These visual markers help you scan a piece and identify its structure before playing.", abc:'X:1\nM:4/4\nL:1/4\nK:C\nC D E F || G A B c |]', piano:{} },
     { text:"Sight-reading tip: BEFORE playing a new piece, scan for ALL navigation symbols. Find the repeats, D.C./D.S. markers, codas, endings. Map the order in your head: 'bars 1-8, repeat, bars 1-6 then skip to bar 9.' This 10-second scan saves minutes of confusion.", abc:'X:1\nM:4/4\nL:1/4\nK:C\n|: C E G c :| c G E C |]', piano:{} },
     { text:"From now on, Library pieces will have repeat signs. Don't let them intimidate you — they're just road signs. Forward repeat = start. Backward repeat = go back. D.C. = beginning. D.S. = segno sign. Coda = jump to the tail. Follow the signs.", abc:'X:1\nM:4/4\nL:1/4\nK:C\nC D E F | G A B c |', piano:{} },
+  ],
+  quiz: [
+    {q:"Two dots at a bar line mean:", options:["End of piece", "Repeat this section", "Play louder", "Change key"], correct:1},
+    {q:"D.C. means:", options:["Go to the beginning", "Go to the sign", "Stop playing", "Get louder"], correct:0},
+    {q:"The coda sign indicates:", options:["The beginning", "A special ending section", "A loud passage", "A key change"], correct:1},
   ],
   drill:{types:['noteNaming','interval','pattern','oddEven'],clefs:['treble','bass'],range:'staff',intervals:[2,3,4,5,6,7],timer:7,count:20}, advance:0.78 },
 
@@ -320,6 +427,11 @@ export const lessons: Lesson[] = [
     { text:"The Entertainer by Scott Joplin is the ultimate rhythm test for this stage. It has syncopation on almost every beat — the melody constantly lands on upbeats. Dotted rhythms, ties across bar lines, and a steady left-hand bass that keeps the pulse while the right hand swings around it. If you can read the rhythm of The Entertainer, you can read anything.", abc:'X:1\nM:4/4\nL:1/8\nK:C\nDE | z E z c z c c2 | z c3 DE DE | z E z c z c c2 | G4 z2 DE |', piano:{} },
     { text:"You've now covered every major rhythm concept in Western music. Pulse, tempo, time signatures, note values, rests, dots, ties, subdivision, syncopation, compound time, triplets, polyrhythms, swing, rubato, and tempo changes. Combined with your interval reading from Lessons 1-15, you can read ANY standard piano score. The whole language of music notation is yours.", abc:'X:1\nM:4/4\nL:1/4\nK:C\nC E G c | c G E C |', piano:{} },
   ],
+  quiz: [
+    {q:"Dotted eighth + sixteenth sounds like:", options:["Even beats", "A gallop (long-short)", "A waltz", "Silence"], correct:1},
+    {q:"Swing rhythm means:", options:["Even eighths", "First eighth longer, second shorter", "Playing backwards", "Triple meter"], correct:1},
+    {q:"Ritardando means:", options:["Get louder", "Get faster", "Gradually slow down", "Repeat"], correct:2},
+  ],
   drill:{types:['noteNaming','interval','pattern','oddEven','articulation'],clefs:['treble','bass'],range:'ledger',intervals:[2,3,4,5,6,7],timer:5,count:25}, advance:0.72 },
 
 { id:20, title:'Pedalling', sub:'Sustain and colour', piece:'Nocturne Op. 9 No. 2',
@@ -330,6 +442,11 @@ export const lessons: Lesson[] = [
     { text:"SOFT pedal (left, 'una corda'): shifts hammers to hit fewer strings. Changes tone COLOUR, not just volume. pp with soft pedal sounds different from pp without.", abc:makeABC(['C4','D4','E4'],'treble'), piano:{} },
     { text:"Chopin's Nocturne Op.9 No.2: singing melodies over sustained bass. Without pedal, bass dies before melody arrives. The pedal connects them. This is why Chopin wrote for the piano.", abc:makeABC(['E4','F4','G4','A4'],'treble'), piano:{} },
     { text:"Your ear is the final judge. Clean sound = right pedalling. Muddy = changing too late. Choppy = changing too early. Listen.", abc:makeABC(['C4','E4','G4','C5'],'treble'), piano:{} },
+  ],
+  quiz: [
+    {q:"The sustain pedal is on which side?", options:["Left", "Middle", "Right", "No pedal"], correct:2},
+    {q:"Overlap pedalling means:", options:["Hold pedal forever", "Lift and re-press at new chord", "Never use pedal", "Use both pedals"], correct:1},
+    {q:"Pedal through staccato?", options:["Yes always", "No, they contradict", "Only on black keys", "Only in bass"], correct:1},
   ],
   drill:{types:['noteNaming','interval','articulation'],clefs:['treble','bass'],range:'ledger',intervals:[2,3,4,5,6,7],timer:7,count:20}, advance:0.82 },
 
@@ -342,6 +459,11 @@ export const lessons: Lesson[] = [
     { text:"Speed tip: stepwise passages play themselves once your hand is positioned. Only jumps need attention. Mentally, you're only 'reading' the leaps — the steps autopilot.", abc:makeABC(['C4','D4','E4','F4','G4','E4','C5'],'treble'), piano:{} },
     { text:"Practice: play a piece you know at HALF speed while reading ahead. If you stay a bar ahead at 50%, you'll be half a bar ahead at full speed.", abc:makeABC(['E4','F4','G4','A4'],'treble'), piano:{} },
     { text:"Drills: 3 seconds. Pure instinct. If you have to THINK 'odd or even,' you're too slow. It should be instant.", abc:makeABC(['C4','A4'],'treble'), piano:{} },
+  ],
+  quiz: [
+    {q:"At fast tempos, read:", options:["One note at a time", "Groups and patterns", "Only first and last", "Nothing"], correct:1},
+    {q:"Allegro is approximately:", options:["60 BPM", "80 BPM", "130 BPM", "170 BPM"], correct:2},
+    {q:"Eyes should be how far ahead?", options:["Same note", "2-3 notes", "A full bar or more", "End of piece"], correct:2},
   ],
   drill:{types:['noteNaming','interval','pattern','oddEven'],clefs:['treble','bass'],range:'ledger',intervals:[2,3,4,5,6,7],timer:3,count:30}, advance:0.68 },
 
@@ -356,6 +478,11 @@ export const lessons: Lesson[] = [
     { text:"POLYRHYTHM: two different rhythms simultaneously. Chopin's Nocturne Op.9 No.1 features rich rhythmic variety — triplets against duple rhythms. Learn each hand separately first, then combine slowly.", abc:makeABC(['C4','D4','E4','F4'],'treble'), piano:{} },
     { text:"How to practise polyrhythms: automate each hand's pattern individually. Then combine at half speed. Both patterns eventually lock together like interlocking gears.", abc:makeABC(['C4','D4','E4','F4'],'treble'), piano:{} },
     { text:"Drill covers all interval types plus articulation. Rhythm is best practised at your piano with a metronome — these drills keep reading skills sharp.", abc:makeABC(['E4','G4','B4'],'treble'), piano:{} },
+  ],
+  quiz: [
+    {q:"In 6/8, dotted quarter equals:", options:["1 beat", "2 beats", "3 eighths (1 big beat)", "Half a beat"], correct:2},
+    {q:"A polyrhythm is:", options:["One rhythm", "Two rhythms at once", "Very fast rhythm", "No rhythm"], correct:1},
+    {q:"Rubato means:", options:["Strict tempo", "Temporary freedom from tempo", "Very fast", "Very slow"], correct:1},
   ],
   drill:{types:['noteNaming','interval','pattern','oddEven','articulation'],clefs:['treble','bass'],range:'ledger',intervals:[2,3,4,5,6,7],timer:5,count:25}, advance:0.78 },
 
@@ -374,6 +501,11 @@ export const lessons: Lesson[] = [
     { text:"Think about where you started. You couldn't read a single note. Now you understand every symbol on the page. Intervals, dynamics, articulations, fingering, pedalling, arpeggios, chords, scales, complex rhythms.", abc:makeABC(['C4','E4','G4','C5'],'treble'), piano:{} },
     { text:"The Moonlight Sonata 3rd movement isn't a different language from what you've learned. It's the same language spoken very fast. Speed is just practice. You started with Happy Birthday and you're ending with one of the greatest pieces in the repertoire.", abc:makeABC(['C4','E4','G4','C5'],'treble'), piano:{} },
     { text:"Your final drill: all types, all clefs, all ranges, 3 seconds. Pure instinct. If you can handle this drill, you can handle any sheet music put in front of you. Let's go.", abc:makeABC(['C4','G4','E5'],'treble'), piano:{} },
+  ],
+  quiz: [
+    {q:"Moonlight Sonata 3rd mvt uses what form?", options:["Binary", "Ternary", "Sonata form", "Rondo"], correct:2},
+    {q:"The Exposition is where:", options:["The ending", "Themes are introduced", "Themes are transformed", "The coda"], correct:1},
+    {q:"Best way to learn a hard piece:", options:["Full speed immediately", "Section by section, slowly", "Memorise without reading", "Skip hard parts"], correct:1},
   ],
   drill:{types:['noteNaming','interval','pattern','oddEven','articulation'],clefs:['treble','bass'],range:'ledger',intervals:[2,3,4,5,6,7],timer:3,count:30}, advance:0.72 },
 

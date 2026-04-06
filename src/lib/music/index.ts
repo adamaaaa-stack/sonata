@@ -4,7 +4,7 @@ export * from './storage';
 export * from './audio';
 export * from './tts';
 export { lessons } from './lessons';
-export type { Lesson, LessonStep } from './lessons';
+export type { Lesson, LessonStep, QuizQuestion } from './lessons';
 export { CATALOG, getCatalogUrl, DIFF_COLORS, getRecommendedDifficulty, LESSON_PIECE_MAP, findLessonCatalogIndex } from './catalog';
 export type { CatalogEntry } from './catalog';
 export { PitchDetector } from './pitchDetector';
