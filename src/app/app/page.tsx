@@ -149,7 +149,12 @@ function reducer(state: AppState, action: Action): AppState {
     case 'NEXT_STEP': return { ...state, lessonStep: state.lessonStep + 1 };
     case 'PREV_STEP': return { ...state, lessonStep: state.lessonStep - 1 };
     case 'START_QUIZ': return { ...state, lessonPhase: 'quiz' };
-    case 'START_PIECE': return { ...state, lessonPhase: 'piece' };
+    case 'START_PIECE': {
+      // If lesson has quiz questions, go to quiz first; otherwise straight to piece
+      const currentLesson = lessons.find(l => l.id === state.currentLesson);
+      const hasQuiz = currentLesson?.quiz && currentLesson.quiz.length > 0;
+      return { ...state, lessonPhase: hasQuiz ? 'quiz' : 'piece' };
+    }
     case 'COMPLETE_LESSON': {
       const completed = state.lessonsCompleted.includes(state.currentLesson)
         ? state.lessonsCompleted
@@ -1079,13 +1084,12 @@ function LessonQuiz({ lesson, dispatch }: { lesson: Lesson; dispatch: React.Disp
 
   const quiz = lesson.quiz || [];
   if (quiz.length === 0) {
-    // No quiz questions — skip to piece
-    dispatch({ type: 'START_PIECE' });
+    dispatch({ type: 'UPDATE_FIELD', field: 'lessonPhase', value: 'piece' });
     return null;
   }
 
   const q = quiz[current];
-  if (!q) { dispatch({ type: 'START_PIECE' }); return null; }
+  if (!q) { dispatch({ type: 'UPDATE_FIELD', field: 'lessonPhase', value: 'piece' }); return null; }
 
   function handleAnswer(idx: number) {
     if (answered) return;
@@ -1098,7 +1102,7 @@ function LessonQuiz({ lesson, dispatch }: { lesson: Lesson; dispatch: React.Disp
   function next() {
     if (current + 1 >= quiz.length) {
       // Quiz done — go to piece
-      dispatch({ type: 'START_PIECE' });
+      dispatch({ type: 'UPDATE_FIELD', field: 'lessonPhase', value: 'piece' });
     } else {
       setCurrent(c => c + 1);
       setAnswered(false);
