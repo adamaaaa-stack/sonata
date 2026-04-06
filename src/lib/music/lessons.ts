@@ -26,6 +26,7 @@ export interface Lesson {
   piece: string;
   steps: LessonStep[];
   quiz: QuizQuestion[];
+  walkthrough?: string[];
   drill: DrillConfig;
   advance: number;
 }
@@ -174,6 +175,15 @@ export const lessons: Lesson[] = [
     { q:'What does "reading ahead" mean?', options:['Reading the title first','Looking 2-3 notes ahead of what you play','Reading the last note first','Reading backwards'], correct:1 },
     { q:'How should you check if something is a step or skip?', options:['Count the letter names','Check if notes touch or have a gap','Listen to the sound','Ask someone'], correct:1 },
   ],
+  walkthrough: [
+    "This is Ode to Joy by Beethoven. Let's read it together, bar by bar.",
+    "Bar 1: B B C D. The first two B's are the same note — a repeat. Then C is one step up. Then D is another step up. Three repeats/steps in a row!",
+    "Bar 2: D C B A. Now we go DOWN. D to C is a step down, C to B is a step down, B to A is a step down. Like walking down stairs.",
+    "Bar 3: G G A B. Same idea — G repeats, then step up to A, step up to B. See the pattern? This melody is almost ALL steps.",
+    "Bar 4: B holds for a bit (dotted quarter), then A, then A holds. The long notes let you breathe.",
+    "Bars 5-8 are the same as bars 1-4, but the ending is slightly different. The very last note is G instead of A. That's it — you just read your first real piece!",
+    "Now try playing it! Start on B (above Middle C). Walk up and down the white keys following the steps. You already know how.",
+  ],
   drill:{types:['noteNaming','interval','oddEven','pattern'],clefs:['treble','bass'],range:'staff',intervals:[2,3],timer:7,count:20}, advance:0.78 },
 
 // ============================================================
@@ -195,6 +205,14 @@ export const lessons: Lesson[] = [
     { q:'What is a pickup?', options:['A louder note','Notes before the first full bar','A rest','A fast note'], correct:1 },
     { q:'A tie means...', options:['Play the note twice','Hold through without replaying','Play louder','Play softer'], correct:1 },
     { q:'Syncopation means...', options:['Playing on the beat','Playing between beats (unexpected)','Playing slowly','Playing loudly'], correct:1 },
+  ],
+  walkthrough: [
+    "This is When the Saints Go Marching In. It starts with a PICKUP — notes before the first full bar.",
+    "The pickup notes are: C, E, F. These come before beat 1 of the first full bar.",
+    "Bar 1: G is a long note — hold it! Notice how some notes are half notes (held for 2 beats) and some are quarter notes (1 beat).",
+    "Look for the RESTS — those moments of silence. Don't rush through them. They're part of the music.",
+    "The melody mostly uses steps and small skips. C to E is a skip (jumping over D). E to F is a step.",
+    "Try counting along: the pickup is on beats 3 and 4, then bar 1 starts on beat 1 with the long G note.",
   ],
   drill:{types:['noteNaming','interval','oddEven'],clefs:['treble','bass'],range:'staff',intervals:[2,3],timer:7,count:20}, advance:0.75 },
 
@@ -218,6 +236,14 @@ export const lessons: Lesson[] = [
     { q:'A crescendo means...', options:['Get softer','Get louder','Get faster','Get slower'], correct:1 },
     { q:'The bass clef dots point at which note?', options:['C','G','F','A'], correct:2 },
   ],
+  walkthrough: [
+    "This is Gymnopédie No. 1 by Erik Satie, with both hands. Don't panic — the left hand is very simple!",
+    "RIGHT HAND (top staff): The melody goes F#, A, then rests. G, F#, C#. B, C#, D. Then A holds. Almost all steps and skips.",
+    "LEFT HAND (bottom staff): Just one chord per bar! The left hand plays a chord and holds it for the whole bar. Your left hand barely moves.",
+    "The piece is marked pp (very very soft). Play gently — like you're whispering. The softness IS the piece.",
+    "The time signature is 3/4 — three beats per bar. Feel the waltz: ONE two three, ONE two three.",
+    "Start with just the right hand. Once you can play the melody smoothly, add the left hand chords one bar at a time.",
+  ],
   drill:{types:['noteNaming','interval'],clefs:['treble','bass'],range:'staff',intervals:[2,3],timer:7,count:15}, advance:0.75 },
 
 // ============================================================
@@ -236,6 +262,15 @@ export const lessons: Lesson[] = [
     { q:'A 4th spans how many letter names?', options:['2','3','4','5'], correct:2 },
     { q:'A 5th is ODD, so on the staff it...', options:['Alternates types (line to space)','Matches types (both lines or both spaces)','Looks the same as a step','Is invisible'], correct:1 },
     { q:'A 4th is EVEN, so on the staff it...', options:['Matches types','Alternates types','Looks like a chord','Is very small'], correct:1 },
+  ],
+  walkthrough: [
+    "This is the opening of Für Elise by Beethoven. The most famous piano melody ever!",
+    "It starts with E, D# — that's a step down. Then back up to E. Then D# again, E again. It goes back and forth like a trill.",
+    "Then E, B, D, C — these are bigger jumps! E to B is a 4th (a leap). B to D is a skip. D to C is a step.",
+    "The note A appears next — C to A is a skip down. This is the 'landing' note of the phrase.",
+    "Then it goes C, E, A — building back up with skips. B holds, then E, G#, B — more skips going up.",
+    "The whole opening repeats! The same pattern twice. Once you learn the first 4 bars, you know the first 8.",
+    "Start SLOWLY. This piece has 16th notes — fast little notes. Begin at half speed and gradually speed up.",
   ],
   drill:{types:['noteNaming','interval','oddEven'],clefs:['treble','bass'],range:'staff',intervals:[2,3,4,5],timer:7,count:25}, advance:0.72 },
 
@@ -258,6 +293,14 @@ export const lessons: Lesson[] = [
     { q:'An accent (>) means...', options:['Play softer','Play shorter','Play that note louder','Hold longer'], correct:2 },
     { q:'A fermata means...', options:['Play fast','Hold the note longer than written','Rest','Repeat'], correct:1 },
   ],
+  walkthrough: [
+    "This is a Minuet with articulation marks. Watch for the dots, curves, and accents!",
+    "Bar 1: Four notes with DOTS above them (staccato). Play each one short and bouncy — press and release quickly.",
+    "Bar 2: A CURVED LINE (slur) connects four notes. Play these smooth and connected — hold each key until the next.",
+    "Bar 3: Some notes have ACCENTS (>). Hit those harder than the others. They should pop out.",
+    "Bar 4: TENUTO marks (horizontal lines) mean hold each note for its full value. Don't rush.",
+    "The very last note has a FERMATA (the eye shape). Hold it extra long — as long as feels right. Then you're done!",
+  ],
   drill:{types:['noteNaming','interval','articulation'],clefs:['treble','bass'],range:'staff',intervals:[2,3,4,5],timer:10,count:20}, advance:0.80 },
 
 // ============================================================
@@ -277,6 +320,13 @@ export const lessons: Lesson[] = [
     { q:'An accidental lasts until...', options:['The end of the piece','The end of the bar','The next note','Forever'], correct:1 },
     { q:'A natural sign...', options:['Makes a note louder','Cancels a sharp or flat','Adds a sharp','Ends the piece'], correct:1 },
   ],
+  walkthrough: [
+    "This melody is in G major — see the one sharp (F#) in the key signature? Every F you see is actually F-sharp.",
+    "That means on the piano, whenever you'd play F, play the black key ABOVE F instead. That's your only change from C major.",
+    "The melody starts on G and uses mostly steps and skips within the G major scale.",
+    "Watch for the F# — it appears naturally because it's in the key signature. You don't need a # symbol on each one.",
+    "Try playing the G major scale first: G, A, B, C, D, E, F#, G. Get your fingers used to that F#, then play the piece.",
+  ],
   drill:{types:['noteNaming','interval','keySignature'],clefs:['treble','bass'],range:'staff',intervals:[2,3,4,5],timer:10,count:20}, advance:0.75 },
 
 // ============================================================
@@ -294,6 +344,13 @@ export const lessons: Lesson[] = [
     { q:'When you see two notes stacked vertically, you should...', options:['Play only the top one','Play only the bottom one','Play both at the same time','Skip them'], correct:2 },
     { q:'To read two notes quickly, start with...', options:['The top note','The bottom note','Both at once','Neither'], correct:1 },
     { q:'Parallel motion means...', options:['Notes move in opposite directions','Both notes move the same way','Notes stay still','Notes get louder'], correct:1 },
+  ],
+  walkthrough: [
+    "This piece has TWO notes stacked together — played at the same time. Don't panic!",
+    "Each pair is a THIRD — both notes are on the same type (both lines or both spaces). Skip one key between them.",
+    "The pairs move in PARALLEL — both notes step up together, or both step down. Track the bottom note and the top follows.",
+    "The final bar has THREE notes stacked — a full chord! C, E, and G together. Press all three at once.",
+    "Start by playing just the bottom notes as a melody. Then add the top notes one bar at a time.",
   ],
   drill:{types:['noteNaming','interval','oddEven'],clefs:['treble','bass'],range:'staff',intervals:[2,3,4,5],timer:7,count:20}, advance:0.75 },
 
@@ -313,6 +370,13 @@ export const lessons: Lesson[] = [
     { q:'A triplet is...', options:['3 notes in the time of 2','2 notes in the time of 3','3 rests','A type of chord'], correct:0 },
     { q:'What word helps you feel a triplet?', options:['Hello','Bye','Pineapple','Stop'], correct:2 },
   ],
+  walkthrough: [
+    "Greensleeves! This piece has a lilting 3/4 feel. Count: ONE two three, ONE two three.",
+    "The melody uses dotted quarter notes — hold those for 1.5 beats. They create the characteristic long-short swing.",
+    "Watch for the eighth notes — they're the quick connecting notes between the longer ones.",
+    "The melody goes up with steps and skips, then comes back down. Follow the contour — the shape of the melody.",
+    "Start slowly. The dotted rhythm takes practice — count carefully: long, short, long, short.",
+  ],
   drill:{types:['noteNaming','interval','oddEven','pattern'],clefs:['treble','bass'],range:'staff',intervals:[2,3,4,5],timer:7,count:20}, advance:0.75 },
 
 // ============================================================
@@ -330,6 +394,13 @@ export const lessons: Lesson[] = [
     { q:'A phrase in music is like a...', options:['Single note','Sentence','Whole song','Rest'], correct:1 },
     { q:'What does "pp" mean?', options:['Very loud','Very soft','Medium','Fast'], correct:1 },
     { q:'A crescendo (<) means...', options:['Get softer','Get louder','Speed up','Slow down'], correct:1 },
+  ],
+  walkthrough: [
+    "This is the opening theme of Clair de Lune by Debussy. It's marked pp — extremely soft.",
+    "The key signature has 5 flats! That's a lot. But don't worry — just check which notes are flat and use those black keys.",
+    "The melody moves gently by steps: Db, F, Db... C, Db, C... Bb, C, Db, F, Db...",
+    "Notice the CRESCENDO mark (<) — gradually get louder through the middle, then DECRESCENDO (>) back to soft.",
+    "This piece breathes. Let the volume swell and recede like ocean waves. Don't rush — let every note ring.",
   ],
   drill:{types:['noteNaming','interval','oddEven'],clefs:['treble','bass'],range:'staff',intervals:[2,3,4,5],timer:7,count:20}, advance:0.78 },
 
@@ -349,6 +420,13 @@ export const lessons: Lesson[] = [
     { q:'6th is even, so it...', options:['Matches types','Alternates types','Looks tiny','Is invisible'], correct:1 },
     { q:'The best strategy for big jumps is...', options:['Look at your hands','Close your eyes','Read ahead and prepare','Play slower'], correct:2 },
   ],
+  walkthrough: [
+    "Arabesque No. 1 by Debussy. This one has BIG jumps — 6ths and larger.",
+    "The opening figure goes C#, E, F#, G# — flowing upward with a mix of steps and skips.",
+    "Then D#, B — a big leap DOWN. Commit to the jump. Don't hesitate.",
+    "The key has 4 sharps. Check the key signature: F#, C#, G#, D# are all sharp.",
+    "The melody flows like a stream — up and down with wide, graceful intervals. Let your hand glide.",
+  ],
   drill:{types:['noteNaming','interval','oddEven'],clefs:['treble','bass'],range:'ledger',intervals:[2,3,4,5,6,7],timer:5,count:25}, advance:0.70 },
 
 // ============================================================
@@ -367,6 +445,13 @@ export const lessons: Lesson[] = [
     { q:'The thumb tuck is...', options:['Moving thumb over fingers','Tucking thumb under other fingers to reach more keys','Pressing two keys at once','A type of chord'], correct:1 },
     { q:'When should you plan fingering?', options:['After playing','While playing','Before playing','Never'], correct:2 },
   ],
+  walkthrough: [
+    "Bach's Prelude in C! Every bar is the same PATTERN with different notes.",
+    "The pattern: play a low note, then arpeggiate up through a chord: C, E, G, C, E, then back to G, C, E.",
+    "Bar 2 uses a different chord (D minor) but the SAME finger pattern. Bar 3 is G7. Bar 4 is C again.",
+    "This piece is ALL about fingering. Plan which finger plays which note BEFORE you start.",
+    "Start very slowly — each note should be even and clear. Speed comes later. The beauty is in the evenness.",
+  ],
   drill:{types:['noteNaming','interval','pattern'],clefs:['treble','bass'],range:'staff',intervals:[2,3,4,5],timer:7,count:20}, advance:0.78 },
 
 // ============================================================
@@ -383,6 +468,13 @@ export const lessons: Lesson[] = [
     { q:'An arpeggio is...', options:['A chord played one note at a time','A scale','A rest','A loud note'], correct:0 },
     { q:'A triad is...', options:['Two notes','Three notes stacked in skips','Four notes','A rhythm pattern'], correct:1 },
     { q:'Moonlight Sonata 1st movement is built from...', options:['Scales','Arpeggios','Chords','Rests'], correct:1 },
+  ],
+  walkthrough: [
+    "Moonlight Sonata, 1st movement. The whole thing is ARPEGGIOS — rolling through chords.",
+    "Each beat has three notes (triplets) rolling through a chord shape. The pattern repeats every beat.",
+    "The left hand holds long bass notes while the right hand rolls. Focus on the right hand first.",
+    "It's marked pp (very soft) with the sustain pedal. Press the pedal and let everything blend together.",
+    "Learn one bar at a time. Each bar is a new chord but the same rolling pattern. Once you know the pattern, you just need to learn which chords.",
   ],
   drill:{types:['noteNaming','interval','pattern','oddEven'],clefs:['treble','bass'],range:'staff',intervals:[2,3,4,5],timer:7,count:20}, advance:0.75 },
 
@@ -402,6 +494,12 @@ export const lessons: Lesson[] = [
     { q:'D.C. means...', options:['Play quietly','Go back to the beginning','Go faster','End the piece'], correct:1 },
     { q:'Before playing a new piece, you should...', options:['Start immediately','Scan for repeat signs first','Play the last note first','Close your eyes'], correct:1 },
   ],
+  walkthrough: [
+    "This march has REPEAT SIGNS! See the two dots at the bar line? That means go back and play that section again.",
+    "Play bars 1-3, hit the repeat sign, go back to bar 1, play bars 1-3 again. THEN continue to bar 4.",
+    "After the repeat, bars 4-5 are new material — no repeats, just play straight through to the end.",
+    "Before playing, scan the whole piece for repeat signs. Map out the road: bars 1-3 twice, then 4-5 once.",
+  ],
   drill:{types:['noteNaming','interval','pattern','oddEven'],clefs:['treble','bass'],range:'staff',intervals:[2,3,4,5,6,7],timer:7,count:20}, advance:0.75 },
 
 // ============================================================
@@ -420,6 +518,13 @@ export const lessons: Lesson[] = [
     { q:'Ritardando means...', options:['Speed up','Slow down gradually','Get louder','Get softer'], correct:1 },
     { q:'A tempo means...', options:['Slow down','Speed up','Return to original speed','Stop'], correct:2 },
   ],
+  walkthrough: [
+    "The Entertainer by Scott Joplin! This is RAGTIME — the melody lands on unexpected beats (syncopation).",
+    "Listen for the rests ON the beat with notes BETWEEN beats. That's what gives ragtime its bounce.",
+    "The left hand keeps steady time while the right hand syncopates. Start with just the melody.",
+    "The dotted rhythms (long-short) should feel like a gentle swing. Not straight, not totally uneven — somewhere in between.",
+    "Start at HALF speed. Ragtime sounds great slow. Don't rush to full speed — enjoy the bounce.",
+  ],
   drill:{types:['noteNaming','interval','pattern','oddEven','articulation'],clefs:['treble','bass'],range:'ledger',intervals:[2,3,4,5,6,7],timer:5,count:25}, advance:0.72 },
 
 // ============================================================
@@ -437,6 +542,13 @@ export const lessons: Lesson[] = [
     { q:'Should you pedal through staccato?', options:['Yes always','No — they contradict','Sometimes','Only in jazz'], correct:1 },
     { q:'Overlap pedalling means...', options:['Pressing two pedals','Lifting and pressing the pedal at the same moment','Never using the pedal','Pressing harder'], correct:1 },
   ],
+  walkthrough: [
+    "Chopin's Nocturne Op. 9 No. 2. This needs the SUSTAIN PEDAL to sound right.",
+    "The left hand plays wide intervals — press the pedal to connect them. Without pedal, the bass dies before the melody arrives.",
+    "Use OVERLAP pedalling: lift and re-press the pedal each time the left hand chord changes.",
+    "The right hand melody should SING — smooth, connected, with gentle rubato (slight stretching of time).",
+    "This piece is all about expression. Play it like you're singing a love song. Every note should have emotion.",
+  ],
   drill:{types:['noteNaming','interval','articulation'],clefs:['treble','bass'],range:'ledger',intervals:[2,3,4,5,6,7],timer:7,count:20}, advance:0.78 },
 
 // ============================================================
@@ -453,6 +565,13 @@ export const lessons: Lesson[] = [
     { q:'Speed reading means...', options:['Playing faster','Seeing groups/patterns instead of individual notes','Skipping notes','Reading backwards'], correct:1 },
     { q:'You should read how far ahead?', options:['The current note only','One note ahead','A full bar ahead','The whole piece'], correct:2 },
     { q:'Stepwise passages need...', options:['Extra attention for each note','Less attention — they play themselves','To be skipped','To be played louder'], correct:1 },
+  ],
+  walkthrough: [
+    "Rondo Alla Turca by Mozart! This is FAST. The key is to see GROUPS, not individual notes.",
+    "The opening is a scale fragment going up then down — don't read each note, see 'scale up, scale down.'",
+    "Look for repeating patterns. The same 4-note figure appears over and over in different positions.",
+    "Read a full bar ahead. Your eyes should be processing the NEXT bar while your fingers play the current one.",
+    "Start at 50% speed. Even Mozart didn't sight-read this at full speed the first time.",
   ],
   drill:{types:['noteNaming','interval','pattern','oddEven'],clefs:['treble','bass'],range:'ledger',intervals:[2,3,4,5,6,7],timer:3,count:30}, advance:0.68 },
 
@@ -472,6 +591,13 @@ export const lessons: Lesson[] = [
     { q:'Polyrhythm is...', options:['One rhythm','Two different rhythms at once','A type of scale','A rest'], correct:1 },
     { q:'A fermata over a rest means...', options:['Skip the rest','Hold the silence','Play louder','Speed up'], correct:1 },
   ],
+  walkthrough: [
+    "Chopin's Nocturne Op. 9 No. 1. Rich rhythms — triplets, dotted notes, and rubato.",
+    "The left hand has a steady pattern. Learn it first — it stays mostly the same throughout.",
+    "The right hand melody has ornamental notes — little fast notes that decorate the main melody. Don't stress about making them perfect.",
+    "Use rubato: stretch time slightly on expressive notes, then catch up. The piece should breathe.",
+    "The most important thing is the SINGING quality of the melody. Make the right hand sing above the left hand accompaniment.",
+  ],
   drill:{types:['noteNaming','interval','pattern','oddEven','articulation'],clefs:['treble','bass'],range:'ledger',intervals:[2,3,4,5,6,7],timer:5,count:25}, advance:0.72 },
 
 // ============================================================
@@ -489,6 +615,15 @@ export const lessons: Lesson[] = [
     { q:'How should you learn a difficult piece?', options:['Play it at full speed immediately','Break it into sections and start slow','Skip the hard parts','Only play the easy sections'], correct:1 },
     { q:'When should you add speed?', options:['First','Second','Last, after everything else is right','Never'], correct:2 },
     { q:'The 3rd movement uses...', options:['Only steps','Only chords','Everything from all previous lessons','Only rhythm'], correct:2 },
+  ],
+  walkthrough: [
+    "The summit: Moonlight Sonata, 3rd movement. Everything you've learned, at full speed.",
+    "Break it into sections. Section 1: rapid arpeggios. This is Lesson 17 (arpeggios) at top speed.",
+    "Section 2: scale runs connecting themes. This is Lesson 16 (scales) and Lesson 3 (steps).",
+    "Section 3: a beautiful singing melody — the EASIEST section. Mostly steps, mostly slow.",
+    "Practice each section separately at 50% speed. Get every note right, every fingering planned.",
+    "Then 75%. Then connect sections. Speed comes ABSOLUTELY LAST. This is how professionals learn.",
+    "You started knowing nothing about piano. Now you're reading one of the most complex pieces ever written. That's incredible.",
   ],
   drill:{types:['noteNaming','interval','pattern','oddEven','articulation'],clefs:['treble','bass'],range:'ledger',intervals:[2,3,4,5,6,7],timer:3,count:30}, advance:0.68 },
 

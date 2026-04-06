@@ -1168,6 +1168,9 @@ function LessonPiece({ lesson, state, dispatch, loadScore, playScore }: {
 }) {
   const ci = findLessonCatalogIndex(lesson.id);
   const scoreRef = useRef<HTMLDivElement>(null);
+  const wt = lesson.walkthrough || [];
+  const [wtStep, setWtStep] = useState(0);
+  const [wtDone, setWtDone] = useState(wt.length === 0);
 
   useEffect(() => {
     if (ci < 0) { dispatch({ type: 'COMPLETE_LESSON' }); saveLessonComplete(state.user!.id, state.currentLesson, 1.0); recordPractice(); return; }
@@ -1190,15 +1193,46 @@ function LessonPiece({ lesson, state, dispatch, loadScore, playScore }: {
       <div ref={scoreRef} style={{ minHeight: 300, padding: '16px 0', overflowX: 'auto' }}>
         <LoadingSpinner text="Loading score..." />
       </div>
-      <ScorePlaybackControls playScore={playScore} />
-      <div style={{ marginTop: 12, textAlign: 'center' }}>
-        <button style={{ ...s.primaryBtn, maxWidth: 250, margin: '0 auto' }} onClick={() => {
-          stopScorePlayback();
-          dispatch({ type: 'COMPLETE_LESSON' });
-          if (state.user) saveLessonComplete(state.user.id, state.currentLesson, 1.0);
-          recordPractice();
-        }}>Complete Lesson</button>
-      </div>
+
+      {/* Walkthrough */}
+      {!wtDone && wt.length > 0 && (
+        <div style={{ margin: '12px 0' }}>
+          <div style={{ fontSize: 11, color: 'var(--text3)', textTransform: 'uppercase', letterSpacing: '0.08em', fontWeight: 500, marginBottom: 6 }}>
+            Walkthrough {wtStep + 1}/{wt.length}
+          </div>
+          <div style={{
+            padding: 16, background: 'var(--bg2)', border: '1px solid rgba(200,169,110,0.15)',
+            borderRadius: 14, fontSize: 14, lineHeight: 1.7, color: 'var(--text2)',
+          }}>
+            {wt[wtStep]}
+          </div>
+          <div style={{ display: 'flex', gap: 8, justifyContent: 'center', marginTop: 10 }}>
+            {wtStep > 0 && (
+              <button style={s.navBtn} onClick={() => setWtStep(s => s - 1)}>Previous</button>
+            )}
+            {wtStep < wt.length - 1 ? (
+              <button style={s.navBtnPrimary} onClick={() => setWtStep(s => s + 1)}>Next</button>
+            ) : (
+              <button style={s.navBtnPrimary} onClick={() => setWtDone(true)}>Got it! →</button>
+            )}
+          </div>
+        </div>
+      )}
+
+      {/* Playback + Complete (shown after walkthrough) */}
+      {wtDone && (
+        <>
+          <ScorePlaybackControls playScore={playScore} />
+          <div style={{ marginTop: 12, textAlign: 'center' }}>
+            <button style={{ ...s.primaryBtn, maxWidth: 250, margin: '0 auto' }} onClick={() => {
+              stopScorePlayback();
+              dispatch({ type: 'COMPLETE_LESSON' });
+              if (state.user) saveLessonComplete(state.user.id, state.currentLesson, 1.0);
+              recordPractice();
+            }}>Complete Lesson</button>
+          </div>
+        </>
+      )}
     </>
   );
 }
