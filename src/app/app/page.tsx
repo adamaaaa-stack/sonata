@@ -46,7 +46,7 @@ import {
   genRhythmDrill,
   getPool, rnd, ri,
   playCorrectSound, playWrongSound, playNote, playPianoKey,
-  playScoreNotes, stopScorePlayback,
+  playScoreNotes, stopScorePlayback, loadPianoSamples,
   type ScoreNote,
   speak, stopSpeaking, togglePause, toggleSlow, replaySpeak, getTTSSpeed, setTTSStateCallback,
   getIntervalAccuracy, updateIntervalAccuracy, getWeakestIntervals, recordPractice, getPracticeDates,
@@ -179,6 +179,8 @@ export default function SonataApp() {
   // ---- Init: auth + progress ----
   useEffect(() => {
     setTTSStateCallback(setTtsState);
+    // Load piano samples in background (non-blocking)
+    loadPianoSamples().catch(() => {});
     (async () => {
       const user = await checkAuth();
       if (!user) { router.push('/login'); return; }
@@ -479,29 +481,116 @@ function PianoKeyboard({ startMidi = 48, endMidi = 84, highlights = {}, fingers 
   startMidi?: number; endMidi?: number; highlights?: Record<number, string>; fingers?: Record<number, number>;
   onClick?: (midi: number) => void; showNames?: boolean;
 }) {
-  const keys: React.ReactNode[] = [];
-  for (let m = startMidi; m <= endMidi; m++) {
-    if (isBlack(m)) continue;
-    keys.push(
-      <div key={m} className="sonata-key-white" style={{ ...s.keyWhite, position: 'relative' }} onClick={() => { playPianoKey(m); onClick?.(m); }}>
-        {showNames && <span className="sonata-note-name" style={s.keyNoteName}>{NOTES[m % 12]}</span>}
-        {highlights[m] && <div style={{ ...s.keyHighlight, background: highlights[m] }} />}
-        {fingers[m] && <div style={s.fingerBadge}>{fingers[m]}</div>}
-      </div>
-    );
-    const nb = m + 1;
-    if (nb <= endMidi && isBlack(nb)) {
-      keys.push(
-        <div key={nb} className="sonata-key-black" style={{ ...s.keyBlack, position: 'relative' }} onClick={() => { playPianoKey(nb); onClick?.(nb); }}>
-          {highlights[nb] && <div style={{ ...s.keyHighlight, background: highlights[nb], opacity: 0.5 }} />}
-          {fingers[nb] && <div style={{ ...s.fingerBadge, background: 'var(--text)', color: 'var(--bg)' }}>{fingers[nb]}</div>}
-        </div>
-      );
-    }
+  const [pressed, setPressed] = useState<Set<number>>(new Set());
+
+  function handlePress(m: number) {
+    playPianoKey(m);
+    onClick?.(m);
+    setPressed(p => { const n = new Set(p); n.add(m); return n; });
+    setTimeout(() => setPressed(p => { const n = new Set(p); n.delete(m); return n; }), 200);
   }
+
+  // Build white keys with relative positioning for blacks
+  const whiteKeys: number[] = [];
+  for (let m = startMidi; m <= endMidi; m++) {
+    if (!isBlack(m)) whiteKeys.push(m);
+  }
+
   return (
-    <div style={s.pianoContainer} className="sonata-piano-container">
-      <div style={s.piano}>{keys}</div>
+    <div className="sonata-piano-container" style={{
+      marginTop: 'auto', padding: '16px 0 8px',
+      borderTop: '1px solid rgba(200,169,110,0.1)',
+      display: 'flex', justifyContent: 'center',
+      overflowX: 'auto', WebkitOverflowScrolling: 'touch',
+    }}>
+      <div style={{ position: 'relative', display: 'flex' }}>
+        {whiteKeys.map((m) => {
+          const isC = m % 12 === 0;
+          const isActive = pressed.has(m);
+          const hl = highlights[m];
+          return (
+            <div key={m} className="sonata-key-white"
+              onMouseDown={() => handlePress(m)}
+              onTouchStart={(e) => { e.preventDefault(); handlePress(m); }}
+              style={{
+                width: 38, height: 140,
+                background: isActive
+                  ? 'linear-gradient(180deg, #D8D4CC, #C8C4BC)'
+                  : 'linear-gradient(180deg, #FAFAF6, #EBE7DF)',
+                border: '1px solid #B8B4AC', borderTop: 'none',
+                borderRadius: '0 0 6px 6px',
+                display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-end',
+                paddingBottom: 6, cursor: 'pointer', position: 'relative', zIndex: 1,
+                boxShadow: isActive
+                  ? 'inset 0 2px 4px rgba(0,0,0,0.15)'
+                  : '0 6px 12px rgba(0,0,0,0.35), inset 0 -3px 0 rgba(0,0,0,0.04)',
+                transition: 'box-shadow 0.08s, background 0.08s',
+                userSelect: 'none',
+              }}>
+              {hl && <div style={{
+                position: 'absolute', inset: 0, borderRadius: 'inherit',
+                background: hl, opacity: 0.35, pointerEvents: 'none',
+              }} />}
+              {fingers[m] && <div style={{
+                position: 'absolute', top: 10, width: 20, height: 20, borderRadius: '50%',
+                background: '#0C0A09', color: '#C8A96E',
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                fontSize: 11, fontWeight: 600, pointerEvents: 'none', zIndex: 3,
+              }}>{fingers[m]}</div>}
+              {showNames && (
+                <span style={{
+                  fontSize: isC ? 10 : 8, fontWeight: isC ? 600 : 400,
+                  color: isC ? '#666' : '#AAA',
+                  fontFamily: 'var(--sans)', pointerEvents: 'none',
+                  lineHeight: 1,
+                }}>
+                  {isC ? `C${Math.floor(m / 12) - 1}` : NOTES[m % 12]}
+                </span>
+              )}
+            </div>
+          );
+        })}
+        {/* Black keys — absolutely positioned over the white keys */}
+        {whiteKeys.map((m, i) => {
+          const nb = m + 1;
+          if (nb > endMidi || !isBlack(nb)) return null;
+          const isActive = pressed.has(nb);
+          const hl = highlights[nb];
+          return (
+            <div key={nb} className="sonata-key-black"
+              onMouseDown={(e) => { e.stopPropagation(); handlePress(nb); }}
+              onTouchStart={(e) => { e.preventDefault(); e.stopPropagation(); handlePress(nb); }}
+              style={{
+                position: 'absolute',
+                left: (i + 1) * 38 - 12,
+                top: 0, width: 24, height: 90,
+                background: isActive
+                  ? 'linear-gradient(180deg, #444, #222)'
+                  : 'linear-gradient(180deg, #333, #111)',
+                border: '1px solid #000', borderTop: 'none',
+                borderRadius: '0 0 4px 4px',
+                zIndex: 2, cursor: 'pointer',
+                boxShadow: isActive
+                  ? 'inset 0 1px 3px rgba(0,0,0,0.5)'
+                  : '0 4px 8px rgba(0,0,0,0.6), inset 0 -2px 0 rgba(255,255,255,0.05)',
+                transition: 'box-shadow 0.08s, background 0.08s',
+                userSelect: 'none',
+              }}>
+              {hl && <div style={{
+                position: 'absolute', inset: 0, borderRadius: 'inherit',
+                background: hl, opacity: 0.4, pointerEvents: 'none',
+              }} />}
+              {fingers[nb] && <div style={{
+                position: 'absolute', top: 8, left: '50%', transform: 'translateX(-50%)',
+                width: 16, height: 16, borderRadius: '50%',
+                background: '#FAFAF9', color: '#0C0A09',
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                fontSize: 9, fontWeight: 600, pointerEvents: 'none', zIndex: 3,
+              }}>{fingers[nb]}</div>}
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 }
@@ -1459,11 +1548,7 @@ const s: Record<string, React.CSSProperties> = {
   ansBtnWrong: { background: 'var(--red-bg)', borderColor: 'var(--red)', color: 'var(--red)' },
   pianoContainer: { marginTop: 'auto', padding: '20px 0 8px', borderTop: '1px solid rgba(200,169,110,0.15)', display: 'flex', justifyContent: 'center' },
   piano: { display: 'flex', position: 'relative', justifyContent: 'center' },
-  keyWhite: { width: 36, height: 130, background: 'linear-gradient(180deg,#F5F5F0,#E8E4DC)', border: '1px solid #C8C4BC', borderTop: 'none', borderRadius: '0 0 5px 5px', zIndex: 1, display: 'flex', alignItems: 'flex-end', justifyContent: 'center', paddingBottom: 8, boxShadow: '0 4px 8px rgba(0,0,0,.4),inset 0 -2px 0 rgba(0,0,0,.04)', cursor: 'pointer' },
-  keyBlack: { width: 22, height: 80, background: 'linear-gradient(180deg,#333,#111)', border: '1px solid #000', borderTop: 'none', borderRadius: '0 0 3px 3px', marginLeft: -11, marginRight: -11, zIndex: 2, boxShadow: '0 4px 8px rgba(0,0,0,.6),inset 0 -1px 0 rgba(255,255,255,.06)', cursor: 'pointer' },
-  keyNoteName: { fontSize: 8, color: '#999', pointerEvents: 'none' },
-  keyHighlight: { position: 'absolute', inset: 0, borderRadius: 'inherit', opacity: 0.4, pointerEvents: 'none' },
-  fingerBadge: { position: 'absolute', top: 10, left: '50%', transform: 'translateX(-50%)', width: 18, height: 18, borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 10, fontWeight: 600, pointerEvents: 'none', zIndex: 3, background: 'var(--bg)', color: 'var(--gold)' },
+  // Piano styles are now inline in the PianoKeyboard component
   resultRow: { display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '10px 0', borderBottom: '1px solid rgba(255,255,255,0.04)' },
   resultName: { fontSize: 14, fontWeight: 300 },
   resultBadge: { padding: '3px 14px', borderRadius: 20, fontSize: 12, fontWeight: 500 },
