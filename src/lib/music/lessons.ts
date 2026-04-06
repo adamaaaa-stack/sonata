@@ -35,7 +35,7 @@ export const lessons: Lesson[] = [
 // ============================================================
 // LESSON 1: Meet the Piano
 // ============================================================
-{ id:1, title:'Meet the Piano', sub:'Your first look at the keyboard', piece:'Happy Birthday',
+{ id:1, title:'Meet the Piano', sub:'Your first look at the keyboard', piece:'',
   steps: [
     { text:"Welcome! You're about to learn to read music. But first — let's look at the piano itself. See the keys below? The WHITE keys are the main notes. The BLACK keys are in between. That's all a piano is — white keys and black keys, over and over.", abc:'', piano:{} },
     { text:"Look at the black keys carefully. See how they come in groups? Some groups have 2 black keys together, and some have 3 black keys together. This pattern repeats all the way across the piano. 2, then 3, then 2, then 3. Find a group of 2 black keys on the piano below.", abc:'', piano:{[61]:'#C8A96E',[63]:'#C8A96E'} },
@@ -65,7 +65,7 @@ export const lessons: Lesson[] = [
 // ============================================================
 // LESSON 2: The Pulse
 // ============================================================
-{ id:2, title:'The Pulse', sub:'Music has a heartbeat', piece:'Twinkle Twinkle (Rhythm)',
+{ id:2, title:'The Pulse', sub:'Music has a heartbeat', piece:'',
   steps: [
     { text:"Before we read more notes, let's talk about TIMING. Music isn't just about WHICH note — it's about WHEN you play it. Imagine clapping your hands steadily: clap, clap, clap, clap. That steady clap is called the BEAT. Every piece of music has a beat, like a heartbeat.", abc:'', piano:{} },
     { text:"Try it now — tap your finger on the table steadily, like a clock ticking. Tick, tick, tick, tick. That's the beat! When you play piano, your notes line up with this beat. Some notes land right on the beat. Some go between beats. But the beat is always there underneath.", abc:'', piano:{} },
@@ -87,7 +87,7 @@ export const lessons: Lesson[] = [
 // ============================================================
 // LESSON 3: Steps
 // ============================================================
-{ id:3, title:'Steps', sub:'Moving to the next-door note', piece:'Ode to Joy',
+{ id:3, title:'Steps', sub:'Moving to the next-door note', piece:'',
   steps: [
     { text:"Now here's where it gets exciting. Instead of figuring out each note by name (which is slow), we're going to learn a SHORTCUT. Look at how far each note is from the LAST note. This distance is called an INTERVAL. And the smallest interval is a STEP.", abc:makeABC(['C4','D4'],'treble'), piano:{[60]:'#4ADE80',[62]:'#4ADE80'} },
     { text:"A step is moving to the very next note — like going from C to D, or from E to F. On the piano, it's the key RIGHT NEXT to the one you just played. On the staff, the two notes are TOUCHING — one is on a line, the other is in the space right next to it.", abc:makeABC(['E4','F4'],'treble'), piano:{[64]:'#4ADE80',[65]:'#4ADE80'} },
@@ -111,7 +111,7 @@ export const lessons: Lesson[] = [
 // ============================================================
 // LESSON 4: Note Values (How Long)
 // ============================================================
-{ id:4, title:'How Long to Hold Each Note', sub:'Some notes are long, some are short', piece:'Amazing Grace (Simple)',
+{ id:4, title:'How Long to Hold Each Note', sub:'Some notes are long, some are short', piece:'',
   steps: [
     { text:"You know WHICH notes to play. Now let's learn HOW LONG to hold each one. Different shaped notes last for different amounts of time. It's like words in a sentence — some are short ('hi') and some are long ('hellooooo').", abc:'', piano:{} },
     { text:"The QUARTER NOTE is a filled-in (black) circle with a stick. It gets 1 beat — just one tap of your foot. This is the most common note. When you see a black circle with a stick, play it and move on in one beat.", abc:'X:1\nM:4/4\nL:1/4\nK:C\nC D E F |', piano:{} },
@@ -135,7 +135,7 @@ export const lessons: Lesson[] = [
 // ============================================================
 // LESSON 5: Skips
 // ============================================================
-{ id:5, title:'Skips', sub:'Jumping over a note', piece:'Minuet in G (Simple)',
+{ id:5, title:'Skips', sub:'Jumping over a note', piece:'',
   steps: [
     { text:"You know steps — moving to the next-door note. Now let's learn SKIPS. A skip JUMPS OVER one note. Instead of C to D (step), it's C to E (skip) — you jumped over D. On the piano, you skip one white key.", abc:makeABC(['C4','E4'],'treble'), piano:{[60]:'#FACC15',[64]:'#FACC15'} },
     { text:"How to spot a skip on the staff: both notes are on the SAME TYPE. Both on lines, or both in spaces. There's a little gap between them — they're NOT touching like steps are.", abc:makeABC(['E4','G4'],'treble'), piano:{[64]:'#FACC15',[67]:'#FACC15'} },
@@ -158,7 +158,7 @@ export const lessons: Lesson[] = [
 // ============================================================
 // LESSON 6: Steps & Skips Together
 // ============================================================
-{ id:6, title:'Steps & Skips Together', sub:'Reading music like reading words', piece:'Gymnopédie No. 1 (Melody)',
+{ id:6, title:'Steps & Skips Together', sub:'Reading music like reading words', piece:'Ode to Joy',
   steps: [
     { text:"Here's a crazy fact: about 80% of all melodies are JUST steps and skips. That means with what you already know, you can read most music! Now we need to get FAST at telling them apart — no hesitating.", abc:makeABC(['C4','D4','E4','G4','F4','E4'],'treble'), piano:{} },
     { text:"Quick check: Notes touching (alternate types) = STEP. Notes with a gap (matching types) = SKIP. That's your instant test. See two notes? Check: touching or gap? Match or alternate? Done.", abc:makeABC(['F4','G4','F4','A4'],'treble'), piano:{} },

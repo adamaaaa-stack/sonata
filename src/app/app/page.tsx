@@ -1000,7 +1000,7 @@ function LessonsListScreen({ state, dispatch }: { state: AppState; dispatch: Rea
               <div style={{ ...s.lessonNum, color: complete ? 'var(--green)' : locked ? 'var(--bg4)' : 'var(--gold)' }}>{l.id}</div>
               <div style={{ flex: 1 }}>
                 <div style={{ fontSize: 14, fontWeight: 500 }}>{l.title}</div>
-                <div style={{ fontSize: 12, color: 'var(--text3)', marginTop: 3 }}>{l.sub} · {l.piece}</div>
+                <div style={{ fontSize: 12, color: 'var(--text3)', marginTop: 3 }}>{l.sub}{l.piece ? ` · ${l.piece}` : ''}</div>
               </div>
               <div style={{ fontSize: 16 }}>{complete ? '✓' : locked ? '🔒' : '→'}</div>
             </div>
@@ -1148,7 +1148,7 @@ function LessonQuiz({ lesson, dispatch }: { lesson: Lesson; dispatch: React.Disp
         </div>
         {answered && (
           <button style={{ ...s.primaryBtn, maxWidth: 200, margin: '16px auto 0' }} onClick={next}>
-            {current + 1 >= quiz.length ? 'Play the piece →' : 'Next question'}
+            {current + 1 >= quiz.length ? (lesson.piece ? 'Play the piece →' : 'Finish lesson →') : 'Next question'}
           </button>
         )}
       </div>
@@ -1208,7 +1208,7 @@ function LessonComplete({ lesson, dispatch }: { lesson: Lesson; dispatch: React.
         <div style={{ fontFamily: 'var(--serif)', fontSize: 56, fontWeight: 400, color: 'var(--green)' }}>✓</div>
         <p style={{ color: 'var(--text2)', margin: '16px 0', lineHeight: 1.6 }}>
           You&apos;ve mastered: <b style={{ color: 'var(--text)' }}>{lesson.title}</b><br />
-          Piece: <b style={{ color: 'var(--text)' }}>{lesson.piece}</b>
+          {lesson.piece && <>Piece: <b style={{ color: 'var(--text)' }}>{lesson.piece}</b></>}
         </p>
         {nextLesson
           ? <button style={s.primaryBtn} onClick={() => dispatch({ type: 'START_LESSON', id: nextLesson.id })}>Next: {nextLesson.title} →</button>

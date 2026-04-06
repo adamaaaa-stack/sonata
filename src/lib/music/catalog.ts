@@ -179,12 +179,8 @@ export function getRecommendedDifficulty(lessonsCompletedCount: number): string 
 
 // Lesson piece mapping
 export const LESSON_PIECE_MAP: Record<number, string> = {
-  1: 'Happy Birthday',              // Staff & Anchor Notes
-  2: 'Twinkle Twinkle (Rhythm)',     // The Pulse
-  3: 'Ode to Joy',                   // Steps
-  4: 'Amazing Grace (Simple)',       // Note Values
-  5: 'Minuet in G (Simple)',         // Skips & Odd/Even
-  6: 'Gymnopédie No. 1 (Melody)',    // Steps & Skips Combined
+  // Lessons 1-5: no piece — student isn't ready yet
+  6: 'Ode to Joy',                   // Steps & Skips Combined — first piece!
   7: 'When the Saints (Simple)',     // Counting & Subdivision
   8: 'Gymnopédie No. 1 (Both Hands)',// Both Hands & Dynamics
   9: 'Für Elise (Opening)',          // Small Leaps
