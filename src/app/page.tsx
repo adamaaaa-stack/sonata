@@ -14,8 +14,59 @@ export default function LandingPage() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        name: "Sonata",
+        url: "https://learnwithsonata.com",
+        description:
+          "Learn to read piano sheet music in days, not years. The Sonata method teaches reading by distance, not memorisation.",
+        inLanguage: "en-US",
+      },
+      {
+        "@type": "EducationalOrganization",
+        name: "Sonata",
+        url: "https://learnwithsonata.com",
+        logo: "https://learnwithsonata.com/icon.svg",
+        description:
+          "Interactive piano sheet music reading lessons using the interval method.",
+        founder: { "@type": "Person", name: "Adam Morris" },
+      },
+      {
+        "@type": "Course",
+        name: "Learn to Read Piano Sheet Music — The Sonata Method",
+        description:
+          "23 interactive lessons teaching you to read piano sheet music from scratch, using the revolutionary interval-reading method. Goes from zero experience to playing Moonlight Sonata.",
+        provider: {
+          "@type": "Organization",
+          name: "Sonata",
+          sameAs: "https://learnwithsonata.com",
+        },
+        educationalLevel: "beginner",
+        teaches: [
+          "Reading piano sheet music",
+          "Music theory",
+          "Sight reading",
+          "Interval recognition",
+          "Rhythm reading",
+        ],
+        hasCourseInstance: {
+          "@type": "CourseInstance",
+          courseMode: "online",
+          courseWorkload: "PT10H",
+        },
+      },
+    ],
+  };
+
   return (
     <div style={styles.page}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       {/* Ambient glow */}
       <div
         style={{
