@@ -250,15 +250,19 @@ export default function SonataApp() {
         } catch { /* MIDI not available */ }
       }
 
-      if (!isOnboarded()) {
-        // New user: show placement quiz (or onboarding if already placed)
-        if (getPlacementResult() === null) {
-          dispatch({ type: 'SET_SCREEN', screen: 'placement' });
-        } else {
-          dispatch({ type: 'SET_SCREEN', screen: 'onboarding' });
-        }
-      } else {
+      // Determine starting screen
+      const hasDBProgress = progress && progress.lessonsCompleted.length > 0;
+      const hasLocalProgress = isOnboarded();
+
+      if (hasDBProgress || hasLocalProgress) {
+        // Returning user — go to menu
         dispatch({ type: 'SET_SCREEN', screen: 'menu' });
+      } else if (getPlacementResult() !== null) {
+        // Took placement quiz but hasn't finished onboarding
+        dispatch({ type: 'SET_SCREEN', screen: 'onboarding' });
+      } else {
+        // Brand new user — placement quiz
+        dispatch({ type: 'SET_SCREEN', screen: 'placement' });
       }
     })();
     return () => { if (timerRef.current) clearInterval(timerRef.current); };
