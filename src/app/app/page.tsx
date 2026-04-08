@@ -409,15 +409,30 @@ export default function SonataApp() {
       // Patch TempoExpressions crash
       try { for (const m of instance.Sheet.SourceMeasures) { if (m.TempoExpressions) m.TempoExpressions.length = 0; } } catch {}
       instance.render();
-      // Dark theme recoloring
-      setTimeout(() => {
+      // Dark theme: inject CSS rule to invert all black SVG elements
+      // This is more reliable than querySelectorAll — catches dynamically rendered elements
+      const style = document.createElement('style');
+      style.textContent = `
+        .sonata-score-dark svg { background: transparent !important; }
+        .sonata-score-dark svg [fill="#000000"], .sonata-score-dark svg [fill="#000"], .sonata-score-dark svg [fill="black"] { fill: #FAFAF9 !important; }
+        .sonata-score-dark svg [stroke="#000000"], .sonata-score-dark svg [stroke="#000"], .sonata-score-dark svg [stroke="black"] { stroke: #FAFAF9 !important; }
+        .sonata-score-dark svg rect[fill="white"], .sonata-score-dark svg rect[fill="#ffffff"], .sonata-score-dark svg rect[fill="#FFFFFF"] { fill: transparent !important; }
+      `;
+      container.appendChild(style);
+      container.classList.add('sonata-score-dark');
+      // Also do a one-time pass for elements without explicit attributes
+      requestAnimationFrame(() => {
         container.querySelectorAll('svg *').forEach(el => {
           const fill = el.getAttribute('fill');
           const stroke = el.getAttribute('stroke');
           if (fill === '#000000' || fill === '#000' || fill === 'black') el.setAttribute('fill', '#FAFAF9');
           if (stroke === '#000000' || stroke === '#000' || stroke === 'black') el.setAttribute('stroke', '#FAFAF9');
+          // Hide white background rects
+          if (el.tagName === 'rect' && (fill === 'white' || fill === '#ffffff' || fill === '#FFFFFF' || fill === '#fff')) {
+            el.setAttribute('fill', 'transparent');
+          }
         });
-      }, 100);
+      });
       osmdInstanceRef.current = instance;
     } catch (e) {
       container.innerHTML = `<div style="color:var(--red);text-align:center;padding:40px">Failed to load score.<br><span style="font-size:12px;color:var(--text3)">${(e as Error).message || ''}</span></div>`;
@@ -1821,13 +1836,20 @@ function RhythmScreen({ dispatch }: { dispatch: React.Dispatch<Action> }) {
 
   useEffect(() => { setPattern(genRhythmDrill()); }, []);
 
+  function registerTap() {
+    if (!running) return;
+    setHits(h => [...h, performance.now() - startTime]);
+    playNote(72, 0.08);
+  }
+
   useEffect(() => {
     if (!running) return;
     const handler = (e: KeyboardEvent) => {
-      if (e.key === ' ') { e.preventDefault(); setHits(h => [...h, performance.now() - startTime]); playNote(72, 0.08); }
+      if (e.key === ' ') { e.preventDefault(); registerTap(); }
     };
     document.addEventListener('keydown', handler);
     return () => document.removeEventListener('keydown', handler);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [running, startTime]);
 
   function start() {
@@ -1880,16 +1902,34 @@ function RhythmScreen({ dispatch }: { dispatch: React.Dispatch<Action> }) {
             </div>
           ))}
         </div>
-        <div style={{ textAlign: 'center', minHeight: 28, margin: '12px 0', fontSize: 14, color: 'var(--text3)' }}>
-          {result ? <span style={{ color: result.score / result.total >= 0.7 ? 'var(--green)' : 'var(--red)' }}>{Math.round(result.score / result.total * 100)}% accuracy ({result.score}/{result.total} beats)</span>
-            : 'Tap spacebar or tap the screen in time with the pattern'}
-        </div>
+        {/* Tap zone — works on mobile */}
+        {running ? (
+          <div
+            onTouchStart={(e) => { e.preventDefault(); registerTap(); }}
+            onClick={() => registerTap()}
+            style={{
+              background: 'rgba(200,169,110,0.06)', border: '2px dashed rgba(200,169,110,0.2)',
+              borderRadius: 14, padding: '40px 20px', margin: '12px 0', cursor: 'pointer',
+              textAlign: 'center', fontSize: 18, color: 'var(--gold)', fontFamily: 'var(--serif)',
+              userSelect: 'none', WebkitTapHighlightColor: 'transparent',
+            }}
+          >
+            Tap here
+            <div style={{ fontSize: 12, color: 'var(--text3)', marginTop: 8, fontFamily: 'var(--sans)' }}>
+              or press spacebar
+            </div>
+          </div>
+        ) : (
+          <div style={{ textAlign: 'center', minHeight: 28, margin: '12px 0', fontSize: 14, color: 'var(--text3)' }}>
+            {result ? <span style={{ color: result.score / result.total >= 0.7 ? 'var(--green)' : 'var(--red)' }}>{Math.round(result.score / result.total * 100)}% accuracy ({result.score}/{result.total} beats)</span>
+              : 'Tap in time with the rhythm pattern'}
+          </div>
+        )}
         <div style={{ textAlign: 'center', margin: '16px 0' }}>
           <button style={{ ...s.primaryBtn, maxWidth: 200, margin: '0 auto' }} onClick={() => { if (result) { setPattern(genRhythmDrill()); setResult(null); } else start(); }} disabled={running}>
             {running ? 'Listening...' : result ? 'Try again' : 'Start'}
           </button>
         </div>
-        <div style={{ fontSize: 10, color: 'var(--bg4)', textAlign: 'center', marginTop: 4 }}>Space = tap · Esc = back</div>
       </div>
     </>
   );
