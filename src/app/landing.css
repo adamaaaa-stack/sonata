@@ -55,7 +55,4 @@
   .landing-cta-title {
     font-size: 28px !important;
   }
-  .landing-pricing-grid {
-    grid-template-columns: 1fr !important;
-  }
 }

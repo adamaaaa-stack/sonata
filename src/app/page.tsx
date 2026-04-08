@@ -88,7 +88,6 @@ export default function LandingPage() {
         <div style={styles.navLinks} className="landing-nav-links">
           <a href="#method" style={styles.navLink}>Method</a>
           <a href="#features" style={styles.navLink}>Features</a>
-          <a href="#pricing" style={styles.navLink}>Pricing</a>
           <a href="#story" style={styles.navLink}>Story</a>
           <a href="/login" style={styles.navCta}>Start learning</a>
         </div>
@@ -348,63 +347,33 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* Pricing */}
-      <section id="pricing" style={{ ...styles.section, background: "#1C1917" }}>
-        <div style={styles.sectionInner}>
-          <h2 style={styles.sectionTitle} className="landing-section-title">Simple pricing</h2>
-          <p style={styles.sectionSub}>Start free for 7 days. Cancel anytime.</p>
-          <div style={styles.pricingGrid} className="landing-pricing-grid">
-            <div style={styles.pricingCard}>
-              <div style={styles.pricingLabel}>Free trial</div>
-              <div style={styles.pricingPrice}>$0</div>
-              <div style={styles.pricingPeriod}>for 7 days</div>
-              <ul style={styles.pricingList}>
-                <li style={styles.pricingItem}>All 23 lessons</li>
-                <li style={styles.pricingItem}>Full piece library</li>
-                <li style={styles.pricingItem}>Interval drills</li>
-                <li style={styles.pricingItem}>Score playback</li>
-              </ul>
-              <a href="/login" style={{ ...styles.primaryBtn, width: '100%', textAlign: 'center', boxSizing: 'border-box' }}>
-                Start free trial
-              </a>
-            </div>
-            <div style={{ ...styles.pricingCard, borderColor: 'rgba(200,169,110,0.3)', background: 'linear-gradient(135deg, rgba(200,169,110,0.06) 0%, #0C0A09 60%)' }}>
-              <div style={{ ...styles.pricingLabel, color: '#C8A96E' }}>Premium</div>
-              <div style={styles.pricingPrice}>$10</div>
-              <div style={styles.pricingPeriod}>per month</div>
-              <ul style={styles.pricingList}>
-                <li style={styles.pricingItem}>Everything in free trial</li>
-                <li style={styles.pricingItem}>AI-generated exercises</li>
-                <li style={styles.pricingItem}>MIDI keyboard support</li>
-                <li style={styles.pricingItem}>Unlimited access forever</li>
-              </ul>
-              <button onClick={() => {
-                const win = window as unknown as Record<string, unknown>;
-                const launchCheckout = () => {
-                  const FS = win.FS as { Checkout: new (o: Record<string, unknown>) => { open: (o: Record<string, unknown>) => void } };
-                  const h = new FS.Checkout({ product_id: '27412', plan_id: '45340', public_key: 'pk_a254fd50651f91cca27fc33788017', image: 'https://learnwithsonata.com/icon.svg' });
-                  h.open({ name: 'Sonata', licenses: 1, trial_period: 7, success: () => { window.location.href = '/login'; } });
-                };
-                if (!win.FS) {
-                  const sc = document.createElement('script'); sc.src = 'https://checkout.freemius.com/js/v1/';
-                  sc.onload = launchCheckout; document.head.appendChild(sc);
-                } else { launchCheckout(); }
-              }} style={{ ...styles.primaryBtn, width: '100%', textAlign: 'center', boxSizing: 'border-box', border: 'none', cursor: 'pointer' }}>
-                Subscribe
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* CTA */}
-      <section style={{ ...styles.section, textAlign: "center" as const }}>
+      <section
+        style={{
+          ...styles.section,
+          background: "#1C1917",
+          textAlign: "center" as const,
+        }}
+      >
         <div style={styles.sectionInner}>
-          <h2 style={{ ...styles.sectionTitle, fontSize: 40, lineHeight: 1.2 }}>
+          <h2
+            style={{
+              ...styles.sectionTitle,
+              fontSize: 40,
+              lineHeight: 1.2,
+            }}
+          >
             Your Gymnop&eacute;die moment<br />is one night away.
           </h2>
-          <p style={{ ...styles.sectionSub, maxWidth: 480, margin: "0 auto 32px" }}>
-            Free to start. No credit card. 23 lessons from zero to reading real sheet music.
+          <p
+            style={{
+              ...styles.sectionSub,
+              maxWidth: 480,
+              margin: "0 auto 32px",
+            }}
+          >
+            Free to start. No credit card. 23 lessons from zero to reading real
+            sheet music.
           </p>
           <a href="/login" style={{ ...styles.primaryBtn, fontSize: 17, padding: "16px 48px" }}>
             Start learning now
@@ -760,53 +729,5 @@ const styles: Record<string, React.CSSProperties> = {
   footerText: {
     fontSize: 12,
     color: "#44403C",
-  },
-  pricingGrid: {
-    display: "grid",
-    gridTemplateColumns: "1fr 1fr",
-    gap: 16,
-    maxWidth: 640,
-    margin: "0 auto",
-  },
-  pricingCard: {
-    padding: "32px 28px",
-    background: "#0C0A09",
-    border: "1px solid #292524",
-    borderRadius: 14,
-    display: "flex",
-    flexDirection: "column",
-  },
-  pricingLabel: {
-    fontSize: 12,
-    textTransform: "uppercase" as const,
-    letterSpacing: "0.08em",
-    color: "#78716C",
-    fontWeight: 500,
-    marginBottom: 12,
-  },
-  pricingPrice: {
-    fontFamily: "'Instrument Serif', Georgia, serif",
-    fontSize: 48,
-    fontWeight: 400,
-    lineHeight: 1,
-    marginBottom: 4,
-  },
-  pricingPeriod: {
-    fontSize: 13,
-    color: "#78716C",
-    marginBottom: 24,
-  },
-  pricingList: {
-    listStyle: "none",
-    padding: 0,
-    margin: "0 0 24px 0",
-    flex: 1,
-  },
-  pricingItem: {
-    fontSize: 13,
-    color: "#A8A29E",
-    lineHeight: 2.2,
-    paddingLeft: 20,
-    position: "relative" as const,
   },
 };

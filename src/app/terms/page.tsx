@@ -23,10 +23,7 @@ export default function TermsPage() {
         <h2 style={p.h2}>5. Intellectual Property</h2>
         <p style={p.text}>The lesson content, app design, and code are owned by Sonata. Sheet music from third-party sources (MuseTrainer, music21 corpus) is used under their respective licenses. The musical compositions themselves are in the public domain.</p>
 
-        <h2 style={p.h2}>6. Subscriptions &amp; Payments</h2>
-        <p style={p.text}>Some features may require a paid subscription. Payments are processed securely through our payment provider. You can cancel your subscription at any time. Refunds are handled on a case-by-case basis.</p>
-
-        <h2 style={p.h2}>7. Termination</h2>
+        <h2 style={p.h2}>6. Termination</h2>
         <p style={p.text}>We may terminate or suspend your account for violation of these terms. You may delete your account at any time through the account settings page.</p>
 
         <h2 style={p.h2}>8. Limitation of Liability</h2>

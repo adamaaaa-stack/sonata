@@ -57,7 +57,6 @@ import type { Question, DrillConfig, RhythmPattern, CatalogEntry, Lesson } from 
 import { checkAuth, signOut, loadProgress, saveDrillSession, saveLessonComplete } from "@/lib/supabaseData";
 import type { User } from "@supabase/supabase-js";
 import { initPurchases, getSubscriptionState, purchaseSubscription, restorePurchases, getProductInfo } from "@/lib/subscriptions";
-import { isNative } from "@/lib/platform";
 import type { SubscriptionState } from "@/lib/subscriptions";
 import "./sonata.css";
 
@@ -92,7 +91,7 @@ interface AppState {
   currentScoreIndex: number;
   // MIDI
   midiConnected: boolean;
-  // Subscription
+  // Subscription (native app only — web is free)
   subscriptionState: SubscriptionState | null;
 }
 
@@ -135,9 +134,7 @@ function reducer(state: AppState, action: Action): AppState {
     case 'LOAD_PROGRESS': return { ...state, lessonsCompleted: action.lessonsCompleted, drillHistory: new Array(action.drillCount) };
     case 'START_DRILL': {
       const sub = state.subscriptionState;
-      if (sub && !sub.isSubscribed && !sub.trialActive) {
-        return { ...state, screen: 'paywall' };
-      }
+      if (sub && !sub.isSubscribed && !sub.trialActive) return { ...state, screen: 'paywall' };
       return { ...state, screen: 'drill', drillConfig: action.config, questions: action.questions, currentQ: 0, score: 0, streak: 0, bestStreak: 0, timedOut: 0, results: [], timeLeft: action.config.timer ? action.config.timer * 10 : 0 };
     }
     case 'ANSWER': {
@@ -159,9 +156,7 @@ function reducer(state: AppState, action: Action): AppState {
     case 'TIMER_TICK': return { ...state, timeLeft: state.timeLeft - 1 };
     case 'START_LESSON': {
       const sub = state.subscriptionState;
-      if (sub && !sub.isSubscribed && !sub.trialActive) {
-        return { ...state, screen: 'paywall' };
-      }
+      if (sub && !sub.isSubscribed && !sub.trialActive) return { ...state, screen: 'paywall' };
       return { ...state, screen: 'lesson', currentLesson: action.id, lessonStep: 0, lessonPhase: 'concepts' };
     }
     case 'NEXT_STEP': return { ...state, lessonStep: state.lessonStep + 1 };
@@ -228,8 +223,8 @@ export default function SonataApp() {
         }
       }
 
-      // Subscription init
-      await initPurchases(user.id);
+      // Subscription init (native app paywall — web is free)
+      await initPurchases();
       const subState = await getSubscriptionState();
       dispatch({ type: 'UPDATE_FIELD', field: 'subscriptionState', value: subState });
 
@@ -1733,8 +1728,7 @@ function SightReadingScreen({ dispatch, renderNotation }: {
 // ============================================================
 // SCREEN: RHYTHM
 // ============================================================
-// ============================================================
-// PAYWALL SCREEN
+// PAYWALL SCREEN (native app only — web is free)
 // ============================================================
 function PaywallScreen({ dispatch, onSubscriptionChange }: { dispatch: React.Dispatch<Action>; onSubscriptionChange: (s: SubscriptionState) => void }) {
   const [loading, setLoading] = useState(false);
@@ -1746,30 +1740,24 @@ function PaywallScreen({ dispatch, onSubscriptionChange }: { dispatch: React.Dis
   }, []);
 
   async function handleSubscribe() {
-    setLoading(true);
-    setError('');
+    setLoading(true); setError('');
     const success = await purchaseSubscription();
     if (success) {
       const sub = await getSubscriptionState();
       onSubscriptionChange(sub);
       dispatch({ type: 'SET_SCREEN', screen: 'menu' });
-    } else {
-      setError('Purchase was not completed. Please try again.');
-    }
+    } else { setError('Purchase was not completed. Please try again.'); }
     setLoading(false);
   }
 
   async function handleRestore() {
-    setLoading(true);
-    setError('');
+    setLoading(true); setError('');
     const success = await restorePurchases();
     if (success) {
       const sub = await getSubscriptionState();
       onSubscriptionChange(sub);
       dispatch({ type: 'SET_SCREEN', screen: 'menu' });
-    } else {
-      setError('No previous purchases found.');
-    }
+    } else { setError('No previous purchases found.'); }
     setLoading(false);
   }
 
@@ -1782,12 +1770,10 @@ function PaywallScreen({ dispatch, onSubscriptionChange }: { dispatch: React.Dis
       <p style={{ color: '#A8A29E', fontSize: 14, marginBottom: 32, lineHeight: 1.6 }}>
         Subscribe to continue learning with all 23 lessons, drills, 400+ pieces, and AI exercises.
       </p>
-
       <div style={{ background: '#1C1917', border: '1px solid #292524', borderRadius: 14, padding: '24px 20px', marginBottom: 20 }}>
         <div style={{ fontSize: 32, fontWeight: 600, color: '#FAFAF9', marginBottom: 4 }}>{price}<span style={{ fontSize: 14, fontWeight: 300, color: '#78716C' }}>/month</span></div>
-        <div style={{ fontSize: 12, color: '#78716C' }}>{isNative() ? 'Cancel anytime' : '7-day free trial, then cancel anytime'}</div>
+        <div style={{ fontSize: 12, color: '#78716C' }}>Cancel anytime</div>
       </div>
-
       <ul style={{ textAlign: 'left', color: '#D6D3D1', fontSize: 13, lineHeight: 2, listStyle: 'none', padding: 0, marginBottom: 24 }}>
         <li>✓ 23 interactive lessons</li>
         <li>✓ Interval drills with spaced repetition</li>
@@ -1796,21 +1782,15 @@ function PaywallScreen({ dispatch, onSubscriptionChange }: { dispatch: React.Dis
         <li>✓ AI-generated exercises</li>
         <li>✓ MIDI keyboard support</li>
       </ul>
-
       {error && <p style={{ color: '#F87171', fontSize: 13, marginBottom: 12 }}>{error}</p>}
-
       <button onClick={handleSubscribe} disabled={loading}
         style={{ width: '100%', padding: '14px 0', background: '#C8A96E', color: '#0C0A09', border: 'none', borderRadius: 10, fontSize: 15, fontWeight: 500, cursor: 'pointer', fontFamily: "'Outfit', system-ui, sans-serif", marginBottom: 12, opacity: loading ? 0.6 : 1 }}>
-        {loading ? '...' : isNative() ? 'Subscribe' : 'Start Free Trial'}
+        {loading ? '...' : 'Subscribe'}
       </button>
-
-      {isNative() && (
-        <button onClick={handleRestore} disabled={loading}
-          style={{ width: '100%', padding: '12px 0', background: 'transparent', color: '#78716C', border: '1px solid #292524', borderRadius: 10, fontSize: 13, cursor: 'pointer', fontFamily: "'Outfit', system-ui, sans-serif", marginBottom: 12 }}>
-          Restore Purchases
-        </button>
-      )}
-
+      <button onClick={handleRestore} disabled={loading}
+        style={{ width: '100%', padding: '12px 0', background: 'transparent', color: '#78716C', border: '1px solid #292524', borderRadius: 10, fontSize: 13, cursor: 'pointer', fontFamily: "'Outfit', system-ui, sans-serif", marginBottom: 12 }}>
+        Restore Purchases
+      </button>
       <button onClick={() => dispatch({ type: 'SET_SCREEN', screen: 'menu' })}
         style={{ background: 'none', border: 'none', color: '#44403C', fontSize: 12, cursor: 'pointer', fontFamily: "'Outfit', system-ui, sans-serif" }}>
         Back to menu
