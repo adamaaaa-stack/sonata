@@ -50,18 +50,21 @@ import {
   type ScoreNote,
   speak, stopSpeaking, togglePause, toggleSlow, replaySpeak, getTTSSpeed, setTTSStateCallback,
   getIntervalAccuracy, updateIntervalAccuracy, getWeakestIntervals, recordPractice, getPracticeDates,
-  getStoredLessons, setStoredLessons, getStoredDrills, setStoredDrills, isOnboarded, setOnboarded,
+  getStoredLessons, setStoredLessons, getStoredDrills, setStoredDrills, isOnboarded, setOnboarded, getPlacementResult, setPlacementResult,
   lessons, CATALOG, getCatalogUrl, DIFF_COLORS, getRecommendedDifficulty, findLessonCatalogIndex,
 } from "@/lib/music";
 import type { Question, DrillConfig, RhythmPattern, CatalogEntry, Lesson } from "@/lib/music";
 import { checkAuth, signOut, loadProgress, saveDrillSession, saveLessonComplete } from "@/lib/supabaseData";
 import type { User } from "@supabase/supabase-js";
+import { initPurchases, getSubscriptionState, purchaseSubscription, restorePurchases, getProductInfo } from "@/lib/subscriptions";
+import { isNative } from "@/lib/platform";
+import type { SubscriptionState } from "@/lib/subscriptions";
 import "./sonata.css";
 
 // ============================================================
 // STATE
 // ============================================================
-type Screen = 'loading'|'onboarding'|'menu'|'config'|'drill'|'results'|'lessons'|'lesson'|'library'|'progress'|'sightReading'|'rhythm';
+type Screen = 'loading'|'onboarding'|'placement'|'menu'|'config'|'drill'|'results'|'lessons'|'lesson'|'library'|'progress'|'sightReading'|'rhythm'|'paywall';
 
 interface AppState {
   screen: Screen;
@@ -89,6 +92,8 @@ interface AppState {
   currentScoreIndex: number;
   // MIDI
   midiConnected: boolean;
+  // Subscription
+  subscriptionState: SubscriptionState | null;
 }
 
 type Action =
@@ -120,6 +125,7 @@ const initialState: AppState = {
   drillHistory: getStoredDrills(),
   libFilter: 'all', libSearch: '', currentScoreIndex: -1,
   midiConnected: false,
+  subscriptionState: null,
 };
 
 function reducer(state: AppState, action: Action): AppState {
@@ -127,7 +133,13 @@ function reducer(state: AppState, action: Action): AppState {
     case 'SET_SCREEN': return { ...state, screen: action.screen };
     case 'SET_USER': return { ...state, user: action.user };
     case 'LOAD_PROGRESS': return { ...state, lessonsCompleted: action.lessonsCompleted, drillHistory: new Array(action.drillCount) };
-    case 'START_DRILL': return { ...state, screen: 'drill', drillConfig: action.config, questions: action.questions, currentQ: 0, score: 0, streak: 0, bestStreak: 0, timedOut: 0, results: [], timeLeft: action.config.timer ? action.config.timer * 10 : 0 };
+    case 'START_DRILL': {
+      const sub = state.subscriptionState;
+      if (sub && !sub.isSubscribed && !sub.trialActive) {
+        return { ...state, screen: 'paywall' };
+      }
+      return { ...state, screen: 'drill', drillConfig: action.config, questions: action.questions, currentQ: 0, score: 0, streak: 0, bestStreak: 0, timedOut: 0, results: [], timeLeft: action.config.timer ? action.config.timer * 10 : 0 };
+    }
     case 'ANSWER': {
       const ok = action.picked === action.correct;
       const q = state.questions[state.currentQ];
@@ -145,7 +157,13 @@ function reducer(state: AppState, action: Action): AppState {
     case 'NEXT_QUESTION': return { ...state, currentQ: state.currentQ + 1, timeLeft: state.drillConfig?.timer ? state.drillConfig.timer * 10 : 0 };
     case 'END_DRILL': return { ...state, screen: 'results' };
     case 'TIMER_TICK': return { ...state, timeLeft: state.timeLeft - 1 };
-    case 'START_LESSON': return { ...state, screen: 'lesson', currentLesson: action.id, lessonStep: 0, lessonPhase: 'concepts' };
+    case 'START_LESSON': {
+      const sub = state.subscriptionState;
+      if (sub && !sub.isSubscribed && !sub.trialActive) {
+        return { ...state, screen: 'paywall' };
+      }
+      return { ...state, screen: 'lesson', currentLesson: action.id, lessonStep: 0, lessonPhase: 'concepts' };
+    }
     case 'NEXT_STEP': return { ...state, lessonStep: state.lessonStep + 1 };
     case 'PREV_STEP': return { ...state, lessonStep: state.lessonStep - 1 };
     case 'START_QUIZ': return { ...state, lessonPhase: 'quiz' };
@@ -196,6 +214,12 @@ export default function SonataApp() {
       const progress = await loadProgress(user.id);
       if (progress) {
         dispatch({ type: 'LOAD_PROGRESS', lessonsCompleted: progress.lessonsCompleted, drillCount: progress.drillCount });
+        // Sync DB progress to localStorage so it persists offline
+        if (progress.lessonsCompleted.length > 0) {
+          setStoredLessons(progress.lessonsCompleted);
+          // If user has DB progress, they've already onboarded — skip placement/onboarding
+          setOnboarded();
+        }
         if (Object.keys(progress.intervalAccuracy).length > 0) {
           localStorage.setItem('sonata_interval_acc', JSON.stringify(progress.intervalAccuracy));
         }
@@ -203,6 +227,11 @@ export default function SonataApp() {
           localStorage.setItem('sonata_practice_dates', JSON.stringify(progress.practiceDates));
         }
       }
+
+      // Subscription init
+      await initPurchases(user.id);
+      const subState = await getSubscriptionState();
+      dispatch({ type: 'UPDATE_FIELD', field: 'subscriptionState', value: subState });
 
       // MIDI init
       if (navigator.requestMIDIAccess) {
@@ -227,7 +256,12 @@ export default function SonataApp() {
       }
 
       if (!isOnboarded()) {
-        dispatch({ type: 'SET_SCREEN', screen: 'onboarding' });
+        // New user: show placement quiz (or onboarding if already placed)
+        if (getPlacementResult() === null) {
+          dispatch({ type: 'SET_SCREEN', screen: 'placement' });
+        } else {
+          dispatch({ type: 'SET_SCREEN', screen: 'onboarding' });
+        }
       } else {
         dispatch({ type: 'SET_SCREEN', screen: 'menu' });
       }
@@ -450,6 +484,7 @@ export default function SonataApp() {
     <ErrorBoundary>
       <div style={s.page} className="sonata-page">
         <div style={s.app} className="sonata-app">
+          {state.screen === 'placement' && <PlacementScreen dispatch={dispatch} renderNotation={renderNotation} />}
           {state.screen === 'onboarding' && <OnboardingScreen slide={onboardSlide} setSlide={setOnboardSlide} dispatch={dispatch} renderNotation={renderNotation} />}
           {state.screen === 'menu' && <MenuScreen state={state} dispatch={dispatch} />}
           {state.screen === 'config' && <ConfigScreen dispatch={dispatch} startDrill={startDrill} />}
@@ -461,6 +496,7 @@ export default function SonataApp() {
           {state.screen === 'progress' && <ProgressScreen state={state} dispatch={dispatch} />}
           {state.screen === 'sightReading' && <SightReadingScreen dispatch={dispatch} renderNotation={renderNotation} />}
           {state.screen === 'rhythm' && <RhythmScreen dispatch={dispatch} />}
+          {state.screen === 'paywall' && <PaywallScreen dispatch={dispatch} onSubscriptionChange={(sub) => dispatch({ type: 'UPDATE_FIELD', field: 'subscriptionState', value: sub })} />}
         </div>
       </div>
     </ErrorBoundary>
@@ -628,6 +664,135 @@ function NotationDisplay({ abc, width = 350 }: { abc: string; width?: number }) 
 // ============================================================
 // SCREEN: ONBOARDING
 // ============================================================
+// ============================================================
+// PLACEMENT QUIZ — Assess skill level and skip to the right lesson
+// ============================================================
+const PLACEMENT_QUESTIONS = [
+  // Q1-2: Basic note reading (L1-3 concepts)
+  { q: 'Which note is on the second line of the treble clef?', options: ['C', 'G', 'A', 'B'], correct: 1, abc: 'X:1\nM:4/4\nL:1/4\nK:clef=treble\nG4 |' },
+  { q: 'Notes on the bass clef fourth line (between the dots) are...', options: ['C', 'G', 'F', 'A'], correct: 2, abc: 'X:1\nM:4/4\nL:1/4\nK:clef=bass\nF3 |' },
+  // Q3-4: Intervals — steps and skips (L4-5)
+  { q: 'C to E is what interval?', options: ['2nd (step)', '3rd (skip)', '4th (leap)', '5th'], correct: 1, abc: 'X:1\nM:4/4\nL:1/4\nK:clef=treble\nC E |' },
+  { q: 'An odd interval (3rd, 5th) on the staff means both notes are on...', options: ['The same type (lines or spaces)', 'Different types (line and space)', 'Ledger lines', 'Any position'], correct: 0, abc: '' },
+  // Q5-6: Both clefs, dynamics (L8-9)
+  { q: 'In a grand staff, the top staff uses which clef?', options: ['Bass clef', 'Treble clef', 'Alto clef', 'No clef'], correct: 1, abc: '' },
+  { q: 'The dynamic marking "f" means...', options: ['Fast', 'Flat', 'Forte (loud)', 'Finish'], correct: 2, abc: '' },
+  // Q7-8: Key signatures, accidentals (L11)
+  { q: 'One sharp in the key signature means the key of...', options: ['C major', 'D major', 'G major', 'F major'], correct: 2, abc: 'X:1\nM:4/4\nL:1/4\nK:G\nG A B d |' },
+  { q: 'An accidental lasts until...', options: ['The end of the piece', 'The end of the bar', 'The next note', 'Forever'], correct: 1, abc: '' },
+];
+
+function PlacementScreen({ dispatch, renderNotation }: { dispatch: React.Dispatch<Action>; renderNotation: (abc: string, el: HTMLDivElement | null, w?: number) => void }) {
+  const [step, setStep] = useState<'intro' | 'quiz' | 'result'>('intro');
+  const [qIndex, setQIndex] = useState(0);
+  const [score, setScore] = useState(0);
+  const [answered, setAnswered] = useState(-1);
+  const notRef = useRef<HTMLDivElement>(null);
+  const q = PLACEMENT_QUESTIONS[qIndex];
+
+  useEffect(() => {
+    if (step === 'quiz' && q?.abc) renderNotation(q.abc, notRef.current, 250);
+  }, [step, qIndex, q?.abc, renderNotation]);
+
+  const startLesson = score <= 2 ? 1 : score <= 4 ? 6 : score <= 6 ? 11 : 16;
+  const levelNames = ['Complete Beginner', 'Knows the Basics', 'Intermediate', 'Advanced'];
+  const levelIndex = score <= 2 ? 0 : score <= 4 ? 1 : score <= 6 ? 2 : 3;
+
+  function handleAnswer(idx: number) {
+    if (answered >= 0) return;
+    setAnswered(idx);
+    const correct = idx === q.correct;
+    if (correct) setScore(s => s + 1);
+    setTimeout(() => {
+      setAnswered(-1);
+      if (qIndex < PLACEMENT_QUESTIONS.length - 1) {
+        setQIndex(i => i + 1);
+      } else {
+        setStep('result');
+      }
+    }, 600);
+  }
+
+  if (step === 'intro') {
+    return (
+      <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', padding: '32px 20px' }}>
+        <div style={{ fontFamily: 'var(--serif)', fontSize: 36, color: 'var(--gold)', marginBottom: 8 }}>Sonata</div>
+        <p style={{ color: 'var(--text2)', fontSize: 15, textAlign: 'center', maxWidth: 380, lineHeight: 1.7, marginBottom: 8 }}>
+          Learn to read piano sheet music by distance, not memorisation.
+        </p>
+        <p style={{ color: 'var(--text3)', fontSize: 13, textAlign: 'center', maxWidth: 380, lineHeight: 1.6, marginBottom: 32 }}>
+          Answer a few quick questions so we can find the right starting point for you.
+        </p>
+        <button style={s.primaryBtn} onClick={() => setStep('quiz')}>Start</button>
+        <button onClick={() => { setPlacementResult(1); dispatch({ type: 'SET_SCREEN', screen: 'onboarding' }); }}
+          style={{ background: 'none', border: 'none', color: 'var(--text3)', fontSize: 12, cursor: 'pointer', fontFamily: 'var(--sans)', marginTop: 16 }}>
+          I&apos;m a complete beginner — skip quiz
+        </button>
+      </div>
+    );
+  }
+
+  if (step === 'result') {
+    return (
+      <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', padding: '32px 20px' }}>
+        <div style={{ fontSize: 40, marginBottom: 16 }}>
+          {levelIndex === 0 ? '🌱' : levelIndex === 1 ? '🎵' : levelIndex === 2 ? '🎶' : '🎹'}
+        </div>
+        <div style={{ fontFamily: 'var(--serif)', fontSize: 28, color: 'var(--gold)', marginBottom: 8 }}>
+          {levelNames[levelIndex]}
+        </div>
+        <p style={{ color: 'var(--text2)', fontSize: 14, textAlign: 'center', maxWidth: 360, lineHeight: 1.6, marginBottom: 8 }}>
+          You got {score} out of {PLACEMENT_QUESTIONS.length} right.
+        </p>
+        <p style={{ color: 'var(--text3)', fontSize: 13, textAlign: 'center', maxWidth: 360, lineHeight: 1.6, marginBottom: 32 }}>
+          {startLesson === 1 ? "We'll start from the very beginning — no prior knowledge needed." :
+           `We'll start you at Lesson ${startLesson} and mark earlier lessons as complete.`}
+        </p>
+        <button style={s.primaryBtn} onClick={() => {
+          setPlacementResult(startLesson);
+          dispatch({ type: 'SET_SCREEN', screen: 'onboarding' });
+        }}>Continue</button>
+      </div>
+    );
+  }
+
+  // Quiz step
+  return (
+    <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', padding: '32px 20px' }}>
+      <div style={{ color: 'var(--text3)', fontSize: 12, marginBottom: 16 }}>
+        Question {qIndex + 1} of {PLACEMENT_QUESTIONS.length}
+      </div>
+      <div style={{ display: 'flex', gap: 4, marginBottom: 24 }}>
+        {PLACEMENT_QUESTIONS.map((_, i) => (
+          <div key={i} style={{ width: i === qIndex ? 16 : 6, height: 6, borderRadius: 3, background: i === qIndex ? 'var(--gold)' : i < qIndex ? 'var(--green)' : 'var(--bg4)', transition: 'all 0.3s' }} />
+        ))}
+      </div>
+      <div style={{ fontFamily: 'var(--serif)', fontSize: 20, color: 'var(--text1)', textAlign: 'center', maxWidth: 380, marginBottom: 16, lineHeight: 1.4 }}>
+        {q.q}
+      </div>
+      {q.abc && <div ref={notRef} style={{ minHeight: 80, marginBottom: 8 }} />}
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 10, width: '100%', maxWidth: 360, marginTop: 8 }}>
+        {q.options.map((opt, i) => {
+          const isCorrect = i === q.correct;
+          const picked = answered === i;
+          let bg = 'var(--bg2)';
+          let border = '1px solid var(--bg3)';
+          if (answered >= 0) {
+            if (isCorrect) { bg = 'rgba(74,222,128,0.15)'; border = '1px solid var(--green)'; }
+            else if (picked) { bg = 'rgba(248,113,113,0.15)'; border = '1px solid #F87171'; }
+          }
+          return (
+            <button key={i} onClick={() => handleAnswer(i)}
+              style={{ padding: '14px 16px', background: bg, border, borderRadius: 10, color: 'var(--text1)', fontSize: 14, cursor: 'pointer', fontFamily: 'var(--sans)', textAlign: 'left', transition: 'all 0.2s' }}>
+              {opt}
+            </button>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
 function OnboardingScreen({ slide, setSlide, dispatch, renderNotation }: {
   slide: number; setSlide: (s: number) => void; dispatch: React.Dispatch<Action>;
   renderNotation: (abc: string, el: HTMLDivElement | null, w?: number) => void;
@@ -654,8 +819,18 @@ function OnboardingScreen({ slide, setSlide, dispatch, renderNotation }: {
       </div>
       <button style={s.primaryBtn} onClick={() => {
         if (slide < slides.length - 1) setSlide(slide + 1);
-        else { setOnboarded(); dispatch({ type: 'START_LESSON', id: 1 }); }
-      }}>{slide < slides.length - 1 ? 'Next' : 'Start Lesson 1'}</button>
+        else {
+          setOnboarded();
+          const startAt = getPlacementResult() || 1;
+          // Auto-complete lessons before the starting point
+          if (startAt > 1) {
+            const prior = Array.from({ length: startAt - 1 }, (_, i) => i + 1);
+            setStoredLessons(prior);
+            dispatch({ type: 'LOAD_PROGRESS', lessonsCompleted: prior, drillCount: 0 });
+          }
+          dispatch({ type: 'SET_SCREEN', screen: 'menu' });
+        }
+      }}>{slide < slides.length - 1 ? 'Next' : `Let's go`}</button>
     </div>
   );
 }
@@ -1558,6 +1733,92 @@ function SightReadingScreen({ dispatch, renderNotation }: {
 // ============================================================
 // SCREEN: RHYTHM
 // ============================================================
+// ============================================================
+// PAYWALL SCREEN
+// ============================================================
+function PaywallScreen({ dispatch, onSubscriptionChange }: { dispatch: React.Dispatch<Action>; onSubscriptionChange: (s: SubscriptionState) => void }) {
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
+  const [price, setPrice] = useState('$9.99');
+
+  useEffect(() => {
+    getProductInfo().then(info => { if (info) setPrice(info.priceString); });
+  }, []);
+
+  async function handleSubscribe() {
+    setLoading(true);
+    setError('');
+    const success = await purchaseSubscription();
+    if (success) {
+      const sub = await getSubscriptionState();
+      onSubscriptionChange(sub);
+      dispatch({ type: 'SET_SCREEN', screen: 'menu' });
+    } else {
+      setError('Purchase was not completed. Please try again.');
+    }
+    setLoading(false);
+  }
+
+  async function handleRestore() {
+    setLoading(true);
+    setError('');
+    const success = await restorePurchases();
+    if (success) {
+      const sub = await getSubscriptionState();
+      onSubscriptionChange(sub);
+      dispatch({ type: 'SET_SCREEN', screen: 'menu' });
+    } else {
+      setError('No previous purchases found.');
+    }
+    setLoading(false);
+  }
+
+  return (
+    <div style={{ padding: 24, textAlign: 'center', maxWidth: 400, margin: '0 auto' }}>
+      <div style={{ fontSize: 48, marginBottom: 16 }}>♪</div>
+      <h2 style={{ fontFamily: "'Instrument Serif', Georgia, serif", fontSize: 28, color: '#C8A96E', marginBottom: 8 }}>
+        Your free trial has ended
+      </h2>
+      <p style={{ color: '#A8A29E', fontSize: 14, marginBottom: 32, lineHeight: 1.6 }}>
+        Subscribe to continue learning with all 23 lessons, drills, 400+ pieces, and AI exercises.
+      </p>
+
+      <div style={{ background: '#1C1917', border: '1px solid #292524', borderRadius: 14, padding: '24px 20px', marginBottom: 20 }}>
+        <div style={{ fontSize: 32, fontWeight: 600, color: '#FAFAF9', marginBottom: 4 }}>{price}<span style={{ fontSize: 14, fontWeight: 300, color: '#78716C' }}>/month</span></div>
+        <div style={{ fontSize: 12, color: '#78716C' }}>{isNative() ? 'Cancel anytime' : '7-day free trial, then cancel anytime'}</div>
+      </div>
+
+      <ul style={{ textAlign: 'left', color: '#D6D3D1', fontSize: 13, lineHeight: 2, listStyle: 'none', padding: 0, marginBottom: 24 }}>
+        <li>✓ 23 interactive lessons</li>
+        <li>✓ Interval drills with spaced repetition</li>
+        <li>✓ 400+ piece library</li>
+        <li>✓ Score playback & sight-reading mode</li>
+        <li>✓ AI-generated exercises</li>
+        <li>✓ MIDI keyboard support</li>
+      </ul>
+
+      {error && <p style={{ color: '#F87171', fontSize: 13, marginBottom: 12 }}>{error}</p>}
+
+      <button onClick={handleSubscribe} disabled={loading}
+        style={{ width: '100%', padding: '14px 0', background: '#C8A96E', color: '#0C0A09', border: 'none', borderRadius: 10, fontSize: 15, fontWeight: 500, cursor: 'pointer', fontFamily: "'Outfit', system-ui, sans-serif", marginBottom: 12, opacity: loading ? 0.6 : 1 }}>
+        {loading ? '...' : isNative() ? 'Subscribe' : 'Start Free Trial'}
+      </button>
+
+      {isNative() && (
+        <button onClick={handleRestore} disabled={loading}
+          style={{ width: '100%', padding: '12px 0', background: 'transparent', color: '#78716C', border: '1px solid #292524', borderRadius: 10, fontSize: 13, cursor: 'pointer', fontFamily: "'Outfit', system-ui, sans-serif", marginBottom: 12 }}>
+          Restore Purchases
+        </button>
+      )}
+
+      <button onClick={() => dispatch({ type: 'SET_SCREEN', screen: 'menu' })}
+        style={{ background: 'none', border: 'none', color: '#44403C', fontSize: 12, cursor: 'pointer', fontFamily: "'Outfit', system-ui, sans-serif" }}>
+        Back to menu
+      </button>
+    </div>
+  );
+}
+
 function RhythmScreen({ dispatch }: { dispatch: React.Dispatch<Action> }) {
   const [pattern, setPattern] = useState<RhythmPattern | null>(null);
   const [running, setRunning] = useState(false);

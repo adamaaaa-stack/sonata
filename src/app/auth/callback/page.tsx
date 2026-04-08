@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { supabase } from "@/lib/supabase";
+import { isNative } from "@/lib/platform";
 
 export default function AuthCallback() {
   const router = useRouter();
@@ -56,6 +57,22 @@ export default function AuthCallback() {
     }
 
     handleCallback();
+
+    // Mobile: listen for deep link (sonata://auth/callback?access_token=...)
+    if (isNative()) {
+      import("@capacitor/app").then(({ App }) => {
+        App.addListener("appUrlOpen", async ({ url }) => {
+          if (cancelled || !url.includes("auth/callback")) return;
+          const params = new URLSearchParams(url.split("#")[1] || url.split("?")[1] || "");
+          const accessToken = params.get("access_token");
+          const refreshToken = params.get("refresh_token");
+          if (accessToken && refreshToken) {
+            await supabase.auth.setSession({ access_token: accessToken, refresh_token: refreshToken });
+            router.replace("/app");
+          }
+        });
+      });
+    }
 
     return () => {
       cancelled = true;

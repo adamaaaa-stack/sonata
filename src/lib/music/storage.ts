@@ -8,6 +8,7 @@ export const STORAGE_KEYS = {
   INTERVAL_ACC: 'sonata_interval_acc',
   PRACTICE_DATES: 'sonata_practice_dates',
   ONBOARDED: 'sonata_onboarded',
+  PLACEMENT: 'sonata_placement',
 } as const;
 
 export function getStoredLessons(): number[] {
@@ -73,6 +74,15 @@ export function isOnboarded(): boolean {
 
 export function setOnboarded(): void {
   localStorage.setItem(STORAGE_KEYS.ONBOARDED, '1');
+}
+
+export function getPlacementResult(): number | null {
+  const v = localStorage.getItem(STORAGE_KEYS.PLACEMENT);
+  return v ? parseInt(v, 10) : null;
+}
+
+export function setPlacementResult(startLesson: number): void {
+  localStorage.setItem(STORAGE_KEYS.PLACEMENT, String(startLesson));
 }
 
 export function saveState(lessonsCompleted: number[], drillHistory: { timestamp: number; score: number; total: number }[]): void {

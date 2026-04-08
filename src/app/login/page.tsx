@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { supabase } from "@/lib/supabase";
 import { useRouter } from "next/navigation";
+import { isNative } from "@/lib/platform";
 
 export default function LoginPage() {
   const [mode, setMode] = useState<"signin" | "signup">("signin");
@@ -55,11 +56,28 @@ export default function LoginPage() {
   }
 
   async function handleGoogle() {
-    const { error: gError } = await supabase.auth.signInWithOAuth({
-      provider: "google",
-      options: { redirectTo: window.location.origin + "/auth/callback" },
-    });
-    if (gError) setError(gError.message);
+    if (isNative()) {
+      // Mobile: open OAuth in external browser, redirect back via custom URL scheme
+      const { data, error: gError } = await supabase.auth.signInWithOAuth({
+        provider: "google",
+        options: {
+          redirectTo: "sonata://auth/callback",
+          skipBrowserRedirect: true,
+        },
+      });
+      if (gError) { setError(gError.message); return; }
+      if (data?.url) {
+        const { Browser } = await import("@capacitor/browser");
+        await Browser.open({ url: data.url });
+      }
+    } else {
+      // Web: standard redirect
+      const { error: gError } = await supabase.auth.signInWithOAuth({
+        provider: "google",
+        options: { redirectTo: window.location.origin + "/auth/callback" },
+      });
+      if (gError) setError(gError.message);
+    }
   }
 
   return (

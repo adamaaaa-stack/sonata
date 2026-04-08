@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Sonata</string>
+    <string name="title_activity_main">Sonata</string>
+    <string name="package_name">com.sonata.app</string>
+    <string name="custom_url_scheme">com.sonata.app</string>
+</resources>

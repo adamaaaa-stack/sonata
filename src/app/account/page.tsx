@@ -2,11 +2,14 @@
 
 import { useState, useEffect } from "react";
 import { supabase } from "@/lib/supabase";
+import { loadSubscription } from "@/lib/supabaseData";
+import type { SubscriptionRow } from "@/lib/supabaseData";
 import { useRouter } from "next/navigation";
 import type { User } from "@supabase/supabase-js";
 
 export default function AccountPage() {
   const [user, setUser] = useState<User | null>(null);
+  const [sub, setSub] = useState<SubscriptionRow | null>(null);
   const [newPassword, setNewPassword] = useState("");
   const [message, setMessage] = useState("");
   const [error, setError] = useState("");
@@ -17,7 +20,10 @@ export default function AccountPage() {
   useEffect(() => {
     supabase.auth.getSession().then(({ data: { session } }) => {
       if (!session) router.push("/login");
-      else setUser(session.user);
+      else {
+        setUser(session.user);
+        loadSubscription(session.user.id).then(s => setSub(s));
+      }
     });
   }, [router]);
 
@@ -36,6 +42,7 @@ export default function AccountPage() {
     if (!user) return;
 
     // Delete user data from all tables
+    await supabase.from("subscriptions").delete().eq("user_id", user.id);
     await supabase.from("drill_sessions").delete().eq("user_id", user.id);
     await supabase.from("lesson_progress").delete().eq("user_id", user.id);
     await supabase.from("user_progress").delete().eq("user_id", user.id);
@@ -59,6 +66,38 @@ export default function AccountPage() {
         <div style={a.card}>
           <div style={a.label}>Email</div>
           <div style={a.value}>{user.email}</div>
+        </div>
+
+        <div style={a.card}>
+          <div style={a.label}>Subscription</div>
+          {sub ? (
+            <div style={{ marginTop: 6 }}>
+              <div style={{ fontSize: 15, display: 'flex', alignItems: 'center', gap: 8 }}>
+                <span style={{
+                  display: 'inline-block', width: 8, height: 8, borderRadius: '50%',
+                  background: sub.status === 'active' ? '#4ADE80' : sub.status === 'trial' ? '#FACC15' : '#F87171',
+                }} />
+                {sub.status === 'active' ? 'Premium (Active)' :
+                 sub.status === 'trial' ? 'Free Trial' :
+                 sub.status === 'cancelled' ? 'Cancelled' : 'Expired'}
+              </div>
+              {sub.expires_at && (
+                <div style={{ fontSize: 12, color: '#78716C', marginTop: 4 }}>
+                  {sub.status === 'active' ? 'Renews' : 'Expires'}: {new Date(sub.expires_at).toLocaleDateString()}
+                </div>
+              )}
+              <div style={{ fontSize: 12, color: '#44403C', marginTop: 4 }}>
+                Platform: {sub.platform}
+              </div>
+            </div>
+          ) : (
+            <div style={{ marginTop: 6 }}>
+              <div style={{ fontSize: 14, color: '#78716C' }}>No subscription found</div>
+              <a href="/#pricing" style={{ ...a.btn, display: 'block', textAlign: 'center', textDecoration: 'none', marginTop: 8 }}>
+                View plans
+              </a>
+            </div>
+          )}
         </div>
 
         <div style={a.card}>
