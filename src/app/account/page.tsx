@@ -134,7 +134,7 @@ function AccountInner() {
                 </button>
               </div>
               <a
-                href={process.env.NEXT_PUBLIC_GUMROAD_URL || '#'}
+                href={process.env.NEXT_PUBLIC_GUMROAD_URL || 'https://morrison844.gumroad.com/l/sonata'}
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{ display: 'block', fontSize: 12, color: '#C8A96E', marginTop: 10, textDecoration: 'underline' }}

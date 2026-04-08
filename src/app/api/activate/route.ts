@@ -10,7 +10,7 @@ function getAdminClient() {
 }
 
 // Gumroad product permalink — set in env vars when you create the product
-const GUMROAD_PRODUCT = process.env.GUMROAD_PRODUCT_PERMALINK || '';
+const GUMROAD_PRODUCT = process.env.GUMROAD_PRODUCT_PERMALINK || 'sonata';
 
 export async function POST(req: NextRequest) {
   try {
