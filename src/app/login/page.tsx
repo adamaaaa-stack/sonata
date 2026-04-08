@@ -1,11 +1,15 @@
 "use client";
 
-import { useState } from "react";
+import { Suspense, useState } from "react";
 import { supabase } from "@/lib/supabase";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { isNative } from "@/lib/platform";
 
 export default function LoginPage() {
+  return <Suspense fallback={<div style={{ minHeight: '100vh', background: '#0C0A09' }} />}><LoginInner /></Suspense>;
+}
+
+function LoginInner() {
   const [mode, setMode] = useState<"signin" | "signup">("signin");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -14,6 +18,13 @@ export default function LoginPage() {
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const nextParam = searchParams.get("next");
+
+  function getRedirect(): string {
+    if (nextParam === "gumroad") return "https://morrison844.gumroad.com/l/sonata";
+    return "/app";
+  }
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -35,7 +46,8 @@ export default function LoginPage() {
         setError(signUpError.message);
       } else if (data.session) {
         // Email confirmation disabled — user is logged in immediately
-        router.push("/app");
+        const dest = getRedirect();
+        if (dest.startsWith('http')) { window.location.href = dest; } else { router.push(dest); }
       } else {
         // Email confirmation enabled — tell them to check email
         setMessage("Check your email to confirm your account, then sign in.");
@@ -49,7 +61,8 @@ export default function LoginPage() {
       if (signInError) {
         setError(signInError.message);
       } else {
-        router.push("/app");
+        const dest = getRedirect();
+        if (dest.startsWith('http')) { window.location.href = dest; } else { router.push(dest); }
       }
     }
     setLoading(false);

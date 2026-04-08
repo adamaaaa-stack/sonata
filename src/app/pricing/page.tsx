@@ -49,7 +49,7 @@ export default function PricingPage() {
               <li style={p.item}><span style={p.check}>✓</span> Sight-reading mode</li>
               <li style={p.item}><span style={p.check}>✓</span> Cancel anytime</li>
             </ul>
-            <a href="https://morrison844.gumroad.com/l/sonata" target="_blank" rel="noopener noreferrer" style={p.btnPrimary}>
+            <a href="/login?next=gumroad" style={p.btnPrimary}>
               Get Premium
             </a>
           </div>
