@@ -133,3 +133,26 @@ export async function saveLessonComplete(userId: string, lessonId: number, accur
   } catch(e) { console.warn('saveLessonComplete failed:', e); }
 }
 
+// ============================================================
+// LICENSE KEY (Gumroad)
+// ============================================================
+
+export interface LicenseRow {
+  license_key: string;
+  product_id: string | null;
+  email: string | null;
+  activated_at: string;
+}
+
+export async function loadLicense(userId: string): Promise<LicenseRow | null> {
+  try {
+    const { data, error } = await supabase
+      .from('licenses').select('*').eq('user_id', userId).maybeSingle();
+    if (error) throw error;
+    return data;
+  } catch (e) {
+    console.warn('loadLicense failed:', e);
+    return null;
+  }
+}
+

@@ -82,3 +82,23 @@ create policy "Users can update own lesson progress"
 -- Unique constraint for user+lesson combo
 create unique index if not exists lesson_progress_user_lesson
   on lesson_progress (user_id, lesson_id);
+
+-- Licenses (Gumroad license key activation)
+create table if not exists licenses (
+  id uuid primary key default gen_random_uuid(),
+  user_id uuid references auth.users not null unique,
+  license_key text not null,
+  product_id text,
+  email text,
+  activated_at timestamptz default now()
+);
+
+alter table licenses enable row level security;
+
+create policy "Users can view own license"
+  on licenses for select
+  using (auth.uid() = user_id);
+
+create policy "Users can insert own license"
+  on licenses for insert
+  with check (auth.uid() = user_id);
