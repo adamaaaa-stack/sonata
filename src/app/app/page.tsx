@@ -54,10 +54,8 @@ import {
   lessons, CATALOG, getCatalogUrl, DIFF_COLORS, getRecommendedDifficulty, findLessonCatalogIndex,
 } from "@/lib/music";
 import type { Question, DrillConfig, RhythmPattern, CatalogEntry, Lesson } from "@/lib/music";
-import { checkAuth, signOut, loadProgress, saveDrillSession, saveLessonComplete } from "@/lib/supabaseData";
+import { checkAuth, signOut, loadProgress, saveDrillSession, saveLessonComplete, loadLicense } from "@/lib/supabaseData";
 import type { User } from "@supabase/supabase-js";
-import { initPurchases, getSubscriptionState, purchaseSubscription, restorePurchases, getProductInfo } from "@/lib/subscriptions";
-import type { SubscriptionState } from "@/lib/subscriptions";
 import "./sonata.css";
 
 // ============================================================
@@ -91,8 +89,9 @@ interface AppState {
   currentScoreIndex: number;
   // MIDI
   midiConnected: boolean;
-  // Subscription (native app only — web is free)
-  subscriptionState: SubscriptionState | null;
+  // License (Gumroad)
+  hasLicense: boolean;
+  drillsUsed: number;
 }
 
 type Action =
@@ -124,7 +123,8 @@ const initialState: AppState = {
   drillHistory: getStoredDrills(),
   libFilter: 'all', libSearch: '', currentScoreIndex: -1,
   midiConnected: false,
-  subscriptionState: null,
+  hasLicense: false,
+  drillsUsed: 0,
 };
 
 function reducer(state: AppState, action: Action): AppState {
@@ -133,9 +133,9 @@ function reducer(state: AppState, action: Action): AppState {
     case 'SET_USER': return { ...state, user: action.user };
     case 'LOAD_PROGRESS': return { ...state, lessonsCompleted: action.lessonsCompleted, drillHistory: new Array(action.drillCount) };
     case 'START_DRILL': {
-      const sub = state.subscriptionState;
-      if (sub && !sub.isSubscribed && !sub.trialActive) return { ...state, screen: 'paywall' };
-      return { ...state, screen: 'drill', drillConfig: action.config, questions: action.questions, currentQ: 0, score: 0, streak: 0, bestStreak: 0, timedOut: 0, results: [], timeLeft: action.config.timer ? action.config.timer * 10 : 0 };
+      // 1 free drill, then locked until license
+      if (!state.hasLicense && state.drillsUsed >= 1) return { ...state, screen: 'paywall' };
+      return { ...state, screen: 'drill', drillConfig: action.config, questions: action.questions, currentQ: 0, score: 0, streak: 0, bestStreak: 0, timedOut: 0, results: [], timeLeft: action.config.timer ? action.config.timer * 10 : 0, drillsUsed: state.drillsUsed + 1 };
     }
     case 'ANSWER': {
       const ok = action.picked === action.correct;
@@ -155,8 +155,8 @@ function reducer(state: AppState, action: Action): AppState {
     case 'END_DRILL': return { ...state, screen: 'results' };
     case 'TIMER_TICK': return { ...state, timeLeft: state.timeLeft - 1 };
     case 'START_LESSON': {
-      const sub = state.subscriptionState;
-      if (sub && !sub.isSubscribed && !sub.trialActive) return { ...state, screen: 'paywall' };
+      // Lessons 1-3 free, rest locked until license
+      if (!state.hasLicense && action.id > 3) return { ...state, screen: 'paywall' };
       return { ...state, screen: 'lesson', currentLesson: action.id, lessonStep: 0, lessonPhase: 'concepts' };
     }
     case 'NEXT_STEP': return { ...state, lessonStep: state.lessonStep + 1 };
@@ -223,10 +223,11 @@ export default function SonataApp() {
         }
       }
 
-      // Subscription init (native app paywall — web is free)
-      await initPurchases();
-      const subState = await getSubscriptionState();
-      dispatch({ type: 'UPDATE_FIELD', field: 'subscriptionState', value: subState });
+      // License check (Gumroad)
+      const license = await loadLicense(user.id);
+      if (license) {
+        dispatch({ type: 'UPDATE_FIELD', field: 'hasLicense', value: true });
+      }
 
       // MIDI init
       if (navigator.requestMIDIAccess) {
@@ -492,7 +493,7 @@ export default function SonataApp() {
           {state.screen === 'progress' && <ProgressScreen state={state} dispatch={dispatch} />}
           {state.screen === 'sightReading' && <SightReadingScreen dispatch={dispatch} renderNotation={renderNotation} />}
           {state.screen === 'rhythm' && <RhythmScreen dispatch={dispatch} />}
-          {state.screen === 'paywall' && <PaywallScreen dispatch={dispatch} onSubscriptionChange={(sub) => dispatch({ type: 'UPDATE_FIELD', field: 'subscriptionState', value: sub })} />}
+          {state.screen === 'paywall' && <PaywallScreen dispatch={dispatch} userId={state.user?.id || ''} />}
         </div>
       </div>
     </ErrorBoundary>
@@ -1737,36 +1738,29 @@ function SightReadingScreen({ dispatch, renderNotation }: {
 // ============================================================
 // SCREEN: RHYTHM
 // ============================================================
-// PAYWALL SCREEN (native app only — web is free)
+// PAYWALL SCREEN — License key activation + Gumroad link
 // ============================================================
-function PaywallScreen({ dispatch, onSubscriptionChange }: { dispatch: React.Dispatch<Action>; onSubscriptionChange: (s: SubscriptionState) => void }) {
+function PaywallScreen({ dispatch, userId }: { dispatch: React.Dispatch<Action>; userId: string }) {
+  const [key, setKey] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
-  const [price, setPrice] = useState('$9.99');
 
-  useEffect(() => {
-    getProductInfo().then(info => { if (info) setPrice(info.priceString); });
-  }, []);
-
-  async function handleSubscribe() {
+  async function handleActivate() {
+    if (!key.trim()) return;
     setLoading(true); setError('');
-    const success = await purchaseSubscription();
-    if (success) {
-      const sub = await getSubscriptionState();
-      onSubscriptionChange(sub);
-      dispatch({ type: 'SET_SCREEN', screen: 'menu' });
-    } else { setError('Purchase was not completed. Please try again.'); }
-    setLoading(false);
-  }
-
-  async function handleRestore() {
-    setLoading(true); setError('');
-    const success = await restorePurchases();
-    if (success) {
-      const sub = await getSubscriptionState();
-      onSubscriptionChange(sub);
-      dispatch({ type: 'SET_SCREEN', screen: 'menu' });
-    } else { setError('No previous purchases found.'); }
+    try {
+      const res = await fetch('/api/activate', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ key: key.trim(), userId }),
+      });
+      const data = await res.json();
+      if (!res.ok) { setError(data.error || 'Activation failed'); }
+      else {
+        dispatch({ type: 'UPDATE_FIELD', field: 'hasLicense', value: true });
+        dispatch({ type: 'SET_SCREEN', screen: 'menu' });
+      }
+    } catch { setError('Network error. Please try again.'); }
     setLoading(false);
   }
 
@@ -1774,32 +1768,42 @@ function PaywallScreen({ dispatch, onSubscriptionChange }: { dispatch: React.Dis
     <div style={{ padding: 24, textAlign: 'center', maxWidth: 400, margin: '0 auto' }}>
       <div style={{ fontSize: 48, marginBottom: 16 }}>♪</div>
       <h2 style={{ fontFamily: "'Instrument Serif', Georgia, serif", fontSize: 28, color: '#C8A96E', marginBottom: 8 }}>
-        Your free trial has ended
+        Unlock Sonata
       </h2>
-      <p style={{ color: '#A8A29E', fontSize: 14, marginBottom: 32, lineHeight: 1.6 }}>
-        Subscribe to continue learning with all 23 lessons, drills, 400+ pieces, and AI exercises.
+      <p style={{ color: '#A8A29E', fontSize: 14, marginBottom: 24, lineHeight: 1.6 }}>
+        You&apos;ve tried the first 3 lessons. Unlock all 23 lessons, unlimited drills, and the full piece library.
       </p>
-      <div style={{ background: '#1C1917', border: '1px solid #292524', borderRadius: 14, padding: '24px 20px', marginBottom: 20 }}>
-        <div style={{ fontSize: 32, fontWeight: 600, color: '#FAFAF9', marginBottom: 4 }}>{price}<span style={{ fontSize: 14, fontWeight: 300, color: '#78716C' }}>/month</span></div>
-        <div style={{ fontSize: 12, color: '#78716C' }}>Cancel anytime</div>
+
+      <div style={{ background: '#1C1917', border: '1px solid rgba(200,169,110,0.2)', borderRadius: 14, padding: '24px 20px', marginBottom: 20 }}>
+        <div style={{ fontSize: 32, fontWeight: 600, color: '#FAFAF9', marginBottom: 4 }}>$10<span style={{ fontSize: 14, fontWeight: 300, color: '#78716C' }}>/month</span></div>
+        <div style={{ fontSize: 12, color: '#78716C', marginBottom: 16 }}>7-day free trial. Cancel anytime.</div>
+        <a href="https://morrison844.gumroad.com/l/sonata" target="_blank" rel="noopener noreferrer"
+          style={{ display: 'block', width: '100%', padding: '14px 0', background: '#C8A96E', color: '#0C0A09', border: 'none', borderRadius: 10, fontSize: 15, fontWeight: 500, textDecoration: 'none', textAlign: 'center', fontFamily: "'Outfit', system-ui, sans-serif", boxSizing: 'border-box' }}>
+          Get Sonata Premium
+        </a>
       </div>
-      <ul style={{ textAlign: 'left', color: '#D6D3D1', fontSize: 13, lineHeight: 2, listStyle: 'none', padding: 0, marginBottom: 24 }}>
-        <li>✓ 23 interactive lessons</li>
-        <li>✓ Interval drills with spaced repetition</li>
-        <li>✓ 400+ piece library</li>
-        <li>✓ Score playback & sight-reading mode</li>
+
+      <div style={{ background: '#1C1917', border: '1px solid #292524', borderRadius: 14, padding: '20px', marginBottom: 20 }}>
+        <div style={{ fontSize: 11, color: '#78716C', textTransform: 'uppercase', letterSpacing: '0.08em', fontWeight: 500, marginBottom: 10 }}>Already have a license key?</div>
+        <div style={{ display: 'flex', gap: 8 }}>
+          <input type="text" placeholder="XXXXXXXX-XXXXXXXX-..." value={key} onChange={e => setKey(e.target.value)}
+            style={{ flex: 1, padding: '10px 12px', background: '#0C0A09', border: '1px solid #292524', borderRadius: 8, color: '#FAFAF9', fontSize: 12, fontFamily: "'JetBrains Mono', monospace", outline: 'none' }} />
+          <button onClick={handleActivate} disabled={loading || !key.trim()}
+            style={{ padding: '10px 16px', background: '#C8A96E', color: '#0C0A09', border: 'none', borderRadius: 8, fontSize: 13, fontWeight: 500, cursor: 'pointer', fontFamily: "'Outfit', system-ui, sans-serif", opacity: loading || !key.trim() ? 0.5 : 1 }}>
+            {loading ? '...' : 'Activate'}
+          </button>
+        </div>
+        {error && <p style={{ color: '#F87171', fontSize: 12, marginTop: 8, textAlign: 'left' }}>{error}</p>}
+      </div>
+
+      <ul style={{ textAlign: 'left', color: '#D6D3D1', fontSize: 13, lineHeight: 2, listStyle: 'none', padding: 0, marginBottom: 20 }}>
+        <li>✓ All 23 lessons from basics to Moonlight Sonata</li>
+        <li>✓ Unlimited interval drills</li>
+        <li>✓ 400+ piece library with playback</li>
         <li>✓ AI-generated exercises</li>
         <li>✓ MIDI keyboard support</li>
       </ul>
-      {error && <p style={{ color: '#F87171', fontSize: 13, marginBottom: 12 }}>{error}</p>}
-      <button onClick={handleSubscribe} disabled={loading}
-        style={{ width: '100%', padding: '14px 0', background: '#C8A96E', color: '#0C0A09', border: 'none', borderRadius: 10, fontSize: 15, fontWeight: 500, cursor: 'pointer', fontFamily: "'Outfit', system-ui, sans-serif", marginBottom: 12, opacity: loading ? 0.6 : 1 }}>
-        {loading ? '...' : 'Subscribe'}
-      </button>
-      <button onClick={handleRestore} disabled={loading}
-        style={{ width: '100%', padding: '12px 0', background: 'transparent', color: '#78716C', border: '1px solid #292524', borderRadius: 10, fontSize: 13, cursor: 'pointer', fontFamily: "'Outfit', system-ui, sans-serif", marginBottom: 12 }}>
-        Restore Purchases
-      </button>
+
       <button onClick={() => dispatch({ type: 'SET_SCREEN', screen: 'menu' })}
         style={{ background: 'none', border: 'none', color: '#44403C', fontSize: 12, cursor: 'pointer', fontFamily: "'Outfit', system-ui, sans-serif" }}>
         Back to menu
