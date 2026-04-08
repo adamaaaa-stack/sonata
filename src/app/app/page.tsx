@@ -1776,7 +1776,7 @@ function PaywallScreen({ dispatch, userId }: { dispatch: React.Dispatch<Action>;
 
       <div style={{ background: '#1C1917', border: '1px solid rgba(200,169,110,0.2)', borderRadius: 14, padding: '24px 20px', marginBottom: 20 }}>
         <div style={{ fontSize: 32, fontWeight: 600, color: '#FAFAF9', marginBottom: 4 }}>$10<span style={{ fontSize: 14, fontWeight: 300, color: '#78716C' }}>/month</span></div>
-        <div style={{ fontSize: 12, color: '#78716C', marginBottom: 16 }}>7-day free trial. Cancel anytime.</div>
+        <div style={{ fontSize: 12, color: '#78716C', marginBottom: 16 }}>Cancel anytime.</div>
         <a href="https://morrison844.gumroad.com/l/sonata" target="_blank" rel="noopener noreferrer"
           style={{ display: 'block', width: '100%', padding: '14px 0', background: '#C8A96E', color: '#0C0A09', border: 'none', borderRadius: 10, fontSize: 15, fontWeight: 500, textDecoration: 'none', textAlign: 'center', fontFamily: "'Outfit', system-ui, sans-serif", boxSizing: 'border-box' }}>
           Get Sonata Premium

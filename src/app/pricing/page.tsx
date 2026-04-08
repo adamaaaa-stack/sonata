@@ -39,7 +39,6 @@ export default function PricingPage() {
             <div style={{ ...p.tierLabel, color: '#C8A96E' }}>Premium</div>
             <div style={p.price}>$10</div>
             <div style={p.period}>per month</div>
-            <div style={p.trial}>7-day free trial included</div>
             <ul style={p.list}>
               <li style={p.item}><span style={p.check}>✓</span> All 23 lessons</li>
               <li style={p.item}><span style={p.check}>✓</span> Unlimited drills</li>
@@ -60,7 +59,6 @@ export default function PricingPage() {
         <div style={p.faq}>
           <h2 style={p.faqTitle}>Questions</h2>
           {[
-            { q: 'How does the free trial work?', a: 'You get 7 days of full premium access when you subscribe. Cancel before the trial ends and you won\'t be charged.' },
             { q: 'Can I cancel anytime?', a: 'Yes. Cancel from your Gumroad account whenever you want. You keep access until the end of your billing period.' },
             { q: 'How do I activate my license?', a: 'After purchasing on Gumroad, you\'ll get a license key. Go to Account in the app and paste it in. It activates instantly.' },
             { q: 'What if I already play piano?', a: 'Take the placement quiz when you sign up. It\'ll skip you to the right lesson based on what you already know.' },
