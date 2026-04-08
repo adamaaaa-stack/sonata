@@ -41,6 +41,9 @@
   .landing-feature-grid {
     grid-template-columns: 1fr !important;
   }
+  .landing-preview-grid {
+    grid-template-columns: 1fr !important;
+  }
   .landing-lede {
     font-size: 22px !important;
   }

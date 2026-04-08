@@ -263,6 +263,94 @@ export default function LandingPage() {
         </div>
       </section>
 
+      {/* App Preview */}
+      <section style={{ ...styles.section, background: "#1C1917" }}>
+        <div style={styles.sectionInner}>
+          <h2 style={styles.sectionTitle} className="landing-section-title">See it in action</h2>
+          <p style={styles.sectionSub}>A real app, not a textbook. Here&apos;s what learning looks like.</p>
+          <div style={styles.previewGrid} className="landing-preview-grid">
+            {/* Lesson preview */}
+            <div style={styles.previewCard}>
+              <div style={styles.previewMockup}>
+                <div style={{ display: 'flex', gap: 4, marginBottom: 12 }}>
+                  {[1,2,3,4,5].map(i => <div key={i} style={{ flex: 1, height: 1, background: '#C8A96E', opacity: 0.3 }} />)}
+                </div>
+                <div style={{ display: 'flex', gap: 8, alignItems: 'flex-end', justifyContent: 'center', marginBottom: 16 }}>
+                  {['C','D','E','F','G'].map((n,i) => (
+                    <div key={n} style={{ width: 24, height: 24, borderRadius: 12, background: i === 2 ? '#C8A96E' : 'rgba(200,169,110,0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 10, color: i === 2 ? '#0C0A09' : '#78716C', fontWeight: 600, fontFamily: 'var(--sans, monospace)' }}>{n}</div>
+                  ))}
+                </div>
+                <div style={{ background: '#292524', borderRadius: 8, padding: '10px 12px', fontSize: 12, color: '#A8A29E', lineHeight: 1.6 }}>
+                  C to E is a <span style={{ color: '#C8A96E' }}>skip (3rd)</span> — both on lines. Your fingers jump one key.
+                </div>
+              </div>
+              <div style={styles.previewLabel}>Interactive lessons</div>
+              <div style={styles.previewDesc}>Step-by-step teaching with notation, audio narration, and a piano to try on.</div>
+            </div>
+
+            {/* Drill preview */}
+            <div style={styles.previewCard}>
+              <div style={styles.previewMockup}>
+                <div style={{ textAlign: 'center', marginBottom: 12 }}>
+                  <div style={{ fontSize: 11, color: '#78716C', marginBottom: 6 }}>What interval?</div>
+                  <div style={{ display: 'flex', gap: 4, justifyContent: 'center', marginBottom: 8 }}>
+                    {[1,2,3,4,5].map(i => <div key={i} style={{ flex: 1, maxWidth: 40, height: 1, background: '#FAFAF9', opacity: 0.15 }} />)}
+                  </div>
+                  <div style={{ display: 'flex', gap: 6, justifyContent: 'center' }}>
+                    <div style={{ width: 10, height: 10, borderRadius: 5, background: '#C8A96E', position: 'relative', top: -2 }} />
+                    <div style={{ width: 10, height: 10, borderRadius: 5, background: '#4ADE80', position: 'relative', top: 6 }} />
+                  </div>
+                </div>
+                <div style={{ display: 'flex', gap: 6, justifyContent: 'center' }}>
+                  {['2nd','3rd','4th','5th'].map((n,i) => (
+                    <div key={n} style={{ padding: '8px 12px', borderRadius: 8, background: i === 1 ? 'rgba(74,222,128,0.15)' : '#292524', border: i === 1 ? '1px solid #4ADE80' : '1px solid #44403C', fontSize: 11, color: i === 1 ? '#4ADE80' : '#A8A29E', fontFamily: 'var(--sans, system-ui)' }}>{n}</div>
+                  ))}
+                </div>
+              </div>
+              <div style={styles.previewLabel}>Adaptive drills</div>
+              <div style={styles.previewDesc}>AI targets your weak spots. Timed rounds. Answer by tapping or playing your piano.</div>
+            </div>
+
+            {/* Score preview */}
+            <div style={styles.previewCard}>
+              <div style={styles.previewMockup}>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: 2, marginBottom: 10 }}>
+                  {[0,1,2,3,4].map(i => <div key={i} style={{ height: 1, background: 'rgba(250,250,249,0.12)' }} />)}
+                </div>
+                <div style={{ display: 'flex', gap: 3, justifyContent: 'center', marginBottom: 10 }}>
+                  {[12,8,16,12,20,16,8,12,16,20,12,8].map((h,i) => (
+                    <div key={i} style={{ width: 3, height: h, borderRadius: 1.5, background: i === 4 ? '#C8A96E' : 'rgba(250,250,249,0.3)' }} />
+                  ))}
+                </div>
+                <div style={{ display: 'flex', gap: 4, justifyContent: 'center' }}>
+                  <div style={{ padding: '4px 10px', borderRadius: 6, background: '#292524', fontSize: 10, color: '#78716C' }}>Play</div>
+                  <div style={{ padding: '4px 10px', borderRadius: 6, background: '#292524', fontSize: 10, color: '#78716C' }}>0.75x</div>
+                </div>
+              </div>
+              <div style={styles.previewLabel}>400+ pieces</div>
+              <div style={styles.previewDesc}>Full interactive scores from Bach to Chopin. Play along, slow down, follow the cursor.</div>
+            </div>
+
+            {/* Progress preview */}
+            <div style={styles.previewCard}>
+              <div style={styles.previewMockup}>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(7, 1fr)', gap: 3, marginBottom: 10 }}>
+                  {Array.from({ length: 21 }, (_, i) => (
+                    <div key={i} style={{ aspectRatio: '1', borderRadius: 3, background: i < 14 ? (i % 3 === 0 ? '#4ADE80' : i % 5 === 0 ? '#FACC15' : 'rgba(74,222,128,0.3)') : '#292524' }} />
+                  ))}
+                </div>
+                <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 10, color: '#78716C' }}>
+                  <span>14-day streak</span>
+                  <span style={{ color: '#4ADE80' }}>87% accuracy</span>
+                </div>
+              </div>
+              <div style={styles.previewLabel}>Track progress</div>
+              <div style={styles.previewDesc}>Practice calendar, streak counter, interval accuracy grid. Know exactly where to focus.</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Features */}
       <section
         id="features"
@@ -729,5 +817,33 @@ const styles: Record<string, React.CSSProperties> = {
   footerText: {
     fontSize: 12,
     color: "#44403C",
+  },
+  previewGrid: {
+    display: "grid",
+    gridTemplateColumns: "1fr 1fr",
+    gap: 16,
+  },
+  previewCard: {
+    padding: "24px 20px",
+    background: "#0C0A09",
+    border: "1px solid #292524",
+    borderRadius: 14,
+  },
+  previewMockup: {
+    padding: "20px 16px",
+    background: "#1C1917",
+    borderRadius: 10,
+    marginBottom: 16,
+    minHeight: 120,
+  },
+  previewLabel: {
+    fontSize: 15,
+    fontWeight: 500,
+    marginBottom: 4,
+  },
+  previewDesc: {
+    fontSize: 13,
+    color: "#78716C",
+    lineHeight: 1.6,
   },
 };

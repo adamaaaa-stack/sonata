@@ -520,17 +520,25 @@ function PianoKeyboard({ startMidi = 48, endMidi = 84, highlights = {}, fingers 
   onClick?: (midi: number) => void; showNames?: boolean;
 }) {
   const [pressed, setPressed] = useState<Set<number>>(new Set());
-  const lastPressRef = useRef<number>(0);
+  const touchedRef = useRef(false); // Track if touch event fired to suppress click
 
   function handlePress(m: number) {
-    // Debounce: ignore presses within 100ms (prevents iOS double-fire)
-    const now = Date.now();
-    if (now - lastPressRef.current < 100) return;
-    lastPressRef.current = now;
     playPianoKey(m);
     onClick?.(m);
     setPressed(p => { const n = new Set(p); n.add(m); return n; });
     setTimeout(() => setPressed(p => { const n = new Set(p); n.delete(m); return n; }), 200);
+  }
+
+  function onTouch(m: number, e: React.TouchEvent) {
+    e.preventDefault();
+    touchedRef.current = true;
+    handlePress(m);
+  }
+
+  function onClickKey(m: number) {
+    // Skip if this was already handled by touch
+    if (touchedRef.current) { touchedRef.current = false; return; }
+    handlePress(m);
   }
 
   // Build white keys with relative positioning for blacks
@@ -556,8 +564,8 @@ function PianoKeyboard({ startMidi = 48, endMidi = 84, highlights = {}, fingers 
           const hl = highlights[m];
           return (
             <div key={m} className="sonata-key-white"
-              onClick={() => handlePress(m)}
-              onTouchStart={(e) => { e.preventDefault(); handlePress(m); }}
+              onClick={() => onClickKey(m)}
+              onTouchStart={(e) => onTouch(m, e)}
               style={{
                 width: 'var(--key-w)', height: 'var(--key-h)',
                 background: isActive
@@ -604,8 +612,8 @@ function PianoKeyboard({ startMidi = 48, endMidi = 84, highlights = {}, fingers 
           const hl = highlights[nb];
           return (
             <div key={nb} className="sonata-key-black"
-              onClick={(e) => { e.stopPropagation(); handlePress(nb); }}
-              onTouchStart={(e) => { e.preventDefault(); e.stopPropagation(); handlePress(nb); }}
+              onClick={(e) => { e.stopPropagation(); onClickKey(nb); }}
+              onTouchStart={(e) => { e.stopPropagation(); onTouch(nb, e); }}
               style={{
                 position: 'absolute',
                 left: `calc((${i + 1}) * var(--key-w) - var(--bkey-w) / 2)`,

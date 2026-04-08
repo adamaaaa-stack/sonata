@@ -84,18 +84,25 @@
     padding: 32px 8px 24px !important;
   }
 
-  /* Piano keys — smaller on mobile via CSS custom properties */
+  /* Piano keys — fill viewport width on mobile */
   .sonata-piano-container {
-    --key-w: 28px !important;
-    --key-h: 110px !important;
-    --bkey-w: 18px !important;
-    --bkey-h: 68px !important;
+    --key-w: max(28px, calc((100vw - 24px) / 22)) !important;
+    --key-h: 120px !important;
+    --bkey-w: max(18px, calc(var(--key-w) * 0.65)) !important;
+    --bkey-h: 72px !important;
+    padding: 12px 0 4px !important;
+    touch-action: manipulation !important;
   }
 
   /* Piano container */
   .sonata-piano-container {
     overflow-x: auto !important;
     -webkit-overflow-scrolling: touch;
+  }
+
+  /* Larger touch targets for piano keys */
+  .sonata-key-white, .sonata-key-black {
+    -webkit-tap-highlight-color: transparent;
   }
 
   /* Notation */
@@ -108,36 +115,39 @@
     max-width: none !important;
   }
 
-  /* Drill answers */
+  /* Drill answers — bigger touch targets */
   .sonata-answers {
-    gap: 4px !important;
+    gap: 6px !important;
   }
   .sonata-answers button {
-    padding: 10px 4px !important;
-    font-size: 12px !important;
-    min-width: 48px !important;
+    padding: 12px 8px !important;
+    font-size: 14px !important;
+    min-width: 52px !important;
+    min-height: 44px !important;
   }
 
-  /* Teach text */
+  /* Teach text — larger, more readable on mobile */
   .sonata-teach-text {
     padding: 16px !important;
-    font-size: 14px !important;
-    line-height: 1.7 !important;
+    font-size: 15px !important;
+    line-height: 1.8 !important;
   }
 
-  /* Teach nav buttons */
+  /* Teach nav buttons — bigger touch targets */
   .sonata-teach-nav button {
-    padding: 8px 16px !important;
-    font-size: 12px !important;
+    padding: 12px 20px !important;
+    font-size: 14px !important;
+    min-height: 44px !important;
   }
 
-  /* Config chips */
+  /* Config chips — bigger for touch */
   .sonata-config-chips {
-    gap: 4px !important;
+    gap: 6px !important;
   }
   .sonata-config-chips button {
-    padding: 6px 12px !important;
-    font-size: 12px !important;
+    padding: 10px 14px !important;
+    font-size: 13px !important;
+    min-height: 40px !important;
   }
 
   /* Results */
@@ -182,10 +192,11 @@
     padding: 6px 14px !important;
   }
 
-  /* Primary button */
+  /* Primary button — min 44px touch target */
   .sonata-primary-btn {
-    padding: 12px 24px !important;
-    font-size: 14px !important;
+    padding: 14px 24px !important;
+    font-size: 15px !important;
+    min-height: 48px !important;
   }
 
   /* Progress stats row */
@@ -232,10 +243,10 @@
    ============================================================ */
 @media (max-width: 380px) {
   .sonata-piano-container {
-    --key-w: 22px !important;
-    --key-h: 90px !important;
-    --bkey-w: 14px !important;
-    --bkey-h: 54px !important;
+    --key-w: max(22px, calc((100vw - 20px) / 22)) !important;
+    --key-h: 100px !important;
+    --bkey-w: max(14px, calc(var(--key-w) * 0.6)) !important;
+    --bkey-h: 58px !important;
   }
   .sonata-menu-title {
     font-size: 24px !important;
