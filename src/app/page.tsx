@@ -88,6 +88,7 @@ export default function LandingPage() {
         <div style={styles.navLinks} className="landing-nav-links">
           <a href="#method" style={styles.navLink}>Method</a>
           <a href="#features" style={styles.navLink}>Features</a>
+          <a href="/pricing" style={styles.navLink}>Pricing</a>
           <a href="#story" style={styles.navLink}>Story</a>
           <a href="/login" style={styles.navCta}>Start learning</a>
         </div>
