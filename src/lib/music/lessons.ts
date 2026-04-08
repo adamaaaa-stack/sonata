@@ -367,11 +367,11 @@ export const lessons: Lesson[] = [
     { q:'What word helps you feel a triplet?', options:['Hello','Bye','Pineapple','Stop'], correct:2 },
   ],
   walkthrough: [
-    "Greensleeves! This piece has a lilting 3/4 feel. Count: ONE two three, ONE two three.",
-    "The melody uses dotted quarter notes — hold those for 1.5 beats. They create the characteristic long-short swing.",
-    "Watch for the eighth notes — they're the quick connecting notes between the longer ones.",
-    "The melody goes up with steps and skips, then comes back down. Follow the contour — the shape of the melody.",
-    "Start slowly. The dotted rhythm takes practice — count carefully: long, short, long, short.",
+    "Greensleeves in A minor! No key signature (natural minor uses all white keys except for raised 7ths). Count in 3: ONE two three.",
+    "The melody has a lilting waltz feel — dotted quarter + eighth note patterns create the characteristic long-short swing.",
+    "Notice the G naturals (not G#) — this is the NATURAL minor, giving it that melancholy Greensleeves sound.",
+    "Steps, skips, and some 4ths (like A up to D). Follow the contour of the melody — it rises and falls like a wave.",
+    "Start slowly. The 3/4 feel takes practice if you've only counted in 4s so far.",
   ],
   drill:{types:['noteNaming','interval','oddEven','pattern'],clefs:['treble','bass'],range:'staff',intervals:[2,3,4,5],timer:7,count:20}, advance:0.75 },
 
@@ -392,10 +392,10 @@ export const lessons: Lesson[] = [
     { q:'A crescendo (<) means...', options:['Get softer','Get louder','Speed up','Slow down'], correct:1 },
   ],
   walkthrough: [
-    "This is a dynamics study in C major — the same phrasing idea as Clair de Lune (soft lines that breathe), but only white keys.",
-    "Watch for pp, p, and mf — change your touch when the marking changes.",
-    "The hairpins show crescendo and diminuendo — smooth volume swells, not sudden jumps.",
-    "Let phrases rise and fall like a sentence. That's what 'making music breathe' means.",
+    "This piece is in F major — one flat (Bb). Every B you see is actually B-flat. Your first piece with a flat key signature!",
+    "Watch for the dynamics: pp at the start (very soft), then a crescendo building to mf, then fading back to p.",
+    "The right hand plays a gentle flowing melody while the left hand holds long bass notes (whole notes and halves).",
+    "The hairpins show crescendo and diminuendo — smooth volume swells, not sudden jumps. Let it breathe.",
   ],
   drill:{types:['noteNaming','interval','oddEven'],clefs:['treble','bass'],range:'staff',intervals:[2,3,4,5],timer:7,count:20}, advance:0.78 },
 
@@ -416,10 +416,10 @@ export const lessons: Lesson[] = [
     { q:'The best strategy for big jumps is...', options:['Look at your hands','Close your eyes','Read ahead and prepare','Play slower'], correct:2 },
   ],
   walkthrough: [
-    "Big-interval practice in C major — same reading skills as Debussy's Arabesque, without key-signature surprises.",
-    "Watch for 6ths, 7ths, and octaves. Look ahead and commit to the jump.",
-    "Bar 4 ends with a low C and high C together — an octave. Use a comfortable hand span; go slowly.",
-    "Keep intervals smooth: trust the odd/even rule and the size of the gap on the staff.",
+    "Big-interval practice in G major — one sharp (F#). This is the first piece where you'll encounter 6ths, 7ths, and octaves.",
+    "Bar 1 has a clear 6th leap (E to C). Bar 2 has a 7th (D to C). Bar 3 has an octave (G to G). Look ahead and commit!",
+    "Remember the F# — every F in this piece is F-sharp because of the key signature.",
+    "The odd/even rule scales up: 6th = even (alternates), 7th = odd (matches), octave = even (alternates).",
   ],
   drill:{types:['noteNaming','interval','oddEven'],clefs:['treble','bass'],range:'ledger',intervals:[2,3,4,5,6,7],timer:5,count:25}, advance:0.70 },
 
@@ -440,10 +440,10 @@ export const lessons: Lesson[] = [
     { q:'When should you plan fingering?', options:['After playing','While playing','Before playing','Never'], correct:2 },
   ],
   walkthrough: [
-    "Bach's famous prelude pattern — here using eighth notes (not sixteenths) so you can focus on fingering and evenness first.",
-    "Each bar breaks a chord into flowing eighths. The shape repeats with different chords (C, then D minor, G7, back to C).",
-    "Plan fingering before you play. Thumb tuck when you need to continue up the keyboard.",
-    "Keep every note the same volume — smooth as water. Speed comes later.",
+    "Broken chords in D major — two sharps (F# and C#). Bach's Prelude pattern adapted to a new key.",
+    "Each bar outlines a different chord: D major (D-F#-A), G major (G-B-D), A major (A-C#-E), then back to D.",
+    "Every F and C is sharp — the key signature handles this. Your fingers need to find the black keys automatically.",
+    "Plan fingering before you play. Keep every note the same volume — smooth as water. Speed comes later.",
   ],
   drill:{types:['noteNaming','interval','pattern'],clefs:['treble','bass'],range:'staff',intervals:[2,3,4,5],timer:7,count:20}, advance:0.78 },
 
@@ -463,10 +463,10 @@ export const lessons: Lesson[] = [
     { q:'Moonlight Sonata 1st movement is built from...', options:['Scales','Arpeggios','Chords','Rests'], correct:1 },
   ],
   walkthrough: [
-    "This study matches the Moonlight 1st movement: TRIPLET arpeggios in the right hand with ALBERTI BASS in the left — all in C major.",
-    "RIGHT HAND: each beat has three notes (a triplet). C-E-G repeating, then D-F-A, then B-D-G, back to C-E-G. Each triplet outlines a chord.",
-    "LEFT HAND: Alberti bass pattern — low-high-mid-high (e.g. C-G-E-G). This broken-chord pattern keeps the harmony flowing.",
-    "Start slowly — learn the right hand triplets first, then add the left hand one bar at a time.",
+    "Moonlight-style arpeggios in Bb major — two flats (Bb and Eb). Your first piece with multiple flats!",
+    "RIGHT HAND: triplet arpeggios (3 notes per beat). Bb-D-F, then Eb-G-Bb, then F-A-C, back to Bb. Each triplet outlines a chord.",
+    "LEFT HAND: Alberti bass pattern — root-5th-3rd-5th (e.g. Bb-F-D-F). This keeps the harmony flowing beneath the arpeggios.",
+    "Remember: every B is Bb and every E is Eb. Start the right hand alone, then add the left one bar at a time.",
   ],
   drill:{types:['noteNaming','interval','pattern','oddEven'],clefs:['treble','bass'],range:'staff',intervals:[2,3,4,5],timer:7,count:20}, advance:0.75 },
 
@@ -487,10 +487,10 @@ export const lessons: Lesson[] = [
     { q:'Before playing a new piece, you should...', options:['Start immediately','Scan for repeat signs first','Play the last note first','Close your eyes'], correct:1 },
   ],
   walkthrough: [
-    "This march has REPEAT SIGNS! See the two dots at the bar line? That means go back and play that section again.",
-    "Play bars 1-3, hit the repeat sign, go back to bar 1, play bars 1-3 again. THEN continue to bar 4.",
-    "After the repeat, bars 4-5 are new material — no repeats, just play straight through to the end.",
-    "Before playing, scan the whole piece for repeat signs. Map out the road: bars 1-3 twice, then 4-5 once.",
+    "A melody in A major — three sharps (F#, C#, G#) — with REPEAT SIGNS! Your most complex key signature yet.",
+    "See the two dots at bar 1 and bar 4? Play bars 1-4, then go back and play them again. The phrase repeats!",
+    "Every F, C, and G is sharp in this key. That's three black keys to keep track of — scan the key signature first.",
+    "The melody uses steps and skips in the A major scale. After the repeat, you're done — simple structure, rich key.",
   ],
   drill:{types:['noteNaming','interval','pattern','oddEven'],clefs:['treble','bass'],range:'staff',intervals:[2,3,4,5,6,7],timer:7,count:20}, advance:0.75 },
 
@@ -511,11 +511,11 @@ export const lessons: Lesson[] = [
     { q:'A tempo means...', options:['Slow down','Speed up','Return to original speed','Stop'], correct:2 },
   ],
   walkthrough: [
-    "The Entertainer by Scott Joplin! This is RAGTIME — the melody lands on unexpected beats (syncopation).",
-    "Listen for the rests ON the beat with notes BETWEEN beats. That's what gives ragtime its bounce.",
-    "The left hand keeps steady time while the right hand syncopates. Start with just the melody.",
-    "The dotted rhythms (long-short) should feel like a gentle swing. Not straight, not totally uneven — somewhere in between.",
-    "Start at HALF speed. Ragtime sounds great slow. Don't rush to full speed — enjoy the bounce.",
+    "Ragtime syncopation in Eb major — three flats (Bb, Eb, Ab). The melody lands on unexpected beats!",
+    "Listen for the dotted-eighth + sixteenth patterns: long-SHORT, long-SHORT. That's the ragtime gallop.",
+    "Notes tie across beats — this is syncopation. The emphasis shifts off the downbeat, creating the bounce.",
+    "Three flats to manage: every B, E, and A is flat. Scan the key signature, then focus on the rhythm.",
+    "Start at HALF speed. Ragtime sounds great slow — enjoy the swing before speeding up.",
   ],
   drill:{types:['noteNaming','interval','pattern','oddEven','articulation'],clefs:['treble','bass'],range:'ledger',intervals:[2,3,4,5,6,7],timer:5,count:25}, advance:0.72 },
 
@@ -535,10 +535,10 @@ export const lessons: Lesson[] = [
     { q:'Overlap pedalling means...', options:['Pressing two pedals','Lifting and pressing the pedal at the same moment','Never using the pedal','Pressing harder'], correct:1 },
   ],
   walkthrough: [
-    "A nocturne-style study in C major: long singing notes in the right hand, slow bass in the left — with PEDAL MARKINGS written in the score.",
-    "See the 'Ped.' and '✱' symbols? Press the sustain pedal at 'Ped.' and release at '✱'. Each bar gets its own pedal — lift and re-press when the harmony changes.",
-    "Bar 1: pedal down for the whole bar (E and G ring together over the C bass). Bar 2: new pedal for the descending line.",
-    "Keep the right hand legato — the pedal helps notes blend. When you're ready, explore Chopin's original in the library.",
+    "A nocturne-style melody in Ab major — four flats (Bb, Eb, Ab, Db). Long singing notes with PEDAL MARKINGS.",
+    "See the pedal start/stop symbols? Press the sustain pedal at the start of each bar and release at the end. Lift and re-press when harmony changes.",
+    "Four flats: B, E, A, and D are all flat. The right hand sings a gentle melody; the left holds whole-note bass.",
+    "The pedal connects the bass to the melody — without it, the bass dies before the melody arrives. This is what makes it sing.",
   ],
   drill:{types:['noteNaming','interval','articulation'],clefs:['treble','bass'],range:'ledger',intervals:[2,3,4,5,6,7],timer:7,count:20}, advance:0.78 },
 
@@ -558,10 +558,10 @@ export const lessons: Lesson[] = [
     { q:'Stepwise passages need...', options:['Extra attention for each note','Less attention — they play themselves','To be skipped','To be played louder'], correct:1 },
   ],
   walkthrough: [
-    "Speed-reading study in C major: fast sixteenth-note scales and patterns — same skills as the Turkish March, without A minor or tricky key signatures.",
-    "See chunks: 'scale fragment up' and 'scale fragment down' instead of sixteen separate letters.",
-    "The last bar lands on C — a clear stopping place. Use it to check rhythm before speeding up.",
-    "Build tempo gradually. Accuracy first, speed last.",
+    "Speed reading in E major — four sharps (F#, C#, G#, D#). Fast 16th-note scale runs in 2/4 time.",
+    "Don't read individual notes — see 'scale going up' and 'scale coming down.' Groups, not atoms.",
+    "Four sharps: every F, C, G, and D is sharp. Your fingers should find the E major scale positions naturally.",
+    "Start SLOW. Get every note clean. Then build tempo gradually — accuracy first, speed last.",
   ],
   drill:{types:['noteNaming','interval','pattern','oddEven'],clefs:['treble','bass'],range:'ledger',intervals:[2,3,4,5,6,7],timer:3,count:30}, advance:0.68 },
 
@@ -582,10 +582,10 @@ export const lessons: Lesson[] = [
     { q:'A fermata over a rest means...', options:['Skip the rest','Hold the silence','Play louder','Speed up'], correct:1 },
   ],
   walkthrough: [
-    "Rhythm study in C: dotted quarters, eighths, syncopation, and a held final note — the kinds of patterns Chopin uses, simplified to one key.",
-    "Count carefully where longer notes land across the beat.",
-    "Keep the line musical: dynamics and timing matter more than speed here.",
-    "Try the full nocturnes from the library when you want the original harmonies.",
+    "Expressive rhythm study in Db major — five flats (Bb, Eb, Ab, Db, Gb). The most flats you've seen!",
+    "Right hand: dotted-quarter + eighth patterns with syncopated ties. Left hand: simple whole notes.",
+    "Watch the dynamics: starts p (soft), crescendo to mf, then diminuendo back to p. Shape the phrase like a sentence.",
+    "Five flats is a lot — but the reading system works the same. Steps are still steps, skips are still skips.",
   ],
   drill:{types:['noteNaming','interval','pattern','oddEven','articulation'],clefs:['treble','bass'],range:'ledger',intervals:[2,3,4,5,6,7],timer:5,count:25}, advance:0.72 },
 
@@ -606,10 +606,10 @@ export const lessons: Lesson[] = [
     { q:'The 3rd movement uses...', options:['Only steps','Only chords','Everything from all previous lessons','Only rhythm'], correct:2 },
   ],
   walkthrough: [
-    "Finale-style study in C: fast eighth-note patterns and octave jumps — the same skills as the famous last movement, in one key.",
-    "Bars 1–2: keep arpeggio figures even. Bar 3: feel the octave — same note name, different register.",
-    "The real Beethoven movement is longer and harder; this is a focused excerpt to celebrate how far you've come.",
-    "Always: slow and clean first, then speed up.",
+    "The summit — C# minor (E major key signature, four sharps). Fast 8th-note arpeggios spanning octaves, just like Moonlight 3rd movement.",
+    "Right hand: rapid arpeggios through C#m, E major, A major, and G# dominant harmony. Left hand: octave bass notes.",
+    "This is everything combined: a complex key, fast arpeggios, large intervals, two hands, octave bass. You've earned this.",
+    "Start at HALF speed. Get every note clean. Then 75%. Then full tempo. This is how professionals learn.",
   ],
   drill:{types:['noteNaming','interval','pattern','oddEven','articulation'],clefs:['treble','bass'],range:'ledger',intervals:[2,3,4,5,6,7],timer:3,count:30}, advance:0.68 },
 

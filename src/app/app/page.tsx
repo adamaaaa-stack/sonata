@@ -409,29 +409,11 @@ export default function SonataApp() {
       // Patch TempoExpressions crash
       try { for (const m of instance.Sheet.SourceMeasures) { if (m.TempoExpressions) m.TempoExpressions.length = 0; } } catch {}
       instance.render();
-      // Dark theme: inject CSS rule to invert all black SVG elements
-      // This is more reliable than querySelectorAll — catches dynamically rendered elements
-      const style = document.createElement('style');
-      style.textContent = `
-        .sonata-score-dark svg { background: transparent !important; }
-        .sonata-score-dark svg [fill="#000000"], .sonata-score-dark svg [fill="#000"], .sonata-score-dark svg [fill="black"] { fill: #FAFAF9 !important; }
-        .sonata-score-dark svg [stroke="#000000"], .sonata-score-dark svg [stroke="#000"], .sonata-score-dark svg [stroke="black"] { stroke: #FAFAF9 !important; }
-        .sonata-score-dark svg rect[fill="white"], .sonata-score-dark svg rect[fill="#ffffff"], .sonata-score-dark svg rect[fill="#FFFFFF"] { fill: transparent !important; }
-      `;
-      container.appendChild(style);
-      container.classList.add('sonata-score-dark');
-      // Also do a one-time pass for elements without explicit attributes
-      requestAnimationFrame(() => {
-        container.querySelectorAll('svg *').forEach(el => {
-          const fill = el.getAttribute('fill');
-          const stroke = el.getAttribute('stroke');
-          if (fill === '#000000' || fill === '#000' || fill === 'black') el.setAttribute('fill', '#FAFAF9');
-          if (stroke === '#000000' || stroke === '#000' || stroke === 'black') el.setAttribute('stroke', '#FAFAF9');
-          // Hide white background rects
-          if (el.tagName === 'rect' && (fill === 'white' || fill === '#ffffff' || fill === '#FFFFFF' || fill === '#fff')) {
-            el.setAttribute('fill', 'transparent');
-          }
-        });
+      // Dark theme: use CSS filter to invert the entire SVG
+      // This is bulletproof — catches all elements regardless of how OSMD styles them
+      container.querySelectorAll('svg').forEach(svg => {
+        svg.style.filter = 'invert(1)';
+        svg.style.background = 'transparent';
       });
       osmdInstanceRef.current = instance;
     } catch (e) {

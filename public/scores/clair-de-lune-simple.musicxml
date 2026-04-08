@@ -1,41 +1,94 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE score-partwise PUBLIC "-//Recordare//DTD MusicXML 4.0 Partwise//EN" "http://www.musicxml.org/dtds/partwise.dtd">
 <score-partwise version="4.0">
-  <work><work-title>Gentle Phrase (Study in C)</work-title></work>
+  <work><work-title>Moonlit Garden (Study after Debussy)</work-title></work>
   <identification><creator type="composer">Study (after Debussy)</creator></identification>
-  <part-list><score-part id="P1"><part-name>Piano</part-name></score-part></part-list>
+  <part-list>
+    <score-part id="P1"><part-name>Right Hand</part-name></score-part>
+    <score-part id="P2"><part-name>Left Hand</part-name></score-part>
+  </part-list>
   <part id="P1">
-    <!-- C major, 4/4 — dynamics only; note values from L4 & L7 -->
+    <!-- F major (Bb), 4/4 — pp to mf arc with dynamics; steps/skips up to 5ths -->
     <measure number="1">
-      <attributes><divisions>4</divisions><key><fifths>0</fifths></key><time><beats>4</beats><beat-type>4</beat-type></time><clef><sign>G</sign><line>2</line></clef></attributes>
+      <attributes><divisions>4</divisions><key><fifths>-1</fifths></key><time><beats>4</beats><beat-type>4</beat-type></time><clef><sign>G</sign><line>2</line></clef></attributes>
       <direction><direction-type><dynamics><pp/></dynamics></direction-type></direction>
-      <note><pitch><step>C</step><octave>5</octave></pitch><duration>4</duration><type>quarter</type></note>
-      <note><pitch><step>D</step><octave>5</octave></pitch><duration>4</duration><type>quarter</type></note>
+      <note><pitch><step>F</step><octave>5</octave></pitch><duration>4</duration><type>quarter</type></note>
       <note><pitch><step>E</step><octave>5</octave></pitch><duration>4</duration><type>quarter</type></note>
+      <note><pitch><step>D</step><octave>5</octave></pitch><duration>4</duration><type>quarter</type></note>
       <note><pitch><step>C</step><octave>5</octave></pitch><duration>4</duration><type>quarter</type></note>
     </measure>
     <measure number="2">
-      <direction><direction-type><dynamics><p/></dynamics></direction-type></direction>
-      <note><pitch><step>D</step><octave>5</octave></pitch><duration>2</duration><type>eighth</type></note>
-      <note><pitch><step>E</step><octave>5</octave></pitch><duration>2</duration><type>eighth</type></note>
-      <note><pitch><step>F</step><octave>5</octave></pitch><duration>2</duration><type>eighth</type></note>
-      <note><pitch><step>E</step><octave>5</octave></pitch><duration>2</duration><type>eighth</type></note>
-      <note><pitch><step>D</step><octave>5</octave></pitch><duration>4</duration><type>quarter</type></note>
-      <note><pitch><step>C</step><octave>5</octave></pitch><duration>4</duration><type>quarter</type></note>
+      <note><pitch><step>A</step><octave>4</octave></pitch><duration>8</duration><type>half</type></note>
+      <note><pitch><step>B</step><alter>-1</alter><octave>4</octave></pitch><duration>4</duration><type>quarter</type></note>
+      <note><pitch><step>A</step><octave>4</octave></pitch><duration>4</duration><type>quarter</type></note>
     </measure>
     <measure number="3">
-      <direction><direction-type><dynamics><mf/></dynamics></direction-type></direction>
       <direction><direction-type><wedge type="crescendo"/></direction-type></direction>
+      <note><pitch><step>G</step><octave>4</octave></pitch><duration>4</duration><type>quarter</type></note>
+      <note><pitch><step>A</step><octave>4</octave></pitch><duration>4</duration><type>quarter</type></note>
       <note><pitch><step>C</step><octave>5</octave></pitch><duration>4</duration><type>quarter</type></note>
       <note><pitch><step>D</step><octave>5</octave></pitch><duration>4</duration><type>quarter</type></note>
-      <note><pitch><step>E</step><octave>5</octave></pitch><duration>4</duration><type>quarter</type></note>
-      <note><pitch><step>F</step><octave>5</octave></pitch><duration>4</duration><type>quarter</type></note>
     </measure>
     <measure number="4">
       <direction><direction-type><wedge type="stop"/></direction-type></direction>
+      <note><pitch><step>F</step><octave>5</octave></pitch><duration>8</duration><type>half</type></note>
+      <note><pitch><step>E</step><octave>5</octave></pitch><duration>4</duration><type>quarter</type></note>
+      <note><pitch><step>D</step><octave>5</octave></pitch><duration>4</duration><type>quarter</type></note>
+    </measure>
+    <measure number="5">
+      <direction><direction-type><dynamics><mf/></dynamics></direction-type></direction>
+      <note><pitch><step>C</step><octave>5</octave></pitch><duration>4</duration><type>quarter</type></note>
+      <note><pitch><step>F</step><octave>5</octave></pitch><duration>4</duration><type>quarter</type></note>
+      <note><pitch><step>E</step><octave>5</octave></pitch><duration>4</duration><type>quarter</type></note>
+      <note><pitch><step>D</step><octave>5</octave></pitch><duration>4</duration><type>quarter</type></note>
+    </measure>
+    <measure number="6">
+      <note><pitch><step>C</step><octave>5</octave></pitch><duration>4</duration><type>quarter</type></note>
+      <note><pitch><step>B</step><alter>-1</alter><octave>4</octave></pitch><duration>4</duration><type>quarter</type></note>
+      <note><pitch><step>A</step><octave>4</octave></pitch><duration>4</duration><type>quarter</type></note>
+      <note><pitch><step>G</step><octave>4</octave></pitch><duration>4</duration><type>quarter</type></note>
+    </measure>
+    <measure number="7">
+      <direction><direction-type><wedge type="diminuendo"/></direction-type></direction>
+      <note><pitch><step>A</step><octave>4</octave></pitch><duration>8</duration><type>half</type></note>
+      <note><pitch><step>B</step><alter>-1</alter><octave>4</octave></pitch><duration>4</duration><type>quarter</type></note>
+      <note><pitch><step>A</step><octave>4</octave></pitch><duration>4</duration><type>quarter</type></note>
+    </measure>
+    <measure number="8">
+      <direction><direction-type><wedge type="stop"/></direction-type></direction>
       <direction><direction-type><dynamics><p/></dynamics></direction-type></direction>
-      <note><pitch><step>E</step><octave>5</octave></pitch><duration>8</duration><type>half</type></note>
-      <note><pitch><step>C</step><octave>5</octave></pitch><duration>8</duration><type>half</type></note>
+      <note><pitch><step>F</step><octave>4</octave></pitch><duration>16</duration><type>whole</type></note>
+      <barline location="right"><bar-style>light-heavy</bar-style></barline>
+    </measure>
+  </part>
+  <part id="P2">
+    <!-- LH: gentle whole notes and half notes supporting the harmony -->
+    <measure number="1">
+      <attributes><divisions>4</divisions><key><fifths>-1</fifths></key><time><beats>4</beats><beat-type>4</beat-type></time><clef><sign>F</sign><line>4</line></clef></attributes>
+      <note><pitch><step>F</step><octave>3</octave></pitch><duration>16</duration><type>whole</type></note>
+    </measure>
+    <measure number="2">
+      <note><pitch><step>F</step><octave>3</octave></pitch><duration>8</duration><type>half</type></note>
+      <note><pitch><step>C</step><octave>3</octave></pitch><duration>8</duration><type>half</type></note>
+    </measure>
+    <measure number="3">
+      <note><pitch><step>B</step><alter>-1</alter><octave>2</octave></pitch><duration>16</duration><type>whole</type></note>
+    </measure>
+    <measure number="4">
+      <note><pitch><step>C</step><octave>3</octave></pitch><duration>16</duration><type>whole</type></note>
+    </measure>
+    <measure number="5">
+      <note><pitch><step>F</step><octave>3</octave></pitch><duration>16</duration><type>whole</type></note>
+    </measure>
+    <measure number="6">
+      <note><pitch><step>C</step><octave>3</octave></pitch><duration>8</duration><type>half</type></note>
+      <note><pitch><step>B</step><alter>-1</alter><octave>2</octave></pitch><duration>8</duration><type>half</type></note>
+    </measure>
+    <measure number="7">
+      <note><pitch><step>F</step><octave>3</octave></pitch><duration>16</duration><type>whole</type></note>
+    </measure>
+    <measure number="8">
+      <note><pitch><step>F</step><octave>2</octave></pitch><duration>16</duration><type>whole</type></note>
       <barline location="right"><bar-style>light-heavy</bar-style></barline>
     </measure>
   </part>
