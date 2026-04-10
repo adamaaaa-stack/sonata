@@ -554,7 +554,11 @@ function Header({ title, right }: { title: string; right?: React.ReactNode }) {
 }
 
 function BackLink({ onClick, label }: { onClick: () => void; label?: string }) {
-  return <span style={s.backLink} onClick={onClick}>{label || '← Back'}</span>;
+  return (
+    <button type="button" style={s.backLink} onClick={onClick}>
+      {label || '← Back'}
+    </button>
+  );
 }
 
 function PianoKeyboard({ startMidi = 48, endMidi = 84, highlights = {}, fingers = {}, onClick, showNames = true }: {
@@ -596,9 +600,6 @@ function PianoKeyboard({ startMidi = 48, endMidi = 84, highlights = {}, fingers 
       borderTop: '1px solid rgba(200,169,110,0.1)',
       display: 'flex', justifyContent: 'center',
       overflowX: 'auto', WebkitOverflowScrolling: 'touch',
-      // CSS custom properties for responsive sizing
-      '--key-w': '38px', '--key-h': '140px',
-      '--bkey-w': '24px', '--bkey-h': '90px',
     } as React.CSSProperties}>
       <div style={{ position: 'relative', display: 'flex' }}>
         {whiteKeys.map((m) => {
@@ -2068,19 +2069,19 @@ function RhythmScreen({ dispatch }: { dispatch: React.Dispatch<Action> }) {
 // STYLES
 // ============================================================
 const s: Record<string, React.CSSProperties> = {
-  page: { background: 'var(--bg)', color: 'var(--text)', fontFamily: 'var(--sans)', fontWeight: 300, lineHeight: 1.5, minHeight: '100vh' },
+  page: { background: 'var(--bg)', color: 'var(--text)', fontFamily: 'var(--sans)', fontWeight: 400, lineHeight: 1.5, minHeight: '100vh' },
   app: { maxWidth: 680, margin: '0 auto', padding: '24px 20px', minHeight: '100vh', display: 'flex', flexDirection: 'column', position: 'relative', zIndex: 1 },
   header: { display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '8px 0 20px', marginBottom: 8 },
   headerTitle: { fontFamily: 'var(--serif)', fontSize: 28, fontWeight: 400, letterSpacing: '-0.02em', color: 'var(--gold)', margin: 0 },
-  headerStats: { display: 'flex', gap: 20, fontSize: 13, color: 'var(--text3)', fontWeight: 300, alignItems: 'center' },
-  backLink: { fontSize: 13, color: 'var(--text3)', cursor: 'pointer', marginBottom: 16, display: 'inline-block', fontWeight: 300 },
+  headerStats: { display: 'flex', gap: 20, fontSize: 13, color: 'var(--text3)', fontWeight: 400, alignItems: 'center' },
+  backLink: { fontSize: 14, color: 'var(--text3)', cursor: 'pointer', marginBottom: 16, display: 'inline-block', fontWeight: 400, background: 'none', border: 'none', padding: '8px 4px', fontFamily: 'var(--sans)', textAlign: 'left' as const },
   menu: { display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 12, padding: '56px 20px 32px', position: 'relative' },
   menuTitle: { fontFamily: 'var(--serif)', fontSize: 36, fontWeight: 400, marginBottom: 4, letterSpacing: '-0.02em', margin: 0 },
-  menuSub: { color: 'var(--text2)', fontSize: 15, textAlign: 'center', maxWidth: 440, lineHeight: 1.8, fontWeight: 300, marginBottom: 20 },
+  menuSub: { color: 'var(--text2)', fontSize: 15, textAlign: 'center', maxWidth: 440, lineHeight: 1.7, fontWeight: 400, marginBottom: 20 },
   menuGrid: { display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12, width: '100%', maxWidth: 500 },
   menuBtn: { padding: '22px 20px', background: 'var(--bg2)', border: '1px solid var(--bg3)', borderRadius: 14, cursor: 'pointer', textAlign: 'left', transition: 'all 0.25s' },
   menuBtnLabel: { fontSize: 15, fontWeight: 500, color: 'var(--text)', marginTop: 6 },
-  menuBtnDesc: { fontSize: 12, color: 'var(--text3)', marginTop: 4, fontWeight: 300 },
+  menuBtnDesc: { fontSize: 12, color: 'var(--text3)', marginTop: 4, fontWeight: 400 },
   configTitle: { fontFamily: 'var(--serif)', fontSize: 22, fontWeight: 400, marginBottom: 20 },
   configRow: { marginBottom: 16 },
   configLabel: { fontSize: 11, color: 'var(--text3)', width: '100%', marginBottom: 8, textTransform: 'uppercase', letterSpacing: '0.08em', fontWeight: 500, display: 'block' },
@@ -2088,7 +2089,7 @@ const s: Record<string, React.CSSProperties> = {
   chipActive: { padding: '8px 18px', fontSize: 13, borderRadius: 24, border: '1px solid var(--gold2)', background: 'var(--gold-bg)', color: 'var(--gold)', cursor: 'pointer', fontFamily: 'var(--sans)' },
   primaryBtn: { marginTop: 20, padding: '14px 32px', background: 'var(--gold)', color: 'var(--bg)', border: 'none', borderRadius: 10, fontSize: 15, fontWeight: 500, cursor: 'pointer', width: '100%', fontFamily: 'var(--sans)' },
   drillTop: { display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 8 },
-  drillInfo: { fontSize: 13, color: 'var(--text3)', fontWeight: 300 },
+  drillInfo: { fontSize: 13, color: 'var(--text3)', fontWeight: 400 },
   stopBtn: { padding: '6px 16px', borderRadius: 10, background: 'var(--bg3)', color: 'var(--text3)', border: 'none', cursor: 'pointer', fontSize: 12 },
   timerBar: { height: 3, background: 'var(--bg3)', borderRadius: 2, margin: '6px 0 16px', overflow: 'hidden' },
   timerFill: { height: '100%', borderRadius: 2, transition: 'width 0.1s linear' },
@@ -2104,10 +2105,10 @@ const s: Record<string, React.CSSProperties> = {
   piano: { display: 'flex', position: 'relative', justifyContent: 'center' },
   // Piano styles are now inline in the PianoKeyboard component
   resultRow: { display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '10px 0', borderBottom: '1px solid rgba(255,255,255,0.04)' },
-  resultName: { fontSize: 14, fontWeight: 300 },
+  resultName: { fontSize: 14, fontWeight: 400 },
   resultBadge: { padding: '3px 14px', borderRadius: 20, fontSize: 12, fontWeight: 500 },
   sectionLabel: { fontSize: 11, color: 'var(--text3)', textTransform: 'uppercase', letterSpacing: '0.08em', fontWeight: 500, marginBottom: 8 },
-  teachText: { fontSize: 15, lineHeight: 1.85, color: 'var(--text2)', padding: 28, background: 'var(--bg2)', border: '1px solid var(--bg3)', borderRadius: 14, marginBottom: 16, fontWeight: 300, position: 'relative' },
+  teachText: { fontSize: 16, lineHeight: 1.7, color: 'var(--text)', padding: 24, background: 'var(--bg2)', border: '1px solid var(--bg3)', borderRadius: 14, marginBottom: 16, fontWeight: 400, position: 'relative' },
   speakBtn: { width: 30, height: 30, borderRadius: '50%', border: '1px solid var(--bg3)', background: 'var(--bg)', color: 'var(--text3)', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 13, padding: 0 },
   speakBtnActive: { borderColor: 'var(--gold)', color: 'var(--gold)', background: 'var(--gold-bg)' },
   teachNav: { display: 'flex', gap: 10, justifyContent: 'center', margin: '12px 0' },

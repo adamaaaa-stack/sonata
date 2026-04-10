@@ -14,6 +14,9 @@ body {
   padding-top: var(--safe-top);
   padding-bottom: var(--safe-bottom);
   background: #0C0A09;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 /* ============================================================
@@ -21,6 +24,15 @@ body {
    in the init useEffect when isNative() is true.
    Everything below is iOS/Android only; web is untouched.
    ============================================================ */
+
+/* Font fallback on native — skip Google Fonts entirely.
+   Use the iOS system serif (New York) and SF Pro.
+   This override happens at the :root level so every `var(--serif)` and
+   `var(--sans)` in the app resolves to native fonts immediately. */
+html.native {
+  --serif: ui-serif, "New York", Georgia, "Times New Roman", serif;
+  --sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", system-ui, sans-serif;
+}
 
 /* Kill webby behaviors: tap highlights, text selection, callouts,
    rubber-band overscroll, and the default input zoom. */
@@ -42,6 +54,8 @@ html.native body {
   inset: 0;
   padding-top: 0;
   padding-bottom: 0;
+  font-family: var(--sans);
+  letter-spacing: -0.01em;
 }
 
 /* Re-enable text selection for inputs and editable areas */
@@ -64,10 +78,17 @@ html.native .sonata-page {
 
 /* Safe-area padding on the inner app container */
 html.native .sonata-app {
-  padding-top: max(16px, var(--safe-top));
-  padding-bottom: max(16px, var(--safe-bottom));
-  padding-left: max(16px, var(--safe-left));
-  padding-right: max(16px, var(--safe-right));
+  padding-top: max(20px, var(--safe-top));
+  padding-bottom: max(20px, var(--safe-bottom));
+  padding-left: max(20px, var(--safe-left));
+  padding-right: max(20px, var(--safe-right));
+}
+
+/* Tighten display serif on native — system serif has wider default spacing */
+html.native h1,
+html.native h2,
+html.native h3 {
+  letter-spacing: -0.02em;
 }
 
 /* Universal press state for anything interactive */
@@ -81,4 +102,3 @@ html.native [role="button"]:active {
   opacity: 0.85;
   transition: transform 80ms ease-out, opacity 80ms ease-out;
 }
-
