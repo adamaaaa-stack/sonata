@@ -5,10 +5,19 @@ import { navigate } from "@/lib/platform";
 
 export default function PrivacyPage() {
   const router = useRouter();
+
+  function goBack() {
+    if (typeof window !== "undefined" && window.history.length > 1) {
+      window.history.back();
+      return;
+    }
+    navigate("/", router);
+  }
+
   return (
     <div style={p.page}>
       <div style={p.container}>
-        <button type="button" onClick={() => navigate("/app/", router)} style={p.back}>← Back</button>
+        <button type="button" onClick={goBack} style={p.back}>← Back</button>
         <h1 style={p.title}>Privacy Policy</h1>
         <p style={p.date}>Last updated: April 2026</p>
 
