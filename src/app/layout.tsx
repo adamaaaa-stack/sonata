@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import NativeAuthHandler from "@/components/NativeAuthHandler";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://learnwithsonata.com"),
@@ -98,6 +99,7 @@ export default function RootLayout({
         />
       </head>
       <body style={{ margin: 0, padding: 0, background: "#0C0A09" }}>
+        <NativeAuthHandler />
         {children}
       </body>
     </html>
