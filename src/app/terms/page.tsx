@@ -1,10 +1,14 @@
-import Link from "next/link";
+"use client";
+
+import { useRouter } from "next/navigation";
+import { navigate } from "@/lib/platform";
 
 export default function TermsPage() {
+  const router = useRouter();
   return (
     <div style={p.page}>
       <div style={p.container}>
-        <Link href="/" style={p.back}>← Back</Link>
+        <button type="button" onClick={() => navigate("/app/", router)} style={p.back}>← Back</button>
         <h1 style={p.title}>Terms of Service</h1>
         <p style={p.date}>Last updated: April 2026</p>
 
@@ -42,7 +46,7 @@ export default function TermsPage() {
 const p: Record<string, React.CSSProperties> = {
   page: { minHeight: '100vh', background: '#0C0A09', color: '#FAFAF9', fontFamily: "'Outfit', system-ui, sans-serif", padding: '24px 20px' },
   container: { maxWidth: 640, margin: '0 auto' },
-  back: { color: '#78716C', fontSize: 13, textDecoration: 'none' },
+  back: { color: '#78716C', fontSize: 14, textDecoration: 'none', background: 'none', border: 'none', padding: '8px 4px', cursor: 'pointer', fontFamily: "'Outfit', system-ui, sans-serif" },
   title: { fontFamily: "'Instrument Serif', Georgia, serif", fontSize: 32, fontWeight: 400, color: '#C8A96E', margin: '24px 0 8px' },
   date: { color: '#78716C', fontSize: 13, marginBottom: 32 },
   h2: { fontSize: 16, fontWeight: 500, marginTop: 28, marginBottom: 8 },

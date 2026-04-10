@@ -1,13 +1,23 @@
 "use client";
 
+import { useRouter } from "next/navigation";
+import { navigate } from "@/lib/platform";
+
 export default function PricingPage() {
+  const router = useRouter();
+
+  function go(e: React.MouseEvent<HTMLAnchorElement>, path: string) {
+    e.preventDefault();
+    navigate(path, router);
+  }
+
   return (
     <div style={p.page}>
       <nav style={p.nav}>
-        <a href="/" style={p.navLogo}>Sonata</a>
+        <a href="/" onClick={(e) => go(e, "/")} style={p.navLogo}>Sonata</a>
         <div style={{ display: 'flex', gap: 20, alignItems: 'center' }}>
           <a href="/#features" style={p.navLink}>Features</a>
-          <a href="/login/" style={p.navCta}>Start learning</a>
+          <a href="/login/" onClick={(e) => go(e, "/login/")} style={p.navCta}>Start learning</a>
         </div>
       </nav>
 
@@ -31,7 +41,7 @@ export default function PricingPage() {
               <li style={p.itemMuted}><span style={p.cross}>-</span> Unlimited drills</li>
               <li style={p.itemMuted}><span style={p.cross}>-</span> AI exercises</li>
             </ul>
-            <a href="/login/" style={p.btnGhost}>Start for free</a>
+            <a href="/login/" onClick={(e) => go(e, "/login/")} style={p.btnGhost}>Start for free</a>
           </div>
 
           {/* Premium tier */}
@@ -49,7 +59,7 @@ export default function PricingPage() {
               <li style={p.item}><span style={p.check}>✓</span> Sight-reading mode</li>
               <li style={p.item}><span style={p.check}>✓</span> Cancel anytime</li>
             </ul>
-            <a href="/login/?next=gumroad" style={p.btnPrimary}>
+            <a href="/login/?next=gumroad" onClick={(e) => go(e, "/login/?next=gumroad")} style={p.btnPrimary}>
               Get Premium
             </a>
           </div>
@@ -72,10 +82,10 @@ export default function PricingPage() {
       </div>
 
       <footer style={p.footer}>
-        <a href="/" style={p.footerLogo}>Sonata</a>
+        <a href="/" onClick={(e) => go(e, "/")} style={p.footerLogo}>Sonata</a>
         <div style={{ display: 'flex', gap: 16 }}>
-          <a href="/terms/" style={p.footerLink}>Terms</a>
-          <a href="/privacy/" style={p.footerLink}>Privacy</a>
+          <a href="/terms/" onClick={(e) => go(e, "/terms/")} style={p.footerLink}>Terms</a>
+          <a href="/privacy/" onClick={(e) => go(e, "/privacy/")} style={p.footerLink}>Privacy</a>
         </div>
       </footer>
     </div>

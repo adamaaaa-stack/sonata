@@ -3,7 +3,7 @@
 import { Suspense, useState } from "react";
 import { supabase } from "@/lib/supabase";
 import { useRouter, useSearchParams } from "next/navigation";
-import { isNative } from "@/lib/platform";
+import { isNative, navigate } from "@/lib/platform";
 
 export default function LoginPage() {
   return <Suspense fallback={<div style={{ minHeight: '100vh', background: '#0C0A09' }} />}><LoginInner /></Suspense>;
@@ -47,7 +47,7 @@ function LoginInner() {
       } else if (data.session) {
         // Email confirmation disabled — user is logged in immediately
         const dest = getRedirect();
-        if (dest.startsWith('http')) { window.location.href = dest; } else { router.push(dest); }
+        if (dest.startsWith('http')) { window.location.href = dest; } else { navigate(dest, router); }
       } else {
         // Email confirmation enabled — tell them to check email
         setMessage("Check your email to confirm your account, then sign in.");
@@ -62,7 +62,7 @@ function LoginInner() {
         setError(signInError.message);
       } else {
         const dest = getRedirect();
-        if (dest.startsWith('http')) { window.location.href = dest; } else { router.push(dest); }
+        if (dest.startsWith('http')) { window.location.href = dest; } else { navigate(dest, router); }
       }
     }
     setLoading(false);

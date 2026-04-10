@@ -56,7 +56,7 @@ import {
 import type { Question, DrillConfig, RhythmPattern, CatalogEntry, Lesson } from "@/lib/music";
 import { checkAuth, signOut, loadProgress, saveDrillSession, saveLessonComplete, loadLicense } from "@/lib/supabaseData";
 import type { User } from "@supabase/supabase-js";
-import { isNative } from "@/lib/platform";
+import { isNative, navigate } from "@/lib/platform";
 import { hLight, hSelect, hSuccess, hError, hWarning } from "@/lib/haptics";
 import "./sonata.css";
 
@@ -232,7 +232,7 @@ export default function SonataApp() {
 
     (async () => {
       const user = await checkAuth();
-      if (!user) { router.push('/login/'); return; }
+      if (!user) { navigate('/login/', router); return; }
       dispatch({ type: 'SET_USER', user });
 
       const progress = await loadProgress(user.id);
@@ -987,8 +987,8 @@ function MenuScreen({ state, dispatch }: { state: AppState; dispatch: React.Disp
             { label: 'Rhythm', desc: 'Tap in time', onClick: () => dispatch({ type: 'SET_SCREEN', screen: 'rhythm' }) },
             { label: 'Library', desc: CATALOG.length + ' pieces', onClick: () => dispatch({ type: 'SET_SCREEN', screen: 'library' }) },
             { label: 'Progress', desc: 'Stats & accuracy', onClick: () => dispatch({ type: 'SET_SCREEN', screen: 'progress' }) },
-            { label: 'Account', desc: 'Settings & password', onClick: () => router.push('/account/') },
-            { label: 'Sign Out', desc: 'Log out', onClick: async () => { await signOut(); router.push('/login/'); } },
+            { label: 'Account', desc: 'Settings & password', onClick: () => navigate('/account/', router) },
+            { label: 'Sign Out', desc: 'Log out', onClick: async () => { await signOut(); navigate('/login/', router); } },
           ].map((btn, i) => (
             <div key={i} style={s.menuBtn} className="sonata-menu-btn" onClick={() => { hSelect(); btn.onClick(); }}>
               <div style={s.menuBtnLabel}>{btn.label}</div>
@@ -1876,9 +1876,9 @@ function IOSPaywall({ dispatch }: { dispatch: React.Dispatch<Action> }) {
       <div style={{ fontSize: 11, color: '#44403C', marginTop: 20, lineHeight: 1.6 }}>
         Payment will be charged to your Apple ID. Subscription automatically renews unless canceled at least 24 hours before the end of the current period.
         {' '}
-        <a href="/terms/" style={{ color: '#78716C', textDecoration: 'underline' }}>Terms of Use</a>
+        <a href="/terms/" onClick={(e) => { e.preventDefault(); navigate("/terms/"); }} style={{ color: '#78716C', textDecoration: 'underline' }}>Terms of Use</a>
         {' · '}
-        <a href="/privacy/" style={{ color: '#78716C', textDecoration: 'underline' }}>Privacy Policy</a>
+        <a href="/privacy/" onClick={(e) => { e.preventDefault(); navigate("/privacy/"); }} style={{ color: '#78716C', textDecoration: 'underline' }}>Privacy Policy</a>
       </div>
     </div>
   );

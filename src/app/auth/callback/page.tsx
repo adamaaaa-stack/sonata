@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { supabase } from "@/lib/supabase";
-import { isNative } from "@/lib/platform";
+import { isNative, navigate } from "@/lib/platform";
 
 export default function AuthCallback() {
   const router = useRouter();
@@ -23,12 +23,12 @@ export default function AuthCallback() {
 
         if (sessionError) {
           setError(sessionError.message);
-          setTimeout(() => router.replace("/login/"), 2000);
+          setTimeout(() => navigate("/login/", router, { replace: true }), 2000);
           return;
         }
 
         if (data.session) {
-          router.replace("/app/");
+          navigate("/app/", router, { replace: true });
           return;
         }
 
@@ -37,7 +37,7 @@ export default function AuthCallback() {
           if (cancelled) return;
           if (event === "SIGNED_IN" && session) {
             sub.subscription.unsubscribe();
-            router.replace("/app/");
+            navigate("/app/", router, { replace: true });
           }
         });
 
@@ -46,13 +46,13 @@ export default function AuthCallback() {
           if (cancelled) return;
           sub.subscription.unsubscribe();
           setError("Sign in timed out. Please try again.");
-          setTimeout(() => router.replace("/login/"), 1500);
+          setTimeout(() => navigate("/login/", router, { replace: true }), 1500);
         }, 5000);
       } catch (e) {
         if (cancelled) return;
         const msg = e instanceof Error ? e.message : "Authentication failed";
         setError(msg);
-        setTimeout(() => router.replace("/login/"), 2000);
+        setTimeout(() => navigate("/login/", router, { replace: true }), 2000);
       }
     }
 
@@ -68,7 +68,7 @@ export default function AuthCallback() {
           const refreshToken = params.get("refresh_token");
           if (accessToken && refreshToken) {
             await supabase.auth.setSession({ access_token: accessToken, refresh_token: refreshToken });
-            router.replace("/app/");
+            navigate("/app/", router, { replace: true });
           }
         });
       });

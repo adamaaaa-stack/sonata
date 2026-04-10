@@ -1,18 +1,32 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
+import { isNative, navigate } from "@/lib/platform";
 import "./landing.css";
 
 export default function LandingPage() {
   const [scrollY, setScrollY] = useState(0);
   const [visible, setVisible] = useState(false);
+  const router = useRouter();
 
   useEffect(() => {
     setVisible(true);
+    // On Capacitor, the bundle opens at `/` (landing page). Skip it —
+    // mobile users should land in the app directly, not the marketing page.
+    if (isNative()) {
+      navigate("/app/", undefined, { replace: true });
+      return;
+    }
     const onScroll = () => setScrollY(window.scrollY);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  function go(e: React.MouseEvent<HTMLAnchorElement>, path: string) {
+    e.preventDefault();
+    navigate(path, router);
+  }
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -88,9 +102,9 @@ export default function LandingPage() {
         <div style={styles.navLinks} className="landing-nav-links">
           <a href="#method" style={styles.navLink}>Method</a>
           <a href="#features" style={styles.navLink}>Features</a>
-          <a href="/pricing/" style={styles.navLink}>Pricing</a>
+          <a href="/pricing/" onClick={(e) => go(e, "/pricing/")} style={styles.navLink}>Pricing</a>
           <a href="#story" style={styles.navLink}>Story</a>
-          <a href="/login/" style={styles.navCta}>Start learning</a>
+          <a href="/login/" onClick={(e) => go(e, "/login/")} style={styles.navCta}>Start learning</a>
         </div>
       </nav>
 
@@ -114,7 +128,7 @@ export default function LandingPage() {
           couldn&apos;t read sheet music, one method changed everything.
         </p>
         <div style={styles.heroButtons} className="landing-hero-buttons">
-          <a href="/login/" style={styles.primaryBtn}>
+          <a href="/login/" onClick={(e) => go(e, "/login/")} style={styles.primaryBtn}>
             Start for free
           </a>
           <a href="#story" style={styles.ghostBtn}>
@@ -464,7 +478,7 @@ export default function LandingPage() {
             Free to start. No credit card. 23 lessons from zero to reading real
             sheet music.
           </p>
-          <a href="/login/" style={{ ...styles.primaryBtn, fontSize: 17, padding: "16px 48px" }}>
+          <a href="/login/" onClick={(e) => go(e, "/login/")} style={{ ...styles.primaryBtn, fontSize: 17, padding: "16px 48px" }}>
             Start learning now
           </a>
         </div>
@@ -474,8 +488,8 @@ export default function LandingPage() {
       <footer style={styles.footer} className="landing-footer">
         <span style={styles.footerLogo}>Sonata</span>
         <div style={{ display: 'flex', gap: 16, alignItems: 'center' }}>
-          <a href="/terms/" style={styles.footerText}>Terms</a>
-          <a href="/privacy/" style={styles.footerText}>Privacy</a>
+          <a href="/terms/" onClick={(e) => go(e, "/terms/")} style={styles.footerText}>Terms</a>
+          <a href="/privacy/" onClick={(e) => go(e, "/privacy/")} style={styles.footerText}>Privacy</a>
           <span style={styles.footerText}>Built by Adam Morris</span>
         </div>
       </footer>

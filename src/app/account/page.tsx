@@ -5,6 +5,7 @@ import { supabase } from "@/lib/supabase";
 import { loadLicense } from "@/lib/supabaseData";
 import type { LicenseRow } from "@/lib/supabaseData";
 import { useRouter, useSearchParams } from "next/navigation";
+import { navigate } from "@/lib/platform";
 import type { User } from "@supabase/supabase-js";
 
 export default function AccountPage() {
@@ -26,7 +27,7 @@ function AccountInner() {
 
   useEffect(() => {
     supabase.auth.getSession().then(({ data: { session } }) => {
-      if (!session) { router.push("/login/"); return; }
+      if (!session) { navigate("/login/", router); return; }
       setUser(session.user);
       loadLicense(session.user.id).then(l => setLicense(l));
 
@@ -83,7 +84,7 @@ function AccountInner() {
     await supabase.from("user_progress").delete().eq("user_id", user.id);
     localStorage.clear();
     await supabase.auth.signOut();
-    router.push("/");
+    navigate("/", router);
   }
 
   if (!user) return <div style={a.page}><div style={a.container}><p style={{ color: '#78716C' }}>Loading...</p></div></div>;
@@ -91,7 +92,7 @@ function AccountInner() {
   return (
     <div style={a.page}>
       <div style={a.container}>
-        <button type="button" onClick={() => router.push("/app/")} style={a.back}>&larr; Back to app</button>
+        <button type="button" onClick={() => navigate("/app/", router)} style={a.back}>&larr; Back to app</button>
         <h1 style={a.title}>Account</h1>
 
         <div style={a.card}>
@@ -179,8 +180,8 @@ function AccountInner() {
         </div>
 
         <div style={{ marginTop: 24, display: 'flex', gap: 16, justifyContent: 'center' }}>
-          <a href="/terms/" style={a.link}>Terms of Service</a>
-          <a href="/privacy/" style={a.link}>Privacy Policy</a>
+          <a href="/terms/" onClick={(e) => { e.preventDefault(); navigate("/terms/", router); }} style={a.link}>Terms of Service</a>
+          <a href="/privacy/" onClick={(e) => { e.preventDefault(); navigate("/privacy/", router); }} style={a.link}>Privacy Policy</a>
         </div>
       </div>
     </div>
