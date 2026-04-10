@@ -232,7 +232,7 @@ export default function SonataApp() {
 
     (async () => {
       const user = await checkAuth();
-      if (!user) { router.push('/login'); return; }
+      if (!user) { router.push('/login/'); return; }
       dispatch({ type: 'SET_USER', user });
 
       const progress = await loadProgress(user.id);
@@ -987,8 +987,8 @@ function MenuScreen({ state, dispatch }: { state: AppState; dispatch: React.Disp
             { label: 'Rhythm', desc: 'Tap in time', onClick: () => dispatch({ type: 'SET_SCREEN', screen: 'rhythm' }) },
             { label: 'Library', desc: CATALOG.length + ' pieces', onClick: () => dispatch({ type: 'SET_SCREEN', screen: 'library' }) },
             { label: 'Progress', desc: 'Stats & accuracy', onClick: () => dispatch({ type: 'SET_SCREEN', screen: 'progress' }) },
-            { label: 'Account', desc: 'Settings & password', onClick: () => router.push('/account') },
-            { label: 'Sign Out', desc: 'Log out', onClick: async () => { await signOut(); router.push('/login'); } },
+            { label: 'Account', desc: 'Settings & password', onClick: () => router.push('/account/') },
+            { label: 'Sign Out', desc: 'Log out', onClick: async () => { await signOut(); router.push('/login/'); } },
           ].map((btn, i) => (
             <div key={i} style={s.menuBtn} className="sonata-menu-btn" onClick={() => { hSelect(); btn.onClick(); }}>
               <div style={s.menuBtnLabel}>{btn.label}</div>
@@ -1876,9 +1876,9 @@ function IOSPaywall({ dispatch }: { dispatch: React.Dispatch<Action> }) {
       <div style={{ fontSize: 11, color: '#44403C', marginTop: 20, lineHeight: 1.6 }}>
         Payment will be charged to your Apple ID. Subscription automatically renews unless canceled at least 24 hours before the end of the current period.
         {' '}
-        <a href="/terms" style={{ color: '#78716C', textDecoration: 'underline' }}>Terms of Use</a>
+        <a href="/terms/" style={{ color: '#78716C', textDecoration: 'underline' }}>Terms of Use</a>
         {' · '}
-        <a href="/privacy" style={{ color: '#78716C', textDecoration: 'underline' }}>Privacy Policy</a>
+        <a href="/privacy/" style={{ color: '#78716C', textDecoration: 'underline' }}>Privacy Policy</a>
       </div>
     </div>
   );

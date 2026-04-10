@@ -23,7 +23,7 @@ function LoginInner() {
 
   function getRedirect(): string {
     if (nextParam === "gumroad") return "https://morrison844.gumroad.com/l/sonata";
-    return "/app";
+    return "/app/";
   }
 
   async function handleSubmit(e: React.FormEvent) {
@@ -87,7 +87,7 @@ function LoginInner() {
       // Web: standard redirect
       const { error: gError } = await supabase.auth.signInWithOAuth({
         provider: "google",
-        options: { redirectTo: window.location.origin + "/auth/callback" },
+        options: { redirectTo: window.location.origin + "/auth/callback/" },
       });
       if (gError) setError(gError.message);
     }
@@ -174,7 +174,7 @@ function LoginInner() {
             <button type="button" onClick={async () => {
               if (!email) { setError("Enter your email first"); return; }
               const { error: resetErr } = await supabase.auth.resetPasswordForEmail(email, {
-                redirectTo: window.location.origin + "/app",
+                redirectTo: window.location.origin + "/app/",
               });
               if (resetErr) setError(resetErr.message);
               else setMessage("Password reset email sent. Check your inbox.");

@@ -26,7 +26,7 @@ function AccountInner() {
 
   useEffect(() => {
     supabase.auth.getSession().then(({ data: { session } }) => {
-      if (!session) { router.push("/login"); return; }
+      if (!session) { router.push("/login/"); return; }
       setUser(session.user);
       loadLicense(session.user.id).then(l => setLicense(l));
 
@@ -91,7 +91,7 @@ function AccountInner() {
   return (
     <div style={a.page}>
       <div style={a.container}>
-        <button type="button" onClick={() => router.push("/app")} style={a.back}>&larr; Back to app</button>
+        <button type="button" onClick={() => router.push("/app/")} style={a.back}>&larr; Back to app</button>
         <h1 style={a.title}>Account</h1>
 
         <div style={a.card}>
@@ -179,8 +179,8 @@ function AccountInner() {
         </div>
 
         <div style={{ marginTop: 24, display: 'flex', gap: 16, justifyContent: 'center' }}>
-          <a href="/terms" style={a.link}>Terms of Service</a>
-          <a href="/privacy" style={a.link}>Privacy Policy</a>
+          <a href="/terms/" style={a.link}>Terms of Service</a>
+          <a href="/privacy/" style={a.link}>Privacy Policy</a>
         </div>
       </div>
     </div>
