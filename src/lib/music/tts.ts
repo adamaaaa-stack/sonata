@@ -1,7 +1,7 @@
 // ============================================================
 // TEXT-TO-SPEECH — Pre-generated audio files + live API fallback
 // ============================================================
-import { API_BASE_URL } from '@/lib/platform';
+import { API_BASE_URL, isNative } from '@/lib/platform';
 
 let ttsAudio: HTMLAudioElement | null = null;
 let ttsSpeed = 1.0;
@@ -9,9 +9,33 @@ let ttsLastText = '';
 let ttsLastFile = '';
 let ttsGeneration = 0; // Incremented each speak() call to cancel stale async work
 let onStateChange: ((state: 'playing' | 'paused' | 'stopped') => void) | null = null;
+let audioUnlocked = false;
 
 export function setTTSStateCallback(cb: (state: 'playing' | 'paused' | 'stopped') => void): void {
   onStateChange = cb;
+}
+
+/**
+ * Unlock audio playback on iOS/Safari. Must be called from inside a
+ * user gesture (click / touch handler). Plays a silent MP3 for a few
+ * ms — this grants autoplay permission to subsequent Audio elements.
+ */
+export function unlockAudio(): void {
+  if (audioUnlocked) return;
+  try {
+    const silent = new Audio(
+      'data:audio/mpeg;base64,//uQxAAAAAAAAAAAAAAAAAAAAAAAWGluZwAAAA8AAAACAAACcQCA'
+    );
+    silent.volume = 0;
+    const p = silent.play();
+    if (p && typeof p.then === 'function') {
+      p.then(() => { audioUnlocked = true; }).catch(() => {});
+    } else {
+      audioUnlocked = true;
+    }
+  } catch {
+    // no-op
+  }
 }
 
 // Try pre-generated file first, fallback to live API
@@ -26,29 +50,72 @@ export async function speak(text: string, audioFile?: string): Promise<void> {
     let audioUrl: string;
 
     if (audioFile) {
-      // Check if pre-generated file exists
-      const checkRes = await fetch(audioFile, { method: 'HEAD' });
-      if (gen !== ttsGeneration) return; // Cancelled — a newer speak() was called
-      if (checkRes.ok) {
+      // On Capacitor, pre-generated files are bundled locally. Skip the
+      // HEAD check (which can fail on some WKWebView configurations)
+      // and just load the file directly. If it doesn't exist, the
+      // Audio element's onerror will fire and we'll fall back.
+      if (isNative()) {
         audioUrl = audioFile;
       } else {
-        // Fallback to live API
-        audioUrl = await fetchLiveTTS(text);
-        if (gen !== ttsGeneration) return; // Cancelled
+        try {
+          const checkRes = await fetch(audioFile, { method: 'HEAD' });
+          if (gen !== ttsGeneration) return; // Cancelled
+          if (checkRes.ok) {
+            audioUrl = audioFile;
+          } else {
+            audioUrl = await fetchLiveTTS(text);
+            if (gen !== ttsGeneration) return;
+          }
+        } catch {
+          audioUrl = await fetchLiveTTS(text);
+          if (gen !== ttsGeneration) return;
+        }
       }
     } else {
       audioUrl = await fetchLiveTTS(text);
-      if (gen !== ttsGeneration) return; // Cancelled
+      if (gen !== ttsGeneration) return;
     }
 
-    ttsAudio = new Audio(audioUrl);
-    ttsAudio.playbackRate = ttsSpeed;
-    ttsAudio.onended = () => {
+    const audio = new Audio(audioUrl);
+    audio.playbackRate = ttsSpeed;
+    audio.preload = 'auto';
+    ttsAudio = audio;
+
+    audio.onended = () => {
       onStateChange?.('stopped');
-      ttsAudio = null;
+      if (ttsAudio === audio) ttsAudio = null;
     };
-    ttsAudio.play();
-  } catch(e) {
+    audio.onerror = async () => {
+      // Audio failed to load — try the live API as fallback (once)
+      if (gen !== ttsGeneration) return;
+      console.warn('TTS file load failed, trying live API:', audioFile);
+      try {
+        const fallbackUrl = await fetchLiveTTS(text);
+        if (gen !== ttsGeneration) return;
+        const retry = new Audio(fallbackUrl);
+        retry.playbackRate = ttsSpeed;
+        ttsAudio = retry;
+        retry.onended = () => {
+          onStateChange?.('stopped');
+          if (ttsAudio === retry) ttsAudio = null;
+        };
+        await retry.play().catch((e) => {
+          console.warn('TTS retry play() failed:', e);
+          onStateChange?.('stopped');
+        });
+      } catch (e) {
+        console.warn('TTS fallback failed:', e);
+        onStateChange?.('stopped');
+      }
+    };
+
+    try {
+      await audio.play();
+    } catch (e) {
+      console.warn('TTS play() failed:', e);
+      onStateChange?.('stopped');
+    }
+  } catch (e) {
     if (gen === ttsGeneration) onStateChange?.('stopped');
     console.warn('TTS error:', e);
   }

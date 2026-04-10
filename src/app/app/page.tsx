@@ -48,7 +48,7 @@ import {
   playCorrectSound, playWrongSound, playNote, playPianoKey,
   playScoreNotes, stopScorePlayback, loadPianoSamples,
   type ScoreNote,
-  speak, stopSpeaking, togglePause, toggleSlow, replaySpeak, getTTSSpeed, setTTSStateCallback,
+  speak, stopSpeaking, togglePause, toggleSlow, replaySpeak, getTTSSpeed, setTTSStateCallback, unlockAudio,
   getIntervalAccuracy, updateIntervalAccuracy, getWeakestIntervals, recordPractice, getPracticeDates,
   getStoredLessons, setStoredLessons, getStoredDrills, setStoredDrills, isOnboarded, setOnboarded, getPlacementResult, setPlacementResult,
   lessons, CATALOG, getCatalogUrl, DIFF_COLORS, getRecommendedDifficulty, findLessonCatalogIndex,
@@ -956,7 +956,7 @@ function MenuScreen({ state, dispatch }: { state: AppState; dispatch: React.Disp
 
         {/* Daily practice / Continue button */}
         {nextLesson && (
-          <div onClick={() => dispatch({ type: 'START_LESSON', id: nextLesson.id })} style={{
+          <div onClick={() => { unlockAudio(); dispatch({ type: 'START_LESSON', id: nextLesson.id }); }} style={{
             width: '100%', maxWidth: 500, padding: '20px 24px', marginTop: 16, marginBottom: 8,
             background: 'linear-gradient(135deg, rgba(200,169,110,0.08) 0%, var(--bg2) 60%)',
             border: '1px solid rgba(200,169,110,0.2)', borderRadius: 14, cursor: 'pointer', textAlign: 'left',
@@ -990,7 +990,7 @@ function MenuScreen({ state, dispatch }: { state: AppState; dispatch: React.Disp
             { label: 'Account', desc: 'Settings & password', onClick: () => navigate('/account/', router) },
             { label: 'Sign Out', desc: 'Log out', onClick: async () => { await signOut(); navigate('/login/', router); } },
           ].map((btn, i) => (
-            <div key={i} style={s.menuBtn} className="sonata-menu-btn" onClick={() => { hSelect(); btn.onClick(); }}>
+            <div key={i} style={s.menuBtn} className="sonata-menu-btn" onClick={() => { hSelect(); unlockAudio(); btn.onClick(); }}>
               <div style={s.menuBtnLabel}>{btn.label}</div>
               <div style={s.menuBtnDesc}>{btn.desc}</div>
             </div>
@@ -1224,7 +1224,7 @@ function LessonsListScreen({ state, dispatch }: { state: AppState; dispatch: Rea
           return (
             <div key={l.id}
               style={{ ...s.lessonCard, ...(locked ? { opacity: 0.3, cursor: 'default' } : {}), ...(complete ? {} : {}) }}
-              onClick={() => !locked && dispatch({ type: 'START_LESSON', id: l.id })}>
+              onClick={() => { if (!locked) { unlockAudio(); dispatch({ type: 'START_LESSON', id: l.id }); } }}>
               <div style={{ ...s.lessonNum, color: complete ? 'var(--green)' : locked ? 'var(--bg4)' : 'var(--gold)' }}>{l.id}</div>
               <div style={{ flex: 1 }}>
                 <div style={{ fontSize: 14, fontWeight: 500 }}>{l.title}</div>
@@ -1282,13 +1282,15 @@ function LessonConcepts({ lesson, state, dispatch, renderNotation }: {
           ))}
         </div>
         <div className="sonata-lesson-wrap">
-          <div style={s.teachText} className="sonata-teach-text">
-            <div style={{ position: 'absolute', top: 10, right: 10, display: 'flex', gap: 4 }}>
-              <button style={s.speakBtn} onClick={togglePause}>⏸</button>
-              <button style={{ ...s.speakBtn, ...(getTTSSpeed() === 0.75 ? s.speakBtnActive : {}) }} onClick={() => { toggleSlow(); }}>½×</button>
-              <button style={s.speakBtn} onClick={replaySpeak}>↻</button>
+          <div style={s.teachRow} className="sonata-teach-row">
+            <div style={s.teachText} className="sonata-teach-text">
+              {step.text}
             </div>
-            {step.text}
+            <div style={s.speakCol} className="sonata-speak-col">
+              <button style={s.speakBtn} onClick={togglePause} aria-label="Play / pause">⏸</button>
+              <button style={{ ...s.speakBtn, ...(getTTSSpeed() === 0.75 ? s.speakBtnActive : {}) }} onClick={() => { toggleSlow(); }} aria-label="Slow down">½×</button>
+              <button style={s.speakBtn} onClick={replaySpeak} aria-label="Replay">↻</button>
+            </div>
           </div>
           {step.abc && <div ref={notRef} style={s.notation} className="sonata-notation" />}
         </div>
@@ -2109,8 +2111,10 @@ const s: Record<string, React.CSSProperties> = {
   resultName: { fontSize: 14, fontWeight: 400 },
   resultBadge: { padding: '3px 14px', borderRadius: 20, fontSize: 12, fontWeight: 500 },
   sectionLabel: { fontSize: 11, color: 'var(--text3)', textTransform: 'uppercase', letterSpacing: '0.08em', fontWeight: 500, marginBottom: 8 },
-  teachText: { fontSize: 16, lineHeight: 1.7, color: 'var(--text)', padding: 24, background: 'var(--bg2)', border: '1px solid var(--bg3)', borderRadius: 14, marginBottom: 16, fontWeight: 400, position: 'relative' },
-  speakBtn: { width: 30, height: 30, borderRadius: '50%', border: '1px solid var(--bg3)', background: 'var(--bg)', color: 'var(--text3)', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 13, padding: 0 },
+  teachRow: { display: 'flex', gap: 12, alignItems: 'stretch', marginBottom: 16 },
+  teachText: { flex: 1, fontSize: 18, lineHeight: 1.7, color: 'var(--text)', padding: 28, background: 'var(--bg2)', border: '1px solid var(--bg3)', borderRadius: 14, fontWeight: 400, textAlign: 'center' as const, display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: 180 },
+  speakCol: { display: 'flex', flexDirection: 'column' as const, gap: 8, justifyContent: 'flex-start', paddingTop: 8 },
+  speakBtn: { width: 38, height: 38, borderRadius: '50%', border: '1px solid var(--bg3)', background: 'var(--bg2)', color: 'var(--text3)', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 14, padding: 0, fontFamily: 'var(--sans)' },
   speakBtnActive: { borderColor: 'var(--gold)', color: 'var(--gold)', background: 'var(--gold-bg)' },
   teachNav: { display: 'flex', gap: 10, justifyContent: 'center', margin: '12px 0' },
   navBtn: { padding: '10px 28px', borderRadius: 10, border: '1px solid var(--bg3)', background: 'var(--bg2)', color: 'var(--text2)', fontSize: 13, cursor: 'pointer', fontFamily: 'var(--sans)' },
