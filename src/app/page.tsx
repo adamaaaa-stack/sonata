@@ -537,34 +537,34 @@ function MobileLanding({ ready, router }: { ready: boolean; router: ReturnType<t
           <div style={m.tagline}>Read piano music by distance, not memorisation.</div>
         </div>
 
-        {/* Visual */}
-        <svg width="200" height="90" viewBox="0 0 200 90" style={m.visual} aria-hidden="true">
-          {[0, 1, 2, 3, 4].map((i) => (
-            <line
-              key={i}
-              x1={10}
-              y1={25 + i * 10}
-              x2={190}
-              y2={25 + i * 10}
-              stroke="#C8A96E"
-              strokeWidth={1}
-              strokeLinecap="round"
-              opacity={0.45}
-            />
-          ))}
-          <path
-            d="M 20 30 Q 25 15, 30 30 Q 35 50, 30 60 Q 25 70, 25 45"
-            stroke="#C8A96E"
-            strokeWidth={2}
-            fill="none"
-            strokeLinecap="round"
-            opacity={0.9}
-          />
-          <circle cx={70} cy={45} r={5} fill="#C8A96E" />
-          <circle cx={95} cy={40} r={5} fill="#C8A96E" />
-          <circle cx={120} cy={35} r={5} fill="#C8A96E" />
-          <circle cx={145} cy={45} r={5} fill="#C8A96E" />
-          <circle cx={170} cy={50} r={5} fill="#C8A96E" />
+        {/* Visual — clean 5-line staff with an ascending/descending phrase */}
+        <svg width="220" height="80" viewBox="0 0 220 80" style={m.visual} aria-hidden="true">
+          {/* Staff lines */}
+          <g stroke="#C8A96E" strokeWidth="1" opacity="0.35" strokeLinecap="round">
+            <line x1="10" y1="20" x2="210" y2="20" />
+            <line x1="10" y1="30" x2="210" y2="30" />
+            <line x1="10" y1="40" x2="210" y2="40" />
+            <line x1="10" y1="50" x2="210" y2="50" />
+            <line x1="10" y1="60" x2="210" y2="60" />
+          </g>
+          {/* Note heads — rising then falling phrase (C D E F E D) */}
+          <g fill="#C8A96E">
+            <ellipse cx="32" cy="55" rx="6" ry="4.5" transform="rotate(-18 32 55)" />
+            <ellipse cx="64" cy="50" rx="6" ry="4.5" transform="rotate(-18 64 50)" />
+            <ellipse cx="96" cy="45" rx="6" ry="4.5" transform="rotate(-18 96 45)" />
+            <ellipse cx="128" cy="40" rx="6" ry="4.5" transform="rotate(-18 128 40)" />
+            <ellipse cx="160" cy="45" rx="6" ry="4.5" transform="rotate(-18 160 45)" />
+            <ellipse cx="192" cy="50" rx="6" ry="4.5" transform="rotate(-18 192 50)" />
+          </g>
+          {/* Stems */}
+          <g stroke="#C8A96E" strokeWidth="1.5" strokeLinecap="round">
+            <line x1="37" y1="53" x2="37" y2="28" />
+            <line x1="69" y1="48" x2="69" y2="23" />
+            <line x1="101" y1="43" x2="101" y2="18" />
+            <line x1="133" y1="38" x2="133" y2="13" />
+            <line x1="165" y1="43" x2="165" y2="18" />
+            <line x1="197" y1="48" x2="197" y2="23" />
+          </g>
         </svg>
 
         {/* Hero copy */}
