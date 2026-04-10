@@ -520,7 +520,7 @@ export default function SonataApp() {
   return (
     <ErrorBoundary>
       <div style={s.page} className="sonata-page">
-        <div key={state.screen} style={s.app} className="sonata-app sonata-screen-enter">
+        <div style={s.app} className="sonata-app">
           {state.screen === 'placement' && <PlacementScreen dispatch={dispatch} renderNotation={renderNotation} />}
           {state.screen === 'onboarding' && <OnboardingScreen slide={onboardSlide} setSlide={setOnboardSlide} dispatch={dispatch} renderNotation={renderNotation} />}
           {state.screen === 'menu' && <MenuScreen state={state} dispatch={dispatch} />}

@@ -82,17 +82,3 @@ html.native [role="button"]:active {
   transition: transform 80ms ease-out, opacity 80ms ease-out;
 }
 
-/* Screen enter animation — applied via keyed wrapper */
-.sonata-screen-enter {
-  animation: screenIn 260ms cubic-bezier(0.32, 0.72, 0, 1);
-}
-@keyframes screenIn {
-  from {
-    opacity: 0;
-    transform: translateY(6px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
