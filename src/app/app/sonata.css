@@ -261,3 +261,94 @@
     font-size: 11px !important;
   }
 }
+
+/* ============================================================
+   iPad PORTRAIT — 768px and up
+   ============================================================ */
+@media (min-width: 768px) {
+  .sonata-app {
+    max-width: 900px !important;
+    margin: 0 auto !important;
+  }
+
+  /* Menu: 3 columns, larger title */
+  .sonata-menu-grid {
+    grid-template-columns: 1fr 1fr 1fr !important;
+    gap: 14px !important;
+    max-width: 760px !important;
+  }
+  .sonata-menu-title {
+    font-size: 44px !important;
+  }
+  .sonata-menu {
+    padding: 60px 32px 40px !important;
+  }
+
+  /* Bigger teach text for comfortable reading */
+  .sonata-teach-text {
+    font-size: 17px !important;
+    padding: 24px !important;
+    line-height: 1.8 !important;
+    max-width: 720px !important;
+    margin: 0 auto !important;
+  }
+
+  /* Bigger answer buttons */
+  .sonata-answers button {
+    min-width: 64px !important;
+    padding: 16px 12px !important;
+    font-size: 16px !important;
+    min-height: 56px !important;
+  }
+
+  /* Larger primary buttons */
+  .sonata-primary-btn {
+    padding: 16px 32px !important;
+    font-size: 16px !important;
+    min-height: 56px !important;
+  }
+}
+
+/* ============================================================
+   iPad LANDSCAPE / large screens — 1024px and up
+   Two-pane layouts where they make sense
+   ============================================================ */
+@media (min-width: 1024px) {
+  .sonata-app {
+    max-width: 1100px !important;
+  }
+
+  /* Library: sidebar list + detail */
+  .sonata-library-wrap {
+    display: grid !important;
+    grid-template-columns: 380px 1fr !important;
+    gap: 28px !important;
+    align-items: start !important;
+  }
+  .sonata-library-list {
+    max-height: calc(100vh - 180px) !important;
+    overflow-y: auto !important;
+    padding-right: 8px !important;
+  }
+  .sonata-library-detail {
+    position: sticky !important;
+    top: 20px !important;
+  }
+
+  /* Lesson: teach text + notation side-by-side */
+  .sonata-lesson-wrap {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 36px !important;
+    align-items: start !important;
+  }
+
+  /* Piano: larger keys on iPad landscape */
+  .sonata-piano-container {
+    --key-w: 52px !important;
+    --key-h: 180px !important;
+    --bkey-w: 34px !important;
+    --bkey-h: 112px !important;
+  }
+}
+
