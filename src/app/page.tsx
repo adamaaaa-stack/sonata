@@ -17,17 +17,26 @@ export default function LandingPage() {
     setVisible(true);
     if (isNative()) {
       // Mobile flow:
-      // 1. Check if a session exists → go straight to app
-      // 2. Otherwise show the mobile landing
+      // 1. Poll for a session (Supabase restore is async on hard nav)
+      // 2. If found → go straight to app
+      // 3. Otherwise show the mobile landing
       setShowMobile(true);
-      supabase.auth.getSession().then(({ data }) => {
-        if (data.session) {
-          navigate("/app/", undefined, { replace: true });
-        } else {
-          setMobileReady(true);
+      let cancelled = false;
+      (async () => {
+        for (let i = 0; i < 15; i++) {
+          if (cancelled) return;
+          const { data } = await supabase.auth.getSession();
+          if (data.session) {
+            navigate("/app/", undefined, { replace: true });
+            return;
+          }
+          await new Promise((r) => setTimeout(r, 100));
         }
-      }).catch(() => setMobileReady(true));
-      return;
+        if (!cancelled) setMobileReady(true);
+      })();
+      return () => {
+        cancelled = true;
+      };
     }
     const onScroll = () => setScrollY(window.scrollY);
     window.addEventListener("scroll", onScroll, { passive: true });

@@ -9,46 +9,24 @@ import type { User } from '@supabase/supabase-js';
 /**
  * Returns the currently authenticated user, or null.
  *
- * On Capacitor, after a hard navigation (window.location.href), the fresh
- * Supabase client needs a tick to restore the session from localStorage.
- * getSession() can return null on the very first call even when a session
- * exists. We retry up to ~1.5s with small backoffs, and also listen for
- * the INITIAL_SESSION event as a belt-and-suspenders signal.
+ * On Capacitor, after a hard navigation (window.location.href = '/app/...'),
+ * the fresh Supabase client restores the session from localStorage
+ * asynchronously. getSession() can return null for the first ~100–500ms
+ * even when a valid session exists. We poll every 100ms for up to 2s
+ * before concluding the user is actually signed out.
+ *
+ * This delay is only noticeable when the user is NOT signed in (2s wait),
+ * which is fine — signed-out users don't typically hit /app/ directly.
  */
 export async function checkAuth(): Promise<User | null> {
-  const { data: { session } } = await supabase.auth.getSession();
-  if (session) return session.user;
-
-  // No session on the first try. Wait for the auth state to settle —
-  // after a hard navigation on Capacitor, Supabase needs a tick to
-  // restore the session from localStorage asynchronously.
-  return new Promise<User | null>((resolve) => {
-    let settled = false;
-    let unsubscribe: (() => void) | null = null;
-
-    const finish = (user: User | null) => {
-      if (settled) return;
-      settled = true;
-      if (unsubscribe) unsubscribe();
-      resolve(user);
-    };
-
-    const timer = setTimeout(async () => {
-      // Final attempt — getSession one more time in case INITIAL_SESSION never fires
-      const { data: { session: finalSession } } = await supabase.auth.getSession();
-      finish(finalSession?.user ?? null);
-    }, 1500);
-
-    const sub = supabase.auth.onAuthStateChange((event, newSession) => {
-      // INITIAL_SESSION fires once the client has finished restoring from storage.
-      // SIGNED_IN fires when someone actually signs in.
-      if (event === 'INITIAL_SESSION' || event === 'SIGNED_IN' || event === 'TOKEN_REFRESHED') {
-        clearTimeout(timer);
-        finish(newSession?.user ?? null);
-      }
-    });
-    unsubscribe = () => sub.data.subscription.unsubscribe();
-  });
+  for (let i = 0; i < 20; i++) {
+    const { data: { session } } = await supabase.auth.getSession();
+    if (session) return session.user;
+    if (i < 19) {
+      await new Promise((r) => setTimeout(r, 100));
+    }
+  }
+  return null;
 }
 
 /**
