@@ -28,9 +28,16 @@ export function navigate(
   if (typeof window === 'undefined') return;
 
   if (isNative()) {
-    // Ensure trailing slash, then append index.html for the WebView file server
-    const clean = path.endsWith('/') ? path : path + '/';
-    const fileUrl = clean + 'index.html';
+    // Split off query string and hash so we can insert index.html into the path
+    // e.g. "/login/?mode=signup" → "/login/index.html?mode=signup"
+    const hashIdx = path.indexOf('#');
+    const hash = hashIdx >= 0 ? path.slice(hashIdx) : '';
+    const noHash = hashIdx >= 0 ? path.slice(0, hashIdx) : path;
+    const queryIdx = noHash.indexOf('?');
+    const query = queryIdx >= 0 ? noHash.slice(queryIdx) : '';
+    const pathOnly = queryIdx >= 0 ? noHash.slice(0, queryIdx) : noHash;
+    const clean = pathOnly.endsWith('/') ? pathOnly : pathOnly + '/';
+    const fileUrl = clean + 'index.html' + query + hash;
     if (opts?.replace) {
       window.location.replace(fileUrl);
     } else {
