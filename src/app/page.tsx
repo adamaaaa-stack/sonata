@@ -519,10 +519,9 @@ export default function LandingPage() {
 // ============================================================
 function MobileLanding({ ready, router }: { ready: boolean; router: ReturnType<typeof useRouter> }) {
   if (!ready) {
-    // Brief splash while we check for an existing session
     return (
       <div style={m.page}>
-        <div style={m.splash}>
+        <div style={m.card}>
           <div style={m.logo}>Sonata</div>
         </div>
       </div>
@@ -531,93 +530,90 @@ function MobileLanding({ ready, router }: { ready: boolean; router: ReturnType<t
 
   return (
     <div style={m.page}>
-      {/* Top spacer + branding */}
-      <div style={m.top}>
-        <div style={m.logo}>Sonata</div>
-        <div style={m.tagline}>Read piano music by distance, not memorisation.</div>
-      </div>
+      <div style={m.card}>
+        {/* Brand */}
+        <div style={m.brand}>
+          <div style={m.logo}>Sonata</div>
+          <div style={m.tagline}>Read piano music by distance, not memorisation.</div>
+        </div>
 
-      {/* Visual — floating staff lines */}
-      <div style={m.visual}>
-        <svg width="200" height="100" viewBox="0 0 200 100" style={{ opacity: 0.5 }}>
+        {/* Visual */}
+        <svg width="200" height="90" viewBox="0 0 200 90" style={m.visual} aria-hidden="true">
           {[0, 1, 2, 3, 4].map((i) => (
             <line
               key={i}
               x1={10}
-              y1={30 + i * 10}
+              y1={25 + i * 10}
               x2={190}
-              y2={30 + i * 10}
+              y2={25 + i * 10}
               stroke="#C8A96E"
               strokeWidth={1}
               strokeLinecap="round"
+              opacity={0.45}
             />
           ))}
-          {/* Treble clef-ish curve */}
           <path
-            d="M 20 35 Q 25 20, 30 35 Q 35 55, 30 65 Q 25 75, 25 50"
+            d="M 20 30 Q 25 15, 30 30 Q 35 50, 30 60 Q 25 70, 25 45"
             stroke="#C8A96E"
             strokeWidth={2}
             fill="none"
             strokeLinecap="round"
+            opacity={0.9}
           />
-          {/* Notes */}
-          <circle cx={70} cy={50} r={5} fill="#C8A96E" />
-          <circle cx={95} cy={45} r={5} fill="#C8A96E" />
-          <circle cx={120} cy={40} r={5} fill="#C8A96E" />
-          <circle cx={145} cy={50} r={5} fill="#C8A96E" />
-          <circle cx={170} cy={55} r={5} fill="#C8A96E" />
+          <circle cx={70} cy={45} r={5} fill="#C8A96E" />
+          <circle cx={95} cy={40} r={5} fill="#C8A96E" />
+          <circle cx={120} cy={35} r={5} fill="#C8A96E" />
+          <circle cx={145} cy={45} r={5} fill="#C8A96E" />
+          <circle cx={170} cy={50} r={5} fill="#C8A96E" />
         </svg>
-      </div>
 
-      {/* Tagline copy */}
-      <div style={m.copy}>
-        <div style={m.heroText}>
-          Learn to read sheet music
-          <br />
+        {/* Hero copy */}
+        <h1 style={m.heroText}>
+          Learn to read sheet music{" "}
           <span style={m.heroAccent}>in days, not years.</span>
+        </h1>
+
+        {/* Chips */}
+        <div style={m.chips}>
+          <div style={m.chip}>23 lessons</div>
+          <div style={m.chip}>First 3 free</div>
+          <div style={m.chip}>$10/mo premium</div>
         </div>
-      </div>
 
-      {/* Feature chips */}
-      <div style={m.chips}>
-        <div style={m.chip}>23 lessons</div>
-        <div style={m.chip}>First 3 free</div>
-        <div style={m.chip}>$10/mo premium</div>
-      </div>
+        {/* CTAs */}
+        <div style={m.ctas}>
+          <button
+            style={m.primaryBtn}
+            onClick={() => navigate("/login/?mode=signup", router)}
+          >
+            Get started
+          </button>
+          <button
+            style={m.secondaryBtn}
+            onClick={() => navigate("/login/", router)}
+          >
+            I already have an account
+          </button>
+        </div>
 
-      {/* CTAs */}
-      <div style={m.ctas}>
-        <button
-          style={m.primaryBtn}
-          onClick={() => navigate("/login/?mode=signup", router)}
-        >
-          Get started
-        </button>
-        <button
-          style={m.secondaryBtn}
-          onClick={() => navigate("/login/", router)}
-        >
-          I already have an account
-        </button>
-      </div>
-
-      {/* Footer */}
-      <div style={m.footer}>
-        <button
-          type="button"
-          style={m.footerLink}
-          onClick={() => navigate("/terms/", router)}
-        >
-          Terms
-        </button>
-        <span style={m.footerDot}>·</span>
-        <button
-          type="button"
-          style={m.footerLink}
-          onClick={() => navigate("/privacy/", router)}
-        >
-          Privacy
-        </button>
+        {/* Footer */}
+        <div style={m.footer}>
+          <button
+            type="button"
+            style={m.footerLink}
+            onClick={() => navigate("/terms/", router)}
+          >
+            Terms
+          </button>
+          <span style={m.footerDot}>·</span>
+          <button
+            type="button"
+            style={m.footerLink}
+            onClick={() => navigate("/privacy/", router)}
+          >
+            Privacy
+          </button>
+        </div>
       </div>
     </div>
   );
@@ -629,81 +625,71 @@ const m: Record<string, React.CSSProperties> = {
     background: "#0C0A09",
     color: "#FAFAF9",
     display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    padding: "max(40px, env(safe-area-inset-top)) 24px max(24px, env(safe-area-inset-bottom))",
-    fontFamily: "-apple-system, 'SF Pro Text', system-ui, sans-serif",
-    position: "relative",
-    overflow: "hidden",
-  },
-  splash: {
-    flex: 1,
-    display: "flex",
     alignItems: "center",
     justifyContent: "center",
+    padding:
+      "max(24px, env(safe-area-inset-top)) 20px max(24px, env(safe-area-inset-bottom))",
+    fontFamily: "-apple-system, 'SF Pro Text', system-ui, sans-serif",
   },
-  top: {
+  card: {
+    width: "100%",
+    maxWidth: 380,
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    gap: 10,
-    marginTop: 30,
+    textAlign: "center",
+  },
+  brand: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    gap: 8,
   },
   logo: {
     fontFamily: "ui-serif, 'New York', Georgia, serif",
-    fontSize: 44,
+    fontSize: 42,
     fontWeight: 400,
     color: "#C8A96E",
     letterSpacing: "-0.02em",
+    lineHeight: 1,
   },
   tagline: {
-    fontSize: 14,
+    fontSize: 13,
     color: "#78716C",
-    textAlign: "center",
-    maxWidth: 280,
+    maxWidth: 260,
     lineHeight: 1.5,
   },
   visual: {
-    marginTop: 44,
-    marginBottom: 20,
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  copy: {
-    flex: 1,
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    padding: "20px 0",
-    maxWidth: 340,
+    display: "block",
+    margin: "28px 0 20px",
+    opacity: 0.9,
   },
   heroText: {
     fontFamily: "ui-serif, 'New York', Georgia, serif",
-    fontSize: 32,
+    fontSize: 26,
     fontWeight: 400,
-    lineHeight: 1.2,
-    textAlign: "center",
-    letterSpacing: "-0.02em",
+    lineHeight: 1.25,
+    letterSpacing: "-0.015em",
+    margin: "0 0 20px",
+    color: "#FAFAF9",
   },
   heroAccent: {
     color: "#C8A96E",
   },
   chips: {
     display: "flex",
-    gap: 8,
+    gap: 6,
     flexWrap: "wrap",
     justifyContent: "center",
-    margin: "16px 0 32px",
-    maxWidth: 340,
+    marginBottom: 28,
   },
   chip: {
-    fontSize: 12,
+    fontSize: 11,
     color: "#A8A29E",
-    padding: "7px 14px",
+    padding: "6px 12px",
     borderRadius: 20,
     border: "1px solid #292524",
-    background: "rgba(28, 25, 23, 0.5)",
+    background: "rgba(28, 25, 23, 0.6)",
     whiteSpace: "nowrap",
   },
   ctas: {
@@ -711,8 +697,7 @@ const m: Record<string, React.CSSProperties> = {
     flexDirection: "column",
     gap: 10,
     width: "100%",
-    maxWidth: 340,
-    marginBottom: 24,
+    marginBottom: 20,
   },
   primaryBtn: {
     padding: "16px 24px",
@@ -741,8 +726,7 @@ const m: Record<string, React.CSSProperties> = {
   footer: {
     display: "flex",
     alignItems: "center",
-    gap: 10,
-    marginTop: "auto",
+    gap: 8,
   },
   footerLink: {
     color: "#44403C",
@@ -750,7 +734,7 @@ const m: Record<string, React.CSSProperties> = {
     textDecoration: "none",
     background: "none",
     border: "none",
-    padding: "4px",
+    padding: 4,
     cursor: "pointer",
     fontFamily: "inherit",
   },
