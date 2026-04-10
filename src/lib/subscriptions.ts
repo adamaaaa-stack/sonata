@@ -19,13 +19,17 @@ export interface NativeProductInfo {
 }
 
 // Initialize listeners. Call once after auth.
+// IMPORTANT: This MUST NOT trigger any UI that requires Apple ID auth.
+// On iOS, calling NativePurchases.restorePurchases() prompts the user to
+// sign in to their Apple ID every launch, which is obnoxious. We only
+// restore when the user explicitly taps "Restore purchases" on the paywall.
 export async function initPurchases(): Promise<void> {
   if (!isNative()) return;
   try {
     const mod = await import('@capgo/native-purchases');
     const { NativePurchases } = mod;
 
-    // Listen for transaction events (restores fire these too)
+    // Listen for transaction events (renewals, silent restores)
     await NativePurchases.addListener('transactionUpdated', (transaction) => {
       if (transaction.productIdentifier === PRODUCT_ID && transaction.transactionId) {
         activeSubscription = true;
@@ -33,10 +37,9 @@ export async function initPurchases(): Promise<void> {
       }
     }).catch(() => {});
 
-    // Restore silently on init to pick up existing subs
-    await NativePurchases.restorePurchases().catch(() => {});
-
-    // Seed from localStorage for offline
+    // Seed active flag from localStorage — persists across launches without
+    // requiring a StoreKit call. Apple's transactionUpdated listener will
+    // catch any renewals or revocations automatically.
     try {
       if (localStorage.getItem(STORAGE_KEY) === 'true') activeSubscription = true;
     } catch {}

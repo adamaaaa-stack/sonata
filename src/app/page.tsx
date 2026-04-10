@@ -582,11 +582,17 @@ function MobileLanding({ ready, router }: { ready: boolean; router: ReturnType<t
           <span style={m.heroAccent}>in days, not years.</span>
         </h1>
 
-        {/* Chips */}
+        {/* Chips — last chip doubles as a Pricing link */}
         <div style={m.chips}>
           <div style={m.chip}>23 lessons</div>
           <div style={m.chip}>First 3 free</div>
-          <div style={m.chip}>$10/mo premium</div>
+          <button
+            type="button"
+            style={{ ...m.chip, ...m.chipLink }}
+            onClick={() => navigate("/pricing/", router)}
+          >
+            See pricing →
+          </button>
         </div>
 
         {/* CTAs */}
@@ -700,6 +706,12 @@ const m: Record<string, React.CSSProperties> = {
     border: "1px solid #292524",
     background: "rgba(28, 25, 23, 0.6)",
     whiteSpace: "nowrap",
+  },
+  chipLink: {
+    color: "#C8A96E",
+    borderColor: "rgba(200, 169, 110, 0.3)",
+    cursor: "pointer",
+    fontFamily: "inherit",
   },
   ctas: {
     display: "flex",

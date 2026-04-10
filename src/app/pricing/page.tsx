@@ -1,7 +1,8 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { navigate } from "@/lib/platform";
+import { navigate, isNative } from "@/lib/platform";
+import "./pricing.css";
 
 export default function PricingPage() {
   const router = useRouter();
@@ -11,25 +12,37 @@ export default function PricingPage() {
     navigate(path, router);
   }
 
+  function goBack() {
+    if (typeof window !== "undefined" && window.history.length > 1) {
+      window.history.back();
+      return;
+    }
+    navigate("/", router);
+  }
+
   return (
     <div style={p.page}>
-      <nav style={p.nav}>
-        <a href="/" onClick={(e) => go(e, "/")} style={p.navLogo}>Sonata</a>
-        <div style={{ display: 'flex', gap: 20, alignItems: 'center' }}>
-          <a href="/#features" style={p.navLink}>Features</a>
-          <a href="/login/" onClick={(e) => go(e, "/login/")} style={p.navCta}>Start learning</a>
+      <nav style={p.nav} className="pricing-nav">
+        {isNative() ? (
+          <button type="button" onClick={goBack} style={p.backBtn}>&larr; Back</button>
+        ) : (
+          <a href="/" onClick={(e) => go(e, "/")} style={p.navLogo}>Sonata</a>
+        )}
+        <div style={{ display: 'flex', gap: 16, alignItems: 'center' }}>
+          {!isNative() && <a href="/#features" style={p.navLink}>Features</a>}
+          <a href="/login/" onClick={(e) => go(e, "/login/")} style={p.navCta}>{isNative() ? "Sign in" : "Start learning"}</a>
         </div>
       </nav>
 
-      <div style={p.container}>
-        <h1 style={p.title}>Simple pricing</h1>
-        <p style={p.subtitle}>Try free. Upgrade when you&apos;re ready.</p>
+      <div style={p.container} className="pricing-container">
+        <h1 style={p.title} className="pricing-title">Simple pricing</h1>
+        <p style={p.subtitle} className="pricing-subtitle">Try free. Upgrade when you&apos;re ready.</p>
 
-        <div style={p.grid}>
+        <div style={p.grid} className="pricing-grid">
           {/* Free tier */}
-          <div style={p.card}>
+          <div style={p.card} className="pricing-card">
             <div style={p.tierLabel}>Free</div>
-            <div style={p.price}>$0</div>
+            <div style={p.price} className="pricing-price">$0</div>
             <div style={p.period}>forever</div>
             <ul style={p.list}>
               <li style={p.item}><span style={p.check}>✓</span> First 3 lessons</li>
@@ -45,9 +58,9 @@ export default function PricingPage() {
           </div>
 
           {/* Premium tier */}
-          <div style={{ ...p.card, ...p.cardPremium }}>
+          <div style={{ ...p.card, ...p.cardPremium }} className="pricing-card">
             <div style={{ ...p.tierLabel, color: '#C8A96E' }}>Premium</div>
-            <div style={p.price}>$10</div>
+            <div style={p.price} className="pricing-price">$10</div>
             <div style={p.period}>per month</div>
             <ul style={p.list}>
               <li style={p.item}><span style={p.check}>✓</span> All 23 lessons</li>
@@ -67,7 +80,7 @@ export default function PricingPage() {
 
         {/* FAQ */}
         <div style={p.faq}>
-          <h2 style={p.faqTitle}>Questions</h2>
+          <h2 style={p.faqTitle} className="pricing-faq-title">Questions</h2>
           {[
             { q: 'Can I cancel anytime?', a: 'Yes. Cancel from your Gumroad account whenever you want. You keep access until the end of your billing period.' },
             { q: 'How do I activate my license?', a: 'After purchasing on Gumroad, you\'ll get a license key. Go to Account in the app and paste it in. It activates instantly.' },
@@ -81,7 +94,7 @@ export default function PricingPage() {
         </div>
       </div>
 
-      <footer style={p.footer}>
+      <footer style={p.footer} className="pricing-footer">
         <a href="/" onClick={(e) => go(e, "/")} style={p.footerLogo}>Sonata</a>
         <div style={{ display: 'flex', gap: 16 }}>
           <a href="/terms/" onClick={(e) => go(e, "/terms/")} style={p.footerLink}>Terms</a>
@@ -96,6 +109,7 @@ const p: Record<string, React.CSSProperties> = {
   page: { background: '#0C0A09', color: '#FAFAF9', fontFamily: "'Outfit', system-ui, sans-serif", fontWeight: 300, minHeight: '100vh' },
   nav: { display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '16px 32px', borderBottom: '1px solid rgba(200,169,110,0.08)' },
   navLogo: { fontFamily: "'Instrument Serif', Georgia, serif", fontSize: 22, color: '#C8A96E', textDecoration: 'none' },
+  backBtn: { color: '#78716C', fontSize: 14, background: 'none', border: 'none', padding: '8px 4px', cursor: 'pointer', fontFamily: "'Outfit', system-ui, sans-serif" },
   navLink: { color: '#78716C', textDecoration: 'none', fontSize: 13 },
   navCta: { color: '#0C0A09', background: '#C8A96E', textDecoration: 'none', fontSize: 13, fontWeight: 500, padding: '8px 20px', borderRadius: 8 },
   container: { maxWidth: 720, margin: '0 auto', padding: '80px 24px 60px' },
