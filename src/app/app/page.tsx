@@ -914,6 +914,7 @@ function getAchievements(state: AppState): { icon: string; label: string; done: 
 }
 
 function MenuScreen({ state, dispatch }: { state: AppState; dispatch: React.Dispatch<Action> }) {
+  const router = useRouter();
   const email = state.user?.email || '';
   const lessonPct = Math.round(state.lessonsCompleted.length / lessons.length * 100);
   const nextLesson = getNextLesson(state.lessonsCompleted);
@@ -986,8 +987,8 @@ function MenuScreen({ state, dispatch }: { state: AppState; dispatch: React.Disp
             { label: 'Rhythm', desc: 'Tap in time', onClick: () => dispatch({ type: 'SET_SCREEN', screen: 'rhythm' }) },
             { label: 'Library', desc: CATALOG.length + ' pieces', onClick: () => dispatch({ type: 'SET_SCREEN', screen: 'library' }) },
             { label: 'Progress', desc: 'Stats & accuracy', onClick: () => dispatch({ type: 'SET_SCREEN', screen: 'progress' }) },
-            { label: 'Account', desc: 'Settings & password', onClick: () => { window.location.href = '/account'; } },
-            { label: 'Sign Out', desc: 'Log out', onClick: () => signOut() },
+            { label: 'Account', desc: 'Settings & password', onClick: () => router.push('/account') },
+            { label: 'Sign Out', desc: 'Log out', onClick: async () => { await signOut(); router.push('/login'); } },
           ].map((btn, i) => (
             <div key={i} style={s.menuBtn} className="sonata-menu-btn" onClick={() => { hSelect(); btn.onClick(); }}>
               <div style={s.menuBtnLabel}>{btn.label}</div>

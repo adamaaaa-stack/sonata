@@ -12,9 +12,13 @@ export async function checkAuth(): Promise<User | null> {
   return session.user;
 }
 
+/**
+ * Signs the user out of Supabase.
+ * Does NOT redirect — the caller should use Next.js router.push('/login')
+ * so Capacitor's static export navigation (with trailingSlash) works correctly.
+ */
 export async function signOut(): Promise<void> {
   await supabase.auth.signOut();
-  window.location.href = '/login';
 }
 
 export interface ProgressData {
