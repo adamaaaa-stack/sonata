@@ -3,19 +3,30 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { isNative, navigate } from "@/lib/platform";
+import { supabase } from "@/lib/supabase";
 import "./landing.css";
 
 export default function LandingPage() {
   const [scrollY, setScrollY] = useState(0);
   const [visible, setVisible] = useState(false);
+  const [showMobile, setShowMobile] = useState(false);
+  const [mobileReady, setMobileReady] = useState(false);
   const router = useRouter();
 
   useEffect(() => {
     setVisible(true);
-    // On Capacitor, the bundle opens at `/` (landing page). Skip it —
-    // mobile users should land in the app directly, not the marketing page.
     if (isNative()) {
-      navigate("/app/", undefined, { replace: true });
+      // Mobile flow:
+      // 1. Check if a session exists → go straight to app
+      // 2. Otherwise show the mobile landing
+      setShowMobile(true);
+      supabase.auth.getSession().then(({ data }) => {
+        if (data.session) {
+          navigate("/app/", undefined, { replace: true });
+        } else {
+          setMobileReady(true);
+        }
+      }).catch(() => setMobileReady(true));
       return;
     }
     const onScroll = () => setScrollY(window.scrollY);
@@ -26,6 +37,11 @@ export default function LandingPage() {
   function go(e: React.MouseEvent<HTMLAnchorElement>, path: string) {
     e.preventDefault();
     navigate(path, router);
+  }
+
+  // Render the mobile landing if we're on native
+  if (showMobile) {
+    return <MobileLanding ready={mobileReady} router={router} />;
   }
 
   const jsonLd = {
@@ -496,6 +512,253 @@ export default function LandingPage() {
     </div>
   );
 }
+
+// ============================================================
+// MOBILE LANDING — Shown when running in Capacitor
+// Minimal, single-screen, native-feeling welcome
+// ============================================================
+function MobileLanding({ ready, router }: { ready: boolean; router: ReturnType<typeof useRouter> }) {
+  if (!ready) {
+    // Brief splash while we check for an existing session
+    return (
+      <div style={m.page}>
+        <div style={m.splash}>
+          <div style={m.logo}>Sonata</div>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div style={m.page}>
+      {/* Top spacer + branding */}
+      <div style={m.top}>
+        <div style={m.logo}>Sonata</div>
+        <div style={m.tagline}>Read piano music by distance, not memorisation.</div>
+      </div>
+
+      {/* Visual — floating staff lines */}
+      <div style={m.visual}>
+        <svg width="200" height="100" viewBox="0 0 200 100" style={{ opacity: 0.5 }}>
+          {[0, 1, 2, 3, 4].map((i) => (
+            <line
+              key={i}
+              x1={10}
+              y1={30 + i * 10}
+              x2={190}
+              y2={30 + i * 10}
+              stroke="#C8A96E"
+              strokeWidth={1}
+              strokeLinecap="round"
+            />
+          ))}
+          {/* Treble clef-ish curve */}
+          <path
+            d="M 20 35 Q 25 20, 30 35 Q 35 55, 30 65 Q 25 75, 25 50"
+            stroke="#C8A96E"
+            strokeWidth={2}
+            fill="none"
+            strokeLinecap="round"
+          />
+          {/* Notes */}
+          <circle cx={70} cy={50} r={5} fill="#C8A96E" />
+          <circle cx={95} cy={45} r={5} fill="#C8A96E" />
+          <circle cx={120} cy={40} r={5} fill="#C8A96E" />
+          <circle cx={145} cy={50} r={5} fill="#C8A96E" />
+          <circle cx={170} cy={55} r={5} fill="#C8A96E" />
+        </svg>
+      </div>
+
+      {/* Tagline copy */}
+      <div style={m.copy}>
+        <div style={m.heroText}>
+          Learn to read sheet music
+          <br />
+          <span style={m.heroAccent}>in days, not years.</span>
+        </div>
+      </div>
+
+      {/* Feature chips */}
+      <div style={m.chips}>
+        <div style={m.chip}>23 lessons</div>
+        <div style={m.chip}>First 3 free</div>
+        <div style={m.chip}>$10/mo premium</div>
+      </div>
+
+      {/* CTAs */}
+      <div style={m.ctas}>
+        <button
+          style={m.primaryBtn}
+          onClick={() => navigate("/login/?mode=signup", router)}
+        >
+          Get started
+        </button>
+        <button
+          style={m.secondaryBtn}
+          onClick={() => navigate("/login/", router)}
+        >
+          I already have an account
+        </button>
+      </div>
+
+      {/* Footer */}
+      <div style={m.footer}>
+        <button
+          type="button"
+          style={m.footerLink}
+          onClick={() => navigate("/terms/", router)}
+        >
+          Terms
+        </button>
+        <span style={m.footerDot}>·</span>
+        <button
+          type="button"
+          style={m.footerLink}
+          onClick={() => navigate("/privacy/", router)}
+        >
+          Privacy
+        </button>
+      </div>
+    </div>
+  );
+}
+
+const m: Record<string, React.CSSProperties> = {
+  page: {
+    minHeight: "100vh",
+    background: "#0C0A09",
+    color: "#FAFAF9",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    padding: "max(40px, env(safe-area-inset-top)) 24px max(24px, env(safe-area-inset-bottom))",
+    fontFamily: "-apple-system, 'SF Pro Text', system-ui, sans-serif",
+    position: "relative",
+    overflow: "hidden",
+  },
+  splash: {
+    flex: 1,
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  top: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    gap: 10,
+    marginTop: 30,
+  },
+  logo: {
+    fontFamily: "ui-serif, 'New York', Georgia, serif",
+    fontSize: 44,
+    fontWeight: 400,
+    color: "#C8A96E",
+    letterSpacing: "-0.02em",
+  },
+  tagline: {
+    fontSize: 14,
+    color: "#78716C",
+    textAlign: "center",
+    maxWidth: 280,
+    lineHeight: 1.5,
+  },
+  visual: {
+    marginTop: 44,
+    marginBottom: 20,
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  copy: {
+    flex: 1,
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    padding: "20px 0",
+    maxWidth: 340,
+  },
+  heroText: {
+    fontFamily: "ui-serif, 'New York', Georgia, serif",
+    fontSize: 32,
+    fontWeight: 400,
+    lineHeight: 1.2,
+    textAlign: "center",
+    letterSpacing: "-0.02em",
+  },
+  heroAccent: {
+    color: "#C8A96E",
+  },
+  chips: {
+    display: "flex",
+    gap: 8,
+    flexWrap: "wrap",
+    justifyContent: "center",
+    margin: "16px 0 32px",
+    maxWidth: 340,
+  },
+  chip: {
+    fontSize: 12,
+    color: "#A8A29E",
+    padding: "7px 14px",
+    borderRadius: 20,
+    border: "1px solid #292524",
+    background: "rgba(28, 25, 23, 0.5)",
+    whiteSpace: "nowrap",
+  },
+  ctas: {
+    display: "flex",
+    flexDirection: "column",
+    gap: 10,
+    width: "100%",
+    maxWidth: 340,
+    marginBottom: 24,
+  },
+  primaryBtn: {
+    padding: "16px 24px",
+    background: "#C8A96E",
+    color: "#0C0A09",
+    border: "none",
+    borderRadius: 12,
+    fontSize: 16,
+    fontWeight: 600,
+    cursor: "pointer",
+    fontFamily: "inherit",
+    WebkitTapHighlightColor: "transparent",
+  },
+  secondaryBtn: {
+    padding: "14px 24px",
+    background: "transparent",
+    color: "#A8A29E",
+    border: "1px solid #292524",
+    borderRadius: 12,
+    fontSize: 14,
+    fontWeight: 400,
+    cursor: "pointer",
+    fontFamily: "inherit",
+    WebkitTapHighlightColor: "transparent",
+  },
+  footer: {
+    display: "flex",
+    alignItems: "center",
+    gap: 10,
+    marginTop: "auto",
+  },
+  footerLink: {
+    color: "#44403C",
+    fontSize: 12,
+    textDecoration: "none",
+    background: "none",
+    border: "none",
+    padding: "4px",
+    cursor: "pointer",
+    fontFamily: "inherit",
+  },
+  footerDot: {
+    color: "#44403C",
+    fontSize: 12,
+  },
+};
 
 const styles: Record<string, React.CSSProperties> = {
   page: {

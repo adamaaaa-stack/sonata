@@ -10,16 +10,17 @@ export default function LoginPage() {
 }
 
 function LoginInner() {
-  const [mode, setMode] = useState<"signin" | "signup">("signin");
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const nextParam = searchParams.get("next");
+  const modeParam = searchParams.get("mode");
+  const [mode, setMode] = useState<"signin" | "signup">(modeParam === "signup" ? "signup" : "signin");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
-  const router = useRouter();
-  const searchParams = useSearchParams();
-  const nextParam = searchParams.get("next");
 
   function getRedirect(): string {
     if (nextParam === "gumroad") return "https://morrison844.gumroad.com/l/sonata";
