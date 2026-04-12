@@ -134,7 +134,7 @@ export default function PricingPage() {
                 {purchasing ? '...' : `Subscribe for ${price}/month`}
               </button>
             ) : (
-              <a href="/login/?next=pay" onClick={(e) => go(e, "/login/?next=pay")} style={p.btnPrimary}>
+              <a href="https://morrison844.gumroad.com/l/sonata" target="_blank" rel="noopener noreferrer" style={p.btnPrimary}>
                 Get Premium
               </a>
             )}
@@ -171,7 +171,8 @@ export default function PricingPage() {
                 { q: 'Can I use this on other devices?', a: 'Your subscription is tied to your Apple ID, so it works across all your Apple devices signed in with the same Apple ID.' },
               ]
             : [
-                { q: 'Can I cancel anytime?', a: 'Yes. You can cancel at any time and keep access until the end of your current billing period.' },
+                { q: 'Can I cancel anytime?', a: 'Yes. Cancel from your Gumroad account whenever you want. You keep access until the end of your billing period.' },
+                { q: 'How do I activate my license?', a: "After purchasing on Gumroad, you'll get a license key. Hit the paywall inside the app and paste it in — it activates instantly." },
                 { q: 'Is there a free trial?', a: 'The first 3 lessons and 1 drill are free to try. No payment needed to get started.' },
                 { q: 'What if I already play piano?', a: "Take the placement quiz when you sign up. It'll skip you to the right lesson based on what you already know." },
               ]
