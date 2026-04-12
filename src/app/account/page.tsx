@@ -81,6 +81,8 @@ function AccountInner() {
         setMessage("License activated! You now have full access.");
         setLicenseKey("");
         setSubActive(true);
+        // Persist flag so the app picks it up immediately on next navigation
+        try { localStorage.setItem('sonata_web_license', 'true'); } catch {}
       }
     } catch {
       setError("Network error. Please try again.");

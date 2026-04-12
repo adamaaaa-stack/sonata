@@ -271,9 +271,18 @@ export default function SonataApp() {
       }
 
       // License check (Gumroad — web) or StoreKit (native)
+      // Check localStorage first — instant, no network roundtrip.
+      // This flag is set when the user activates on /account/ or the in-app paywall.
+      try {
+        if (!isNative() && localStorage.getItem('sonata_web_license') === 'true') {
+          dispatch({ type: 'UPDATE_FIELD', field: 'hasLicense', value: true });
+        }
+      } catch {}
+      // Then verify with Supabase (authoritative, handles cross-device)
       const license = await loadLicense(user.id);
       if (license) {
         dispatch({ type: 'UPDATE_FIELD', field: 'hasLicense', value: true });
+        try { localStorage.setItem('sonata_web_license', 'true'); } catch {}
       }
       if (isNative()) {
         try {
@@ -2244,6 +2253,7 @@ function WebPaywall({ dispatch, userId }: { dispatch: React.Dispatch<Action>; us
       if (!res.ok) { setError(data.error || 'Activation failed'); }
       else {
         hSuccess();
+        try { localStorage.setItem('sonata_web_license', 'true'); } catch {}
         dispatch({ type: 'UPDATE_FIELD', field: 'hasLicense', value: true });
         dispatch({ type: 'SET_SCREEN', screen: 'menu' });
       }
