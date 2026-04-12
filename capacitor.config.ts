@@ -1,7 +1,7 @@
 import type { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'com.sonata.app',
+  appId: 'com.learnwithsonata.app',
   appName: 'Sonata',
   webDir: 'out',
   server: {

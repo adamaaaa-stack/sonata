@@ -1,5 +1,5 @@
 // ============================================================
-// CATALOG — 400+ pieces from MuseTrainer + music21 corpus
+// CATALOG — curated piano pieces from MuseTrainer + music21 corpus
 // ============================================================
 
 export interface CatalogEntry {
@@ -103,59 +103,11 @@ export const CATALOG: CatalogEntry[] = [
   {t:'Polonaise Op.1 No.2',c:'Clara Schumann',d:'intermediate',src:'music21',f:'schumann_clara/polonaise_op1n2.mxl'},
   {t:'Polonaise Op.1 No.3',c:'Clara Schumann',d:'intermediate',src:'music21',f:'schumann_clara/polonaise_op1n3.mxl'},
   {t:'Polonaise Op.1 No.4',c:'Clara Schumann',d:'intermediate',src:'music21',f:'schumann_clara/polonaise_op1n4.mxl'},
-  {t:'Sonata for Flute & Piano H.186',c:'CPE Bach',d:'advanced',src:'music21',f:'cpebach/h186.mxl'},
   {t:'Prayer of a Tired Child',c:'Amy Beach',d:'intermediate',src:'music21',f:'beach/prayer_of_a_tired_child.musicxml'},
-  {t:'Aloha Oe',c:'Liliuokalani',d:'beginner',src:'music21',f:'liliuokalani/aloha_oe.mxl'},
-  {t:'Lift Every Voice and Sing',c:'J. Rosamond Johnson',d:'intermediate',src:'music21',f:'johnson_j_r/lift_every_voice.mxl'},
-  {t:'Der Lindenbaum',c:'Schubert',d:'intermediate',src:'music21',f:'schubert/Lindenbaum.xml'},
-  {t:'Dichterliebe No.2',c:'R. Schumann',d:'advanced',src:'music21',f:'schumann_robert/dichterliebe_no2.xml'},
-  {t:'Lascia ch\'io pianga',c:'Handel',d:'intermediate',src:'music21',f:'handel/rinaldo/Lascia_chio_pianga.mxl'},
-  {t:'La donna e mobile',c:'Verdi',d:'intermediate',src:'music21',f:'verdi/laDonnaEMobile.mxl'},
   {t:'Alexander\'s Ragtime Band',c:'Irving Berlin',d:'intermediate',src:'music21',f:'leadSheet/berlinAlexandersRagtime.mxl'},
   {t:'Beautiful Dreamer',c:'Stephen Foster',d:'beginner',src:'music21',f:'leadSheet/fosterBrownHair.mxl'},
   {t:'Piano Piece Op.17 No.3',c:'Clara Schumann',d:'advanced',src:'music21',f:'schumann_clara/opus17/movement3.xml'},
 ];
-
-// Generate Bach Chorales from music21 corpus (BWV 250-438)
-for (let i = 250; i <= 438; i++) {
-  CATALOG.push({t:'Chorale BWV '+i, c:'Bach', d:'intermediate', src:'music21', f:'bach/bwv'+i+'.mxl'});
-}
-
-// Cantata chorales
-const BACH_CANTATA_FILES = [
-  'bwv1.6','bwv10.7','bwv101.7','bwv102.7','bwv103.6','bwv104.6','bwv108.6','bwv11.6',
-  'bwv110.7','bwv111.6','bwv113.8','bwv114.7','bwv115.6','bwv116.6','bwv117.4','bwv119.9',
-  'bwv12.7','bwv120.6','bwv121.6','bwv122.6','bwv123.6','bwv124.6','bwv125.6','bwv126.6',
-  'bwv127.5','bwv128.5','bwv13.6','bwv130.6','bwv133.6','bwv135.6','bwv136.6','bwv137.5',
-  'bwv139.6','bwv14.5','bwv140.7','bwv144.3','bwv144.6','bwv145.5','bwv146.8','bwv148.6',
-  'bwv149.7','bwv151.5','bwv153.1','bwv153.5','bwv153.9','bwv154.3','bwv154.8','bwv155.5',
-  'bwv156.6','bwv157.5','bwv158.4','bwv159.5','bwv16.6','bwv161.6','bwv164.6','bwv165.6',
-  'bwv166.6','bwv168.6','bwv169.7','bwv17.7','bwv171.6','bwv172.6','bwv174.5','bwv175.7',
-  'bwv176.6','bwv177.4','bwv178.7','bwv179.6','bwv180.7','bwv183.5','bwv184.5','bwv185.6',
-  'bwv187.7','bwv188.6','bwv19.7','bwv194.6','bwv194.12','bwv195.6','bwv197.5','bwv197.10',
-  'bwv2.6','bwv20.7','bwv20.11','bwv24.6','bwv25.6','bwv26.6','bwv27.6','bwv28.6','bwv29.8',
-  'bwv3.6','bwv30.6','bwv31.9','bwv32.6','bwv33.6','bwv36.4-2','bwv36.8-2','bwv37.6',
-  'bwv38.6','bwv39.7','bwv4.8','bwv40.3','bwv40.6','bwv40.8',
-];
-BACH_CANTATA_FILES.forEach(f => {
-  const bwv = f.match(/bwv(\d+)/)?.[1] || '';
-  CATALOG.push({t:'Cantata BWV '+bwv+' Chorale', c:'Bach', d:'intermediate', src:'music21', f:'bach/'+f+'.mxl'});
-});
-
-// St Matthew/John Passion, Christmas Oratorio chorales
-const BACH_PASSION_FILES = [
-  'bwv244.3','bwv244.10','bwv244.15','bwv244.17','bwv244.25','bwv244.32','bwv244.37',
-  'bwv244.40','bwv244.44','bwv244.46','bwv244.54','bwv244.62',
-  'bwv245.3','bwv245.5','bwv245.11','bwv245.14','bwv245.15','bwv245.17','bwv245.22',
-  'bwv245.26','bwv245.28','bwv245.37','bwv245.40',
-  'bwv248.5','bwv248.17','bwv248.28',
-];
-BACH_PASSION_FILES.forEach(f => {
-  const parts = f.match(/bwv(\d+)\.(\d+)/);
-  if (!parts) return;
-  const work = parts[1] === '244' ? 'St Matthew Passion' : parts[1] === '245' ? 'St John Passion' : 'Christmas Oratorio';
-  CATALOG.push({t:work+' No.'+parts[2], c:'Bach', d:'intermediate', src:'music21', f:'bach/'+f+'.mxl'});
-});
 
 // Helpers
 export function getCatalogUrl(piece: CatalogEntry): string {

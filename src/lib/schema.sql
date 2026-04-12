@@ -83,6 +83,29 @@ create policy "Users can update own lesson progress"
 create unique index if not exists lesson_progress_user_lesson
   on lesson_progress (user_id, lesson_id);
 
+-- Practice Days — one row per user per local calendar day they practised.
+-- Used to compute streaks across all activities (lessons, drills, sight read,
+-- rhythm, etc.) rather than deriving from drill_sessions only.
+create table if not exists practice_days (
+  id uuid primary key default gen_random_uuid(),
+  user_id uuid references auth.users not null,
+  practice_date date not null,
+  created_at timestamptz default now()
+);
+
+create unique index if not exists practice_days_user_date
+  on practice_days (user_id, practice_date);
+
+alter table practice_days enable row level security;
+
+create policy "Users can view own practice days"
+  on practice_days for select
+  using (auth.uid() = user_id);
+
+create policy "Users can insert own practice days"
+  on practice_days for insert
+  with check (auth.uid() = user_id);
+
 -- Licenses (Gumroad license key activation)
 create table if not exists licenses (
   id uuid primary key default gen_random_uuid(),

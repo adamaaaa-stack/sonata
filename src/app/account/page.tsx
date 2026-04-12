@@ -2,10 +2,10 @@
 
 import { Suspense, useState, useEffect } from "react";
 import { supabase } from "@/lib/supabase";
-import { loadLicense } from "@/lib/supabaseData";
-import type { LicenseRow } from "@/lib/supabaseData";
-import { useRouter, useSearchParams } from "next/navigation";
-import { navigate } from "@/lib/platform";
+import { useRouter } from "next/navigation";
+import { navigate, isNative } from "@/lib/platform";
+import { hasActiveSubscription, restorePurchases } from "@/lib/subscriptions";
+import { isAmbianceEnabled, setAmbianceEnabled, startAmbiance, stopAmbiance } from "@/lib/music/effects";
 import type { User } from "@supabase/supabase-js";
 
 export default function AccountPage() {
@@ -14,55 +14,62 @@ export default function AccountPage() {
 
 function AccountInner() {
   const [user, setUser] = useState<User | null>(null);
-  const [license, setLicense] = useState<LicenseRow | null>(null);
-  const [licenseKey, setLicenseKey] = useState("");
   const [newPassword, setNewPassword] = useState("");
   const [message, setMessage] = useState("");
   const [error, setError] = useState("");
-  const [activating, setActivating] = useState(false);
   const [showDelete, setShowDelete] = useState(false);
   const [deleteConfirm, setDeleteConfirm] = useState("");
+  const [subActive, setSubActive] = useState(false);
+  const [restoring, setRestoring] = useState(false);
+  const [ambiance, setAmbiance] = useState(false);
+  const [parchment, setParchment] = useState(false);
   const router = useRouter();
-  const searchParams = useSearchParams();
+
+  useEffect(() => {
+    setAmbiance(isAmbianceEnabled());
+    if (typeof document !== 'undefined') {
+      const stored = localStorage.getItem('sonata_theme') === 'parchment';
+      setParchment(stored);
+      document.documentElement.classList.toggle('parchment', stored);
+    }
+  }, []);
+
+  function toggleAmbiance() {
+    const next = !ambiance;
+    setAmbiance(next);
+    setAmbianceEnabled(next);
+    if (next) startAmbiance(); else stopAmbiance();
+  }
+
+  function toggleParchment() {
+    const next = !parchment;
+    setParchment(next);
+    localStorage.setItem('sonata_theme', next ? 'parchment' : 'dark');
+    document.documentElement.classList.toggle('parchment', next);
+  }
 
   useEffect(() => {
     supabase.auth.getSession().then(({ data: { session } }) => {
       if (!session) { navigate("/login/", router); return; }
       setUser(session.user);
-      loadLicense(session.user.id).then(l => setLicense(l));
-
-      // Auto-activate from URL param (e.g. ?license_key=xxx after Gumroad redirect)
-      const urlKey = searchParams.get("license_key");
-      if (urlKey) {
-        setLicenseKey(urlKey);
-        activateLicense(urlKey, session.user.id);
-      }
     });
+    hasActiveSubscription().then(setSubActive);
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [router, searchParams]);
+  }, [router]);
 
-  async function activateLicense(key: string, userId: string) {
-    setActivating(true);
+  async function handleRestore() {
+    setRestoring(true);
     setError(""); setMessage("");
-    try {
-      const res = await fetch("/api/activate", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ key, userId }),
-      });
-      const data = await res.json();
-      if (!res.ok) {
-        setError(data.error || "Activation failed");
-      } else {
-        setMessage("License activated! You now have full access.");
-        setLicenseKey("");
-        const l = await loadLicense(userId);
-        setLicense(l);
-      }
-    } catch {
-      setError("Network error. Please try again.");
-    }
-    setActivating(false);
+    const ok = await restorePurchases();
+    setSubActive(ok);
+    if (ok) setMessage("Subscription restored.");
+    else setError("No active subscription found.");
+    setRestoring(false);
+  }
+
+  function openManage() {
+    // iOS: opens App Store subscription management. Works inside the in-app browser / system.
+    window.location.href = "https://apps.apple.com/account/subscriptions";
   }
 
   async function handlePasswordChange(e: React.FormEvent) {
@@ -78,7 +85,6 @@ function AccountInner() {
     if (deleteConfirm !== "DELETE") { setError("Type DELETE to confirm"); return; }
     setError(""); setMessage("");
     if (!user) return;
-    await supabase.from("licenses").delete().eq("user_id", user.id);
     await supabase.from("drill_sessions").delete().eq("user_id", user.id);
     await supabase.from("lesson_progress").delete().eq("user_id", user.id);
     await supabase.from("user_progress").delete().eq("user_id", user.id);
@@ -100,50 +106,79 @@ function AccountInner() {
           <div style={a.value}>{user.email}</div>
         </div>
 
-        {/* License / Premium Status */}
-        <div style={{ ...a.card, borderColor: license ? 'rgba(74,222,128,0.2)' : 'rgba(200,169,110,0.2)' }}>
-          <div style={a.label}>Premium</div>
-          {license ? (
-            <div style={{ marginTop: 8 }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: 15 }}>
-                <span style={{ display: 'inline-block', width: 8, height: 8, borderRadius: '50%', background: '#4ADE80' }} />
-                Active
-              </div>
-              <div style={{ fontSize: 12, color: '#78716C', marginTop: 4 }}>
-                Activated {new Date(license.activated_at).toLocaleDateString()}
-              </div>
-            </div>
-          ) : (
-            <div style={{ marginTop: 8 }}>
-              <p style={{ fontSize: 13, color: '#A8A29E', marginBottom: 10, lineHeight: 1.6 }}>
-                Enter your license key from Gumroad to unlock all features.
-              </p>
-              <div style={{ display: 'flex', gap: 8 }}>
-                <input
-                  type="text"
-                  placeholder="XXXXXXXX-XXXXXXXX-XXXXXXXX-XXXXXXXX"
-                  value={licenseKey}
-                  onChange={e => setLicenseKey(e.target.value)}
-                  style={{ ...a.input, flex: 1, fontFamily: "'JetBrains Mono', monospace", fontSize: 12 }}
-                />
-                <button
-                  onClick={() => activateLicense(licenseKey, user.id)}
-                  disabled={activating || !licenseKey.trim()}
-                  style={{ ...a.btn, width: 'auto', padding: '10px 16px', opacity: activating || !licenseKey.trim() ? 0.5 : 1 }}
-                >
-                  {activating ? '...' : 'Activate'}
-                </button>
-              </div>
-              <a
-                href={process.env.NEXT_PUBLIC_GUMROAD_URL || 'https://morrison844.gumroad.com/l/sonata'}
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{ display: 'block', fontSize: 12, color: '#C8A96E', marginTop: 10, textDecoration: 'underline' }}
-              >
-                Don&apos;t have a key? Get one here
-              </a>
-            </div>
+        <div style={{ ...a.card, borderColor: subActive ? 'rgba(74,222,128,0.25)' : 'rgba(200,169,110,0.2)' }}>
+          <div style={a.label}>Membership</div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginTop: 8, fontSize: 15 }}>
+            <span style={{ display: 'inline-block', width: 8, height: 8, borderRadius: '50%', background: subActive ? '#4ADE80' : '#78716C' }} />
+            {subActive ? 'Premium — Active' : 'Free plan'}
+          </div>
+          {!subActive && (
+            <p style={{ fontSize: 13, color: '#A8A29E', marginTop: 8, lineHeight: 1.6 }}>
+              You have 3 free lessons and 1 free drill. Upgrade to unlock all 23 lessons, every drill, and the full library.
+            </p>
           )}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 8, marginTop: 12 }}>
+            {subActive ? (
+              isNative() ? (
+                <button onClick={openManage} style={a.btn}>Manage in App Store</button>
+              ) : (
+                <button onClick={() => navigate("/pricing/", router)} style={a.btn}>View plans</button>
+              )
+            ) : (
+              <button onClick={() => navigate("/pricing/", router)} style={a.btn}>Upgrade to Premium</button>
+            )}
+            {isNative() && (
+              <button onClick={handleRestore} disabled={restoring} style={{ ...a.btn, background: 'transparent', border: '1px solid #292524', color: '#A8A29E', opacity: restoring ? 0.5 : 1 }}>
+                {restoring ? 'Restoring…' : 'Restore purchases'}
+              </button>
+            )}
+          </div>
+        </div>
+
+        <div style={a.card}>
+          <div style={a.label}>Preferences</div>
+
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginTop: 12 }}>
+            <div style={{ flex: 1 }}>
+              <div style={{ fontSize: 14, color: '#FAFAF9' }}>Parchment theme</div>
+              <div style={{ fontSize: 12, color: '#78716C', marginTop: 2 }}>Cream paper + brown ink, like an old music book</div>
+            </div>
+            <button onClick={toggleParchment} aria-pressed={parchment}
+              style={{
+                width: 48, height: 28, borderRadius: 14,
+                background: parchment ? '#C8A96E' : '#292524',
+                border: '1px solid ' + (parchment ? '#C8A96E' : '#44403C'),
+                position: 'relative', cursor: 'pointer', transition: 'all 0.2s ease', padding: 0,
+              }}>
+              <div style={{
+                position: 'absolute', top: 2, left: parchment ? 22 : 2,
+                width: 22, height: 22, borderRadius: '50%',
+                background: parchment ? '#0C0A09' : '#FAFAF9',
+                transition: 'left 0.2s ease',
+              }} />
+            </button>
+          </div>
+
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginTop: 16, paddingTop: 16, borderTop: '1px solid rgba(200,169,110,0.12)' }}>
+            <div style={{ flex: 1 }}>
+              <div style={{ fontSize: 14, color: '#FAFAF9' }}>Ambient piano</div>
+              <div style={{ fontSize: 12, color: '#78716C', marginTop: 2 }}>Soft background notes while you browse</div>
+            </div>
+            <button onClick={toggleAmbiance} aria-pressed={ambiance}
+              style={{
+                width: 48, height: 28, borderRadius: 14,
+                background: ambiance ? '#C8A96E' : '#292524',
+                border: '1px solid ' + (ambiance ? '#C8A96E' : '#44403C'),
+                position: 'relative', cursor: 'pointer', transition: 'all 0.2s ease', padding: 0,
+              }}>
+              <div style={{
+                position: 'absolute', top: 2, left: ambiance ? 22 : 2,
+                width: 22, height: 22, borderRadius: '50%',
+                background: ambiance ? '#0C0A09' : '#FAFAF9',
+                transition: 'left 0.2s ease',
+              }} />
+            </button>
+          </div>
         </div>
 
         <div style={a.card}>

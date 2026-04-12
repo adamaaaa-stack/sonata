@@ -71,13 +71,37 @@ export async function loadProgress(userId: string): Promise<ProgressData | null>
     const { count } = await supabase
       .from('drill_sessions').select('*', { count: 'exact', head: true }).eq('user_id', userId);
 
-    // Practice dates
-    const { data: sessions } = await supabase
-      .from('drill_sessions').select('created_at').eq('user_id', userId)
-      .order('created_at', { ascending: false }).limit(60);
-    const practiceDates = sessions
-      ? Array.from(new Set(sessions.map((s: { created_at: string }) => s.created_at.slice(0, 10))))
-      : [];
+    // Practice dates — read from practice_days table (canonical, counts
+    // lessons + drills + sight reading + rhythm). Fall back to drill_sessions
+    // timestamps if the practice_days table is empty (legacy users).
+    let practiceDates: string[] = [];
+    try {
+      const { data: pdays } = await supabase
+        .from('practice_days')
+        .select('practice_date')
+        .eq('user_id', userId)
+        .order('practice_date', { ascending: false })
+        .limit(365);
+      if (pdays && pdays.length > 0) {
+        practiceDates = pdays.map((r: { practice_date: string }) => r.practice_date);
+      }
+    } catch { /* table may not exist yet — fall through */ }
+
+    if (practiceDates.length === 0) {
+      // Legacy fallback — derive from drill sessions.
+      const { data: sessions } = await supabase
+        .from('drill_sessions').select('created_at').eq('user_id', userId)
+        .order('created_at', { ascending: false }).limit(200);
+      practiceDates = sessions
+        ? Array.from(new Set(sessions.map((s: { created_at: string }) => {
+            const d = new Date(s.created_at);
+            const y = d.getFullYear();
+            const m = String(d.getMonth() + 1).padStart(2, '0');
+            const day = String(d.getDate()).padStart(2, '0');
+            return `${y}-${m}-${day}`;
+          })))
+        : [];
+    }
 
     return {
       lessonsCompleted,
@@ -89,6 +113,63 @@ export async function loadProgress(userId: string): Promise<ProgressData | null>
     console.warn('loadProgress failed, using localStorage:', e);
     return null;
   }
+}
+
+// Build a YYYY-MM-DD date key in LOCAL time (matches storage.ts localDateKey)
+function localDateKey(d: Date = new Date()): string {
+  const y = d.getFullYear();
+  const m = String(d.getMonth() + 1).padStart(2, '0');
+  const day = String(d.getDate()).padStart(2, '0');
+  return `${y}-${m}-${day}`;
+}
+
+/**
+ * Record that the user practised today. Called from every practice activity
+ * (drill, lesson, sight reading, rhythm). Idempotent per user + day.
+ * Writes to practice_days and updates user_progress.streak_days
+ * + last_practice_date. Safe to fire-and-forget.
+ */
+export async function recordPracticeDay(userId: string): Promise<void> {
+  if (!userId) return;
+  try {
+    const today = localDateKey();
+
+    // Upsert into practice_days — unique constraint on (user_id, practice_date)
+    // means duplicates are silently rejected, which is what we want.
+    await supabase
+      .from('practice_days')
+      .upsert({ user_id: userId, practice_date: today }, { onConflict: 'user_id,practice_date', ignoreDuplicates: true });
+
+    // Update the summary streak counter in user_progress.
+    const { data: prog } = await supabase
+      .from('user_progress').select('*').eq('user_id', userId).maybeSingle();
+    const lastDate = prog?.last_practice_date;
+
+    // Already practised today — streak unchanged
+    if (lastDate === today) return;
+
+    const yesterday = new Date();
+    yesterday.setDate(yesterday.getDate() - 1);
+    const yesterdayKey = localDateKey(yesterday);
+
+    let streak = prog?.streak_days || 0;
+    if (lastDate === yesterdayKey) streak++;       // continues streak
+    else streak = 1;                                // new streak
+
+    if (prog) {
+      await supabase.from('user_progress').update({
+        last_practice_date: today,
+        streak_days: streak,
+        updated_at: new Date().toISOString(),
+      }).eq('user_id', userId);
+    } else {
+      await supabase.from('user_progress').insert({
+        user_id: userId,
+        last_practice_date: today,
+        streak_days: streak,
+      });
+    }
+  } catch(e) { console.warn('recordPracticeDay failed:', e); }
 }
 
 export async function saveDrillSession(
@@ -106,23 +187,20 @@ export async function saveDrillSession(
       duration_seconds: Math.round(totalTime || 0)
     });
 
+    // Bump total drills and store interval accuracy — streak handled by recordPracticeDay
     const intervalAcc = getIntervalAccuracy();
-    const today = new Date().toISOString().slice(0, 10);
     const { data: prog } = await supabase
       .from('user_progress').select('*').eq('user_id', userId).maybeSingle();
-    const lastDate = prog?.last_practice_date;
-    const yesterday = new Date(Date.now() - 86400000).toISOString().slice(0, 10);
-    let streak = prog?.streak_days || 0;
-    if (lastDate === yesterday) streak++;
-    else if (lastDate !== today) streak = 1;
+    if (prog) {
+      await supabase.from('user_progress').update({
+        total_drills_completed: (prog.total_drills_completed || 0) + 1,
+        interval_accuracy: intervalAcc,
+        updated_at: new Date().toISOString()
+      }).eq('user_id', userId);
+    }
 
-    await supabase.from('user_progress').update({
-      total_drills_completed: (prog?.total_drills_completed || 0) + 1,
-      interval_accuracy: intervalAcc,
-      last_practice_date: today,
-      streak_days: streak,
-      updated_at: new Date().toISOString()
-    }).eq('user_id', userId);
+    // Record practice day (fire-and-forget)
+    recordPracticeDay(userId).catch(() => {});
   } catch(e) { console.warn('saveDrillSession failed:', e); }
 }
 

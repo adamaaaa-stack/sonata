@@ -367,7 +367,7 @@ export default function LandingPage() {
                   <div style={{ padding: '4px 10px', borderRadius: 6, background: '#292524', fontSize: 10, color: '#78716C' }}>0.75x</div>
                 </div>
               </div>
-              <div style={styles.previewLabel}>400+ pieces</div>
+              <div style={styles.previewLabel}>Curated piano library</div>
               <div style={styles.previewDesc}>Full interactive scores from Bach to Chopin. Play along, slow down, follow the cursor.</div>
             </div>
 
@@ -542,7 +542,13 @@ function MobileLanding({ ready, router }: { ready: boolean; router: ReturnType<t
       <div style={m.card}>
         {/* Brand */}
         <div style={m.brand}>
-          <div style={m.logo}>Sonata</div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+            <svg width="44" height="44" viewBox="0 0 512 512" aria-hidden="true">
+              <rect width="512" height="512" rx="110" fill="#C8A96E" />
+              <text x="256" y="360" textAnchor="middle" fontFamily="Georgia, serif" fontSize="340" fill="#0C0A09" fontStyle="italic" fontWeight="400">S</text>
+            </svg>
+            <div style={m.logo}>Sonata</div>
+          </div>
           <div style={m.tagline}>Read piano music by distance, not memorisation.</div>
         </div>
 

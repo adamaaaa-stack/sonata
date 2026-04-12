@@ -31,7 +31,7 @@
     "opensheetmusicdisplay": "^1.9.7",
     "react": "^18",
     "react-dom": "^18",
-    "soundfont-player": "^0.12.0"
+    "tone": "^15.1.22"
   },
   "devDependencies": {
     "@types/node": "^20",

@@ -5,7 +5,7 @@
 import { isNative } from './platform';
 
 // Must match the product you create in App Store Connect
-const PRODUCT_ID = 'com.sonata.app.premium.monthly';
+const PRODUCT_ID = 'com.learnwithsonata.app.premium.monthly';
 const ANDROID_PLAN_ID = 'monthly';
 
 // In-memory flag — set by transactionUpdated listener or successful purchase

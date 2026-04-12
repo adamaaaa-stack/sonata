@@ -1,11 +1,51 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { navigate, isNative } from "@/lib/platform";
 import "./pricing.css";
 
 export default function PricingPage() {
   const router = useRouter();
+  const native = isNative();
+  const [price, setPrice] = useState("$9.99");
+  const [purchasing, setPurchasing] = useState(false);
+  const [restoring, setRestoring] = useState(false);
+  const [msg, setMsg] = useState("");
+  const [subActive, setSubActive] = useState(false);
+
+  useEffect(() => {
+    if (!native) return;
+    import("@/lib/subscriptions").then(subs => {
+      subs.getMonthlyProduct().then(p => { if (p) setPrice(p.priceString); });
+      subs.hasActiveSubscription().then(setSubActive);
+    }).catch(() => {});
+  }, [native]);
+
+  function openManage() {
+    window.location.href = "https://apps.apple.com/account/subscriptions";
+  }
+
+  async function handleSubscribe() {
+    setPurchasing(true); setMsg("");
+    try {
+      const subs = await import("@/lib/subscriptions");
+      const ok = await subs.purchaseMonthly();
+      if (ok) { setMsg("Welcome to Sonata Premium!"); navigate("/app/", router); }
+      else setMsg("Purchase was not completed.");
+    } catch { setMsg("Something went wrong. Please try again."); }
+    setPurchasing(false);
+  }
+
+  async function handleRestore() {
+    setRestoring(true); setMsg("");
+    try {
+      const subs = await import("@/lib/subscriptions");
+      const ok = await subs.restorePurchases();
+      setMsg(ok ? "Subscription restored." : "No active subscription found.");
+    } catch { setMsg("Restore failed."); }
+    setRestoring(false);
+  }
 
   function go(e: React.MouseEvent<HTMLAnchorElement>, path: string) {
     e.preventDefault();
@@ -59,33 +99,83 @@ export default function PricingPage() {
 
           {/* Premium tier */}
           <div style={{ ...p.card, ...p.cardPremium }} className="pricing-card">
-            <div style={{ ...p.tierLabel, color: '#C8A96E' }}>Premium</div>
-            <div style={p.price} className="pricing-price">$10</div>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+              <div style={{ ...p.tierLabel, color: '#C8A96E' }}>Premium</div>
+              {subActive && (
+                <div style={{ display: 'flex', alignItems: 'center', gap: 6, fontSize: 11, color: '#4ADE80', fontWeight: 500, textTransform: 'uppercase', letterSpacing: '0.06em' }}>
+                  <span style={{ width: 8, height: 8, borderRadius: '50%', background: '#4ADE80' }} /> Active
+                </div>
+              )}
+            </div>
+            <div style={p.price} className="pricing-price">{native ? price : '$10'}</div>
             <div style={p.period}>per month</div>
             <ul style={p.list}>
               <li style={p.item}><span style={p.check}>✓</span> All 23 lessons</li>
               <li style={p.item}><span style={p.check}>✓</span> Unlimited drills</li>
-              <li style={p.item}><span style={p.check}>✓</span> 400+ piece library</li>
+              <li style={p.item}><span style={p.check}>✓</span> Full piano library</li>
               <li style={p.item}><span style={p.check}>✓</span> Score playback</li>
               <li style={p.item}><span style={p.check}>✓</span> AI-generated exercises</li>
               <li style={p.item}><span style={p.check}>✓</span> MIDI keyboard support</li>
               <li style={p.item}><span style={p.check}>✓</span> Sight-reading mode</li>
               <li style={p.item}><span style={p.check}>✓</span> Cancel anytime</li>
             </ul>
-            <a href="/login/?next=gumroad" onClick={(e) => go(e, "/login/?next=gumroad")} style={p.btnPrimary}>
-              Get Premium
-            </a>
+            {subActive ? (
+              native ? (
+                <button onClick={openManage} style={{ ...p.btnPrimary, border: 'none', cursor: 'pointer', width: '100%', fontFamily: "'Outfit', system-ui, sans-serif" }}>
+                  Manage subscription
+                </button>
+              ) : (
+                <div style={{ ...p.btnPrimary, textAlign: 'center', cursor: 'default', opacity: 0.7 }}>
+                  You&apos;re subscribed
+                </div>
+              )
+            ) : native ? (
+              <button onClick={handleSubscribe} disabled={purchasing} style={{ ...p.btnPrimary, border: 'none', cursor: 'pointer', opacity: purchasing ? 0.6 : 1, width: '100%', fontFamily: "'Outfit', system-ui, sans-serif" }}>
+                {purchasing ? '...' : `Subscribe for ${price}/month`}
+              </button>
+            ) : (
+              <a href="/login/?next=pay" onClick={(e) => go(e, "/login/?next=pay")} style={p.btnPrimary}>
+                Get Premium
+              </a>
+            )}
           </div>
         </div>
+
+        {msg && <p style={{ textAlign: 'center', color: '#A8A29E', fontSize: 13, marginTop: 16 }}>{msg}</p>}
+
+        {native && (
+          <div style={{ textAlign: 'center', marginTop: 20 }}>
+            <button onClick={handleRestore} disabled={restoring}
+              style={{ background: 'none', border: 'none', color: '#C8A96E', fontSize: 13, cursor: 'pointer', fontFamily: "'Outfit', system-ui, sans-serif", padding: 8 }}>
+              {restoring ? 'Restoring…' : 'Restore purchases'}
+            </button>
+          </div>
+        )}
+
+        {native && (
+          <div style={{ fontSize: 11, color: '#78716C', marginTop: 24, lineHeight: 1.7, textAlign: 'left', maxWidth: 560, margin: '24px auto 0' }}>
+            <p style={{ margin: 0 }}>
+              Payment will be charged to your Apple ID account at confirmation of purchase. Your subscription will automatically renew for {price} per month unless auto-renew is turned off at least 24 hours before the end of the current period. Your account will be charged for renewal, at {price}, within 24 hours prior to the end of the current period. You can manage your subscription and turn off auto-renewal by going to your Apple ID Account Settings after purchase.
+            </p>
+          </div>
+        )}
 
         {/* FAQ */}
         <div style={p.faq}>
           <h2 style={p.faqTitle} className="pricing-faq-title">Questions</h2>
-          {[
-            { q: 'Can I cancel anytime?', a: 'Yes. Cancel from your Gumroad account whenever you want. You keep access until the end of your billing period.' },
-            { q: 'How do I activate my license?', a: 'After purchasing on Gumroad, you\'ll get a license key. Go to Account in the app and paste it in. It activates instantly.' },
-            { q: 'What if I already play piano?', a: 'Take the placement quiz when you sign up. It\'ll skip you to the right lesson based on what you already know.' },
-          ].map((item, i) => (
+          {(native
+            ? [
+                { q: 'Can I cancel anytime?', a: 'Yes. You can cancel or manage auto-renewal anytime from your Apple ID Account Settings. You keep access until the end of your current billing period.' },
+                { q: 'Is there a free trial?', a: 'The first 3 lessons and 1 drill are free to try. No subscription is needed to get started.' },
+                { q: 'What if I already play piano?', a: "Take the placement quiz when you sign up. It'll skip you to the right lesson based on what you already know." },
+                { q: 'Can I use this on other devices?', a: 'Your subscription is tied to your Apple ID, so it works across all your Apple devices signed in with the same Apple ID.' },
+              ]
+            : [
+                { q: 'Can I cancel anytime?', a: 'Yes. You can cancel at any time and keep access until the end of your current billing period.' },
+                { q: 'Is there a free trial?', a: 'The first 3 lessons and 1 drill are free to try. No payment needed to get started.' },
+                { q: 'What if I already play piano?', a: "Take the placement quiz when you sign up. It'll skip you to the right lesson based on what you already know." },
+              ]
+          ).map((item, i) => (
             <div key={i} style={p.faqItem}>
               <div style={p.faqQ}>{item.q}</div>
               <div style={p.faqA}>{item.a}</div>

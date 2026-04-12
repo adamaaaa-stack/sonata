@@ -54,12 +54,30 @@ export function getWeakestIntervals(n: number = 3): WeakInterval[] {
     .slice(0, n);
 }
 
-export function recordPractice(): void {
+// YYYY-MM-DD in LOCAL time (not UTC). Using toISOString() caused streaks
+// and "practiced today" checks to fail near midnight for users east of UTC.
+export function localDateKey(d: Date = new Date()): string {
+  const y = d.getFullYear();
+  const m = String(d.getMonth() + 1).padStart(2, '0');
+  const day = String(d.getDate()).padStart(2, '0');
+  return `${y}-${m}-${day}`;
+}
+
+export function recordPractice(userId?: string): void {
+  // Always write locally so offline/anonymous users still get streaks.
   const dates: string[] = JSON.parse(localStorage.getItem(STORAGE_KEYS.PRACTICE_DATES) || '[]');
-  const today = new Date().toISOString().slice(0,10);
+  const today = localDateKey();
   if(!dates.includes(today)) {
     dates.push(today);
     localStorage.setItem(STORAGE_KEYS.PRACTICE_DATES, JSON.stringify(dates));
+  }
+
+  // Fire-and-forget server write. Dynamic import to keep this module
+  // free of Supabase dependency at load time.
+  if (userId) {
+    import('../supabaseData')
+      .then(({ recordPracticeDay }) => recordPracticeDay(userId).catch(() => {}))
+      .catch(() => {});
   }
 }
 

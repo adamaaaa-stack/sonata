@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Sonata — Learn to Read Piano Sheet Music",
     description:
-      "From zero to Moonlight Sonata. Learn to read sheet music by distance, not by memorising note names. 23 interactive lessons, 400+ pieces, free to try.",
+      "From zero to Moonlight Sonata. Learn to read sheet music by distance, not by memorising note names. 23 interactive lessons, a curated piano library, free to try.",
     url: "https://learnwithsonata.com",
     siteName: "Sonata",
     locale: "en_US",
@@ -94,8 +94,13 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
-          href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Outfit:wght@300;400;500;600&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Nunito:wght@400;500;600;700;800&family=Outfit:wght@300;400;500;600&display=swap"
           rel="stylesheet"
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `try{if(localStorage.getItem('sonata_theme')==='parchment'){document.documentElement.classList.add('parchment');}}catch(e){}`,
+          }}
         />
       </head>
       <body style={{ margin: 0, padding: 0, background: "#0C0A09" }}>

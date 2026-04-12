@@ -2,6 +2,7 @@ export * from './noteHelpers';
 export * from './drillEngine';
 export * from './storage';
 export * from './audio';
+export * from './effects';
 export * from './tts';
 export { lessons } from './lessons';
 export type { Lesson, LessonStep, QuizQuestion } from './lessons';

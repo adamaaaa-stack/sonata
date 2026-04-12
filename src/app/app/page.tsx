@@ -46,15 +46,18 @@ import {
   genRhythmDrill,
   getPool, rnd, ri,
   playCorrectSound, playWrongSound, playNote, playPianoKey,
-  playScoreNotes, stopScorePlayback, loadPianoSamples,
+  playScoreNotes, stopScorePlayback, loadPianoSamples, isPianoReady,
+  fireConfetti, playCelebrationChord, flashElement, spawnFloatNote,
+  startAmbiance, stopAmbiance,
   type ScoreNote,
   speak, stopSpeaking, togglePause, toggleSlow, replaySpeak, getTTSSpeed, setTTSStateCallback, unlockAudio,
-  getIntervalAccuracy, updateIntervalAccuracy, getWeakestIntervals, recordPractice, getPracticeDates,
+  getIntervalAccuracy, updateIntervalAccuracy, getWeakestIntervals, recordPractice, getPracticeDates, localDateKey,
   getStoredLessons, setStoredLessons, getStoredDrills, setStoredDrills, isOnboarded, setOnboarded, getPlacementResult, setPlacementResult,
   lessons, CATALOG, getCatalogUrl, DIFF_COLORS, getRecommendedDifficulty, findLessonCatalogIndex,
 } from "@/lib/music";
 import type { Question, DrillConfig, RhythmPattern, CatalogEntry, Lesson } from "@/lib/music";
 import { checkAuth, signOut, loadProgress, saveDrillSession, saveLessonComplete, loadLicense } from "@/lib/supabaseData";
+import { Cleffy } from "./Cleffy";
 import type { User } from "@supabase/supabase-js";
 import { isNative, navigate } from "@/lib/platform";
 import { hLight, hSelect, hSuccess, hError, hWarning } from "@/lib/haptics";
@@ -133,7 +136,19 @@ function reducer(state: AppState, action: Action): AppState {
   switch (action.type) {
     case 'SET_SCREEN': return { ...state, screen: action.screen };
     case 'SET_USER': return { ...state, user: action.user };
-    case 'LOAD_PROGRESS': return { ...state, lessonsCompleted: action.lessonsCompleted, drillHistory: new Array(action.drillCount) };
+    case 'LOAD_PROGRESS': {
+      // Keep local drillHistory (timestamped entries). Server only stores
+      // drill_count as a number, which is useless for mission/streak logic.
+      // If the server count is larger than local, pad with stub entries so
+      // totals display correctly without breaking filter/map operations.
+      let drillHistory = state.drillHistory;
+      if (action.drillCount > drillHistory.length) {
+        const pad = action.drillCount - drillHistory.length;
+        const stubs = Array.from({ length: pad }, () => ({ timestamp: 0, score: 0, total: 0 }));
+        drillHistory = [...stubs, ...drillHistory];
+      }
+      return { ...state, lessonsCompleted: action.lessonsCompleted, drillHistory };
+    }
     case 'START_DRILL': {
       // 1 free drill, then locked until license
       if (!state.hasLicense && state.drillsUsed >= 1) return { ...state, screen: 'paywall' };
@@ -248,7 +263,10 @@ export default function SonataApp() {
           localStorage.setItem('sonata_interval_acc', JSON.stringify(progress.intervalAccuracy));
         }
         if (progress.practiceDates.length > 0) {
-          localStorage.setItem('sonata_practice_dates', JSON.stringify(progress.practiceDates));
+          // Merge with any local dates so offline practice survives login
+          const local: string[] = JSON.parse(localStorage.getItem('sonata_practice_dates') || '[]');
+          const merged = Array.from(new Set([...local, ...progress.practiceDates]));
+          localStorage.setItem('sonata_practice_dates', JSON.stringify(merged));
         }
       }
 
@@ -309,12 +327,12 @@ export default function SonataApp() {
   }, []);
 
   // ---- ABCJS rendering ----
-  const renderNotation = useCallback((abc: string, container: HTMLDivElement | null, width: number = 350) => {
+  const renderNotation = useCallback((abc: string, container: HTMLDivElement | null, width: number = 520, scale: number = 1.8) => {
     if (!container || !abc) return;
     import('abcjs').then((ABCJS) => {
       ABCJS.default.renderAbc(container, abc, {
         staffwidth: width, paddingtop: 0, paddingbottom: 0,
-        add_classes: true, responsive: 'resize'
+        add_classes: true, scale
       });
     });
   }, []);
@@ -390,6 +408,9 @@ export default function SonataApp() {
     const ok = picked === correct;
     dispatch({ type: 'ANSWER', picked, correct });
     if (ok) { playCorrectSound(); hSuccess(); } else { playWrongSound(); hError(); }
+    // Visual feedback — flash the app container
+    const appEl = document.querySelector('.sonata-app') as HTMLElement | null;
+    flashElement(appEl, ok ? 'correct' : 'wrong');
     // Track interval accuracy
     const q = state.questions[state.currentQ];
     if (q.intervalInfo) updateIntervalAccuracy(q.intervalInfo.name + ' ' + q.intervalInfo.direction, ok);
@@ -408,7 +429,7 @@ export default function SonataApp() {
     if (timerRef.current) clearInterval(timerRef.current);
     const history = [...state.drillHistory, { timestamp: Date.now(), score: state.score, total: state.results.length }];
     setStoredDrills(history);
-    recordPractice();
+    recordPractice(state.user?.id);
     dispatch({ type: 'UPDATE_FIELD', field: 'drillHistory', value: history });
 
     if (state.user) saveDrillSession(state.user.id, state.results, 0);
@@ -467,38 +488,43 @@ export default function SonataApp() {
     const inst = osmdInstanceRef.current;
     if (!inst || !inst.Sheet) return [];
     const notes: ScoreNote[] = [];
-    const beatDur = 0.6; // base beat duration, tempo applied at playback
+    const beatDur = 0.6; // base beat duration (seconds) at reference tempo 100
     let currentTime = 0;
     try {
       for (const measure of inst.Sheet.SourceMeasures) {
-        for (const staff of measure.VerticalSourceStaffEntryContainers) {
-          for (const entry of staff.StaffEntries) {
-            if (!entry) continue;
-            for (const voiceEntry of entry.VoiceEntries) {
+        // VerticalSourceStaffEntryContainers are "moments in time" — each
+        // contains one staff entry per staff (treble + bass for a grand staff).
+        // Time must advance ONCE per moment, not once per staff entry, or
+        // grand-staff pieces play at half speed.
+        for (const vContainer of measure.VerticalSourceStaffEntryContainers) {
+          let shortestHere = Infinity;
+          for (const staffEntry of vContainer.StaffEntries) {
+            if (!staffEntry) continue;
+            for (const voiceEntry of staffEntry.VoiceEntries) {
               for (const note of voiceEntry.Notes) {
-                if (note.isRest()) continue;
-                const midi = note.halfTone + 12;
                 const dur = note.Length.RealValue * 4 * beatDur;
-                notes.push({ midi, time: currentTime, duration: Math.min(dur, 2) });
+                // Rests contribute to timing but produce no audio
+                if (!note.isRest()) {
+                  const midi = note.halfTone + 12;
+                  notes.push({ midi, time: currentTime, duration: Math.min(dur, 4) });
+                }
+                // Include rests in shortest calculation — a rest's duration
+                // still governs how much time passes before the next moment.
+                if (dur > 0 && dur < shortestHere) shortestHere = dur;
               }
             }
-            /* eslint-disable @typescript-eslint/no-explicit-any */
-            const shortest = Math.min(...Array.from(entry.VoiceEntries).flatMap((ve: any) =>
-              Array.from(ve.Notes).filter((n: any) => !n.isRest()).map((n: any) => n.Length.RealValue * 4 * beatDur)
-            ).filter((d: number) => d > 0), 1);
-            /* eslint-enable @typescript-eslint/no-explicit-any */
-            currentTime += shortest || beatDur;
           }
+          currentTime += shortestHere === Infinity ? beatDur : shortestHere;
         }
       }
     } catch { /* Some scores have unusual structures */ }
     return notes;
   }
 
-  function playScore(tempo: number = 100) {
+  async function playScore(tempo: number = 100) {
     const notes = extractScoreNotes();
     if (notes.length === 0) return;
-    playScoreNotes(notes, tempo);
+    await playScoreNotes(notes, tempo);
   }
 
   // ============================================================
@@ -509,7 +535,10 @@ export default function SonataApp() {
       <div style={s.page} className="sonata-page">
         <div style={s.app}>
           <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: '80vh' }}>
-            <div style={{ fontFamily: 'var(--serif)', fontSize: 32, color: 'var(--gold)', marginBottom: 16 }}>Sonata</div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 20 }}>
+              <SonataLogo size={48} />
+              <div style={{ fontFamily: 'var(--serif)', fontSize: 36, color: 'var(--gold)' }}>Sonata</div>
+            </div>
             <LoadingSpinner text="Loading your progress..." />
           </div>
         </div>
@@ -521,19 +550,21 @@ export default function SonataApp() {
     <ErrorBoundary>
       <div style={s.page} className="sonata-page">
         <div style={s.app} className="sonata-app">
-          {state.screen === 'placement' && <PlacementScreen dispatch={dispatch} renderNotation={renderNotation} />}
-          {state.screen === 'onboarding' && <OnboardingScreen slide={onboardSlide} setSlide={setOnboardSlide} dispatch={dispatch} renderNotation={renderNotation} />}
-          {state.screen === 'menu' && <MenuScreen state={state} dispatch={dispatch} />}
-          {state.screen === 'config' && <ConfigScreen dispatch={dispatch} startDrill={startDrill} />}
-          {state.screen === 'drill' && <DrillScreen state={state} handleAnswer={handleAnswer} handleEndDrill={handleEndDrill} renderNotation={renderNotation} />}
-          {state.screen === 'results' && <ResultsScreen state={state} dispatch={dispatch} />}
-          {state.screen === 'lessons' && <LessonsListScreen state={state} dispatch={dispatch} />}
-          {state.screen === 'lesson' && <LessonScreen state={state} dispatch={dispatch} renderNotation={renderNotation} loadScore={loadScore} playScore={playScore} />}
-          {state.screen === 'library' && <LibraryScreen state={state} dispatch={dispatch} loadScore={loadScore} playScore={playScore} />}
-          {state.screen === 'progress' && <ProgressScreen state={state} dispatch={dispatch} />}
-          {state.screen === 'sightReading' && <SightReadingScreen dispatch={dispatch} renderNotation={renderNotation} />}
-          {state.screen === 'rhythm' && <RhythmScreen dispatch={dispatch} />}
-          {state.screen === 'paywall' && <PaywallScreen dispatch={dispatch} userId={state.user?.id || ''} />}
+          <div key={state.screen} className="sonata-page-enter">
+            {state.screen === 'placement' && <PlacementScreen dispatch={dispatch} renderNotation={renderNotation} />}
+            {state.screen === 'onboarding' && <OnboardingScreen slide={onboardSlide} setSlide={setOnboardSlide} dispatch={dispatch} renderNotation={renderNotation} />}
+            {state.screen === 'menu' && <MenuScreen state={state} dispatch={dispatch} />}
+            {state.screen === 'config' && <ConfigScreen dispatch={dispatch} startDrill={startDrill} />}
+            {state.screen === 'drill' && <DrillScreen state={state} handleAnswer={handleAnswer} handleEndDrill={handleEndDrill} renderNotation={renderNotation} />}
+            {state.screen === 'results' && <ResultsScreen state={state} dispatch={dispatch} />}
+            {state.screen === 'lessons' && <LessonsListScreen state={state} dispatch={dispatch} />}
+            {state.screen === 'lesson' && <LessonScreen state={state} dispatch={dispatch} renderNotation={renderNotation} loadScore={loadScore} playScore={playScore} />}
+            {state.screen === 'library' && <LibraryScreen state={state} dispatch={dispatch} loadScore={loadScore} playScore={playScore} />}
+            {state.screen === 'progress' && <ProgressScreen state={state} dispatch={dispatch} />}
+            {state.screen === 'sightReading' && <SightReadingScreen dispatch={dispatch} renderNotation={renderNotation} userId={state.user?.id} />}
+            {state.screen === 'rhythm' && <RhythmScreen dispatch={dispatch} userId={state.user?.id} />}
+            {state.screen === 'paywall' && <PaywallScreen dispatch={dispatch} userId={state.user?.id || ''} />}
+          </div>
         </div>
       </div>
     </ErrorBoundary>
@@ -544,10 +575,31 @@ export default function SonataApp() {
 // SHARED COMPONENTS
 // ============================================================
 
+function SonataLogo({ size = 26 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 512 512" style={{ flexShrink: 0, display: 'block' }} aria-hidden="true">
+      <rect width="512" height="512" rx="110" fill="#C8A96E" />
+      <text x="256" y="360" textAnchor="middle" fontFamily="Georgia, 'Instrument Serif', serif" fontSize="340" fill="#0C0A09" fontStyle="italic" fontWeight="400">S</text>
+    </svg>
+  );
+}
+
 function Header({ title, right }: { title: string; right?: React.ReactNode }) {
+  const isBrand = title === 'Sonata';
   return (
     <div style={s.header} className="sonata-header">
-      <h1 style={s.headerTitle}>{title}</h1>
+      <div style={{ display: 'flex', alignItems: 'center', gap: 10, minWidth: 0 }}>
+        <SonataLogo size={isBrand ? 30 : 24} />
+        {isBrand
+          ? <h1 style={s.headerTitle}>Sonata</h1>
+          : (
+            <div style={{ display: 'flex', flexDirection: 'column', minWidth: 0 }}>
+              <span style={{ fontFamily: 'var(--serif)', fontSize: 15, color: 'var(--gold)', lineHeight: 1 }}>Sonata</span>
+              <span style={{ fontSize: 12, color: 'var(--text3)', marginTop: 2, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{title}</span>
+            </div>
+          )
+        }
+      </div>
       {right && <div style={s.headerStats}>{right}</div>}
     </div>
   );
@@ -567,6 +619,7 @@ function PianoKeyboard({ startMidi = 48, endMidi = 84, highlights = {}, fingers 
 }) {
   const [pressed, setPressed] = useState<Set<number>>(new Set());
   const touchedRef = useRef(false); // Track if touch event fired to suppress click
+  const containerRef = useRef<HTMLDivElement>(null);
 
   function handlePress(m: number) {
     hLight();
@@ -574,6 +627,9 @@ function PianoKeyboard({ startMidi = 48, endMidi = 84, highlights = {}, fingers 
     onClick?.(m);
     setPressed(p => { const n = new Set(p); n.add(m); return n; });
     setTimeout(() => setPressed(p => { const n = new Set(p); n.delete(m); return n; }), 200);
+    // Spawn a floating note glyph above the keyboard for visual feedback
+    const glyphs = ['♪', '♫', '♬'];
+    spawnFloatNote(containerRef.current, glyphs[m % 3]);
   }
 
   function onTouch(m: number, e: React.TouchEvent) {
@@ -595,11 +651,12 @@ function PianoKeyboard({ startMidi = 48, endMidi = 84, highlights = {}, fingers 
   }
 
   return (
-    <div className="sonata-piano-container" style={{
+    <div ref={containerRef} className="sonata-piano-container" style={{
       marginTop: 'auto', padding: '16px 0 8px',
       borderTop: '1px solid rgba(200,169,110,0.1)',
       display: 'flex', justifyContent: 'center',
       overflowX: 'auto', WebkitOverflowScrolling: 'touch',
+      position: 'relative',
     } as React.CSSProperties}>
       <div style={{ position: 'relative', display: 'flex' }}>
         {whiteKeys.map((m) => {
@@ -715,41 +772,85 @@ function NotationDisplay({ abc, width = 350 }: { abc: string; width?: number }) 
 // PLACEMENT QUIZ — Assess skill level and skip to the right lesson
 // ============================================================
 const PLACEMENT_QUESTIONS = [
-  // Q1-2: Basic note reading (L1-3 concepts)
-  { q: 'Which note is on the second line of the treble clef?', options: ['C', 'G', 'A', 'B'], correct: 1, abc: 'X:1\nM:4/4\nL:1/4\nK:clef=treble\nG4 |' },
-  { q: 'Notes on the bass clef fourth line (between the dots) are...', options: ['C', 'G', 'F', 'A'], correct: 2, abc: 'X:1\nM:4/4\nL:1/4\nK:clef=bass\nF3 |' },
-  // Q3-4: Intervals — steps and skips (L4-5)
-  { q: 'C to E is what interval?', options: ['2nd (step)', '3rd (skip)', '4th (leap)', '5th'], correct: 1, abc: 'X:1\nM:4/4\nL:1/4\nK:clef=treble\nC E |' },
-  { q: 'An odd interval (3rd, 5th) on the staff means both notes are on...', options: ['The same type (lines or spaces)', 'Different types (line and space)', 'Ledger lines', 'Any position'], correct: 0, abc: '' },
-  // Q5-6: Both clefs, dynamics (L8-9)
-  { q: 'In a grand staff, the top staff uses which clef?', options: ['Bass clef', 'Treble clef', 'Alto clef', 'No clef'], correct: 1, abc: '' },
-  { q: 'The dynamic marking "f" means...', options: ['Fast', 'Flat', 'Forte (loud)', 'Finish'], correct: 2, abc: '' },
-  // Q7-8: Key signatures, accidentals (L11)
-  { q: 'One sharp in the key signature means the key of...', options: ['C major', 'D major', 'G major', 'F major'], correct: 2, abc: 'X:1\nM:4/4\nL:1/4\nK:G\nG A B d |' },
-  { q: 'An accidental lasts until...', options: ['The end of the piece', 'The end of the bar', 'The next note', 'Forever'], correct: 1, abc: '' },
+  // ======================= CATEGORY 1 — BASIC NOTE READING (L1-3) =======================
+  { q: 'Which note sits on the bottom line of the treble clef?', options: ['D', 'E', 'F', 'G'], correct: 1, abc: 'X:1\nM:4/4\nL:1/4\nK:clef=treble\nE |' },
+  { q: 'Which note is in the top space of the treble clef?', options: ['D', 'E', 'F', 'G'], correct: 1, abc: 'X:1\nM:4/4\nL:1/4\nK:clef=treble\ne |' },
+  { q: 'Which note is on the middle line of the bass clef?', options: ['B', 'C', 'D', 'G'], correct: 2, abc: 'X:1\nM:4/4\nL:1/4\nK:clef=bass\nD |' },
+  { q: 'Middle C is written...', options: ['Only below the treble staff', 'Only above the bass staff', 'One ledger line between the two staves', 'On the top line of the bass staff'], correct: 2, abc: '' },
+
+  // ======================= CATEGORY 2 — INTERVALS, RHYTHM, DYNAMICS (L4-8) =======================
+  { q: 'Which interval is a "step"?', options: ['2nd', '3rd', '4th', '5th'], correct: 0, abc: '' },
+  { q: 'If both notes sit on staff lines, the interval between them is always...', options: ['A step (2nd)', 'An odd interval (3rd, 5th, 7th)', 'An even interval (2nd, 4th)', 'An octave'], correct: 1, abc: '' },
+  { q: 'A dotted half note in 4/4 lasts how many beats?', options: ['2', '2.5', '3', '4'], correct: 2, abc: '' },
+  { q: 'Which dynamic is the quietest?', options: ['f (forte)', 'mf (mezzo-forte)', 'p (piano)', 'pp (pianissimo)'], correct: 3, abc: '' },
+
+  // ======================= CATEGORY 3 — ARTICULATION, KEY SIGS, ACCIDENTALS (L9-12) =======================
+  { q: 'A staccato dot above a note means...', options: ['Play it quietly', 'Play it short and detached', 'Play it smoothly connected', 'Hold it longer'], correct: 1, abc: '' },
+  { q: 'A key signature with one sharp (F#) is the key of...', options: ['C major', 'F major', 'G major', 'D major'], correct: 2, abc: 'X:1\nM:4/4\nL:1/4\nK:G\nG A B d |' },
+  { q: 'An accidental (sharp/flat/natural) on a note lasts...', options: ['Just that note', 'Until the end of the bar', 'Until the end of the piece', 'Until the next rest'], correct: 1, abc: '' },
+  { q: 'In a grand staff, which hand typically reads the bass clef?', options: ['Right hand', 'Left hand', 'Both hands equally', 'Depends on the piece'], correct: 1, abc: '' },
+
+  // ======================= CATEGORY 4 — COMPOUND TIME, SCALES, CHORDS (L13-17) =======================
+  { q: '6/8 time is usually felt as how many pulses per bar?', options: ['Six equal beats', 'Two beats (each a dotted quarter)', 'Three beats', 'Four beats'], correct: 1, abc: '' },
+  { q: 'A triplet means...', options: ['Three notes played at the same time', 'Three notes in the time of two', 'Three notes in three beats', 'Three stacked pitches'], correct: 1, abc: '' },
+  { q: 'Which pattern is a C major scale?', options: ['C D E F G A B C', 'C D♭ E F G A♭ B C', 'C D E F♯ G A B C', 'C E G B D F A C'], correct: 0, abc: '' },
+  { q: 'A "triad" is built from...', options: ['Any three notes', 'Three notes stacked in thirds', 'Three notes stacked in fourths', 'The root, 5th, and 7th'], correct: 1, abc: '' },
+
+  // ======================= CATEGORY 5 — REPEATS, COMPLEX RHYTHM, ADVANCED THEORY (L18-23) =======================
+  { q: '"D.C. al Fine" means...', options: ['Slow down and stop', 'Repeat from the beginning to the word "Fine"', 'Skip to the coda', 'Play once more as written'], correct: 1, abc: '' },
+  { q: 'Cut time (alla breve, ¢) feels like...', options: ['Half the speed of 4/4', '4/4 but counted in 2 beats per bar', 'Same as 3/4', 'Same as 6/8'], correct: 1, abc: '' },
+  { q: 'A dotted-eighth followed by a sixteenth creates what feel?', options: ['Two equal notes', 'A triplet', 'A long-short "dotted" swing pattern', 'A pause then a note'], correct: 2, abc: '' },
+  { q: 'A first-inversion C major chord has which note in the bass?', options: ['C', 'E', 'G', 'B'], correct: 1, abc: '' },
 ];
 
-function PlacementScreen({ dispatch, renderNotation }: { dispatch: React.Dispatch<Action>; renderNotation: (abc: string, el: HTMLDivElement | null, w?: number) => void }) {
+function PlacementScreen({ dispatch, renderNotation }: { dispatch: React.Dispatch<Action>; renderNotation: (abc: string, el: HTMLDivElement | null, w?: number, scale?: number) => void }) {
   const [step, setStep] = useState<'intro' | 'quiz' | 'result'>('intro');
   const [qIndex, setQIndex] = useState(0);
-  const [score, setScore] = useState(0);
+  const [correctSet, setCorrectSet] = useState<Set<number>>(new Set());
   const [answered, setAnswered] = useState(-1);
   const notRef = useRef<HTMLDivElement>(null);
   const q = PLACEMENT_QUESTIONS[qIndex];
 
   useEffect(() => {
-    if (step === 'quiz' && q?.abc) renderNotation(q.abc, notRef.current, 250);
+    if (step === 'quiz' && q?.abc) renderNotation(q.abc, notRef.current, 440, 1.8);
   }, [step, qIndex, q?.abc, renderNotation]);
 
-  const startLesson = score <= 2 ? 1 : score <= 4 ? 6 : score <= 6 ? 11 : 16;
+  // 5 categories of 4 questions each, increasing difficulty (L1-23 coverage):
+  //   Cat 0 (Q0-3):   basic note reading           → competency through Lesson 3
+  //   Cat 1 (Q4-7):   intervals, rhythm, dynamics  → through Lesson 8
+  //   Cat 2 (Q8-11):  articulation, key sigs       → through Lesson 12
+  //   Cat 3 (Q12-15): compound time, scales, chords → through Lesson 17
+  //   Cat 4 (Q16-19): repeats, complex rhythm, theory → through Lesson 21
+  //
+  // To advance through a category you need 3/4 correct (allows one slip).
+  // You CANNOT skip a category you failed, even with later answers right —
+  // this prevents lucky guessing from over-placing you.
+  const CAT_SIZE = 4;
+  const catScores = [0, 1, 2, 3, 4].map(cat => {
+    let n = 0;
+    for (let i = 0; i < CAT_SIZE; i++) if (correctSet.has(cat * CAT_SIZE + i)) n++;
+    return n;
+  });
+  const score = correctSet.size;
+  const MASTERY = 3; // need 3/4 in a category to advance past it
+
+  const passed = catScores.map(s => s >= MASTERY);
+  let startLesson = 1;
+  let levelIndex = 0;
+  // Must pass each category in sequence — no skipping.
+  if (passed[0])                                                   { startLesson = 4;  levelIndex = 1; }
+  if (passed[0] && passed[1])                                      { startLesson = 8;  levelIndex = 1; }
+  if (passed[0] && passed[1] && passed[2])                         { startLesson = 12; levelIndex = 2; }
+  if (passed[0] && passed[1] && passed[2] && passed[3])            { startLesson = 17; levelIndex = 3; }
+  if (passed[0] && passed[1] && passed[2] && passed[3] && passed[4]) { startLesson = 21; levelIndex = 3; }
+
   const levelNames = ['Complete Beginner', 'Knows the Basics', 'Intermediate', 'Advanced'];
-  const levelIndex = score <= 2 ? 0 : score <= 4 ? 1 : score <= 6 ? 2 : 3;
 
   function handleAnswer(idx: number) {
     if (answered >= 0) return;
     setAnswered(idx);
     const correct = idx === q.correct;
-    if (correct) setScore(s => s + 1);
+    if (correct) setCorrectSet(s => { const n = new Set(s); n.add(qIndex); return n; });
     setTimeout(() => {
       setAnswered(-1);
       if (qIndex < PLACEMENT_QUESTIONS.length - 1) {
@@ -842,7 +943,7 @@ function PlacementScreen({ dispatch, renderNotation }: { dispatch: React.Dispatc
 
 function OnboardingScreen({ slide, setSlide, dispatch, renderNotation }: {
   slide: number; setSlide: (s: number) => void; dispatch: React.Dispatch<Action>;
-  renderNotation: (abc: string, el: HTMLDivElement | null, w?: number) => void;
+  renderNotation: (abc: string, el: HTMLDivElement | null, w?: number, scale?: number) => void;
 }) {
   const slides = [
     { title: 'Read by distance', body: 'Sonata teaches you to read music by distance, not by memorising note names. Steps, skips, and leaps.', abc: 'X:1\nM:4/4\nL:1/4\nK:clef=treble\nC D z E G |' },
@@ -851,7 +952,7 @@ function OnboardingScreen({ slide, setSlide, dispatch, renderNotation }: {
   ];
   const sl = slides[slide];
   const notRef = useRef<HTMLDivElement>(null);
-  useEffect(() => { if (sl.abc) renderNotation(sl.abc, notRef.current, 250); }, [slide, sl.abc, renderNotation]);
+  useEffect(() => { if (sl.abc) renderNotation(sl.abc, notRef.current, 440, 1.8); }, [slide, sl.abc, renderNotation]);
 
   return (
     <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', padding: '32px 20px' }} className="sonata-app">
@@ -897,7 +998,7 @@ function getAchievements(state: AppState): { icon: string; label: string; done: 
   let streak = 0;
   for (let i = 0; i < 365; i++) {
     const d = new Date(); d.setDate(d.getDate() - i);
-    if (practiceDates.includes(d.toISOString().slice(0, 10))) streak++; else break;
+    if (practiceDates.includes(localDateKey(d))) streak++; else break;
   }
   const weak = getWeakestIntervals(1);
   const bestPct = weak.length > 0 ? 100 - weak[0].pct : 0;
@@ -913,90 +1014,279 @@ function getAchievements(state: AppState): { icon: string; label: string; done: 
   ];
 }
 
+// Gamification: level tiers based on lessons + drills completed
+const LEVEL_TIERS = [
+  { min: 0,  name: 'Curious Ear',   icon: '♪' },
+  { min: 3,  name: 'Beginner',      icon: '♩' },
+  { min: 8,  name: 'Apprentice',    icon: '♬' },
+  { min: 16, name: 'Journeyman',    icon: '𝄞' },
+  { min: 28, name: 'Artist',        icon: '𝄢' },
+  { min: 45, name: 'Virtuoso',      icon: '✦' },
+];
+function getLevel(totalXP: number) {
+  let tier = LEVEL_TIERS[0];
+  let next = LEVEL_TIERS[1];
+  for (let i = 0; i < LEVEL_TIERS.length; i++) {
+    if (totalXP >= LEVEL_TIERS[i].min) {
+      tier = LEVEL_TIERS[i];
+      next = LEVEL_TIERS[i + 1] || LEVEL_TIERS[i];
+    }
+  }
+  const toNext = next.min - tier.min;
+  const progress = toNext > 0 ? Math.min(1, (totalXP - tier.min) / toNext) : 1;
+  return { tier, next, progress };
+}
+
+function getGreeting(name: string, streak: number): string {
+  const h = new Date().getHours();
+  const timeOfDay = h < 5 ? 'Up late practising' : h < 12 ? 'Good morning' : h < 17 ? 'Good afternoon' : h < 22 ? 'Good evening' : 'Night owl';
+  const lines = [
+    `${timeOfDay}${name ? ', ' + name : ''}! 👋`,
+    'Hey, welcome back! 🎵',
+    'Ready to make music? 🎹',
+    'Let\'s play something today! ✨',
+    streak >= 7 ? `🔥 ${streak} days strong!` : '',
+    streak >= 3 ? `Look at that ${streak}-day streak! 🌟` : '',
+  ].filter(Boolean);
+  const idx = Math.floor(Date.now() / (1000 * 60 * 60 * 6)) % lines.length;
+  return lines[idx];
+}
+
+// Ring progress SVG (used by Daily Mission)
+function ProgressRing({ progress, size = 64, stroke = 5, label }: { progress: number; size?: number; stroke?: number; label?: string }) {
+  const radius = (size - stroke) / 2;
+  const circ = 2 * Math.PI * radius;
+  const offset = circ * (1 - Math.max(0, Math.min(1, progress)));
+  return (
+    <div style={{ position: 'relative', width: size, height: size, flexShrink: 0 }}>
+      <svg width={size} height={size} style={{ transform: 'rotate(-90deg)' }}>
+        <circle cx={size/2} cy={size/2} r={radius} stroke="rgba(200,169,110,0.15)" strokeWidth={stroke} fill="none" />
+        <circle cx={size/2} cy={size/2} r={radius} stroke="var(--gold)" strokeWidth={stroke} fill="none"
+          strokeDasharray={circ} strokeDashoffset={offset} strokeLinecap="round"
+          style={{ transition: 'stroke-dashoffset 0.6s ease' }} />
+      </svg>
+      {label !== undefined && (
+        <div style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 13, color: 'var(--gold)', fontWeight: 500, fontFamily: 'var(--sans)' }}>{label}</div>
+      )}
+    </div>
+  );
+}
+
+// Staff-line decorative divider — evokes sheet music paper
+function StaffDivider() {
+  return (
+    <div className="sonata-staff-divider" aria-hidden="true">
+      <span /><span /><span />
+    </div>
+  );
+}
+
 function MenuScreen({ state, dispatch }: { state: AppState; dispatch: React.Dispatch<Action> }) {
   const router = useRouter();
   const email = state.user?.email || '';
+
+  // Ambient piano — starts if user enabled it, stops when leaving the menu
+  useEffect(() => {
+    startAmbiance();
+    return () => stopAmbiance();
+  }, []);
+
+  const name = email ? email.split('@')[0].replace(/[._-]+/g, ' ').replace(/\b\w/g, c => c.toUpperCase()) : '';
   const lessonPct = Math.round(state.lessonsCompleted.length / lessons.length * 100);
   const nextLesson = getNextLesson(state.lessonsCompleted);
   const achievements = getAchievements(state);
-  const newAchievements = achievements.filter(a => a.done);
+  const earnedAchievements = achievements.filter(a => a.done);
+
+  // Practice dates → streak + today (all in LOCAL time, not UTC)
+  const dates = getPracticeDates();
+  let streak = 0;
+  for (let i = 0; i < 365; i++) {
+    const d = new Date(); d.setDate(d.getDate() - i);
+    if (dates.includes(localDateKey(d))) streak++; else break;
+  }
+  const practicedToday = dates.includes(localDateKey());
+
+  // Daily mission: 3 mini-tasks
+  const totalDrills = state.drillHistory.length;
+  const todayStart = new Date(); todayStart.setHours(0, 0, 0, 0);
+  const todayDrills = state.drillHistory.filter(d => d && d.timestamp >= todayStart.getTime()).length;
+  const missionTasks = [
+    { label: 'Practice today', done: practicedToday },
+    { label: 'Complete 1 drill', done: todayDrills >= 1 },
+    { label: '5-day streak', done: streak >= 5 },
+  ];
+  const missionDone = missionTasks.filter(t => t.done).length;
+  const missionPct = missionDone / missionTasks.length;
+
+  // XP + level
+  const totalXP = state.lessonsCompleted.length * 2 + totalDrills;
+  const { tier, next, progress: levelProgress } = getLevel(totalXP);
+
+  // Piece of the day — rotates daily, deterministic
+  const dayIndex = Math.floor(Date.now() / (1000 * 60 * 60 * 24));
+  const featuredPiece = CATALOG.length > 0 ? CATALOG[dayIndex % CATALOG.length] : null;
+  const featuredIndex = CATALOG.length > 0 ? (dayIndex % CATALOG.length) : 0;
 
   return (
     <>
       <Header title="Sonata" right={
         <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+          <span className="sonata-metronome" aria-hidden="true" />
           {email && <span style={{ opacity: 0.6, fontSize: 11 }}>{email}</span>}
           <div style={s.progressMini}><div style={{ ...s.progressMiniFill, width: lessonPct + '%' }} /></div>
         </div>
       } />
       <div style={s.menu} className="sonata-menu">
-        <h2 style={s.menuTitle} className="sonata-menu-title">Learn to read music</h2>
-        <div style={{ fontFamily: 'var(--serif)', fontStyle: 'italic', fontSize: 13, color: 'var(--text3)', marginTop: -8, letterSpacing: '0.02em' }}>by Adam Morris</div>
+        <div className="sonata-staff-bg" aria-hidden="true" />
+        {/* Hero — Cleffy + warm greeting */}
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: -8 }}>
+          <Cleffy size={130} mood={streak >= 2 ? 'excited' : practicedToday ? 'happy' : 'waving'} />
+        </div>
+        <div className="sonata-menu-title-wrap" style={{ marginTop: 4 }}>
+          <div className="sonata-menu-watermark" aria-hidden="true">♪</div>
+          <h2 style={s.menuTitle} className="sonata-menu-title">{getGreeting(name, streak)}</h2>
+          <span className="sonata-menu-title-underline" aria-hidden="true" />
+        </div>
+        <div style={{ fontFamily: 'var(--sans)', fontSize: 14, color: 'var(--text3)', marginTop: 6, textAlign: 'center', fontWeight: 500 }}>
+          Let&apos;s play something today ✨
+        </div>
 
-        {/* Streak banner */}
-        {(() => {
-          const dates = getPracticeDates();
-          let streak = 0;
-          for (let i = 0; i < 365; i++) {
-            const d = new Date(); d.setDate(d.getDate() - i);
-            if (dates.includes(d.toISOString().slice(0, 10))) streak++; else break;
-          }
-          if (streak >= 2) return (
-            <div style={{ marginTop: 12, padding: '8px 20px', background: 'var(--gold-bg)', border: '1px solid rgba(200,169,110,0.15)', borderRadius: 20, fontSize: 13, color: 'var(--gold)', fontWeight: 500 }}>
-              🔥 {streak}-day streak — keep it going!
-            </div>
-          );
-          if (streak === 0 && dates.length > 0) return (
-            <div style={{ marginTop: 12, padding: '8px 20px', background: 'var(--red-bg)', border: '1px solid rgba(248,113,113,0.15)', borderRadius: 20, fontSize: 13, color: 'var(--red)', fontWeight: 400 }}>
-              Your streak ended — practice today to start a new one
-            </div>
-          );
-          return null;
-        })()}
+        {/* Streak + progress plant */}
+        {streak >= 1 && (
+          <div style={{ marginTop: 16, padding: '10px 22px', background: 'var(--gold-bg)', border: '1px solid rgba(200,169,110,0.3)', borderRadius: 24, fontSize: 14, color: 'var(--gold)', fontWeight: 600, display: 'inline-flex', alignItems: 'center', gap: 10 }}>
+            <span className="sonata-plant" aria-hidden="true" style={{ fontSize: 22 }}>
+              {streak >= 30 ? '🌳' : streak >= 14 ? '🌲' : streak >= 7 ? '🪴' : streak >= 3 ? '🌱' : '🌱'}
+            </span>
+            <span className="sonata-flame" style={{ fontSize: 18 }}>🔥</span>
+            <span>{streak === 1 ? 'Day 1 — nice start!' : `${streak}-day streak!`}</span>
+          </div>
+        )}
+        {streak === 0 && dates.length > 0 && (
+          <div style={{ marginTop: 16, padding: '10px 22px', background: 'var(--coral-bg)', border: '1px solid rgba(255,159,126,0.35)', borderRadius: 24, fontSize: 14, color: 'var(--coral)', fontWeight: 500, display: 'inline-flex', alignItems: 'center', gap: 8 }}>
+            <span>🌱</span>
+            <span>Fresh start — let&apos;s grow a new streak</span>
+          </div>
+        )}
+        {streak === 0 && dates.length === 0 && (
+          <div style={{ marginTop: 16, padding: '10px 22px', background: 'var(--mint-bg)', border: '1px solid rgba(127,216,190,0.35)', borderRadius: 24, fontSize: 14, color: 'var(--mint)', fontWeight: 500, display: 'inline-flex', alignItems: 'center', gap: 8 }}>
+            <span>✨</span>
+            <span>Your first day — let&apos;s make it count!</span>
+          </div>
+        )}
 
-        {/* Daily practice / Continue button */}
+        <StaffDivider />
+
+        {/* Daily mission card */}
+        <div style={{
+          width: '100%', maxWidth: 560, padding: '18px 22px', marginBottom: 12,
+          background: 'linear-gradient(135deg, rgba(200,169,110,0.08) 0%, var(--bg2) 60%)',
+          border: '1px solid rgba(200,169,110,0.18)', borderRadius: 16, display: 'flex', alignItems: 'center', gap: 18,
+        }}>
+          <ProgressRing progress={missionPct} size={64} label={`${missionDone}/${missionTasks.length}`} />
+          <div style={{ flex: 1 }}>
+            <div style={{ fontSize: 11, color: 'var(--gold)', textTransform: 'uppercase', letterSpacing: '0.08em', fontWeight: 500, marginBottom: 6 }}>Today&apos;s mission</div>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
+              {missionTasks.map((t, i) => (
+                <div key={i} style={{ fontSize: 13, color: t.done ? 'var(--text)' : 'var(--text3)', display: 'flex', alignItems: 'center', gap: 8 }}>
+                  <span style={{ color: t.done ? 'var(--green)' : 'var(--bg4)', fontSize: 12, width: 14 }}>{t.done ? '✓' : '○'}</span>
+                  <span style={{ textDecoration: t.done ? 'line-through' : 'none', opacity: t.done ? 0.7 : 1 }}>{t.label}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Level / XP card */}
+        <div style={{
+          width: '100%', maxWidth: 560, padding: '14px 20px', marginBottom: 12,
+          background: 'var(--bg2)', border: '1px solid var(--bg3)', borderRadius: 14,
+        }}>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 8 }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+              <div style={{ fontFamily: 'var(--serif)', fontSize: 24, color: 'var(--gold)', width: 30, textAlign: 'center' }}>{tier.icon}</div>
+              <div>
+                <div style={{ fontSize: 14, fontWeight: 500, color: 'var(--text)' }}>{tier.name}</div>
+                <div style={{ fontSize: 11, color: 'var(--text3)' }}>{totalXP} XP · {next !== tier ? `${next.min - totalXP} to ${next.name}` : 'Max level'}</div>
+              </div>
+            </div>
+            {earnedAchievements.length > 0 && (
+              <div style={{ display: 'flex', gap: 4, alignItems: 'center' }}>
+                {earnedAchievements.slice(0, 5).map((a, i) => (
+                  <div key={i} className="sonata-achievement-pop" title={a.label} style={{ fontSize: 18, animationDelay: `${i * 80}ms` }}>{a.icon}</div>
+                ))}
+              </div>
+            )}
+          </div>
+          <div style={{ height: 4, background: 'var(--bg3)', borderRadius: 2, overflow: 'hidden' }}>
+            <div style={{ width: `${levelProgress * 100}%`, height: '100%', background: 'linear-gradient(90deg, var(--gold2), var(--gold))', borderRadius: 2, transition: 'width 0.6s ease' }} />
+          </div>
+        </div>
+
+        {/* Continue learning */}
         {nextLesson && (
-          <div onClick={() => { unlockAudio(); dispatch({ type: 'START_LESSON', id: nextLesson.id }); }} style={{
-            width: '100%', maxWidth: 500, padding: '20px 24px', marginTop: 16, marginBottom: 8,
-            background: 'linear-gradient(135deg, rgba(200,169,110,0.08) 0%, var(--bg2) 60%)',
-            border: '1px solid rgba(200,169,110,0.2)', borderRadius: 14, cursor: 'pointer', textAlign: 'left',
+          <div className="sonata-glow-active" onClick={() => { hSelect(); unlockAudio(); dispatch({ type: 'START_LESSON', id: nextLesson.id }); }} style={{
+            width: '100%', maxWidth: 560, padding: '18px 22px', marginBottom: 12,
+            background: 'linear-gradient(135deg, rgba(200,169,110,0.12) 0%, var(--bg2) 60%)',
+            border: '1px solid rgba(200,169,110,0.3)', borderRadius: 14, cursor: 'pointer', textAlign: 'left',
+            transition: 'transform 0.18s ease',
           }}>
-            <div style={{ fontSize: 11, color: 'var(--gold)', textTransform: 'uppercase', letterSpacing: '0.08em', fontWeight: 500, marginBottom: 6 }}>
-              Continue learning
+            <div style={{ fontSize: 11, color: 'var(--gold)', textTransform: 'uppercase', letterSpacing: '0.08em', fontWeight: 600, marginBottom: 6 }}>
+              ▶  Pick up where you left off
             </div>
             <div style={{ fontSize: 16, fontWeight: 500 }}>Lesson {nextLesson.id}: {nextLesson.title}</div>
             <div style={{ fontSize: 12, color: 'var(--text3)', marginTop: 4 }}>{nextLesson.sub} · {nextLesson.piece}</div>
           </div>
         )}
 
-        {/* Achievements row */}
-        {newAchievements.length > 0 && (
-          <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap', justifyContent: 'center', marginTop: 8, marginBottom: 4 }}>
-            {newAchievements.map((a, i) => (
-              <div key={i} title={a.label} style={{ fontSize: 16, opacity: 0.8 }}>{a.icon}</div>
-            ))}
+        {/* Piece of the day */}
+        {featuredPiece && (
+          <div onClick={() => { hSelect(); dispatch({ type: 'OPEN_SCORE', index: featuredIndex }); dispatch({ type: 'SET_SCREEN', screen: 'library' }); }} style={{
+            width: '100%', maxWidth: 560, padding: '16px 20px', marginBottom: 20,
+            background: 'var(--bg2)', border: '1px solid var(--bg3)', borderRadius: 14, cursor: 'pointer',
+            display: 'flex', alignItems: 'center', gap: 14, position: 'relative', overflow: 'hidden',
+          }}>
+            <div style={{ position: 'absolute', top: 0, right: 0, background: 'var(--gold)', color: 'var(--bg)', fontSize: 10, padding: '3px 10px', borderBottomLeftRadius: 8, fontWeight: 600, letterSpacing: '0.06em', textTransform: 'uppercase' }}>Today</div>
+            <div style={{ fontFamily: 'var(--serif)', fontSize: 30, color: 'var(--gold)' }}>𝄞</div>
+            <div style={{ flex: 1, minWidth: 0 }}>
+              <div style={{ fontSize: 10, color: 'var(--gold)', textTransform: 'uppercase', letterSpacing: '0.08em', fontWeight: 500 }}>Piece of the day</div>
+              <div style={{ fontSize: 15, fontWeight: 500, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{featuredPiece.t}</div>
+              <div style={{ fontSize: 12, color: 'var(--text3)', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{featuredPiece.c}</div>
+            </div>
           </div>
         )}
 
+        <StaffDivider />
+
         <div style={s.menuGrid} className="sonata-menu-grid">
           {[
-            { label: 'Lessons', desc: lessons.length + ' structured lessons', onClick: () => dispatch({ type: 'SET_SCREEN', screen: 'lessons' }) },
-            { label: 'Quick Drill', desc: 'Timed exercises', onClick: () => dispatch({ type: 'SET_SCREEN', screen: 'config' }) },
-            { label: 'Target Weak Spots', desc: 'AI-focused drills', onClick: () => dispatch({ type: 'SET_SCREEN', screen: 'config' }) },
-            { label: 'Sight Reading', desc: 'Play along in real time', onClick: () => dispatch({ type: 'SET_SCREEN', screen: 'sightReading' }) },
-            { label: 'Rhythm', desc: 'Tap in time', onClick: () => dispatch({ type: 'SET_SCREEN', screen: 'rhythm' }) },
-            { label: 'Library', desc: CATALOG.length + ' pieces', onClick: () => dispatch({ type: 'SET_SCREEN', screen: 'library' }) },
-            { label: 'Progress', desc: 'Stats & accuracy', onClick: () => dispatch({ type: 'SET_SCREEN', screen: 'progress' }) },
-            { label: 'Account', desc: 'Settings & password', onClick: () => navigate('/account/', router) },
-            { label: 'Sign Out', desc: 'Log out', onClick: async () => { await signOut(); navigate('/login/', router); } },
+            { emoji: '🎹', label: 'Lessons',         desc: lessons.length + ' bite-size lessons',     cat: 'lessons',  onClick: () => dispatch({ type: 'SET_SCREEN', screen: 'lessons' }) },
+            { emoji: '🎯', label: 'Quick Drill',     desc: 'Timed note practice',                     cat: 'drill',    onClick: () => dispatch({ type: 'SET_SCREEN', screen: 'config' }) },
+            { emoji: '💪', label: 'Weak Spots',      desc: 'AI targets what you miss',                cat: 'drill',    onClick: () => dispatch({ type: 'SET_SCREEN', screen: 'config' }) },
+            { emoji: '🎵', label: 'Sight Reading',   desc: 'Play along in real time',                 cat: 'sight',    onClick: () => dispatch({ type: 'SET_SCREEN', screen: 'sightReading' }) },
+            { emoji: '🥁', label: 'Rhythm',          desc: 'Tap in time',                             cat: 'rhythm',   onClick: () => dispatch({ type: 'SET_SCREEN', screen: 'rhythm' }) },
+            { emoji: '📚', label: 'Library',         desc: CATALOG.length + ' piano pieces',          cat: 'library',  onClick: () => dispatch({ type: 'SET_SCREEN', screen: 'library' }) },
+            { emoji: '📈', label: 'Progress',        desc: 'Stats & accuracy',                        cat: 'progress', onClick: () => dispatch({ type: 'SET_SCREEN', screen: 'progress' }) },
+            { emoji: '⭐', label: 'Membership',      desc: 'Pricing & subscription',                  cat: 'neutral',  onClick: () => navigate('/pricing/', router) },
+            { emoji: '⚙️', label: 'Account',         desc: 'Settings & preferences',                  cat: 'neutral',  onClick: () => navigate('/account/', router) },
+            { emoji: '👋', label: 'Sign Out',        desc: 'See you soon!',                           cat: 'neutral',  onClick: async () => { await signOut(); navigate('/login/', router); } },
           ].map((btn, i) => (
-            <div key={i} style={s.menuBtn} className="sonata-menu-btn" onClick={() => { hSelect(); unlockAudio(); btn.onClick(); }}>
+            <div key={i}
+              style={{ ...s.menuBtn, ['--i' as unknown as string]: i } as React.CSSProperties}
+              className={`sonata-menu-btn menu-cat-${btn.cat}`}
+              onMouseMove={(e) => {
+                const rect = e.currentTarget.getBoundingClientRect();
+                e.currentTarget.style.setProperty('--mx', ((e.clientX - rect.left) / rect.width * 100) + '%');
+                e.currentTarget.style.setProperty('--my', ((e.clientY - rect.top) / rect.height * 100) + '%');
+              }}
+              onClick={() => { hSelect(); unlockAudio(); btn.onClick(); }}
+            >
+              <div className="menu-btn-emoji" aria-hidden="true">{btn.emoji}</div>
               <div style={s.menuBtnLabel}>{btn.label}</div>
               <div style={s.menuBtnDesc}>{btn.desc}</div>
             </div>
           ))}
         </div>
-        {state.midiConnected && <div style={{ fontSize: 11, marginTop: 12, color: 'var(--green)' }}>MIDI connected</div>}
+        {state.midiConnected && <div style={{ fontSize: 11, marginTop: 12, color: 'var(--green)' }}>🎹 MIDI connected</div>}
       </div>
     </>
   );
@@ -1021,7 +1311,7 @@ function ConfigScreen({ dispatch, startDrill }: { dispatch: React.Dispatch<Actio
       <Header title="Sonata" />
       <BackLink onClick={() => dispatch({ type: 'SET_SCREEN', screen: 'menu' })} />
       <div style={{ padding: '20px 0' }} className="sonata-app">
-        <h3 style={s.configTitle}>Configure Drill</h3>
+        <h3 style={s.configTitle}>Set up your drill 🎯</h3>
         <div style={s.configRow}>
           <label style={s.configLabel}>Drill types</label>
           <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
@@ -1070,7 +1360,7 @@ function ConfigScreen({ dispatch, startDrill }: { dispatch: React.Dispatch<Actio
           clefs: clefs.length ? clefs : ['treble'],
           range: 'staff', intervals: [2,3,4,5],
           timer: timer || null, count, answerMode: mode,
-        })}>Start Drill</button>
+        })}>Let&apos;s go! 🎯</button>
       </div>
     </>
   );
@@ -1082,7 +1372,7 @@ function ConfigScreen({ dispatch, startDrill }: { dispatch: React.Dispatch<Actio
 function DrillScreen({ state, handleAnswer, handleEndDrill, renderNotation }: {
   state: AppState;
   handleAnswer: (p: string, c: string) => void; handleEndDrill: () => void;
-  renderNotation: (abc: string, el: HTMLDivElement | null, w?: number) => void;
+  renderNotation: (abc: string, el: HTMLDivElement | null, w?: number, scale?: number) => void;
 }) {
   const q = state.questions[state.currentQ];
   const notRef = useRef<HTMLDivElement>(null);
@@ -1090,7 +1380,7 @@ function DrillScreen({ state, handleAnswer, handleEndDrill, renderNotation }: {
   const [pickedAnswer, setPickedAnswer] = useState('');
 
   useEffect(() => { setAnswered(false); setPickedAnswer(''); }, [state.currentQ]);
-  useEffect(() => { if (q?.abc) renderNotation(q.abc, notRef.current, 300); }, [q, state.currentQ, renderNotation]);
+  useEffect(() => { if (q?.abc) renderNotation(q.abc, notRef.current, 500, 2.0); }, [q, state.currentQ, renderNotation]);
 
   if (!q) return null;
   const timerPct = state.drillConfig?.timer ? (state.timeLeft / (state.drillConfig.timer * 10)) * 100 : 0;
@@ -1137,7 +1427,7 @@ function DrillScreen({ state, handleAnswer, handleEndDrill, renderNotation }: {
             onClick={() => onAnswer(o)}>{o}</button>
         ))}
       </div>
-      <PianoKeyboard highlights={answered ? {} : q.pianoHighlight} />
+      <PianoKeyboard highlights={answered ? q.pianoHighlight : {}} />
     </div>
   );
 }
@@ -1150,6 +1440,13 @@ function ResultsScreen({ state, dispatch }: { state: AppState; dispatch: React.D
   const correct = state.results.filter(r => r.correct).length;
   const pct = total ? Math.round(correct / total * 100) : 0;
   const pctColor = pct >= 80 ? 'var(--green)' : pct >= 50 ? 'var(--yellow)' : 'var(--red)';
+  useEffect(() => {
+    if (pct >= 80) {
+      fireConfetti(60);
+      playCelebrationChord().catch(() => {});
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const byType: Record<string, { total: number; correct: number }> = {};
   state.results.forEach(r => {
@@ -1160,14 +1457,17 @@ function ResultsScreen({ state, dispatch }: { state: AppState; dispatch: React.D
 
   const weak = getWeakestIntervals(3);
 
+  const cleffyMood: 'excited' | 'happy' | 'thinking' = pct >= 80 ? 'excited' : pct >= 50 ? 'happy' : 'thinking';
+  const headline = pct >= 90 ? 'Nailed it!' : pct >= 80 ? 'Beautiful!' : pct >= 60 ? 'Nice work!' : pct >= 40 ? 'Keep going!' : "Don't give up!";
   return (
     <>
       <Header title="Sonata" />
-      <div style={{ padding: '20px 0' }} className="sonata-app">
-        <h3 style={{ fontFamily: 'var(--serif)', fontSize: 24, fontWeight: 400, textAlign: 'center', marginBottom: 20 }}>Drill Complete</h3>
-        <div style={{ fontFamily: 'var(--serif)', fontSize: 56, fontWeight: 400, textAlign: 'center', lineHeight: 1, color: pctColor }}>{pct}%</div>
-        <div style={{ fontSize: 13, color: 'var(--text3)', textAlign: 'center', marginTop: 8, marginBottom: 24 }}>
-          {correct}/{total} correct · Streak: {state.bestStreak} · Timed out: {state.timedOut}
+      <div style={{ padding: '20px 0', textAlign: 'center' }} className="sonata-app">
+        <div><Cleffy size={110} mood={cleffyMood} /></div>
+        <div className="sonata-big-celebration" style={{ fontSize: 52, marginTop: 4, marginBottom: 8 }}>{headline}</div>
+        <div style={{ fontFamily: 'var(--serif)', fontSize: 56, fontWeight: 400, lineHeight: 1, color: pctColor, marginTop: 12 }}>{pct}%</div>
+        <div style={{ fontSize: 13, color: 'var(--text3)', marginTop: 8, marginBottom: 24 }}>
+          {correct}/{total} correct · Best streak: {state.bestStreak} · Timed out: {state.timedOut}
         </div>
         {Object.entries(byType).map(([type, d]) => {
           const p = Math.round(d.correct / d.total * 100);
@@ -1193,7 +1493,7 @@ function ResultsScreen({ state, dispatch }: { state: AppState; dispatch: React.D
           </div>
         )}
         <div style={{ display: 'flex', gap: 8, marginTop: 20 }}>
-          <button style={{ ...s.primaryBtn, background: 'var(--bg2)', border: '1px solid var(--bg3)', color: 'var(--text)' }} onClick={() => dispatch({ type: 'SET_SCREEN', screen: 'config' })}>Drill Again</button>
+          <button style={{ ...s.primaryBtn, background: 'var(--bg2)', border: '1px solid var(--bg3)', color: 'var(--text)' }} onClick={() => dispatch({ type: 'SET_SCREEN', screen: 'config' })}>One more! 🔁</button>
           <button style={s.primaryBtn} onClick={() => dispatch({ type: 'SET_SCREEN', screen: 'menu' })}>Home</button>
         </div>
         <button style={{ background: 'none', border: 'none', color: 'var(--text3)', fontSize: 12, cursor: 'pointer', marginTop: 12, fontFamily: 'var(--sans)', textDecoration: 'underline' }}
@@ -1215,7 +1515,10 @@ function LessonsListScreen({ state, dispatch }: { state: AppState; dispatch: Rea
     <>
       <Header title="Sonata" />
       <BackLink onClick={() => dispatch({ type: 'SET_SCREEN', screen: 'menu' })} />
-      <h3 style={{ marginBottom: 12 }}>{lessons.length} Lessons</h3>
+      <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 12 }}>
+        <Cleffy size={46} mood="happy" />
+        <h3 style={{ margin: 0, fontFamily: 'var(--serif)', fontSize: 28, color: 'var(--text)' }}>Your lessons</h3>
+      </div>
       <div style={{ display: 'flex', flexDirection: 'column', gap: 8, padding: '8px 0' }}>
         {lessons.map((l, i) => {
           const complete = state.lessonsCompleted.includes(l.id);
@@ -1244,9 +1547,9 @@ function LessonsListScreen({ state, dispatch }: { state: AppState; dispatch: Rea
 // ============================================================
 function LessonScreen({ state, dispatch, renderNotation, loadScore, playScore }: {
   state: AppState; dispatch: React.Dispatch<Action>;
-  renderNotation: (abc: string, el: HTMLDivElement | null, w?: number) => void;
+  renderNotation: (abc: string, el: HTMLDivElement | null, w?: number, scale?: number) => void;
   loadScore: (url: string, container: HTMLDivElement) => Promise<void>;
-  playScore: (tempo?: number) => void;
+  playScore: (tempo?: number) => Promise<void>;
 }) {
   const lesson = lessons.find(l => l.id === state.currentLesson);
   if (!lesson) return null;
@@ -1265,11 +1568,11 @@ function LessonScreen({ state, dispatch, renderNotation, loadScore, playScore }:
 
 function LessonConcepts({ lesson, state, dispatch, renderNotation }: {
   lesson: Lesson; state: AppState; dispatch: React.Dispatch<Action>;
-  renderNotation: (abc: string, el: HTMLDivElement | null, w?: number) => void;
+  renderNotation: (abc: string, el: HTMLDivElement | null, w?: number, scale?: number) => void;
 }) {
   const step = lesson.steps[state.lessonStep];
   const notRef = useRef<HTMLDivElement>(null);
-  useEffect(() => { if (step?.abc) renderNotation(step.abc, notRef.current, 350); }, [state.lessonStep, step, renderNotation]);
+  useEffect(() => { if (step?.abc) renderNotation(step.abc, notRef.current, 600, 2.2); }, [state.lessonStep, step, renderNotation]);
 
   return (
     <>
@@ -1283,6 +1586,8 @@ function LessonConcepts({ lesson, state, dispatch, renderNotation }: {
         </div>
         <div className="sonata-lesson-wrap">
           <div style={s.teachRow} className="sonata-teach-row">
+            {/* Left spacer — same width as the speak column so the text is truly centered */}
+            <div style={s.teachSpacer} className="sonata-teach-spacer" aria-hidden="true" />
             <div style={s.teachText} className="sonata-teach-text">
               {step.text}
             </div>
@@ -1391,7 +1696,7 @@ function LessonQuiz({ lesson, dispatch }: { lesson: Lesson; dispatch: React.Disp
 function LessonPiece({ lesson, state, dispatch, loadScore, playScore }: {
   lesson: Lesson; state: AppState; dispatch: React.Dispatch<Action>;
   loadScore: (url: string, container: HTMLDivElement) => Promise<void>;
-  playScore: (tempo?: number) => void;
+  playScore: (tempo?: number) => Promise<void>;
 }) {
   const ci = findLessonCatalogIndex(lesson.id);
   const scoreRef = useRef<HTMLDivElement>(null);
@@ -1400,7 +1705,7 @@ function LessonPiece({ lesson, state, dispatch, loadScore, playScore }: {
   const [wtDone, setWtDone] = useState(wt.length === 0);
 
   useEffect(() => {
-    if (ci < 0) { hSuccess(); dispatch({ type: 'COMPLETE_LESSON' }); saveLessonComplete(state.user!.id, state.currentLesson, 1.0); recordPractice(); return; }
+    if (ci < 0) { hSuccess(); dispatch({ type: 'COMPLETE_LESSON' }); saveLessonComplete(state.user!.id, state.currentLesson, 1.0); recordPractice(state.user?.id); return; }
     const piece = CATALOG[ci];
     const url = getCatalogUrl(piece);
     if (scoreRef.current) loadScore(url, scoreRef.current);
@@ -1456,7 +1761,7 @@ function LessonPiece({ lesson, state, dispatch, loadScore, playScore }: {
               stopScorePlayback();
               dispatch({ type: 'COMPLETE_LESSON' });
               if (state.user) saveLessonComplete(state.user.id, state.currentLesson, 1.0);
-              recordPractice();
+              recordPractice(state.user?.id);
             }}>Complete Lesson</button>
           </div>
         </>
@@ -1465,24 +1770,33 @@ function LessonPiece({ lesson, state, dispatch, loadScore, playScore }: {
   );
 }
 
+const CELEBRATION_PHRASES = ['Beautiful!', 'Nailed it!', 'Woohoo!', 'Bravo!', 'Yes!', 'Magnifique!', 'You did it!'];
+
 function LessonComplete({ lesson, dispatch }: { lesson: Lesson; dispatch: React.Dispatch<Action> }) {
   const nextLesson = lessons.find(l => l.id === lesson.id + 1);
+  const phrase = CELEBRATION_PHRASES[Math.floor(Math.random() * CELEBRATION_PHRASES.length)];
+  useEffect(() => {
+    // Fire celebration on mount
+    fireConfetti(80);
+    playCelebrationChord().catch(() => {});
+  }, []);
   return (
     <>
       <Header title="Sonata" />
       <div style={{ padding: '20px 0', textAlign: 'center' }} className="sonata-app">
-        <h3 style={{ fontFamily: 'var(--serif)', fontSize: 24, fontWeight: 400, marginBottom: 20 }}>Lesson {lesson.id} Complete!</h3>
-        <div style={{ fontFamily: 'var(--serif)', fontSize: 56, fontWeight: 400, color: 'var(--green)' }}>✓</div>
+        <div style={{ marginBottom: 8 }}><Cleffy size={140} mood="excited" /></div>
+        <div className="sonata-big-celebration" style={{ marginBottom: 12 }}>{phrase}</div>
+        <h3 style={{ fontFamily: 'var(--sans)', fontSize: 18, fontWeight: 500, marginBottom: 20, color: 'var(--text2)' }}>Lesson {lesson.id} complete</h3>
         <p style={{ color: 'var(--text2)', margin: '16px 0', lineHeight: 1.6 }}>
-          You&apos;ve mastered: <b style={{ color: 'var(--text)' }}>{lesson.title}</b><br />
-          {lesson.piece && <>Piece: <b style={{ color: 'var(--text)' }}>{lesson.piece}</b></>}
+          You just learned <b style={{ color: 'var(--text)' }}>{lesson.title}</b>
+          {lesson.piece && <><br />on <b style={{ color: 'var(--text)' }}>{lesson.piece}</b></>}
         </p>
         {nextLesson
-          ? <button style={s.primaryBtn} onClick={() => dispatch({ type: 'START_LESSON', id: nextLesson.id })}>Next: {nextLesson.title} →</button>
-          : <button style={s.primaryBtn}>🏆 Course Complete!</button>
+          ? <button style={s.primaryBtn} onClick={() => dispatch({ type: 'START_LESSON', id: nextLesson.id })}>Next up: {nextLesson.title} →</button>
+          : <button style={s.primaryBtn}>🏆 You finished the course!</button>
         }
         <div style={{ marginTop: 8 }}>
-          <button style={{ ...s.primaryBtn, background: 'var(--bg2)', border: '1px solid var(--bg3)', color: 'var(--text)' }} onClick={() => dispatch({ type: 'SET_SCREEN', screen: 'lessons' })}>Back to Lessons</button>
+          <button style={{ ...s.primaryBtn, background: 'var(--bg2)', border: '1px solid var(--bg3)', color: 'var(--text)' }} onClick={() => dispatch({ type: 'SET_SCREEN', screen: 'lessons' })}>← Back to lessons</button>
         </div>
         <button style={{ background: 'none', border: 'none', color: 'var(--text3)', fontSize: 12, cursor: 'pointer', marginTop: 12, fontFamily: 'var(--sans)', textDecoration: 'underline' }}
           onClick={() => {
@@ -1501,7 +1815,7 @@ function LessonComplete({ lesson, dispatch }: { lesson: Lesson; dispatch: React.
 function LibraryScreen({ state, dispatch, loadScore, playScore }: {
   state: AppState; dispatch: React.Dispatch<Action>;
   loadScore: (url: string, container: HTMLDivElement) => Promise<void>;
-  playScore: (tempo?: number) => void;
+  playScore: (tempo?: number) => Promise<void>;
 }) {
   if (state.currentScoreIndex >= 0) {
     return <ScoreViewer index={state.currentScoreIndex} dispatch={dispatch} loadScore={loadScore} playScore={playScore} />;
@@ -1521,7 +1835,10 @@ function LibraryScreen({ state, dispatch, loadScore, playScore }: {
     <>
       <Header title="Sonata" />
       <BackLink onClick={() => dispatch({ type: 'SET_SCREEN', screen: 'menu' })} />
-      <h3 style={{ marginBottom: 12 }}>Library <span style={{ fontSize: 13, color: 'var(--text3)', fontWeight: 300 }}>{CATALOG.length} pieces</span></h3>
+      <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 12 }}>
+        <Cleffy size={46} mood="waving" />
+        <h3 style={{ margin: 0, fontFamily: 'var(--serif)', fontSize: 28, color: 'var(--text)' }}>Piano library <span style={{ fontSize: 13, color: 'var(--text3)', fontWeight: 300, fontFamily: 'var(--sans)' }}>· {CATALOG.length} pieces</span></h3>
+      </div>
       <input value={state.libSearch} onChange={e => dispatch({ type: 'LIB_SEARCH', query: e.target.value })} placeholder="Search pieces or composers..." style={s.searchInput} className="sonata-search-input" />
       <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap', margin: '12px 0' }}>
         {['all','beginner','intermediate','advanced'].map(f => (
@@ -1568,7 +1885,7 @@ function PieceCard({ piece, onClick, dc }: { piece: CatalogEntry; onClick: () =>
 function ScoreViewer({ index, dispatch, loadScore, playScore }: {
   index: number; dispatch: React.Dispatch<Action>;
   loadScore: (url: string, container: HTMLDivElement) => Promise<void>;
-  playScore: (tempo?: number) => void;
+  playScore: (tempo?: number) => Promise<void>;
 }) {
   const piece = CATALOG[index];
   const ref = useRef<HTMLDivElement>(null);
@@ -1582,34 +1899,48 @@ function ScoreViewer({ index, dispatch, loadScore, playScore }: {
     <>
       <Header title="Sonata" />
       <BackLink onClick={() => dispatch({ type: 'OPEN_SCORE', index: -1 })} label="← Back to library" />
-      <div style={{ textAlign: 'center', marginBottom: 8 }}>
-        <h3 style={{ fontFamily: 'var(--serif)', fontSize: 20, fontWeight: 400 }}>{piece.t}</h3>
+      <div style={{ textAlign: 'center', marginBottom: 12 }}>
+        <h3 style={{ fontFamily: 'var(--serif)', fontSize: 22, fontWeight: 400 }}>{piece.t}</h3>
         <p style={{ color: 'var(--text3)', fontSize: 13 }}>{piece.c}</p>
       </div>
+      <ScorePlaybackControls playScore={playScore} />
       <div ref={ref} style={{ minHeight: 300, padding: '16px 0', overflowX: 'auto' }}>
         <LoadingSpinner text="Loading score..." />
       </div>
-      <ScorePlaybackControls playScore={playScore} />
     </>
   );
 }
 
-function ScorePlaybackControls({ playScore }: { playScore: (tempo: number) => void }) {
+function ScorePlaybackControls({ playScore }: { playScore: (tempo: number) => Promise<void> }) {
   const [tempo, setTempo] = useState(80);
   const [playing, setPlaying] = useState(false);
+  const [loadingPiano, setLoadingPiano] = useState(false);
+
+  async function handlePlay() {
+    if (playing) { stopScorePlayback(); setPlaying(false); return; }
+    const wasReady = isPianoReady();
+    if (!wasReady) setLoadingPiano(true);
+    setPlaying(true);
+    try {
+      await playScore(tempo);
+    } finally {
+      setLoadingPiano(false);
+    }
+    // Rough auto-stop after 60s — adjusted below based on actual playback length
+    setTimeout(() => setPlaying(false), 60000);
+  }
 
   return (
-    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8, marginTop: 12, flexWrap: 'wrap' }}>
-      <button style={{ ...s.chip, padding: '6px 12px', fontSize: 12 }} onClick={() => setTempo(t => Math.max(40, t - 10))}>-</button>
-      <span style={{ fontSize: 12, color: 'var(--text3)', minWidth: 60, textAlign: 'center' }}>{tempo} BPM</span>
-      <button style={{ ...s.chip, padding: '6px 12px', fontSize: 12 }} onClick={() => setTempo(t => Math.min(200, t + 10))}>+</button>
-      <button style={{ ...s.primaryBtn, maxWidth: 160, padding: '8px 20px', fontSize: 13, marginTop: 0 }}
-        onClick={() => {
-          if (playing) { stopScorePlayback(); setPlaying(false); }
-          else { setPlaying(true); playScore(tempo); setTimeout(() => setPlaying(false), 30000); }
-        }}>
-        {playing ? '⏹ Stop' : '♪ Play'}
+    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 10, margin: '12px 0 20px', flexWrap: 'wrap', padding: '14px 16px', background: 'var(--bg2)', border: '1px solid var(--bg3)', borderRadius: 14 }}>
+      <button onClick={handlePlay} disabled={loadingPiano}
+        style={{ padding: '12px 28px', background: playing ? 'var(--red)' : 'var(--gold)', color: 'var(--bg)', border: 'none', borderRadius: 10, fontSize: 15, fontWeight: 600, cursor: 'pointer', fontFamily: 'var(--sans)', opacity: loadingPiano ? 0.7 : 1, minWidth: 120 }}>
+        {loadingPiano ? 'Loading…' : playing ? '⏹ Stop' : '▶ Play'}
       </button>
+      <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+        <button style={{ ...s.chip, padding: '6px 12px', fontSize: 14, minWidth: 32 }} onClick={() => setTempo(t => Math.max(40, t - 10))}>−</button>
+        <span style={{ fontSize: 13, color: 'var(--text2)', minWidth: 70, textAlign: 'center', fontFamily: 'var(--mono)' }}>{tempo} BPM</span>
+        <button style={{ ...s.chip, padding: '6px 12px', fontSize: 14, minWidth: 32 }} onClick={() => setTempo(t => Math.min(200, t + 10))}>+</button>
+      </div>
     </div>
   );
 }
@@ -1628,7 +1959,7 @@ function ProgressScreen({ state, dispatch }: { state: AppState; dispatch: React.
   const today = new Date();
   for (let i = 0; i < 365; i++) {
     const d = new Date(); d.setDate(today.getDate() - i);
-    if (practiceDates.includes(d.toISOString().slice(0, 10))) streak++;
+    if (practiceDates.includes(localDateKey(d))) streak++;
     else break;
   }
 
@@ -1636,7 +1967,10 @@ function ProgressScreen({ state, dispatch }: { state: AppState; dispatch: React.
     <>
       <Header title="Sonata" />
       <BackLink onClick={() => dispatch({ type: 'SET_SCREEN', screen: 'menu' })} />
-      <h3 style={{ marginBottom: 16 }}>Progress</h3>
+      <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 16 }}>
+        <Cleffy size={46} mood={streak >= 3 ? 'excited' : 'thinking'} />
+        <h3 style={{ margin: 0, fontFamily: 'var(--serif)', fontSize: 28, color: 'var(--text)' }}>Your progress</h3>
+      </div>
       <div style={{ display: 'flex', gap: 16, marginBottom: 20 }}>
         {[
           { val: state.drillHistory.length, label: 'Drills' },
@@ -1654,8 +1988,9 @@ function ProgressScreen({ state, dispatch }: { state: AppState; dispatch: React.
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: 3, margin: '12px 0' }}>
           {Array.from({ length: 30 }, (_, i) => {
             const d = new Date(); d.setDate(d.getDate() - (29 - i));
-            const practiced = practiceDates.includes(d.toISOString().slice(0, 10));
-            return <div key={i} title={d.toISOString().slice(0, 10)} style={{ width: 16, height: 16, borderRadius: 3, background: practiced ? 'var(--green)' : 'var(--bg3)', opacity: practiced ? 1 : 0.4 }} />;
+            const key = localDateKey(d);
+            const practiced = practiceDates.includes(key);
+            return <div key={i} title={key} style={{ width: 16, height: 16, borderRadius: 3, background: practiced ? 'var(--green)' : 'var(--bg3)', opacity: practiced ? 1 : 0.4 }} />;
           })}
         </div>
       </div>
@@ -1697,9 +2032,10 @@ function ProgressScreen({ state, dispatch }: { state: AppState; dispatch: React.
 // ============================================================
 // SCREEN: SIGHT READING
 // ============================================================
-function SightReadingScreen({ dispatch, renderNotation }: {
+function SightReadingScreen({ dispatch, renderNotation, userId }: {
   dispatch: React.Dispatch<Action>;
-  renderNotation: (abc: string, el: HTMLDivElement | null, w?: number) => void;
+  renderNotation: (abc: string, el: HTMLDivElement | null, w?: number, scale?: number) => void;
+  userId?: string;
 }) {
   const [srNotes, setSrNotes] = useState<string[]>([]);
   const [srIndex, setSrIndex] = useState(0);
@@ -1727,7 +2063,7 @@ function SightReadingScreen({ dispatch, renderNotation }: {
   }, []);
 
   useEffect(() => {
-    if (srNotes.length > 0) renderNotation(makeABC(srNotes, srClef), notRef.current, 500);
+    if (srNotes.length > 0) renderNotation(makeABC(srNotes, srClef), notRef.current, 760, 2.0);
   }, [srNotes, srClef, renderNotation]);
 
   function handleNote(played: string) {
@@ -1741,7 +2077,7 @@ function SightReadingScreen({ dispatch, renderNotation }: {
       setSrCombo(0);
       playWrongSound();
     }
-    if (srIndex + 1 >= srNotes.length) { setSrDone(true); setSrRunning(false); recordPractice(); return; }
+    if (srIndex + 1 >= srNotes.length) { setSrDone(true); setSrRunning(false); recordPractice(userId); return; }
     setSrIndex(i => i + 1);
     if (timerIdRef.current) clearTimeout(timerIdRef.current);
     timerIdRef.current = setTimeout(() => { setSrCombo(0); playWrongSound(); setSrIndex(i => i + 1); }, 3000);
@@ -1847,8 +2183,9 @@ function IOSPaywall({ dispatch }: { dispatch: React.Dispatch<Action> }) {
       </p>
 
       <div style={{ background: '#1C1917', border: '1px solid rgba(200,169,110,0.2)', borderRadius: 14, padding: '24px 20px', marginBottom: 16 }}>
+        <div style={{ fontSize: 11, color: '#C8A96E', textTransform: 'uppercase', letterSpacing: '0.08em', fontWeight: 500, marginBottom: 6 }}>Sonata Premium — 1 Month</div>
         <div style={{ fontSize: 36, fontWeight: 600, color: '#FAFAF9', marginBottom: 4 }}>{price}<span style={{ fontSize: 15, fontWeight: 300, color: '#78716C' }}>/month</span></div>
-        <div style={{ fontSize: 12, color: '#78716C', marginBottom: 18 }}>Auto-renewable subscription. Cancel anytime in Settings.</div>
+        <div style={{ fontSize: 12, color: '#78716C', marginBottom: 18 }}>Auto-renewing monthly subscription.</div>
         <button onClick={handleSubscribe} disabled={loading} className="sonata-primary-btn"
           style={{ width: '100%', padding: '16px 0', background: '#C8A96E', color: '#0C0A09', border: 'none', borderRadius: 12, fontSize: 16, fontWeight: 600, cursor: 'pointer', fontFamily: "'Outfit', system-ui, sans-serif", opacity: loading ? 0.6 : 1 }}>
           {loading ? '...' : `Subscribe for ${price}/month`}
@@ -1860,7 +2197,7 @@ function IOSPaywall({ dispatch }: { dispatch: React.Dispatch<Action> }) {
       <ul style={{ textAlign: 'left', color: '#D6D3D1', fontSize: 14, lineHeight: 2, listStyle: 'none', padding: 0, marginBottom: 24 }}>
         <li>✓ All 23 lessons from basics to Moonlight Sonata</li>
         <li>✓ Unlimited interval drills</li>
-        <li>✓ 400+ piece library with playback</li>
+        <li>✓ Full piano library with playback</li>
         <li>✓ AI-generated exercises</li>
         <li>✓ MIDI keyboard support</li>
       </ul>
@@ -1875,12 +2212,15 @@ function IOSPaywall({ dispatch }: { dispatch: React.Dispatch<Action> }) {
         Back to menu
       </button>
 
-      <div style={{ fontSize: 11, color: '#44403C', marginTop: 20, lineHeight: 1.6 }}>
-        Payment will be charged to your Apple ID. Subscription automatically renews unless canceled at least 24 hours before the end of the current period.
-        {' '}
-        <a href="/terms/" onClick={(e) => { e.preventDefault(); navigate("/terms/"); }} style={{ color: '#78716C', textDecoration: 'underline' }}>Terms of Use</a>
-        {' · '}
-        <a href="/privacy/" onClick={(e) => { e.preventDefault(); navigate("/privacy/"); }} style={{ color: '#78716C', textDecoration: 'underline' }}>Privacy Policy</a>
+      <div style={{ fontSize: 11, color: '#78716C', marginTop: 20, lineHeight: 1.7, textAlign: 'left' }}>
+        <p style={{ margin: 0 }}>
+          Payment will be charged to your Apple ID account at confirmation of purchase. Your subscription will automatically renew for {price} per month unless auto-renew is turned off at least 24 hours before the end of the current period. Your account will be charged for renewal, at {price}, within 24 hours prior to the end of the current period. You can manage your subscription and turn off auto-renewal by going to your Apple ID Account Settings after purchase.
+        </p>
+        <p style={{ margin: '10px 0 0', textAlign: 'center' }}>
+          <a href="/terms/" onClick={(e) => { e.preventDefault(); navigate("/terms/"); }} style={{ color: '#A8A29E', textDecoration: 'underline' }}>Terms of Use (EULA)</a>
+          {' · '}
+          <a href="/privacy/" onClick={(e) => { e.preventDefault(); navigate("/privacy/"); }} style={{ color: '#A8A29E', textDecoration: 'underline' }}>Privacy Policy</a>
+        </p>
       </div>
     </div>
   );
@@ -1946,7 +2286,7 @@ function WebPaywall({ dispatch, userId }: { dispatch: React.Dispatch<Action>; us
       <ul style={{ textAlign: 'left', color: '#D6D3D1', fontSize: 13, lineHeight: 2, listStyle: 'none', padding: 0, marginBottom: 20 }}>
         <li>✓ All 23 lessons from basics to Moonlight Sonata</li>
         <li>✓ Unlimited interval drills</li>
-        <li>✓ 400+ piece library with playback</li>
+        <li>✓ Full piano library with playback</li>
         <li>✓ AI-generated exercises</li>
         <li>✓ MIDI keyboard support</li>
       </ul>
@@ -1959,109 +2299,212 @@ function WebPaywall({ dispatch, userId }: { dispatch: React.Dispatch<Action>; us
   );
 }
 
-function RhythmScreen({ dispatch }: { dispatch: React.Dispatch<Action> }) {
+type RhythmPhase = 'idle' | 'listen' | 'play' | 'result';
+
+function RhythmScreen({ dispatch, userId }: { dispatch: React.Dispatch<Action>; userId?: string }) {
   const [pattern, setPattern] = useState<RhythmPattern | null>(null);
-  const [running, setRunning] = useState(false);
+  const [phase, setPhase] = useState<RhythmPhase>('idle');
   const [hits, setHits] = useState<number[]>([]);
   const [startTime, setStartTime] = useState(0);
-  const [result, setResult] = useState<{ score: number; total: number } | null>(null);
+  const [result, setResult] = useState<{ score: number; total: number; beatResults: boolean[] } | null>(null);
   const [activeBeat, setActiveBeat] = useState(-1);
+  const lastTapRef = useRef(0);
+  const timeoutsRef = useRef<ReturnType<typeof setTimeout>[]>([]);
 
   useEffect(() => { setPattern(genRhythmDrill()); }, []);
 
+  // Clean up any pending timeouts when unmounting
+  useEffect(() => {
+    return () => { timeoutsRef.current.forEach(clearTimeout); };
+  }, []);
+
+  function scheduleTimeout(fn: () => void, ms: number) {
+    const id = setTimeout(fn, ms);
+    timeoutsRef.current.push(id);
+    return id;
+  }
+
   function registerTap() {
-    if (!running) return;
-    setHits(h => [...h, performance.now() - startTime]);
+    if (phase !== 'play' || !pattern) return;
+    // Debounce — ignore taps less than 120ms apart. Fast enough for
+    // 16th notes at ~150 BPM, slow enough to swallow synthetic click
+    // double-fires and accidental double-taps.
+    const now = performance.now();
+    if (now - lastTapRef.current < 120) return;
+    lastTapRef.current = now;
+
+    setHits(h => {
+      if (h.length >= pattern.pattern.length) return h; // full — ignore extras
+      const next = [...h, now - startTime];
+      setActiveBeat(next.length - 1);
+      scheduleTimeout(() => setActiveBeat(-1), 140);
+      if (next.length === pattern.pattern.length) {
+        // All beats captured — score after a short pause
+        scheduleTimeout(() => endRhythm(next), 250);
+      }
+      return next;
+    });
     playNote(72, 0.08);
   }
 
   useEffect(() => {
-    if (!running) return;
+    if (phase !== 'play') return;
     const handler = (e: KeyboardEvent) => {
       if (e.key === ' ') { e.preventDefault(); registerTap(); }
     };
     document.addEventListener('keydown', handler);
     return () => document.removeEventListener('keydown', handler);
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [running, startTime]);
+  }, [phase, startTime, pattern]);
 
   function start() {
     if (!pattern) return;
-    setRunning(true); setHits([]); setResult(null);
-    const st = performance.now();
-    setStartTime(st);
+    timeoutsRef.current.forEach(clearTimeout);
+    timeoutsRef.current = [];
+    setHits([]);
+    setResult(null);
+    setActiveBeat(-1);
+    setPhase('listen');
+
     const beatMs = 60000 / pattern.bpm;
+
+    // PHASE 1: listen — play the pattern with visual highlights
     let elapsed = 0;
     pattern.pattern.forEach((dur, i) => {
-      setTimeout(() => { setActiveBeat(i); playNote(76, 0.05); }, elapsed);
-      setTimeout(() => setActiveBeat(-1), elapsed + dur * beatMs * 0.8);
+      scheduleTimeout(() => { setActiveBeat(i); playNote(76, 0.08); }, elapsed);
+      scheduleTimeout(() => setActiveBeat(-1), elapsed + dur * beatMs * 0.75);
       elapsed += dur * beatMs;
     });
-    setTimeout(() => endRhythm(st, elapsed), elapsed + beatMs);
+
+    // PHASE 2: play — one-beat pause, then let the user tap it back
+    scheduleTimeout(() => {
+      setActiveBeat(-1);
+      setStartTime(performance.now());
+      setHits([]);
+      setPhase('play');
+    }, elapsed + beatMs);
   }
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  function endRhythm(_st: number, _totalMs: number) {
-    setRunning(false);
+  function endRhythm(finalHits: number[]) {
+    setPhase('result');
     if (!pattern) return;
     const beatMs = 60000 / pattern.bpm;
+    // Compare each tap to its corresponding expected beat time
     const expected: number[] = [];
     let t = 0;
     pattern.pattern.forEach(dur => { expected.push(t); t += dur * beatMs; });
-    const currentHits = hits;
-    let score = 0;
-    expected.forEach(exp => {
-      const closest = currentHits.reduce((best, h) => Math.abs(h - exp) < Math.abs(best - exp) ? h : best, Infinity);
-      if (Math.abs(closest - exp) < beatMs * 0.3) score++;
+    const tolerance = beatMs * 0.35; // ~35% of a beat — generous but still demanding
+    const beatResults = expected.map((exp, i) => {
+      const h = finalHits[i];
+      return h !== undefined && Math.abs(h - exp) < tolerance;
     });
-    setResult({ score, total: expected.length });
-    recordPractice();
+    const score = beatResults.filter(Boolean).length;
+    setResult({ score, total: expected.length, beatResults });
+    recordPractice(userId);
+  }
+
+  function nextPattern() {
+    timeoutsRef.current.forEach(clearTimeout);
+    timeoutsRef.current = [];
+    setPattern(genRhythmDrill());
+    setResult(null);
+    setPhase('idle');
+    setHits([]);
+    setActiveBeat(-1);
   }
 
   if (!pattern) return null;
+
+  const statusText =
+    phase === 'idle'   ? 'Listen, then tap the rhythm back' :
+    phase === 'listen' ? 'Listen carefully…' :
+    phase === 'play'   ? 'Your turn — tap it back!' :
+                         result ? `${Math.round((result.score / result.total) * 100)}% accuracy (${result.score}/${result.total})` : '';
+
+  const accuracyPct = result ? result.score / result.total : 0;
+  const headline = !result ? null : accuracyPct >= 0.9 ? 'On the beat!' : accuracyPct >= 0.7 ? 'Nice rhythm!' : accuracyPct >= 0.4 ? 'Close — try again!' : 'Listen again!';
 
   return (
     <>
       <Header title="Sonata" />
       <BackLink onClick={() => dispatch({ type: 'SET_SCREEN', screen: 'menu' })} />
       <div className="sonata-app">
-        <h3 style={{ textAlign: 'center', fontFamily: 'var(--serif)', marginBottom: 4 }}>{pattern.name}</h3>
-        <div style={{ textAlign: 'center', fontSize: 12, color: 'var(--text3)', marginBottom: 16 }}>{pattern.timeSignature} at {pattern.bpm} BPM</div>
-        <div style={{ display: 'flex', alignItems: 'flex-end', gap: 4, justifyContent: 'center', padding: '16px 0' }}>
-          {pattern.pattern.map((dur, i) => (
-            <div key={i} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 4 }}>
-              <div style={{ width: 24, height: Math.round(dur * 40 + 16), borderRadius: 3, background: activeBeat === i ? 'var(--gold)' : result ? (i < (result.score) ? 'var(--green)' : 'var(--red)') : 'var(--bg3)', transition: 'all 0.15s' }} />
-              <div style={{ fontSize: 9, color: 'var(--text3)' }}>{dur >= 1 ? dur + '' : dur >= 0.5 ? '8th' : 'tri'}</div>
-            </div>
-          ))}
+        <div style={{ display: 'flex', alignItems: 'center', gap: 12, justifyContent: 'center', marginBottom: 6 }}>
+          <Cleffy size={48} mood={phase === 'listen' ? 'thinking' : phase === 'play' ? 'happy' : phase === 'result' && accuracyPct >= 0.7 ? 'excited' : 'idle'} />
+          <h3 style={{ margin: 0, fontFamily: 'var(--serif)', fontSize: 24 }}>{pattern.name}</h3>
         </div>
-        {/* Tap zone — works on mobile */}
-        {running ? (
+        <div style={{ textAlign: 'center', fontSize: 12, color: 'var(--text3)', marginBottom: 16 }}>
+          {pattern.timeSignature} at {pattern.bpm} BPM · {pattern.pattern.length} beats
+        </div>
+
+        {/* Rhythm bars */}
+        <div style={{ display: 'flex', alignItems: 'flex-end', gap: 6, justifyContent: 'center', padding: '16px 0' }}>
+          {pattern.pattern.map((dur, i) => {
+            let bg = 'var(--bg3)';
+            if (phase === 'listen' && activeBeat === i) bg = 'var(--gold)';
+            else if (phase === 'play') {
+              if (i < hits.length) bg = 'var(--coral)';
+              else if (activeBeat === i) bg = 'var(--gold)';
+            } else if (result && i < result.beatResults.length) {
+              bg = result.beatResults[i] ? 'var(--green)' : 'var(--red)';
+            }
+            return (
+              <div key={i} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 4 }}>
+                <div style={{ width: 28, height: Math.round(dur * 44 + 18), borderRadius: 4, background: bg, transition: 'all 0.15s var(--bounce)', transform: activeBeat === i ? 'scaleY(1.15)' : 'scaleY(1)' }} />
+                <div style={{ fontSize: 9, color: 'var(--text3)' }}>{dur >= 1 ? dur + '' : dur >= 0.5 ? '8th' : 'tri'}</div>
+              </div>
+            );
+          })}
+        </div>
+
+        {/* Big celebration on good score */}
+        {phase === 'result' && headline && (
+          <div style={{ textAlign: 'center', marginTop: 8 }}>
+            <div className="sonata-big-celebration" style={{ fontSize: 40 }}>{headline}</div>
+          </div>
+        )}
+
+        {/* Status + tap zone */}
+        {phase === 'play' ? (
           <div
-            onTouchStart={(e) => { e.preventDefault(); registerTap(); }}
-            onClick={() => registerTap()}
+            onPointerDown={(e) => { e.preventDefault(); registerTap(); }}
             style={{
-              background: 'rgba(200,169,110,0.06)', border: '2px dashed rgba(200,169,110,0.2)',
-              borderRadius: 14, padding: '40px 20px', margin: '12px 0', cursor: 'pointer',
-              textAlign: 'center', fontSize: 18, color: 'var(--gold)', fontFamily: 'var(--serif)',
-              userSelect: 'none', WebkitTapHighlightColor: 'transparent',
+              background: 'rgba(255,159,126,0.08)', border: '2px dashed rgba(255,159,126,0.35)',
+              borderRadius: 18, padding: '46px 20px', margin: '16px 0', cursor: 'pointer',
+              textAlign: 'center', fontSize: 22, color: 'var(--coral)', fontFamily: 'var(--serif)',
+              userSelect: 'none', WebkitTapHighlightColor: 'transparent', touchAction: 'manipulation',
             }}
           >
-            Tap here
-            <div style={{ fontSize: 12, color: 'var(--text3)', marginTop: 8, fontFamily: 'var(--sans)' }}>
+            Tap! 🥁
+            <div style={{ fontSize: 14, color: 'var(--text2)', marginTop: 8, fontFamily: 'var(--sans)', fontWeight: 500 }}>
+              {hits.length} / {pattern.pattern.length}
+            </div>
+            <div style={{ fontSize: 11, color: 'var(--text3)', marginTop: 4, fontFamily: 'var(--sans)' }}>
               or press spacebar
             </div>
           </div>
         ) : (
-          <div style={{ textAlign: 'center', minHeight: 28, margin: '12px 0', fontSize: 14, color: 'var(--text3)' }}>
-            {result ? <span style={{ color: result.score / result.total >= 0.7 ? 'var(--green)' : 'var(--red)' }}>{Math.round(result.score / result.total * 100)}% accuracy ({result.score}/{result.total} beats)</span>
-              : 'Tap in time with the rhythm pattern'}
+          <div style={{ textAlign: 'center', minHeight: 48, margin: '16px 0', fontSize: 15, color: phase === 'listen' ? 'var(--gold)' : 'var(--text3)', fontWeight: phase === 'listen' ? 600 : 400 }}>
+            {statusText}
           </div>
         )}
+
         <div style={{ textAlign: 'center', margin: '16px 0' }}>
-          <button style={{ ...s.primaryBtn, maxWidth: 200, margin: '0 auto' }} onClick={() => { if (result) { setPattern(genRhythmDrill()); setResult(null); } else start(); }} disabled={running}>
-            {running ? 'Listening...' : result ? 'Try again' : 'Start'}
-          </button>
+          {phase === 'idle' && (
+            <button style={{ ...s.primaryBtn, maxWidth: 240, margin: '0 auto' }} onClick={start}>Start 🥁</button>
+          )}
+          {phase === 'listen' && (
+            <button style={{ ...s.primaryBtn, maxWidth: 240, margin: '0 auto', opacity: 0.55 }} disabled>Listening…</button>
+          )}
+          {phase === 'play' && (
+            <div style={{ fontSize: 12, color: 'var(--text3)', fontStyle: 'italic' }}>Waiting for your taps…</div>
+          )}
+          {phase === 'result' && (
+            <div style={{ display: 'flex', gap: 10, justifyContent: 'center', flexWrap: 'wrap' }}>
+              <button style={{ ...s.primaryBtn, background: 'var(--bg2)', border: '1px solid var(--bg3)', color: 'var(--text)', maxWidth: 180 }} onClick={start}>Try again 🔁</button>
+              <button style={{ ...s.primaryBtn, maxWidth: 180 }} onClick={nextPattern}>New pattern ✨</button>
+            </div>
+          )}
         </div>
       </div>
     </>
@@ -2079,7 +2522,7 @@ const s: Record<string, React.CSSProperties> = {
   headerStats: { display: 'flex', gap: 20, fontSize: 13, color: 'var(--text3)', fontWeight: 400, alignItems: 'center' },
   backLink: { fontSize: 14, color: 'var(--text3)', cursor: 'pointer', marginBottom: 16, display: 'inline-block', fontWeight: 400, background: 'none', border: 'none', padding: '8px 4px', fontFamily: 'var(--sans)', textAlign: 'left' as const },
   menu: { display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 12, padding: '56px 20px 32px', position: 'relative' },
-  menuTitle: { fontFamily: 'var(--serif)', fontSize: 36, fontWeight: 400, marginBottom: 4, letterSpacing: '-0.02em', margin: 0 },
+  menuTitle: { fontFamily: 'var(--serif)', fontSize: 44, fontWeight: 400, marginBottom: 4, letterSpacing: '-0.02em', margin: 0, color: 'var(--text)', textAlign: 'center' as const },
   menuSub: { color: 'var(--text2)', fontSize: 15, textAlign: 'center', maxWidth: 440, lineHeight: 1.7, fontWeight: 400, marginBottom: 20 },
   menuGrid: { display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12, width: '100%', maxWidth: 500 },
   menuBtn: { padding: '22px 20px', background: 'var(--bg2)', border: '1px solid var(--bg3)', borderRadius: 14, cursor: 'pointer', textAlign: 'left', transition: 'all 0.25s' },
@@ -2098,7 +2541,7 @@ const s: Record<string, React.CSSProperties> = {
   timerFill: { height: '100%', borderRadius: 2, transition: 'width 0.1s linear' },
   questionLabel: { fontSize: 11, color: 'var(--text3)', textAlign: 'center', textTransform: 'uppercase', letterSpacing: '0.06em' },
   questionText: { fontSize: 16, fontWeight: 400, textAlign: 'center', margin: '8px 0', color: 'var(--text2)' },
-  notation: { background: 'transparent', border: 'none', borderBottom: '1px solid rgba(200,169,110,0.12)', padding: '16px 20px', margin: '12px 0', minHeight: 140, display: 'flex', alignItems: 'center', justifyContent: 'center' },
+  notation: { background: 'transparent', border: 'none', borderBottom: '1px solid rgba(200,169,110,0.12)', padding: '24px 20px', margin: '16px 0', minHeight: 200, display: 'flex', alignItems: 'center', justifyContent: 'center', overflowX: 'auto' as const },
   feedback: { textAlign: 'center', fontSize: 16, fontWeight: 500, minHeight: 28, margin: '8px 0' },
   answers: { display: 'flex', gap: 8, flexWrap: 'wrap', justifyContent: 'center', margin: '12px 0' },
   ansBtn: { padding: '12px 6px', fontSize: 14, fontWeight: 500, borderRadius: 10, cursor: 'pointer', flex: 1, minWidth: 60, maxWidth: 100, textAlign: 'center', border: '1px solid var(--bg3)', background: 'var(--bg2)', color: 'var(--text)', fontFamily: 'var(--sans)' },
@@ -2112,8 +2555,9 @@ const s: Record<string, React.CSSProperties> = {
   resultBadge: { padding: '3px 14px', borderRadius: 20, fontSize: 12, fontWeight: 500 },
   sectionLabel: { fontSize: 11, color: 'var(--text3)', textTransform: 'uppercase', letterSpacing: '0.08em', fontWeight: 500, marginBottom: 8 },
   teachRow: { display: 'flex', gap: 12, alignItems: 'stretch', marginBottom: 16 },
+  teachSpacer: { width: 38, flexShrink: 0 },
   teachText: { flex: 1, fontSize: 18, lineHeight: 1.7, color: 'var(--text)', padding: 28, background: 'var(--bg2)', border: '1px solid var(--bg3)', borderRadius: 14, fontWeight: 400, textAlign: 'center' as const, display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: 180 },
-  speakCol: { display: 'flex', flexDirection: 'column' as const, gap: 8, justifyContent: 'flex-start', paddingTop: 8 },
+  speakCol: { display: 'flex', flexDirection: 'column' as const, gap: 8, justifyContent: 'flex-start', paddingTop: 8, flexShrink: 0 },
   speakBtn: { width: 38, height: 38, borderRadius: '50%', border: '1px solid var(--bg3)', background: 'var(--bg2)', color: 'var(--text3)', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 14, padding: 0, fontFamily: 'var(--sans)' },
   speakBtnActive: { borderColor: 'var(--gold)', color: 'var(--gold)', background: 'var(--gold-bg)' },
   teachNav: { display: 'flex', gap: 10, justifyContent: 'center', margin: '12px 0' },

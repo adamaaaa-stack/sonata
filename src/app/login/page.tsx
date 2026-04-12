@@ -12,7 +12,6 @@ export default function LoginPage() {
 function LoginInner() {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const nextParam = searchParams.get("next");
   const modeParam = searchParams.get("mode");
   const [mode, setMode] = useState<"signin" | "signup">(modeParam === "signup" ? "signup" : "signin");
   const [email, setEmail] = useState("");
@@ -21,11 +20,6 @@ function LoginInner() {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
-
-  function getRedirect(): string {
-    if (nextParam === "gumroad") return "https://morrison844.gumroad.com/l/sonata";
-    return "/app/";
-  }
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -47,8 +41,7 @@ function LoginInner() {
         setError(signUpError.message);
       } else if (data.session) {
         // Email confirmation disabled — user is logged in immediately
-        const dest = getRedirect();
-        if (dest.startsWith('http')) { window.location.href = dest; } else { navigate(dest, router); }
+        navigate("/app/", router);
       } else {
         // Email confirmation enabled — tell them to check email
         setMessage("Check your email to confirm your account, then sign in.");
@@ -62,8 +55,7 @@ function LoginInner() {
       if (signInError) {
         setError(signInError.message);
       } else {
-        const dest = getRedirect();
-        if (dest.startsWith('http')) { window.location.href = dest; } else { navigate(dest, router); }
+        navigate("/app/", router);
       }
     }
     setLoading(false);
