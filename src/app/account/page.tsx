@@ -52,15 +52,23 @@ function AccountInner() {
   }
 
   useEffect(() => {
+    // Instant check — localStorage flag set during activation
+    try {
+      if (!isNative() && localStorage.getItem('sonata_web_license') === 'true') setSubActive(true);
+    } catch {}
+
     supabase.auth.getSession().then(({ data: { session } }) => {
       if (!session) { navigate("/login/", router); return; }
       setUser(session.user);
-      // Web: check if user has a Gumroad license
+      // Web: verify with Supabase (authoritative, also sets flag if found)
       if (!isNative()) {
-        loadLicense(session.user.id).then(l => { if (l) setSubActive(true); });
+        loadLicense(session.user.id).then(l => {
+          if (l) { setSubActive(true); try { localStorage.setItem('sonata_web_license', 'true'); } catch {} }
+        });
       }
     });
-    hasActiveSubscription().then(setSubActive);
+    // Native: check StoreKit
+    if (isNative()) hasActiveSubscription().then(setSubActive);
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [router]);
 

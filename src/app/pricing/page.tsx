@@ -15,7 +15,14 @@ export default function PricingPage() {
   const [subActive, setSubActive] = useState(false);
 
   useEffect(() => {
-    if (!native) return;
+    // Web: check localStorage flag (set during Gumroad license activation)
+    if (!native) {
+      try {
+        if (localStorage.getItem('sonata_web_license') === 'true') setSubActive(true);
+      } catch {}
+      return;
+    }
+    // Native: check StoreKit
     import("@/lib/subscriptions").then(subs => {
       subs.getMonthlyProduct().then(p => { if (p) setPrice(p.priceString); });
       subs.hasActiveSubscription().then(setSubActive);
