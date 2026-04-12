@@ -5,6 +5,7 @@ import { supabase } from "@/lib/supabase";
 import { useRouter } from "next/navigation";
 import { navigate, isNative } from "@/lib/platform";
 import { hasActiveSubscription, restorePurchases } from "@/lib/subscriptions";
+import { loadLicense } from "@/lib/supabaseData";
 import { isAmbianceEnabled, setAmbianceEnabled, startAmbiance, stopAmbiance } from "@/lib/music/effects";
 import type { User } from "@supabase/supabase-js";
 
@@ -21,6 +22,8 @@ function AccountInner() {
   const [deleteConfirm, setDeleteConfirm] = useState("");
   const [subActive, setSubActive] = useState(false);
   const [restoring, setRestoring] = useState(false);
+  const [licenseKey, setLicenseKey] = useState("");
+  const [activating, setActivating] = useState(false);
   const [ambiance, setAmbiance] = useState(false);
   const [parchment, setParchment] = useState(false);
   const router = useRouter();
@@ -52,10 +55,38 @@ function AccountInner() {
     supabase.auth.getSession().then(({ data: { session } }) => {
       if (!session) { navigate("/login/", router); return; }
       setUser(session.user);
+      // Web: check if user has a Gumroad license
+      if (!isNative()) {
+        loadLicense(session.user.id).then(l => { if (l) setSubActive(true); });
+      }
     });
     hasActiveSubscription().then(setSubActive);
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [router]);
+
+  async function activateLicense() {
+    if (!licenseKey.trim() || !user) return;
+    setActivating(true);
+    setError(""); setMessage("");
+    try {
+      const res = await fetch("/api/activate", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ key: licenseKey.trim(), userId: user.id }),
+      });
+      const data = await res.json();
+      if (!res.ok) {
+        setError(data.error || "Activation failed");
+      } else {
+        setMessage("License activated! You now have full access.");
+        setLicenseKey("");
+        setSubActive(true);
+      }
+    } catch {
+      setError("Network error. Please try again.");
+    }
+    setActivating(false);
+  }
 
   async function handleRestore() {
     setRestoring(true);
@@ -131,6 +162,35 @@ function AccountInner() {
               <button onClick={handleRestore} disabled={restoring} style={{ ...a.btn, background: 'transparent', border: '1px solid #292524', color: '#A8A29E', opacity: restoring ? 0.5 : 1 }}>
                 {restoring ? 'Restoring…' : 'Restore purchases'}
               </button>
+            )}
+            {!isNative() && !subActive && (
+              <div style={{ marginTop: 12, paddingTop: 12, borderTop: '1px solid rgba(200,169,110,0.12)' }}>
+                <div style={{ fontSize: 11, color: '#78716C', textTransform: 'uppercase', letterSpacing: '0.08em', fontWeight: 500, marginBottom: 8 }}>Already have a license key?</div>
+                <div style={{ display: 'flex', gap: 8 }}>
+                  <input
+                    type="text"
+                    placeholder="XXXXXXXX-XXXXXXXX-XXXXXXXX-XXXXXXXX"
+                    value={licenseKey}
+                    onChange={e => setLicenseKey(e.target.value)}
+                    style={{ ...a.input, flex: 1, fontFamily: "'JetBrains Mono', monospace", fontSize: 12 }}
+                  />
+                  <button
+                    onClick={activateLicense}
+                    disabled={activating || !licenseKey.trim()}
+                    style={{ ...a.btn, width: 'auto', padding: '10px 16px', opacity: activating || !licenseKey.trim() ? 0.5 : 1 }}
+                  >
+                    {activating ? '...' : 'Activate'}
+                  </button>
+                </div>
+                <a
+                  href="https://morrison844.gumroad.com/l/sonata"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ display: 'block', fontSize: 12, color: '#C8A96E', marginTop: 10, textDecoration: 'underline' }}
+                >
+                  Don&apos;t have a key? Get one here
+                </a>
+              </div>
             )}
           </div>
         </div>
