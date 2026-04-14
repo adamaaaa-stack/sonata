@@ -39,8 +39,12 @@ export default function PricingPage() {
       const subs = await import("@/lib/subscriptions");
       const ok = await subs.purchaseMonthly();
       if (ok) { setMsg("Welcome to Sonata Premium!"); navigate("/app/", router); }
-      else setMsg("Purchase was not completed.");
-    } catch { setMsg("Something went wrong. Please try again."); }
+      else setMsg("Purchase was not completed. If this keeps happening, try restarting the app.");
+    } catch (e) {
+      const msg = e instanceof Error ? e.message : String(e);
+      console.warn('handleSubscribe error:', msg);
+      setMsg('Something went wrong: ' + (msg.includes('Cannot find product') ? 'Subscription not available yet. Please try again later.' : 'Please try again.'));
+    }
     setPurchasing(false);
   }
 

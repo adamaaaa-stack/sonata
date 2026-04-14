@@ -61,28 +61,26 @@ function LoginInner() {
     setLoading(false);
   }
 
-  async function handleGoogle() {
+  async function handleOAuth(provider: 'google' | 'apple') {
     if (isNative()) {
-      // Mobile: open OAuth in external browser, redirect back via custom URL scheme
-      const { data, error: gError } = await supabase.auth.signInWithOAuth({
-        provider: "google",
+      const { data, error: oErr } = await supabase.auth.signInWithOAuth({
+        provider,
         options: {
           redirectTo: "sonata://auth/callback",
           skipBrowserRedirect: true,
         },
       });
-      if (gError) { setError(gError.message); return; }
+      if (oErr) { setError(oErr.message); return; }
       if (data?.url) {
         const { Browser } = await import("@capacitor/browser");
         await Browser.open({ url: data.url });
       }
     } else {
-      // Web: standard redirect
-      const { error: gError } = await supabase.auth.signInWithOAuth({
-        provider: "google",
+      const { error: oErr } = await supabase.auth.signInWithOAuth({
+        provider,
         options: { redirectTo: window.location.origin + "/auth/callback/" },
       });
-      if (gError) setError(gError.message);
+      if (oErr) setError(oErr.message);
     }
   }
 
@@ -94,7 +92,15 @@ function LoginInner() {
           {mode === "signin" ? "Sign in to continue" : "Create your account"}
         </p>
 
-        <button onClick={handleGoogle} style={styles.googleBtn}>
+        {/* Sign in with Apple — required by Apple Guideline 4.8 */}
+        <button onClick={() => handleOAuth('apple')} style={styles.appleBtn}>
+          <svg width="18" height="18" viewBox="0 0 17 20" fill="currentColor" style={{flexShrink:0}}>
+            <path d="M13.545 10.239c-.022-2.243 1.835-3.32 1.918-3.37-1.044-1.527-2.67-1.736-3.248-1.76-1.382-.14-2.7.814-3.4.814-.7 0-1.786-.793-2.934-.772-1.51.022-2.904.878-3.682 2.232-1.57 2.723-.402 6.76 1.128 8.971.748 1.08 1.64 2.294 2.812 2.252 1.128-.046 1.554-.73 2.918-.73 1.364 0 1.746.73 2.934.708 1.214-.022 1.984-1.1 2.728-2.184.86-1.252 1.214-2.464 1.236-2.526-.028-.012-2.37-.91-2.394-3.61l.004-.025zM11.32 3.263c.622-.754 1.042-1.8.928-2.844-.896.036-1.982.598-2.626 1.35-.576.668-1.082 1.734-.946 2.758.998.078 2.016-.508 2.644-1.264z"/>
+          </svg>
+          Continue with Apple
+        </button>
+
+        <button onClick={() => handleOAuth('google')} style={styles.googleBtn}>
           <svg width="18" height="18" viewBox="0 0 48 48" style={{flexShrink:0}}>
             <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/>
             <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/>
@@ -106,7 +112,7 @@ function LoginInner() {
 
         <div style={styles.divider}>
           <div style={styles.dividerLine} />
-          <span style={styles.dividerText}>or</span>
+          <span style={styles.dividerText}>or use email</span>
           <div style={styles.dividerLine} />
         </div>
 
@@ -214,7 +220,7 @@ const styles: Record<string, React.CSSProperties> = {
     marginBottom: 24,
     fontWeight: 300,
   },
-  googleBtn: {
+  appleBtn: {
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
@@ -224,6 +230,24 @@ const styles: Record<string, React.CSSProperties> = {
     background: "#FAFAF9",
     color: "#0C0A09",
     border: "none",
+    borderRadius: 10,
+    fontSize: 14,
+    fontWeight: 500,
+    cursor: "pointer",
+    fontFamily: "'Outfit', system-ui, sans-serif",
+    marginBottom: 10,
+    boxSizing: "border-box" as const,
+  },
+  googleBtn: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    gap: 10,
+    width: "100%",
+    padding: "12px 0",
+    background: "transparent",
+    color: "#FAFAF9",
+    border: "1px solid #292524",
     borderRadius: 10,
     fontSize: 14,
     fontWeight: 500,

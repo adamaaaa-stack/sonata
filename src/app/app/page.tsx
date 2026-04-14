@@ -2159,9 +2159,13 @@ function IOSPaywall({ dispatch }: { dispatch: React.Dispatch<Action> }) {
         dispatch({ type: 'UPDATE_FIELD', field: 'hasLicense', value: true });
         dispatch({ type: 'SET_SCREEN', screen: 'menu' });
       } else {
-        setError('Purchase was not completed.');
+        setError('Purchase was not completed. If this keeps happening, try restarting the app.');
       }
-    } catch { setError('Something went wrong. Please try again.'); }
+    } catch (e) {
+      const msg = e instanceof Error ? e.message : String(e);
+      console.warn('handleSubscribe error:', msg);
+      setError('Something went wrong: ' + (msg.includes('Cannot find product') ? 'Subscription product not found. Please try again later.' : 'Please try again.'));
+    }
     setLoading(false);
   }
 
