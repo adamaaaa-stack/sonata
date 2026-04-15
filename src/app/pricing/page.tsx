@@ -79,10 +79,12 @@ export default function PricingPage() {
         ) : (
           <a href="/" onClick={(e) => go(e, "/")} style={p.navLogo}>Sonata</a>
         )}
-        <div style={{ display: 'flex', gap: 16, alignItems: 'center' }}>
-          {!isNative() && <a href="/#features" style={p.navLink}>Features</a>}
-          <a href="/login/" onClick={(e) => go(e, "/login/")} style={p.navCta}>{isNative() ? "Sign in" : "Start learning"}</a>
-        </div>
+        {!isNative() && (
+          <div style={{ display: 'flex', gap: 16, alignItems: 'center' }}>
+            <a href="/#features" style={p.navLink}>Features</a>
+            <a href="/login/" onClick={(e) => go(e, "/login/")} style={p.navCta}>Start learning</a>
+          </div>
+        )}
       </nav>
 
       <div style={p.container} className="pricing-container">
