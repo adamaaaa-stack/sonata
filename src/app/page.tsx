@@ -4,22 +4,17 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { isNative, navigate } from "@/lib/platform";
 import { supabase } from "@/lib/supabase";
-import "./landing.css";
+import { ChunkyButton, Sticker, StaffBG, FloatingNotes, ChunkyCard, Candle } from "@/app/app/design";
+import { Cleffy } from "@/app/app/Cleffy";
+import "@/app/app/sonata.css";
 
 export default function LandingPage() {
-  const [scrollY, setScrollY] = useState(0);
-  const [visible, setVisible] = useState(false);
   const [showMobile, setShowMobile] = useState(false);
   const [mobileReady, setMobileReady] = useState(false);
   const router = useRouter();
 
   useEffect(() => {
-    setVisible(true);
     if (isNative()) {
-      // Mobile flow:
-      // 1. Poll for a session (Supabase restore is async on hard nav)
-      // 2. If found → go straight to app
-      // 3. Otherwise show the mobile landing
       setShowMobile(true);
       let cancelled = false;
       (async () => {
@@ -34,13 +29,8 @@ export default function LandingPage() {
         }
         if (!cancelled) setMobileReady(true);
       })();
-      return () => {
-        cancelled = true;
-      };
+      return () => { cancelled = true; };
     }
-    const onScroll = () => setScrollY(window.scrollY);
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   function go(e: React.MouseEvent<HTMLAnchorElement>, path: string) {
@@ -48,474 +38,222 @@ export default function LandingPage() {
     navigate(path, router);
   }
 
-  // Render the mobile landing if we're on native
-  if (showMobile) {
-    return <MobileLanding ready={mobileReady} router={router} />;
-  }
+  if (showMobile) return <MobileLanding ready={mobileReady} router={router} />;
 
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
       {
         "@type": "WebSite",
-        name: "Sonata",
+        "@id": "https://learnwithsonata.com/#website",
         url: "https://learnwithsonata.com",
-        description:
-          "Learn to read piano sheet music in days, not years. The Sonata method teaches reading by distance, not memorisation.",
-        inLanguage: "en-US",
+        name: "Sonata",
+        description: "Learn to read piano sheet music in days, not years.",
       },
       {
-        "@type": "EducationalOrganization",
+        "@type": "Organization",
+        "@id": "https://learnwithsonata.com/#organization",
         name: "Sonata",
         url: "https://learnwithsonata.com",
         logo: "https://learnwithsonata.com/icon.svg",
-        description:
-          "Interactive piano sheet music reading lessons using the interval method.",
-        founder: { "@type": "Person", name: "Adam Morris" },
       },
       {
-        "@type": "Course",
+        "@type": "WebPage",
+        "@id": "https://learnwithsonata.com/#webpage",
+        url: "https://learnwithsonata.com",
         name: "Learn to Read Piano Sheet Music — The Sonata Method",
+        isPartOf: { "@id": "https://learnwithsonata.com/#website" },
         description:
-          "23 interactive lessons teaching you to read piano sheet music from scratch, using the revolutionary interval-reading method. Goes from zero experience to playing Moonlight Sonata.",
-        provider: {
-          "@type": "Organization",
-          name: "Sonata",
-          sameAs: "https://learnwithsonata.com",
-        },
-        educationalLevel: "beginner",
-        teaches: [
-          "Reading piano sheet music",
-          "Music theory",
-          "Sight reading",
-          "Interval recognition",
-          "Rhythm reading",
-        ],
-        hasCourseInstance: {
-          "@type": "CourseInstance",
-          courseMode: "online",
-          courseWorkload: "PT10H",
-        },
+          "23 interactive lessons teaching you to read piano sheet music from scratch, using the revolutionary interval-reading method.",
       },
     ],
   };
 
   return (
-    <div style={styles.page}>
+    <div style={{ position: 'relative', minHeight: '100vh', background: 'var(--cream)', fontFamily: 'var(--sans)', overflow: 'hidden' }}>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      {/* Ambient glow */}
-      <div
-        style={{
-          position: "fixed",
-          top: 0,
-          left: 0,
-          right: 0,
-          height: "70vh",
-          background:
-            "radial-gradient(ellipse at 50% 0%, rgba(200,169,110,0.06) 0%, transparent 70%)",
-          pointerEvents: "none",
-          zIndex: 0,
-        }}
-      />
+      <StaffBG opacity={0.25} />
+      <FloatingNotes count={10} />
 
       {/* Nav */}
-      <nav style={styles.nav} className="landing-nav">
-        <span style={styles.navLogo}>Sonata</span>
-        <div style={styles.navLinks} className="landing-nav-links">
-          <a href="#method" style={styles.navLink}>Method</a>
-          <a href="#features" style={styles.navLink}>Features</a>
-          <a href="/pricing/" onClick={(e) => go(e, "/pricing/")} style={styles.navLink}>Pricing</a>
-          <a href="#story" style={styles.navLink}>Story</a>
-          <a href="/login/" onClick={(e) => go(e, "/login/")} style={styles.navCta}>Start learning</a>
+      <nav style={{
+        position: 'sticky', top: 0, zIndex: 10,
+        background: 'rgba(255, 246, 228, 0.92)',
+        backdropFilter: 'blur(8px)',
+        borderBottom: '3px solid var(--ink)',
+        padding: '14px 24px',
+        display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 12,
+      }}>
+        <a href="/" style={{ display: 'inline-flex', alignItems: 'center', gap: 10, textDecoration: 'none' }}>
+          <span style={{ width: 40, height: 40, borderRadius: 12, background: 'var(--ink)', color: 'var(--gold)', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', fontSize: 22, border: '3px solid var(--ink)', boxShadow: '0 3px 0 var(--gold-deep)' }}>𝄞</span>
+          <span style={{ fontFamily: 'var(--serif)', fontSize: 26, fontWeight: 900, fontStyle: 'italic', color: 'var(--ink)', letterSpacing: '-0.02em' }}>Sonata</span>
+        </a>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
+          <a href="#method" style={{ color: 'var(--ink2)', textDecoration: 'none', fontSize: 14, fontWeight: 700, display: 'none' }} className="landing-nav-link">Method</a>
+          <a href="#features" style={{ color: 'var(--ink2)', textDecoration: 'none', fontSize: 14, fontWeight: 700, display: 'none' }} className="landing-nav-link">Features</a>
+          <a href="/pricing/" onClick={(e) => go(e, '/pricing/')} style={{ color: 'var(--ink2)', textDecoration: 'none', fontSize: 14, fontWeight: 700, display: 'none' }} className="landing-nav-link">Pricing</a>
+          <ChunkyButton color="gold" size="sm" onClick={() => navigate('/login/', router)}>Start free</ChunkyButton>
         </div>
       </nav>
 
       {/* Hero */}
-      <section
-        style={{
-          ...styles.hero,
-          opacity: visible ? 1 : 0,
-          transform: visible ? "translateY(0)" : "translateY(20px)",
-          transition: "all 0.8s ease",
-        }}
-      >
-        <div style={styles.heroBadge}>The interval method</div>
-        <h1 style={styles.heroTitle} className="landing-hero-title">
-          I learned Gymnop&eacute;die No. 1<br />
-          <span style={styles.heroAccent}>in one night.</span>
-        </h1>
-        <p style={styles.heroSub} className="landing-hero-sub">
-          Not a simplified version. The real piece. Satie&apos;s actual notes, read
-          from the score, played with both hands. After years of thinking I
-          couldn&apos;t read sheet music, one method changed everything.
-        </p>
-        <div style={styles.heroButtons} className="landing-hero-buttons">
-          <a href="/login/" onClick={(e) => go(e, "/login/")} style={styles.primaryBtn}>
-            Start for free
-          </a>
-          <a href="#story" style={styles.ghostBtn}>
-            Read the story
-          </a>
-        </div>
-
-        {/* Floating staff lines */}
-        <div
-          style={{
-            ...styles.staffLines,
-            transform: `translateY(${scrollY * 0.1}px)`,
-          }}
-        >
-          {[0, 1, 2, 3, 4].map((i) => (
-            <div key={i} style={styles.staffLine} />
-          ))}
-        </div>
-      </section>
-
-      {/* The problem */}
-      <section style={styles.section}>
-        <div style={styles.sectionInner}>
-          <p style={styles.lede} className="landing-lede">
-            Traditional music education has a problem.
-          </p>
-          <div style={styles.twoCol} className="landing-two-col">
-            <div style={styles.problemCard}>
-              <div style={styles.problemIcon}>&#x2717;</div>
-              <h3 style={styles.problemTitle}>The old way</h3>
-              <p style={styles.problemText}>
-                Memorise Every Good Boy Does Fine. Memorise FACE. Memorise bass
-                clef separately. Drill flashcards for months. Still pause on
-                every note. Still can&apos;t play anything real.
-              </p>
+      <section style={{ position: 'relative', zIndex: 2, padding: '40px 24px 60px', maxWidth: 1100, margin: '0 auto' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: 32, alignItems: 'center' }}>
+          <div>
+            <Sticker color="gold" rotate={-3} style={{ marginBottom: 16 }}>
+              ◆ The Sonata method
+            </Sticker>
+            <h1 style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(48px, 8vw, 88px)', fontWeight: 900, fontStyle: 'italic', color: 'var(--ink)', margin: 0, letterSpacing: '-0.035em', lineHeight: 0.95 }}>
+              Read sheet music<br />
+              in <span style={{ color: 'var(--berry)', textDecoration: 'underline wavy', textDecorationColor: 'var(--gold)', textUnderlineOffset: 14, textDecorationThickness: 4 }}>days</span>, not years.
+            </h1>
+            <p style={{ fontSize: 18, color: 'var(--ink2)', margin: '18px 0 0', maxWidth: 500, lineHeight: 1.55, fontWeight: 500 }}>
+              Stop memorising &quot;Every Good Boy Does Fine.&quot; Learn to read by <b>distance</b> — how pianists actually read — with 23 hand-crafted lessons, a friendly mascot, and zero fluff.
+            </p>
+            <div style={{ display: 'flex', gap: 10, marginTop: 28, flexWrap: 'wrap' }}>
+              <ChunkyButton color="berry" size="xl" onClick={() => navigate('/login/?mode=signup', router)}>Start free</ChunkyButton>
+              <ChunkyButton color="cream" size="xl" onClick={() => navigate('/pricing/', router)}>See pricing</ChunkyButton>
             </div>
-            <div style={{ ...styles.problemCard, ...styles.solutionCard }}>
-              <div style={{ ...styles.problemIcon, color: "#C8A96E" }}>&#x2713;</div>
-              <h3 style={styles.problemTitle}>The Sonata method</h3>
-              <p style={styles.problemText}>
-                Learn 3 anchor notes. Read by distance, not by name. Steps,
-                skips, leaps. One visual rule classifies every interval
-                instantly. Play real pieces from lesson one.
-              </p>
+            <div style={{ display: 'flex', gap: 10, marginTop: 20, flexWrap: 'wrap' }}>
+              <Sticker color="mint" rotate={-2}>✓ First 3 lessons free</Sticker>
+              <Sticker color="sky" rotate={2}>✓ No card required</Sticker>
+              <Sticker color="peach" rotate={-1}>✓ Cancel anytime</Sticker>
+            </div>
+          </div>
+          <div style={{ display: 'flex', justifyContent: 'center', position: 'relative' }}>
+            <Cleffy size={280} mood="excited" />
+            <div style={{ position: 'absolute', top: 40, right: 0, background: 'var(--cream)', border: '3px solid var(--ink)', borderRadius: 18, padding: '10px 16px', fontWeight: 800, fontSize: 14, color: 'var(--ink)', boxShadow: '0 4px 0 var(--ink)', transform: 'rotate(8deg)' }}>
+              Hi! I&apos;m Cleffy ♪
             </div>
           </div>
         </div>
       </section>
 
-      {/* The method */}
-      <section id="method" style={{ ...styles.section, background: "#1C1917" }}>
-        <div style={styles.sectionInner}>
-          <h2 style={styles.sectionTitle} className="landing-section-title">The method in 60 seconds</h2>
-          <p style={styles.sectionSub}>
-            Three ideas that replace years of memorisation.
-          </p>
-          <div style={styles.threeCol} className="landing-three-col">
-            <div style={styles.methodCard}>
-              <div style={styles.methodNum}>1</div>
-              <h3 style={styles.methodTitle}>Three anchors</h3>
-              <p style={styles.methodText}>
-                Middle C, treble G, bass F. Three landmarks you always know.
-                Every other note is found by counting from the nearest anchor.
-                Like navigating a city from three landmarks instead of
-                memorising every street.
-              </p>
-            </div>
-            <div style={styles.methodCard}>
-              <div style={styles.methodNum}>2</div>
-              <h3 style={styles.methodTitle}>Read the distance</h3>
-              <p style={styles.methodText}>
-                Don&apos;t identify each note by name. Read how far it is from
-                the last note. Step up? Play the next key. Skip? Jump one key.
-                Your eyes track movement, your fingers mirror it. Like reading
-                words instead of spelling out letters.
-              </p>
-            </div>
-            <div style={styles.methodCard}>
-              <div style={styles.methodNum}>3</div>
-              <h3 style={styles.methodTitle}>The odd/even rule</h3>
-              <p style={styles.methodText}>
-                One glance tells you everything. Both notes on lines? Odd
-                interval (3rd, 5th, 7th). One on a line, one in a space? Even
-                (2nd, 4th, 6th). Half the classification done before you even
-                count. No other method teaches this.
-              </p>
-            </div>
-          </div>
+      {/* Method section */}
+      <section id="method" style={{ position: 'relative', zIndex: 2, padding: '60px 24px', maxWidth: 1100, margin: '0 auto' }}>
+        <div style={{ textAlign: 'center', marginBottom: 40 }}>
+          <Sticker color="coral" rotate={-3} style={{ marginBottom: 14 }}>◆ The method</Sticker>
+          <h2 style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(40px, 6vw, 60px)', fontWeight: 900, fontStyle: 'italic', color: 'var(--ink)', margin: 0, letterSpacing: '-0.03em', lineHeight: 0.95 }}>
+            Most apps teach you <span style={{ color: 'var(--coral-deep)' }}>wrong.</span>
+          </h2>
         </div>
-      </section>
-
-      {/* The story */}
-      <section id="story" style={styles.section}>
-        <div style={{ ...styles.sectionInner, maxWidth: 680 }}>
-          <h2 style={styles.sectionTitle} className="landing-section-title">The night everything changed</h2>
-          <div style={styles.story}>
-            <p style={styles.storyP}>
-              I&apos;d been playing piano for years. Casually, sure &mdash; by
-              ear, by YouTube tutorials, by watching someone else&apos;s fingers
-              and copying them. I could play things. But I couldn&apos;t{" "}
-              <em>read</em> anything.
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 18 }}>
+          <ChunkyCard color="cream" padding={24}>
+            <div style={{ fontSize: 42, marginBottom: 12 }}>🙄</div>
+            <div style={{ fontFamily: 'var(--serif)', fontStyle: 'italic', fontSize: 24, fontWeight: 900, color: 'var(--ink)', marginBottom: 8 }}>Flashcard apps</div>
+            <p style={{ fontSize: 14, color: 'var(--ink2)', lineHeight: 1.6, margin: 0, fontWeight: 500 }}>
+              Memorise note names in isolation. Then stare at real music and panic because everything&apos;s on ledger lines.
             </p>
-            <p style={styles.storyP}>
-              Sheet music was a wall of hieroglyphics. I&apos;d tried the
-              traditional route &mdash; Every Good Boy Does Fine, FACE in the
-              space, bass clef mnemonics. I&apos;d spend ten minutes decoding
-              four bars, forget them by the next day, and feel stupid for not
-              getting it.
+          </ChunkyCard>
+          <ChunkyCard color="cream" padding={24}>
+            <div style={{ fontSize: 42, marginBottom: 12 }}>😴</div>
+            <div style={{ fontFamily: 'var(--serif)', fontStyle: 'italic', fontSize: 24, fontWeight: 900, color: 'var(--ink)', marginBottom: 8 }}>Mnemonics</div>
+            <p style={{ fontSize: 14, color: 'var(--ink2)', lineHeight: 1.6, margin: 0, fontWeight: 500 }}>
+              &quot;Every Good Boy Does Fine.&quot; Cute — until you realise no pianist has ever read a score this way.
             </p>
-            <p style={styles.storyP}>
-              Then I discovered something: the problem wasn&apos;t me. The
-              problem was the method. Traditional note reading asks you to
-              memorise 20+ positions across two staves. That&apos;s a brute-force
-              approach to a pattern-recognition problem.
+          </ChunkyCard>
+          <ChunkyCard color="mint" padding={24}>
+            <div style={{ fontSize: 42, marginBottom: 12 }}>🎉</div>
+            <div style={{ fontFamily: 'var(--serif)', fontStyle: 'italic', fontSize: 24, fontWeight: 900, color: 'var(--ink)', marginBottom: 8 }}>The Sonata way</div>
+            <p style={{ fontSize: 14, color: 'var(--ink)', lineHeight: 1.6, margin: 0, fontWeight: 600 }}>
+              Read by <b>distance</b>. See a step up, a skip down, a leap across — and your fingers follow. Like native readers do.
             </p>
-            <p style={styles.storyHighlight}>
-              What if you only needed three notes?
-            </p>
-            <p style={styles.storyP}>
-              The interval method flips everything. You learn three anchor notes,
-              then read by <em>distance</em> &mdash; how far each note is from
-              the last one. Steps, skips, and leaps. Your eyes stop decoding
-              individual notes and start tracking movement. Like the difference
-              between reading a sentence letter-by-letter and actually reading
-              words.
-            </p>
-            <p style={styles.storyP}>
-              I sat down with Satie&apos;s Gymnop&eacute;die No. 1. The melody
-              is almost entirely steps and small skips &mdash; exactly what the
-              method teaches first. I read the intervals: skip up, step down,
-              step down, skip down, step up. My fingers followed. No pausing.
-              No counting lines. Just&hellip; reading.
-            </p>
-            <p style={styles.storyHighlight}>
-              By midnight, I was playing the whole piece. Both hands. From the
-              score. It was the first piece of real sheet music I&apos;d ever
-              sight-read in my life.
-            </p>
-            <p style={styles.storyP}>
-              I built Sonata because I wanted other people to have that same
-              moment. The curriculum takes you from zero to reading Moonlight
-              Sonata&apos;s 3rd movement in 15 lessons. Not by memorising &mdash;
-              by understanding.
-            </p>
-            <p style={styles.storySign}>Adam Morris</p>
-          </div>
-        </div>
-      </section>
-
-      {/* App Preview */}
-      <section style={{ ...styles.section, background: "#1C1917" }}>
-        <div style={styles.sectionInner}>
-          <h2 style={styles.sectionTitle} className="landing-section-title">See it in action</h2>
-          <p style={styles.sectionSub}>A real app, not a textbook. Here&apos;s what learning looks like.</p>
-          <div style={styles.previewGrid} className="landing-preview-grid">
-            {/* Lesson preview */}
-            <div style={styles.previewCard}>
-              <div style={styles.previewMockup}>
-                <div style={{ display: 'flex', gap: 4, marginBottom: 12 }}>
-                  {[1,2,3,4,5].map(i => <div key={i} style={{ flex: 1, height: 1, background: '#C8A96E', opacity: 0.3 }} />)}
-                </div>
-                <div style={{ display: 'flex', gap: 8, alignItems: 'flex-end', justifyContent: 'center', marginBottom: 16 }}>
-                  {['C','D','E','F','G'].map((n,i) => (
-                    <div key={n} style={{ width: 24, height: 24, borderRadius: 12, background: i === 2 ? '#C8A96E' : 'rgba(200,169,110,0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 10, color: i === 2 ? '#0C0A09' : '#78716C', fontWeight: 600, fontFamily: 'var(--sans, monospace)' }}>{n}</div>
-                  ))}
-                </div>
-                <div style={{ background: '#292524', borderRadius: 8, padding: '10px 12px', fontSize: 12, color: '#A8A29E', lineHeight: 1.6 }}>
-                  C to E is a <span style={{ color: '#C8A96E' }}>skip (3rd)</span> — both on lines. Your fingers jump one key.
-                </div>
-              </div>
-              <div style={styles.previewLabel}>Interactive lessons</div>
-              <div style={styles.previewDesc}>Step-by-step teaching with notation, audio narration, and a piano to try on.</div>
-            </div>
-
-            {/* Drill preview */}
-            <div style={styles.previewCard}>
-              <div style={styles.previewMockup}>
-                <div style={{ textAlign: 'center', marginBottom: 12 }}>
-                  <div style={{ fontSize: 11, color: '#78716C', marginBottom: 6 }}>What interval?</div>
-                  <div style={{ display: 'flex', gap: 4, justifyContent: 'center', marginBottom: 8 }}>
-                    {[1,2,3,4,5].map(i => <div key={i} style={{ flex: 1, maxWidth: 40, height: 1, background: '#FAFAF9', opacity: 0.15 }} />)}
-                  </div>
-                  <div style={{ display: 'flex', gap: 6, justifyContent: 'center' }}>
-                    <div style={{ width: 10, height: 10, borderRadius: 5, background: '#C8A96E', position: 'relative', top: -2 }} />
-                    <div style={{ width: 10, height: 10, borderRadius: 5, background: '#4ADE80', position: 'relative', top: 6 }} />
-                  </div>
-                </div>
-                <div style={{ display: 'flex', gap: 6, justifyContent: 'center' }}>
-                  {['2nd','3rd','4th','5th'].map((n,i) => (
-                    <div key={n} style={{ padding: '8px 12px', borderRadius: 8, background: i === 1 ? 'rgba(74,222,128,0.15)' : '#292524', border: i === 1 ? '1px solid #4ADE80' : '1px solid #44403C', fontSize: 11, color: i === 1 ? '#4ADE80' : '#A8A29E', fontFamily: 'var(--sans, system-ui)' }}>{n}</div>
-                  ))}
-                </div>
-              </div>
-              <div style={styles.previewLabel}>Adaptive drills</div>
-              <div style={styles.previewDesc}>AI targets your weak spots. Timed rounds. Answer by tapping or playing your piano.</div>
-            </div>
-
-            {/* Score preview */}
-            <div style={styles.previewCard}>
-              <div style={styles.previewMockup}>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: 2, marginBottom: 10 }}>
-                  {[0,1,2,3,4].map(i => <div key={i} style={{ height: 1, background: 'rgba(250,250,249,0.12)' }} />)}
-                </div>
-                <div style={{ display: 'flex', gap: 3, justifyContent: 'center', marginBottom: 10 }}>
-                  {[12,8,16,12,20,16,8,12,16,20,12,8].map((h,i) => (
-                    <div key={i} style={{ width: 3, height: h, borderRadius: 1.5, background: i === 4 ? '#C8A96E' : 'rgba(250,250,249,0.3)' }} />
-                  ))}
-                </div>
-                <div style={{ display: 'flex', gap: 4, justifyContent: 'center' }}>
-                  <div style={{ padding: '4px 10px', borderRadius: 6, background: '#292524', fontSize: 10, color: '#78716C' }}>Play</div>
-                  <div style={{ padding: '4px 10px', borderRadius: 6, background: '#292524', fontSize: 10, color: '#78716C' }}>0.75x</div>
-                </div>
-              </div>
-              <div style={styles.previewLabel}>Curated piano library</div>
-              <div style={styles.previewDesc}>Full interactive scores from Bach to Chopin. Play along, slow down, follow the cursor.</div>
-            </div>
-
-            {/* Progress preview */}
-            <div style={styles.previewCard}>
-              <div style={styles.previewMockup}>
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(7, 1fr)', gap: 3, marginBottom: 10 }}>
-                  {Array.from({ length: 21 }, (_, i) => (
-                    <div key={i} style={{ aspectRatio: '1', borderRadius: 3, background: i < 14 ? (i % 3 === 0 ? '#4ADE80' : i % 5 === 0 ? '#FACC15' : 'rgba(74,222,128,0.3)') : '#292524' }} />
-                  ))}
-                </div>
-                <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 10, color: '#78716C' }}>
-                  <span>14-day streak</span>
-                  <span style={{ color: '#4ADE80' }}>87% accuracy</span>
-                </div>
-              </div>
-              <div style={styles.previewLabel}>Track progress</div>
-              <div style={styles.previewDesc}>Practice calendar, streak counter, interval accuracy grid. Know exactly where to focus.</div>
-            </div>
-          </div>
+          </ChunkyCard>
         </div>
       </section>
 
       {/* Features */}
-      <section
-        id="features"
-        style={{ ...styles.section, background: "#1C1917" }}
-      >
-        <div style={styles.sectionInner}>
-          <h2 style={styles.sectionTitle} className="landing-section-title">Everything you need</h2>
-          <div style={styles.featureGrid} className="landing-feature-grid">
-            {[
-              {
-                icon: "15",
-                title: "Structured lessons",
-                desc: "From the staff basics to Moonlight Sonata 3rd movement. Each lesson builds on the last. Real pieces, not toy exercises.",
-              },
-              {
-                icon: "392",
-                title: "Score library",
-                desc: "Bach chorales, Chopin nocturnes, Debussy, Mozart, Beethoven. Full interactive sheet music rendered in your browser.",
-              },
-              {
-                icon: "AI",
-                title: "Targeted drills",
-                desc: "AI identifies your weakest intervals and generates exercises that attack exactly where you struggle.",
-              },
-              {
-                icon: "0.75x",
-                title: "Narrated lessons",
-                desc: "Every lesson step read aloud. Pause, slow down, replay. Learn at your own pace without reading walls of text.",
-              },
-              {
-                icon: "C5",
-                title: "Pitch detection",
-                desc: "Answer drills by playing your real piano. The app listens, detects the note, and scores you in real time.",
-              },
-              {
-                icon: "30d",
-                title: "Progress tracking",
-                desc: "Interval accuracy grid, practice calendar, streak counter. See exactly where you're strong and where to focus.",
-              },
-            ].map((f, i) => (
-              <div key={i} style={styles.featureCard}>
-                <div style={styles.featureIcon}>{f.icon}</div>
-                <h3 style={styles.featureTitle}>{f.title}</h3>
-                <p style={styles.featureDesc}>{f.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Journey */}
-      <section style={styles.section}>
-        <div style={styles.sectionInner}>
-          <h2 style={styles.sectionTitle} className="landing-section-title">From zero to Moonlight Sonata</h2>
-          <p style={styles.sectionSub}>
-            15 lessons. Each one ends with a real piece you can play.
-          </p>
-          <div style={styles.journey}>
-            {[
-              { n: "1-3", label: "The fundamentals", pieces: "Happy Birthday, Ode to Joy, Minuet in G", color: "#4ADE80" },
-              { n: "4-6", label: "Fluent reading", pieces: "Gymnop\u00e9die No.1, F\u00fcr Elise", color: "#FACC15" },
-              { n: "7-9", label: "Expression", pieces: "Clair de Lune, Arabesque No.1", color: "#FB923C" },
-              { n: "10-12", label: "Technique", pieces: "Bach Prelude BWV 846, Moonlight 1st mvt, Nocturne Op.9", color: "#F87171" },
-              { n: "13-15", label: "Mastery", pieces: "Rondo alla Turca, Moonlight Sonata 3rd mvt", color: "#C8A96E" },
-            ].map((j, i) => (
-              <div key={i} style={styles.journeyRow}>
-                <div
-                  style={{
-                    ...styles.journeyDot,
-                    background: j.color,
-                    boxShadow: `0 0 12px ${j.color}40`,
-                  }}
-                />
-                <div style={styles.journeyContent}>
-                  <div style={styles.journeyNum}>Lessons {j.n}</div>
-                  <div style={styles.journeyLabel}>{j.label}</div>
-                  <div style={styles.journeyPieces}>{j.pieces}</div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section
-        style={{
-          ...styles.section,
-          background: "#1C1917",
-          textAlign: "center" as const,
-        }}
-      >
-        <div style={styles.sectionInner}>
-          <h2
-            style={{
-              ...styles.sectionTitle,
-              fontSize: 40,
-              lineHeight: 1.2,
-            }}
-          >
-            Your Gymnop&eacute;die moment<br />is one night away.
+      <section id="features" style={{ position: 'relative', zIndex: 2, padding: '60px 24px', maxWidth: 1100, margin: '0 auto' }}>
+        <div style={{ textAlign: 'center', marginBottom: 40 }}>
+          <Sticker color="sky" rotate={-3} style={{ marginBottom: 14 }}>◆ What&apos;s inside</Sticker>
+          <h2 style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(40px, 6vw, 60px)', fontWeight: 900, fontStyle: 'italic', color: 'var(--ink)', margin: 0, letterSpacing: '-0.03em', lineHeight: 0.95 }}>
+            Built to be <span style={{ color: 'var(--sky-deep)' }}>fun.</span>
           </h2>
-          <p
-            style={{
-              ...styles.sectionSub,
-              maxWidth: 480,
-              margin: "0 auto 32px",
-            }}
-          >
-            Free to start. No credit card. 23 lessons from zero to reading real
-            sheet music.
-          </p>
-          <a href="/login/" onClick={(e) => go(e, "/login/")} style={{ ...styles.primaryBtn, fontSize: 17, padding: "16px 48px" }}>
-            Start learning now
-          </a>
         </div>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: 18 }}>
+          {[
+            { emoji: '📖', title: '23 lessons', desc: 'From staff basics to Moonlight Sonata. Short enough for a lunch break.', color: 'peach' as const },
+            { emoji: '🎯', title: 'Smart drills', desc: 'AI targets exactly what you\'re struggling with. No busywork.', color: 'coral' as const },
+            { emoji: '📚', title: 'Piano library', desc: 'Full pieces with tap-to-play and follow-the-cursor playback.', color: 'mint' as const },
+            { emoji: '🥁', title: 'Rhythm trainer', desc: 'Listen. Then tap it back. Real ear training, not just notes.', color: 'lilac' as const },
+            { emoji: '🎹', title: 'MIDI support', desc: 'Got a keyboard? Plug it in — drills accept your real playing.', color: 'berry' as const },
+            { emoji: '🌱', title: 'Daily streaks', desc: 'Grow a virtual oak tree by practising. Five minutes a day is magic.', color: 'sky' as const },
+          ].map((f, i) => (
+            <ChunkyCard key={i} color={f.color} padding={22}>
+              <div style={{ fontSize: 38, marginBottom: 10 }}>{f.emoji}</div>
+              <div style={{ fontFamily: 'var(--serif)', fontStyle: 'italic', fontSize: 22, fontWeight: 900, color: 'var(--ink)', marginBottom: 6 }}>{f.title}</div>
+              <p style={{ fontSize: 14, color: 'var(--ink)', opacity: 0.82, lineHeight: 1.55, margin: 0, fontWeight: 600 }}>{f.desc}</p>
+            </ChunkyCard>
+          ))}
+        </div>
+      </section>
+
+      {/* Curriculum preview */}
+      <section style={{ position: 'relative', zIndex: 2, padding: '60px 24px', maxWidth: 1000, margin: '0 auto' }}>
+        <div style={{ textAlign: 'center', marginBottom: 32 }}>
+          <Sticker color="peach" rotate={-3} style={{ marginBottom: 14 }}>◆ The journey</Sticker>
+          <h2 style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(40px, 6vw, 60px)', fontWeight: 900, fontStyle: 'italic', color: 'var(--ink)', margin: 0, letterSpacing: '-0.03em', lineHeight: 0.95 }}>
+            From zero to <span style={{ color: 'var(--peach-deep)' }}>Moonlight Sonata.</span>
+          </h2>
+        </div>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: 14 }}>
+          {[
+            { range: '1-5', label: 'Foundations', pieces: 'Staff, notes, steps & skips', color: 'mint' as const },
+            { range: '6-10', label: 'Your first pieces', pieces: 'Ode to Joy · Für Elise', color: 'sky' as const },
+            { range: '11-15', label: 'Getting fluent', pieces: 'Greensleeves · Clair de Lune', color: 'lilac' as const },
+            { range: '16-23', label: 'Mastery', pieces: 'Rondo · Moonlight 3rd mvt', color: 'berry' as const },
+          ].map((c, i) => (
+            <ChunkyCard key={i} color={c.color} padding={20}>
+              <div style={{ fontSize: 11, fontWeight: 800, letterSpacing: '0.15em', color: 'var(--ink)', opacity: 0.75, textTransform: 'uppercase' }}>Lessons {c.range}</div>
+              <div style={{ fontFamily: 'var(--serif)', fontStyle: 'italic', fontSize: 24, fontWeight: 900, color: 'var(--ink)', marginTop: 4 }}>{c.label}</div>
+              <div style={{ fontSize: 13, color: 'var(--ink)', opacity: 0.82, fontWeight: 600, marginTop: 6 }}>{c.pieces}</div>
+            </ChunkyCard>
+          ))}
+        </div>
+      </section>
+
+      {/* Story */}
+      <section id="story" style={{ position: 'relative', zIndex: 2, padding: '60px 24px', maxWidth: 760, margin: '0 auto' }}>
+        <ChunkyCard color="paper" padding={36} style={{ position: 'relative' }}>
+          <Sticker color="gold" rotate={-4} style={{ marginBottom: 14 }}>◆ From the maker</Sticker>
+          <h2 style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(32px, 5vw, 44px)', fontWeight: 900, fontStyle: 'italic', color: 'var(--ink)', margin: '0 0 20px', letterSpacing: '-0.02em' }}>
+            Hi, I&apos;m <span style={{ color: 'var(--gold-deep)' }}>Adam.</span>
+          </h2>
+          <p style={{ fontSize: 17, color: 'var(--ink2)', lineHeight: 1.65, margin: '0 0 14px', fontWeight: 500, fontStyle: 'italic', fontFamily: 'var(--serif)' }}>
+            I spent years stuck at &quot;Every Good Boy Does Fine,&quot; able to play by ear but frozen when I saw a real score.
+          </p>
+          <p style={{ fontSize: 17, color: 'var(--ink2)', lineHeight: 1.65, margin: '0 0 14px', fontWeight: 500, fontStyle: 'italic', fontFamily: 'var(--serif)' }}>
+            Then someone showed me how fluent readers actually read — <b style={{ color: 'var(--ink)' }}>by distance, not by name</b>. Within two months I was reading pieces I&apos;d never tried to memorise.
+          </p>
+          <p style={{ fontSize: 17, color: 'var(--ink2)', lineHeight: 1.65, margin: 0, fontWeight: 500, fontStyle: 'italic', fontFamily: 'var(--serif)' }}>
+            Sonata is the course I wish I&apos;d had back then. No mnemonics. No flashcards. Just the shortcut that actually works.
+          </p>
+          <Candle x="calc(100% - 40px)" y={-18} size={18} />
+        </ChunkyCard>
+      </section>
+
+      {/* Final CTA */}
+      <section style={{ position: 'relative', zIndex: 2, padding: '60px 24px 80px', maxWidth: 860, margin: '0 auto', textAlign: 'center' }}>
+        <Cleffy size={140} mood="waving" />
+        <h2 style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(44px, 7vw, 72px)', fontWeight: 900, fontStyle: 'italic', color: 'var(--ink)', margin: '12px 0 0', letterSpacing: '-0.035em', lineHeight: 0.95 }}>
+          Your first lesson is <span style={{ color: 'var(--berry)' }}>waiting.</span>
+        </h2>
+        <p style={{ fontSize: 17, color: 'var(--ink2)', margin: '14px auto 28px', maxWidth: 460, lineHeight: 1.55, fontWeight: 500 }}>
+          Free to start. No credit card. 23 lessons from zero to reading real sheet music.
+        </p>
+        <ChunkyButton color="berry" size="xl" onClick={() => navigate('/login/?mode=signup', router)}>Start learning now →</ChunkyButton>
       </section>
 
       {/* Footer */}
-      <footer style={styles.footer} className="landing-footer">
-        <span style={styles.footerLogo}>Sonata</span>
-        <div style={{ display: 'flex', gap: 16, alignItems: 'center' }}>
-          <a href="/terms/" onClick={(e) => go(e, "/terms/")} style={styles.footerText}>Terms</a>
-          <a href="/privacy/" onClick={(e) => go(e, "/privacy/")} style={styles.footerText}>Privacy</a>
-          <span style={styles.footerText}>Built by Adam Morris</span>
+      <footer style={{ position: 'relative', zIndex: 2, display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '24px 32px', borderTop: '3px solid var(--ink)', background: 'var(--paper)', flexWrap: 'wrap', gap: 12 }}>
+        <span style={{ fontFamily: 'var(--serif)', fontSize: 22, fontWeight: 900, fontStyle: 'italic', color: 'var(--ink)' }}>Sonata</span>
+        <div style={{ display: 'flex', gap: 16, alignItems: 'center', flexWrap: 'wrap' }}>
+          <a href="/terms/" onClick={(e) => go(e, "/terms/")} style={{ fontSize: 13, color: 'var(--ink2)', textDecoration: 'underline', fontWeight: 700 }}>Terms</a>
+          <a href="/privacy/" onClick={(e) => go(e, "/privacy/")} style={{ fontSize: 13, color: 'var(--ink2)', textDecoration: 'underline', fontWeight: 700 }}>Privacy</a>
+          <span style={{ fontSize: 13, color: 'var(--ink3)', fontWeight: 600 }}>Built by Adam Morris</span>
         </div>
       </footer>
     </div>
@@ -524,114 +262,58 @@ export default function LandingPage() {
 
 // ============================================================
 // MOBILE LANDING — Shown when running in Capacitor
-// Minimal, single-screen, native-feeling welcome
 // ============================================================
 function MobileLanding({ ready, router }: { ready: boolean; router: ReturnType<typeof useRouter> }) {
   if (!ready) {
     return (
-      <div style={m.page}>
-        <div style={m.card}>
-          <div style={m.logo}>Sonata</div>
-        </div>
+      <div style={{ minHeight: '100vh', background: 'var(--cream)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: 'var(--sans)' }}>
+        <Cleffy size={140} mood="thinking" />
       </div>
     );
   }
 
   return (
-    <div style={m.page}>
-      <div style={m.card}>
-        {/* Brand */}
-        <div style={m.brand}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-            <svg width="44" height="44" viewBox="0 0 512 512" aria-hidden="true">
-              <rect width="512" height="512" rx="110" fill="#C8A96E" />
-              <text x="256" y="360" textAnchor="middle" fontFamily="Georgia, serif" fontSize="340" fill="#0C0A09" fontStyle="italic" fontWeight="400">S</text>
-            </svg>
-            <div style={m.logo}>Sonata</div>
-          </div>
-          <div style={m.tagline}>Read piano music by distance, not memorisation.</div>
-        </div>
+    <div style={{ position: 'relative', minHeight: '100vh', background: 'var(--cream)', fontFamily: 'var(--sans)', overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '20px max(20px, env(safe-area-inset-left)) max(20px, env(safe-area-inset-bottom))' }}>
+      <StaffBG opacity={0.28} />
+      <FloatingNotes count={7} />
 
-        {/* Visual — clean 5-line staff with an ascending/descending phrase */}
-        <svg width="220" height="80" viewBox="0 0 220 80" style={m.visual} aria-hidden="true">
-          {/* Staff lines */}
-          <g stroke="#C8A96E" strokeWidth="1" opacity="0.35" strokeLinecap="round">
-            <line x1="10" y1="20" x2="210" y2="20" />
-            <line x1="10" y1="30" x2="210" y2="30" />
-            <line x1="10" y1="40" x2="210" y2="40" />
-            <line x1="10" y1="50" x2="210" y2="50" />
-            <line x1="10" y1="60" x2="210" y2="60" />
-          </g>
-          {/* Note heads — rising then falling phrase (C D E F E D) */}
-          <g fill="#C8A96E">
-            <ellipse cx="32" cy="55" rx="6" ry="4.5" transform="rotate(-18 32 55)" />
-            <ellipse cx="64" cy="50" rx="6" ry="4.5" transform="rotate(-18 64 50)" />
-            <ellipse cx="96" cy="45" rx="6" ry="4.5" transform="rotate(-18 96 45)" />
-            <ellipse cx="128" cy="40" rx="6" ry="4.5" transform="rotate(-18 128 40)" />
-            <ellipse cx="160" cy="45" rx="6" ry="4.5" transform="rotate(-18 160 45)" />
-            <ellipse cx="192" cy="50" rx="6" ry="4.5" transform="rotate(-18 192 50)" />
-          </g>
-          {/* Stems */}
-          <g stroke="#C8A96E" strokeWidth="1.5" strokeLinecap="round">
-            <line x1="37" y1="53" x2="37" y2="28" />
-            <line x1="69" y1="48" x2="69" y2="23" />
-            <line x1="101" y1="43" x2="101" y2="18" />
-            <line x1="133" y1="38" x2="133" y2="13" />
-            <line x1="165" y1="43" x2="165" y2="18" />
-            <line x1="197" y1="48" x2="197" y2="23" />
-          </g>
-        </svg>
-
-        {/* Hero copy */}
-        <h1 style={m.heroText}>
-          Learn to read sheet music{" "}
-          <span style={m.heroAccent}>in days, not years.</span>
+      <div style={{ position: 'relative', zIndex: 2, width: '100%', maxWidth: 420, display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
+        <Cleffy size={180} mood="waving" />
+        <Sticker color="gold" rotate={-3} style={{ marginTop: 10, marginBottom: 14 }}>◆ Sonata</Sticker>
+        <h1 style={{ fontFamily: 'var(--serif)', fontSize: 52, fontWeight: 900, fontStyle: 'italic', color: 'var(--ink)', margin: 0, letterSpacing: '-0.035em', lineHeight: 0.95 }}>
+          Read music in<br />
+          <span style={{ color: 'var(--berry)' }}>days</span>, not years.
         </h1>
+        <p style={{ fontSize: 16, color: 'var(--ink2)', marginTop: 14, lineHeight: 1.55, fontWeight: 500, maxWidth: 360 }}>
+          Learn to read piano sheet music by distance, not memorisation.
+        </p>
 
-        {/* Chips — last chip doubles as a Pricing link */}
-        <div style={m.chips}>
-          <div style={m.chip}>23 lessons</div>
-          <div style={m.chip}>First 3 free</div>
-          <button
-            type="button"
-            style={{ ...m.chip, ...m.chipLink }}
-            onClick={() => navigate("/pricing/", router)}
-          >
-            See pricing →
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, justifyContent: 'center', marginTop: 20 }}>
+          <Sticker color="mint" rotate={-2}>23 lessons</Sticker>
+          <Sticker color="peach" rotate={2}>First 3 free</Sticker>
+          <button type="button" onClick={() => navigate('/pricing/', router)}
+            style={{ background: 'none', border: 'none', padding: 0, cursor: 'pointer' }}>
+            <Sticker color="sky" rotate={-1}>See pricing →</Sticker>
           </button>
         </div>
 
-        {/* CTAs */}
-        <div style={m.ctas}>
-          <button
-            style={m.primaryBtn}
-            onClick={() => navigate("/login/?mode=signup", router)}
-          >
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 10, width: '100%', marginTop: 28 }}>
+          <ChunkyButton color="berry" size="xl" onClick={() => navigate('/login/?mode=signup', router)} style={{ justifyContent: 'center', width: '100%' }}>
             Get started
-          </button>
-          <button
-            style={m.secondaryBtn}
-            onClick={() => navigate("/login/", router)}
-          >
+          </ChunkyButton>
+          <ChunkyButton color="cream" size="md" onClick={() => navigate('/login/', router)} style={{ justifyContent: 'center', width: '100%' }}>
             I already have an account
-          </button>
+          </ChunkyButton>
         </div>
 
-        {/* Footer */}
-        <div style={m.footer}>
-          <button
-            type="button"
-            style={m.footerLink}
-            onClick={() => navigate("/terms/", router)}
-          >
+        <div style={{ display: 'flex', gap: 16, marginTop: 28, fontSize: 13 }}>
+          <button type="button" onClick={() => navigate('/terms/', router)}
+            style={{ background: 'none', border: 'none', color: 'var(--ink3)', fontSize: 13, cursor: 'pointer', fontFamily: 'var(--sans)', fontWeight: 700, textDecoration: 'underline' }}>
             Terms
           </button>
-          <span style={m.footerDot}>·</span>
-          <button
-            type="button"
-            style={m.footerLink}
-            onClick={() => navigate("/privacy/", router)}
-          >
+          <span style={{ color: 'var(--ink3)' }}>·</span>
+          <button type="button" onClick={() => navigate('/privacy/', router)}
+            style={{ background: 'none', border: 'none', color: 'var(--ink3)', fontSize: 13, cursor: 'pointer', fontFamily: 'var(--sans)', fontWeight: 700, textDecoration: 'underline' }}>
             Privacy
           </button>
         </div>
@@ -639,500 +321,3 @@ function MobileLanding({ ready, router }: { ready: boolean; router: ReturnType<t
     </div>
   );
 }
-
-const m: Record<string, React.CSSProperties> = {
-  page: {
-    minHeight: "100vh",
-    background: "#0C0A09",
-    color: "#FAFAF9",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    padding:
-      "max(24px, env(safe-area-inset-top)) 20px max(24px, env(safe-area-inset-bottom))",
-    fontFamily: "-apple-system, 'SF Pro Text', system-ui, sans-serif",
-  },
-  card: {
-    width: "100%",
-    maxWidth: 380,
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    textAlign: "center",
-  },
-  brand: {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    gap: 8,
-  },
-  logo: {
-    fontFamily: "ui-serif, 'New York', Georgia, serif",
-    fontSize: 42,
-    fontWeight: 400,
-    color: "#C8A96E",
-    letterSpacing: "-0.02em",
-    lineHeight: 1,
-  },
-  tagline: {
-    fontSize: 13,
-    color: "#78716C",
-    maxWidth: 260,
-    lineHeight: 1.5,
-  },
-  visual: {
-    display: "block",
-    margin: "28px 0 20px",
-    opacity: 0.9,
-  },
-  heroText: {
-    fontFamily: "ui-serif, 'New York', Georgia, serif",
-    fontSize: 26,
-    fontWeight: 400,
-    lineHeight: 1.25,
-    letterSpacing: "-0.015em",
-    margin: "0 0 20px",
-    color: "#FAFAF9",
-  },
-  heroAccent: {
-    color: "#C8A96E",
-  },
-  chips: {
-    display: "flex",
-    gap: 6,
-    flexWrap: "wrap",
-    justifyContent: "center",
-    marginBottom: 28,
-  },
-  chip: {
-    fontSize: 11,
-    color: "#A8A29E",
-    padding: "6px 12px",
-    borderRadius: 20,
-    border: "1px solid #292524",
-    background: "rgba(28, 25, 23, 0.6)",
-    whiteSpace: "nowrap",
-  },
-  chipLink: {
-    color: "#C8A96E",
-    borderColor: "rgba(200, 169, 110, 0.3)",
-    cursor: "pointer",
-    fontFamily: "inherit",
-  },
-  ctas: {
-    display: "flex",
-    flexDirection: "column",
-    gap: 10,
-    width: "100%",
-    marginBottom: 20,
-  },
-  primaryBtn: {
-    padding: "16px 24px",
-    background: "#C8A96E",
-    color: "#0C0A09",
-    border: "none",
-    borderRadius: 12,
-    fontSize: 16,
-    fontWeight: 600,
-    cursor: "pointer",
-    fontFamily: "inherit",
-    WebkitTapHighlightColor: "transparent",
-  },
-  secondaryBtn: {
-    padding: "14px 24px",
-    background: "transparent",
-    color: "#A8A29E",
-    border: "1px solid #292524",
-    borderRadius: 12,
-    fontSize: 14,
-    fontWeight: 400,
-    cursor: "pointer",
-    fontFamily: "inherit",
-    WebkitTapHighlightColor: "transparent",
-  },
-  footer: {
-    display: "flex",
-    alignItems: "center",
-    gap: 8,
-  },
-  footerLink: {
-    color: "#44403C",
-    fontSize: 12,
-    textDecoration: "none",
-    background: "none",
-    border: "none",
-    padding: 4,
-    cursor: "pointer",
-    fontFamily: "inherit",
-  },
-  footerDot: {
-    color: "#44403C",
-    fontSize: 12,
-  },
-};
-
-const styles: Record<string, React.CSSProperties> = {
-  page: {
-    background: "#0C0A09",
-    color: "#FAFAF9",
-    fontFamily: "'Outfit', system-ui, -apple-system, sans-serif",
-    fontWeight: 300,
-    lineHeight: 1.6,
-    overflowX: "hidden",
-    position: "relative",
-  },
-  nav: {
-    position: "fixed",
-    top: 0,
-    left: 0,
-    right: 0,
-    zIndex: 100,
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
-    padding: "16px 32px",
-    background: "rgba(12,10,9,0.85)",
-    backdropFilter: "blur(12px)",
-    borderBottom: "1px solid rgba(200,169,110,0.08)",
-  },
-  navLogo: {
-    fontFamily: "'Instrument Serif', Georgia, serif",
-    fontSize: 22,
-    color: "#C8A96E",
-  },
-  navLinks: {
-    display: "flex",
-    alignItems: "center",
-    gap: 28,
-  },
-  navLink: {
-    color: "#78716C",
-    textDecoration: "none",
-    fontSize: 13,
-    fontWeight: 400,
-    transition: "color 0.2s",
-  },
-  navCta: {
-    color: "#0C0A09",
-    background: "#C8A96E",
-    textDecoration: "none",
-    fontSize: 13,
-    fontWeight: 500,
-    padding: "8px 20px",
-    borderRadius: 8,
-  },
-  hero: {
-    position: "relative",
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    textAlign: "center",
-    padding: "160px 24px 120px",
-    maxWidth: 800,
-    margin: "0 auto",
-    zIndex: 1,
-  },
-  heroBadge: {
-    fontSize: 11,
-    textTransform: "uppercase" as const,
-    letterSpacing: "0.12em",
-    color: "#C8A96E",
-    border: "1px solid rgba(200,169,110,0.3)",
-    borderRadius: 20,
-    padding: "5px 16px",
-    marginBottom: 24,
-    fontWeight: 500,
-  },
-  heroTitle: {
-    fontFamily: "'Instrument Serif', Georgia, serif",
-    fontSize: 56,
-    fontWeight: 400,
-    lineHeight: 1.15,
-    letterSpacing: "-0.02em",
-    marginBottom: 20,
-  },
-  heroAccent: {
-    color: "#C8A96E",
-  },
-  heroSub: {
-    fontSize: 17,
-    color: "#A8A29E",
-    maxWidth: 560,
-    lineHeight: 1.8,
-    marginBottom: 36,
-  },
-  heroButtons: {
-    display: "flex",
-    gap: 12,
-    flexWrap: "wrap",
-    justifyContent: "center",
-  },
-  primaryBtn: {
-    display: "inline-block",
-    padding: "14px 36px",
-    background: "#C8A96E",
-    color: "#0C0A09",
-    borderRadius: 10,
-    textDecoration: "none",
-    fontSize: 15,
-    fontWeight: 500,
-    fontFamily: "'Outfit', system-ui, sans-serif",
-    transition: "all 0.2s",
-  },
-  ghostBtn: {
-    display: "inline-block",
-    padding: "14px 36px",
-    background: "transparent",
-    color: "#A8A29E",
-    border: "1px solid #292524",
-    borderRadius: 10,
-    textDecoration: "none",
-    fontSize: 15,
-    fontWeight: 400,
-    fontFamily: "'Outfit', system-ui, sans-serif",
-  },
-  staffLines: {
-    position: "absolute",
-    bottom: -20,
-    left: "50%",
-    transform: "translateX(-50%)",
-    width: 300,
-    display: "flex",
-    flexDirection: "column",
-    gap: 8,
-    opacity: 0.06,
-    pointerEvents: "none",
-  },
-  staffLine: {
-    height: 1,
-    background: "#C8A96E",
-    borderRadius: 1,
-  },
-  section: {
-    padding: "80px 24px",
-  },
-  sectionInner: {
-    maxWidth: 960,
-    margin: "0 auto",
-  },
-  sectionTitle: {
-    fontFamily: "'Instrument Serif', Georgia, serif",
-    fontSize: 32,
-    fontWeight: 400,
-    textAlign: "center" as const,
-    marginBottom: 12,
-    letterSpacing: "-0.02em",
-  },
-  sectionSub: {
-    fontSize: 15,
-    color: "#78716C",
-    textAlign: "center" as const,
-    marginBottom: 48,
-    fontWeight: 300,
-  },
-  lede: {
-    fontFamily: "'Instrument Serif', Georgia, serif",
-    fontSize: 28,
-    fontWeight: 400,
-    textAlign: "center" as const,
-    color: "#A8A29E",
-    marginBottom: 40,
-  },
-  twoCol: {
-    display: "grid",
-    gridTemplateColumns: "1fr 1fr",
-    gap: 16,
-  },
-  problemCard: {
-    padding: "32px 28px",
-    background: "#1C1917",
-    border: "1px solid #292524",
-    borderRadius: 14,
-  },
-  solutionCard: {
-    borderColor: "rgba(200,169,110,0.2)",
-    background:
-      "linear-gradient(135deg, rgba(200,169,110,0.04) 0%, #1C1917 60%)",
-  },
-  problemIcon: {
-    fontSize: 20,
-    color: "#F87171",
-    marginBottom: 12,
-  },
-  problemTitle: {
-    fontSize: 16,
-    fontWeight: 500,
-    marginBottom: 8,
-  },
-  problemText: {
-    fontSize: 14,
-    color: "#A8A29E",
-    lineHeight: 1.7,
-  },
-  threeCol: {
-    display: "grid",
-    gridTemplateColumns: "1fr 1fr 1fr",
-    gap: 16,
-  },
-  methodCard: {
-    padding: "28px 24px",
-    background: "#0C0A09",
-    border: "1px solid #292524",
-    borderRadius: 14,
-  },
-  methodNum: {
-    fontFamily: "'Instrument Serif', Georgia, serif",
-    fontSize: 32,
-    color: "#C8A96E",
-    marginBottom: 8,
-  },
-  methodTitle: {
-    fontSize: 15,
-    fontWeight: 500,
-    marginBottom: 8,
-  },
-  methodText: {
-    fontSize: 13,
-    color: "#A8A29E",
-    lineHeight: 1.7,
-  },
-  story: {
-    padding: "40px 0",
-  },
-  storyP: {
-    fontSize: 16,
-    color: "#A8A29E",
-    lineHeight: 1.9,
-    marginBottom: 24,
-  },
-  storyHighlight: {
-    fontFamily: "'Instrument Serif', Georgia, serif",
-    fontSize: 24,
-    color: "#C8A96E",
-    lineHeight: 1.5,
-    margin: "32px 0",
-    textAlign: "center" as const,
-  },
-  storySign: {
-    fontFamily: "'Instrument Serif', Georgia, serif",
-    fontSize: 18,
-    fontStyle: "italic" as const,
-    color: "#78716C",
-    marginTop: 40,
-  },
-  featureGrid: {
-    display: "grid",
-    gridTemplateColumns: "1fr 1fr 1fr",
-    gap: 16,
-  },
-  featureCard: {
-    padding: "28px 24px",
-    background: "#0C0A09",
-    border: "1px solid #292524",
-    borderRadius: 14,
-  },
-  featureIcon: {
-    fontFamily: "'Instrument Serif', Georgia, serif",
-    fontSize: 24,
-    color: "#C8A96E",
-    marginBottom: 12,
-  },
-  featureTitle: {
-    fontSize: 15,
-    fontWeight: 500,
-    marginBottom: 6,
-  },
-  featureDesc: {
-    fontSize: 13,
-    color: "#78716C",
-    lineHeight: 1.7,
-  },
-  journey: {
-    display: "flex",
-    flexDirection: "column",
-    gap: 0,
-    maxWidth: 520,
-    margin: "0 auto",
-    position: "relative",
-  },
-  journeyRow: {
-    display: "flex",
-    gap: 20,
-    alignItems: "flex-start",
-    position: "relative",
-    paddingBottom: 32,
-    paddingLeft: 6,
-  },
-  journeyDot: {
-    width: 12,
-    height: 12,
-    borderRadius: "50%",
-    flexShrink: 0,
-    marginTop: 4,
-  },
-  journeyContent: {
-    flex: 1,
-  },
-  journeyNum: {
-    fontSize: 11,
-    color: "#78716C",
-    textTransform: "uppercase" as const,
-    letterSpacing: "0.08em",
-    fontWeight: 500,
-  },
-  journeyLabel: {
-    fontSize: 16,
-    fontWeight: 500,
-    marginTop: 2,
-  },
-  journeyPieces: {
-    fontSize: 13,
-    color: "#78716C",
-    marginTop: 4,
-    fontStyle: "italic" as const,
-  },
-  footer: {
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
-    padding: "24px 32px",
-    borderTop: "1px solid #292524",
-  },
-  footerLogo: {
-    fontFamily: "'Instrument Serif', Georgia, serif",
-    fontSize: 18,
-    color: "#C8A96E",
-  },
-  footerText: {
-    fontSize: 12,
-    color: "#44403C",
-  },
-  previewGrid: {
-    display: "grid",
-    gridTemplateColumns: "1fr 1fr",
-    gap: 16,
-  },
-  previewCard: {
-    padding: "24px 20px",
-    background: "#0C0A09",
-    border: "1px solid #292524",
-    borderRadius: 14,
-  },
-  previewMockup: {
-    padding: "20px 16px",
-    background: "#1C1917",
-    borderRadius: 10,
-    marginBottom: 16,
-    minHeight: 120,
-  },
-  previewLabel: {
-    fontSize: 15,
-    fontWeight: 500,
-    marginBottom: 4,
-  },
-  previewDesc: {
-    fontSize: 13,
-    color: "#78716C",
-    lineHeight: 1.6,
-  },
-};

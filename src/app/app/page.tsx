@@ -595,6 +595,7 @@ function SonataLogo({ size = 26 }: { size?: number }) {
   );
 }
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 function Header({ title, right }: { title: string; right?: React.ReactNode }) {
   const isBrand = title === 'Sonata';
   return (
@@ -616,6 +617,7 @@ function Header({ title, right }: { title: string; right?: React.ReactNode }) {
   );
 }
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 function BackLink({ onClick, label }: { onClick: () => void; label?: string }) {
   return (
     <button type="button" style={s.backLink} onClick={onClick}>
@@ -872,81 +874,117 @@ function PlacementScreen({ dispatch, renderNotation }: { dispatch: React.Dispatc
     }, 600);
   }
 
+  const levelStickers: ChunkyColor[] = ['mint', 'sky', 'lilac', 'gold'];
+  const levelMood = (levelIndex === 3 ? 'dancing' : levelIndex >= 2 ? 'excited' : 'happy') as 'dancing' | 'excited' | 'happy';
+
   if (step === 'intro') {
     return (
-      <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', padding: '32px 20px' }}>
-        <div style={{ fontFamily: 'var(--serif)', fontSize: 36, color: 'var(--gold)', marginBottom: 8 }}>Sonata</div>
-        <p style={{ color: 'var(--text2)', fontSize: 15, textAlign: 'center', maxWidth: 380, lineHeight: 1.7, marginBottom: 8 }}>
-          Learn to read piano sheet music by distance, not memorisation.
-        </p>
-        <p style={{ color: 'var(--text3)', fontSize: 13, textAlign: 'center', maxWidth: 380, lineHeight: 1.6, marginBottom: 32 }}>
-          Answer a few quick questions so we can find the right starting point for you.
-        </p>
-        <button style={s.primaryBtn} onClick={() => setStep('quiz')}>Start</button>
-        <button onClick={() => { setPlacementResult(1); dispatch({ type: 'SET_SCREEN', screen: 'onboarding' }); }}
-          style={{ background: 'none', border: 'none', color: 'var(--text3)', fontSize: 12, cursor: 'pointer', fontFamily: 'var(--sans)', marginTop: 16 }}>
-          I&apos;m a complete beginner — skip quiz
-        </button>
+      <div style={{ position: 'relative', minHeight: '100vh', background: 'var(--cream)', fontFamily: 'var(--sans)', overflow: 'hidden', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', textAlign: 'center', padding: '32px 24px' }}>
+        <StaffBG opacity={0.25} />
+        <FloatingNotes count={8} />
+        <div style={{ position: 'relative', zIndex: 2, maxWidth: 460, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+          <Cleffy size={180} mood="thinking" />
+          <Sticker color="gold" rotate={-3} style={{ marginTop: 10, marginBottom: 14 }}>◆ Placement quiz</Sticker>
+          <h1 style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(40px, 7vw, 56px)', fontWeight: 900, fontStyle: 'italic', color: 'var(--ink)', margin: 0, letterSpacing: '-0.03em', lineHeight: 0.95 }}>
+            Where should we <span style={{ color: 'var(--berry)' }}>begin?</span>
+          </h1>
+          <p style={{ fontFamily: 'var(--serif)', fontStyle: 'italic', fontSize: 17, color: 'var(--ink2)', marginTop: 16, lineHeight: 1.55, maxWidth: 400, fontWeight: 500 }}>
+            A few quick questions so Sonata can find the right starting point for you.
+          </p>
+          <div style={{ marginTop: 28, display: 'flex', flexDirection: 'column', gap: 10, width: '100%' }}>
+            <ChunkyButton color="berry" size="xl" onClick={() => setStep('quiz')} style={{ justifyContent: 'center' }}>Start quiz</ChunkyButton>
+            <ChunkyButton color="cream" size="md" onClick={() => { setPlacementResult(1); dispatch({ type: 'SET_SCREEN', screen: 'onboarding' }); }} style={{ justifyContent: 'center' }}>
+              I&apos;m a complete beginner
+            </ChunkyButton>
+          </div>
+        </div>
       </div>
     );
   }
 
   if (step === 'result') {
     return (
-      <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', padding: '32px 20px' }}>
-        <div style={{ fontSize: 40, marginBottom: 16 }}>
-          {levelIndex === 0 ? '🌱' : levelIndex === 1 ? '🎵' : levelIndex === 2 ? '🎶' : '🎹'}
+      <div style={{ position: 'relative', minHeight: '100vh', background: 'var(--cream)', fontFamily: 'var(--sans)', overflow: 'hidden', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', textAlign: 'center', padding: '32px 24px' }}>
+        <StaffBG opacity={0.25} />
+        <FloatingNotes count={10} />
+        <div style={{ position: 'relative', zIndex: 2, maxWidth: 480, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+          <Cleffy size={180} mood={levelMood} />
+          <Sticker color={levelStickers[levelIndex]} rotate={-3} style={{ marginTop: 10, marginBottom: 14 }}>
+            ◆ {levelNames[levelIndex]}
+          </Sticker>
+          <h1 style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(40px, 7vw, 56px)', fontWeight: 900, fontStyle: 'italic', color: 'var(--ink)', margin: 0, letterSpacing: '-0.03em', lineHeight: 0.95 }}>
+            You got <span style={{ color: 'var(--mint-deep)' }}>{score}/{PLACEMENT_QUESTIONS.length}</span>
+          </h1>
+          <p style={{ fontFamily: 'var(--serif)', fontStyle: 'italic', fontSize: 17, color: 'var(--ink2)', marginTop: 16, lineHeight: 1.55, maxWidth: 400, fontWeight: 500 }}>
+            {startLesson === 1
+              ? "We'll start from the very beginning — no prior knowledge needed."
+              : `We'll start you at Lesson ${startLesson} and mark earlier lessons as complete.`}
+          </p>
+          <ChunkyButton color="berry" size="xl" onClick={() => {
+            setPlacementResult(startLesson);
+            dispatch({ type: 'SET_SCREEN', screen: 'onboarding' });
+          }} style={{ justifyContent: 'center', marginTop: 28 }}>
+            Continue →
+          </ChunkyButton>
         </div>
-        <div style={{ fontFamily: 'var(--serif)', fontSize: 28, color: 'var(--gold)', marginBottom: 8 }}>
-          {levelNames[levelIndex]}
-        </div>
-        <p style={{ color: 'var(--text2)', fontSize: 14, textAlign: 'center', maxWidth: 360, lineHeight: 1.6, marginBottom: 8 }}>
-          You got {score} out of {PLACEMENT_QUESTIONS.length} right.
-        </p>
-        <p style={{ color: 'var(--text3)', fontSize: 13, textAlign: 'center', maxWidth: 360, lineHeight: 1.6, marginBottom: 32 }}>
-          {startLesson === 1 ? "We'll start from the very beginning — no prior knowledge needed." :
-           `We'll start you at Lesson ${startLesson} and mark earlier lessons as complete.`}
-        </p>
-        <button style={s.primaryBtn} onClick={() => {
-          setPlacementResult(startLesson);
-          dispatch({ type: 'SET_SCREEN', screen: 'onboarding' });
-        }}>Continue</button>
       </div>
     );
   }
 
   // Quiz step
   return (
-    <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', padding: '32px 20px' }}>
-      <div style={{ color: 'var(--text3)', fontSize: 12, marginBottom: 16 }}>
-        Question {qIndex + 1} of {PLACEMENT_QUESTIONS.length}
-      </div>
-      <div style={{ display: 'flex', gap: 4, marginBottom: 24 }}>
-        {PLACEMENT_QUESTIONS.map((_, i) => (
-          <div key={i} style={{ width: i === qIndex ? 16 : 6, height: 6, borderRadius: 3, background: i === qIndex ? 'var(--gold)' : i < qIndex ? 'var(--green)' : 'var(--bg4)', transition: 'all 0.3s' }} />
-        ))}
-      </div>
-      <div style={{ fontFamily: 'var(--serif)', fontSize: 20, color: 'var(--text1)', textAlign: 'center', maxWidth: 380, marginBottom: 16, lineHeight: 1.4 }}>
-        {q.q}
-      </div>
-      {q.abc && <div ref={notRef} style={{ minHeight: 80, marginBottom: 8 }} />}
-      <div style={{ display: 'flex', flexDirection: 'column', gap: 10, width: '100%', maxWidth: 360, marginTop: 8 }}>
-        {q.options.map((opt, i) => {
-          const isCorrect = i === q.correct;
-          const picked = answered === i;
-          let bg = 'var(--bg2)';
-          let border = '1px solid var(--bg3)';
-          if (answered >= 0) {
-            if (isCorrect) { bg = 'rgba(74,222,128,0.15)'; border = '1px solid var(--green)'; }
-            else if (picked) { bg = 'rgba(248,113,113,0.15)'; border = '1px solid #F87171'; }
-          }
-          return (
-            <button key={i} onClick={() => handleAnswer(i)}
-              style={{ padding: '14px 16px', background: bg, border, borderRadius: 10, color: 'var(--text1)', fontSize: 14, cursor: 'pointer', fontFamily: 'var(--sans)', textAlign: 'left', transition: 'all 0.2s' }}>
-              {opt}
-            </button>
-          );
-        })}
+    <div style={{ position: 'relative', minHeight: '100vh', background: 'var(--cream)', fontFamily: 'var(--sans)', overflow: 'hidden', padding: '32px 20px' }}>
+      <StaffBG opacity={0.22} />
+      <FloatingNotes count={5} />
+
+      <div style={{ position: 'relative', zIndex: 2, maxWidth: 500, margin: '0 auto', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
+        <Sticker color="peach" rotate={-2} style={{ marginBottom: 14 }}>
+          Question {qIndex + 1} of {PLACEMENT_QUESTIONS.length}
+        </Sticker>
+        <div style={{ display: 'flex', gap: 4, marginBottom: 22 }}>
+          {PLACEMENT_QUESTIONS.map((_, i) => (
+            <div key={i} style={{ width: i === qIndex ? 22 : 8, height: 8, borderRadius: 999, background: i < qIndex ? 'var(--mint)' : i === qIndex ? 'var(--gold)' : 'var(--parchment)', border: '2px solid var(--ink)', transition: 'all 0.3s var(--bounce)' }} />
+          ))}
+        </div>
+
+        <h2 style={{ fontFamily: 'var(--serif)', fontSize: 26, fontWeight: 900, fontStyle: 'italic', color: 'var(--ink)', margin: 0, lineHeight: 1.25, letterSpacing: '-0.02em', textWrap: 'balance' as const }}>
+          {q.q}
+        </h2>
+
+        {q.abc && (
+          <div style={{ marginTop: 20, background: 'var(--paper)', border: '3px solid var(--ink)', borderRadius: 'var(--r2)', padding: '20px 24px', boxShadow: '0 5px 0 var(--ink)', width: '100%' }}>
+            <div ref={notRef} style={{ minHeight: 100 }} />
+          </div>
+        )}
+
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 10, width: '100%', marginTop: 24 }}>
+          {q.options.map((opt, i) => {
+            const isCorrect = i === q.correct;
+            const picked = answered === i;
+            const color: ChunkyColor = answered >= 0
+              ? isCorrect ? 'mint' : picked ? 'coral' : 'cream'
+              : 'cream';
+            const dim = answered >= 0 && !isCorrect && !picked;
+            return (
+              <ChunkyButton
+                key={i}
+                color={color}
+                size="md"
+                onClick={() => handleAnswer(i)}
+                disabled={answered >= 0}
+                style={{
+                  width: '100%', justifyContent: 'flex-start',
+                  textAlign: 'left', fontFamily: 'var(--sans)',
+                  textTransform: 'none', letterSpacing: 0,
+                  fontSize: 15, fontWeight: 700,
+                  opacity: dim ? 0.4 : 1,
+                }}
+              >
+                {opt}
+              </ChunkyButton>
+            );
+          })}
+        </div>
       </div>
     </div>
   );
@@ -2014,48 +2052,77 @@ function LessonQuiz({ lesson, dispatch }: { lesson: Lesson; dispatch: React.Disp
   }
 
   return (
-    <>
-      <Header title={`Lesson ${lesson.id}`} right={<span style={{ fontSize: 13, color: 'var(--text3)' }}>Quiz</span>} />
-      <BackLink onClick={() => dispatch({ type: 'UPDATE_FIELD', field: 'lessonPhase', value: 'concepts' })} label="← Back to lesson" />
-      <div className="sonata-app" style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
-        <div style={{ fontSize: 11, color: 'var(--text3)', textAlign: 'center', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: 8 }}>
-          Question {current + 1} of {quiz.length} · Score: {score}/{current + (answered ? 1 : 0)}
+    <div style={{ position: 'relative', minHeight: '100vh', background: 'var(--paper)', fontFamily: 'var(--sans)', overflow: 'hidden', paddingBottom: 40 }}>
+      <StaffBG opacity={0.25} />
+      <FloatingNotes count={5} />
+
+      {/* Top bar */}
+      <div style={{ position: 'relative', zIndex: 3, display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '18px 24px', gap: 12 }}>
+        <button type="button" onClick={() => { hSelect(); dispatch({ type: 'UPDATE_FIELD', field: 'lessonPhase', value: 'concepts' }); }}
+          style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '8px 14px', background: 'var(--cream)', color: 'var(--ink)', border: '3px solid var(--ink)', borderRadius: 999, boxShadow: '0 3px 0 var(--ink)', fontWeight: 800, fontSize: 13, cursor: 'pointer', fontFamily: 'var(--sans)' }}>
+          ← Back to lesson
+        </button>
+        <div style={{ fontFamily: 'var(--serif)', fontStyle: 'italic', fontSize: 18, fontWeight: 700, color: 'var(--ink2)' }}>Lesson {lesson.id} · Quiz</div>
+        <div style={{ display: 'inline-flex', alignItems: 'center', gap: 6, padding: '6px 14px', background: 'var(--mint)', border: '3px solid var(--ink)', borderRadius: 999, boxShadow: '0 3px 0 var(--mint-deep)', fontWeight: 800, fontSize: 13, color: 'var(--ink)' }}>
+          ✓ {score}
         </div>
-        <div style={{
-          padding: 24, background: 'var(--bg2)', border: '1px solid var(--bg3)',
-          borderRadius: 14, marginBottom: 16, fontSize: 15, lineHeight: 1.7, color: 'var(--text2)',
-        }}>
-          {q.q}
+      </div>
+
+      <div style={{ position: 'relative', zIndex: 2, maxWidth: 560, margin: '0 auto', padding: '0 20px', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
+        <Sticker color="gold" rotate={-2} style={{ marginBottom: 12 }}>
+          Question {current + 1} of {quiz.length}
+        </Sticker>
+        <div style={{ display: 'flex', gap: 4, marginBottom: 20 }}>
+          {quiz.map((_, i) => (
+            <div key={i} style={{ width: i === current ? 22 : 8, height: 8, borderRadius: 999, background: i < current ? 'var(--mint)' : i === current ? 'var(--gold)' : 'var(--parchment)', border: '2px solid var(--ink)', transition: 'all 0.3s var(--bounce)' }} />
+          ))}
         </div>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+
+        {/* Question */}
+        <div style={{ background: 'var(--cream)', border: '3px solid var(--ink)', borderRadius: 'var(--r2)', padding: '22px 24px', boxShadow: '0 6px 0 var(--ink)', marginBottom: 20, width: '100%' }}>
+          <p style={{ fontFamily: 'var(--serif)', fontStyle: 'italic', fontSize: 20, color: 'var(--ink)', margin: 0, lineHeight: 1.45, fontWeight: 600, textWrap: 'balance' as const }}>{q.q}</p>
+        </div>
+
+        {/* Options */}
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 10, width: '100%' }}>
           {q.options.map((opt, idx) => {
-            let bg = 'var(--bg2)';
-            let border = 'var(--bg3)';
-            let color = 'var(--text)';
-            if (answered) {
-              if (idx === q.correct) { bg = 'var(--green-bg)'; border = 'var(--green)'; color = 'var(--green)'; }
-              else if (idx === picked) { bg = 'var(--red-bg)'; border = 'var(--red)'; color = 'var(--red)'; }
-              else { color = 'var(--text3)'; }
-            }
+            const isCorrect = idx === q.correct;
+            const isPicked = idx === picked;
+            const color: ChunkyColor = answered
+              ? isCorrect ? 'mint' : isPicked ? 'coral' : 'cream'
+              : 'cream';
+            const dim = answered && !isCorrect && !isPicked;
             return (
-              <button key={idx} onClick={() => handleAnswer(idx)} disabled={answered} style={{
-                padding: '14px 18px', background: bg, border: `1px solid ${border}`,
-                borderRadius: 10, color, fontSize: 14, textAlign: 'left', cursor: answered ? 'default' : 'pointer',
-                fontFamily: 'var(--sans)', transition: 'all 0.15s',
-                opacity: answered && idx !== q.correct && idx !== picked ? 0.4 : 1,
-              }}>
+              <ChunkyButton
+                key={idx}
+                color={color}
+                size="md"
+                onClick={() => handleAnswer(idx)}
+                disabled={answered}
+                style={{
+                  width: '100%', justifyContent: 'flex-start', textAlign: 'left',
+                  fontFamily: 'var(--sans)', textTransform: 'none', letterSpacing: 0,
+                  fontSize: 15, fontWeight: 700, opacity: dim ? 0.4 : 1,
+                }}
+              >
                 {opt}
-              </button>
+              </ChunkyButton>
             );
           })}
         </div>
+
         {answered && (
-          <button style={{ ...s.primaryBtn, maxWidth: 200, margin: '16px auto 0' }} onClick={next}>
-            {current + 1 >= quiz.length ? (lesson.piece ? 'Play the piece →' : 'Finish lesson →') : 'Next question'}
-          </button>
+          <div style={{ marginTop: 24, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 12 }}>
+            <div style={{ fontFamily: 'var(--serif)', fontStyle: 'italic', fontSize: 22, fontWeight: 800, color: picked === q.correct ? 'var(--mint-deep)' : 'var(--coral-deep)' }}>
+              {picked === q.correct ? 'Bravo!' : 'Not quite'}
+            </div>
+            <ChunkyButton color="berry" size="lg" onClick={next} style={{ justifyContent: 'center' }}>
+              {current + 1 >= quiz.length ? (lesson.piece ? 'Play the piece →' : 'Finish lesson →') : 'Next question →'}
+            </ChunkyButton>
+          </div>
         )}
       </div>
-    </>
+    </div>
   );
 }
 
@@ -2081,58 +2148,81 @@ function LessonPiece({ lesson, state, dispatch, loadScore, playScore }: {
   if (ci < 0) return null;
   const piece = CATALOG[ci];
   return (
-    <>
-      <Header title={`Lesson ${lesson.id}`} right={<span style={{ fontSize: 13, color: 'var(--text3)' }}>{lesson.title}</span>} />
-      <BackLink onClick={() => dispatch({ type: 'UPDATE_FIELD', field: 'lessonPhase', value: 'concepts' })} label="← Back to lesson" />
-      <div style={{ textAlign: 'center', marginBottom: 8 }}>
-        <h3 style={{ fontFamily: 'var(--serif)', fontSize: 20, fontWeight: 400 }}>{piece.t}</h3>
-        <p style={{ color: 'var(--text3)', fontSize: 13 }}>{piece.c}</p>
-      </div>
-      <div ref={scoreRef} style={{ minHeight: 300, padding: '16px 0', overflowX: 'auto' }}>
-        <LoadingSpinner text="Loading score..." />
+    <div style={{ position: 'relative', minHeight: '100vh', background: 'var(--paper)', fontFamily: 'var(--sans)', overflow: 'hidden', paddingBottom: 40 }}>
+      <StaffBG opacity={0.25} />
+      <FloatingNotes count={5} />
+
+      {/* Top bar */}
+      <div style={{ position: 'relative', zIndex: 3, display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '18px 24px', gap: 12, flexWrap: 'wrap' }}>
+        <button type="button" onClick={() => { hSelect(); dispatch({ type: 'UPDATE_FIELD', field: 'lessonPhase', value: 'concepts' }); }}
+          style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '8px 14px', background: 'var(--cream)', color: 'var(--ink)', border: '3px solid var(--ink)', borderRadius: 999, boxShadow: '0 3px 0 var(--ink)', fontWeight: 800, fontSize: 13, cursor: 'pointer', fontFamily: 'var(--sans)' }}>
+          ← Back to lesson
+        </button>
+        <div style={{ fontFamily: 'var(--serif)', fontStyle: 'italic', fontSize: 18, fontWeight: 700, color: 'var(--ink2)' }}>Lesson {lesson.id} · Piece</div>
+        <div style={{ width: 80 }} />
       </div>
 
-      {/* Walkthrough */}
-      {!wtDone && wt.length > 0 && (
-        <div style={{ margin: '12px 0' }}>
-          <div style={{ fontSize: 11, color: 'var(--text3)', textTransform: 'uppercase', letterSpacing: '0.08em', fontWeight: 500, marginBottom: 6 }}>
-            Walkthrough {wtStep + 1}/{wt.length}
-          </div>
-          <div style={{
-            padding: 16, background: 'var(--bg2)', border: '1px solid rgba(200,169,110,0.15)',
-            borderRadius: 14, fontSize: 14, lineHeight: 1.7, color: 'var(--text2)',
-          }}>
-            {wt[wtStep]}
-          </div>
-          <div style={{ display: 'flex', gap: 8, justifyContent: 'center', marginTop: 10 }}>
-            {wtStep > 0 && (
-              <button style={s.navBtn} onClick={() => setWtStep(s => s - 1)}>Previous</button>
-            )}
-            {wtStep < wt.length - 1 ? (
-              <button style={s.navBtnPrimary} onClick={() => setWtStep(s => s + 1)}>Next</button>
-            ) : (
-              <button style={s.navBtnPrimary} onClick={() => setWtDone(true)}>Got it! →</button>
-            )}
+      <div style={{ position: 'relative', zIndex: 2, maxWidth: 860, margin: '0 auto', padding: '0 20px' }}>
+        {/* Piece title */}
+        <div style={{ textAlign: 'center', marginBottom: 16 }}>
+          <Sticker color="peach" rotate={-2} style={{ marginBottom: 10 }}>◆ Play the piece</Sticker>
+          <h1 style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(36px, 6vw, 48px)', fontWeight: 900, fontStyle: 'italic', color: 'var(--ink)', margin: 0, letterSpacing: '-0.03em', lineHeight: 1 }}>
+            {piece.t}
+          </h1>
+          <p style={{ color: 'var(--ink3)', fontSize: 14, fontWeight: 700, marginTop: 4 }}>{piece.c}</p>
+        </div>
+
+        {/* Score card */}
+        <div style={{ background: 'var(--cream)', border: '3px solid var(--ink)', borderRadius: 'var(--r2)', padding: 20, boxShadow: '0 6px 0 var(--ink)', marginBottom: 16 }}>
+          <div ref={scoreRef} style={{ minHeight: 300, overflowX: 'auto' }}>
+            <LoadingSpinner text="Loading score..." />
           </div>
         </div>
-      )}
 
-      {/* Playback + Complete (shown after walkthrough) */}
-      {wtDone && (
-        <>
-          <ScorePlaybackControls playScore={playScore} />
-          <div style={{ marginTop: 12, textAlign: 'center' }}>
-            <button style={{ ...s.primaryBtn, maxWidth: 250, margin: '0 auto' }} className="sonata-primary-btn" onClick={() => {
-              hSuccess();
-              stopScorePlayback();
-              dispatch({ type: 'COMPLETE_LESSON' });
-              if (state.user) saveLessonComplete(state.user.id, state.currentLesson, 1.0);
-              recordPractice(state.user?.id);
-            }}>Complete Lesson</button>
+        {/* Walkthrough */}
+        {!wtDone && wt.length > 0 && (
+          <div style={{ background: 'var(--mint)', border: '3px solid var(--ink)', borderRadius: 'var(--r2)', padding: 18, boxShadow: '0 5px 0 var(--mint-deep)', marginBottom: 16, display: 'flex', gap: 14, alignItems: 'flex-start' }}>
+            <Cleffy size={70} mood="happy" />
+            <div style={{ flex: 1 }}>
+              <div style={{ fontSize: 11, fontWeight: 800, letterSpacing: '0.15em', color: 'var(--ink)', opacity: 0.75, textTransform: 'uppercase' }}>
+                Walkthrough {wtStep + 1}/{wt.length}
+              </div>
+              <p style={{ fontFamily: 'var(--serif)', fontStyle: 'italic', fontSize: 17, color: 'var(--ink)', margin: '6px 0 12px', lineHeight: 1.5, fontWeight: 600 }}>
+                {wt[wtStep]}
+              </p>
+              <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
+                {wtStep > 0 && (
+                  <ChunkyButton color="cream" size="sm" onClick={() => { hSelect(); setWtStep(s => s - 1); }}>Previous</ChunkyButton>
+                )}
+                {wtStep < wt.length - 1 ? (
+                  <ChunkyButton color="berry" size="sm" onClick={() => { hSelect(); setWtStep(s => s + 1); }}>Next</ChunkyButton>
+                ) : (
+                  <ChunkyButton color="berry" size="sm" onClick={() => { hSelect(); setWtDone(true); }}>Got it! →</ChunkyButton>
+                )}
+              </div>
+            </div>
           </div>
-        </>
-      )}
-    </>
+        )}
+
+        {/* Playback + Complete */}
+        {wtDone && (
+          <>
+            <div style={{ background: 'var(--paper)', border: '3px solid var(--ink)', borderRadius: 'var(--r2)', padding: 16, boxShadow: '0 5px 0 var(--ink)', marginBottom: 16 }}>
+              <ScorePlaybackControls playScore={playScore} />
+            </div>
+            <div style={{ textAlign: 'center' }}>
+              <ChunkyButton color="gold" size="xl" onClick={() => {
+                hSuccess();
+                stopScorePlayback();
+                dispatch({ type: 'COMPLETE_LESSON' });
+                if (state.user) saveLessonComplete(state.user.id, state.currentLesson, 1.0);
+                recordPractice(state.user?.id);
+              }}>Complete lesson ✓</ChunkyButton>
+            </div>
+          </>
+        )}
+      </div>
+    </div>
   );
 }
 
@@ -2147,31 +2237,76 @@ function LessonComplete({ lesson, dispatch }: { lesson: Lesson; dispatch: React.
     playCelebrationChord().catch(() => {});
   }, []);
   return (
-    <>
-      <Header title="Sonata" />
-      <div style={{ padding: '20px 0', textAlign: 'center' }} className="sonata-app">
-        <div style={{ marginBottom: 8 }}><Cleffy size={140} mood="excited" /></div>
-        <div className="sonata-big-celebration" style={{ marginBottom: 12 }}>{phrase}</div>
-        <h3 style={{ fontFamily: 'var(--sans)', fontSize: 18, fontWeight: 500, marginBottom: 20, color: 'var(--text2)' }}>Lesson {lesson.id} complete</h3>
-        <p style={{ color: 'var(--text2)', margin: '16px 0', lineHeight: 1.6 }}>
-          You just learned <b style={{ color: 'var(--text)' }}>{lesson.title}</b>
-          {lesson.piece && <><br />on <b style={{ color: 'var(--text)' }}>{lesson.piece}</b></>}
-        </p>
-        {nextLesson
-          ? <button style={s.primaryBtn} onClick={() => dispatch({ type: 'START_LESSON', id: nextLesson.id })}>Next up: {nextLesson.title} →</button>
-          : <button style={s.primaryBtn}>🏆 You finished the course!</button>
-        }
-        <div style={{ marginTop: 8 }}>
-          <button style={{ ...s.primaryBtn, background: 'var(--bg2)', border: '1px solid var(--bg3)', color: 'var(--text)' }} onClick={() => dispatch({ type: 'SET_SCREEN', screen: 'lessons' })}>← Back to lessons</button>
+    <div style={{ position: 'relative', minHeight: '100vh', background: 'var(--berry)', fontFamily: 'var(--sans)', overflow: 'hidden', padding: '20px 20px 40px' }}>
+      {/* Confetti */}
+      {Array.from({ length: 22 }).map((_, i) => {
+        const colors = ['var(--gold)', 'var(--mint)', 'var(--sky)', 'var(--coral)', 'var(--peach)', 'var(--cream)'];
+        return (
+          <div key={i} aria-hidden="true" style={{
+            position: 'absolute',
+            left: `${(i * 37) % 100}%`,
+            top: `-${10 + (i % 7) * 6}%`,
+            width: 10, height: 16,
+            background: colors[i % colors.length],
+            border: '1.5px solid var(--ink)',
+            borderRadius: 2,
+            animation: `sn-confetti ${3 + (i % 5) * 0.3}s linear infinite ${(i % 10) * 0.2}s`,
+            zIndex: 1,
+          }} />
+        );
+      })}
+      <StaffBG opacity={0.12} />
+
+      <div style={{ position: 'relative', zIndex: 3, maxWidth: 520, margin: '0 auto', textAlign: 'center', color: 'var(--cream)' }}>
+        <Cleffy size={170} mood="dancing" />
+
+        <div style={{
+          display: 'inline-block',
+          fontFamily: 'var(--serif)', fontSize: 'clamp(56px, 10vw, 88px)', fontWeight: 900, fontStyle: 'italic',
+          color: 'var(--gold-lite)', letterSpacing: '-0.04em', lineHeight: 0.95,
+          textShadow: '0 6px 0 var(--ink), 0 0 40px rgba(255,217,135,0.5)',
+          animation: 'sn-celeb 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) both',
+          marginTop: 10,
+        }}>
+          {phrase}
         </div>
-        <button style={{ background: 'none', border: 'none', color: 'var(--text3)', fontSize: 12, cursor: 'pointer', marginTop: 12, fontFamily: 'var(--sans)', textDecoration: 'underline' }}
+
+        <div style={{ fontFamily: 'var(--serif)', fontStyle: 'italic', fontSize: 20, color: 'var(--cream)', opacity: 0.95, margin: '8px 0 0', fontWeight: 600 }}>
+          Lesson {lesson.id} complete
+        </div>
+
+        {/* Card */}
+        <div style={{ background: 'var(--cream)', border: '4px solid var(--ink)', borderRadius: 'var(--r3)', padding: '20px 22px', boxShadow: '0 8px 0 var(--ink)', marginTop: 24, color: 'var(--ink)' }}>
+          <div style={{ fontSize: 11, fontWeight: 800, letterSpacing: '0.15em', color: 'var(--ink3)', textTransform: 'uppercase' }}>You just learned</div>
+          <div style={{ fontFamily: 'var(--serif)', fontStyle: 'italic', fontSize: 28, fontWeight: 900, color: 'var(--ink)', marginTop: 4, letterSpacing: '-0.02em', lineHeight: 1.1 }}>{lesson.title}</div>
+          {lesson.piece && (
+            <div style={{ fontSize: 14, color: 'var(--ink2)', marginTop: 6, fontWeight: 600 }}>
+              on <b style={{ color: 'var(--ink)' }}>{lesson.piece}</b>
+            </div>
+          )}
+        </div>
+
+        {/* Actions */}
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 10, marginTop: 22 }}>
+          {nextLesson
+            ? <ChunkyButton color="gold" size="xl" onClick={() => { hSelect(); dispatch({ type: 'START_LESSON', id: nextLesson.id }); }} style={{ justifyContent: 'center' }}>
+                Next: {nextLesson.title} →
+              </ChunkyButton>
+            : <ChunkyButton color="gold" size="xl" style={{ justifyContent: 'center' }}>🏆 Course complete!</ChunkyButton>
+          }
+          <ChunkyButton color="cream" size="md" onClick={() => { hSelect(); dispatch({ type: 'SET_SCREEN', screen: 'lessons' }); }} style={{ justifyContent: 'center' }}>
+            ← Back to lessons
+          </ChunkyButton>
+        </div>
+
+        <button style={{ marginTop: 16, background: 'none', border: 'none', color: 'var(--cream)', opacity: 0.85, fontSize: 13, cursor: 'pointer', fontFamily: 'var(--sans)', textDecoration: 'underline', fontWeight: 700 }}
           onClick={() => {
             const text = `I just completed Lesson ${lesson.id}: ${lesson.title} on Sonata! 🎹 Learning to read piano sheet music.`;
             if (navigator.share) navigator.share({ text }).catch(() => {});
             else { navigator.clipboard.writeText(text); alert('Copied to clipboard!'); }
           }}>Share your progress</button>
       </div>
-    </>
+    </div>
   );
 }
 
@@ -2329,19 +2464,44 @@ function ScoreViewer({ index, dispatch, loadScore, playScore }: {
   }, [index]);
 
   if (!piece) return null;
+  const diffColors: Record<string, ChunkyColor> = { beginner: 'mint', intermediate: 'gold', advanced: 'berry' };
+  const color = diffColors[piece.d] || 'sky';
   return (
-    <>
-      <Header title="Sonata" />
-      <BackLink onClick={() => dispatch({ type: 'OPEN_SCORE', index: -1 })} label="← Back to library" />
-      <div style={{ textAlign: 'center', marginBottom: 12 }}>
-        <h3 style={{ fontFamily: 'var(--serif)', fontSize: 22, fontWeight: 400 }}>{piece.t}</h3>
-        <p style={{ color: 'var(--text3)', fontSize: 13 }}>{piece.c}</p>
+    <div style={{ position: 'relative', minHeight: '100vh', background: 'var(--cream)', fontFamily: 'var(--sans)', overflow: 'hidden', paddingBottom: 40 }}>
+      <StaffBG opacity={0.22} />
+      <FloatingNotes count={5} />
+
+      <div style={{ position: 'relative', zIndex: 3, display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '18px 24px' }}>
+        <button type="button" onClick={() => { hSelect(); dispatch({ type: 'OPEN_SCORE', index: -1 }); }}
+          style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '8px 14px', background: 'var(--cream)', color: 'var(--ink)', border: '3px solid var(--ink)', borderRadius: 999, boxShadow: '0 3px 0 var(--ink)', fontWeight: 800, fontSize: 13, cursor: 'pointer', fontFamily: 'var(--sans)' }}>
+          ← Back to library
+        </button>
+        <Sticker color={color} rotate={-2}>{piece.d}</Sticker>
+        <div style={{ width: 80 }} />
       </div>
-      <ScorePlaybackControls playScore={playScore} />
-      <div ref={ref} style={{ minHeight: 300, padding: '16px 0', overflowX: 'auto' }}>
-        <LoadingSpinner text="Loading score..." />
+
+      <div style={{ position: 'relative', zIndex: 2, maxWidth: 960, margin: '0 auto', padding: '0 20px' }}>
+        {/* Title */}
+        <div style={{ textAlign: 'center', marginBottom: 18 }}>
+          <h1 style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(36px, 6vw, 52px)', fontWeight: 900, fontStyle: 'italic', color: 'var(--ink)', margin: 0, letterSpacing: '-0.03em', lineHeight: 1 }}>
+            {piece.t}
+          </h1>
+          <p style={{ color: 'var(--ink3)', fontSize: 14, fontWeight: 700, marginTop: 4 }}>{piece.c}</p>
+        </div>
+
+        {/* Playback */}
+        <div style={{ background: 'var(--paper)', border: '3px solid var(--ink)', borderRadius: 'var(--r2)', padding: 16, boxShadow: '0 5px 0 var(--ink)', marginBottom: 16 }}>
+          <ScorePlaybackControls playScore={playScore} />
+        </div>
+
+        {/* Score card */}
+        <div style={{ background: 'var(--cream)', border: '3px solid var(--ink)', borderRadius: 'var(--r2)', padding: 20, boxShadow: '0 6px 0 var(--ink)' }}>
+          <div ref={ref} style={{ minHeight: 300, overflowX: 'auto' }}>
+            <LoadingSpinner text="Loading score..." />
+          </div>
+        </div>
       </div>
-    </>
+    </div>
   );
 }
 
@@ -2364,16 +2524,31 @@ function ScorePlaybackControls({ playScore }: { playScore: (tempo: number) => Pr
     setTimeout(() => setPlaying(false), 60000);
   }
 
+  const bpmBtn: React.CSSProperties = {
+    width: 40, height: 40, borderRadius: 999,
+    background: 'var(--cream)', color: 'var(--ink)',
+    border: '3px solid var(--ink)', boxShadow: '0 3px 0 var(--ink)',
+    fontSize: 18, fontWeight: 900, cursor: 'pointer', fontFamily: 'var(--sans)',
+    display: 'flex', alignItems: 'center', justifyContent: 'center',
+  };
   return (
-    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 10, margin: '12px 0 20px', flexWrap: 'wrap', padding: '14px 16px', background: 'var(--bg2)', border: '1px solid var(--bg3)', borderRadius: 14 }}>
-      <button onClick={handlePlay} disabled={loadingPiano}
-        style={{ padding: '12px 28px', background: playing ? 'var(--red)' : 'var(--gold)', color: 'var(--bg)', border: 'none', borderRadius: 10, fontSize: 15, fontWeight: 600, cursor: 'pointer', fontFamily: 'var(--sans)', opacity: loadingPiano ? 0.7 : 1, minWidth: 120 }}>
+    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 14, flexWrap: 'wrap' }}>
+      <ChunkyButton
+        color={playing ? 'coral' : 'gold'}
+        size="lg"
+        onClick={handlePlay}
+        disabled={loadingPiano}
+        style={{ minWidth: 140, justifyContent: 'center' }}
+      >
         {loadingPiano ? 'Loading…' : playing ? '⏹ Stop' : '▶ Play'}
-      </button>
-      <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
-        <button style={{ ...s.chip, padding: '6px 12px', fontSize: 14, minWidth: 32 }} onClick={() => setTempo(t => Math.max(40, t - 10))}>−</button>
-        <span style={{ fontSize: 13, color: 'var(--text2)', minWidth: 70, textAlign: 'center', fontFamily: 'var(--mono)' }}>{tempo} BPM</span>
-        <button style={{ ...s.chip, padding: '6px 12px', fontSize: 14, minWidth: 32 }} onClick={() => setTempo(t => Math.min(200, t + 10))}>+</button>
+      </ChunkyButton>
+      <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+        <button style={bpmBtn} onClick={() => { hSelect(); setTempo(t => Math.max(40, t - 10)); }} aria-label="Slower">−</button>
+        <div style={{ minWidth: 90, textAlign: 'center' }}>
+          <div style={{ fontFamily: 'var(--serif)', fontStyle: 'italic', fontSize: 26, fontWeight: 900, color: 'var(--ink)', lineHeight: 1 }}>{tempo}</div>
+          <div style={{ fontSize: 10, color: 'var(--ink3)', fontFamily: 'var(--mono)', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase' }}>BPM</div>
+        </div>
+        <button style={bpmBtn} onClick={() => { hSelect(); setTempo(t => Math.min(200, t + 10)); }} aria-label="Faster">+</button>
       </div>
     </div>
   );
@@ -2760,55 +2935,80 @@ function IOSPaywall({ dispatch }: { dispatch: React.Dispatch<Action> }) {
     setLoading(false);
   }
 
+  const features = [
+    'All 23 lessons from basics to Moonlight Sonata',
+    'Unlimited interval drills',
+    'Full piano library with playback',
+    'AI-generated exercises',
+    'MIDI keyboard support',
+  ];
+
   return (
-    <div style={{ padding: 24, textAlign: 'center', maxWidth: 440, margin: '0 auto' }}>
-      <div style={{ fontSize: 48, marginBottom: 16 }}>♪</div>
-      <h2 style={{ fontFamily: "'Instrument Serif', Georgia, serif", fontSize: 32, color: '#C8A96E', marginBottom: 8 }}>
-        Unlock Sonata
-      </h2>
-      <p style={{ color: '#A8A29E', fontSize: 15, marginBottom: 28, lineHeight: 1.6 }}>
-        You&apos;ve tried the first 3 lessons. Unlock all 23 lessons, unlimited drills, and the full piece library.
-      </p>
+    <div style={{ position: 'relative', minHeight: '100vh', background: 'var(--cream)', fontFamily: 'var(--sans)', overflow: 'hidden', paddingBottom: 40 }}>
+      <StaffBG opacity={0.22} />
+      <FloatingNotes count={6} />
 
-      <div style={{ background: '#1C1917', border: '1px solid rgba(200,169,110,0.2)', borderRadius: 14, padding: '24px 20px', marginBottom: 16 }}>
-        <div style={{ fontSize: 11, color: '#C8A96E', textTransform: 'uppercase', letterSpacing: '0.08em', fontWeight: 500, marginBottom: 6 }}>Sonata Premium — 1 Month</div>
-        <div style={{ fontSize: 36, fontWeight: 600, color: '#FAFAF9', marginBottom: 4 }}>{price}<span style={{ fontSize: 15, fontWeight: 300, color: '#78716C' }}>/month</span></div>
-        <div style={{ fontSize: 12, color: '#78716C', marginBottom: 18 }}>Auto-renewing monthly subscription.</div>
-        <button onClick={handleSubscribe} disabled={loading} className="sonata-primary-btn"
-          style={{ width: '100%', padding: '16px 0', background: '#C8A96E', color: '#0C0A09', border: 'none', borderRadius: 12, fontSize: 16, fontWeight: 600, cursor: 'pointer', fontFamily: "'Outfit', system-ui, sans-serif", opacity: loading ? 0.6 : 1 }}>
-          {loading ? '...' : `Subscribe for ${price}/month`}
+      <div style={{ position: 'relative', zIndex: 2, maxWidth: 520, margin: '0 auto', padding: '20px 20px', textAlign: 'center' }}>
+        <Cleffy size={120} mood="excited" />
+        <Sticker color="gold" rotate={-3} style={{ marginTop: 8, marginBottom: 12 }}>◆ Sonata Premium · 1 Month</Sticker>
+        <h1 style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(40px, 7vw, 56px)', fontWeight: 900, fontStyle: 'italic', color: 'var(--ink)', margin: 0, letterSpacing: '-0.03em', lineHeight: 0.95 }}>
+          Unlock <span style={{ color: 'var(--berry)' }}>everything.</span>
+        </h1>
+        <p style={{ fontSize: 16, color: 'var(--ink2)', margin: '12px 0 24px', fontWeight: 500, lineHeight: 1.55 }}>
+          You&apos;ve tried the first 3 lessons. Unlock all 23 lessons, unlimited drills, and the full piano library.
+        </p>
+
+        {/* Price card */}
+        <div style={{ background: 'var(--gold)', border: '4px solid var(--ink)', borderRadius: 'var(--r3)', padding: '24px 20px', boxShadow: '0 8px 0 var(--gold-deep)', marginBottom: 18, textAlign: 'center' }}>
+          <div style={{ fontFamily: 'var(--serif)', fontSize: 60, fontWeight: 900, fontStyle: 'italic', color: 'var(--ink)', lineHeight: 1 }}>
+            {price}<span style={{ fontSize: 22, color: 'var(--ink2)', fontWeight: 700 }}>/mo</span>
+          </div>
+          <div style={{ fontSize: 12, color: 'var(--ink)', opacity: 0.75, fontWeight: 700, marginBottom: 16, textTransform: 'uppercase', letterSpacing: '0.12em' }}>
+            Auto-renewing monthly subscription
+          </div>
+          <ChunkyButton color="berry" size="xl" onClick={handleSubscribe} disabled={loading} style={{ width: '100%', justifyContent: 'center' }}>
+            {loading ? '...' : `Subscribe for ${price}/month`}
+          </ChunkyButton>
+        </div>
+
+        {error && (
+          <div style={{ color: 'var(--coral-deep)', fontSize: 13, padding: '10px 16px', background: 'rgba(255,107,107,0.18)', border: '3px solid var(--coral)', borderRadius: 'var(--r2)', fontWeight: 700, marginBottom: 14, boxShadow: '0 3px 0 var(--coral-deep)' }}>
+            {error}
+          </div>
+        )}
+
+        {/* Features list */}
+        <div style={{ background: 'var(--paper)', border: '3px solid var(--ink)', borderRadius: 'var(--r2)', padding: 18, boxShadow: '0 5px 0 var(--ink)', marginBottom: 18, textAlign: 'left' }}>
+          <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
+            {features.map((f, i) => (
+              <li key={i} style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '6px 0', color: 'var(--ink)', fontSize: 14, fontWeight: 600 }}>
+                <span style={{ width: 22, height: 22, borderRadius: 999, border: '2px solid var(--ink)', background: 'var(--mint)', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', fontSize: 12, fontWeight: 900, flexShrink: 0 }}>✓</span>
+                {f}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <button onClick={handleRestore} disabled={loading}
+          style={{ background: 'none', border: 'none', color: 'var(--ink2)', fontSize: 13, cursor: 'pointer', fontFamily: 'var(--sans)', padding: 8, fontWeight: 700, textDecoration: 'underline' }}>
+          Restore purchases
         </button>
-      </div>
+        <br />
+        <button onClick={() => dispatch({ type: 'SET_SCREEN', screen: 'menu' })}
+          style={{ background: 'none', border: 'none', color: 'var(--ink3)', fontSize: 13, cursor: 'pointer', fontFamily: 'var(--sans)', padding: 6, fontWeight: 700 }}>
+          Back to menu
+        </button>
 
-      {error && <p style={{ color: '#F87171', fontSize: 13, marginBottom: 12 }}>{error}</p>}
-
-      <ul style={{ textAlign: 'left', color: '#D6D3D1', fontSize: 14, lineHeight: 2, listStyle: 'none', padding: 0, marginBottom: 24 }}>
-        <li>✓ All 23 lessons from basics to Moonlight Sonata</li>
-        <li>✓ Unlimited interval drills</li>
-        <li>✓ Full piano library with playback</li>
-        <li>✓ AI-generated exercises</li>
-        <li>✓ MIDI keyboard support</li>
-      </ul>
-
-      <button onClick={handleRestore} disabled={loading}
-        style={{ background: 'none', border: 'none', color: '#C8A96E', fontSize: 13, cursor: 'pointer', fontFamily: "'Outfit', system-ui, sans-serif", padding: 8, marginBottom: 6 }}>
-        Restore purchases
-      </button>
-      <br />
-      <button onClick={() => dispatch({ type: 'SET_SCREEN', screen: 'menu' })}
-        style={{ background: 'none', border: 'none', color: '#44403C', fontSize: 12, cursor: 'pointer', fontFamily: "'Outfit', system-ui, sans-serif", padding: 6 }}>
-        Back to menu
-      </button>
-
-      <div style={{ fontSize: 11, color: '#78716C', marginTop: 20, lineHeight: 1.7, textAlign: 'left' }}>
-        <p style={{ margin: 0 }}>
-          Payment will be charged to your Apple ID account at confirmation of purchase. Your subscription will automatically renew for {price} per month unless auto-renew is turned off at least 24 hours before the end of the current period. Your account will be charged for renewal, at {price}, within 24 hours prior to the end of the current period. You can manage your subscription and turn off auto-renewal by going to your Apple ID Account Settings after purchase.
-        </p>
-        <p style={{ margin: '10px 0 0', textAlign: 'center' }}>
-          <a href="/terms/" onClick={(e) => { e.preventDefault(); navigate("/terms/"); }} style={{ color: '#A8A29E', textDecoration: 'underline' }}>Terms of Use (EULA)</a>
-          {' · '}
-          <a href="/privacy/" onClick={(e) => { e.preventDefault(); navigate("/privacy/"); }} style={{ color: '#A8A29E', textDecoration: 'underline' }}>Privacy Policy</a>
-        </p>
+        <div style={{ fontSize: 11, color: 'var(--ink3)', marginTop: 20, lineHeight: 1.7, textAlign: 'left', fontWeight: 500 }}>
+          <p style={{ margin: 0 }}>
+            Payment will be charged to your Apple ID account at confirmation of purchase. Your subscription will automatically renew for {price} per month unless auto-renew is turned off at least 24 hours before the end of the current period. Your account will be charged for renewal, at {price}, within 24 hours prior to the end of the current period. You can manage your subscription and turn off auto-renewal by going to your Apple ID Account Settings after purchase.
+          </p>
+          <p style={{ margin: '10px 0 0', textAlign: 'center' }}>
+            <a href="/terms/" onClick={(e) => { e.preventDefault(); navigate("/terms/"); }} style={{ color: 'var(--ink2)', textDecoration: 'underline', fontWeight: 700 }}>Terms of Use (EULA)</a>
+            {' · '}
+            <a href="/privacy/" onClick={(e) => { e.preventDefault(); navigate("/privacy/"); }} style={{ color: 'var(--ink2)', textDecoration: 'underline', fontWeight: 700 }}>Privacy Policy</a>
+          </p>
+        </div>
       </div>
     </div>
   );
@@ -2840,50 +3040,74 @@ function WebPaywall({ dispatch, userId }: { dispatch: React.Dispatch<Action>; us
     setLoading(false);
   }
 
+  const features = [
+    'All 23 lessons from basics to Moonlight Sonata',
+    'Unlimited interval drills',
+    'Full piano library with playback',
+    'AI-generated exercises',
+    'MIDI keyboard support',
+  ];
+
   return (
-    <div style={{ padding: 24, textAlign: 'center', maxWidth: 400, margin: '0 auto' }}>
-      <div style={{ fontSize: 48, marginBottom: 16 }}>♪</div>
-      <h2 style={{ fontFamily: "'Instrument Serif', Georgia, serif", fontSize: 28, color: '#C8A96E', marginBottom: 8 }}>
-        Unlock Sonata
-      </h2>
-      <p style={{ color: '#A8A29E', fontSize: 14, marginBottom: 24, lineHeight: 1.6 }}>
-        You&apos;ve tried the first 3 lessons. Unlock all 23 lessons, unlimited drills, and the full piece library.
-      </p>
+    <div style={{ position: 'relative', minHeight: '100vh', background: 'var(--cream)', fontFamily: 'var(--sans)', overflow: 'hidden', paddingBottom: 40 }}>
+      <StaffBG opacity={0.22} />
+      <FloatingNotes count={6} />
 
-      <div style={{ background: '#1C1917', border: '1px solid rgba(200,169,110,0.2)', borderRadius: 14, padding: '24px 20px', marginBottom: 20 }}>
-        <div style={{ fontSize: 32, fontWeight: 600, color: '#FAFAF9', marginBottom: 4 }}>$10<span style={{ fontSize: 14, fontWeight: 300, color: '#78716C' }}>/month</span></div>
-        <div style={{ fontSize: 12, color: '#78716C', marginBottom: 16 }}>Cancel anytime.</div>
-        <a href="https://morrison844.gumroad.com/l/sonata" target="_blank" rel="noopener noreferrer"
-          style={{ display: 'block', width: '100%', padding: '14px 0', background: '#C8A96E', color: '#0C0A09', border: 'none', borderRadius: 10, fontSize: 15, fontWeight: 500, textDecoration: 'none', textAlign: 'center', fontFamily: "'Outfit', system-ui, sans-serif", boxSizing: 'border-box' }}>
-          Get Sonata Premium
-        </a>
-      </div>
+      <div style={{ position: 'relative', zIndex: 2, maxWidth: 480, margin: '0 auto', padding: '20px 20px', textAlign: 'center' }}>
+        <Cleffy size={120} mood="excited" />
+        <Sticker color="gold" rotate={-3} style={{ marginTop: 8, marginBottom: 12 }}>◆ Premium</Sticker>
+        <h1 style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(40px, 7vw, 56px)', fontWeight: 900, fontStyle: 'italic', color: 'var(--ink)', margin: 0, letterSpacing: '-0.03em', lineHeight: 0.95 }}>
+          Unlock <span style={{ color: 'var(--berry)' }}>everything.</span>
+        </h1>
+        <p style={{ fontSize: 16, color: 'var(--ink2)', margin: '12px 0 24px', fontWeight: 500, lineHeight: 1.55 }}>
+          You&apos;ve tried the first 3 lessons. Unlock all 23 lessons, unlimited drills, and the full piano library.
+        </p>
 
-      <div style={{ background: '#1C1917', border: '1px solid #292524', borderRadius: 14, padding: '20px', marginBottom: 20 }}>
-        <div style={{ fontSize: 11, color: '#78716C', textTransform: 'uppercase', letterSpacing: '0.08em', fontWeight: 500, marginBottom: 10 }}>Already have a license key?</div>
-        <div style={{ display: 'flex', gap: 8 }}>
-          <input type="text" placeholder="XXXXXXXX-XXXXXXXX-..." value={key} onChange={e => setKey(e.target.value)}
-            style={{ flex: 1, padding: '10px 12px', background: '#0C0A09', border: '1px solid #292524', borderRadius: 8, color: '#FAFAF9', fontSize: 12, fontFamily: "'JetBrains Mono', monospace", outline: 'none' }} />
-          <button onClick={handleActivate} disabled={loading || !key.trim()}
-            style={{ padding: '10px 16px', background: '#C8A96E', color: '#0C0A09', border: 'none', borderRadius: 8, fontSize: 13, fontWeight: 500, cursor: 'pointer', fontFamily: "'Outfit', system-ui, sans-serif", opacity: loading || !key.trim() ? 0.5 : 1 }}>
-            {loading ? '...' : 'Activate'}
-          </button>
+        {/* Price card */}
+        <div style={{ background: 'var(--gold)', border: '4px solid var(--ink)', borderRadius: 'var(--r3)', padding: '24px 20px', boxShadow: '0 8px 0 var(--gold-deep)', marginBottom: 18 }}>
+          <div style={{ fontFamily: 'var(--serif)', fontSize: 60, fontWeight: 900, fontStyle: 'italic', color: 'var(--ink)', lineHeight: 1 }}>
+            $10<span style={{ fontSize: 22, color: 'var(--ink2)', fontWeight: 700 }}>/mo</span>
+          </div>
+          <div style={{ fontSize: 12, color: 'var(--ink)', opacity: 0.75, fontWeight: 700, marginBottom: 16, textTransform: 'uppercase', letterSpacing: '0.12em' }}>
+            Cancel anytime
+          </div>
+          <a href="https://morrison844.gumroad.com/l/sonata" target="_blank" rel="noopener noreferrer" style={{ display: 'block', textDecoration: 'none' }}>
+            <ChunkyButton color="berry" size="xl" style={{ width: '100%', justifyContent: 'center' }}>Get Sonata Premium</ChunkyButton>
+          </a>
         </div>
-        {error && <p style={{ color: '#F87171', fontSize: 12, marginTop: 8, textAlign: 'left' }}>{error}</p>}
+
+        {/* License key activation */}
+        <div style={{ background: 'var(--paper)', border: '3px solid var(--ink)', borderRadius: 'var(--r2)', padding: 18, boxShadow: '0 5px 0 var(--ink)', marginBottom: 18, textAlign: 'left' }}>
+          <div style={{ fontSize: 11, color: 'var(--ink3)', textTransform: 'uppercase', letterSpacing: '0.15em', fontWeight: 800, marginBottom: 10 }}>Already have a license key?</div>
+          <div style={{ display: 'flex', gap: 8 }}>
+            <input type="text" placeholder="XXXXXXXX-XXXXXXXX-..." value={key} onChange={e => setKey(e.target.value)}
+              style={{ flex: 1, padding: '10px 12px', background: 'var(--cream)', border: '3px solid var(--ink)', borderRadius: 'var(--r1)', color: 'var(--ink)', fontSize: 12, fontFamily: 'var(--mono)', fontWeight: 600, outline: 'none', boxShadow: '0 3px 0 var(--ink)' }} />
+            <ChunkyButton color="gold" size="sm" onClick={handleActivate} disabled={loading || !key.trim()}>
+              {loading ? '...' : 'Activate'}
+            </ChunkyButton>
+          </div>
+          {error && (
+            <div style={{ color: 'var(--coral-deep)', fontSize: 12, marginTop: 10, textAlign: 'left', fontWeight: 700 }}>{error}</div>
+          )}
+        </div>
+
+        {/* Features list */}
+        <div style={{ background: 'var(--paper)', border: '3px solid var(--ink)', borderRadius: 'var(--r2)', padding: 18, boxShadow: '0 5px 0 var(--ink)', marginBottom: 18, textAlign: 'left' }}>
+          <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
+            {features.map((f, i) => (
+              <li key={i} style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '6px 0', color: 'var(--ink)', fontSize: 14, fontWeight: 600 }}>
+                <span style={{ width: 22, height: 22, borderRadius: 999, border: '2px solid var(--ink)', background: 'var(--mint)', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', fontSize: 12, fontWeight: 900, flexShrink: 0 }}>✓</span>
+                {f}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <button onClick={() => dispatch({ type: 'SET_SCREEN', screen: 'menu' })}
+          style={{ background: 'none', border: 'none', color: 'var(--ink3)', fontSize: 13, cursor: 'pointer', fontFamily: 'var(--sans)', padding: 6, fontWeight: 700 }}>
+          Back to menu
+        </button>
       </div>
-
-      <ul style={{ textAlign: 'left', color: '#D6D3D1', fontSize: 13, lineHeight: 2, listStyle: 'none', padding: 0, marginBottom: 20 }}>
-        <li>✓ All 23 lessons from basics to Moonlight Sonata</li>
-        <li>✓ Unlimited interval drills</li>
-        <li>✓ Full piano library with playback</li>
-        <li>✓ AI-generated exercises</li>
-        <li>✓ MIDI keyboard support</li>
-      </ul>
-
-      <button onClick={() => dispatch({ type: 'SET_SCREEN', screen: 'menu' })}
-        style={{ background: 'none', border: 'none', color: '#44403C', fontSize: 12, cursor: 'pointer', fontFamily: "'Outfit', system-ui, sans-serif" }}>
-        Back to menu
-      </button>
     </div>
   );
 }

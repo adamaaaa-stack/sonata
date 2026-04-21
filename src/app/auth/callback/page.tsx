@@ -4,6 +4,9 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { supabase } from "@/lib/supabase";
 import { isNative, navigate } from "@/lib/platform";
+import { StaffBG, FloatingNotes } from "@/app/app/design";
+import { Cleffy } from "@/app/app/Cleffy";
+import "@/app/app/sonata.css";
 
 export default function AuthCallback() {
   const router = useRouter();
@@ -80,68 +83,39 @@ export default function AuthCallback() {
   }, [router]);
 
   return (
-    <div style={styles.page}>
-      <div style={styles.card}>
-        <h1 style={styles.title}>Sonata</h1>
+    <div style={{ position: 'relative', minHeight: '100vh', background: 'var(--cream)', fontFamily: 'var(--sans)', overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 20 }}>
+      <StaffBG opacity={0.22} />
+      <FloatingNotes count={6} />
+      <div style={{
+        position: 'relative', zIndex: 2,
+        background: 'var(--paper)', border: '4px solid var(--ink)',
+        borderRadius: 'var(--r3)', padding: '36px 28px',
+        textAlign: 'center', maxWidth: 380, width: '100%',
+        boxShadow: '0 8px 0 var(--ink)',
+      }}>
+        <Cleffy size={110} mood={error ? 'sad' : 'thinking'} />
+        <h1 style={{ fontFamily: 'var(--serif)', fontSize: 36, fontWeight: 900, fontStyle: 'italic', color: 'var(--ink)', margin: '10px 0 14px', letterSpacing: '-0.03em' }}>
+          {error ? 'Hmm…' : 'Signing you in…'}
+        </h1>
         {error ? (
-          <p style={styles.error}>{error}</p>
+          <p style={{ color: 'var(--coral-deep)', fontSize: 14, fontWeight: 700, margin: 0, lineHeight: 1.5 }}>{error}</p>
         ) : (
           <>
-            <div style={styles.spinner} />
-            <p style={styles.text}>Signing you in...</p>
+            <div style={{
+              width: 36, height: 36,
+              border: '4px solid var(--parchment)',
+              borderTopColor: 'var(--berry)',
+              borderRadius: '50%',
+              margin: '0 auto 12px',
+              animation: 'spin 0.8s linear infinite',
+            }} />
+            <p style={{ color: 'var(--ink2)', fontSize: 14, fontWeight: 600, margin: 0, fontStyle: 'italic', fontFamily: 'var(--serif)' }}>
+              One moment while Cleffy opens the door.
+            </p>
           </>
         )}
       </div>
-      <style>{`
-        @keyframes spin {
-          to { transform: rotate(360deg); }
-        }
-      `}</style>
     </div>
   );
 }
 
-const styles: Record<string, React.CSSProperties> = {
-  page: {
-    minHeight: "100vh",
-    background: "#0C0A09",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    fontFamily: "'Outfit', system-ui, -apple-system, sans-serif",
-    padding: 20,
-  },
-  card: {
-    background: "#1C1917",
-    border: "1px solid #292524",
-    borderRadius: 14,
-    padding: "40px 32px",
-    textAlign: "center",
-    maxWidth: 360,
-    width: "100%",
-  },
-  title: {
-    fontFamily: "'Instrument Serif', Georgia, serif",
-    fontSize: 36,
-    fontWeight: 400,
-    color: "#C8A96E",
-    marginBottom: 24,
-  },
-  spinner: {
-    width: 32,
-    height: 32,
-    border: "3px solid #292524",
-    borderTopColor: "#C8A96E",
-    borderRadius: "50%",
-    margin: "0 auto 16px",
-    animation: "spin 0.8s linear infinite",
-  },
-  text: {
-    color: "#78716C",
-    fontSize: 14,
-  },
-  error: {
-    color: "#F87171",
-    fontSize: 14,
-  },
-};
