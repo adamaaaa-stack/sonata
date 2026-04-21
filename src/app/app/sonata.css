@@ -3,58 +3,79 @@
    ============================================================ */
 
 :root {
-  --bg: #0C0A09; --bg2: #1C1917; --bg3: #292524; --bg4: #44403C;
-  --text: #FAFAF9; --text2: #A8A29E; --text3: #78716C;
-  --gold: #C8A96E; --gold2: #A68B4B; --gold-bg: rgba(200,169,110,0.08);
-  --green: #4ADE80; --green-bg: rgba(74,222,128,0.12);
-  --yellow: #FACC15; --yellow-bg: rgba(250,204,21,0.12);
-  --orange: #FB923C; --orange-bg: rgba(251,146,60,0.12);
-  --red: #F87171; --red-bg: rgba(248,113,113,0.12);
-  --blue: #60A5FA; --blue-bg: rgba(96,165,250,0.12);
+  /* === NEW DESIGN SYSTEM — cream paper + ink + candy accents === */
 
-  /* Happy palette — warm secondary accents per section */
-  --coral: #FF9F7E;    --coral-bg: rgba(255,159,126,0.12);
-  --mint:  #7FD8BE;    --mint-bg:  rgba(127,216,190,0.12);
-  --peach: #FFD993;    --peach-bg: rgba(255,217,147,0.12);
-  --lilac: #B8A6E0;    --lilac-bg: rgba(184,166,224,0.12);
-  --sky:   #8BC9FF;    --sky-bg:   rgba(139,201,255,0.12);
+  /* Paper & ink */
+  --cream:     #FFF6E4;
+  --paper:     #FBEFD6;
+  --parchment: #F3E1BA;
+  --ink:       #2A1E14;
+  --ink2:      #4B3826;
+  --ink3:      #8A6E4F;
 
-  --r: 10px; --r2: 14px; --r3: 18px;
-  --serif: 'Instrument Serif', Georgia, serif;
-  --sans: 'Nunito', 'Outfit', system-ui, -apple-system, sans-serif;
+  /* Gold (primary brand / streaks / XP) */
+  --gold:      #E8A93C;
+  --gold-deep: #B37A14;
+  --gold-lite: #FFD987;
+
+  /* Candy accents (each has a deep pair for chunky shadows) */
+  --coral:      #FF6B6B;   --coral-deep:  #D84545;
+  --mint:       #3ECF8E;   --mint-deep:   #2AA872;
+  --sky:        #4FB4FF;   --sky-deep:    #2A8BDB;
+  --lilac:      #9C7CE8;   --lilac-deep:  #7452C8;
+  --berry:      #E84F8C;   --berry-deep:  #B8306A;
+  --peach:      #FFB27D;   --peach-deep:  #E08650;
+
+  /* Semantic */
+  --correct:   #3ECF8E;
+  --wrong:     #FF6B6B;
+
+  /* Chunky radii */
+  --r1: 14px;
+  --r2: 22px;
+  --r3: 32px;
+  --r4: 48px;
+
+  /* Typography */
+  --serif: 'Playfair Display', 'EB Garamond', Georgia, serif;
+  --sans:  'Space Grotesk', 'Inter', -apple-system, sans-serif;
+  --mono:  'JetBrains Mono', ui-monospace, monospace;
 
   /* Motion curves */
-  --ease: ease;
-  --bounce: cubic-bezier(0.34, 1.56, 0.64, 1);     /* snappy spring */
-  --squish: cubic-bezier(0.68, -0.3, 0.32, 1.6);   /* overshoots */
-  --soft: cubic-bezier(0.2, 0.8, 0.3, 1);          /* smooth ease-out */
+  --bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --squish: cubic-bezier(0.68, -0.3, 0.32, 1.6);
+  --soft:   cubic-bezier(0.2, 0.8, 0.3, 1);
+
+  /* === LEGACY ALIASES — remap old tokens to new palette === */
+  --bg: var(--cream);
+  --bg2: var(--paper);
+  --bg3: var(--parchment);
+  --bg4: var(--ink3);
+  --text: var(--ink);
+  --text2: var(--ink2);
+  --text3: var(--ink3);
+  --gold2: var(--gold-deep);
+  --gold-bg: rgba(232,169,60,0.08);
+  --green: var(--mint);
+  --green-bg: rgba(62,207,142,0.14);
+  --yellow: var(--gold);
+  --yellow-bg: rgba(232,169,60,0.14);
+  --orange: var(--peach);
+  --orange-bg: rgba(255,178,125,0.14);
+  --red: var(--coral);
+  --red-bg: rgba(255,107,107,0.14);
+  --blue: var(--sky);
+  --blue-bg: rgba(79,180,255,0.14);
+  --coral-bg: rgba(255,107,107,0.12);
+  --mint-bg: rgba(62,207,142,0.12);
+  --peach-bg: rgba(255,178,125,0.12);
+  --lilac-bg: rgba(156,124,232,0.12);
+  --sky-bg: rgba(79,180,255,0.12);
+  --r: var(--r1);
 }
 
-/* ============================================================
-   PARCHMENT LIGHT THEME — applied via `html.parchment`
-   Warm cream paper with brown ink — like an old music book.
-   ============================================================ */
-html.parchment {
-  --bg: #F5EEDE; --bg2: #EDE4CF; --bg3: #D8CBAE; --bg4: #C0B08C;
-  --text: #3A2E21; --text2: #6B5947; --text3: #8C7A60;
-  --gold: #8B6A2B; --gold2: #6B4E17; --gold-bg: rgba(139,106,43,0.10);
-  --green: #3A9C5A; --green-bg: rgba(58,156,90,0.14);
-  --red:   #C94F4F; --red-bg:   rgba(201,79,79,0.14);
-  --orange: #D97A2C; --orange-bg: rgba(217,122,44,0.14);
-  --yellow: #C49B1B; --yellow-bg: rgba(196,155,27,0.14);
-  --blue:  #2E6FB8; --blue-bg:  rgba(46,111,184,0.14);
-}
-html.parchment body {
-  background:
-    radial-gradient(ellipse at 20% 10%, rgba(139,106,43,0.06), transparent 60%),
-    radial-gradient(ellipse at 80% 90%, rgba(139,106,43,0.04), transparent 55%),
-    #F5EEDE !important;
-}
-html.parchment .sonata-menu-btn:hover {
-  background: linear-gradient(135deg, rgba(139,106,43,0.08), var(--bg2)) !important;
-}
-/* Dark theme notation gets inverted by a CSS filter — parchment doesn't need that */
-html.parchment .sonata-notation svg { filter: none !important; }
+/* Parchment theme was removed in v2 — cream is the one and only theme */
+html.parchment { /* no-op for safety during transition */ }
 
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(10px); }
@@ -70,6 +91,54 @@ html.parchment .sonata-notation svg { filter: none !important; }
 }
 @keyframes spin {
   to { transform: rotate(360deg); }
+}
+
+/* ============================================================
+   v2 DESIGN SYSTEM — animation library ("sn-" prefix)
+   ============================================================ */
+@keyframes sn-float       { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-6px)} }
+@keyframes sn-float-slow  { 0%,100%{transform:translateY(0) rotate(-2deg)} 50%{transform:translateY(-8px) rotate(2deg)} }
+@keyframes sn-breathe     { 0%,100%{transform:scale(1)} 50%{transform:scale(1.025)} }
+@keyframes sn-bounce      { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-10px)} }
+@keyframes sn-wiggle      { 0%,100%{transform:rotate(-3deg)} 50%{transform:rotate(3deg)} }
+@keyframes sn-blink       { 0%,92%,100%{transform:scaleY(1)} 95%{transform:scaleY(0.08)} }
+@keyframes sn-pulse       { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.7;transform:scale(1.04)} }
+@keyframes sn-spin        { to { transform: rotate(360deg) } }
+@keyframes sn-flame       { 0%,100%{transform:scale(1) rotate(-2deg)} 50%{transform:scale(1.08) rotate(2deg)} }
+@keyframes sn-candle      { 0%,100%{opacity:1;transform:scale(1,1)} 25%{opacity:.85;transform:scale(1.05,.96)} 50%{opacity:.92;transform:scale(.96,1.08)} 75%{opacity:.88;transform:scale(1.02,.98)} }
+@keyframes sn-metro       { 0%,100%{transform:rotate(-22deg)} 50%{transform:rotate(22deg)} }
+@keyframes sn-shimmer     { 0%{background-position:-200% 0} 100%{background-position:200% 0} }
+@keyframes sn-noteRise    { 0%{opacity:0;transform:translate(-50%,0) scale(.8) rotate(-10deg)} 20%{opacity:1} 100%{opacity:0;transform:translate(-50%,-140px) scale(1.3) rotate(20deg)} }
+@keyframes sn-pageTurn    { from{opacity:0;transform:rotateY(-8deg) translateX(40px)} to{opacity:1;transform:rotateY(0) translateX(0)} }
+@keyframes sn-confetti    { 0%{transform:translateY(-20px) rotate(0deg);opacity:1} 100%{transform:translateY(120vh) rotate(720deg);opacity:0} }
+@keyframes sn-celeb       { 0%{transform:scale(.5) rotate(-12deg);opacity:0} 55%{transform:scale(1.2) rotate(6deg);opacity:1} 100%{transform:scale(1) rotate(0);opacity:1} }
+@keyframes sn-plant-sway  { 0%,100%{transform:rotate(-2deg)} 50%{transform:rotate(2deg)} }
+@keyframes sn-ripple      { 0%{transform:translate(-50%,-50%) scale(.6);opacity:.55} 100%{transform:translate(-50%,-50%) scale(2.2);opacity:0} }
+
+/* ============================================================
+   CHUNKY card + button system
+   ============================================================ */
+.sn-btn { transition: transform .2s cubic-bezier(.34,1.56,.64,1), box-shadow .2s, filter .2s; display: inline-flex; align-items: center; gap: 10px; cursor: pointer; font-family: var(--sans); font-weight: 800; border: 3px solid var(--ink); border-radius: var(--r2); text-transform: uppercase; letter-spacing: 0.02em; }
+.sn-btn:hover { transform: translateY(-3px); }
+.sn-btn:active { transform: translateY(3px); box-shadow: 0 2px 0 var(--shadow, var(--gold-deep)) !important; transition-duration: .05s; }
+.sn-chunky { box-shadow: 0 6px 0 var(--shadow, var(--gold-deep)); }
+
+.sn-staff-bg {
+  background-image:
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0 28px,
+      rgba(179,122,20,.08) 28px 29px,
+      transparent 29px 36px,
+      rgba(179,122,20,.08) 36px 37px,
+      transparent 37px 44px,
+      rgba(179,122,20,.08) 44px 45px,
+      transparent 45px 52px,
+      rgba(179,122,20,.08) 52px 53px,
+      transparent 53px 60px,
+      rgba(179,122,20,.08) 60px 61px,
+      transparent 61px 160px
+    );
 }
 
 /* ============================================================

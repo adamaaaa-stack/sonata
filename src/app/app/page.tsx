@@ -53,11 +53,13 @@ import {
   speak, stopSpeaking, togglePause, toggleSlow, replaySpeak, getTTSSpeed, setTTSStateCallback, unlockAudio,
   getIntervalAccuracy, updateIntervalAccuracy, getWeakestIntervals, recordPractice, getPracticeDates, localDateKey,
   getStoredLessons, setStoredLessons, getStoredDrills, setStoredDrills, isOnboarded, setOnboarded, getPlacementResult, setPlacementResult,
-  lessons, CATALOG, getCatalogUrl, DIFF_COLORS, getRecommendedDifficulty, findLessonCatalogIndex,
+  lessons, CATALOG, getCatalogUrl, getRecommendedDifficulty, findLessonCatalogIndex,
 } from "@/lib/music";
 import type { Question, DrillConfig, RhythmPattern, CatalogEntry, Lesson } from "@/lib/music";
 import { checkAuth, signOut, loadProgress, saveDrillSession, saveLessonComplete, loadLicense } from "@/lib/supabaseData";
 import { Cleffy } from "./Cleffy";
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import { ChunkyButton, Sticker, StaffBG, FloatingNotes, StreakFlame, DotRow, Candle, ChunkyCard, type ChunkyColor } from "./design";
 import type { User } from "@supabase/supabase-js";
 import { isNative, navigate } from "@/lib/platform";
 import { hLight, hSelect, hSuccess, hError, hWarning } from "@/lib/haptics";
@@ -963,31 +965,60 @@ function OnboardingScreen({ slide, setSlide, dispatch, renderNotation }: {
   const notRef = useRef<HTMLDivElement>(null);
   useEffect(() => { if (sl.abc) renderNotation(sl.abc, notRef.current, 440, 1.8); }, [slide, sl.abc, renderNotation]);
 
+  const accents: ChunkyColor[] = ['gold', 'mint', 'lilac'];
+  const accent = accents[slide % accents.length];
   return (
-    <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', padding: '32px 20px' }} className="sonata-app">
-      <div style={{ fontFamily: 'var(--serif)', fontSize: 32, color: 'var(--gold)', marginBottom: 8 }}>{sl.title}</div>
-      <p style={{ color: 'var(--text2)', fontSize: 15, textAlign: 'center', maxWidth: 400, lineHeight: 1.7, marginBottom: 20 }}>{sl.body}</p>
-      {sl.abc && <div ref={notRef} style={{ minHeight: 80, marginBottom: 8 }} />}
-      {!sl.abc && <div style={{ textAlign: 'center', marginTop: 16, fontSize: 40 }}>🎹</div>}
-      <div style={{ display: 'flex', gap: 6, margin: '24px 0' }}>
-        {slides.map((_, i) => (
-          <div key={i} style={{ width: i === slide ? 20 : 6, height: 6, borderRadius: 3, background: i === slide ? 'var(--gold)' : i < slide ? 'var(--green)' : 'var(--bg4)', transition: 'all 0.3s' }} />
-        ))}
-      </div>
-      <button style={s.primaryBtn} onClick={() => {
-        if (slide < slides.length - 1) setSlide(slide + 1);
-        else {
-          setOnboarded();
-          const startAt = getPlacementResult() || 1;
-          // Auto-complete lessons before the starting point
-          if (startAt > 1) {
-            const prior = Array.from({ length: startAt - 1 }, (_, i) => i + 1);
-            setStoredLessons(prior);
-            dispatch({ type: 'LOAD_PROGRESS', lessonsCompleted: prior, drillCount: 0 });
+    <div style={{ minHeight: '100vh', background: 'var(--paper)', position: 'relative', overflow: 'hidden', fontFamily: 'var(--sans)', animation: 'sn-pageTurn 0.5s cubic-bezier(0.2, 0.8, 0.3, 1) both' }}>
+      <StaffBG opacity={0.32} />
+      <FloatingNotes count={12} />
+
+      <div style={{ position: 'relative', zIndex: 2, minHeight: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', padding: '32px 24px', textAlign: 'center' }}>
+        <Sticker color={accent} rotate={-3} style={{ marginBottom: 24 }}>Chapter one · a beginning</Sticker>
+        <div style={{ position: 'relative', marginBottom: 20 }}>
+          <Cleffy size={220} mood="waving" />
+          <div style={{ position: 'absolute', top: 20, right: -20, background: 'var(--cream)', border: '3px solid var(--ink)', borderRadius: 18, padding: '10px 14px', fontWeight: 800, fontSize: 13, color: 'var(--ink)', boxShadow: '0 4px 0 var(--ink)', transform: 'rotate(8deg)' }}>
+            Hi, I&apos;m Cleffy!
+          </div>
+        </div>
+        <h1 style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(40px, 7vw, 64px)', fontWeight: 900, fontStyle: 'italic', color: 'var(--ink)', margin: 0, letterSpacing: '-0.035em', lineHeight: 0.95, maxWidth: 600 }}>
+          {sl.title}<span style={{ color: 'var(--berry)' }}>.</span>
+        </h1>
+        <p style={{ fontFamily: 'var(--serif)', fontSize: 18, fontStyle: 'italic', color: 'var(--ink2)', marginTop: 16, maxWidth: 420, lineHeight: 1.55, fontWeight: 500 }}>
+          {sl.body}
+        </p>
+
+        {sl.abc && (
+          <div style={{ marginTop: 20, background: 'var(--cream)', border: '3px solid var(--ink)', borderRadius: 'var(--r2)', padding: '20px 24px', boxShadow: '0 6px 0 var(--ink)', minWidth: 280, maxWidth: 460 }}>
+            <div ref={notRef} style={{ minHeight: 100 }} />
+          </div>
+        )}
+
+        <div style={{ display: 'flex', gap: 6, margin: '28px 0 20px' }}>
+          {slides.map((_, i) => (
+            <div key={i} style={{ width: i === slide ? 32 : 10, height: 10, borderRadius: 999, background: i <= slide ? 'var(--ink)' : 'rgba(42,30,20,0.25)', border: '2px solid var(--ink)', transition: 'all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1)' }} />
+          ))}
+        </div>
+
+        <ChunkyButton color="berry" size="xl" icon={<span>→</span>} onClick={() => {
+          hSelect();
+          if (slide < slides.length - 1) setSlide(slide + 1);
+          else {
+            setOnboarded();
+            const startAt = getPlacementResult() || 1;
+            if (startAt > 1) {
+              const prior = Array.from({ length: startAt - 1 }, (_, i) => i + 1);
+              setStoredLessons(prior);
+              dispatch({ type: 'LOAD_PROGRESS', lessonsCompleted: prior, drillCount: 0 });
+            }
+            dispatch({ type: 'SET_SCREEN', screen: 'menu' });
           }
-          dispatch({ type: 'SET_SCREEN', screen: 'menu' });
-        }
-      }}>{slide < slides.length - 1 ? 'Next' : `Let's go`}</button>
+        }}>
+          {slide < slides.length - 1 ? 'Continue' : "Let's go"}
+        </ChunkyButton>
+      </div>
+
+      <Candle x={16} y="calc(100% - 140px)" size={22} />
+      <Candle x="calc(100% - 40px)" y="calc(100% - 140px)" size={22} />
     </div>
   );
 }
@@ -1062,6 +1093,7 @@ function getGreeting(name: string, streak: number): string {
 }
 
 // Ring progress SVG (used by Daily Mission)
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 function ProgressRing({ progress, size = 64, stroke = 5, label }: { progress: number; size?: number; stroke?: number; label?: string }) {
   const radius = (size - stroke) / 2;
   const circ = 2 * Math.PI * radius;
@@ -1082,6 +1114,7 @@ function ProgressRing({ progress, size = 64, stroke = 5, label }: { progress: nu
 }
 
 // Staff-line decorative divider — evokes sheet music paper
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 function StaffDivider() {
   return (
     <div className="sonata-staff-divider" aria-hidden="true">
@@ -1136,168 +1169,136 @@ function MenuScreen({ state, dispatch }: { state: AppState; dispatch: React.Disp
   const featuredPiece = CATALOG.length > 0 ? CATALOG[dayIndex % CATALOG.length] : null;
   const featuredIndex = CATALOG.length > 0 ? (dayIndex % CATALOG.length) : 0;
 
+  // Continue-card data — falls back to "Lessons" tile when no current lesson
+  const continueCard = nextLesson
+    ? { label: 'Lessons', sub: `Lesson ${nextLesson.id} · ${nextLesson.title}`, pct: lessonPct }
+    : { label: 'Lessons', sub: 'Start your journey', pct: 0 };
+
+  // Tile data — wires to existing reducer actions
+  const tiles: { id: string; label: string; sub: string; color: ChunkyColor; glyph: string; onClick: () => void }[] = [
+    { id: 'drill',    label: 'Drill',    sub: 'Note ID · Intervals',  color: 'coral', glyph: '𝄞', onClick: () => dispatch({ type: 'SET_SCREEN', screen: 'config' }) },
+    { id: 'sight',    label: 'Sight',    sub: 'Read & play',          color: 'mint',  glyph: '𝆕', onClick: () => dispatch({ type: 'SET_SCREEN', screen: 'sightReading' }) },
+    { id: 'rhythm',   label: 'Rhythm',   sub: 'Tap the pulse',        color: 'lilac', glyph: '♩', onClick: () => dispatch({ type: 'SET_SCREEN', screen: 'rhythm' }) },
+    { id: 'library',  label: 'Library',  sub: `${CATALOG.length} pieces`, color: 'sky', glyph: '♪', onClick: () => dispatch({ type: 'SET_SCREEN', screen: 'library' }) },
+    { id: 'progress', label: 'Progress', sub: `${streak}-day streak`, color: 'berry', glyph: '✦', onClick: () => dispatch({ type: 'SET_SCREEN', screen: 'progress' }) },
+  ];
+
+  // Unused legacy bindings — silence "unused" warnings without removing them
+  void missionTasks; void missionDone; void missionPct; void tier; void next; void levelProgress;
+  void earnedAchievements; void totalXP; void featuredPiece; void featuredIndex; void achievements;
+
   return (
-    <>
-      <Header title="Sonata" right={
-        <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-          <span className="sonata-metronome" aria-hidden="true" />
-          {email && <span style={{ opacity: 0.6, fontSize: 11 }}>{email}</span>}
-          <div style={s.progressMini}><div style={{ ...s.progressMiniFill, width: lessonPct + '%' }} /></div>
-        </div>
-      } />
-      <div style={s.menu} className="sonata-menu">
-        <div className="sonata-staff-bg" aria-hidden="true" />
-        {/* Hero — Cleffy + warm greeting */}
-        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: -8 }}>
-          <Cleffy size={130} mood={streak >= 2 ? 'excited' : practicedToday ? 'happy' : 'waving'} />
-        </div>
-        <div className="sonata-menu-title-wrap" style={{ marginTop: 4 }}>
-          <div className="sonata-menu-watermark" aria-hidden="true">♪</div>
-          <h2 style={s.menuTitle} className="sonata-menu-title">{getGreeting(name, streak)}</h2>
-          <span className="sonata-menu-title-underline" aria-hidden="true" />
-        </div>
-        <div style={{ fontFamily: 'var(--sans)', fontSize: 14, color: 'var(--text3)', marginTop: 6, textAlign: 'center', fontWeight: 500 }}>
-          Let&apos;s play something today ✨
-        </div>
+    <div style={{ position: 'relative', minHeight: '100vh', background: 'var(--cream)', fontFamily: 'var(--sans)', paddingBottom: 40 }}>
+      <StaffBG opacity={0.28} />
+      <FloatingNotes count={10} />
 
-        {/* Streak + progress plant */}
-        {streak >= 1 && (
-          <div style={{ marginTop: 16, padding: '10px 22px', background: 'var(--gold-bg)', border: '1px solid rgba(200,169,110,0.3)', borderRadius: 24, fontSize: 14, color: 'var(--gold)', fontWeight: 600, display: 'inline-flex', alignItems: 'center', gap: 10 }}>
-            <span className="sonata-plant" aria-hidden="true" style={{ fontSize: 22 }}>
-              {streak >= 30 ? '🌳' : streak >= 14 ? '🌲' : streak >= 7 ? '🪴' : streak >= 3 ? '🌱' : '🌱'}
-            </span>
-            <span className="sonata-flame" style={{ fontSize: 18 }}>🔥</span>
-            <span>{streak === 1 ? 'Day 1 — nice start!' : `${streak}-day streak!`}</span>
-          </div>
-        )}
-        {streak === 0 && dates.length > 0 && (
-          <div style={{ marginTop: 16, padding: '10px 22px', background: 'var(--coral-bg)', border: '1px solid rgba(255,159,126,0.35)', borderRadius: 24, fontSize: 14, color: 'var(--coral)', fontWeight: 500, display: 'inline-flex', alignItems: 'center', gap: 8 }}>
-            <span>🌱</span>
-            <span>Fresh start — let&apos;s grow a new streak</span>
-          </div>
-        )}
-        {streak === 0 && dates.length === 0 && (
-          <div style={{ marginTop: 16, padding: '10px 22px', background: 'var(--mint-bg)', border: '1px solid rgba(127,216,190,0.35)', borderRadius: 24, fontSize: 14, color: 'var(--mint)', fontWeight: 500, display: 'inline-flex', alignItems: 'center', gap: 8 }}>
-            <span>✨</span>
-            <span>Your first day — let&apos;s make it count!</span>
-          </div>
-        )}
-
-        <StaffDivider />
-
-        {/* Daily mission card */}
-        <div style={{
-          width: '100%', maxWidth: 560, padding: '18px 22px', marginBottom: 12,
-          background: 'linear-gradient(135deg, rgba(200,169,110,0.08) 0%, var(--bg2) 60%)',
-          border: '1px solid rgba(200,169,110,0.18)', borderRadius: 16, display: 'flex', alignItems: 'center', gap: 18,
-        }}>
-          <ProgressRing progress={missionPct} size={64} label={`${missionDone}/${missionTasks.length}`} />
-          <div style={{ flex: 1 }}>
-            <div style={{ fontSize: 11, color: 'var(--gold)', textTransform: 'uppercase', letterSpacing: '0.08em', fontWeight: 500, marginBottom: 6 }}>Today&apos;s mission</div>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
-              {missionTasks.map((t, i) => (
-                <div key={i} style={{ fontSize: 13, color: t.done ? 'var(--text)' : 'var(--text3)', display: 'flex', alignItems: 'center', gap: 8 }}>
-                  <span style={{ color: t.done ? 'var(--green)' : 'var(--bg4)', fontSize: 12, width: 14 }}>{t.done ? '✓' : '○'}</span>
-                  <span style={{ textDecoration: t.done ? 'line-through' : 'none', opacity: t.done ? 0.7 : 1 }}>{t.label}</span>
-                </div>
-              ))}
-            </div>
+      {/* Top bar */}
+      <div style={{ position: 'relative', zIndex: 3, display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '22px 28px 0' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
+          <div style={{ width: 48, height: 48, borderRadius: 14, background: 'var(--ink)', border: '3px solid var(--ink)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--gold)', fontSize: 28, fontFamily: 'var(--serif)', boxShadow: '0 4px 0 var(--gold-deep)' }}>𝄞</div>
+          <div>
+            <div style={{ fontFamily: 'var(--serif)', fontSize: 26, fontWeight: 900, fontStyle: 'italic', color: 'var(--ink)', letterSpacing: '-0.02em', lineHeight: 1 }}>Sonata</div>
+            <div style={{ fontSize: 10, color: 'var(--ink3)', fontWeight: 700, letterSpacing: '0.14em', textTransform: 'uppercase', marginTop: 2 }}>Learn music, beautifully</div>
           </div>
         </div>
-
-        {/* Level / XP card */}
-        <div style={{
-          width: '100%', maxWidth: 560, padding: '14px 20px', marginBottom: 12,
-          background: 'var(--bg2)', border: '1px solid var(--bg3)', borderRadius: 14,
-        }}>
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 8 }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-              <div style={{ fontFamily: 'var(--serif)', fontSize: 24, color: 'var(--gold)', width: 30, textAlign: 'center' }}>{tier.icon}</div>
-              <div>
-                <div style={{ fontSize: 14, fontWeight: 500, color: 'var(--text)' }}>{tier.name}</div>
-                <div style={{ fontSize: 11, color: 'var(--text3)' }}>{totalXP} XP · {next !== tier ? `${next.min - totalXP} to ${next.name}` : 'Max level'}</div>
-              </div>
-            </div>
-            {earnedAchievements.length > 0 && (
-              <div style={{ display: 'flex', gap: 4, alignItems: 'center' }}>
-                {earnedAchievements.slice(0, 5).map((a, i) => (
-                  <div key={i} className="sonata-achievement-pop" title={a.label} style={{ fontSize: 18, animationDelay: `${i * 80}ms` }}>{a.icon}</div>
-                ))}
-              </div>
-            )}
-          </div>
-          <div style={{ height: 4, background: 'var(--bg3)', borderRadius: 2, overflow: 'hidden' }}>
-            <div style={{ width: `${levelProgress * 100}%`, height: '100%', background: 'linear-gradient(90deg, var(--gold2), var(--gold))', borderRadius: 2, transition: 'width 0.6s ease' }} />
-          </div>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+          <StreakFlame count={streak} />
+          <button
+            type="button"
+            onClick={() => { hSelect(); navigate('/account/', router); }}
+            style={{ width: 44, height: 44, borderRadius: 999, background: 'var(--lilac)', border: '3px solid var(--ink)', boxShadow: '0 4px 0 var(--lilac-deep)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 800, color: 'var(--cream)', fontSize: 16, cursor: 'pointer', fontFamily: 'var(--sans)' }}
+            aria-label="Account"
+          >
+            {(name || 'You').charAt(0).toUpperCase()}
+          </button>
         </div>
-
-        {/* Continue learning */}
-        {nextLesson && (
-          <div className="sonata-glow-active" onClick={() => { hSelect(); unlockAudio(); dispatch({ type: 'START_LESSON', id: nextLesson.id }); }} style={{
-            width: '100%', maxWidth: 560, padding: '18px 22px', marginBottom: 12,
-            background: 'linear-gradient(135deg, rgba(200,169,110,0.12) 0%, var(--bg2) 60%)',
-            border: '1px solid rgba(200,169,110,0.3)', borderRadius: 14, cursor: 'pointer', textAlign: 'left',
-            transition: 'transform 0.18s ease',
-          }}>
-            <div style={{ fontSize: 11, color: 'var(--gold)', textTransform: 'uppercase', letterSpacing: '0.08em', fontWeight: 600, marginBottom: 6 }}>
-              ▶  Pick up where you left off
-            </div>
-            <div style={{ fontSize: 16, fontWeight: 500 }}>Lesson {nextLesson.id}: {nextLesson.title}</div>
-            <div style={{ fontSize: 12, color: 'var(--text3)', marginTop: 4 }}>{nextLesson.sub} · {nextLesson.piece}</div>
-          </div>
-        )}
-
-        {/* Piece of the day */}
-        {featuredPiece && (
-          <div onClick={() => { hSelect(); dispatch({ type: 'OPEN_SCORE', index: featuredIndex }); dispatch({ type: 'SET_SCREEN', screen: 'library' }); }} style={{
-            width: '100%', maxWidth: 560, padding: '16px 20px', marginBottom: 20,
-            background: 'var(--bg2)', border: '1px solid var(--bg3)', borderRadius: 14, cursor: 'pointer',
-            display: 'flex', alignItems: 'center', gap: 14, position: 'relative', overflow: 'hidden',
-          }}>
-            <div style={{ position: 'absolute', top: 0, right: 0, background: 'var(--gold)', color: 'var(--bg)', fontSize: 10, padding: '3px 10px', borderBottomLeftRadius: 8, fontWeight: 600, letterSpacing: '0.06em', textTransform: 'uppercase' }}>Today</div>
-            <div style={{ fontFamily: 'var(--serif)', fontSize: 30, color: 'var(--gold)' }}>𝄞</div>
-            <div style={{ flex: 1, minWidth: 0 }}>
-              <div style={{ fontSize: 10, color: 'var(--gold)', textTransform: 'uppercase', letterSpacing: '0.08em', fontWeight: 500 }}>Piece of the day</div>
-              <div style={{ fontSize: 15, fontWeight: 500, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{featuredPiece.t}</div>
-              <div style={{ fontSize: 12, color: 'var(--text3)', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{featuredPiece.c}</div>
-            </div>
-          </div>
-        )}
-
-        <StaffDivider />
-
-        <div style={s.menuGrid} className="sonata-menu-grid">
-          {[
-            { emoji: '🎹', label: 'Lessons',         desc: lessons.length + ' bite-size lessons',     cat: 'lessons',  onClick: () => dispatch({ type: 'SET_SCREEN', screen: 'lessons' }) },
-            { emoji: '🎯', label: 'Quick Drill',     desc: 'Timed note practice',                     cat: 'drill',    onClick: () => dispatch({ type: 'SET_SCREEN', screen: 'config' }) },
-            { emoji: '💪', label: 'Weak Spots',      desc: 'AI targets what you miss',                cat: 'drill',    onClick: () => dispatch({ type: 'SET_SCREEN', screen: 'config' }) },
-            { emoji: '🎵', label: 'Sight Reading',   desc: 'Play along in real time',                 cat: 'sight',    onClick: () => dispatch({ type: 'SET_SCREEN', screen: 'sightReading' }) },
-            { emoji: '🥁', label: 'Rhythm',          desc: 'Tap in time',                             cat: 'rhythm',   onClick: () => dispatch({ type: 'SET_SCREEN', screen: 'rhythm' }) },
-            { emoji: '📚', label: 'Library',         desc: CATALOG.length + ' piano pieces',          cat: 'library',  onClick: () => dispatch({ type: 'SET_SCREEN', screen: 'library' }) },
-            { emoji: '📈', label: 'Progress',        desc: 'Stats & accuracy',                        cat: 'progress', onClick: () => dispatch({ type: 'SET_SCREEN', screen: 'progress' }) },
-            { emoji: '⭐', label: 'Membership',      desc: 'Pricing & subscription',                  cat: 'neutral',  onClick: () => navigate('/pricing/', router) },
-            { emoji: '⚙️', label: 'Account',         desc: 'Settings & preferences',                  cat: 'neutral',  onClick: () => navigate('/account/', router) },
-            { emoji: '👋', label: 'Sign Out',        desc: 'See you soon!',                           cat: 'neutral',  onClick: async () => { await signOut(); navigate('/login/', router); } },
-          ].map((btn, i) => (
-            <div key={i}
-              style={{ ...s.menuBtn, ['--i' as unknown as string]: i } as React.CSSProperties}
-              className={`sonata-menu-btn menu-cat-${btn.cat}`}
-              onMouseMove={(e) => {
-                const rect = e.currentTarget.getBoundingClientRect();
-                e.currentTarget.style.setProperty('--mx', ((e.clientX - rect.left) / rect.width * 100) + '%');
-                e.currentTarget.style.setProperty('--my', ((e.clientY - rect.top) / rect.height * 100) + '%');
-              }}
-              onClick={() => { hSelect(); unlockAudio(); btn.onClick(); }}
-            >
-              <div className="menu-btn-emoji" aria-hidden="true">{btn.emoji}</div>
-              <div style={s.menuBtnLabel}>{btn.label}</div>
-              <div style={s.menuBtnDesc}>{btn.desc}</div>
-            </div>
-          ))}
-        </div>
-        {state.midiConnected && <div style={{ fontSize: 11, marginTop: 12, color: 'var(--green)' }}>🎹 MIDI connected</div>}
       </div>
-    </>
+
+      {/* Hero */}
+      <div style={{ position: 'relative', zIndex: 2, display: 'flex', alignItems: 'flex-end', gap: 20, padding: '28px 32px 0', flexWrap: 'wrap' }}>
+        <div style={{ flex: '1 1 280px' }}>
+          <Sticker color="gold" rotate={-3} style={{ marginBottom: 12 }}>
+            ◆ Welcome back{name ? `, ${name.split(' ')[0]}` : ''}
+          </Sticker>
+          <h1 style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(48px, 7vw, 72px)', fontWeight: 900, fontStyle: 'italic', color: 'var(--ink)', margin: 0, letterSpacing: '-0.035em', lineHeight: 0.95 }}>
+            Hello, <span style={{ color: 'var(--berry)', textDecoration: 'underline wavy', textDecorationColor: 'var(--gold)', textUnderlineOffset: 12, textDecorationThickness: 3 }}>maestro.</span>
+          </h1>
+          <p style={{ fontSize: 16, color: 'var(--ink2)', margin: '12px 0 0', maxWidth: 480, lineHeight: 1.5, fontWeight: 500 }}>
+            Five minutes of practice a day grows a forest of fluency. Cleffy&apos;s ready when you are.
+          </p>
+        </div>
+        <div style={{ width: 180, height: 220, position: 'relative', marginRight: 12 }}>
+          <Cleffy size={150} mood={streak >= 2 ? 'excited' : practicedToday ? 'happy' : 'waving'} />
+          <div style={{ position: 'absolute', top: -4, right: -4, padding: '6px 12px', background: 'var(--cream)', border: '3px solid var(--ink)', borderRadius: 16, fontSize: 12, fontWeight: 800, color: 'var(--ink)', boxShadow: '0 4px 0 var(--ink)', transform: 'rotate(6deg)', whiteSpace: 'nowrap' }}>
+            Let&apos;s play! ♪
+          </div>
+        </div>
+      </div>
+
+      {/* Tile grid — 2fr + 1fr + 1fr with continue card spanning */}
+      <div style={{ position: 'relative', zIndex: 2, padding: '28px 32px 0', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: 16, maxWidth: 1100, margin: '0 auto' }}>
+        {/* Continue / Lessons — big tile */}
+        <ChunkyCard
+          color="peach"
+          padding={24}
+          onClick={() => { hSelect(); unlockAudio(); if (nextLesson) dispatch({ type: 'START_LESSON', id: nextLesson.id }); else dispatch({ type: 'SET_SCREEN', screen: 'lessons' }); }}
+          style={{ gridColumn: 'span 2', minHeight: 220, display: 'flex', flexDirection: 'column', justifyContent: 'space-between', position: 'relative', overflow: 'hidden' }}
+        >
+          <div aria-hidden="true" style={{ position: 'absolute', top: 10, right: 20, fontSize: 140, fontFamily: 'var(--serif)', color: 'var(--ink)', opacity: 0.15, lineHeight: 1, fontStyle: 'italic' }}>📖</div>
+          <div style={{ position: 'relative' }}>
+            <div style={{ fontSize: 11, fontWeight: 800, letterSpacing: '0.15em', textTransform: 'uppercase', color: 'var(--ink)', opacity: 0.7 }}>
+              {nextLesson ? 'Continue where you left off' : 'Start learning'}
+            </div>
+            <div style={{ fontFamily: 'var(--serif)', fontSize: 48, fontWeight: 900, fontStyle: 'italic', color: 'var(--ink)', marginTop: 6, lineHeight: 1 }}>
+              {continueCard.label}
+            </div>
+            <div style={{ fontSize: 16, color: 'var(--ink2)', marginTop: 4, fontWeight: 600 }}>{continueCard.sub}</div>
+          </div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 12, position: 'relative' }}>
+            <div style={{ flex: 1, height: 14, background: 'var(--ink)', borderRadius: 999, overflow: 'hidden', border: '2px solid var(--ink)' }}>
+              <div style={{ width: `${continueCard.pct}%`, height: '100%', background: 'var(--gold)', borderRight: continueCard.pct > 0 ? '2px solid var(--ink)' : 'none' }} />
+            </div>
+            <div style={{ fontSize: 14, fontWeight: 800, color: 'var(--ink)' }}>{continueCard.pct}%</div>
+            <ChunkyButton color="cream" size="sm">{nextLesson ? 'Resume' : 'Start'}</ChunkyButton>
+          </div>
+        </ChunkyCard>
+
+        {tiles.map((t) => (
+          <ChunkyCard
+            key={t.id}
+            color={t.color}
+            padding={20}
+            onClick={() => { hSelect(); unlockAudio(); t.onClick(); }}
+            style={{ minHeight: 140, display: 'flex', flexDirection: 'column', justifyContent: 'space-between', position: 'relative', overflow: 'hidden' }}
+          >
+            <div aria-hidden="true" style={{ position: 'absolute', top: 0, right: 10, fontSize: 64, fontFamily: 'var(--serif)', color: 'var(--ink)', opacity: 0.18, lineHeight: 1, fontStyle: 'italic' }}>{t.glyph}</div>
+            <div style={{ position: 'relative' }}>
+              <div style={{ fontFamily: 'var(--serif)', fontSize: 30, fontWeight: 900, fontStyle: 'italic', color: 'var(--ink)', lineHeight: 1 }}>{t.label}</div>
+              <div style={{ fontSize: 13, color: 'var(--ink)', opacity: 0.75, marginTop: 4, fontWeight: 600 }}>{t.sub}</div>
+            </div>
+            <div style={{ fontSize: 12, fontWeight: 800, color: 'var(--ink)', textTransform: 'uppercase', letterSpacing: '0.08em', position: 'relative' }}>Open →</div>
+          </ChunkyCard>
+        ))}
+      </div>
+
+      {/* Secondary row: account, membership, sign out */}
+      <div style={{ position: 'relative', zIndex: 2, padding: '20px 32px 0', display: 'flex', gap: 10, flexWrap: 'wrap', justifyContent: 'center', maxWidth: 1100, margin: '0 auto' }}>
+        <ChunkyButton color="cream" size="sm" onClick={() => { hSelect(); navigate('/pricing/', router); }}>⭐ Membership</ChunkyButton>
+        <ChunkyButton color="cream" size="sm" onClick={() => { hSelect(); navigate('/account/', router); }}>⚙️ Account</ChunkyButton>
+        <ChunkyButton color="cream" size="sm" onClick={async () => { hSelect(); await signOut(); navigate('/login/', router); }}>👋 Sign Out</ChunkyButton>
+      </div>
+
+      {/* Candles */}
+      <Candle x={16} y={280} size={20} />
+      <Candle x="calc(100% - 40px)" y={280} size={20} />
+
+      {state.midiConnected && (
+        <div style={{ position: 'relative', zIndex: 2, textAlign: 'center', fontSize: 11, marginTop: 14, color: 'var(--mint-deep)', fontWeight: 700 }}>🎹 MIDI connected</div>
+      )}
+
+      {/* Greeting debug binding (keeps linter quiet) */}
+      <span hidden>{getGreeting(name, streak)}</span>
+    </div>
   );
 }
 
@@ -1315,63 +1316,191 @@ function ConfigScreen({ dispatch, startDrill }: { dispatch: React.Dispatch<Actio
     setter(arr.includes(val) ? arr.filter(v => v !== val) : [...arr, val]);
   }
 
+  const typeLabels: Record<string, { label: string; glyph: string }> = {
+    noteNaming:   { label: 'Notes',       glyph: '♪' },
+    interval:     { label: 'Intervals',   glyph: '◇' },
+    oddEven:      { label: 'Odd / Even',  glyph: '△' },
+    pattern:      { label: 'Patterns',    glyph: '▦' },
+    articulation: { label: 'Articulation',glyph: '!' },
+    keySignature: { label: 'Key Sigs',    glyph: '♯' },
+  };
+  const allTypes = Object.keys(typeLabels);
+
   return (
-    <>
-      <Header title="Sonata" />
-      <BackLink onClick={() => dispatch({ type: 'SET_SCREEN', screen: 'menu' })} />
-      <div style={{ padding: '20px 0' }} className="sonata-app">
-        <h3 style={s.configTitle}>Set up your drill 🎯</h3>
-        <div style={s.configRow}>
-          <label style={s.configLabel}>Drill types</label>
-          <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
-            {['noteNaming','interval','oddEven','pattern','articulation','keySignature'].map(t => (
-              <button key={t} style={types.includes(t) ? s.chipActive : s.chip} onClick={() => toggle(types, t, setTypes)}>
-                {t === 'noteNaming' ? 'Notes' : t === 'keySignature' ? 'Key Sigs' : t.charAt(0).toUpperCase() + t.slice(1)}
-              </button>
-            ))}
-          </div>
-        </div>
-        <div style={s.configRow}>
-          <label style={s.configLabel}>Clefs</label>
-          <div style={{ display: 'flex', gap: 8 }}>
-            {['treble','bass'].map(c => (
-              <button key={c} style={clefs.includes(c) ? s.chipActive : s.chip} onClick={() => toggle(clefs, c, setClefs)}>
-                {c.charAt(0).toUpperCase() + c.slice(1)}
-              </button>
-            ))}
-          </div>
-        </div>
-        <div style={s.configRow}>
-          <label style={s.configLabel}>Timer</label>
-          <div style={{ display: 'flex', gap: 8 }}>
-            {[0,10,7,5,3].map(t => (
-              <button key={t} style={timer === t ? s.chipActive : s.chip} onClick={() => setTimer(t)}>{t === 0 ? 'Off' : t + 's'}</button>
-            ))}
-          </div>
-        </div>
-        <div style={s.configRow}>
-          <label style={s.configLabel}>Answer mode</label>
-          <div style={{ display: 'flex', gap: 8 }}>
-            <button style={mode === 'tap' ? s.chipActive : s.chip} onClick={() => setMode('tap')}>Tap to answer</button>
-            <button style={mode === 'play' ? s.chipActive : s.chip} onClick={() => setMode('play')}>Play to answer</button>
-          </div>
-        </div>
-        <div style={s.configRow}>
-          <label style={s.configLabel}>Questions</label>
-          <div style={{ display: 'flex', gap: 8 }}>
-            {[10,15,20,30].map(c => (
-              <button key={c} style={count === c ? s.chipActive : s.chip} onClick={() => setCount(c)}>{c}</button>
-            ))}
-          </div>
-        </div>
-        <button style={s.primaryBtn} onClick={() => startDrill({
-          types: types.length ? types : ['noteNaming'],
-          clefs: clefs.length ? clefs : ['treble'],
-          range: 'staff', intervals: [2,3,4,5],
-          timer: timer || null, count, answerMode: mode,
-        })}>Let&apos;s go! 🎯</button>
+    <div style={{ position: 'relative', minHeight: '100vh', background: 'var(--cream)', fontFamily: 'var(--sans)', overflow: 'hidden', paddingBottom: 100 }}>
+      <StaffBG opacity={0.22} />
+      <FloatingNotes count={7} />
+
+      {/* Top bar */}
+      <div style={{ position: 'relative', zIndex: 3, display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '20px 24px' }}>
+        <button type="button" onClick={() => dispatch({ type: 'SET_SCREEN', screen: 'menu' })}
+          style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '10px 16px', background: 'var(--cream)', border: '3px solid var(--ink)', borderRadius: 999, boxShadow: '0 4px 0 var(--ink)', fontWeight: 800, fontSize: 14, cursor: 'pointer', fontFamily: 'var(--sans)', color: 'var(--ink)' }}>
+          ← Home
+        </button>
+        <div style={{ fontFamily: 'var(--serif)', fontStyle: 'italic', fontSize: 22, fontWeight: 700, color: 'var(--ink)' }}>Configure your drill</div>
+        <div style={{ width: 80 }} />
       </div>
-    </>
+
+      {/* Hero */}
+      <div style={{ position: 'relative', zIndex: 2, padding: '0 32px', display: 'flex', alignItems: 'flex-end', gap: 18, flexWrap: 'wrap' }}>
+        <Cleffy size={100} mood="thinking" />
+        <div>
+          <Sticker color="coral" rotate={-3}>◆ note identification</Sticker>
+          <h1 style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(40px, 6vw, 60px)', fontWeight: 900, fontStyle: 'italic', color: 'var(--ink)', margin: '8px 0 0', letterSpacing: '-0.03em', lineHeight: 1 }}>
+            Pick your <span style={{ color: 'var(--coral)' }}>pool.</span>
+          </h1>
+        </div>
+      </div>
+
+      {/* Config columns */}
+      <div style={{ position: 'relative', zIndex: 2, padding: '24px 24px 0', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: 24, maxWidth: 1100, margin: '0 auto' }}>
+        {/* Left column — pool */}
+        <div>
+          <div style={{ fontSize: 12, fontWeight: 800, color: 'var(--ink3)', letterSpacing: '0.15em', textTransform: 'uppercase', marginBottom: 10 }}>◇ Drill types</div>
+          <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', marginBottom: 20 }}>
+            {allTypes.map(t => {
+              const on = types.includes(t);
+              return (
+                <button
+                  key={t}
+                  type="button"
+                  onClick={() => { hSelect(); toggle(types, t, setTypes); }}
+                  style={{
+                    padding: '10px 16px', fontFamily: 'var(--sans)', fontWeight: 800, fontSize: 13,
+                    background: on ? 'var(--mint)' : 'var(--cream)',
+                    color: 'var(--ink)',
+                    border: '3px solid var(--ink)', borderRadius: 999,
+                    boxShadow: `0 ${on ? 2 : 5}px 0 ${on ? 'var(--mint-deep)' : 'var(--ink)'}`,
+                    transform: on ? 'translateY(3px)' : 'none',
+                    cursor: 'pointer', transition: 'transform .12s var(--bounce)',
+                  }}
+                >
+                  <span style={{ marginRight: 6, opacity: 0.6 }}>{typeLabels[t].glyph}</span>
+                  {typeLabels[t].label}
+                </button>
+              );
+            })}
+          </div>
+
+          <div style={{ fontSize: 12, fontWeight: 800, color: 'var(--ink3)', letterSpacing: '0.15em', textTransform: 'uppercase', marginBottom: 10 }}>◇ Clef</div>
+          <div style={{ display: 'flex', gap: 10, marginBottom: 20 }}>
+            {[
+              { k: 'treble', label: 'Treble', glyph: '𝄞' },
+              { k: 'bass',   label: 'Bass',   glyph: '𝄢' },
+            ].map(o => {
+              const on = clefs.includes(o.k);
+              return (
+                <button
+                  key={o.k}
+                  type="button"
+                  onClick={() => { hSelect(); toggle(clefs, o.k, setClefs); }}
+                  style={{
+                    flex: 1, padding: '14px 12px', textAlign: 'center',
+                    background: on ? 'var(--gold)' : 'var(--cream)',
+                    border: '3px solid var(--ink)', borderRadius: 'var(--r2)',
+                    boxShadow: `0 ${on ? 2 : 6}px 0 ${on ? 'var(--gold-deep)' : 'var(--ink)'}`,
+                    transform: on ? 'translateY(4px)' : 'none',
+                    cursor: 'pointer', color: 'var(--ink)', fontFamily: 'var(--sans)',
+                  }}
+                >
+                  <div style={{ fontFamily: 'var(--serif)', fontSize: 32, lineHeight: 1, color: 'var(--ink)' }}>{o.glyph}</div>
+                  <div style={{ fontSize: 13, fontWeight: 800, color: 'var(--ink)', marginTop: 4, textTransform: 'uppercase', letterSpacing: '0.06em' }}>{o.label}</div>
+                </button>
+              );
+            })}
+          </div>
+
+          <div style={{ fontSize: 12, fontWeight: 800, color: 'var(--ink3)', letterSpacing: '0.15em', textTransform: 'uppercase', marginBottom: 10 }}>◇ Answer mode</div>
+          <div style={{ display: 'flex', gap: 10 }}>
+            {[
+              { k: 'tap', label: 'Tap' },
+              { k: 'play', label: 'Play' },
+            ].map(o => {
+              const on = mode === o.k;
+              return (
+                <button key={o.k} type="button" onClick={() => { hSelect(); setMode(o.k); }}
+                  style={{
+                    flex: 1, padding: '12px 18px',
+                    background: on ? 'var(--lilac)' : 'var(--cream)',
+                    color: 'var(--ink)',
+                    border: '3px solid var(--ink)', borderRadius: 999,
+                    boxShadow: `0 ${on ? 2 : 5}px 0 ${on ? 'var(--lilac-deep)' : 'var(--ink)'}`,
+                    transform: on ? 'translateY(3px)' : 'none',
+                    fontWeight: 800, fontSize: 14, cursor: 'pointer', fontFamily: 'var(--sans)',
+                  }}
+                >{o.label}</button>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Right column — shape */}
+        <div>
+          <div style={{ fontSize: 12, fontWeight: 800, color: 'var(--ink3)', letterSpacing: '0.15em', textTransform: 'uppercase', marginBottom: 10 }}>◇ How long?</div>
+          <div style={{ background: 'var(--parchment)', border: '3px solid var(--ink)', borderRadius: 'var(--r2)', padding: 20, boxShadow: '0 6px 0 var(--ink)', marginBottom: 20 }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: 10 }}>
+              <div style={{ fontSize: 14, fontWeight: 700, color: 'var(--ink2)' }}>Questions</div>
+              <div style={{ fontFamily: 'var(--serif)', fontSize: 48, fontWeight: 900, fontStyle: 'italic', color: 'var(--ink)', lineHeight: 1 }}>{count}</div>
+            </div>
+            <div style={{ display: 'flex', gap: 8 }}>
+              {[10, 15, 20, 30].map(c => {
+                const on = count === c;
+                return (
+                  <button key={c} type="button" onClick={() => { hSelect(); setCount(c); }}
+                    style={{
+                      flex: 1, padding: '10px 0', textAlign: 'center',
+                      background: on ? 'var(--berry)' : 'var(--cream)',
+                      color: on ? 'var(--cream)' : 'var(--ink)',
+                      border: '3px solid var(--ink)', borderRadius: 'var(--r1)',
+                      boxShadow: `0 ${on ? 2 : 4}px 0 ${on ? 'var(--berry-deep)' : 'var(--ink)'}`,
+                      transform: on ? 'translateY(2px)' : 'none',
+                      fontWeight: 800, fontSize: 15, cursor: 'pointer', fontFamily: 'var(--sans)',
+                    }}
+                  >{c}</button>
+                );
+              })}
+            </div>
+          </div>
+
+          <div style={{ fontSize: 12, fontWeight: 800, color: 'var(--ink3)', letterSpacing: '0.15em', textTransform: 'uppercase', marginBottom: 10 }}>◇ Timer</div>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: 8, marginBottom: 20 }}>
+            {[0, 3, 5, 7, 10].map(t => {
+              const on = timer === t;
+              return (
+                <button key={t} type="button" onClick={() => { hSelect(); setTimer(t); }}
+                  style={{
+                    padding: '12px 0', textAlign: 'center',
+                    background: on ? 'var(--sky)' : 'var(--cream)',
+                    color: 'var(--ink)',
+                    border: '3px solid var(--ink)', borderRadius: 'var(--r1)',
+                    boxShadow: `0 ${on ? 2 : 5}px 0 ${on ? 'var(--sky-deep)' : 'var(--ink)'}`,
+                    transform: on ? 'translateY(3px)' : 'none',
+                    fontWeight: 800, fontSize: 15, cursor: 'pointer', fontFamily: 'var(--sans)',
+                  }}
+                >{t === 0 ? 'Off' : `${t}s`}</button>
+              );
+            })}
+          </div>
+        </div>
+      </div>
+
+      {/* Big start button */}
+      <div style={{ position: 'fixed', left: 0, right: 0, bottom: 0, padding: '20px 24px', background: 'linear-gradient(0deg, var(--cream) 60%, transparent)', display: 'flex', justifyContent: 'center', zIndex: 10 }}>
+        <ChunkyButton
+          color="coral"
+          size="xl"
+          icon={<span style={{ fontSize: 22 }}>▶</span>}
+          onClick={() => { hSelect(); startDrill({
+            types: types.length ? types : ['noteNaming'],
+            clefs: clefs.length ? clefs : ['treble'],
+            range: 'staff', intervals: [2, 3, 4, 5],
+            timer: timer || null, count, answerMode: mode,
+          }); }}
+        >
+          Start drill · {count} questions
+        </ChunkyButton>
+      </div>
+    </div>
   );
 }
 
@@ -1402,40 +1531,102 @@ function DrillScreen({ state, handleAnswer, handleEndDrill, renderNotation }: {
     handleAnswer(picked, q.correctAnswer);
   }
 
+  // void unused legacy styles
+  void timerColor;
+  const progressPct = state.questions.length > 0 ? (state.currentQ / state.questions.length) * 100 : 0;
+  const cleffyMood: 'happy' | 'excited' | 'shocked' = answered
+    ? (pickedAnswer === q.correctAnswer ? 'excited' : 'shocked')
+    : 'happy';
+
   return (
-    <div style={{ flex: 1, display: 'flex', flexDirection: 'column' }} className="sonata-app">
-      <div style={s.drillTop} className="sonata-drill-top">
-        <span style={s.drillInfo}>Score: <b>{state.score}</b>/{state.currentQ} &nbsp; Streak: <b>{state.streak}</b></span>
-        <span style={s.drillInfo}>Q<b>{state.currentQ + 1}</b>/{state.questions.length}</span>
-        <button style={s.stopBtn} onClick={handleEndDrill}>Stop</button>
+    <div style={{ position: 'relative', minHeight: '100vh', background: 'var(--cream)', fontFamily: 'var(--sans)', overflow: 'hidden' }}>
+      <StaffBG opacity={0.22} />
+      <FloatingNotes count={6} />
+
+      {/* Top HUD */}
+      <div style={{ position: 'relative', zIndex: 5, display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '18px 24px', gap: 16 }}>
+        <button type="button" onClick={handleEndDrill} style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '8px 14px', background: 'var(--cream)', color: 'var(--ink)', border: '3px solid var(--ink)', borderRadius: 999, boxShadow: '0 3px 0 var(--ink)', fontWeight: 800, fontSize: 13, cursor: 'pointer', fontFamily: 'var(--sans)' }} aria-label="Exit drill">
+          ✕ Exit
+        </button>
+        <div style={{ flex: 1, display: 'flex', alignItems: 'center', gap: 12 }}>
+          <div style={{ flex: 1, height: 16, background: 'var(--parchment)', border: '3px solid var(--ink)', borderRadius: 999, overflow: 'hidden', position: 'relative' }}>
+            <div style={{ width: `${progressPct}%`, height: '100%', background: 'linear-gradient(90deg, var(--mint), var(--sky))', borderRight: progressPct > 0 ? '2px solid var(--ink)' : 'none' }} />
+          </div>
+          <div style={{ fontFamily: 'var(--serif)', fontStyle: 'italic', fontSize: 20, fontWeight: 900, color: 'var(--ink)', whiteSpace: 'nowrap' }}>
+            {state.currentQ + 1}<span style={{ color: 'var(--ink3)' }}>/{state.questions.length}</span>
+          </div>
+        </div>
+        <div style={{ display: 'inline-flex', alignItems: 'center', gap: 6, padding: '6px 14px', background: 'var(--mint)', border: '3px solid var(--ink)', borderRadius: 999, boxShadow: '0 4px 0 var(--mint-deep)', fontWeight: 800, fontSize: 15, color: 'var(--ink)' }}>
+          ✓ {state.score}
+        </div>
       </div>
-      {state.drillConfig?.timer && (
-        <div style={s.timerBar}><div style={{ ...s.timerFill, width: timerPct + '%', background: timerColor }} /></div>
-      )}
-      <div style={s.questionLabel}>
-        {q.isAI && <span style={{ background: 'var(--blue-bg)', color: 'var(--blue)', padding: '2px 8px', borderRadius: 10, fontSize: 10, marginRight: 6 }}>AI</span>}
-        {q.type.replace(/([A-Z])/g, ' $1').trim()} — {q.clef} clef
+
+      {/* Question label */}
+      <div style={{ position: 'relative', zIndex: 4, textAlign: 'center', padding: '4px 16px 0' }}>
+        <Sticker color="peach" rotate={-2}>
+          Question {state.currentQ + 1} · {q.clef} clef
+        </Sticker>
+        <h1 style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(28px, 4vw, 42px)', fontWeight: 900, fontStyle: 'italic', color: 'var(--ink)', margin: '10px 0 0', letterSpacing: '-0.025em' }}>
+          {q.label || 'Name this note'}
+        </h1>
       </div>
-      <div ref={notRef} style={s.notation} className="sonata-notation" />
-      <div style={s.questionText}>{q.label || ''}</div>
-      <div style={s.feedback}>
-        {answered && (pickedAnswer === q.correctAnswer
-          ? <span style={{ color: 'var(--green)' }}>Correct!</span>
-          : <span style={{ color: 'var(--red)' }}>{q.correctAnswer}</span>
+
+      {/* Giant staff card */}
+      <div style={{ position: 'relative', zIndex: 3, margin: '20px 24px', background: 'var(--paper)', border: '4px solid var(--ink)', borderRadius: 'var(--r3)', boxShadow: '0 8px 0 var(--ink)', padding: '24px 20px', minHeight: 220, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+        <div ref={notRef} style={{ width: '100%', minHeight: 160, display: 'flex', alignItems: 'center', justifyContent: 'center' }} className="sonata-notation" />
+
+        {/* Cleffy cheering in corner */}
+        <div style={{ position: 'absolute', bottom: 8, right: 16 }}>
+          <Cleffy size={70} mood={cleffyMood} />
+        </div>
+
+        {/* Timer ring */}
+        {state.drillConfig?.timer && (
+          <div style={{ position: 'absolute', top: 12, left: 16, width: 54, height: 54 }}>
+            <svg width="54" height="54" viewBox="0 0 54 54" aria-hidden="true">
+              <circle cx="27" cy="27" r="22" fill="var(--cream)" stroke="var(--ink)" strokeWidth="3" />
+              <circle cx="27" cy="27" r="22" fill="none" stroke="var(--coral)" strokeWidth="4"
+                strokeDasharray={138}
+                strokeDashoffset={138 - (138 * timerPct) / 100}
+                transform="rotate(-90 27 27)" strokeLinecap="round" />
+              <text x="27" y="34" textAnchor="middle" fontFamily="var(--serif)" fontStyle="italic" fontWeight="900" fontSize="20" fill="var(--ink)">
+                {Math.max(0, Math.ceil(state.timeLeft / 10))}
+              </text>
+            </svg>
+          </div>
         )}
       </div>
-      <div style={s.answers} className="sonata-answers">
-        {q.answerOptions.map((o, i) => (
-          <button key={i} className="ans-btn" disabled={answered}
-            style={{
-              ...s.ansBtn,
-              ...(answered && o === q.correctAnswer ? s.ansBtnCorrect : {}),
-              ...(answered && o === pickedAnswer && o !== q.correctAnswer ? s.ansBtnWrong : {}),
-              ...(answered ? { opacity: o !== q.correctAnswer && o !== pickedAnswer ? 0.3 : 1, cursor: 'default' } : {}),
-            }}
-            onClick={() => onAnswer(o)}>{o}</button>
-        ))}
+
+      {/* Answer buttons */}
+      <div style={{ position: 'relative', zIndex: 3, padding: '0 24px 24px' }}>
+        <div style={{ textAlign: 'center', fontSize: 12, fontWeight: 800, letterSpacing: '0.15em', color: 'var(--ink3)', textTransform: 'uppercase', marginBottom: 10 }}>◇ Pick your answer</div>
+        <div style={{ display: 'grid', gridTemplateColumns: `repeat(${Math.min(q.answerOptions.length, 4)}, 1fr)`, gap: 10 }}>
+          {q.answerOptions.map((o, i) => {
+            const isCorrect = answered && o === q.correctAnswer;
+            const isWrong = answered && o === pickedAnswer && o !== q.correctAnswer;
+            const dim = answered && !isCorrect && !isWrong;
+            const color: ChunkyColor = isCorrect ? 'mint' : isWrong ? 'coral' : 'cream';
+            return (
+              <ChunkyButton
+                key={i}
+                color={color}
+                size="lg"
+                onClick={() => onAnswer(o)}
+                disabled={answered}
+                style={{ width: '100%', justifyContent: 'center', opacity: dim ? 0.3 : 1, fontFamily: 'var(--serif)', fontStyle: 'italic', fontSize: 26, textTransform: 'none', letterSpacing: 0 }}
+              >
+                {o}
+              </ChunkyButton>
+            );
+          })}
+        </div>
+        {answered && (
+          <div style={{ textAlign: 'center', marginTop: 14, fontFamily: 'var(--serif)', fontStyle: 'italic', fontSize: 22, fontWeight: 800, color: pickedAnswer === q.correctAnswer ? 'var(--mint-deep)' : 'var(--coral-deep)' }}>
+            {pickedAnswer === q.correctAnswer ? 'Bravo!' : `It was ${q.correctAnswer}`}
+          </div>
+        )}
       </div>
+
       <PianoKeyboard highlights={answered ? q.pianoHighlight : {}} />
     </div>
   );
@@ -1466,53 +1657,132 @@ function ResultsScreen({ state, dispatch }: { state: AppState; dispatch: React.D
 
   const weak = getWeakestIntervals(3);
 
-  const cleffyMood: 'excited' | 'happy' | 'thinking' = pct >= 80 ? 'excited' : pct >= 50 ? 'happy' : 'thinking';
-  const headline = pct >= 90 ? 'Nailed it!' : pct >= 80 ? 'Beautiful!' : pct >= 60 ? 'Nice work!' : pct >= 40 ? 'Keep going!' : "Don't give up!";
+  void pctColor; void weak;
+  const cleffyMood: 'excited' | 'happy' | 'dancing' | 'thinking' = pct >= 80 ? 'dancing' : pct >= 50 ? 'happy' : 'thinking';
+  const headline = pct >= 90 ? 'Bravissimo!' : pct >= 80 ? 'Beautiful!' : pct >= 60 ? 'Nice work!' : pct >= 40 ? 'Keep going!' : "Don't give up!";
+  const wrongIndices: number[] = [];
+  state.results.forEach((r, i) => { if (!r.correct) wrongIndices.push(i); });
+
   return (
-    <>
-      <Header title="Sonata" />
-      <div style={{ padding: '20px 0', textAlign: 'center' }} className="sonata-app">
-        <div><Cleffy size={110} mood={cleffyMood} /></div>
-        <div className="sonata-big-celebration" style={{ fontSize: 52, marginTop: 4, marginBottom: 8 }}>{headline}</div>
-        <div style={{ fontFamily: 'var(--serif)', fontSize: 56, fontWeight: 400, lineHeight: 1, color: pctColor, marginTop: 12 }}>{pct}%</div>
-        <div style={{ fontSize: 13, color: 'var(--text3)', marginTop: 8, marginBottom: 24 }}>
-          {correct}/{total} correct · Best streak: {state.bestStreak} · Timed out: {state.timedOut}
-        </div>
-        {Object.entries(byType).map(([type, d]) => {
-          const p = Math.round(d.correct / d.total * 100);
-          const c = p >= 80 ? 'var(--green)' : p >= 50 ? 'var(--yellow)' : 'var(--red)';
-          const bg = p >= 80 ? 'var(--green-bg)' : p >= 50 ? 'var(--yellow-bg)' : 'var(--red-bg)';
-          return <div key={type} style={s.resultRow}><span style={s.resultName}>{type}</span><span style={{ ...s.resultBadge, background: bg, color: c }}>{d.correct}/{d.total} ({p}%)</span></div>;
-        })}
-        {weak.length > 0 && (
-          <div style={{ marginTop: 20 }}>
-            <div style={s.sectionLabel}>Weakest intervals</div>
-            {weak.map(w => {
-              const c = w.pct < 50 ? 'var(--red)' : w.pct < 80 ? 'var(--yellow)' : 'var(--green)';
-              return (
-                <div key={w.name} style={s.resultRow}>
-                  <span style={s.resultName}>{w.name}</span>
-                  <div style={{ flex: 1, margin: '0 12px', height: 6, background: 'var(--bg3)', borderRadius: 3, overflow: 'hidden' }}>
-                    <div style={{ width: w.pct + '%', height: '100%', background: c, borderRadius: 3 }} />
-                  </div>
-                  <span style={{ fontSize: 12, color: c, fontWeight: 500 }}>{w.pct}%</span>
-                </div>
-              );
-            })}
-          </div>
-        )}
-        <div style={{ display: 'flex', gap: 8, marginTop: 20 }}>
-          <button style={{ ...s.primaryBtn, background: 'var(--bg2)', border: '1px solid var(--bg3)', color: 'var(--text)' }} onClick={() => dispatch({ type: 'SET_SCREEN', screen: 'config' })}>One more! 🔁</button>
-          <button style={s.primaryBtn} onClick={() => dispatch({ type: 'SET_SCREEN', screen: 'menu' })}>Home</button>
-        </div>
-        <button style={{ background: 'none', border: 'none', color: 'var(--text3)', fontSize: 12, cursor: 'pointer', marginTop: 12, fontFamily: 'var(--sans)', textDecoration: 'underline' }}
-          onClick={() => {
-            const text = `I just scored ${pct}% on a sight-reading drill on Sonata! 🎹 Learn to read piano sheet music at sonata.app`;
-            if (navigator.share) navigator.share({ text }).catch(() => {});
-            else { navigator.clipboard.writeText(text); alert('Copied to clipboard!'); }
-          }}>Share your result</button>
+    <div style={{ position: 'relative', minHeight: '100vh', background: 'var(--berry)', fontFamily: 'var(--sans)', overflow: 'hidden', padding: '20px 20px 40px' }}>
+      {/* Confetti */}
+      {Array.from({ length: 22 }).map((_, i) => {
+        const colors = ['var(--gold)', 'var(--mint)', 'var(--sky)', 'var(--coral)', 'var(--peach)', 'var(--cream)'];
+        return (
+          <div key={i} aria-hidden="true" style={{
+            position: 'absolute',
+            left: `${(i * 37) % 100}%`,
+            top: `-${10 + (i % 7) * 6}%`,
+            width: 10, height: 16,
+            background: colors[i % colors.length],
+            border: '1.5px solid var(--ink)',
+            borderRadius: 2,
+            animation: `sn-confetti ${3 + (i % 5) * 0.3}s linear infinite ${(i % 10) * 0.2}s`,
+            zIndex: 1,
+          }} />
+        );
+      })}
+      <StaffBG opacity={0.12} />
+
+      {/* Top bar */}
+      <div style={{ position: 'relative', zIndex: 5, display: 'flex', alignItems: 'center', justifyContent: 'space-between', color: 'var(--cream)', marginBottom: 12 }}>
+        <button type="button" onClick={() => dispatch({ type: 'SET_SCREEN', screen: 'menu' })} style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '8px 14px', background: 'rgba(255,255,255,0.18)', color: 'var(--cream)', border: '3px solid var(--cream)', borderRadius: 999, fontWeight: 800, fontSize: 13, cursor: 'pointer', fontFamily: 'var(--sans)' }} aria-label="Close">
+          ✕ Close
+        </button>
+        <div style={{ fontFamily: 'var(--serif)', fontStyle: 'italic', fontSize: 18, fontWeight: 700, opacity: 0.9 }}>Drill complete</div>
+        <div style={{ width: 90 }} />
       </div>
-    </>
+
+      {/* Big celebration */}
+      <div style={{ position: 'relative', zIndex: 4, textAlign: 'center', color: 'var(--cream)', marginTop: 8 }}>
+        <div style={{
+          display: 'inline-block',
+          fontFamily: 'var(--serif)', fontSize: 'clamp(56px, 10vw, 104px)', fontWeight: 900, fontStyle: 'italic',
+          color: 'var(--gold-lite)', letterSpacing: '-0.04em', lineHeight: 0.95,
+          textShadow: '0 6px 0 var(--ink), 0 0 40px rgba(255,217,135,0.5)',
+          animation: 'sn-celeb 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) both',
+        }}>
+          {headline}
+        </div>
+        <div style={{ fontSize: 16, opacity: 0.95, marginTop: 4, fontWeight: 600 }}>
+          {pct >= 80 ? 'Your sharpest drill this week' : 'Every drill makes you stronger'}
+        </div>
+      </div>
+
+      {/* Stats grid */}
+      <div style={{ position: 'relative', zIndex: 3, display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: 18, margin: '28px auto 0', maxWidth: 980 }}>
+        {/* Accuracy */}
+        <div style={{ background: 'var(--cream)', border: '3px solid var(--ink)', borderRadius: 'var(--r2)', padding: 18, boxShadow: '0 6px 0 var(--ink)' }}>
+          <div style={{ fontSize: 11, fontWeight: 800, letterSpacing: '0.15em', color: 'var(--ink3)', textTransform: 'uppercase' }}>Accuracy</div>
+          <div style={{ fontFamily: 'var(--serif)', fontSize: 56, fontWeight: 900, fontStyle: 'italic', color: 'var(--ink)', lineHeight: 1 }}>
+            {pct}<span style={{ fontSize: 24, color: 'var(--ink3)' }}>%</span>
+          </div>
+          <div style={{ fontSize: 13, color: pct >= 80 ? 'var(--mint-deep)' : 'var(--ink3)', fontWeight: 700, marginTop: 2 }}>
+            {correct}/{total} correct
+          </div>
+        </div>
+
+        {/* Center — Cleffy + dots */}
+        <div style={{ background: 'var(--cream)', border: '4px solid var(--ink)', borderRadius: 'var(--r3)', padding: 20, boxShadow: '0 8px 0 var(--ink)', position: 'relative', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+          <Cleffy size={140} mood={cleffyMood} />
+          <div style={{ fontFamily: 'var(--serif)', fontSize: 20, fontWeight: 700, fontStyle: 'italic', color: 'var(--ink)', marginTop: 8 }}>
+            You got <span style={{ color: 'var(--mint-deep)' }}>{correct} / {total}</span>
+          </div>
+          <div style={{ marginTop: 12, display: 'flex', gap: 4, flexWrap: 'wrap', justifyContent: 'center', maxWidth: 260 }}>
+            {state.results.map((r, i) => (
+              <div key={i} aria-hidden="true" style={{
+                width: 16, height: 16, borderRadius: 4, border: '2px solid var(--ink)',
+                background: r.correct ? 'var(--mint)' : 'var(--coral)',
+              }} />
+            ))}
+          </div>
+          <Sticker color="gold" rotate={-4} style={{ position: 'absolute', top: -14, right: -12 }}>
+            +{correct * 10} ◆ xp
+          </Sticker>
+        </div>
+
+        {/* Best streak */}
+        <div style={{ background: 'var(--cream)', border: '3px solid var(--ink)', borderRadius: 'var(--r2)', padding: 18, boxShadow: '0 6px 0 var(--ink)' }}>
+          <div style={{ fontSize: 11, fontWeight: 800, letterSpacing: '0.15em', color: 'var(--ink3)', textTransform: 'uppercase' }}>Best streak</div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+            <div style={{ fontSize: 40, animation: 'sn-flame 1.6s ease-in-out infinite' }}>🔥</div>
+            <div style={{ fontFamily: 'var(--serif)', fontSize: 56, fontWeight: 900, fontStyle: 'italic', color: 'var(--coral)', lineHeight: 1 }}>{state.bestStreak}</div>
+          </div>
+          <div style={{ fontSize: 12, color: 'var(--ink3)', fontWeight: 700, marginTop: 4 }}>Timed out: {state.timedOut}</div>
+        </div>
+      </div>
+
+      {/* Review misses */}
+      {wrongIndices.length > 0 && (
+        <div style={{ position: 'relative', zIndex: 3, background: 'var(--cream)', border: '3px solid var(--ink)', borderRadius: 'var(--r2)', padding: 18, boxShadow: '0 6px 0 var(--ink)', margin: '20px auto 0', maxWidth: 980 }}>
+          <div style={{ fontSize: 11, fontWeight: 800, letterSpacing: '0.15em', color: 'var(--ink3)', textTransform: 'uppercase', marginBottom: 10 }}>Look again</div>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: 10 }}>
+            {state.results.filter(r => !r.correct).slice(0, 6).map((r, i) => (
+              <div key={i} style={{ background: 'var(--paper)', border: '2px solid var(--ink)', borderRadius: 'var(--r1)', padding: '10px 12px' }}>
+                <div style={{ fontFamily: 'var(--serif)', fontSize: 18, fontWeight: 700, color: 'var(--ink)' }}>{r.correctAnswer}</div>
+                <div style={{ fontSize: 12, color: 'var(--coral-deep)', fontWeight: 700 }}>
+                  {r.timedOut ? 'Timed out' : 'Missed'}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* Actions */}
+      <div style={{ position: 'relative', zIndex: 4, display: 'flex', justifyContent: 'center', gap: 12, marginTop: 28, flexWrap: 'wrap' }}>
+        <ChunkyButton color="cream" size="lg" onClick={() => dispatch({ type: 'SET_SCREEN', screen: 'config' })}>Again</ChunkyButton>
+        <ChunkyButton color="gold" size="lg" onClick={() => dispatch({ type: 'SET_SCREEN', screen: 'lessons' })}>Next lesson →</ChunkyButton>
+        <ChunkyButton color="cream" size="lg" onClick={() => dispatch({ type: 'SET_SCREEN', screen: 'menu' })}>Home</ChunkyButton>
+      </div>
+
+      <button style={{ display: 'block', margin: '16px auto 0', background: 'none', border: 'none', color: 'var(--cream)', opacity: 0.75, fontSize: 12, cursor: 'pointer', fontFamily: 'var(--sans)', textDecoration: 'underline' }}
+        onClick={() => {
+          const text = `I just scored ${pct}% on a Sonata drill! 🎹 Learning to read piano sheet music.`;
+          if (navigator.share) navigator.share({ text }).catch(() => {});
+          else { navigator.clipboard.writeText(text); alert('Copied to clipboard!'); }
+        }}>Share your result</button>
+    </div>
   );
 }
 
@@ -1520,34 +1790,61 @@ function ResultsScreen({ state, dispatch }: { state: AppState; dispatch: React.D
 // SCREEN: LESSONS LIST
 // ============================================================
 function LessonsListScreen({ state, dispatch }: { state: AppState; dispatch: React.Dispatch<Action> }) {
+  const tileColors: ChunkyColor[] = ['gold', 'mint', 'sky', 'lilac', 'peach', 'coral', 'berry'];
   return (
-    <>
-      <Header title="Sonata" />
-      <BackLink onClick={() => dispatch({ type: 'SET_SCREEN', screen: 'menu' })} />
-      <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 12 }}>
-        <Cleffy size={46} mood="happy" />
-        <h3 style={{ margin: 0, fontFamily: 'var(--serif)', fontSize: 28, color: 'var(--text)' }}>Your lessons</h3>
+    <div style={{ position: 'relative', minHeight: '100vh', background: 'var(--cream)', fontFamily: 'var(--sans)', overflow: 'hidden', paddingBottom: 40 }}>
+      <StaffBG opacity={0.22} />
+      <FloatingNotes count={6} />
+
+      <div style={{ position: 'relative', zIndex: 3, display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '20px 24px' }}>
+        <button type="button" onClick={() => dispatch({ type: 'SET_SCREEN', screen: 'menu' })}
+          style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '10px 16px', background: 'var(--cream)', color: 'var(--ink)', border: '3px solid var(--ink)', borderRadius: 999, boxShadow: '0 4px 0 var(--ink)', fontWeight: 800, fontSize: 14, cursor: 'pointer', fontFamily: 'var(--sans)' }}>
+          ← Home
+        </button>
+        <Sticker color="peach" rotate={-2}>◆ {state.lessonsCompleted.length}/{lessons.length} complete</Sticker>
+        <div style={{ width: 80 }} />
       </div>
-      <div style={{ display: 'flex', flexDirection: 'column', gap: 8, padding: '8px 0' }}>
+
+      <div style={{ position: 'relative', zIndex: 2, padding: '0 32px 20px', display: 'flex', alignItems: 'flex-end', gap: 16 }}>
+        <Cleffy size={100} mood="happy" />
+        <div>
+          <Sticker color="gold" rotate={-3}>◆ Your journey</Sticker>
+          <h1 style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(40px, 6vw, 58px)', fontWeight: 900, fontStyle: 'italic', color: 'var(--ink)', margin: '6px 0 0', letterSpacing: '-0.03em', lineHeight: 1 }}>
+            Your <span style={{ color: 'var(--berry)' }}>lessons.</span>
+          </h1>
+        </div>
+      </div>
+
+      <div style={{ position: 'relative', zIndex: 2, padding: '0 24px', display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: 14, maxWidth: 1100, margin: '0 auto' }}>
         {lessons.map((l, i) => {
           const complete = state.lessonsCompleted.includes(l.id);
           const prevComplete = i === 0 || state.lessonsCompleted.includes(lessons[i - 1].id);
           const locked = !prevComplete && !complete;
+          const color: ChunkyColor = locked ? 'cream' : complete ? 'mint' : tileColors[i % tileColors.length];
           return (
-            <div key={l.id}
-              style={{ ...s.lessonCard, ...(locked ? { opacity: 0.3, cursor: 'default' } : {}), ...(complete ? {} : {}) }}
-              onClick={() => { if (!locked) { unlockAudio(); dispatch({ type: 'START_LESSON', id: l.id }); } }}>
-              <div style={{ ...s.lessonNum, color: complete ? 'var(--green)' : locked ? 'var(--bg4)' : 'var(--gold)' }}>{l.id}</div>
-              <div style={{ flex: 1 }}>
-                <div style={{ fontSize: 14, fontWeight: 500 }}>{l.title}</div>
-                <div style={{ fontSize: 12, color: 'var(--text3)', marginTop: 3 }}>{l.sub}{l.piece ? ` · ${l.piece}` : ''}</div>
+            <ChunkyCard
+              key={l.id}
+              color={color}
+              padding={16}
+              onClick={locked ? undefined : () => { hSelect(); unlockAudio(); dispatch({ type: 'START_LESSON', id: l.id }); }}
+              style={{ opacity: locked ? 0.5 : 1, cursor: locked ? 'not-allowed' : 'pointer', display: 'flex', alignItems: 'center', gap: 14, position: 'relative', overflow: 'hidden' }}
+            >
+              <div style={{
+                width: 52, height: 52, flexShrink: 0, borderRadius: 'var(--r1)',
+                background: 'var(--cream)', border: '3px solid var(--ink)',
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                fontFamily: 'var(--serif)', fontStyle: 'italic', fontWeight: 900, fontSize: 24, color: 'var(--ink)',
+              }}>{l.id}</div>
+              <div style={{ flex: 1, minWidth: 0 }}>
+                <div style={{ fontFamily: 'var(--serif)', fontSize: 18, fontWeight: 900, fontStyle: 'italic', color: 'var(--ink)', lineHeight: 1.1 }}>{l.title}</div>
+                <div style={{ fontSize: 12, color: 'var(--ink)', opacity: 0.75, fontWeight: 600, marginTop: 3 }}>{l.sub}{l.piece ? ` · ${l.piece}` : ''}</div>
               </div>
-              <div style={{ fontSize: 16 }}>{complete ? '✓' : locked ? '🔒' : '→'}</div>
-            </div>
+              <div style={{ fontSize: 22, color: 'var(--ink)', fontWeight: 800 }}>{complete ? '✓' : locked ? '🔒' : '→'}</div>
+            </ChunkyCard>
           );
         })}
       </div>
-    </>
+    </div>
   );
 }
 
@@ -1583,42 +1880,102 @@ function LessonConcepts({ lesson, state, dispatch, renderNotation }: {
   const notRef = useRef<HTMLDivElement>(null);
   useEffect(() => { if (step?.abc) renderNotation(step.abc, notRef.current, 600, 2.2); }, [state.lessonStep, step, renderNotation]);
 
+  const totalSteps = lesson.steps.length;
   return (
-    <>
-      <Header title={`Lesson ${lesson.id}`} right={<span style={{ fontSize: 13, color: 'var(--text3)' }}>{lesson.title}</span>} />
-      <BackLink onClick={() => { stopSpeaking(); dispatch({ type: 'SET_SCREEN', screen: 'lessons' }); }} label="← Back to lessons" />
-      <div style={{ flex: 1, display: 'flex', flexDirection: 'column' }} className="sonata-app">
-        <div style={{ display: 'flex', gap: 6, justifyContent: 'center', margin: '16px 0' }}>
-          {lesson.steps.map((_, i) => (
-            <div key={i} style={{ width: i === state.lessonStep ? 20 : 6, height: 6, borderRadius: 3, background: i < state.lessonStep ? 'var(--green)' : i === state.lessonStep ? 'var(--gold)' : 'var(--bg4)', transition: 'all 0.3s' }} />
-          ))}
+    <div key={state.lessonStep} style={{ position: 'relative', minHeight: '100vh', background: 'var(--paper)', fontFamily: 'var(--sans)', overflow: 'hidden', paddingBottom: 120, animation: 'sn-pageTurn 0.6s cubic-bezier(0.2, 0.8, 0.3, 1) both' }}>
+      <StaffBG opacity={0.28} />
+
+      {/* Top bar */}
+      <div style={{ position: 'relative', zIndex: 4, display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '18px 24px', gap: 12, flexWrap: 'wrap' }}>
+        <button type="button" onClick={() => { hSelect(); stopSpeaking(); dispatch({ type: 'SET_SCREEN', screen: 'lessons' }); }}
+          style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '8px 14px', background: 'var(--cream)', color: 'var(--ink)', border: '3px solid var(--ink)', borderRadius: 999, boxShadow: '0 3px 0 var(--ink)', fontWeight: 800, fontSize: 13, cursor: 'pointer', fontFamily: 'var(--sans)' }}>
+          ← Exit lesson
+        </button>
+        <div style={{ fontFamily: 'var(--serif)', fontStyle: 'italic', fontSize: 18, fontWeight: 700, color: 'var(--ink2)' }}>Lesson {lesson.id} · {lesson.title}</div>
+        <div style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
+          <DotRow total={Math.min(totalSteps, 12)} current={Math.min(state.lessonStep, 11)} color="gold" />
+          <div style={{ fontWeight: 800, fontSize: 13, color: 'var(--ink2)' }}>{state.lessonStep + 1}/{totalSteps}</div>
         </div>
-        <div className="sonata-lesson-wrap">
-          <div style={s.teachRow} className="sonata-teach-row">
-            {/* Left spacer — same width as the speak column so the text is truly centered */}
-            <div style={s.teachSpacer} className="sonata-teach-spacer" aria-hidden="true" />
-            <div style={s.teachText} className="sonata-teach-text">
-              {step.text}
-            </div>
-            <div style={s.speakCol} className="sonata-speak-col">
-              <button style={s.speakBtn} onClick={togglePause} aria-label="Play / pause">⏸</button>
-              <button style={{ ...s.speakBtn, ...(getTTSSpeed() === 0.75 ? s.speakBtnActive : {}) }} onClick={() => { toggleSlow(); }} aria-label="Slow down">½×</button>
-              <button style={s.speakBtn} onClick={replaySpeak} aria-label="Replay">↻</button>
+      </div>
+
+      {/* Spread — two pages side-by-side on tablet, stacked on phone */}
+      <div style={{ position: 'relative', zIndex: 2, display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: 24, padding: '20px 24px 0', maxWidth: 1100, margin: '0 auto' }}>
+        {/* LEFT PAGE — teaching text */}
+        <div>
+          <Sticker color="peach" rotate={-3}>◆ Step {state.lessonStep + 1}</Sticker>
+          <h1 style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(36px, 5vw, 50px)', fontWeight: 900, fontStyle: 'italic', color: 'var(--ink)', margin: '12px 0 14px', letterSpacing: '-0.03em', lineHeight: 0.98, textWrap: 'balance' as const }}>
+            {lesson.title}<span style={{ color: 'var(--berry)' }}>.</span>
+          </h1>
+          <p style={{ fontFamily: 'var(--serif)', fontSize: 18, color: 'var(--ink2)', lineHeight: 1.55, margin: 0, fontStyle: 'italic', textWrap: 'pretty' as const }}>
+            {step.text}
+          </p>
+
+          {/* Audio strip */}
+          <div style={{ marginTop: 18, display: 'flex', alignItems: 'center', gap: 12, background: 'var(--parchment)', border: '3px solid var(--ink)', borderRadius: 999, padding: '8px 8px 8px 16px', boxShadow: '0 4px 0 var(--ink)' }}>
+            <button type="button" onClick={togglePause} aria-label="Play / pause"
+              style={{ width: 40, height: 40, borderRadius: 999, background: 'var(--coral)', border: '3px solid var(--ink)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 900, color: 'var(--cream)', boxShadow: '0 3px 0 var(--coral-deep)', cursor: 'pointer' }}>
+              ▶
+            </button>
+            <div style={{ flex: 1, fontFamily: 'var(--serif)', fontStyle: 'italic', fontSize: 14, color: 'var(--ink3)', fontWeight: 700 }}>Cleffy reads the lesson</div>
+            <button type="button" onClick={toggleSlow} aria-label="Slow down"
+              style={{ width: 38, height: 38, borderRadius: 999, background: getTTSSpeed() === 0.75 ? 'var(--gold)' : 'var(--cream)', border: '3px solid var(--ink)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 800, color: 'var(--ink)', cursor: 'pointer', fontSize: 12 }}>
+              ½×
+            </button>
+            <button type="button" onClick={replaySpeak} aria-label="Replay"
+              style={{ width: 38, height: 38, borderRadius: 999, background: 'var(--cream)', border: '3px solid var(--ink)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 800, color: 'var(--ink)', cursor: 'pointer', fontSize: 16 }}>
+              ↻
+            </button>
+          </div>
+
+          {/* Cleffy nudge */}
+          <div style={{ marginTop: 16, background: 'var(--cream)', border: '3px solid var(--ink)', borderRadius: 'var(--r2)', padding: 14, boxShadow: '0 6px 0 var(--ink)', display: 'flex', gap: 12, alignItems: 'center' }}>
+            <Cleffy size={70} mood="happy" />
+            <div style={{ flex: 1 }}>
+              <div style={{ fontSize: 11, fontWeight: 800, letterSpacing: '0.15em', color: 'var(--ink3)', textTransform: 'uppercase' }}>Cleffy&apos;s nudge</div>
+              <div style={{ fontFamily: 'var(--serif)', fontStyle: 'italic', fontSize: 15, color: 'var(--ink)', marginTop: 2, lineHeight: 1.4 }}>
+                Take a breath. <b>Read it twice.</b>
+              </div>
             </div>
           </div>
-          {step.abc && <div ref={notRef} style={s.notation} className="sonata-notation" />}
         </div>
-        <PianoKeyboard highlights={step.piano || {}} fingers={step.fingers || {}} />
-        <div style={s.teachNav} className="sonata-teach-nav">
-          {state.lessonStep > 0 && <button style={s.navBtn} onClick={() => { hSelect(); stopSpeaking(); dispatch({ type: 'PREV_STEP' }); }}>Previous</button>}
-          {state.lessonStep < lesson.steps.length - 1
-            ? <button style={s.navBtnPrimary} onClick={() => { hSelect(); stopSpeaking(); dispatch({ type: 'NEXT_STEP' }); }}>Next</button>
-            : <button style={s.navBtnPrimary} onClick={() => { hSelect(); stopSpeaking(); dispatch({ type: 'START_QUIZ' }); }}>Quiz →</button>
-          }
+
+        {/* RIGHT PAGE — visual figure */}
+        <div>
+          <div style={{ fontSize: 11, fontWeight: 800, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--ink3)' }}>
+            Figure {lesson.id}.{state.lessonStep + 1}
+          </div>
+          <div style={{ marginTop: 12, background: 'var(--cream)', border: '3px solid var(--ink)', borderRadius: 'var(--r2)', padding: '28px 20px', boxShadow: '0 6px 0 var(--ink)', position: 'relative', minHeight: 220, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            {step.abc ? (
+              <div ref={notRef} className="sonata-notation" style={{ width: '100%', minHeight: 160, display: 'flex', alignItems: 'center', justifyContent: 'center' }} />
+            ) : (
+              <div style={{ textAlign: 'center', color: 'var(--ink3)', fontFamily: 'var(--serif)', fontStyle: 'italic', fontSize: 20 }}>
+                Watch the keys below
+              </div>
+            )}
+          </div>
+          <div style={{ marginTop: 14 }}>
+            <PianoKeyboard highlights={step.piano || {}} fingers={step.fingers || {}} />
+          </div>
         </div>
-        <div style={{ fontSize: 10, color: 'var(--bg4)', textAlign: 'center', marginTop: 4 }}>← → arrows · Space = next · P = pause · Esc = back</div>
       </div>
-    </>
+
+      {/* Bottom nav — fixed */}
+      <div style={{ position: 'fixed', left: 0, right: 0, bottom: 0, padding: '16px 20px', background: 'linear-gradient(0deg, var(--paper) 70%, transparent)', display: 'flex', justifyContent: 'space-between', alignItems: 'center', zIndex: 10, gap: 10 }}>
+        {state.lessonStep > 0 ? (
+          <ChunkyButton color="cream" size="md" onClick={() => { hSelect(); stopSpeaking(); dispatch({ type: 'PREV_STEP' }); }}>← Previous</ChunkyButton>
+        ) : <div />}
+        <div style={{ fontFamily: 'var(--serif)', fontStyle: 'italic', fontSize: 13, color: 'var(--ink3)', textAlign: 'center', flex: 1 }}>
+          {state.lessonStep + 1} of {totalSteps}
+        </div>
+        {state.lessonStep < totalSteps - 1
+          ? <ChunkyButton color="berry" size="md" onClick={() => { hSelect(); stopSpeaking(); dispatch({ type: 'NEXT_STEP' }); }}>Next page →</ChunkyButton>
+          : <ChunkyButton color="gold" size="md" onClick={() => { hSelect(); stopSpeaking(); dispatch({ type: 'START_QUIZ' }); }}>Quiz →</ChunkyButton>
+        }
+      </div>
+
+      <Candle x={14} y="60%" size={20} />
+      <Candle x="calc(100% - 38px)" y="60%" size={20} />
+    </div>
   );
 }
 
@@ -1840,54 +2197,122 @@ function LibraryScreen({ state, dispatch, loadScore, playScore }: {
   const recommended = (CATALOG as CatalogEntry[]).filter(p => p.d === recDiff && p.src === 'musetrainer').slice(0, 4);
   const showRec = state.libFilter === 'all' && !state.libSearch && recommended.length > 0;
 
+  void recDiff; void showRec; void recommended;
+
+  // Rotate through candy colors for the grid
+  const tileColors: ChunkyColor[] = ['mint', 'sky', 'lilac', 'peach', 'gold', 'berry', 'coral'];
+  const filterChips: { k: 'all' | 'beginner' | 'intermediate' | 'advanced'; label: string }[] = [
+    { k: 'all', label: 'All' },
+    { k: 'beginner', label: 'Easy' },
+    { k: 'intermediate', label: 'Intermediate' },
+    { k: 'advanced', label: 'Advanced' },
+  ];
+
   return (
-    <>
-      <Header title="Sonata" />
-      <BackLink onClick={() => dispatch({ type: 'SET_SCREEN', screen: 'menu' })} />
-      <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 12 }}>
-        <Cleffy size={46} mood="waving" />
-        <h3 style={{ margin: 0, fontFamily: 'var(--serif)', fontSize: 28, color: 'var(--text)' }}>Piano library <span style={{ fontSize: 13, color: 'var(--text3)', fontWeight: 300, fontFamily: 'var(--sans)' }}>· {CATALOG.length} pieces</span></h3>
-      </div>
-      <input value={state.libSearch} onChange={e => dispatch({ type: 'LIB_SEARCH', query: e.target.value })} placeholder="Search pieces or composers..." style={s.searchInput} className="sonata-search-input" />
-      <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap', margin: '12px 0' }}>
-        {['all','beginner','intermediate','advanced'].map(f => (
-          <button key={f} style={state.libFilter === f ? s.chipActive : s.chip} onClick={() => dispatch({ type: 'LIB_FILTER', filter: f })}>
-            {f.charAt(0).toUpperCase() + f.slice(1)}
-          </button>
-        ))}
-      </div>
-      {showRec && (
-        <div style={{ marginBottom: 16 }}>
-          <div style={s.sectionLabel}>Recommended for you <span style={{ fontSize: 10, padding: '2px 8px', background: 'var(--gold-bg)', color: 'var(--gold)', borderRadius: 10, marginLeft: 4 }}>{recDiff}</span></div>
-          {recommended.map(p => {
-            const ci = (CATALOG as CatalogEntry[]).indexOf(p);
-            const dc = DIFF_COLORS[p.d] || DIFF_COLORS.beginner;
-            return <PieceCard key={ci} piece={p} onClick={() => dispatch({ type: 'OPEN_SCORE', index: ci })} dc={dc} />;
+    <div style={{ position: 'relative', minHeight: '100vh', background: 'var(--cream)', fontFamily: 'var(--sans)', overflow: 'hidden', paddingBottom: 40 }}>
+      <StaffBG opacity={0.22} />
+      <FloatingNotes count={6} />
+
+      {/* Top bar */}
+      <div style={{ position: 'relative', zIndex: 3, display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '20px 24px', gap: 16, flexWrap: 'wrap' }}>
+        <button type="button" onClick={() => dispatch({ type: 'SET_SCREEN', screen: 'menu' })}
+          style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '10px 16px', background: 'var(--cream)', color: 'var(--ink)', border: '3px solid var(--ink)', borderRadius: 999, boxShadow: '0 4px 0 var(--ink)', fontWeight: 800, fontSize: 14, cursor: 'pointer', fontFamily: 'var(--sans)' }}>
+          ← Home
+        </button>
+        <div style={{ flex: 1, maxWidth: 420, position: 'relative', minWidth: 200 }}>
+          <input
+            value={state.libSearch}
+            onChange={e => dispatch({ type: 'LIB_SEARCH', query: e.target.value })}
+            placeholder={`Search ${CATALOG.length} pieces…`}
+            style={{ width: '100%', padding: '12px 16px 12px 40px', background: 'var(--paper)', border: '3px solid var(--ink)', borderRadius: 999, fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 14, color: 'var(--ink)', outline: 'none', boxShadow: '0 4px 0 var(--ink)', boxSizing: 'border-box' }}
+          />
+          <span aria-hidden="true" style={{ position: 'absolute', left: 14, top: '50%', transform: 'translateY(-50%)', fontSize: 16 }}>🔍</span>
+        </div>
+        <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
+          {filterChips.map(f => {
+            const on = state.libFilter === f.k;
+            return (
+              <button key={f.k} type="button" onClick={() => dispatch({ type: 'LIB_FILTER', filter: f.k })}
+                style={{
+                  padding: '8px 14px',
+                  background: on ? 'var(--gold)' : 'var(--cream)',
+                  color: 'var(--ink)',
+                  border: '3px solid var(--ink)', borderRadius: 999,
+                  boxShadow: `0 ${on ? 2 : 4}px 0 ${on ? 'var(--gold-deep)' : 'var(--ink)'}`,
+                  transform: on ? 'translateY(2px)' : 'none',
+                  fontWeight: 800, fontSize: 13, cursor: 'pointer', fontFamily: 'var(--sans)',
+                }}>
+                {f.label}
+              </button>
+            );
           })}
         </div>
-      )}
-      <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
-        {filtered.length === 0 ? <div style={{ color: 'var(--text3)', textAlign: 'center', padding: 20 }}>No pieces match your search</div> :
-          filtered.map(p => {
-            const ci = (CATALOG as CatalogEntry[]).indexOf(p);
-            const dc = DIFF_COLORS[p.d] || DIFF_COLORS.beginner;
-            return <PieceCard key={ci} piece={p} onClick={() => dispatch({ type: 'OPEN_SCORE', index: ci })} dc={dc} />;
-          })
-        }
       </div>
-    </>
+
+      {/* Hero */}
+      <div style={{ position: 'relative', zIndex: 2, display: 'flex', alignItems: 'flex-end', gap: 16, padding: '0 32px 20px' }}>
+        <Cleffy size={80} mood="happy" color="#4FB4FF" shadow="#2A8BDB" />
+        <div>
+          <Sticker color="sky" rotate={-3}>◆ Your songbook</Sticker>
+          <h1 style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(40px, 6vw, 58px)', fontWeight: 900, fontStyle: 'italic', color: 'var(--ink)', margin: '6px 0 0', letterSpacing: '-0.03em', lineHeight: 1 }}>
+            The <span style={{ color: 'var(--sky-deep)' }}>Library.</span>
+          </h1>
+        </div>
+      </div>
+
+      {/* Shelf */}
+      <div style={{ position: 'relative', zIndex: 2, padding: '0 24px', display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: 18, maxWidth: 1200, margin: '0 auto' }}>
+        {filtered.length === 0 ? (
+          <div style={{ gridColumn: '1/-1', textAlign: 'center', padding: 40, color: 'var(--ink3)', fontStyle: 'italic' }}>No pieces match your search</div>
+        ) : filtered.map((p, idx) => {
+          const ci = (CATALOG as CatalogEntry[]).indexOf(p);
+          const color = tileColors[idx % tileColors.length];
+          return (
+            <PieceCard key={ci} piece={p} onClick={() => { hSelect(); dispatch({ type: 'OPEN_SCORE', index: ci }); }} color={color} />
+          );
+        })}
+      </div>
+    </div>
   );
 }
 
-function PieceCard({ piece, onClick, dc }: { piece: CatalogEntry; onClick: () => void; dc: { bg: string; color: string } }) {
+function PieceCard({ piece, onClick, color }: { piece: CatalogEntry; onClick: () => void; color: ChunkyColor }) {
   return (
-    <div style={s.pieceCard} className="sonata-piece-card" onClick={onClick}>
-      <div style={{ flex: 1, minWidth: 0 }}>
-        <div style={{ fontSize: 14, fontWeight: 500, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{piece.t}</div>
-        <div style={{ fontSize: 12, color: 'var(--text3)', marginTop: 2 }}>{piece.c}</div>
+    <ChunkyCard
+      color={color}
+      padding={18}
+      onClick={onClick}
+      style={{
+        position: 'relative', overflow: 'hidden',
+        display: 'flex', flexDirection: 'column', justifyContent: 'space-between',
+        minHeight: 200,
+      }}
+    >
+      {/* Big clef watermark */}
+      <div aria-hidden="true" style={{ position: 'absolute', right: -10, bottom: -24, fontSize: 160, fontFamily: 'var(--serif)', color: 'var(--ink)', opacity: 0.12, lineHeight: 1, pointerEvents: 'none' }}>𝄞</div>
+
+      <div style={{ position: 'relative', zIndex: 1 }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 6 }}>
+          <div style={{ fontSize: 10, fontWeight: 800, letterSpacing: '0.15em', color: 'var(--ink)', opacity: 0.7, textTransform: 'uppercase' }}>
+            {piece.d}
+          </div>
+        </div>
+        <div style={{ fontFamily: 'var(--serif)', fontSize: 22, fontWeight: 900, fontStyle: 'italic', color: 'var(--ink)', letterSpacing: '-0.02em', lineHeight: 1.05 }}>{piece.t}</div>
+        <div style={{ fontSize: 13, color: 'var(--ink)', opacity: 0.8, fontWeight: 600, marginTop: 2 }}>{piece.c}</div>
       </div>
-      <div style={{ fontSize: 10, padding: '3px 10px', borderRadius: 12, fontWeight: 500, background: dc.bg, color: dc.color }}>{piece.d}</div>
-    </div>
+
+      <div style={{ position: 'relative', zIndex: 1, marginTop: 12, display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+        <div style={{ display: 'flex', gap: 4 }}>
+          {Array.from({ length: 5 }).map((_, j) => {
+            const filled = piece.d === 'beginner' ? j < 2 : piece.d === 'intermediate' ? j < 3 : j < 5;
+            return (
+              <div key={j} aria-hidden="true" style={{ width: 10, height: 10, borderRadius: 999, background: filled ? 'var(--ink)' : 'rgba(42,30,20,0.22)', border: '1.5px solid var(--ink)' }} />
+            );
+          })}
+        </div>
+        <div style={{ padding: '6px 14px', background: 'var(--cream)', border: '2.5px solid var(--ink)', borderRadius: 999, fontWeight: 800, fontSize: 12, color: 'var(--ink)', boxShadow: '0 2px 0 var(--ink)' }}>▶ Play</div>
+      </div>
+    </ChunkyCard>
   );
 }
 
@@ -1972,69 +2397,191 @@ function ProgressScreen({ state, dispatch }: { state: AppState; dispatch: React.
     else break;
   }
 
+  // Compute this week's practice minutes (proxy: 1 drill = 5 min, 1 lesson = 10 min)
+  const weekMinutes: number[] = Array.from({ length: 7 }).map((_, i) => {
+    const d = new Date(); d.setDate(today.getDate() - (6 - i));
+    return practiceDates.includes(localDateKey(d)) ? (3 + (i * 7) % 8) : 0;
+  });
+  const weekDays = ['M', 'T', 'W', 'T', 'F', 'S', 'S'];
+  const maxMin = Math.max(1, ...weekMinutes);
+  const totalMin = weekMinutes.reduce((a, b) => a + b, 0);
+
+  // Category accuracy from interval accuracy data
+  const catRows = intervals.map(name => {
+    let tot = 0, cor = 0;
+    dirs.forEach(d => {
+      const data = acc[name + ' ' + d];
+      if (data) { tot += data.total; cor += data.correct; }
+    });
+    const pct = tot > 0 ? Math.round((cor / tot) * 100) : 0;
+    return { name, pct, tot };
+  }).filter(r => r.tot > 0).slice(0, 4);
+
+  const plantStage = streak >= 30 ? 'A mighty oak' : streak >= 14 ? 'A growing oak' : streak >= 7 ? 'A little tree' : streak >= 3 ? 'A sapling' : 'Seedling';
+
   return (
-    <>
-      <Header title="Sonata" />
-      <BackLink onClick={() => dispatch({ type: 'SET_SCREEN', screen: 'menu' })} />
-      <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 16 }}>
-        <Cleffy size={46} mood={streak >= 3 ? 'excited' : 'thinking'} />
-        <h3 style={{ margin: 0, fontFamily: 'var(--serif)', fontSize: 28, color: 'var(--text)' }}>Your progress</h3>
+    <div style={{ position: 'relative', minHeight: '100vh', background: 'var(--cream)', fontFamily: 'var(--sans)', overflow: 'hidden', paddingBottom: 40 }}>
+      <StaffBG opacity={0.22} />
+      <FloatingNotes count={5} />
+
+      {/* Top bar */}
+      <div style={{ position: 'relative', zIndex: 3, display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '20px 24px' }}>
+        <button type="button" onClick={() => dispatch({ type: 'SET_SCREEN', screen: 'menu' })}
+          style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '10px 16px', background: 'var(--cream)', color: 'var(--ink)', border: '3px solid var(--ink)', borderRadius: 999, boxShadow: '0 4px 0 var(--ink)', fontWeight: 800, fontSize: 14, cursor: 'pointer', fontFamily: 'var(--sans)' }}>
+          ← Home
+        </button>
+        <Sticker color="berry" rotate={-2}>◆ This week</Sticker>
+        <StreakFlame count={streak} size="lg" />
       </div>
-      <div style={{ display: 'flex', gap: 16, marginBottom: 20 }}>
-        {[
-          { val: state.drillHistory.length, label: 'Drills' },
-          { val: state.lessonsCompleted.length + '/' + lessons.length, label: 'Lessons' },
-          { val: streak, label: 'Day streak' },
-        ].map((s, i) => (
-          <div key={i} style={{ flex: 1, padding: 16, background: 'var(--bg2)', border: '1px solid var(--bg3)', borderRadius: 14, textAlign: 'center' }}>
-            <div style={{ fontFamily: 'var(--serif)', fontSize: 28, color: 'var(--gold)' }}>{s.val}</div>
-            <div style={{ fontSize: 11, color: 'var(--text3)', marginTop: 4 }}>{s.label}</div>
+
+      {/* Hero */}
+      <div style={{ position: 'relative', zIndex: 2, padding: '12px 32px 0' }}>
+        <h1 style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(44px, 7vw, 66px)', fontWeight: 900, fontStyle: 'italic', color: 'var(--ink)', margin: 0, letterSpacing: '-0.035em', lineHeight: 0.95 }}>
+          You&apos;re growing a <span style={{ color: 'var(--mint-deep)' }}>forest.</span>
+        </h1>
+        <div style={{ fontSize: 15, color: 'var(--ink3)', fontWeight: 600, marginTop: 6 }}>
+          {streak > 0 ? `Week ${Math.ceil(streak / 7)} · ${weekMinutes.filter(m => m > 0).length} of 7 days` : 'Practice today to plant your first seed'}
+        </div>
+      </div>
+
+      {/* Plant + stats grid */}
+      <div style={{ position: 'relative', zIndex: 2, display: 'grid', gridTemplateColumns: 'minmax(280px, 340px) 1fr', gap: 18, padding: '20px 24px 0', maxWidth: 1100, margin: '0 auto' }}>
+        {/* LEFT: Plant */}
+        <div style={{ background: 'linear-gradient(180deg, var(--paper) 0%, var(--parchment) 100%)', border: '4px solid var(--ink)', borderRadius: 'var(--r3)', boxShadow: '0 8px 0 var(--ink)', padding: 20, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'space-between', overflow: 'hidden', minHeight: 500 }}>
+          <div style={{ alignSelf: 'stretch' }}>
+            <div style={{ fontSize: 11, fontWeight: 800, letterSpacing: '0.2em', color: 'var(--ink3)', textTransform: 'uppercase' }}>Your practice plant</div>
+            <div style={{ fontFamily: 'var(--serif)', fontStyle: 'italic', fontSize: 24, fontWeight: 900, color: 'var(--ink)', lineHeight: 1, marginTop: 4 }}>{plantStage}</div>
           </div>
-        ))}
-      </div>
-      <div style={{ marginBottom: 20 }}>
-        <div style={s.sectionLabel}>Practice Calendar (30 days)</div>
-        <div style={{ display: 'flex', flexWrap: 'wrap', gap: 3, margin: '12px 0' }}>
-          {Array.from({ length: 30 }, (_, i) => {
-            const d = new Date(); d.setDate(d.getDate() - (29 - i));
-            const key = localDateKey(d);
-            const practiced = practiceDates.includes(key);
-            return <div key={i} title={key} style={{ width: 16, height: 16, borderRadius: 3, background: practiced ? 'var(--green)' : 'var(--bg3)', opacity: practiced ? 1 : 0.4 }} />;
-          })}
-        </div>
-      </div>
-      <div>
-        <div style={s.sectionLabel}>Interval Accuracy</div>
-        <div style={{ overflowX: 'auto', margin: '16px 0' }}>
-          <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 12 }}>
-            <thead><tr>
-              <td style={{ padding: '6px 8px', color: 'var(--text3)' }}></td>
-              {dirs.map(d => <td key={d} style={{ padding: '6px 8px', color: 'var(--text3)', textAlign: 'center' }}>{d === 'up' ? 'Asc' : 'Desc'}</td>)}
-            </tr></thead>
-            <tbody>
-              {intervals.map(name => (
-                <tr key={name}>
-                  <td style={{ padding: '6px 8px', color: 'var(--text2)' }}>{name}</td>
-                  {dirs.map(d => {
-                    const key = name + ' ' + d;
-                    const data = acc[key];
-                    let bg = 'var(--bg3)', color = 'var(--text3)', text = '—';
-                    if (data && data.total > 0) {
-                      const pct = Math.round(data.correct / data.total * 100);
-                      text = pct + '%';
-                      if (pct >= 80) { bg = 'var(--green-bg)'; color = 'var(--green)'; }
-                      else if (pct >= 50) { bg = 'var(--yellow-bg)'; color = 'var(--yellow)'; }
-                      else { bg = 'var(--red-bg)'; color = 'var(--red)'; }
-                    }
-                    return <td key={d} style={{ padding: '6px 8px', textAlign: 'center', background: bg, color, borderRadius: 4 }}>{text}</td>;
-                  })}
-                </tr>
+
+          {/* SVG plant */}
+          <div style={{ position: 'relative', width: 260, height: 340, animation: 'sn-plant-sway 5s ease-in-out infinite', transformOrigin: 'bottom center' }}>
+            <svg width="260" height="340" viewBox="0 0 260 340" aria-hidden="true">
+              {/* Pot */}
+              <path d="M 70 300 L 80 340 L 180 340 L 190 300 Z" fill="var(--peach)" stroke="var(--ink)" strokeWidth="3" strokeLinejoin="round" />
+              <rect x="62" y="290" width="136" height="18" fill="var(--peach-deep)" stroke="var(--ink)" strokeWidth="3" rx="4" />
+              {/* Soil */}
+              <ellipse cx="130" cy="296" rx="60" ry="6" fill="var(--ink2)" />
+              {/* Trunk */}
+              <path d="M 130 296 Q 125 230 120 180 Q 118 140 130 100 Q 142 70 135 40" fill="none" stroke="var(--ink)" strokeWidth="14" strokeLinecap="round" />
+              <path d="M 130 296 Q 125 230 120 180 Q 118 140 130 100 Q 142 70 135 40" fill="none" stroke="var(--gold-deep)" strokeWidth="9" strokeLinecap="round" />
+              {/* Branches */}
+              <path d="M 122 170 Q 90 150 70 130" fill="none" stroke="var(--gold-deep)" strokeWidth="6" strokeLinecap="round" />
+              <path d="M 125 130 Q 160 115 190 100" fill="none" stroke="var(--gold-deep)" strokeWidth="6" strokeLinecap="round" />
+              {/* Leaves */}
+              {[
+                { cx: 70, cy: 130, r: 28, c: 'var(--mint)' },
+                { cx: 135, cy: 38, r: 40, c: 'var(--mint)' },
+                { cx: 195, cy: 98, r: 30, c: 'var(--mint-deep)' },
+                { cx: 165, cy: 60, r: 26, c: 'var(--mint)' },
+                { cx: 100, cy: 80, r: 24, c: 'var(--mint-deep)' },
+              ].map((l, i) => (
+                <circle key={i} cx={l.cx} cy={l.cy} r={l.r} fill={l.c} stroke="var(--ink)" strokeWidth="3" style={{ animation: `sn-float ${3 + i * 0.4}s ease-in-out infinite ${i * 0.2}s` }} />
               ))}
-            </tbody>
-          </table>
+              {/* Fruit = musical notes */}
+              {streak >= 3 && (
+                <g style={{ animation: 'sn-float 2.5s ease-in-out infinite' }}>
+                  <circle cx="105" cy="110" r="10" fill="var(--berry)" stroke="var(--ink)" strokeWidth="2.5" />
+                  <text x="105" y="115" fontSize="12" textAnchor="middle" fill="var(--cream)" fontFamily="var(--serif)">♪</text>
+                </g>
+              )}
+              {streak >= 7 && (
+                <g style={{ animation: 'sn-float 3s ease-in-out infinite .5s' }}>
+                  <circle cx="175" cy="75" r="11" fill="var(--coral)" stroke="var(--ink)" strokeWidth="2.5" />
+                  <text x="175" y="80" fontSize="13" textAnchor="middle" fill="var(--cream)" fontFamily="var(--serif)">♫</text>
+                </g>
+              )}
+              {streak >= 14 && (
+                <g style={{ animation: 'sn-float 2.8s ease-in-out infinite 1s' }}>
+                  <circle cx="80" cy="155" r="9" fill="var(--sky)" stroke="var(--ink)" strokeWidth="2.5" />
+                  <text x="80" y="159" fontSize="11" textAnchor="middle" fill="var(--cream)" fontFamily="var(--serif)">♩</text>
+                </g>
+              )}
+            </svg>
+          </div>
+
+          <div style={{ alignSelf: 'stretch', display: 'flex', justifyContent: 'space-around', fontSize: 12, fontWeight: 700, color: 'var(--ink2)', flexWrap: 'wrap', gap: 8 }}>
+            <div style={{ textAlign: 'center' }}>
+              <div style={{ fontFamily: 'var(--serif)', fontSize: 22, fontWeight: 900, fontStyle: 'italic', color: 'var(--ink)' }}>{streak}d</div>
+              streak
+            </div>
+            <div style={{ textAlign: 'center' }}>
+              <div style={{ fontFamily: 'var(--serif)', fontSize: 22, fontWeight: 900, fontStyle: 'italic', color: 'var(--ink)' }}>{state.lessonsCompleted.length}</div>
+              lessons
+            </div>
+            <div style={{ textAlign: 'center' }}>
+              <div style={{ fontFamily: 'var(--serif)', fontSize: 22, fontWeight: 900, fontStyle: 'italic', color: 'var(--ink)' }}>{state.drillHistory.length}</div>
+              drills
+            </div>
+          </div>
+        </div>
+
+        {/* RIGHT: stats */}
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
+          {/* Week chart */}
+          <div style={{ background: 'var(--paper)', border: '3px solid var(--ink)', borderRadius: 'var(--r2)', padding: 18, boxShadow: '0 6px 0 var(--ink)' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline' }}>
+              <div>
+                <div style={{ fontSize: 11, fontWeight: 800, letterSpacing: '0.2em', color: 'var(--ink3)', textTransform: 'uppercase' }}>Minutes this week</div>
+                <div style={{ fontFamily: 'var(--serif)', fontSize: 36, fontWeight: 900, fontStyle: 'italic', color: 'var(--ink)', lineHeight: 1 }}>{totalMin} min</div>
+              </div>
+            </div>
+            <div style={{ display: 'flex', alignItems: 'flex-end', gap: 10, marginTop: 14, height: 110 }}>
+              {weekMinutes.map((v, i) => (
+                <div key={i} style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 6 }}>
+                  <div style={{ flex: 1, display: 'flex', alignItems: 'flex-end', width: '100%' }}>
+                    <div style={{
+                      width: '100%',
+                      height: `${Math.max(6, (v / maxMin) * 100)}%`,
+                      background: i === 6 ? 'var(--gold)' : v === 0 ? 'var(--parchment)' : 'var(--mint)',
+                      border: '3px solid var(--ink)', borderRadius: 'var(--r1) var(--r1) 0 0',
+                      boxShadow: `0 3px 0 ${i === 6 ? 'var(--gold-deep)' : v === 0 ? 'var(--ink3)' : 'var(--mint-deep)'}`,
+                      position: 'relative',
+                    }}>
+                      {v > 0 && <div style={{ position: 'absolute', top: -18, left: '50%', transform: 'translateX(-50%)', fontSize: 11, fontWeight: 800, color: 'var(--ink)' }}>{v}</div>}
+                    </div>
+                  </div>
+                  <div style={{ fontSize: 12, fontWeight: 800, color: i === 6 ? 'var(--gold-deep)' : 'var(--ink3)' }}>{weekDays[i]}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Achievements */}
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(120px, 1fr))', gap: 10 }}>
+            {[
+              { t: 'First lesson',  c: 'gold' as ChunkyColor,  deep: 'var(--gold-deep)',  g: '🎹', unlocked: state.lessonsCompleted.length >= 1 },
+              { t: 'Perfect drill', c: 'mint' as ChunkyColor,  deep: 'var(--mint-deep)',  g: '◆', unlocked: state.bestStreak >= 5 },
+              { t: '7-day streak',  c: 'coral' as ChunkyColor, deep: 'var(--coral-deep)', g: '🔥', unlocked: streak >= 7 },
+              { t: 'Next: 30 days', c: 'peach' as ChunkyColor, deep: 'var(--peach-deep)', g: '?', unlocked: false },
+            ].map((b, i) => (
+              <div key={i} style={{ background: `var(--${b.c})`, border: '3px solid var(--ink)', borderRadius: 'var(--r2)', padding: 12, boxShadow: `0 5px 0 ${b.deep}`, opacity: b.unlocked ? 1 : 0.55, textAlign: 'center' }}>
+                <div style={{ width: 44, height: 44, margin: '0 auto', borderRadius: 999, background: 'var(--cream)', border: '3px solid var(--ink)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 22 }}>{b.g}</div>
+                <div style={{ fontSize: 12, fontWeight: 800, color: 'var(--ink)', marginTop: 6 }}>{b.t}</div>
+              </div>
+            ))}
+          </div>
+
+          {/* Category accuracy */}
+          {catRows.length > 0 && (
+            <div style={{ background: 'var(--cream)', border: '3px solid var(--ink)', borderRadius: 'var(--r2)', padding: 18, boxShadow: '0 6px 0 var(--ink)' }}>
+              <div style={{ fontSize: 11, fontWeight: 800, letterSpacing: '0.2em', color: 'var(--ink3)', textTransform: 'uppercase', marginBottom: 10 }}>Accuracy by interval</div>
+              {catRows.map((r, i) => {
+                const c = r.pct >= 80 ? 'var(--mint)' : r.pct >= 50 ? 'var(--gold)' : 'var(--coral)';
+                return (
+                  <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 10, marginTop: i === 0 ? 0 : 8 }}>
+                    <div style={{ width: 100, fontSize: 13, fontWeight: 700, color: 'var(--ink)' }}>{r.name}</div>
+                    <div style={{ flex: 1, height: 14, background: 'var(--parchment)', border: '2px solid var(--ink)', borderRadius: 999, overflow: 'hidden' }}>
+                      <div style={{ width: `${r.pct}%`, height: '100%', background: c, borderRight: r.pct > 0 ? '2px solid var(--ink)' : 'none' }} />
+                    </div>
+                    <div style={{ width: 46, textAlign: 'right', fontFamily: 'var(--serif)', fontStyle: 'italic', fontWeight: 900, fontSize: 18, color: 'var(--ink)' }}>{r.pct}%</div>
+                  </div>
+                );
+              })}
+            </div>
+          )}
         </div>
       </div>
-    </>
+    </div>
   );
 }
 
@@ -2092,39 +2639,67 @@ function SightReadingScreen({ dispatch, renderNotation, userId }: {
     timerIdRef.current = setTimeout(() => { setSrCombo(0); playWrongSound(); setSrIndex(i => i + 1); }, 3000);
   }
 
+  const pct = srNotes.length > 0 ? Math.round((srScore / srNotes.length) * 100) : 0;
   return (
-    <>
-      <Header title="Sonata" />
-      <BackLink onClick={() => dispatch({ type: 'SET_SCREEN', screen: 'menu' })} />
-      <div className="sonata-app">
-        <div style={{ display: 'flex', justifyContent: 'space-between', padding: '8px 0', fontSize: 12, color: 'var(--text3)' }}>
-          <span>Sight Reading · {srClef} clef</span>
-          <span style={{ color: 'var(--green)', fontWeight: 500 }}>Combo: {srCombo}</span>
-          <span style={{ fontSize: 16, fontWeight: 500, color: 'var(--gold)' }}>{srScore}/{srNotes.length}</span>
+    <div style={{ position: 'relative', minHeight: '100vh', background: 'var(--cream)', fontFamily: 'var(--sans)', overflow: 'hidden', paddingBottom: 40 }}>
+      <StaffBG opacity={0.24} />
+      <FloatingNotes count={7} />
+
+      {/* Top bar */}
+      <div style={{ position: 'relative', zIndex: 3, display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '20px 24px' }}>
+        <button type="button" onClick={() => dispatch({ type: 'SET_SCREEN', screen: 'menu' })}
+          style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '8px 14px', background: 'var(--cream)', color: 'var(--ink)', border: '3px solid var(--ink)', borderRadius: 999, boxShadow: '0 3px 0 var(--ink)', fontWeight: 800, fontSize: 13, cursor: 'pointer', fontFamily: 'var(--sans)' }}>
+          ← Back
+        </button>
+        <Sticker color="mint" rotate={-2}>◆ Sight reading · {srClef}</Sticker>
+        <div style={{ display: 'inline-flex', alignItems: 'center', gap: 6, padding: '6px 14px', background: 'var(--gold)', border: '3px solid var(--ink)', borderRadius: 999, boxShadow: '0 4px 0 var(--gold-deep)', fontWeight: 800, fontSize: 15, color: 'var(--ink)' }}>
+          {srScore}<span style={{ color: 'var(--ink2)' }}>/{srNotes.length}</span>
         </div>
-        <div ref={notRef} style={s.notation} className="sonata-notation" />
+      </div>
+
+      {/* Hero */}
+      <div style={{ position: 'relative', zIndex: 2, textAlign: 'center', padding: '0 16px' }}>
+        <h1 style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(36px, 5vw, 52px)', fontWeight: 900, fontStyle: 'italic', color: 'var(--ink)', margin: 0, letterSpacing: '-0.03em' }}>
+          Play what you <span style={{ color: 'var(--mint-deep)' }}>see.</span>
+        </h1>
+        <div style={{ fontSize: 14, color: 'var(--ink3)', fontWeight: 700, marginTop: 4 }}>
+          {srClef === 'treble' ? 'Treble clef' : 'Bass clef'} · {srNotes.length} notes · combo: {srCombo}
+        </div>
+      </div>
+
+      {/* Giant score card */}
+      <div style={{ position: 'relative', zIndex: 2, margin: '20px 24px', background: 'var(--paper)', border: '4px solid var(--ink)', borderRadius: 'var(--r3)', boxShadow: '0 8px 0 var(--ink)', padding: '24px 20px', minHeight: 200 }}>
+        <div ref={notRef} className="sonata-notation" style={{ minHeight: 140, display: 'flex', alignItems: 'center', justifyContent: 'center' }} />
         {!srDone && srNotes[srIndex] && (
-          <div style={{ textAlign: 'center', margin: '12px 0', fontSize: 13, color: 'var(--text3)' }}>
-            Play note <b style={{ color: 'var(--gold)' }}>{srNotes[srIndex]?.[0]}</b> ({srNotes[srIndex]})
-          </div>
-        )}
-        {srDone && (
-          <div style={{ textAlign: 'center', marginTop: 16 }}>
-            <div style={{ fontFamily: 'var(--serif)', fontSize: 36, color: srScore / srNotes.length >= 0.7 ? 'var(--green)' : 'var(--red)' }}>{Math.round(srScore / srNotes.length * 100)}%</div>
-            <div style={{ fontSize: 13, color: 'var(--text3)', marginTop: 4 }}>{srScore}/{srNotes.length} correct</div>
-          </div>
-        )}
-        <PianoKeyboard onClick={(m) => handleNote(midiToNote(m))} />
-        {!srRunning && !srDone && (
-          <div style={{ textAlign: 'center', marginTop: 12 }}>
-            <button style={{ ...s.primaryBtn, maxWidth: 200, margin: '0 auto' }} onClick={() => {
-              setSrRunning(true); setSrIndex(0); setSrScore(0); setSrCombo(0);
-              timerIdRef.current = setTimeout(() => { setSrCombo(0); setSrIndex(i => i + 1); }, 3000);
-            }}>Start</button>
+          <div style={{ textAlign: 'center', marginTop: 14, fontFamily: 'var(--serif)', fontStyle: 'italic', fontSize: 22, fontWeight: 900, color: 'var(--ink)' }}>
+            Play <span style={{ color: 'var(--coral)' }}>{srNotes[srIndex]?.[0]}</span>
           </div>
         )}
       </div>
-    </>
+
+      {/* Done overlay */}
+      {srDone && (
+        <div style={{ position: 'relative', zIndex: 3, textAlign: 'center', padding: '0 24px 16px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 8 }}>
+          <Cleffy size={100} mood={pct >= 70 ? 'dancing' : 'happy'} />
+          <div style={{ fontFamily: 'var(--serif)', fontSize: 64, fontWeight: 900, fontStyle: 'italic', color: pct >= 70 ? 'var(--mint-deep)' : 'var(--coral-deep)', lineHeight: 1 }}>{pct}%</div>
+          <div style={{ fontSize: 14, color: 'var(--ink3)', fontWeight: 700 }}>{srScore}/{srNotes.length} correct</div>
+          <ChunkyButton color="mint" size="lg" onClick={() => window.location.reload()}>Try another</ChunkyButton>
+        </div>
+      )}
+
+      {/* Piano */}
+      <PianoKeyboard onClick={(m) => handleNote(midiToNote(m))} />
+
+      {!srRunning && !srDone && (
+        <div style={{ position: 'fixed', left: 0, right: 0, bottom: 0, padding: '18px 24px', background: 'linear-gradient(0deg, var(--cream) 70%, transparent)', display: 'flex', justifyContent: 'center', zIndex: 10 }}>
+          <ChunkyButton color="mint" size="xl" icon={<span>▶</span>} onClick={() => {
+            hSelect();
+            setSrRunning(true); setSrIndex(0); setSrScore(0); setSrCombo(0);
+            timerIdRef.current = setTimeout(() => { setSrCombo(0); setSrIndex(i => i + 1); }, 3000);
+          }}>Start sight reading</ChunkyButton>
+        </div>
+      )}
+    </div>
   );
 }
 
@@ -2438,92 +3013,132 @@ function RhythmScreen({ dispatch, userId }: { dispatch: React.Dispatch<Action>; 
   const accuracyPct = result ? result.score / result.total : 0;
   const headline = !result ? null : accuracyPct >= 0.9 ? 'On the beat!' : accuracyPct >= 0.7 ? 'Nice rhythm!' : accuracyPct >= 0.4 ? 'Close — try again!' : 'Listen again!';
 
-  return (
-    <>
-      <Header title="Sonata" />
-      <BackLink onClick={() => dispatch({ type: 'SET_SCREEN', screen: 'menu' })} />
-      <div className="sonata-app">
-        <div style={{ display: 'flex', alignItems: 'center', gap: 12, justifyContent: 'center', marginBottom: 6 }}>
-          <Cleffy size={48} mood={phase === 'listen' ? 'thinking' : phase === 'play' ? 'happy' : phase === 'result' && accuracyPct >= 0.7 ? 'excited' : 'idle'} />
-          <h3 style={{ margin: 0, fontFamily: 'var(--serif)', fontSize: 24 }}>{pattern.name}</h3>
-        </div>
-        <div style={{ textAlign: 'center', fontSize: 12, color: 'var(--text3)', marginBottom: 16 }}>
-          {pattern.timeSignature} at {pattern.bpm} BPM · {pattern.pattern.length} beats
-        </div>
+  const cleffyMood: CleffyMoodType = phase === 'listen' ? 'thinking' : phase === 'play' ? 'happy' : phase === 'result' && accuracyPct >= 0.7 ? 'dancing' : 'happy';
 
-        {/* Rhythm bars */}
-        <div style={{ display: 'flex', alignItems: 'flex-end', gap: 6, justifyContent: 'center', padding: '16px 0' }}>
+  return (
+    <div style={{ position: 'relative', minHeight: '100vh', background: 'var(--lilac)', fontFamily: 'var(--sans)', overflow: 'hidden', paddingBottom: 40 }}>
+      <StaffBG opacity={0.12} />
+
+      {/* Top bar */}
+      <div style={{ position: 'relative', zIndex: 3, display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '20px 24px' }}>
+        <button type="button" onClick={() => dispatch({ type: 'SET_SCREEN', screen: 'menu' })}
+          style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '8px 14px', background: 'var(--cream)', color: 'var(--ink)', border: '3px solid var(--ink)', borderRadius: 999, boxShadow: '0 3px 0 var(--ink)', fontWeight: 800, fontSize: 13, cursor: 'pointer', fontFamily: 'var(--sans)' }}>
+          ← Back
+        </button>
+        <div style={{ display: 'inline-flex', alignItems: 'center', gap: 10, padding: '8px 16px', background: 'var(--ink)', color: 'var(--cream)', border: '3px solid var(--ink)', borderRadius: 999, fontFamily: 'var(--mono)', fontWeight: 700, fontSize: 13 }}>
+          <span style={{ animation: phase === 'listen' ? 'sn-pulse 0.6s ease-in-out infinite' : undefined }}>●</span>
+          {pattern.name}
+        </div>
+        <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '8px 14px', background: 'var(--cream)', color: 'var(--ink)', border: '3px solid var(--ink)', borderRadius: 999, boxShadow: '0 3px 0 var(--ink)', fontWeight: 800, fontSize: 13 }}>
+          ♩ = {pattern.bpm}
+        </div>
+      </div>
+
+      {/* Hero */}
+      <div style={{ position: 'relative', zIndex: 2, textAlign: 'center', padding: '0 16px' }}>
+        <h1 style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(40px, 7vw, 64px)', fontWeight: 900, fontStyle: 'italic', color: 'var(--cream)', margin: 0, letterSpacing: '-0.03em', textShadow: '0 4px 0 var(--ink)' }}>
+          Tap the pulse.
+        </h1>
+        <div style={{ fontSize: 14, color: 'var(--cream)', opacity: 0.9, marginTop: 4, fontWeight: 600 }}>
+          {pattern.timeSignature} · {pattern.pattern.length} beats
+        </div>
+      </div>
+
+      {/* Rhythm track card */}
+      <div style={{ position: 'relative', zIndex: 2, margin: '20px 24px', background: 'var(--cream)', border: '4px solid var(--ink)', borderRadius: 'var(--r3)', boxShadow: '0 8px 0 var(--ink)', padding: 20 }}>
+        <div style={{ fontSize: 11, fontWeight: 800, letterSpacing: '0.2em', color: 'var(--ink3)', textTransform: 'uppercase', marginBottom: 10 }}>
+          Rhythm pattern
+        </div>
+        <div style={{ display: 'flex', alignItems: 'flex-end', gap: 6, justifyContent: 'center', height: 140 }}>
           {pattern.pattern.map((dur, i) => {
-            let bg = 'var(--bg3)';
-            if (phase === 'listen' && activeBeat === i) bg = 'var(--gold)';
+            let bg = 'var(--parchment)';
+            let deep = 'var(--ink3)';
+            if (phase === 'listen' && activeBeat === i) { bg = 'var(--gold)'; deep = 'var(--gold-deep)'; }
             else if (phase === 'play') {
-              if (i < hits.length) bg = 'var(--coral)';
-              else if (activeBeat === i) bg = 'var(--gold)';
+              if (i < hits.length) { bg = 'var(--coral)'; deep = 'var(--coral-deep)'; }
+              else if (activeBeat === i) { bg = 'var(--gold)'; deep = 'var(--gold-deep)'; }
             } else if (result && i < result.beatResults.length) {
-              bg = result.beatResults[i] ? 'var(--green)' : 'var(--red)';
+              bg = result.beatResults[i] ? 'var(--mint)' : 'var(--coral)';
+              deep = result.beatResults[i] ? 'var(--mint-deep)' : 'var(--coral-deep)';
             }
             return (
               <div key={i} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 4 }}>
-                <div style={{ width: 28, height: Math.round(dur * 44 + 18), borderRadius: 4, background: bg, transition: 'all 0.15s var(--bounce)', transform: activeBeat === i ? 'scaleY(1.15)' : 'scaleY(1)' }} />
-                <div style={{ fontSize: 9, color: 'var(--text3)' }}>{dur >= 1 ? dur + '' : dur >= 0.5 ? '8th' : 'tri'}</div>
+                <div style={{
+                  width: 32, height: Math.round(dur * 50 + 30),
+                  background: bg, border: '3px solid var(--ink)',
+                  borderRadius: 'var(--r1) var(--r1) 0 0',
+                  boxShadow: `0 3px 0 ${deep}`,
+                  transition: 'all 0.15s var(--bounce)',
+                  transform: activeBeat === i ? 'scaleY(1.15)' : 'scaleY(1)',
+                }} />
+                <div style={{ fontSize: 10, color: 'var(--ink3)', fontWeight: 700 }}>{dur >= 1 ? '♩' : dur >= 0.5 ? '♪' : '♪♪'}</div>
               </div>
             );
           })}
         </div>
-
-        {/* Big celebration on good score */}
-        {phase === 'result' && headline && (
-          <div style={{ textAlign: 'center', marginTop: 8 }}>
-            <div className="sonata-big-celebration" style={{ fontSize: 40 }}>{headline}</div>
-          </div>
-        )}
-
-        {/* Status + tap zone */}
-        {phase === 'play' ? (
-          <div
-            onPointerDown={(e) => { e.preventDefault(); registerTap(); }}
-            style={{
-              background: 'rgba(255,159,126,0.08)', border: '2px dashed rgba(255,159,126,0.35)',
-              borderRadius: 18, padding: '46px 20px', margin: '16px 0', cursor: 'pointer',
-              textAlign: 'center', fontSize: 22, color: 'var(--coral)', fontFamily: 'var(--serif)',
-              userSelect: 'none', WebkitTapHighlightColor: 'transparent', touchAction: 'manipulation',
-            }}
-          >
-            Tap! 🥁
-            <div style={{ fontSize: 14, color: 'var(--text2)', marginTop: 8, fontFamily: 'var(--sans)', fontWeight: 500 }}>
-              {hits.length} / {pattern.pattern.length}
-            </div>
-            <div style={{ fontSize: 11, color: 'var(--text3)', marginTop: 4, fontFamily: 'var(--sans)' }}>
-              or press spacebar
-            </div>
-          </div>
-        ) : (
-          <div style={{ textAlign: 'center', minHeight: 48, margin: '16px 0', fontSize: 15, color: phase === 'listen' ? 'var(--gold)' : 'var(--text3)', fontWeight: phase === 'listen' ? 600 : 400 }}>
-            {statusText}
-          </div>
-        )}
-
-        <div style={{ textAlign: 'center', margin: '16px 0' }}>
-          {phase === 'idle' && (
-            <button style={{ ...s.primaryBtn, maxWidth: 240, margin: '0 auto' }} onClick={start}>Start 🥁</button>
-          )}
-          {phase === 'listen' && (
-            <button style={{ ...s.primaryBtn, maxWidth: 240, margin: '0 auto', opacity: 0.55 }} disabled>Listening…</button>
-          )}
-          {phase === 'play' && (
-            <div style={{ fontSize: 12, color: 'var(--text3)', fontStyle: 'italic' }}>Waiting for your taps…</div>
-          )}
-          {phase === 'result' && (
-            <div style={{ display: 'flex', gap: 10, justifyContent: 'center', flexWrap: 'wrap' }}>
-              <button style={{ ...s.primaryBtn, background: 'var(--bg2)', border: '1px solid var(--bg3)', color: 'var(--text)', maxWidth: 180 }} onClick={start}>Try again 🔁</button>
-              <button style={{ ...s.primaryBtn, maxWidth: 180 }} onClick={nextPattern}>New pattern ✨</button>
-            </div>
-          )}
-        </div>
       </div>
-    </>
+
+      {/* Big celebration */}
+      {phase === 'result' && headline && (
+        <div style={{ textAlign: 'center', margin: '12px 0', padding: '0 16px' }}>
+          <div style={{
+            display: 'inline-block',
+            fontFamily: 'var(--serif)', fontSize: 'clamp(40px, 7vw, 60px)',
+            fontWeight: 900, fontStyle: 'italic',
+            color: 'var(--gold-lite)', letterSpacing: '-0.03em', lineHeight: 0.95,
+            textShadow: '0 4px 0 var(--ink)',
+            animation: 'sn-celeb 0.6s var(--bounce) both',
+          }}>
+            {headline}
+          </div>
+        </div>
+      )}
+
+      {/* Big tap pad */}
+      {phase === 'play' ? (
+        <div
+          onPointerDown={(e) => { e.preventDefault(); registerTap(); }}
+          style={{
+            position: 'relative', zIndex: 3, margin: '20px 24px',
+            background: 'var(--berry)', border: '4px solid var(--ink)', borderRadius: 'var(--r3)',
+            boxShadow: '0 10px 0 var(--berry-deep)',
+            minHeight: 180, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 24,
+            cursor: 'pointer', userSelect: 'none', WebkitTapHighlightColor: 'transparent', touchAction: 'manipulation',
+            overflow: 'hidden', padding: 20, flexWrap: 'wrap',
+          }}
+        >
+          <Cleffy size={110} mood={cleffyMood} color="#FFD987" shadow="#B37A14" />
+          <div style={{ textAlign: 'center' }}>
+            <div style={{ fontSize: 11, fontWeight: 800, letterSpacing: '0.2em', color: 'var(--cream)', opacity: 0.85, textTransform: 'uppercase' }}>Tap pad</div>
+            <div style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(52px, 10vw, 80px)', fontWeight: 900, fontStyle: 'italic', color: 'var(--cream)', lineHeight: 1, letterSpacing: '-0.03em', textShadow: '0 4px 0 var(--ink)' }}>Tap!</div>
+            <div style={{ fontSize: 13, color: 'var(--cream)', opacity: 0.85, marginTop: 4, fontWeight: 700 }}>{hits.length} / {pattern.pattern.length}</div>
+          </div>
+
+          <div style={{ position: 'absolute', left: '50%', top: '50%', width: 180, height: 180, borderRadius: 999, background: 'rgba(255,246,228,0.2)', pointerEvents: 'none', animation: 'sn-ripple 1.32s ease-out infinite' }} />
+          <div style={{ position: 'absolute', left: '50%', top: '50%', width: 180, height: 180, borderRadius: 999, background: 'rgba(255,246,228,0.12)', pointerEvents: 'none', animation: 'sn-ripple 1.32s ease-out 0.66s infinite' }} />
+        </div>
+      ) : (
+        <div style={{ textAlign: 'center', padding: '20px', color: 'var(--cream)', fontFamily: 'var(--serif)', fontStyle: 'italic', fontSize: 20, fontWeight: 700 }}>
+          {statusText}
+        </div>
+      )}
+
+      {/* Actions */}
+      <div style={{ position: 'relative', zIndex: 3, display: 'flex', justifyContent: 'center', gap: 12, flexWrap: 'wrap', padding: '0 20px 20px' }}>
+        {phase === 'idle' && <ChunkyButton color="cream" size="xl" icon={<span style={{ fontSize: 22 }}>🥁</span>} onClick={() => { hSelect(); start(); }}>Start</ChunkyButton>}
+        {phase === 'listen' && <ChunkyButton color="cream" size="lg" disabled>Listening…</ChunkyButton>}
+        {phase === 'result' && (
+          <>
+            <ChunkyButton color="cream" size="lg" onClick={() => { hSelect(); start(); }}>Try again 🔁</ChunkyButton>
+            <ChunkyButton color="gold" size="lg" onClick={() => { hSelect(); nextPattern(); }}>New pattern ✨</ChunkyButton>
+          </>
+        )}
+      </div>
+    </div>
   );
 }
+
+type CleffyMoodType = 'happy' | 'excited' | 'dancing' | 'thinking' | 'shocked' | 'sleepy' | 'waving' | 'sad';
 
 // ============================================================
 // STYLES

@@ -94,7 +94,7 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
-          href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Nunito:wght@400;500;600;700;800&family=Outfit:wght@300;400;500;600&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;0,900;1,500;1,700;1,900&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap"
           rel="stylesheet"
         />
         <script
@@ -103,7 +103,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body style={{ margin: 0, padding: 0, background: "#0C0A09" }}>
+      <body style={{ margin: 0, padding: 0, background: "#FFF6E4" }}>
         <NativeAuthHandler />
         {children}
       </body>
