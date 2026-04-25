@@ -40,7 +40,7 @@ function CamCompanionInner() {
           stream = await navigator.mediaDevices.getUserMedia({
             audio: false,
             video: {
-              facingMode: { ideal: "environment" },
+              facingMode: { ideal: "user" },
               width: { ideal: 640 },
               height: { ideal: 480 },
               frameRate: { ideal: 30 },
