@@ -50,6 +50,17 @@ export function PianoKeyboard({
   // (e.g. browsers that emit both touchstart AND a synthesized click).
   const lastPressRef = useRef<Record<number, number>>({});
 
+  // Tap-vs-drag detection: when the user starts a horizontal swipe to scroll
+  // the keyboard, we must NOT fire the underlying note. Track the touch
+  // start position; if it moves more than a few pixels we consider it a
+  // drag/scroll and suppress the press.
+  const touchTrackerRef = useRef<{
+    midi: number;
+    x: number;
+    y: number;
+    dragging: boolean;
+  } | null>(null);
+
   function handlePress(m: number) {
     // Defensive de-dupe: ignore a second press of the same key within 80ms.
     const now =
@@ -87,10 +98,44 @@ export function PianoKeyboard({
     spawnFloatNote(containerRef.current, glyphs[m % 3]);
   }
 
-  function onTouch(m: number, e: React.TouchEvent) {
-    e.preventDefault();
+  // Threshold (px): movement greater than this turns a tap into a drag/scroll.
+  const DRAG_THRESHOLD = 8;
+
+  function onTouchStartKey(m: number, e: React.TouchEvent) {
+    // IMPORTANT: do NOT preventDefault here — that kills the native horizontal
+    // scroll. We instead distinguish tap vs drag from the move/end deltas.
     touchedRef.current = true;
-    handlePress(m);
+    const t = e.touches[0];
+    touchTrackerRef.current = {
+      midi: m,
+      x: t?.clientX ?? 0,
+      y: t?.clientY ?? 0,
+      dragging: false,
+    };
+  }
+
+  function onTouchMoveKey(e: React.TouchEvent) {
+    const tracker = touchTrackerRef.current;
+    if (!tracker || tracker.dragging) return;
+    const t = e.touches[0];
+    if (!t) return;
+    const dx = Math.abs(t.clientX - tracker.x);
+    const dy = Math.abs(t.clientY - tracker.y);
+    if (dx > DRAG_THRESHOLD || dy > DRAG_THRESHOLD) {
+      tracker.dragging = true;
+    }
+  }
+
+  function onTouchEndKey() {
+    const tracker = touchTrackerRef.current;
+    touchTrackerRef.current = null;
+    if (!tracker) return;
+    if (tracker.dragging) return; // it was a scroll, not a tap
+    handlePress(tracker.midi);
+  }
+
+  function onTouchCancelKey() {
+    touchTrackerRef.current = null;
   }
 
   function onClickKey(m: number) {
@@ -101,24 +146,83 @@ export function PianoKeyboard({
     handlePress(m);
   }
 
+  function scrollByOctave(dir: 1 | -1) {
+    const el = containerRef.current;
+    if (!el) return;
+    // Compute pixel width of one white key from CSS var, fallback to 36px.
+    const probe = el.querySelector<HTMLElement>(".sonata-key-white");
+    const keyW = probe ? probe.getBoundingClientRect().width : 36;
+    el.scrollBy({ left: dir * keyW * 7, behavior: "smooth" });
+  }
+
   const whiteKeys: number[] = [];
   for (let m = startMidi; m <= endMidi; m++) {
     if (!isBlack(m)) whiteKeys.push(m);
   }
 
+  const scrollBtnStyle: React.CSSProperties = {
+    position: "absolute",
+    top: "50%",
+    transform: "translateY(-50%)",
+    width: 32,
+    height: 56,
+    borderRadius: 8,
+    border: "1px solid rgba(200,169,110,0.35)",
+    background: "rgba(15,15,15,0.75)",
+    color: "var(--gold, #d4a853)",
+    fontSize: 18,
+    fontWeight: 700,
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    cursor: "pointer",
+    zIndex: 10,
+    backdropFilter: "blur(4px)",
+    WebkitBackdropFilter: "blur(4px)",
+    boxShadow: "0 2px 8px rgba(0,0,0,0.4)",
+    userSelect: "none",
+    touchAction: "manipulation",
+  };
+
   return (
+    <div
+      style={{
+        marginTop: "auto",
+        position: "relative",
+        borderTop: "1px solid rgba(200,169,110,0.1)",
+      }}
+    >
+      <button
+        type="button"
+        aria-label="Scroll keyboard left one octave"
+        onClick={() => scrollByOctave(-1)}
+        style={{ ...scrollBtnStyle, left: 4 }}
+      >
+        ◀
+      </button>
+      <button
+        type="button"
+        aria-label="Scroll keyboard right one octave"
+        onClick={() => scrollByOctave(1)}
+        style={{ ...scrollBtnStyle, right: 4 }}
+      >
+        ▶
+      </button>
     <div
       ref={containerRef}
       className="sonata-piano-container"
+      onTouchMove={onTouchMoveKey}
+      onTouchEnd={onTouchEndKey}
+      onTouchCancel={onTouchCancelKey}
       style={{
-        marginTop: "auto",
-        padding: "16px 0 8px",
-        borderTop: "1px solid rgba(200,169,110,0.1)",
+        padding: "16px 40px 8px",
         display: "flex",
-        justifyContent: "center",
+        justifyContent: "flex-start",
         overflowX: "auto",
         WebkitOverflowScrolling: "touch",
+        touchAction: "pan-x",
         position: "relative",
+        scrollSnapType: "x proximity",
       } as React.CSSProperties}
     >
       {/* Local keyframes so pulse works even without a CSS rule present. */}
@@ -144,7 +248,7 @@ export function PianoKeyboard({
               key={m}
               className="sonata-key-white"
               onClick={() => onClickKey(m)}
-              onTouchStart={(e) => onTouch(m, e)}
+              onTouchStart={(e) => onTouchStartKey(m, e)}
               style={{
                 width: "var(--key-w)",
                 height: "var(--key-h)",
@@ -253,7 +357,7 @@ export function PianoKeyboard({
               }}
               onTouchStart={(e) => {
                 e.stopPropagation();
-                onTouch(nb, e);
+                onTouchStartKey(nb, e);
               }}
               style={{
                 position: "absolute",
@@ -331,6 +435,7 @@ export function PianoKeyboard({
           );
         })}
       </div>
+    </div>
     </div>
   );
 }
