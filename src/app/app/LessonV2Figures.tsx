@@ -2,20 +2,20 @@
 /**
  * LessonV2 figure renderers.
  *
- * Each YAML page has a free-form `figure:` description. We don't do full NLP;
- * instead we use a small decision tree over:
- *   - page.mode        (see/hear/play)
- *   - page.type        (hook, wrap, reflection, whats_next, listen_to_piece, ...)
- *   - lesson boss flags (is_act_boss, is_tier_boss, is_graduation)
- *   - figure text keywords (staircase, pyramid, Celebration, trophy, staff, ...)
- * to pick between a finite set of visual components:
+ * Every YAML page has a free-form `figure:` description. We render an
+ * actual visual for ALL pages — no text-only fallback — because the figure
+ * tells the student what to look at. The decision tree picks the best
+ * renderer based on figure keywords + page metadata:
  *
- *   - CleffyScene          — Cleffy greeting the student
- *   - Staircase            — for "stairs" metaphor pages
- *   - Pyramid              — tier-progress pyramid for reflection / whats_next
- *   - CelebrationCard      — wrap pages on boss lessons
- *   - KeyboardFigure       — play pages (already handled by LessonV2.tsx KeyboardMini)
- *   - FigureText (fallback)— original Phase-1 caption-only renderer
+ *   - CleffyScene          — Cleffy greeting (hook pages)
+ *   - Staircase            — "stairs" metaphor
+ *   - Pyramid              — tier-progress pyramid
+ *   - CelebrationCard      — boss-lesson wraps
+ *   - KeyboardMini         — any keyboard-based figure (highlights from page)
+ *   - StaffMini            — staff / clef / notation figures (with notes)
+ *   - HandDiagram          — hand / finger figures
+ *   - RhythmDisplay        — beat / metronome / note-duration figures
+ *   - GenericFigureCard    — final fallback: stylised description card
  */
 import React from "react";
 import { Cleffy } from "./Cleffy";
@@ -289,52 +289,762 @@ function CleffyScene({ mood = "happy", caption }: { mood?: "happy" | "excited" |
   );
 }
 
+// ---------- Helpers --------------------------------------------------------
+
+function isBlackMidi(m: number): boolean {
+  return [1, 3, 6, 8, 10].includes(m % 12);
+}
+/** Extract MIDI numbers from a page.highlights record, sorted ascending. */
+function pageHighlightMidis(page: LessonPage): number[] {
+  const h = page.highlights || {};
+  return Object.keys(h)
+    .map(Number)
+    .filter((n) => Number.isFinite(n))
+    .sort((a, b) => a - b);
+}
+
+// ---------- KeyboardMini ---------------------------------------------------
+//
+// Mini SVG keyboard that highlights the relevant keys for a figure. Used
+// for figures that mention keyboards/keys/black keys/groups.
+function KeyboardMini({
+  page,
+  startMidi = 48,
+  endMidi = 84,
+}: {
+  page: LessonPage;
+  startMidi?: number;
+  endMidi?: number;
+}) {
+  const fig = (page.figure || "").toLowerCase();
+
+  // Pick highlighted keys: explicit highlights first; else infer from figure text.
+  let highlighted = pageHighlightMidis(page);
+  if (highlighted.length === 0) {
+    if (/\b2[-\s]?group/.test(fig)) {
+      // Highlight one C# / D# pair in the middle range
+      highlighted = [61, 63];
+    } else if (/\b3[-\s]?group/.test(fig)) {
+      highlighted = [66, 68, 70];
+    } else if (/\bblack\b/.test(fig) && !/white/.test(fig)) {
+      // Highlight all black keys in range
+      for (let m = startMidi; m <= endMidi; m++) {
+        if (isBlackMidi(m)) highlighted.push(m);
+      }
+    }
+  }
+  // Range expansion when figure says "low" / "high" / "full"
+  let lo = startMidi;
+  let hi = endMidi;
+  if (/\bfull\b/.test(fig)) {
+    lo = 24; hi = 96;
+  } else if (highlighted.length > 0) {
+    lo = Math.min(lo, Math.max(24, Math.min(...highlighted) - 5));
+    hi = Math.max(hi, Math.min(96, Math.max(...highlighted) + 5));
+  }
+  // Snap to white-key boundaries
+  while (isBlackMidi(lo)) lo--;
+  while (isBlackMidi(hi)) hi++;
+
+  // Collect white keys
+  const whites: number[] = [];
+  for (let m = lo; m <= hi; m++) if (!isBlackMidi(m)) whites.push(m);
+  const W = 360;
+  const H = 110;
+  const keyW = W / whites.length;
+  const blackW = keyW * 0.62;
+  const blackH = H * 0.62;
+
+  // Optional arrow labels for "low" / "high" pointers
+  const showArrows = /\blow\b/.test(fig) && /\bhigh\b/.test(fig);
+
+  return (
+    <div style={{ width: "100%", maxWidth: W, position: "relative" }}>
+      {showArrows && (
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            fontFamily: "Georgia, serif",
+            fontStyle: "italic",
+            fontSize: 12,
+            color: "#4A3A28",
+            marginBottom: 4,
+          }}
+        >
+          <span>← low</span>
+          <span>high →</span>
+        </div>
+      )}
+      <svg viewBox={`0 0 ${W} ${H}`} width="100%" style={{ display: "block" }}>
+        {/* White keys */}
+        {whites.map((m, i) => {
+          const x = i * keyW;
+          const isHi = highlighted.includes(m);
+          const isC = m % 12 === 0;
+          return (
+            <g key={`w${m}`}>
+              <rect
+                x={x}
+                y={0}
+                width={keyW - 1}
+                height={H}
+                fill={isHi ? "#E8A93C" : "#FAFAF6"}
+                stroke="#1f2937"
+                strokeWidth={1}
+                rx={2}
+              />
+              {isC && (
+                <text
+                  x={x + keyW / 2}
+                  y={H - 8}
+                  textAnchor="middle"
+                  fontSize={9}
+                  fontFamily="var(--mono, monospace)"
+                  fill="#666"
+                >
+                  C{Math.floor(m / 12) - 1}
+                </text>
+              )}
+            </g>
+          );
+        })}
+        {/* Black keys */}
+        {whites.map((m, i) => {
+          const nb = m + 1;
+          if (nb > hi || !isBlackMidi(nb)) return null;
+          const x = (i + 1) * keyW - blackW / 2;
+          const isHi = highlighted.includes(nb);
+          return (
+            <rect
+              key={`b${nb}`}
+              x={x}
+              y={0}
+              width={blackW}
+              height={blackH}
+              fill={isHi ? "#E8A93C" : "#1f2937"}
+              stroke="#0a0a0a"
+              strokeWidth={1}
+              rx={1.5}
+            />
+          );
+        })}
+      </svg>
+    </div>
+  );
+}
+
+// ---------- StaffMini ------------------------------------------------------
+//
+// SVG staff renderer. Treble clef by default; switches to bass when the
+// figure mentions bass/grand staff. Notes drawn from page.highlights or
+// from interaction.keys/sequence.
+
+// MIDI → staff line/space position. We treat the bottom line of the treble
+// staff as MIDI E4 (64), step = 1 staff position (line or space) per
+// diatonic step.
+const SCALE_DEGREE: Record<number, number> = {
+  0: 0, 2: 1, 4: 2, 5: 3, 7: 4, 9: 5, 11: 6,
+  // Sharps/flats inherit their natural's position; we'll render an accidental glyph.
+  1: 0, 3: 1, 6: 3, 8: 4, 10: 5,
+};
+function midiToStaffPos(m: number, clef: "treble" | "bass"): {
+  pos: number;
+  accidental: "" | "#" | "b";
+} {
+  // pos = 0 means bottom line of staff; +1 per line/space upward.
+  const refMidi = clef === "treble" ? 64 : 43; // E4 / G2
+  const refOctaveDiatonic = clef === "treble" ? 4 : 2;
+  const pc = m % 12;
+  const oct = Math.floor(m / 12) - 1;
+  const deg = SCALE_DEGREE[pc] ?? 0;
+  const refDeg = SCALE_DEGREE[refMidi % 12];
+  const pos = (oct - refOctaveDiatonic) * 7 + (deg - refDeg);
+  const accidental = pc === 1 || pc === 3 || pc === 6 || pc === 8 || pc === 10 ? "#" : "";
+  return { pos, accidental };
+}
+
+function StaffMini({ page }: { page: LessonPage }) {
+  const fig = (page.figure || "").toLowerCase();
+  const wantsBass = /bass\s+(staff|clef)|\bbass\b(?!\sclef)/.test(fig) && !/treble/.test(fig);
+  const wantsGrand = /grand\s+staff/.test(fig);
+  const clef: "treble" | "bass" = wantsBass ? "bass" : "treble";
+
+  // Notes: from highlights, fallback to interaction sequence/keys
+  let midis: number[] = pageHighlightMidis(page);
+  if (midis.length === 0) {
+    const it = page.interaction as unknown as { keys?: string[]; sequence?: unknown[] } | undefined;
+    if (it) {
+      if (Array.isArray(it.keys)) {
+        midis = it.keys
+          .map(noteStringToMidi)
+          .filter((m): m is number => m != null);
+      } else if (Array.isArray(it.sequence)) {
+        for (const item of it.sequence) {
+          const strs = typeof item === "string" ? [item] : Array.isArray(item) ? (item as string[]) : [];
+          for (const s of strs) {
+            const m = noteStringToMidi(s);
+            if (m != null) midis.push(m);
+          }
+        }
+      }
+    }
+  }
+
+  const W = 360;
+  const lineSpacing = 8;
+  const staffH = lineSpacing * 4;
+  const padY = 20;
+  const H = wantsGrand ? padY * 2 + staffH * 2 + lineSpacing * 4 : padY * 2 + staffH;
+  const staffYTop = padY;
+  const bassYTop = wantsGrand ? padY + staffH + lineSpacing * 4 : padY;
+
+  function drawStaff(yTop: number) {
+    const lines: React.ReactElement[] = [];
+    for (let i = 0; i < 5; i++) {
+      const y = yTop + i * lineSpacing;
+      lines.push(
+        <line
+          key={`line${yTop}-${i}`}
+          x1={20}
+          x2={W - 10}
+          y1={y}
+          y2={y}
+          stroke="#1f2937"
+          strokeWidth={1}
+        />
+      );
+    }
+    return lines;
+  }
+
+  function clefGlyph(clefType: "treble" | "bass", yTop: number) {
+    const x = 26;
+    const y = yTop + staffH / 2 + 6;
+    return (
+      <text
+        x={x}
+        y={y}
+        fontSize={clefType === "treble" ? 36 : 28}
+        fontFamily="serif"
+        fontWeight={700}
+        fill="#1f2937"
+      >
+        {clefType === "treble" ? "𝄞" : "𝄢"}
+      </text>
+    );
+  }
+
+  function noteCircle(
+    midi: number,
+    xCenter: number,
+    clefType: "treble" | "bass",
+    yTop: number
+  ): React.ReactElement {
+    const { pos, accidental } = midiToStaffPos(midi, clefType);
+    // pos 0 = bottom line; staff has 5 lines (positions 0..8 top of top line).
+    // y = yTop + (8 - pos) * (lineSpacing/2)  — wait: top line is pos 8.
+    // Bottom line MIDI E4 at pos 0 → y = yTop + staffH (= bottom). Top line F5 at pos 8 → y = yTop.
+    const y = yTop + staffH - (pos * lineSpacing) / 2;
+    const r = 4.5;
+    const els: React.ReactElement[] = [];
+    // Ledger lines if pos < -1 or pos > 9
+    if (pos <= -1) {
+      for (let p = -2; p >= pos; p -= 2) {
+        const yy = yTop + staffH - (p * lineSpacing) / 2;
+        els.push(
+          <line
+            key={`ledger-${midi}-${p}`}
+            x1={xCenter - r - 3}
+            x2={xCenter + r + 3}
+            y1={yy}
+            y2={yy}
+            stroke="#1f2937"
+            strokeWidth={1}
+          />
+        );
+      }
+    }
+    if (pos >= 10) {
+      for (let p = 10; p <= pos; p += 2) {
+        const yy = yTop + staffH - (p * lineSpacing) / 2;
+        els.push(
+          <line
+            key={`ledger-${midi}-${p}`}
+            x1={xCenter - r - 3}
+            x2={xCenter + r + 3}
+            y1={yy}
+            y2={yy}
+            stroke="#1f2937"
+            strokeWidth={1}
+          />
+        );
+      }
+    }
+    if (accidental) {
+      els.push(
+        <text
+          key={`acc-${midi}-${xCenter}`}
+          x={xCenter - 10}
+          y={y + 3}
+          fontSize={10}
+          fontFamily="serif"
+          fontWeight={700}
+          fill="#1f2937"
+        >
+          {accidental}
+        </text>
+      );
+    }
+    els.push(
+      <ellipse
+        key={`note-${midi}-${xCenter}`}
+        cx={xCenter}
+        cy={y}
+        rx={r + 1}
+        ry={r - 0.5}
+        fill="#E8A93C"
+        stroke="#1f2937"
+        strokeWidth={1.2}
+        transform={`rotate(-15 ${xCenter} ${y})`}
+      />
+    );
+    return <g key={`grp-${midi}-${xCenter}`}>{els}</g>;
+  }
+
+  // Notes laid out evenly between x=70 and W-20
+  const x0 = 70;
+  const x1 = W - 30;
+  const noteList = midis.length > 0 ? midis : [];
+  const step = noteList.length > 0 ? (x1 - x0) / Math.max(1, noteList.length) : 0;
+
+  return (
+    <div style={{ width: "100%", maxWidth: W }}>
+      <svg viewBox={`0 0 ${W} ${H}`} width="100%" style={{ display: "block" }}>
+        {drawStaff(staffYTop)}
+        {clefGlyph(clef, staffYTop)}
+        {wantsGrand && drawStaff(bassYTop)}
+        {wantsGrand && clefGlyph("bass", bassYTop)}
+        {noteList.map((m, i) => {
+          const xCenter = x0 + step * (i + 0.5);
+          const useBass = wantsGrand ? m < 60 : clef === "bass";
+          return noteCircle(m, xCenter, useBass ? "bass" : "treble", useBass ? bassYTop : staffYTop);
+        })}
+      </svg>
+    </div>
+  );
+}
+
+function noteStringToMidi(s: string): number | null {
+  const m = s.match(/^([A-Ga-g])(#|b)?(\d)$/);
+  if (!m) return null;
+  const pcMap: Record<string, number> = { C: 0, D: 2, E: 4, F: 5, G: 7, A: 9, B: 11 };
+  const pc = pcMap[m[1].toUpperCase()];
+  const acc = m[2] === "#" ? 1 : m[2] === "b" ? -1 : 0;
+  const oct = parseInt(m[3], 10);
+  return (oct + 1) * 12 + pc + acc;
+}
+
+// ---------- HandDiagram ----------------------------------------------------
+
+function HandDiagram({ page }: { page: LessonPage }) {
+  const fig = (page.figure || "").toLowerCase();
+  const showLeft = /\bleft\s*hand|\blh\b|both\s*hands?/.test(fig) || !/\bright\s*hand|\brh\b/.test(fig);
+  const showRight = /\bright\s*hand|\brh\b|both\s*hands?/.test(fig) || !/\bleft\s*hand|\blh\b/.test(fig);
+  // Pull out a finger number if mentioned ("finger 1", "thumb", "5/pinky")
+  let highlightFinger: number | null = null;
+  const numMatch = fig.match(/finger\s*(\d)/);
+  if (numMatch) highlightFinger = parseInt(numMatch[1], 10);
+  else if (/\bthumb\b/.test(fig)) highlightFinger = 1;
+  else if (/\bpointer|index\b/.test(fig)) highlightFinger = 2;
+  else if (/\bmiddle\s+finger|long\s+finger\b/.test(fig)) highlightFinger = 3;
+  else if (/\bring\s+finger\b/.test(fig)) highlightFinger = 4;
+  else if (/\bpinky\b|\blittle\s+finger\b/.test(fig)) highlightFinger = 5;
+
+  function Hand({ side, x }: { side: "L" | "R"; x: number }) {
+    // Five circles in a row, finger numbers labelled. Left hand: 5..1; right: 1..5.
+    const numbers = side === "L" ? [5, 4, 3, 2, 1] : [1, 2, 3, 4, 5];
+    return (
+      <g transform={`translate(${x},20)`}>
+        <text
+          x={70}
+          y={-4}
+          textAnchor="middle"
+          fontSize={11}
+          fontWeight={800}
+          fontFamily="sans-serif"
+          fill="#1f2937"
+        >
+          {side === "L" ? "Left hand" : "Right hand"}
+        </text>
+        {numbers.map((n, i) => {
+          const cx = 14 + i * 28;
+          const isHi = highlightFinger === n;
+          return (
+            <g key={`${side}-${n}`}>
+              <circle
+                cx={cx}
+                cy={26}
+                r={12}
+                fill={isHi ? "#E8A93C" : "#FAFAF6"}
+                stroke="#1f2937"
+                strokeWidth={1.5}
+              />
+              <text
+                x={cx}
+                y={30}
+                textAnchor="middle"
+                fontSize={12}
+                fontWeight={800}
+                fontFamily="sans-serif"
+                fill="#1f2937"
+              >
+                {n}
+              </text>
+            </g>
+          );
+        })}
+      </g>
+    );
+  }
+
+  const W = showLeft && showRight ? 320 : 160;
+  const H = 70;
+  return (
+    <svg viewBox={`0 0 ${W} ${H}`} width="100%" style={{ maxWidth: W, display: "block" }}>
+      {showLeft && <Hand side="L" x={0} />}
+      {showRight && <Hand side="R" x={showLeft ? 160 : 0} />}
+    </svg>
+  );
+}
+
+// ---------- RhythmDisplay --------------------------------------------------
+
+function RhythmDisplay({ page }: { page: LessonPage }) {
+  const fig = (page.figure || "").toLowerCase();
+  // Extract time signature ("4/4", "3/4", "2/4", "6/8")
+  const ts = fig.match(/(\d)\s*\/\s*(\d)/);
+  const beats = ts ? parseInt(ts[1], 10) : 4;
+  // Detect note durations mentioned
+  const durs: { label: string; beats: number }[] = [];
+  if (/whole/.test(fig)) durs.push({ label: "whole", beats: 4 });
+  if (/half/.test(fig)) durs.push({ label: "half", beats: 2 });
+  if (/quarter/.test(fig)) durs.push({ label: "quarter", beats: 1 });
+  if (/eighth/.test(fig)) durs.push({ label: "eighth", beats: 0.5 });
+
+  if (durs.length > 0) {
+    // Note-duration chart
+    const W = 320;
+    const rowH = 32;
+    const H = durs.length * rowH + 12;
+    return (
+      <svg viewBox={`0 0 ${W} ${H}`} width="100%" style={{ maxWidth: W, display: "block" }}>
+        {durs.map((d, i) => {
+          const y = 6 + i * rowH;
+          const barW = (d.beats / 4) * (W - 90);
+          return (
+            <g key={d.label}>
+              <text
+                x={6}
+                y={y + rowH / 2 + 4}
+                fontSize={12}
+                fontWeight={700}
+                fontFamily="sans-serif"
+                fill="#1f2937"
+              >
+                {d.label}
+              </text>
+              <rect
+                x={80}
+                y={y + 4}
+                width={barW}
+                height={rowH - 12}
+                fill="#E8A93C"
+                stroke="#1f2937"
+                strokeWidth={1.5}
+                rx={4}
+              />
+              <text
+                x={80 + barW + 6}
+                y={y + rowH / 2 + 4}
+                fontSize={11}
+                fontFamily="sans-serif"
+                fill="#4A3A28"
+              >
+                {d.beats} beat{d.beats === 1 ? "" : "s"}
+              </text>
+            </g>
+          );
+        })}
+      </svg>
+    );
+  }
+
+  // Default: time-signature beat boxes
+  const W = 320;
+  const H = 60;
+  const boxW = (W - 20) / beats;
+  return (
+    <svg viewBox={`0 0 ${W} ${H}`} width="100%" style={{ maxWidth: W, display: "block" }}>
+      <text
+        x={10}
+        y={18}
+        fontSize={11}
+        fontWeight={800}
+        fontFamily="sans-serif"
+        fill="#1f2937"
+      >
+        {beats}/{ts ? ts[2] : 4} time
+      </text>
+      {Array.from({ length: beats }, (_, i) => {
+        const x = 10 + i * boxW;
+        return (
+          <g key={i}>
+            <rect
+              x={x}
+              y={26}
+              width={boxW - 4}
+              height={28}
+              fill="#FAFAF6"
+              stroke="#1f2937"
+              strokeWidth={1.5}
+              rx={3}
+            />
+            <text
+              x={x + (boxW - 4) / 2}
+              y={45}
+              textAnchor="middle"
+              fontSize={13}
+              fontWeight={800}
+              fontFamily="sans-serif"
+              fill="#1f2937"
+            >
+              {i + 1}
+            </text>
+          </g>
+        );
+      })}
+    </svg>
+  );
+}
+
+// ---------- QuizScaffold ---------------------------------------------------
+//
+// Renders the UI scaffolding of drill/quiz pages described in figure text:
+// "banner", "round counter 1 of 4", "play button", "two play buttons",
+// "two answer buttons", etc. Some lessons describe interaction UI in the
+// figure rather than just the lesson content — we show the scaffolding
+// inline so the student sees what's coming.
+function QuizScaffold({ figure }: { figure: string }) {
+  const fig = figure.toLowerCase();
+  const banner = /^banner|\bbanner\b/.test(fig);
+  const bannerNote = banner
+    ? (fig.match(/banner\s*[—\-:]\s*([^.]+)/) || [])[1]?.trim()
+    : null;
+  const roundCounter = fig.match(/(\d+)\s+rounds?|round\s+counter[^\d]*(\d+)\s+of\s+(\d+)/);
+  const totalRounds = roundCounter
+    ? parseInt(roundCounter[1] || roundCounter[3] || "4", 10)
+    : null;
+  const playBtnCount = (() => {
+    if (/three play(back)?\s+(buttons?|cards?)/.test(fig)) return 3;
+    if (/two play(back)?\s+(buttons?|cards?)/.test(fig)) return 2;
+    if (/play\s+(button|card)/.test(fig)) return 1;
+    return 0;
+  })();
+  const answerCount = (() => {
+    if (/two\s+answer/.test(fig)) return 2;
+    if (/three\s+answer/.test(fig)) return 3;
+    if (/four\s+answer/.test(fig)) return 4;
+    return 0;
+  })();
+
+  return (
+    <div
+      style={{
+        width: "100%",
+        maxWidth: 380,
+        display: "flex",
+        flexDirection: "column",
+        gap: 10,
+      }}
+    >
+      {banner && (
+        <div
+          style={{
+            background: "linear-gradient(90deg, #FDE68A, #FCD34D)",
+            border: "2px solid #1f2937",
+            borderRadius: 10,
+            padding: "8px 14px",
+            textAlign: "center",
+            fontFamily: "Georgia, serif",
+            fontStyle: "italic",
+            fontWeight: 800,
+            fontSize: 13,
+            color: "#2A1E14",
+            letterSpacing: "0.05em",
+          }}
+        >
+          {bannerNote ? bannerNote : "Quick check"}
+        </div>
+      )}
+      {totalRounds != null && (
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            gap: 6,
+          }}
+        >
+          {Array.from({ length: totalRounds }).map((_, i) => (
+            <div
+              key={i}
+              style={{
+                width: 10,
+                height: 10,
+                borderRadius: "50%",
+                border: "2px solid #1f2937",
+                background: i === 0 ? "#E8A93C" : "#FAFAF6",
+              }}
+            />
+          ))}
+          <span
+            style={{
+              fontSize: 11,
+              fontWeight: 700,
+              color: "#4A3A28",
+              marginLeft: 4,
+            }}
+          >
+            {totalRounds} rounds
+          </span>
+        </div>
+      )}
+      {playBtnCount > 0 && (
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            gap: 8,
+          }}
+        >
+          {Array.from({ length: playBtnCount }).map((_, i) => (
+            <div
+              key={i}
+              style={{
+                background: "#E8A93C",
+                border: "2px solid #1f2937",
+                borderRadius: 999,
+                padding: "8px 16px",
+                fontWeight: 800,
+                fontSize: 13,
+                color: "#2A1E14",
+                display: "flex",
+                alignItems: "center",
+                gap: 6,
+              }}
+            >
+              ♪ {playBtnCount > 1 ? String.fromCharCode(65 + i) : "Play"}
+            </div>
+          ))}
+        </div>
+      )}
+      {answerCount > 0 && (
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            gap: 6,
+          }}
+        >
+          {Array.from({ length: answerCount }).map((_, i) => (
+            <div
+              key={i}
+              style={{
+                border: "2px solid #1f2937",
+                borderRadius: 10,
+                padding: "8px 12px",
+                background: "#FAFAF6",
+                fontFamily: "sans-serif",
+                fontSize: 12,
+                color: "#4A3A28",
+                textAlign: "center",
+              }}
+            >
+              {String.fromCharCode(65 + i)}
+            </div>
+          ))}
+        </div>
+      )}
+      {/* If we couldn't detect any specific scaffold piece, fall through. */}
+      {!banner && totalRounds == null && playBtnCount === 0 && answerCount === 0 && (
+        <GenericFigureCard figure={figure} />
+      )}
+    </div>
+  );
+}
+
+// ---------- GenericFigureCard ----------------------------------------------
+
+function GenericFigureCard({ figure }: { figure: string }) {
+  return (
+    <div
+      style={{
+        width: "100%",
+        maxWidth: 420,
+        background: "var(--parchment, #faf6ef)",
+        border: "2px dashed #1f2937",
+        borderRadius: 14,
+        padding: "16px 18px",
+        display: "flex",
+        flexDirection: "column",
+        gap: 8,
+      }}
+    >
+      <div
+        style={{
+          fontSize: 10,
+          letterSpacing: "0.2em",
+          fontWeight: 800,
+          color: "#6b7280",
+        }}
+      >
+        FIGURE
+      </div>
+      <div
+        style={{
+          fontFamily: "Georgia, serif",
+          fontStyle: "italic",
+          fontSize: 14,
+          lineHeight: 1.45,
+          color: "#1f2937",
+          whiteSpace: "pre-line",
+        }}
+      >
+        {figure}
+      </div>
+    </div>
+  );
+}
+
 // ---------- Router ---------------------------------------------------------
 
 /**
- * True when we have a real visual for this page (staircase, pyramid,
- * celebration card, Cleffy scene). When false, LessonV2 should hide the
- * entire figure panel rather than show the raw YAML description as text.
+ * Always true when the page has a figure description. The router below
+ * picks an appropriate visual; nothing is text-only any more.
+ *
+ * When `hasKeyboardNotes` is true we still show the figure panel — many
+ * keyboard pages have additional context (staff, hands, beat boxes) the
+ * bottom piano alone doesn't communicate.
  */
 export function hasRenderedFigure(
-  lesson: LessonV2,
+  _lesson: LessonV2,
   page: LessonPage,
-  hasKeyboardNotes: boolean
+  // Kept for API parity — every page with a figure now renders.
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  _hasKeyboardNotes: boolean
 ): boolean {
-  // Play pages use the bottom piano, not the figure panel, so if there are
-  // keyboard notes we consider "the visual is elsewhere" → no panel.
-  if (hasKeyboardNotes) return false;
-
-  if (
-    page.type === "wrap" &&
-    (lesson.is_graduation ||
-      lesson.is_tier_boss ||
-      lesson.is_mid_boss ||
-      lesson.is_act_boss)
-  ) {
-    return true;
-  }
-  if (typeof page.type === "string" && page.type.startsWith("reflection")) {
-    return true;
-  }
-  if (page.type === "whats_next" || page.type === "whats_next_life_after") {
-    return true;
-  }
-  const fig = (page.figure || "").toLowerCase();
-  if (fig.includes("pyramid")) return true;
-  if (fig.includes("staircase") || fig.includes("stairs") || fig.includes("stair")) {
-    return true;
-  }
-  if (page.type === "hook") return true;
-  if (
-    fig.includes("celebration") ||
-    fig.includes("trophy") ||
-    fig.includes("complete") ||
-    fig.includes("confetti")
-  ) {
-    return true;
-  }
-  return false;
+  return !!(page.figure && page.figure.trim().length > 0);
 }
 
 /**
@@ -399,7 +1109,89 @@ export function FigureRouter({
     return <CelebrationCard lesson={lesson} />;
   }
 
-  // 6) No real renderer for this figure — render nothing. (hasRenderedFigure
-  //    should already be hiding the wrapping panel in this case.)
-  return null;
+  // 6) Hand / finger diagrams
+  if (hasKeyword(fig, "finger", "thumb", "pinky", "hand", "palm")) {
+    return <HandDiagram page={page} />;
+  }
+
+  // 7) Rhythm / time-signature / note-duration figures
+  if (
+    hasKeyword(
+      fig,
+      "metronome",
+      "time signature",
+      "beat",
+      "tempo",
+      "whole note",
+      "half note",
+      "quarter note",
+      "eighth note",
+      "4/4",
+      "3/4",
+      "2/4",
+      "6/8"
+    )
+  ) {
+    return <RhythmDisplay page={page} />;
+  }
+
+  // 8) Staff / clef / notation figures
+  if (
+    hasKeyword(
+      fig,
+      "staff",
+      "clef",
+      "treble",
+      "bass clef",
+      "grand staff",
+      "ledger",
+      "notation",
+      "music line"
+    )
+  ) {
+    return <StaffMini page={page} />;
+  }
+
+  // 9) Keyboard / piano / black-key figures
+  if (
+    hasKeyword(
+      fig,
+      "keyboard",
+      "piano",
+      "black-key",
+      "black key",
+      "white key",
+      "white-key",
+      "2-group",
+      "3-group"
+    ) ||
+    pageHighlightMidis(page).length > 0
+  ) {
+    return <KeyboardMini page={page} />;
+  }
+
+  // 10) Quiz / drill scaffolding — banner, round counter, play buttons,
+  //     answer chips. Used for see/hear-section quiz pages.
+  if (
+    hasKeyword(
+      fig,
+      "banner",
+      "round counter",
+      "rounds",
+      "play button",
+      "play buttons",
+      "playback button",
+      "playback buttons",
+      "playback card",
+      "playback cards",
+      "answer button",
+      "answer buttons"
+    )
+  ) {
+    return <QuizScaffold figure={page.figure || ""} />;
+  }
+
+  // 11) Final fallback — stylised description card. Always renders something
+  //     so the student can read what the figure should show.
+  return <GenericFigureCard figure={page.figure || ""} />;
 }
