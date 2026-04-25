@@ -344,13 +344,24 @@ function playPromptFor(page?: LessonPage, stepCount = 0): string | null {
 }
 
 // Keyboard range that shows all notes in a sequence + some padding.
+// Bottom keyboard always covers at least 3 octaves so its on-screen size
+// stays consistent across pages. We start from the C3..C6 default and only
+// widen it when relevant notes fall outside that window.
 function computeKeyboardRange(midis: number[]): [number, number] {
-  if (midis.length === 0) return [48, 84]; // C3..C6 default
-  const min = Math.max(36, Math.min(...midis) - 5);
-  const max = Math.min(96, Math.max(...midis) + 5);
-  const start = min - (isBlack(min) ? 1 : 0);
-  const end = max + (isBlack(max) ? 1 : 0);
-  return [start, Math.max(start + 14, end)];
+  const DEFAULT_LO = 48; // C3
+  const DEFAULT_HI = 84; // C6
+  if (midis.length === 0) return [DEFAULT_LO, DEFAULT_HI];
+  const noteMin = Math.min(...midis);
+  const noteMax = Math.max(...midis);
+  // Only widen — never narrow — relative to the default. This keeps the
+  // visual width of the keyboard stable across pages whose highlighted
+  // notes happen to sit inside the default range.
+  let lo = Math.min(DEFAULT_LO, Math.max(24, noteMin - 5));
+  let hi = Math.max(DEFAULT_HI, Math.min(96, noteMax + 5));
+  // Snap to white-key boundaries so the rightmost slot isn't a half-black-key.
+  while (isBlack(lo)) lo--;
+  while (isBlack(hi)) hi++;
+  return [lo, hi];
 }
 
 // Map note color-coding for highlights prop of PianoKeyboard.
