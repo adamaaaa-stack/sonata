@@ -31,12 +31,12 @@
 	</array>
 	<key>CFBundleVersion</key>
 	<string>$(CURRENT_PROJECT_VERSION)</string>
-	<key>LSRequiresIPhoneOS</key>
-	<true/>
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false/>
+	<key>LSRequiresIPhoneOS</key>
+	<true/>
 	<key>NSMicrophoneUsageDescription</key>
-	<string>Sonata listens to your piano so it can grade your play-along exercises. Audio stays on your device — nothing is recorded or uploaded.</string>
+	<string>For The Piano - From Cleffy:)</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>

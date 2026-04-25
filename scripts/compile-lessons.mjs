@@ -144,6 +144,90 @@ function sentencesOf(text) {
     .filter(Boolean);
 }
 
+/**
+ * Octave-aware highlight extraction for one sentence. Mutates `highlights`.
+ * See enrichPage Rule 2 for the patterns we recognise.
+ */
+function extractOctaveAwareHighlights(sentence, highlights) {
+  const set = (midi) => {
+    if (midi != null && !(midi in highlights)) highlights[midi] = DEFAULT_HI;
+  };
+
+  // (a) "Middle X" → X4
+  let m;
+  const middleRe = /\bmiddle\s+([A-G])(#|b)?\b/gi;
+  while ((m = middleRe.exec(sentence)) !== null) {
+    set(noteToMidi(`${m[1].toUpperCase()}${m[2] || ""}4`));
+  }
+  // (b) "lowest X" → X2; "low X" → X3
+  const lowRe = /\b(low(est)?)\s+([A-G])(#|b)?\b/gi;
+  while ((m = lowRe.exec(sentence)) !== null) {
+    const oct = m[2] ? 2 : 3;
+    set(noteToMidi(`${m[3].toUpperCase()}${m[4] || ""}${oct}`));
+  }
+  // (c) "highest X" → X6; "high X" → X5
+  const highRe = /\b(high(est)?)\s+([A-G])(#|b)?\b/gi;
+  while ((m = highRe.exec(sentence)) !== null) {
+    const oct = m[2] ? 6 : 5;
+    set(noteToMidi(`${m[3].toUpperCase()}${m[4] || ""}${oct}`));
+  }
+  // (d) "two Xs" / "both Xs" / "two/both Xs (one octave apart)" → X4 + X5
+  const pairRe = /\b(two|both)\s+([A-G])(#|b)?s\b/gi;
+  while ((m = pairRe.exec(sentence)) !== null) {
+    const letter = m[2].toUpperCase();
+    const acc = m[3] || "";
+    set(noteToMidi(`${letter}${acc}4`));
+    set(noteToMidi(`${letter}${acc}5`));
+  }
+  // (e) "three Xs" / "all (the) Xs" → 3 octaves spanning middle of keyboard
+  const tripleRe = /\b(three|all(\s+the)?)\s+([A-G])(#|b)?s\b/gi;
+  while ((m = tripleRe.exec(sentence)) !== null) {
+    const letter = m[3].toUpperCase();
+    const acc = m[4] || "";
+    set(noteToMidi(`${letter}${acc}3`));
+    set(noteToMidi(`${letter}${acc}4`));
+    set(noteToMidi(`${letter}${acc}5`));
+  }
+  // (f) "[Middle X] and the X an octave above/higher/up" → X4 + X5
+  const aboveRe = /\b([A-G])(#|b)?\s+(an?\s+|one\s+)?octave\s+(above|higher|up)\b/gi;
+  while ((m = aboveRe.exec(sentence)) !== null) {
+    const letter = m[1].toUpperCase();
+    const acc = m[2] || "";
+    // Anchor to whichever octave of this letter is already highlighted in
+    // this sentence; default to 4.
+    const baseMidi =
+      noteToMidi(`${letter}${acc}4`) ?? noteToMidi(`${letter}${acc}4`);
+    if (baseMidi != null) {
+      set(baseMidi);
+      set(baseMidi + 12);
+    }
+  }
+  // (g) "X an octave below/lower/down" → X4 + X3
+  const belowRe = /\b([A-G])(#|b)?\s+(an?\s+|one\s+)?octave\s+(below|lower|down)\b/gi;
+  while ((m = belowRe.exec(sentence)) !== null) {
+    const letter = m[1].toUpperCase();
+    const acc = m[2] || "";
+    const baseMidi = noteToMidi(`${letter}${acc}4`);
+    if (baseMidi != null) {
+      set(baseMidi);
+      set(baseMidi - 12);
+    }
+  }
+  // (h) Bare note tokens with explicit digit ("F3", "C5"). Add as-is.
+  for (const { tok } of findNoteTokens(sentence)) {
+    if (/\d$/.test(tok)) {
+      set(noteToMidi(tok));
+    }
+  }
+  // (i) Bare letter tokens with no digit → default X4 (preserves old
+  // behaviour for sentences without octave language).
+  for (const { tok } of findNoteTokens(sentence)) {
+    if (!/\d$/.test(tok)) {
+      set(noteToMidi(tok));
+    }
+  }
+}
+
 // ------------------------------------------------------------------
 // Enrich a single page with highlights
 // ------------------------------------------------------------------
@@ -171,16 +255,22 @@ function enrichPage(page) {
     }
   }
 
-  // Rule 2 — highlight keywords in a sentence → tag all notes in that sentence
+  // Rule 2 — sentence-aware extraction. For each sentence containing a
+  // highlight keyword we extract notes with octave-awareness:
+  //   - "Middle X" → X4
+  //   - "low X" / "lowest X" → X3 / X2
+  //   - "high X" / "highest X" → X5 / X6
+  //   - "X an octave above/higher/up <Y>" → reference octave + 1
+  //   - "X an octave below/lower/down <Y>" → reference octave - 1
+  //   - "two Xs" / "both Xs" / "X and the other X" with no specific octave
+  //     → highlight X4 AND X5 (so "two Gs one octave apart" works)
+  //   - bare X with explicit digit (X3, X4, X5) → that exact MIDI
+  //   - bare X with no digit → defaults to X4 (existing behaviour)
+  // Anything we add is applied directly into the highlights map.
   for (const s of sentencesOf(combined)) {
     const lower = s.toLowerCase();
     if (!HIGHLIGHT_KEYWORDS.some((kw) => lower.includes(kw))) continue;
-    for (const { tok } of findNoteTokens(s)) {
-      const midi = noteToMidi(tok);
-      if (midi != null && !(midi in highlights)) {
-        highlights[midi] = DEFAULT_HI;
-      }
-    }
+    extractOctaveAwareHighlights(s, highlights);
   }
 
   // Rule 3 — interaction.keys get a dim baseline highlight
