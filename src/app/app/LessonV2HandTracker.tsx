@@ -173,10 +173,54 @@ export function HandTrackerOverlay({
     peerRef.current = null;
     setPhoneStream(null);
     setShowQr(false);
+    setPendingSessionId(null);
     setMode("local");
     if (typeof window !== "undefined") {
       window.localStorage.setItem("sonata.cam.mode", "local");
     }
+  }
+
+  /**
+   * QR modal dismissed. If the phone never actually connected, the
+   * session is dead — clean it up so the next 📱 tap starts fresh.
+   * If the phone DID connect (we have a phoneStream), keep everything
+   * running; the modal is just hidden, not torn down.
+   */
+  function onCloseQr() {
+    setShowQr(false);
+    if (!phoneStream && peerRef.current) {
+      peerRef.current.stop();
+      peerRef.current = null;
+      setPendingSessionId(null);
+      setMode("local");
+      if (typeof window !== "undefined") {
+        window.localStorage.setItem("sonata.cam.mode", "local");
+      }
+    }
+  }
+
+  /**
+   * 📱 button click handler. Three cases:
+   *   - Connected phone session live → just show the QR (rare; usually
+   *     the user wants to confirm the same code, e.g. to switch phones).
+   *   - In phone mode but never connected (or session died) → kill the
+   *     orphan, start a fresh session.
+   *   - In local mode → start a fresh session.
+   * The first two cases handle the original "button stops working" bug:
+   * after a reload or a session that never finished, mode was "phone"
+   * but pendingSessionId was null, so the modal had nothing to render.
+   */
+  function onPhoneTap() {
+    if (mode === "phone" && phoneStream && pendingSessionId) {
+      setShowQr(true);
+      return;
+    }
+    if (peerRef.current) {
+      peerRef.current.stop();
+      peerRef.current = null;
+    }
+    setPhoneStream(null);
+    void startPhoneSession();
   }
 
   useEffect(() => {
@@ -256,7 +300,7 @@ export function HandTrackerOverlay({
           <QrPanel
             sessionId={pendingSessionId}
             connected={!!phoneStream}
-            onClose={() => setShowQr(false)}
+            onClose={() => onCloseQr()}
             onEnd={endPhoneSession}
           />
         )}
@@ -394,13 +438,7 @@ export function HandTrackerOverlay({
       >
         <button
           type="button"
-          onClick={() => {
-            if (mode === "phone") {
-              setShowQr(true);
-            } else {
-              void startPhoneSession();
-            }
-          }}
+          onClick={() => onPhoneTap()}
           style={{
             width: 44,
             height: 44,
@@ -459,7 +497,7 @@ export function HandTrackerOverlay({
         <QrPanel
           sessionId={pendingSessionId}
           connected={!!phoneStream}
-          onClose={() => setShowQr(false)}
+          onClose={() => onCloseQr()}
           onEnd={endPhoneSession}
         />
       )}
