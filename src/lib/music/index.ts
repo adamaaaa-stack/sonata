@@ -8,4 +8,5 @@ export { lessons } from './lessons';
 export type { Lesson, LessonStep, QuizQuestion } from './lessons';
 export { CATALOG, getCatalogUrl, DIFF_COLORS, getRecommendedDifficulty, LESSON_PIECE_MAP, findLessonCatalogIndex } from './catalog';
 export type { CatalogEntry } from './catalog';
-export { PitchDetector } from './pitchDetector';
+export { PitchDetector, MicPitchDetector } from './pitchDetector';
+export type { PitchEvent, MicPitchOptions } from './pitchDetector';

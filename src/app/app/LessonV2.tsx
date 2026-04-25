@@ -27,6 +27,7 @@ import {
 import { FigureRouter, hasRenderedFigure } from "./LessonV2Figures";
 import { AudioSamples, playAudioDescription, parseAudioToNotes } from "./LessonV2Audio";
 import { DrillInteractionCard } from "./LessonV2Drill";
+import { MicListenCard } from "./LessonV2Mic";
 import { PianoKeyboard } from "./PianoKeyboard";
 import {
   noteToMidi as libNoteToMidi,
@@ -1232,6 +1233,21 @@ export function LessonV2Screen({
               onSkip={handleSkip}
               demoPlaying={demoPlaying}
               complete={sequenceDone}
+            />
+          )}
+
+          {/* Mic-listen mode (real-piano play-along) — play pages only */}
+          {isPlayPage && !sequenceDone && (
+            <MicListenCard
+              onNote={handlePianoPress}
+              expectedMidi={expectedMidi}
+              minMidi={Math.max(36, rangeStart - 2)}
+              maxMidi={Math.min(96, rangeEnd + 2)}
+              promptText={
+                steps.length > 1
+                  ? `Play this ${steps.length}-note sequence on your real piano.`
+                  : "Play this on your real piano."
+              }
             />
           )}
 
