@@ -116,18 +116,22 @@ export class HandTracker {
       throw e;
     }
 
-    // 2. Camera permission + video element
+    // 2. Camera permission + video element. We prefer the FRONT-facing
+    // camera because the typical setup is the iPad on a music stand,
+    // screen tilted toward the player, with the front camera naturally
+    // angled down at the hands. The back camera would face away from the
+    // keyboard in that config.
     try {
       this.stream = await navigator.mediaDevices.getUserMedia({
         audio: false,
         video: {
-          facingMode: "environment", // back-facing on phones if available
+          facingMode: "user",
           width: { ideal: 640 },
           height: { ideal: 480 },
         },
       });
     } catch {
-      // Fall back to user-facing camera if env-facing isn't available
+      // Fall back to whatever camera is available
       try {
         this.stream = await navigator.mediaDevices.getUserMedia({
           audio: false,
