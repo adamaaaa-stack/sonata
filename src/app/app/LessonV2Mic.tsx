@@ -86,16 +86,16 @@ export function MicListenCard({
     };
   }, []);
 
-  // Auto-start strategy — three tiers:
-  //   1. Consent already granted (localStorage flag set on previous success):
-  //      attempt immediate start. iOS allows getUserMedia silently after
-  //      the first granted prompt for the origin.
-  //   2. No consent yet: arm a one-shot capture-phase listener for any
-  //      pointerdown / keydown anywhere on the page. The first user gesture
-  //      satisfies iOS's "user activation" requirement, so we start the mic
-  //      from inside that handler. No manual Listen button needed.
-  //   3. If the gesture-driven start fails (mic denied, no device, etc) we
-  //      fall back to a manual button.
+  // Auto-start strategy:
+  //   - Consent already granted (localStorage flag): start immediately on
+  //     mount. iOS allows getUserMedia silently after the first granted
+  //     prompt for the origin, so this is a non-event.
+  //   - No consent yet: render a deliberate "Enable mic" pill that the
+  //     student taps. We DON'T arm a global pointerdown handler — that
+  //     made the iOS permission prompt appear during random taps (e.g.
+  //     pressing a piano key) and the page looked frozen until the user
+  //     dealt with the prompt. Now the prompt only ever appears from a
+  //     deliberate Enable Mic tap.
   // The `polyphonic` flag is in the deps because chord pages need the
   // big TF.js model — we want a fresh start when the page swaps engines.
   // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -103,35 +103,22 @@ export function MicListenCard({
     if (typeof window === "undefined") return;
     if (listening) return;
     const consent = window.localStorage.getItem("sonata.mic.consent");
-
-    if (consent === "yes") {
-      const t = window.setTimeout(() => {
-        void startListening();
-      }, 100);
-      return () => window.clearTimeout(t);
-    }
-
-    // No consent yet — wait for any user gesture, then auto-start.
-    let triggered = false;
-    function onGesture() {
-      if (triggered) return;
-      triggered = true;
-      cleanup();
+    if (consent !== "yes") return; // wait for explicit Enable tap
+    const t = window.setTimeout(() => {
       void startListening();
-    }
-    function cleanup() {
-      document.removeEventListener("pointerdown", onGesture, true);
-      document.removeEventListener("touchstart", onGesture, true);
-      document.removeEventListener("keydown", onGesture, true);
-    }
-    document.addEventListener("pointerdown", onGesture, true);
-    document.addEventListener("touchstart", onGesture, true);
-    document.addEventListener("keydown", onGesture, true);
-    return cleanup;
+    }, 100);
+    return () => window.clearTimeout(t);
   }, [polyphonic]);
 
   async function startListening() {
     setError(null);
+    // Show "asking for permission" status the moment we begin — iOS shows a
+    // native prompt that pauses the JS thread until the user taps Allow,
+    // and without this the page looks frozen for the duration.
+    const consentAlready =
+      typeof window !== "undefined" &&
+      window.localStorage.getItem("sonata.mic.consent") === "yes";
+    if (!consentAlready) setStatus("asking for mic permission…");
     let det: DetectorLike;
     if (polyphonic) {
       // Lazy-load the Basic Pitch module (and its TF.js dep) only when the
@@ -189,11 +176,13 @@ export function MicListenCard({
     try {
       await det.start();
       setListening(true);
+      setStatus(null);
       // Permission granted → remember it so future pages auto-listen.
       if (typeof window !== "undefined") {
         window.localStorage.setItem("sonata.mic.consent", "yes");
       }
     } catch {
+      setStatus(null);
       // onError already handled it. Don't persist consent on failure.
     }
   }
@@ -306,7 +295,7 @@ export function MicListenCard({
           ) : error ? (
             <>⚠ MIC ERROR — TAP TO RETRY</>
           ) : (
-            <>🎤 TAP ANYWHERE TO ENABLE MIC</>
+            <>🎤 TAP TO ENABLE MIC</>
           )}
         </button>
 
