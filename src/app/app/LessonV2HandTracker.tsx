@@ -565,20 +565,33 @@ function QrPanel({
         </div>
         {!connected && (
           <>
-            <div
-              style={{
-                width: 200,
-                height: 200,
-                background: "var(--parchment, #faf6ef)",
-                borderRadius: 12,
-                padding: 8,
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-              }}
-              dangerouslySetInnerHTML={qrSvg ? { __html: qrSvg } : undefined}
-            >
-              {!qrSvg && (
+            {qrSvg ? (
+              <div
+                style={{
+                  width: 200,
+                  height: 200,
+                  background: "var(--parchment, #faf6ef)",
+                  borderRadius: 12,
+                  padding: 8,
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
+                dangerouslySetInnerHTML={{ __html: qrSvg }}
+              />
+            ) : (
+              <div
+                style={{
+                  width: 200,
+                  height: 200,
+                  background: "var(--parchment, #faf6ef)",
+                  borderRadius: 12,
+                  padding: 8,
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
+              >
                 <span
                   style={{
                     fontSize: 11,
@@ -587,8 +600,8 @@ function QrPanel({
                 >
                   generating QR…
                 </span>
-              )}
-            </div>
+              </div>
+            )}
             <div
               style={{
                 fontFamily: "Georgia, serif",
