@@ -63,6 +63,12 @@ export interface HandTrackerOptions {
   onStatus?: (s: "loading" | "ready" | "stopped" | "error") => void;
   /** Min downward velocity (Y pixels / frame) to count as a press. */
   pressThreshold?: number;
+  /**
+   * If provided, use this MediaStream instead of asking for the local
+   * camera. Used by the phone-companion mode where the iPad receives a
+   * stream over WebRTC and feeds it into the tracker.
+   */
+  externalStream?: MediaStream;
 }
 
 const PRESS_THRESHOLD_DEFAULT = 0.012; // normalised units / frame
@@ -116,31 +122,33 @@ export class HandTracker {
       throw e;
     }
 
-    // 2. Camera permission + video element. We prefer the FRONT-facing
-    // camera because the typical setup is the iPad on a music stand,
-    // screen tilted toward the player, with the front camera naturally
-    // angled down at the hands. The back camera would face away from the
-    // keyboard in that config.
-    try {
-      this.stream = await navigator.mediaDevices.getUserMedia({
-        audio: false,
-        video: {
-          facingMode: "user",
-          width: { ideal: 640 },
-          height: { ideal: 480 },
-        },
-      });
-    } catch {
-      // Fall back to whatever camera is available
+    // 2. Get a video stream — either the externally-provided one (phone
+    // companion mode) or our own getUserMedia. Local fallback prefers
+    // the FRONT-facing camera because the typical iPad-on-music-stand
+    // setup has the front lens angled down at the hands.
+    if (this.opts.externalStream) {
+      this.stream = this.opts.externalStream;
+    } else {
       try {
         this.stream = await navigator.mediaDevices.getUserMedia({
           audio: false,
-          video: { width: { ideal: 640 }, height: { ideal: 480 } },
+          video: {
+            facingMode: "user",
+            width: { ideal: 640 },
+            height: { ideal: 480 },
+          },
         });
-      } catch (e) {
-        this.opts.onError?.(e instanceof Error ? e : new Error(String(e)));
-        this.opts.onStatus?.("error");
-        throw e;
+      } catch {
+        try {
+          this.stream = await navigator.mediaDevices.getUserMedia({
+            audio: false,
+            video: { width: { ideal: 640 }, height: { ideal: 480 } },
+          });
+        } catch (e) {
+          this.opts.onError?.(e instanceof Error ? e : new Error(String(e)));
+          this.opts.onStatus?.("error");
+          throw e;
+        }
       }
     }
 
@@ -179,10 +187,13 @@ export class HandTracker {
       window.cancelAnimationFrame(this.rafId);
       this.rafId = null;
     }
-    if (this.stream) {
+    // Only stop tracks we own. The phone-companion path passes us a
+    // MediaStream owned by the PeerSession; tearing it down here would
+    // kill the WebRTC connection on tab transitions.
+    if (this.stream && !this.opts.externalStream) {
       this.stream.getTracks().forEach((t) => t.stop());
-      this.stream = null;
     }
+    this.stream = null;
     if (this.video) {
       this.video.pause();
       this.video.srcObject = null;

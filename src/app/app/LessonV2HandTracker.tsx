@@ -1,21 +1,21 @@
 "use client";
 /**
- * HandTrackerOverlay — auto-starting camera + hand-tracking overlay.
+ * HandTrackerOverlay — auto-starting camera + hand-tracking overlay with
+ * optional phone-companion mode for a better camera angle.
  *
- * Renders a small video preview of the student's hands in the corner of
- * the lesson page with finger landmark dots drawn on top. Fires
- * onFingerPress() events when a fingertip moves downward (a press).
+ * Local mode: uses the iPad's built-in front camera. Auto-starts on mount.
  *
- * Auto-starts on mount the same way the mic does — no Listen button,
- * no Start tracking button. The first time, iOS/browsers will show a
- * camera permission prompt; once granted, every subsequent page on the
- * same origin starts silently.
+ * Phone mode: tap the 📱 button. We open a WebRTC consumer session, show
+ * a QR code pointing at /cam/[sessionId], and the student scans it with
+ * their phone. Phone /cam page captures its own camera and streams to us
+ * via Supabase-Realtime-signaled WebRTC. The remote stream is plumbed
+ * into the same MediaPipe Hands pipeline as the local camera.
  *
- * The user can collapse the preview to a tiny pill if they don't want
- * to see the camera feed. The tracking keeps running even when collapsed.
+ * Either source emits onFingerPress() events.
  */
-import React, { useEffect, useRef, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import type { HandFrame, FingerPressEvent } from "@/lib/music/handTracker";
+import type { PeerSession } from "@/lib/cam/peerSession";
 
 interface HandTrackerOverlayProps {
   /** Fires when a fingertip presses down. */
@@ -23,6 +23,8 @@ interface HandTrackerOverlayProps {
   /** Optional: forwarded through to the tracker. */
   pressThreshold?: number;
 }
+
+type CamMode = "local" | "phone";
 
 export function HandTrackerOverlay({
   onFingerPress,
@@ -33,18 +35,30 @@ export function HandTrackerOverlay({
   const [status, setStatus] = useState<string | null>(null);
   const [collapsed, setCollapsed] = useState(false);
   const [frame, setFrame] = useState<HandFrame | null>(null);
-  const trackerRef = useRef<{ stop: () => void; getVideo: () => HTMLVideoElement | null } | null>(null);
+  const [mode, setMode] = useState<CamMode>(() => {
+    if (typeof window === "undefined") return "local";
+    return (window.localStorage.getItem("sonata.cam.mode") as CamMode) || "local";
+  });
+  const [phoneStream, setPhoneStream] = useState<MediaStream | null>(null);
+  const [showQr, setShowQr] = useState(false);
+  const [pendingSessionId, setPendingSessionId] = useState<string | null>(null);
+  const trackerRef = useRef<{
+    stop: () => void;
+    getVideo: () => HTMLVideoElement | null;
+  } | null>(null);
+  const peerRef = useRef<PeerSession | null>(null);
   const videoSlotRef = useRef<HTMLDivElement | null>(null);
 
-  // Auto-start on mount. Lazy-load the tracker module so non-vision
-  // lessons (and the very large TF.js+MediaPipe deps) never load it.
-  useEffect(() => {
-    let cancelled = false;
-    (async () => {
+  const startTracker = useCallback(
+    async (externalStream: MediaStream | null) => {
       try {
+        if (trackerRef.current) {
+          trackerRef.current.stop();
+          trackerRef.current = null;
+        }
+        if (videoSlotRef.current) videoSlotRef.current.innerHTML = "";
         setStatus("loading model…");
         const mod = await import("@/lib/music/handTracker");
-        if (cancelled) return;
         const tracker = new mod.HandTracker({
           onFrame: (f) => setFrame(f),
           onFingerPress: (e) => onFingerPress?.(e),
@@ -59,197 +73,507 @@ export function HandTrackerOverlay({
             else if (s === "error") setStatus(null);
           },
           pressThreshold,
+          externalStream: externalStream || undefined,
         });
         trackerRef.current = tracker;
-        setStatus("asking for camera permission…");
+        if (!externalStream) setStatus("asking for camera permission…");
         await tracker.start();
-        if (cancelled) {
-          tracker.stop();
-          return;
-        }
         setActive(true);
         setStatus(null);
-        // Mount the video element produced by the tracker into the slot
         const video = tracker.getVideo();
         if (video && videoSlotRef.current) {
           video.style.width = "100%";
           video.style.height = "100%";
           video.style.objectFit = "cover";
           video.style.display = "block";
-          video.style.transform = "scaleX(-1)"; // mirror so it feels natural
+          // Mirror local front-facing camera; not the phone's rear camera
+          // which is already pointed at the keyboard correctly.
+          video.style.transform = externalStream ? "" : "scaleX(-1)";
           videoSlotRef.current.appendChild(video);
         }
       } catch {
-        // Errors already surfaced via onError.
+        // Errors surfaced via onError.
       }
-    })();
+    },
+    [onFingerPress, pressThreshold]
+  );
+
+  useEffect(() => {
+    if (mode === "phone" && !phoneStream) return;
+    void startTracker(mode === "phone" ? phoneStream : null);
     return () => {
-      cancelled = true;
       trackerRef.current?.stop();
       trackerRef.current = null;
     };
-    // We deliberately omit onFingerPress/pressThreshold — re-creating the
-    // detector on every prop change would tear down the camera stream.
     // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [mode, phoneStream]);
+
+  async function startPhoneSession() {
+    setError(null);
+    const camMod = await import("@/lib/cam/peerSession");
+    const sessionId = camMod.generateSessionId();
+    setPendingSessionId(sessionId);
+    setShowQr(true);
+    setStatus("waiting for phone…");
+    const peer = new camMod.PeerSession({
+      sessionId,
+      role: "consumer",
+      onRemoteStream: (s) => {
+        setPhoneStream(s);
+        setStatus(null);
+      },
+      onStatus: (s) => {
+        if (s === "connecting") setStatus("connecting…");
+        else if (s === "waiting") setStatus("waiting for phone…");
+        else if (s === "connected") setStatus(null);
+        else if (s === "failed") setError("connection failed — reload");
+        else if (s === "closed") setStatus(null);
+      },
+      onError: (err) => setError(err.message),
+    });
+    peerRef.current = peer;
+    setMode("phone");
+    if (typeof window !== "undefined") {
+      window.localStorage.setItem("sonata.cam.mode", "phone");
+    }
+    try {
+      await peer.start();
+    } catch (e) {
+      setError(e instanceof Error ? e.message : String(e));
+    }
+  }
+
+  function endPhoneSession() {
+    peerRef.current?.stop();
+    peerRef.current = null;
+    setPhoneStream(null);
+    setShowQr(false);
+    setMode("local");
+    if (typeof window !== "undefined") {
+      window.localStorage.setItem("sonata.cam.mode", "local");
+    }
+  }
+
+  useEffect(() => {
+    return () => {
+      peerRef.current?.stop();
+      peerRef.current = null;
+    };
   }, []);
 
   if (collapsed) {
     return (
-      <button
-        type="button"
-        onClick={() => setCollapsed(false)}
+      <>
+        <button
+          type="button"
+          onClick={() => setCollapsed(false)}
+          style={{
+            position: "fixed",
+            bottom: 80,
+            right: 12,
+            padding: "6px 12px",
+            borderRadius: 999,
+            border: "2px solid #1f2937",
+            background: active ? "rgba(22,163,74,0.15)" : "rgba(0,0,0,0.05)",
+            color: active ? "#16a34a" : "#6b7280",
+            fontSize: 11,
+            fontWeight: 800,
+            letterSpacing: "0.1em",
+            cursor: "pointer",
+            zIndex: 50,
+          }}
+        >
+          ✋ {active ? "TRACKING" : status ? status.toUpperCase() : "OFF"}
+          {mode === "phone" ? " · 📱" : ""}
+        </button>
+        {showQr && pendingSessionId && (
+          <QrPanel
+            sessionId={pendingSessionId}
+            connected={!!phoneStream}
+            onClose={() => setShowQr(false)}
+            onEnd={endPhoneSession}
+          />
+        )}
+      </>
+    );
+  }
+
+  return (
+    <>
+      <div
         style={{
           position: "fixed",
           bottom: 80,
           right: 12,
-          padding: "6px 12px",
-          borderRadius: 999,
-          border: "2px solid #1f2937",
-          background: active ? "rgba(22,163,74,0.15)" : "rgba(0,0,0,0.05)",
-          color: active ? "#16a34a" : "#6b7280",
-          fontSize: 11,
-          fontWeight: 800,
-          letterSpacing: "0.1em",
-          cursor: "pointer",
+          width: 200,
+          aspectRatio: "4/3",
+          borderRadius: 12,
+          overflow: "hidden",
+          border: `2px solid ${active ? "#16a34a" : "#1f2937"}`,
+          background: "#0a0a0a",
+          boxShadow: "0 4px 16px rgba(0,0,0,0.4)",
           zIndex: 50,
         }}
       >
-        ✋ {active ? "TRACKING" : status ? status.toUpperCase() : "OFF"}
-      </button>
-    );
-  }
+        <div ref={videoSlotRef} style={{ position: "absolute", inset: 0 }} />
+
+        {frame && (
+          <svg
+            viewBox="0 0 1 1"
+            preserveAspectRatio="none"
+            style={{
+              position: "absolute",
+              inset: 0,
+              width: "100%",
+              height: "100%",
+              transform: mode === "phone" ? "" : "scaleX(-1)",
+              pointerEvents: "none",
+            }}
+          >
+            {frame.hands.map((hand, hi) => (
+              <g key={hi}>
+                {hand.landmarks.map((lm, li) => {
+                  const isTip = [4, 8, 12, 16, 20].includes(li);
+                  return (
+                    <circle
+                      key={li}
+                      cx={lm.x}
+                      cy={lm.y}
+                      r={isTip ? 0.018 : 0.008}
+                      fill={hand.handedness === "Left" ? "#22c55e" : "#60a5fa"}
+                      fillOpacity={isTip ? 0.9 : 0.55}
+                    />
+                  );
+                })}
+              </g>
+            ))}
+          </svg>
+        )}
+
+        <div
+          style={{
+            position: "absolute",
+            top: 6,
+            left: 6,
+            right: 6,
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+            gap: 6,
+          }}
+        >
+          <div
+            style={{
+              padding: "2px 8px",
+              borderRadius: 999,
+              background: active
+                ? "rgba(22,163,74,0.85)"
+                : status
+                ? "rgba(212,168,83,0.85)"
+                : error
+                ? "rgba(220,38,38,0.85)"
+                : "rgba(0,0,0,0.5)",
+              color: "#fff",
+              fontSize: 9,
+              fontWeight: 800,
+              letterSpacing: "0.1em",
+              display: "flex",
+              alignItems: "center",
+              gap: 4,
+            }}
+          >
+            <span>
+              {status
+                ? status.toUpperCase()
+                : active
+                ? "● HANDS"
+                : error
+                ? "⚠ NO CAM"
+                : "…"}
+            </span>
+            {mode === "phone" && (
+              <span title="Phone-camera mode" style={{ opacity: 0.85 }}>
+                📱
+              </span>
+            )}
+          </div>
+          <div style={{ display: "flex", gap: 4 }}>
+            <button
+              type="button"
+              onClick={() => {
+                if (mode === "phone") {
+                  setShowQr(true);
+                } else {
+                  void startPhoneSession();
+                }
+              }}
+              style={{
+                padding: "2px 8px",
+                borderRadius: 999,
+                border: "none",
+                background: "rgba(0,0,0,0.5)",
+                color: "#fff",
+                fontSize: 11,
+                fontWeight: 800,
+                cursor: "pointer",
+              }}
+              title="Use phone as camera"
+            >
+              📱
+            </button>
+            <button
+              type="button"
+              onClick={() => setCollapsed(true)}
+              style={{
+                padding: "2px 8px",
+                borderRadius: 999,
+                border: "none",
+                background: "rgba(0,0,0,0.5)",
+                color: "#fff",
+                fontSize: 11,
+                fontWeight: 800,
+                cursor: "pointer",
+              }}
+              title="Hide preview (tracking keeps running)"
+            >
+              ⤢
+            </button>
+          </div>
+        </div>
+        {error && (
+          <div
+            style={{
+              position: "absolute",
+              bottom: 6,
+              left: 6,
+              right: 6,
+              padding: "4px 8px",
+              borderRadius: 6,
+              background: "rgba(220,38,38,0.9)",
+              color: "#fff",
+              fontSize: 10,
+              lineHeight: 1.3,
+            }}
+          >
+            {error}
+          </div>
+        )}
+      </div>
+
+      {showQr && pendingSessionId && (
+        <QrPanel
+          sessionId={pendingSessionId}
+          connected={!!phoneStream}
+          onClose={() => setShowQr(false)}
+          onEnd={endPhoneSession}
+        />
+      )}
+    </>
+  );
+}
+
+// ---------------------------------------------------------------------------
+// QrPanel — modal with a QR code pointing at /cam/<sessionId>, instructions,
+// and an "End phone session" button once connected.
+// ---------------------------------------------------------------------------
+function QrPanel({
+  sessionId,
+  connected,
+  onClose,
+  onEnd,
+}: {
+  sessionId: string;
+  connected: boolean;
+  onClose: () => void;
+  onEnd: () => void;
+}) {
+  const [qrSvg, setQrSvg] = useState<string | null>(null);
+  // Phone always loads the WEB origin (learnwithsonata.com), never the
+  // Capacitor `capacitor://localhost` origin which only the iPad knows.
+  // Hardcode the production host so QR codes generated inside the iOS
+  // bundle still produce a phone-scannable URL.
+  const WEB_ORIGIN = "https://learnwithsonata.com";
+  const url = `${WEB_ORIGIN}/cam/?id=${sessionId}`;
+
+  useEffect(() => {
+    let cancelled = false;
+    (async () => {
+      try {
+        const QR = (await import("qrcode")).default;
+        const svg = await QR.toString(url, {
+          type: "svg",
+          margin: 1,
+          color: { dark: "#1f2937", light: "#fff8ee" },
+          width: 200,
+        });
+        if (!cancelled) setQrSvg(svg);
+      } catch {
+        // fall through
+      }
+    })();
+    return () => {
+      cancelled = true;
+    };
+  }, [url]);
 
   return (
     <div
       style={{
         position: "fixed",
-        bottom: 80,
-        right: 12,
-        width: 200,
-        aspectRatio: "4/3",
-        borderRadius: 12,
-        overflow: "hidden",
-        border: `2px solid ${active ? "#16a34a" : "#1f2937"}`,
-        background: "#0a0a0a",
-        boxShadow: "0 4px 16px rgba(0,0,0,0.4)",
-        zIndex: 50,
+        inset: 0,
+        background: "rgba(15,15,15,0.55)",
+        zIndex: 100,
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        padding: 16,
       }}
+      onClick={onClose}
     >
       <div
-        ref={videoSlotRef}
-        style={{ position: "absolute", inset: 0 }}
-      />
-      {/* Landmark dots overlay */}
-      {frame && (
-        <svg
-          viewBox="0 0 1 1"
-          preserveAspectRatio="none"
-          style={{
-            position: "absolute",
-            inset: 0,
-            width: "100%",
-            height: "100%",
-            transform: "scaleX(-1)", // match the mirrored video
-            pointerEvents: "none",
-          }}
-        >
-          {frame.hands.map((hand, hi) => (
-            <g key={hi}>
-              {hand.landmarks.map((lm, li) => {
-                const isTip = [4, 8, 12, 16, 20].includes(li);
-                return (
-                  <circle
-                    key={li}
-                    cx={lm.x}
-                    cy={lm.y}
-                    r={isTip ? 0.018 : 0.008}
-                    fill={
-                      hand.handedness === "Left"
-                        ? "#22c55e"
-                        : "#60a5fa"
-                    }
-                    fillOpacity={isTip ? 0.9 : 0.55}
-                  />
-                );
-              })}
-            </g>
-          ))}
-        </svg>
-      )}
-      {/* Status / collapse pill */}
-      <div
+        onClick={(e) => e.stopPropagation()}
         style={{
-          position: "absolute",
-          top: 6,
-          left: 6,
-          right: 6,
+          background: "var(--cream, #fff8ee)",
+          border: "3px solid var(--ink, #1f2937)",
+          borderRadius: 18,
+          padding: 22,
+          maxWidth: 360,
+          width: "100%",
           display: "flex",
-          justifyContent: "space-between",
+          flexDirection: "column",
           alignItems: "center",
-          gap: 6,
+          gap: 12,
+          boxShadow: "0 8px 24px rgba(0,0,0,0.4)",
         }}
       >
         <div
           style={{
-            padding: "2px 8px",
-            borderRadius: 999,
-            background: active
-              ? "rgba(22,163,74,0.85)"
-              : status
-              ? "rgba(212,168,83,0.85)"
-              : error
-              ? "rgba(220,38,38,0.85)"
-              : "rgba(0,0,0,0.5)",
-            color: "#fff",
-            fontSize: 9,
-            fontWeight: 800,
-            letterSpacing: "0.1em",
-          }}
-        >
-          {status
-            ? status.toUpperCase()
-            : active
-            ? "● HANDS"
-            : error
-            ? "⚠ NO CAM"
-            : "…"}
-        </div>
-        <button
-          type="button"
-          onClick={() => setCollapsed(true)}
-          style={{
-            padding: "2px 8px",
-            borderRadius: 999,
-            border: "none",
-            background: "rgba(0,0,0,0.5)",
-            color: "#fff",
             fontSize: 11,
-            fontWeight: 800,
-            cursor: "pointer",
+            letterSpacing: "0.2em",
+            fontWeight: 900,
+            color: "var(--ink3, #6b7280)",
           }}
-          title="Hide preview (tracking keeps running)"
         >
-          ⤢
-        </button>
-      </div>
-      {error && (
+          PHONE CAMERA
+        </div>
         <div
           style={{
-            position: "absolute",
-            bottom: 6,
-            left: 6,
-            right: 6,
-            padding: "4px 8px",
-            borderRadius: 6,
-            background: "rgba(220,38,38,0.9)",
-            color: "#fff",
-            fontSize: 10,
+            fontFamily: "Georgia, serif",
+            fontSize: 18,
+            fontWeight: 800,
+            color: "var(--ink, #1f2937)",
+            textAlign: "center",
             lineHeight: 1.3,
           }}
         >
-          {error}
+          {connected ? "Phone connected ✓" : "Scan with your phone"}
         </div>
-      )}
+        {!connected && (
+          <>
+            <div
+              style={{
+                width: 200,
+                height: 200,
+                background: "var(--parchment, #faf6ef)",
+                borderRadius: 12,
+                padding: 8,
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+              dangerouslySetInnerHTML={qrSvg ? { __html: qrSvg } : undefined}
+            >
+              {!qrSvg && (
+                <span
+                  style={{
+                    fontSize: 11,
+                    color: "var(--ink3, #6b7280)",
+                  }}
+                >
+                  generating QR…
+                </span>
+              )}
+            </div>
+            <div
+              style={{
+                fontFamily: "Georgia, serif",
+                fontSize: 12,
+                color: "var(--ink2, #4b5563)",
+                textAlign: "center",
+                lineHeight: 1.4,
+              }}
+            >
+              Open the camera on your phone and scan the QR.
+              <br />
+              Mount the phone above your keyboard for best tracking.
+            </div>
+            <code
+              style={{
+                fontSize: 10,
+                color: "var(--ink3, #6b7280)",
+                wordBreak: "break-all",
+                textAlign: "center",
+              }}
+            >
+              {url}
+            </code>
+          </>
+        )}
+        {connected && (
+          <div
+            style={{
+              fontSize: 12,
+              color: "var(--ink2, #4b5563)",
+              textAlign: "center",
+              lineHeight: 1.4,
+              maxWidth: 280,
+            }}
+          >
+            Phone camera is now feeding the lesson. Mount it above the keys
+            and aim at your hands. The preview tile shows what we see.
+          </div>
+        )}
+        <div
+          style={{
+            display: "flex",
+            gap: 8,
+            marginTop: 4,
+          }}
+        >
+          {connected && (
+            <button
+              type="button"
+              onClick={onEnd}
+              style={{
+                padding: "8px 14px",
+                borderRadius: 999,
+                border: "2px solid var(--ink, #1f2937)",
+                background: "#fecaca",
+                fontWeight: 800,
+                fontSize: 12,
+                cursor: "pointer",
+              }}
+            >
+              End phone session
+            </button>
+          )}
+          <button
+            type="button"
+            onClick={onClose}
+            style={{
+              padding: "8px 14px",
+              borderRadius: 999,
+              border: "2px solid var(--ink, #1f2937)",
+              background: "var(--berry, #d4a853)",
+              fontWeight: 900,
+              fontSize: 12,
+              cursor: "pointer",
+            }}
+          >
+            {connected ? "Done" : "Close"}
+          </button>
+        </div>
+      </div>
     </div>
   );
 }
