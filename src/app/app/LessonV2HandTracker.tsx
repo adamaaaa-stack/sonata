@@ -26,6 +26,15 @@ interface HandTrackerOverlayProps {
 
 type CamMode = "local" | "phone";
 
+/** Local copy so tapping the 📱 button doesn't depend on the lazy-loaded
+ *  cam module just to generate an id. Same shape as PeerSession's helper. */
+function generateSimpleId(): string {
+  const chars = "23456789abcdefghjkmnpqrstuvwxyz";
+  let out = "";
+  for (let i = 0; i < 8; i++) out += chars[Math.floor(Math.random() * chars.length)];
+  return out;
+}
+
 export function HandTrackerOverlay({
   onFingerPress,
   pressThreshold,
@@ -110,10 +119,26 @@ export function HandTrackerOverlay({
 
   async function startPhoneSession() {
     setError(null);
-    const camMod = await import("@/lib/cam/peerSession");
-    const sessionId = camMod.generateSessionId();
+    // Generate the session id and OPEN THE MODAL FIRST so the user
+    // immediately sees something happen on tap. Loading the WebRTC code
+    // and signalling channel can take a beat — without immediate UI
+    // feedback the button felt broken on slow networks.
+    const sessionId = generateSimpleId();
     setPendingSessionId(sessionId);
     setShowQr(true);
+    setStatus("loading…");
+    let camMod: typeof import("@/lib/cam/peerSession");
+    try {
+      camMod = await import("@/lib/cam/peerSession");
+    } catch (e) {
+      setError(
+        e instanceof Error
+          ? `Couldn't load phone-cam module: ${e.message}`
+          : "Couldn't load phone-cam module"
+      );
+      setStatus(null);
+      return;
+    }
     setStatus("waiting for phone…");
     const peer = new camMod.PeerSession({
       sessionId,
@@ -297,44 +322,64 @@ export function HandTrackerOverlay({
               </span>
             )}
           </div>
-          <div style={{ display: "flex", gap: 4 }}>
+          <div style={{ display: "flex", gap: 6 }}>
             <button
               type="button"
-              onClick={() => {
+              onClick={(e) => {
+                e.stopPropagation();
                 if (mode === "phone") {
                   setShowQr(true);
                 } else {
                   void startPhoneSession();
                 }
               }}
+              onPointerDown={(e) => e.stopPropagation()}
               style={{
-                padding: "2px 8px",
+                width: 32,
+                height: 32,
+                padding: 0,
                 borderRadius: 999,
                 border: "none",
-                background: "rgba(0,0,0,0.5)",
+                background: "rgba(0,0,0,0.65)",
                 color: "#fff",
-                fontSize: 11,
+                fontSize: 16,
                 fontWeight: 800,
                 cursor: "pointer",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                touchAction: "manipulation",
               }}
               title="Use phone as camera"
+              aria-label="Use phone as camera"
             >
               📱
             </button>
             <button
               type="button"
-              onClick={() => setCollapsed(true)}
+              onClick={(e) => {
+                e.stopPropagation();
+                setCollapsed(true);
+              }}
+              onPointerDown={(e) => e.stopPropagation()}
               style={{
-                padding: "2px 8px",
+                width: 32,
+                height: 32,
+                padding: 0,
                 borderRadius: 999,
                 border: "none",
-                background: "rgba(0,0,0,0.5)",
+                background: "rgba(0,0,0,0.65)",
                 color: "#fff",
-                fontSize: 11,
+                fontSize: 14,
                 fontWeight: 800,
                 cursor: "pointer",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                touchAction: "manipulation",
               }}
               title="Hide preview (tracking keeps running)"
+              aria-label="Hide preview"
             >
               ⤢
             </button>
