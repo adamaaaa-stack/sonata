@@ -189,28 +189,69 @@ export function HandTrackerOverlay({
   if (collapsed) {
     return (
       <>
-        <button
-          type="button"
-          onClick={() => setCollapsed(false)}
+        <div
           style={{
             position: "fixed",
             bottom: 80,
             right: 12,
-            padding: "6px 12px",
-            borderRadius: 999,
-            border: "2px solid #1f2937",
-            background: active ? "rgba(22,163,74,0.15)" : "rgba(0,0,0,0.05)",
-            color: active ? "#16a34a" : "#6b7280",
-            fontSize: 11,
-            fontWeight: 800,
-            letterSpacing: "0.1em",
-            cursor: "pointer",
-            zIndex: 50,
+            display: "flex",
+            gap: 8,
+            zIndex: 60,
           }}
         >
-          ✋ {active ? "TRACKING" : status ? status.toUpperCase() : "OFF"}
-          {mode === "phone" ? " · 📱" : ""}
-        </button>
+          <button
+            type="button"
+            onClick={() => {
+              if (mode === "phone") {
+                setShowQr(true);
+              } else {
+                void startPhoneSession();
+              }
+            }}
+            style={{
+              width: 44,
+              height: 44,
+              padding: 0,
+              borderRadius: 999,
+              border: "2px solid #1f2937",
+              background:
+                mode === "phone" ? "rgba(22,163,74,0.85)" : "rgba(255,255,255,0.95)",
+              color: mode === "phone" ? "#fff" : "#1f2937",
+              fontSize: 22,
+              cursor: "pointer",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              touchAction: "manipulation",
+              boxShadow: "0 3px 0 #1f2937",
+              WebkitTapHighlightColor: "transparent",
+            }}
+            title="Use phone as camera"
+            aria-label="Use phone as camera"
+          >
+            📱
+          </button>
+          <button
+            type="button"
+            onClick={() => setCollapsed(false)}
+            style={{
+              padding: "6px 12px",
+              borderRadius: 999,
+              border: "2px solid #1f2937",
+              background: active ? "rgba(22,163,74,0.15)" : "rgba(0,0,0,0.05)",
+              color: active ? "#16a34a" : "#6b7280",
+              fontSize: 11,
+              fontWeight: 800,
+              letterSpacing: "0.1em",
+              cursor: "pointer",
+              touchAction: "manipulation",
+              WebkitTapHighlightColor: "transparent",
+            }}
+          >
+            ✋ {active ? "TRACKING" : status ? status.toUpperCase() : "OFF"}
+            {mode === "phone" ? " · 📱" : ""}
+          </button>
+        </div>
         {showQr && pendingSessionId && (
           <QrPanel
             sessionId={pendingSessionId}
@@ -275,115 +316,45 @@ export function HandTrackerOverlay({
           </svg>
         )}
 
+        {/* In-tile status pill only (no buttons here — see ControlBar below). */}
         <div
           style={{
             position: "absolute",
             top: 6,
             left: 6,
-            right: 6,
+            padding: "2px 8px",
+            borderRadius: 999,
+            background: active
+              ? "rgba(22,163,74,0.85)"
+              : status
+              ? "rgba(212,168,83,0.85)"
+              : error
+              ? "rgba(220,38,38,0.85)"
+              : "rgba(0,0,0,0.5)",
+            color: "#fff",
+            fontSize: 9,
+            fontWeight: 800,
+            letterSpacing: "0.1em",
             display: "flex",
-            justifyContent: "space-between",
             alignItems: "center",
-            gap: 6,
+            gap: 4,
+            pointerEvents: "none",
           }}
         >
-          <div
-            style={{
-              padding: "2px 8px",
-              borderRadius: 999,
-              background: active
-                ? "rgba(22,163,74,0.85)"
-                : status
-                ? "rgba(212,168,83,0.85)"
-                : error
-                ? "rgba(220,38,38,0.85)"
-                : "rgba(0,0,0,0.5)",
-              color: "#fff",
-              fontSize: 9,
-              fontWeight: 800,
-              letterSpacing: "0.1em",
-              display: "flex",
-              alignItems: "center",
-              gap: 4,
-            }}
-          >
-            <span>
-              {status
-                ? status.toUpperCase()
-                : active
-                ? "● HANDS"
-                : error
-                ? "⚠ NO CAM"
-                : "…"}
-            </span>
-            {mode === "phone" && (
-              <span title="Phone-camera mode" style={{ opacity: 0.85 }}>
-                📱
-              </span>
-            )}
-          </div>
-          <div style={{ display: "flex", gap: 6 }}>
-            <button
-              type="button"
-              onClick={(e) => {
-                e.stopPropagation();
-                if (mode === "phone") {
-                  setShowQr(true);
-                } else {
-                  void startPhoneSession();
-                }
-              }}
-              onPointerDown={(e) => e.stopPropagation()}
-              style={{
-                width: 32,
-                height: 32,
-                padding: 0,
-                borderRadius: 999,
-                border: "none",
-                background: "rgba(0,0,0,0.65)",
-                color: "#fff",
-                fontSize: 16,
-                fontWeight: 800,
-                cursor: "pointer",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                touchAction: "manipulation",
-              }}
-              title="Use phone as camera"
-              aria-label="Use phone as camera"
-            >
+          <span>
+            {status
+              ? status.toUpperCase()
+              : active
+              ? "● HANDS"
+              : error
+              ? "⚠ NO CAM"
+              : "…"}
+          </span>
+          {mode === "phone" && (
+            <span title="Phone-camera mode" style={{ opacity: 0.85 }}>
               📱
-            </button>
-            <button
-              type="button"
-              onClick={(e) => {
-                e.stopPropagation();
-                setCollapsed(true);
-              }}
-              onPointerDown={(e) => e.stopPropagation()}
-              style={{
-                width: 32,
-                height: 32,
-                padding: 0,
-                borderRadius: 999,
-                border: "none",
-                background: "rgba(0,0,0,0.65)",
-                color: "#fff",
-                fontSize: 14,
-                fontWeight: 800,
-                cursor: "pointer",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                touchAction: "manipulation",
-              }}
-              title="Hide preview (tracking keeps running)"
-              aria-label="Hide preview"
-            >
-              ⤢
-            </button>
-          </div>
+            </span>
+          )}
         </div>
         {error && (
           <div
@@ -398,11 +369,90 @@ export function HandTrackerOverlay({
               color: "#fff",
               fontSize: 10,
               lineHeight: 1.3,
+              pointerEvents: "none",
             }}
           >
             {error}
           </div>
         )}
+      </div>
+
+      {/* Standalone control bar — lives beside the preview tile, not inside
+          it, so the video element inside the tile can't intercept taps.
+          Higher z-index than the tile, with explicit touch-action. */}
+      <div
+        style={{
+          position: "fixed",
+          bottom: 80,
+          right: 224, // tile width (200) + tile right offset (12) + gap (12)
+          display: "flex",
+          flexDirection: "column",
+          gap: 8,
+          zIndex: 60,
+          pointerEvents: "auto",
+        }}
+      >
+        <button
+          type="button"
+          onClick={() => {
+            if (mode === "phone") {
+              setShowQr(true);
+            } else {
+              void startPhoneSession();
+            }
+          }}
+          style={{
+            width: 44,
+            height: 44,
+            padding: 0,
+            borderRadius: 999,
+            border: "2px solid #1f2937",
+            background:
+              mode === "phone" ? "rgba(22,163,74,0.85)" : "rgba(255,255,255,0.95)",
+            color: mode === "phone" ? "#fff" : "#1f2937",
+            fontSize: 22,
+            cursor: "pointer",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            touchAction: "manipulation",
+            boxShadow: "0 3px 0 #1f2937",
+            WebkitTapHighlightColor: "transparent",
+          }}
+          title={
+            mode === "phone"
+              ? "Phone-camera connected — tap to show QR"
+              : "Use phone as camera"
+          }
+          aria-label="Use phone as camera"
+        >
+          📱
+        </button>
+        <button
+          type="button"
+          onClick={() => setCollapsed((c) => !c)}
+          style={{
+            width: 44,
+            height: 44,
+            padding: 0,
+            borderRadius: 999,
+            border: "2px solid #1f2937",
+            background: "rgba(255,255,255,0.95)",
+            color: "#1f2937",
+            fontSize: 18,
+            cursor: "pointer",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            touchAction: "manipulation",
+            boxShadow: "0 3px 0 #1f2937",
+            WebkitTapHighlightColor: "transparent",
+          }}
+          title="Hide / show camera preview"
+          aria-label="Hide camera preview"
+        >
+          ⤢
+        </button>
       </div>
 
       {showQr && pendingSessionId && (
