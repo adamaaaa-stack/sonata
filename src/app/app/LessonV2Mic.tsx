@@ -86,6 +86,28 @@ export function MicListenCard({
     };
   }, []);
 
+  // Auto-start when the user has previously consented to mic access.
+  // Tracked in localStorage so consent persists across pages/reloads.
+  // First-time experience: user taps the "🎤 Listen" button; on success
+  // we set sonata.mic.consent=yes; from then on, every play / mastery
+  // page that mounts a MicListenCard auto-starts immediately. They can
+  // still tap Stop to pause.
+  // The `polyphonic` flag is in the deps because chord pages need the
+  // big TF.js model — we want a fresh start when the page swaps engines.
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    if (listening) return; // already running
+    const consent = window.localStorage.getItem("sonata.mic.consent");
+    if (consent !== "yes") return;
+    // Defer one tick so the rest of the page mounts first — keeps the
+    // mic-prompt-on-iOS noise off the critical path.
+    const t = window.setTimeout(() => {
+      void startListening();
+    }, 100);
+    return () => window.clearTimeout(t);
+  }, [polyphonic]);
+
   async function startListening() {
     setError(null);
     let det: DetectorLike;
@@ -145,8 +167,12 @@ export function MicListenCard({
     try {
       await det.start();
       setListening(true);
+      // Permission granted → remember it so future pages auto-listen.
+      if (typeof window !== "undefined") {
+        window.localStorage.setItem("sonata.mic.consent", "yes");
+      }
     } catch {
-      // onError already handled it
+      // onError already handled it. Don't persist consent on failure.
     }
   }
 
