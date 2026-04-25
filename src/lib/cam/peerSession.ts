@@ -68,12 +68,22 @@ export class PeerSession {
       }
     };
     this.pc.ontrack = (e) => {
-      // Group all incoming tracks into a single remote stream.
-      if (!this.remoteStream) {
-        this.remoteStream = new MediaStream();
-        this.opts.onRemoteStream?.(this.remoteStream);
+      // Prefer the publisher's stream reference (e.streams[0]) when
+      // available — this is the same MediaStream the publisher passed
+      // to addTrack, so it carries ALL the remote tracks already grouped
+      // together. Falling back to a hand-rolled stream means we'd have
+      // to wait for every ontrack event to assemble it manually, which
+      // races with the consumer's video-element setup.
+      const stream =
+        (e.streams && e.streams[0]) ||
+        this.remoteStream ||
+        new MediaStream([e.track]);
+      if (this.remoteStream !== stream) {
+        this.remoteStream = stream;
+        this.opts.onRemoteStream?.(stream);
+      } else if (!stream.getTracks().includes(e.track)) {
+        stream.addTrack(e.track);
       }
-      this.remoteStream.addTrack(e.track);
     };
     // Watch BOTH connectionState and iceConnectionState. Browsers vary —
     // iOS Safari in particular sometimes never transitions

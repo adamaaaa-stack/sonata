@@ -108,11 +108,22 @@ export function HandTrackerOverlay({
   );
 
   useEffect(() => {
-    if (mode === "phone" && !phoneStream) return;
+    if (mode === "phone" && !phoneStream) {
+      // Tearing down here (instead of relying on the previous effect's
+      // cleanup) ensures the iPad's local-camera video element is
+      // removed from the DOM the moment we flip to phone-mode. Without
+      // this the user sees a frozen frame of the iPad camera while
+      // waiting for the phone's stream to arrive.
+      trackerRef.current?.stop();
+      trackerRef.current = null;
+      if (videoSlotRef.current) videoSlotRef.current.innerHTML = "";
+      return;
+    }
     void startTracker(mode === "phone" ? phoneStream : null);
     return () => {
       trackerRef.current?.stop();
       trackerRef.current = null;
+      if (videoSlotRef.current) videoSlotRef.current.innerHTML = "";
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [mode, phoneStream]);

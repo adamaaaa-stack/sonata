@@ -35,8 +35,6 @@
 	<false/>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
-	<key>NSCameraUsageDescription</key>
-	<string>hi</string>
 	<key>NSMicrophoneUsageDescription</key>
 	<string>For The Piano - From Cleffy:)</string>
 	<key>UILaunchStoryboardName</key>
