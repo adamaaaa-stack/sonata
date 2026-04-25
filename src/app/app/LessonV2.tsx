@@ -615,6 +615,7 @@ function QuestionCard({
   onAnswer,
   onHighlightChange,
   onAcceptChange,
+  onMicPlay,
   pressTrigger,
 }: {
   q: MasteryQuestion;
@@ -624,6 +625,8 @@ function QuestionCard({
   onHighlightChange?: (midis: number[] | null) => void;
   /** Set of MIDIs that count as a correct press for play-style questions. */
   onAcceptChange?: (midis: number[] | null) => void;
+  /** Mic detected a note — parent should drive the on-screen keyboard. */
+  onMicPlay?: (midi: number) => void;
   /** When the parent forwards a piano press, the latest pressed MIDI here. */
   pressTrigger?: { midi: number; key: number } | null;
 }) {
@@ -861,11 +864,10 @@ function QuestionCard({
             <MicListenCard
               onNote={(midi) => {
                 if (revealed) return;
-                if (!acceptMidis || acceptMidis.length === 0) {
-                  pickPlay();
-                  return;
-                }
-                if (acceptMidis.includes(midi)) pickPlay();
+                // Drive the on-screen keyboard. Its handlePress will fire
+                // onClick → MasteryPhase.handlePianoPress → pressTrigger →
+                // back here → grade via the pressTrigger effect below.
+                onMicPlay?.(midi);
               }}
               expectedMidi={
                 acceptMidis && acceptMidis.length === 1 ? acceptMidis[0] : null
@@ -942,12 +944,14 @@ function MasteryCheckScreen({
   onDone,
   onHighlightChange,
   onAcceptChange,
+  onMicPlay,
   pressTrigger,
 }: {
   check: MasteryCheck;
   onDone: (score: { correct: number; total: number }) => void;
   onHighlightChange?: (midis: number[] | null) => void;
   onAcceptChange?: (midis: number[] | null) => void;
+  onMicPlay?: (midi: number) => void;
   pressTrigger?: { midi: number; key: number } | null;
 }) {
   const all = useMemo(() => {
@@ -1004,6 +1008,7 @@ function MasteryCheckScreen({
         onAnswer={onAnswer}
         onHighlightChange={onHighlightChange}
         onAcceptChange={onAcceptChange}
+        onMicPlay={onMicPlay}
         pressTrigger={pressTrigger}
       />
       <div
@@ -1176,6 +1181,19 @@ function MasteryPhase({
     key: number;
   } | null>(null);
   const pressKeyRef = useRef(0);
+  // Mic-driven press trigger — fed to PianoKeyboard so a detected note
+  // visually presses the on-screen key, plays its sound, and (via the
+  // keyboard's own onClick) routes through the same grading pipeline as
+  // a finger tap.
+  const [micPressTrigger, setMicPressTrigger] = useState<{
+    midi: number;
+    key: number;
+  } | null>(null);
+  const micPressKeyRef = useRef(0);
+  function micToKeyboard(midi: number) {
+    micPressKeyRef.current += 1;
+    setMicPressTrigger({ midi, key: micPressKeyRef.current });
+  }
 
   const highlights = useMemo(() => {
     const out: Record<number, string> = {};
@@ -1259,6 +1277,7 @@ function MasteryPhase({
           onDone={onDone}
           onHighlightChange={setHintMidis}
           onAcceptChange={setAcceptMidis}
+          onMicPlay={micToKeyboard}
           pressTrigger={pressTrigger}
         />
       </div>
@@ -1274,6 +1293,7 @@ function MasteryPhase({
           highlights={highlights}
           pulseMidi={pulseMidi}
           onClick={handlePianoPress}
+          pressTrigger={micPressTrigger}
         />
       </div>
     </div>
@@ -1452,6 +1472,20 @@ export function LessonV2Screen({
   useEffect(() => {
     seqProgressRef.current = seqProgress;
   }, [seqProgress]);
+
+  // When the mic detects a note, we drive the on-screen keyboard's press
+  // animation instead of grading silently. Same key pulses, same sound,
+  // and PianoKeyboard's onClick still fires handlePianoPress so grading
+  // works through the same code path as a finger tap.
+  const [micPressTrigger, setMicPressTrigger] = useState<{
+    midi: number;
+    key: number;
+  } | null>(null);
+  const micPressKeyRef = useRef(0);
+  function micToKeyboard(midi: number) {
+    micPressKeyRef.current += 1;
+    setMicPressTrigger({ midi, key: micPressKeyRef.current });
+  }
 
   function handlePianoPress(midi: number) {
     if (!isPlayPage || sequenceDone) return;
@@ -1692,7 +1726,7 @@ export function LessonV2Screen({
           {/* Mic-listen mode (real-piano play-along) — play pages only */}
           {isPlayPage && !sequenceDone && (
             <MicListenCard
-              onNote={handlePianoPress}
+              onNote={micToKeyboard}
               expectedMidi={expectedMidi}
               minMidi={Math.max(36, rangeStart - 2)}
               maxMidi={Math.min(96, rangeEnd + 2)}
@@ -1824,6 +1858,7 @@ export function LessonV2Screen({
           highlights={pianoHighlights}
           pulseMidi={expectedMidi}
           onClick={handlePianoPress}
+          pressTrigger={micPressTrigger}
         />
       </div>
     </div>

@@ -31,6 +31,13 @@ export interface PianoKeyboardProps {
    * top of anything in `highlights`. Used for "play this next" cues.
    */
   pulseMidi?: number | null;
+  /**
+   * Programmatically simulate a key press from outside (e.g. mic detection).
+   * Each new `key` value triggers one press: visual flash, plays the piano
+   * sample, and fires `onClick(midi)`. The `key` counter ensures the same
+   * MIDI can be pressed multiple times in a row.
+   */
+  pressTrigger?: { midi: number; key: number } | null;
 }
 
 export function PianoKeyboard({
@@ -41,6 +48,7 @@ export function PianoKeyboard({
   onClick,
   showNames = true,
   pulseMidi = null,
+  pressTrigger = null,
 }: PianoKeyboardProps) {
   const [pressed, setPressed] = useState<Set<number>>(new Set());
   const touchedRef = useRef(false);
@@ -97,6 +105,17 @@ export function PianoKeyboard({
     const glyphs = ["♪", "♫", "♬"];
     spawnFloatNote(containerRef.current, glyphs[m % 3]);
   }
+
+  // External press triggers (e.g. mic detection): every change of
+  // pressTrigger.key plays the corresponding key as if the user tapped it.
+  const lastTriggerKeyRef = useRef<number | null>(null);
+  React.useEffect(() => {
+    if (!pressTrigger) return;
+    if (lastTriggerKeyRef.current === pressTrigger.key) return;
+    lastTriggerKeyRef.current = pressTrigger.key;
+    handlePress(pressTrigger.midi);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [pressTrigger]);
 
   // Threshold (px): movement greater than this turns a tap into a drag/scroll.
   const DRAG_THRESHOLD = 8;
