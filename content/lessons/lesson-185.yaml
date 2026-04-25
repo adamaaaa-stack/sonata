@@ -1,0 +1,263 @@
+# ============================================================
+# LESSON 185 · Bach Invention No. 1 (FULL)
+# Tier 5 · Act 37 · Upper-Intermediate · ACT BOSS 🎯
+# Your first complete Bach piece. 21 bars. Simplified. Both hands.
+# ============================================================
+id: 185
+tier: upper-intermediate
+act: 37
+title: "Bach Invention No. 1 (full)"
+subtitle: "Act 37 · Your first complete Bach"
+goal: "Play the entire Invention No. 1 — simplified but complete, all 21 bars, both hands, moderato."
+prereqs: [180, 181, 182, 183, 184]
+method_focus: "combine"
+time_estimate_min: 18
+piece_context: "Milestone day. You have played openings. You have played simplified pieces. Today — a whole Bach Invention, end to end. Both hands. Every bar. Simplified, yes. But complete. This is a real classical piece, played by real pianists, and now by you."
+metaphor: "two-voices-converging"
+vibe: ["triumphant", "focused", "reflective"]
+is_act_boss: true
+piece:
+  title: "Invention No. 1 in C Major, BWV 772"
+  composer: "J.S. Bach (c. 1723)"
+  key_center: "C major"
+  time_signature: "4/4"
+  difficulty: "upper-intermediate — all 21 bars, simplified melodic shapes, moderato"
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy in front of a harpsichord. A full score of the Invention open behind him. Banner: ACT 37 BOSS — INVENTION No. 1, COMPLETE."
+    cleffy: >
+      Act thirty-seven boss.
+      Bach Invention No. 1. All of it.
+      Twenty-one bars. Two voices. Both hands.
+
+  - id: 2
+    mode: see
+    type: honest_framing
+    figure: "Two boxes. Left: 'what today IS NOT — playing Bach's exact score, every inner note.' Right: 'what it IS — the full arc of his piece, simplified shapes, both hands, moderato.'"
+    cleffy: >
+      Honesty first.
+      What this is — the full journey of the piece. Twenty-one bars of shapes, both hands.
+      What this is not — every sixteenth note Bach wrote. That's your next year of work.
+      The arc. The whole arc.
+
+  - id: 3
+    mode: see
+    type: the_map
+    figure: "21 boxes in a row, labeled bars 1-21. Colored regions: EXPOSITION (1-6) · DEVELOPMENT (7-14) · RETURN (15-21). Arrows for imitation across bars."
+    cleffy: >
+      A map. Three parts.
+      Exposition — bars one through six. Subject introduced, both hands answer.
+      Development — seven through fourteen. Subject moves through keys. Inverted.
+      Return — fifteen through twenty-one. Back to C. Strong finish.
+
+  - id: 4
+    mode: hear
+    type: listen_full
+    figure: "Play button. Caption: full simplified version, moderato, both voices."
+    audio:
+      A: "The simplified full Invention No. 1 — 21 bars at 88 bpm, both voices, melodic shapes only. Start in C, middle section in G and D minor, return to C."
+    cleffy: >
+      Listen once. All the way through.
+      Don't read along. Just feel the journey.
+      It starts home. It wanders. It comes home.
+
+  - id: 5
+    mode: see
+    type: section_1_exposition
+    figure: "Grand staff. Bars 1-6. RH subject, then LH subject, then continuing motion in both."
+    cleffy: >
+      Section one. Exposition.
+      Right hand announces the subject. Left hand copies in bar two.
+      Both keep moving together through bar six.
+
+  - id: 6
+    mode: play
+    type: play_exposition
+    figure: "Grand staff. Bars 1-6 simplified. Metronome 80."
+    cleffy: >
+      Play section one. Both hands.
+      Start slow — eighty. The subject, then the answer, then a brief duet.
+    interaction:
+      type: rhythm
+      sequence: ["C5","D5","E5","F5","D5","E5","C5","G5","C4","D4","E4","F4","D4","E4","C4","G4","E5","F5","G5","E5","G4","A4","B4","G4"]
+      durations: ["eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth"]
+      tempo: 80
+
+  - id: 7
+    mode: see
+    type: section_2_development
+    figure: "Grand staff. Bars 7-14. Arrows showing subject moving to G, then inverted, then into D minor."
+    cleffy: >
+      Section two. Development.
+      Subject moves to G. Then flips upside down — inversion.
+      Then finds a minor key. D minor. Sadder.
+
+  - id: 8
+    mode: play
+    type: play_development
+    figure: "Grand staff. Bars 7-14 simplified. Metronome 80."
+    cleffy: >
+      The journey section.
+      G. Inverted. D minor. Every two bars moves somewhere new.
+    interaction:
+      type: rhythm
+      sequence: ["G4","A4","B4","C5","A4","B4","G4","D5","C5","B4","A4","G4","B4","A4","C5","G4","D4","E4","F4","G4","E4","F4","D4","A4"]
+      durations: ["eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth"]
+      tempo: 80
+
+  - id: 9
+    mode: see
+    type: section_3_return
+    figure: "Grand staff. Bars 15-21. Subject returns in C. Final cadence with a fermata on the last C chord."
+    cleffy: >
+      Section three. Return.
+      Subject comes back home. C major again.
+      Final cadence — the big resolving chord. Fermata. Done.
+
+  - id: 10
+    mode: play
+    type: play_return
+    figure: "Grand staff. Bars 15-21 simplified, ending with a C major chord with fermata. Metronome 80."
+    cleffy: >
+      The homecoming.
+      Subject returns. Final cadence. Hold that last chord.
+    interaction:
+      type: rhythm
+      sequence: ["C5","D5","E5","F5","D5","E5","C5","G5","C4","D4","E4","F4","D4","E4","C4","G4","G5","F5","E5","D5","C5","E5","G5","C5"]
+      durations: ["eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","quarter","quarter","quarter","whole"]
+      tempo: 80
+
+  - id: 11
+    mode: see
+    type: all_three_sections
+    figure: "Three colored bars stacked — exposition, development, return. A line drawn from start to finish. Caption: one piece."
+    cleffy: >
+      All three sections. One piece.
+      You have the pieces. Now the whole.
+
+  - id: 12
+    mode: play
+    type: full_slow
+    figure: "Grand staff. All 21 bars. Metronome 72. Guides on."
+    cleffy: >
+      Full piece. Slow. Guides on. Seventy-two.
+      First time end to end. Breathe.
+    interaction:
+      type: song
+      sequence: ["C5","D5","E5","F5","D5","E5","C5","G5","C4","D4","E4","F4","D4","E4","C4","G4","E5","F5","G5","E5","G4","A4","B4","G4","G4","A4","B4","C5","A4","B4","G4","D5","C5","B4","A4","G4","B4","A4","C5","G4","D4","E4","F4","G4","E4","F4","D4","A4","C5","D5","E5","F5","D5","E5","C5","G5","C4","D4","E4","F4","D4","E4","C4","G4","G5","F5","E5","D5","C5","E5","G5","C5"]
+      guides: true
+      tempo: 72
+
+  - id: 13
+    mode: play
+    type: full_moderato
+    figure: "Grand staff. All 21 bars. Metronome 88. Guides on."
+    cleffy: >
+      Again. Eighty-eight. Guides still on.
+      Closer to moderato. Feel it opening up.
+    interaction:
+      type: song
+      sequence: ["C5","D5","E5","F5","D5","E5","C5","G5","C4","D4","E4","F4","D4","E4","C4","G4","E5","F5","G5","E5","G4","A4","B4","G4","G4","A4","B4","C5","A4","B4","G4","D5","C5","B4","A4","G4","B4","A4","C5","G4","D4","E4","F4","G4","E4","F4","D4","A4","C5","D5","E5","F5","D5","E5","C5","G5","C4","D4","E4","F4","D4","E4","C4","G4","G5","F5","E5","D5","C5","E5","G5","C5"]
+      guides: true
+      tempo: 88
+
+  - id: 14
+    mode: play
+    type: full_performance
+    figure: "Grand staff. All 21 bars. Metronome 96. No guides. A small CANDLE icon — performance mode."
+    cleffy: >
+      Full piece. Moderato. No guides.
+      This is performance.
+      Twenty-one bars. Two voices. Bach. From you.
+    interaction:
+      type: song
+      sequence: ["C5","D5","E5","F5","D5","E5","C5","G5","C4","D4","E4","F4","D4","E4","C4","G4","E5","F5","G5","E5","G4","A4","B4","G4","G4","A4","B4","C5","A4","B4","G4","D5","C5","B4","A4","G4","B4","A4","C5","G4","D4","E4","F4","G4","E4","F4","D4","A4","C5","D5","E5","F5","D5","E5","C5","G5","C4","D4","E4","F4","D4","E4","C4","G4","G5","F5","E5","D5","C5","E5","G5","C5"]
+      guides: false
+      tempo: 96
+    followup_cleffy: >
+      That. A full Bach Invention.
+      Both voices. Twenty-one bars. No guides.
+      You played a real classical piece, end to end.
+
+  - id: 15
+    mode: hear
+    type: pre_check
+    figure: "Banner — Act 37 boss mastery check."
+    cleffy: >
+      Four quick ones. Take your time.
+
+  - id: 16
+    mode: see
+    type: wrap
+    figure: "Celebration card — ACT 37 COMPLETE 🎯. Cleffy holding a scroll that reads 'BWV 772 — played.' The Bach portrait nods in the background. A pyramid of acts showing 37/50."
+    cleffy: >
+      Act thirty-seven. Closed.
+      You played a complete Bach Invention. First one ever. Both voices. Twenty-one bars. Moderato.
+      That is not a small thing. That is counterpoint — the oldest technique in Western music — coming out of your hands.
+      Next act — all the scales. White keys. Black keys. Up and down. The foundation under everything you've played.
+      Rest today. You earned it.
+
+practice_this_week:
+  real_piano:
+    - "Play the full simplified Invention every day this week. Start at 72, work up to 96. If any section cracks, slow it, rebuild, try again."
+    - "Listen to a professional recording of BWV 772 — any version. You now understand what's happening in every bar. You'll hear the subject move. You'll hear the inversion. That's literacy."
+    - "If you're feeling bold — find the real Bach score and read through it slowly. Don't try to play it. Just follow along while the recording plays."
+  virtual_only:
+    - "Replay pages 12, 13, 14 — the full piece at three tempos"
+    - "Replay page 14 once a day — the performance version, no guides"
+  estimated_time: "15 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "The 21-bar map: bars 1-6, 7-14, 15-21"
+          prompt: "What are the three sections of the Invention?"
+          options: ["Slow, fast, slow", "Exposition, development, return", "Intro, chorus, outro"]
+          correct: 1
+        - figure: "Bar 7 — subject starting on G instead of C"
+          prompt: "What has happened to the subject in the development?"
+          options: ["It's been moved to a new key", "It's been repeated exactly", "It's been removed"]
+          correct: 0
+        - figure: "Bar 21 — final C major chord with a fermata"
+          prompt: "Why is there a fermata on the last chord?"
+          options: ["It's a mistake", "To hold the final resolution — the piece ends here", "To indicate silence"]
+          correct: 1
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "The full simplified Invention at 88 bpm"
+          prompt: "Roughly how many sections does the piece have?"
+          options: ["One", "Three — start, middle, end", "Seven"]
+          correct: 1
+        - audio: "The subject inverted vs the subject original"
+          prompt: "Which version appears in the development section?"
+          options: ["Original only", "Inverted version — among others"]
+          correct: 1
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play the full Invention No. 1, simplified, at 88 bpm or higher, both hands."
+          accept: "all 21 bars played end to end, both voices, at or near moderato"
+
+remediation:
+  id: "185.5"
+  title: "Invention, section by section"
+  pages: 11
+  opening_cleffy: >
+    Act boss. A full Bach piece. This is hard.
+    Let's go section by section. Exposition first — three tries. Then development. Then return.
+    Only when each section is clean do we string them together.
+
+completion:
+  cleffy: >
+    Act thirty-seven. Sealed.
+    You played a complete Bach Invention. Real counterpoint. Two voices, end to end.
+    This is a piece people play in recitals. You played it today.
+    Tomorrow — scales. All the keys. A whole act of foundation work.
+  xp: 30
+  unlocks: 186

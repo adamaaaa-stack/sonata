@@ -1,0 +1,227 @@
+# ============================================================
+# LESSON 20 · Hot Cross Buns by reading
+# Tier 1 · Act 4 · Beginner · ACT BOSS 🎯
+# The callback to L10 — same song, now read off the page
+# ============================================================
+id: 20
+tier: beginner
+act: 4
+title: "Hot Cross Buns, from the page"
+subtitle: "Act 4 · The same song — but you read it"
+goal: "Read Hot Cross Buns off the staff and play it. The Sonata method, completed for the first time."
+prereqs: [10, 14, 16, 17, 18, 19]
+method_focus: "steps"
+time_estimate_min: 12
+piece_context: "Ten lessons ago, you played Hot Cross Buns by ear. Today you read it off a page. Same song, completely different skill."
+metaphor: "closing-the-loop"
+vibe: ["gentle", "playful", "celebratory"]
+is_act_boss: true
+piece:
+  title: "Hot Cross Buns"
+  notes: "E D C | E D C | C C C C | D D D D | E D C"
+  key_center: "C major"
+  difficulty: "beginner — read it using steps"
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy holding up two pages side by side. Left says LESSON 10 — BY EAR. Right says LESSON 20 — BY READING."
+    cleffy: >
+      Remember this song?
+      Ten lessons ago, you played Hot Cross Buns by listening to me and copying.
+      Today, you read it off a staff.
+      Same song. Different skill. This one matters a lot more.
+
+  - id: 2
+    mode: see
+    type: the_page
+    figure: "Clean, simple staff with treble clef. The first line of Hot Cross Buns written: three notes — E on line 1, D in the space below it, Middle C below the staff. Each note's name NOT shown."
+    cleffy: >
+      Here's Hot Cross Buns, written on a staff.
+      Don't panic. Look at the shape.
+      Three notes. Each one is one step lower than the last.
+      Down, down, down.
+
+  - id: 3
+    mode: see
+    type: anchor_to_c
+    figure: "Same staff, with Middle C highlighted. Arrow pointing to it."
+    cleffy: >
+      The last note is on its own ledger line, below the staff. You know that one.
+      That's Middle C.
+      From there, work UP — one step up is D. Another step up is E.
+      Those are the three notes. E, D, C.
+
+  - id: 4
+    mode: see
+    type: find_the_steps
+    figure: "Staff with the first line: E D C. Each step labeled 'step down' with a small arrow."
+    cleffy: >
+      See how each note is a step below the last?
+      E to D is a step down. D to C is a step down.
+      Three notes, stepping down the stairs.
+
+  - id: 5
+    mode: play
+    type: first_line
+    figure: "Staff with E D C. Keyboard below. E, D, and C glowing."
+    cleffy: >
+      Play the first line.
+      Right hand — middle finger on E, pointer on D, thumb on C.
+      Then play them. E, D, C.
+    interaction:
+      type: sequence
+      keys: ["E4", "D4", "C4"]
+    followup_cleffy: >
+      Hot. Cross. Buns.
+      You didn't hear me play it first. You just READ it.
+
+  - id: 6
+    mode: see
+    type: second_line
+    figure: "Staff with the second line: E D C again. Cleffy pointing at how it's identical to line 1."
+    cleffy: >
+      Second line is identical. Same three notes, same shape.
+      Hot Cross Buns, twice.
+
+  - id: 7
+    mode: play
+    type: two_lines
+    figure: "Staff showing first two lines. Keyboard below."
+    cleffy: >
+      Play both lines. E D C, pause, E D C.
+    interaction:
+      type: sequence
+      keys: ["E4", "D4", "C4", "E4", "D4", "C4"]
+
+  - id: 8
+    mode: see
+    type: middle_section
+    figure: "Staff. Line 3 shows: C C C C | D D D D. Four Cs followed by four Ds."
+    cleffy: >
+      Middle line is new.
+      Four Cs in a row, then four Ds.
+      That's One-a-penny, two-a-penny.
+      The first four notes — all on Middle C. Same note, four times.
+      The next four — all one step up. D, D, D, D.
+
+  - id: 9
+    mode: play
+    type: middle
+    figure: "Same staff. Keyboard."
+    cleffy: >
+      Play the middle line. Four Cs, then four Ds.
+    interaction:
+      type: sequence
+      keys: ["C4", "C4", "C4", "C4", "D4", "D4", "D4", "D4"]
+
+  - id: 10
+    mode: see
+    type: last_line
+    figure: "Staff with final line: E D C again."
+    cleffy: >
+      Last line — same as the first. E D C. Hot Cross Buns.
+
+  - id: 11
+    mode: play
+    type: full_song
+    figure: "Full song on staff. Keyboard below. Each key lights up just before you need to play it (training wheels)."
+    cleffy: >
+      Full song, slow. The key will glow before you need to play it.
+      Read along with the page as you go.
+    interaction:
+      type: song
+      sequence: ["E4", "D4", "C4", "E4", "D4", "C4", "C4", "C4", "C4", "C4", "D4", "D4", "D4", "D4", "E4", "D4", "C4"]
+      guides: true
+
+  - id: 12
+    mode: play
+    type: full_song_no_guides
+    figure: "Full song on staff. Keyboard. NO key glowing. You read the page and play."
+    cleffy: >
+      Now the real test.
+      No highlights. Just the staff and the piano.
+      Read Hot Cross Buns off the page. Play it.
+    interaction:
+      type: song
+      target_sequence: ["E4", "D4", "C4", "E4", "D4", "C4", "C4", "C4", "C4", "C4", "D4", "D4", "D4", "D4", "E4", "D4", "C4"]
+    followup_cleffy: >
+      That.
+      That was you, reading sheet music. Playing a song from the page.
+      Ten lessons ago you couldn't do that. You did it from memory. This is different.
+      This is reading.
+
+  - id: 13
+    mode: hear
+    type: pre_check
+    figure: "Banner."
+    cleffy: >
+      Three quick ones. Before your Act 4 celebration.
+
+  - id: 14
+    mode: see
+    type: wrap
+    figure: "Celebration card — Act 4 complete. A small trophy engraved with 4/10 acts. A staff with Hot Cross Buns drawn on it. Cleffy grinning."
+    cleffy: >
+      That's Act 4. The Sonata method, in use. For real.
+      You read notes off a staff, turned them into steps, and played a song.
+      Tomorrow — you already did skips. Next up: rhythm. Then Happy Birthday, five lessons away.
+      The finish line of Tier 1 is visible from here.
+      See you.
+
+# ─── Practice this week ────────────────────────────────
+practice_this_week:
+  real_piano:
+    - "Play Hot Cross Buns from memory. Twice slow, twice normal speed."
+    - "Try playing it starting on G instead of E — so G F E, G F E, E E E E, F F F F, G F E."
+    - "If you have paper: draw the first line of Hot Cross Buns as three notes on a staff."
+  virtual_only:
+    - "Replay page 12 (the full song, no guides) three times this week"
+  estimated_time: "10 min/day"
+
+# ─── Mastery check ──────────────────────────────────────
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "Staff showing E D C (first line of Hot Cross Buns)."
+          prompt: "What direction does this line go?"
+          options: ["Down in steps", "Up in steps", "Repeating notes"]
+          correct: 0
+        - figure: "Staff showing C C C C (four repeated notes)."
+          prompt: "Are these notes moving, or repeating?"
+          options: ["Repeating", "Moving in steps", "Moving in skips"]
+          correct: 0
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "First line of Hot Cross Buns"
+          prompt: "Did that go down in steps?"
+          options: ["Yes", "No"]
+          correct: 0
+    play:
+      pass_threshold: 1
+      questions:
+        - figure: "Staff with first line of Hot Cross Buns."
+          prompt: "Read the three notes and play them on the piano."
+          accept: "E4 D4 C4 in order"
+
+# ─── Remediation ────────────────────────────────────────
+remediation:
+  id: "20.5"
+  title: "Reading Hot Cross Buns, bar by bar"
+  pages: 7
+  opening_cleffy: >
+    The first time you read a whole song off the page, it's a lot.
+    Let's do it bar by bar, very slow, each note with its step labeled.
+
+# ─── Completion ─────────────────────────────────────────
+completion:
+  cleffy: >
+    Twenty lessons in. Act 4 sealed.
+    You read a song off a page. You are officially doing the thing.
+    Five more lessons and Tier 1 is done.
+  xp: 30   # act boss bonus
+  unlocks: 21

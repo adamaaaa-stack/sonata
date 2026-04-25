@@ -1,0 +1,241 @@
+# ============================================================
+# LESSON 110 · Interval drill: all 8
+# Tier 3 · Act 22 · Low-Intermediate · ACT BOSS 🎯
+# See, hear, name, and play every interval.
+# ============================================================
+id: 110
+tier: low-intermediate
+act: 22
+title: "Interval drill: all 8"
+subtitle: "Act 22 · Intervals boss"
+goal: "Master all eight intervals across all four modes — see, hear, name, play."
+prereqs: [106, 107, 108, 109]
+method_focus: "combine"
+time_estimate_min: 18
+piece_context: "Act 22 closes. Four days of intervals — names, sounds, shapes — become one test. Every interval from 2nd to octave, every mode you know."
+metaphor: "distance-between-notes"
+vibe: ["focused", "celebratory"]
+is_act_boss: true
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy holding a fan of eight cards — 2nd through octave. Act 22 boss banner."
+    cleffy: >
+      Act 22 boss.
+      Eight intervals. Four modes. One lesson.
+      Everything you built this act, proved today.
+
+  - id: 2
+    mode: see
+    type: the_full_family
+    figure: "A big reference chart: all eight intervals, each with a staff example, a keyboard distance, and a one-word feel (tight, sweet, strong, open, warm, tense, hollow)."
+    cleffy: >
+      The whole family. Eight distances.
+      2nd tight. 3rd sweet. 4th strong. 5th open.
+      6th warm. 7th tense. Octave hollow.
+
+  - id: 3
+    mode: hear
+    type: listen_full_sweep
+    figure: "One play button. Plays all eight intervals from C, in order."
+    audio:
+      A: "C4 played with each note from D up to C5 in turn — all eight intervals"
+    cleffy: >
+      Listen — every interval, once, climbing.
+      2nd, 3rd, 4th, 5th, 6th, 7th, octave.
+
+  - id: 4
+    mode: see
+    type: see_drill
+    figure: "Round counter 1 of 6. A staff with two notes. SEE mode — name the interval."
+    cleffy: >
+      SEE mode. Six rounds. Any interval.
+    interaction:
+      type: drill
+      rounds: 6
+      options: ["2nd", "3rd", "4th", "5th", "6th", "7th", "Octave"]
+
+  - id: 5
+    mode: hear
+    type: hear_drill
+    figure: "Round counter 1 of 6. HEAR mode. Two notes play; you name."
+    cleffy: >
+      HEAR mode. Six rounds. Listen, name.
+    interaction:
+      type: drill
+      rounds: 6
+      options: ["2nd", "3rd", "4th", "5th", "6th", "7th", "Octave"]
+
+  - id: 6
+    mode: play
+    type: play_2nd_and_3rd
+    figure: "Keyboard. Prompt: play a 2nd, then a 3rd, both above C."
+    cleffy: >
+      PLAY mode. Start small. C up a 2nd (D), then C up a 3rd (E).
+    interaction:
+      type: sequence
+      keys: ["C4","D4","C4","E4"]
+
+  - id: 7
+    mode: play
+    type: play_4th_and_5th
+    figure: "Keyboard. C4 with F4, then C4 with G4."
+    cleffy: >
+      C up a 4th (F), then C up a 5th (G).
+    interaction:
+      type: sequence
+      keys: ["C4","F4","C4","G4"]
+
+  - id: 8
+    mode: play
+    type: play_6th_7th_octave
+    figure: "Keyboard. C4 with A4, then B4, then C5."
+    cleffy: >
+      The big three. C up a 6th. 7th. Octave.
+    interaction:
+      type: sequence
+      keys: ["C4","A4","C4","B4","C4","C5"]
+
+  - id: 9
+    mode: play
+    type: play_from_G
+    figure: "Keyboard. G as the root. Play a 3rd (B), 5th (D), octave (G)."
+    cleffy: >
+      New root — G.
+      Up a 3rd to B. Up a 5th to D. Up an octave to G.
+      Intervals work from any note.
+    interaction:
+      type: sequence
+      keys: ["G3","B3","G3","D4","G3","G4"]
+
+  - id: 10
+    mode: see
+    type: mixed_see_drill
+    figure: "Round counter 1 of 6. Faster staff drill — any interval, any root."
+    cleffy: >
+      Mixed roots, mixed intervals. Six.
+    interaction:
+      type: drill
+      rounds: 6
+      options: ["2nd", "3rd", "4th", "5th", "6th", "7th", "Octave"]
+
+  - id: 11
+    mode: hear
+    type: mixed_hear_drill
+    figure: "Round counter 1 of 6. HEAR drill at speed."
+    cleffy: >
+      Mixed HEAR. Six more. Trust the feel.
+    interaction:
+      type: drill
+      rounds: 6
+      options: ["2nd", "3rd", "4th", "5th", "6th", "7th", "Octave"]
+
+  - id: 12
+    mode: play
+    type: interval_ladder
+    figure: "Staff showing C followed by every interval up to the octave. Keyboard below."
+    cleffy: >
+      Build the whole ladder, from C.
+      C-D, C-E, C-F, C-G, C-A, C-B, C-C.
+      Seven pairs. All eight intervals named along the way.
+    interaction:
+      type: sequence
+      keys: ["C4","D4","C4","E4","C4","F4","C4","G4","C4","A4","C4","B4","C4","C5"]
+
+  - id: 13
+    mode: play
+    type: descending_ladder
+    figure: "Keyboard. Ladder now coming back down from C5."
+    cleffy: >
+      Coming back down. C5 to every lower note.
+      Intervals work going down too.
+    interaction:
+      type: sequence
+      keys: ["C5","B4","C5","A4","C5","G4","C5","F4","C5","E4","C5","D4","C5","C4"]
+    followup_cleffy: >
+      That.
+      Up the ladder and back. Every interval, both directions.
+
+  - id: 14
+    mode: hear
+    type: pre_check
+    figure: "Banner — Act 22 boss mastery check."
+    cleffy: >
+      Five quick ones. Boss check — take your time.
+
+  - id: 15
+    mode: see
+    type: wrap
+    figure: "Celebration card — ACT 22 COMPLETE 🎯. Cleffy holding the fan of eight interval cards. Pyramid showing 22/50 acts done."
+    cleffy: >
+      Act 22. Closed.
+      You see intervals. You hear intervals. You name them. You play them.
+      Four days ago, a 3rd was just a skip. Now you know it's the warm one, the sweet one, the first two notes of a C chord.
+      Next act — new keys. D major. Two sharps. B-flat major. Two flats. And the Minuet in G gets moved to D.
+
+practice_this_week:
+  real_piano:
+    - "Pick a favorite tune. Name the interval between every two notes, as you play. First few tries will be slow. That's the point."
+    - "Make a game: close your eyes, have someone play two notes. Name the interval."
+    - "Play the C chord as stacked 3rds: C to E (3rd), E to G (3rd). Then F chord: F to A, A to C. Every major chord = two stacked 3rds."
+  virtual_only:
+    - "Replay pages 4, 5, 10, 11 — the mixed drills"
+  estimated_time: "15 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "Staff with C4 and F4"
+          prompt: "What interval?"
+          options: ["3rd", "4th", "5th"]
+          correct: 1
+        - figure: "Staff with C4 and C5"
+          prompt: "What interval?"
+          options: ["7th", "Octave", "6th"]
+          correct: 1
+        - figure: "Staff with G3 and D4"
+          prompt: "What interval?"
+          options: ["4th", "5th", "6th"]
+          correct: 1
+    hear:
+      pass_threshold: 2
+      questions:
+        - audio: "C and D played together"
+          prompt: "What interval?"
+          options: ["2nd", "3rd", "5th"]
+          correct: 0
+        - audio: "C and A played together"
+          prompt: "What interval?"
+          options: ["5th", "6th", "7th"]
+          correct: 1
+        - audio: "C4 and C5 played together"
+          prompt: "What interval?"
+          options: ["6th", "7th", "Octave"]
+          correct: 2
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play a 5th above C. (C to G.)"
+          accept: "C4 and G4"
+        - prompt: "Play an octave above G. (G to the next G.)"
+          accept: "G3 and G4, or G4 and G5"
+
+remediation:
+  id: "110.5"
+  title: "Intervals by mode, slower"
+  pages: 11
+  opening_cleffy: >
+    Act boss — big one. Expected.
+    We'll rebuild by mode. See first, until every shape is automatic. Then hear. Then play. One interval at a time.
+
+completion:
+  cleffy: >
+    Act 22 sealed.
+    Intervals used to be shapes on a page. Now they're sounds, names, distances in your fingers.
+    Tomorrow — new keys. D major. Two sharps. Your old friend Minuet in G moves house.
+  xp: 30
+  unlocks: 111

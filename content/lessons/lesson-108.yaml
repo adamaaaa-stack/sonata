@@ -1,0 +1,223 @@
+# ============================================================
+# LESSON 108 · Hearing intervals
+# Tier 3 · Act 22 · Low-Intermediate · Intervals
+# Train the ear — the sound of each interval size.
+# ============================================================
+id: 108
+tier: low-intermediate
+act: 22
+title: "Hearing intervals"
+subtitle: "Act 22 · Intervals"
+goal: "Tell intervals apart by ear — the sound of each size."
+prereqs: [107, 106]
+method_focus: "hear"
+time_estimate_min: 13
+piece_context: "Eyes know the names. Now the ears catch up. Every interval has a personality — small or open, sweet or restless."
+metaphor: "distance-between-notes"
+vibe: ["quiet", "focused"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy with cupped hand to ear. Eight intervals shown as colored bars of different widths."
+    cleffy: >
+      You can name them on paper.
+      Can you name them by sound?
+      Today the ear catches up.
+
+  - id: 2
+    mode: hear
+    type: listen_small_vs_big
+    figure: "Two play buttons. A: 2nd. B: octave."
+    audio:
+      A: "C and D played together — a 2nd, close and tight"
+      B: "C and C an octave apart — wide and open"
+    cleffy: >
+      Start with the extremes.
+      First — a 2nd. Close. Almost buzzy.
+      Second — an octave. Wide open. Same note really.
+
+  - id: 3
+    mode: hear
+    type: hear_2nd
+    figure: "Play button. Label: 2ND."
+    audio:
+      A: "C and D played together"
+    cleffy: >
+      The 2nd. Neighbors. Tight and a little scratchy.
+      This is the sound of a step.
+
+  - id: 4
+    mode: hear
+    type: hear_3rd
+    figure: "Play button. Label: 3RD."
+    audio:
+      A: "C and E played together — sweet, the start of a major chord"
+    cleffy: >
+      The 3rd. Sweet. Relaxed.
+      First two notes of a C chord. Happy sound.
+
+  - id: 5
+    mode: hear
+    type: identify_2_or_3
+    figure: "Round counter 1 of 4. Two options: 2nd, 3rd."
+    cleffy: >
+      Four rounds. 2nd or 3rd?
+      Small and buzzy — or sweet and open?
+    interaction:
+      type: drill
+      rounds: 4
+      options: ["2nd", "3rd"]
+
+  - id: 6
+    mode: hear
+    type: hear_4th
+    figure: "Play button. Label: 4TH."
+    audio:
+      A: "C and F played together — strong, hymn-like"
+    cleffy: >
+      The 4th. Strong. Hymn-like.
+      Think of the first two notes of 'Here Comes the Bride.' That's a 4th.
+
+  - id: 7
+    mode: hear
+    type: hear_5th
+    figure: "Play button. Label: 5TH."
+    audio:
+      A: "C and G played together — open, Star Wars opening"
+    cleffy: >
+      The 5th. Open. Powerful.
+      First two notes of the Star Wars theme. Or Twinkle Twinkle.
+      Rock solid.
+
+  - id: 8
+    mode: hear
+    type: identify_4_or_5
+    figure: "Round counter 1 of 4. Two options: 4th, 5th."
+    cleffy: >
+      Four rounds. 4th or 5th?
+    interaction:
+      type: drill
+      rounds: 4
+      options: ["4th", "5th"]
+
+  - id: 9
+    mode: hear
+    type: hear_6th
+    figure: "Play button. Label: 6TH."
+    audio:
+      A: "C and A played together — warm, movie-theme sweet"
+    cleffy: >
+      The 6th. Warm. A little swoony.
+      Think of 'My Bonnie Lies Over the Ocean' — first two notes.
+
+  - id: 10
+    mode: hear
+    type: hear_7th
+    figure: "Play button. Label: 7TH."
+    audio:
+      A: "C and B played together — tense, wanting to resolve"
+    cleffy: >
+      The 7th. Tense. Wants to resolve.
+      Almost an octave — but stops short. Restless.
+
+  - id: 11
+    mode: hear
+    type: hear_octave
+    figure: "Play button. Label: OCTAVE."
+    audio:
+      A: "C4 and C5 played together — open, hollow, same note"
+    cleffy: >
+      The octave. Hollow. Same note really.
+      Think 'Somewhere Over the Rainbow' — first two notes jump an octave.
+
+  - id: 12
+    mode: hear
+    type: drill_big_three
+    figure: "Round counter 1 of 4. Options: 6th, 7th, octave."
+    cleffy: >
+      Four rounds. 6th, 7th, or octave?
+    interaction:
+      type: drill
+      rounds: 4
+      options: ["6th", "7th", "Octave"]
+
+  - id: 13
+    mode: hear
+    type: mixed_drill
+    figure: "Round counter 1 of 5. Options: 2nd, 3rd, 5th, 6th, octave."
+    cleffy: >
+      Mixed. Five rounds. Any of these five.
+    interaction:
+      type: drill
+      rounds: 5
+      options: ["2nd", "3rd", "5th", "6th", "Octave"]
+
+  - id: 14
+    mode: hear
+    type: pre_check
+    figure: "Banner."
+    cleffy: >
+      Four quick ones.
+
+  - id: 15
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 108. Eight wave shapes, each a different width — the sound-shapes of each interval."
+    cleffy: >
+      You hear them now. Small. Sweet. Strong. Open.
+      Tomorrow — sight-quiz. See it, name it, fast.
+
+practice_this_week:
+  real_piano:
+    - "Pick two random white keys. Play them together. Count the interval. Say the name out loud."
+    - "Play a favorite melody. Notice the first two notes — is it a 2nd, a 3rd, a 4th? Most famous tunes start with a small interval."
+  virtual_only:
+    - "Replay pages 5, 8, 12, 13 — all the drills"
+  estimated_time: "10 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 1
+      questions:
+        - figure: "Staff with C and G"
+          prompt: "Before playing — what interval is this?"
+          options: ["3rd", "5th", "Octave"]
+          correct: 1
+    hear:
+      pass_threshold: 2
+      questions:
+        - audio: "C and D played together"
+          prompt: "What interval?"
+          options: ["2nd", "5th", "Octave"]
+          correct: 0
+        - audio: "C and G played together"
+          prompt: "What interval?"
+          options: ["3rd", "5th", "7th"]
+          correct: 1
+        - audio: "C4 and C5 played together"
+          prompt: "What interval?"
+          options: ["6th", "7th", "Octave"]
+          correct: 2
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play any 5th above C."
+          accept: "C4 and G4"
+
+remediation:
+  id: "108.5"
+  title: "Hearing intervals, slower"
+  pages: 7
+  opening_cleffy: >
+    Ears take longer than eyes. Normal.
+    We'll group them by feel — small, open, tense — and build up.
+
+completion:
+  cleffy: >
+    Ears trained. You hear distance now, not just notes.
+    Tomorrow — fast sight-quiz. Eyes catch up to the ears.
+  xp: 18
+  unlocks: 109

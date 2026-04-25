@@ -1,0 +1,222 @@
+# ============================================================
+# LESSON 123 · Review: chords & intervals
+# Tier 3 · Act 25 · Low-Intermediate · Review
+# All the theory so far — triads, inversions, intervals, primary chords.
+# ============================================================
+id: 123
+tier: low-intermediate
+act: 25
+title: "Review: chords & intervals"
+subtitle: "Act 25 · Review"
+goal: "Refresh every chord and interval concept from Acts 18, 20, 21, 22 — triads, major/minor, inversions, I-IV-V, interval names."
+prereqs: [122, 110, 105, 101, 100, 90, 89, 87, 86, 75]
+method_focus: "combine"
+time_estimate_min: 15
+vibe: ["focused", "gentle"]
+metaphor: "stacked-building-blocks"
+piece_context: "Third review lesson. All the theory you've picked up in Tier 3 — stacked up, side by side."
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy in front of a blackboard. Three columns: INTERVALS | TRIADS | I-IV-V. A check mark at the top of each."
+    cleffy: >
+      Theory day.
+      Everything you've learned about notes stacked together.
+      Intervals. Chords. Inversions. Primary chords.
+
+  - id: 2
+    mode: see
+    type: intervals_recap
+    figure: "Staff with a row: C-D (2nd), C-E (3rd), C-F (4th), C-G (5th), C-A (6th), C-B (7th), C-C (8ve). Labels underneath."
+    cleffy: >
+      Intervals. The distance between two notes, counted inclusively.
+      2nd, 3rd, 4th, 5th, 6th, 7th, octave.
+      Step is a 2nd. Skip is a 3rd.
+
+  - id: 3
+    mode: play
+    type: play_intervals_ladder
+    figure: "Keyboard. C stays constant. Each round lights a different note above it."
+    cleffy: >
+      Climb the ladder. C up to each one.
+      C-D. C-E. C-F. C-G. C-A. Listen for how each distance sounds.
+    interaction:
+      type: sequence
+      keys: ["C4","D4","C4","E4","C4","F4","C4","G4","C4","A4"]
+
+  - id: 4
+    mode: see
+    type: triad_recap
+    figure: "Staff: C E G stacked. Labels: root, third, fifth. Arrow: 'three notes, every other letter'."
+    cleffy: >
+      A triad. Three notes stacked.
+      Root, 3rd above it, 5th above that.
+      Skip a note, skip a note. C, E, G.
+
+  - id: 5
+    mode: see
+    type: major_minor
+    figure: "Two triads side by side. C major (C E G) in bright color. C minor (C Eb G) in cool color. Labels."
+    cleffy: >
+      Two flavors. Major and minor.
+      Major — bright. Minor — sad.
+      The middle note decides. Lower it by a half-step and major becomes minor.
+
+  - id: 6
+    mode: hear
+    type: listen_major_minor
+    figure: "Two play buttons. A: C major triad. B: C minor triad."
+    audio:
+      A: "C major chord played as a block"
+      B: "C minor chord played as a block"
+    cleffy: >
+      First — major. Second — minor.
+      Same frame. Different mood.
+
+  - id: 7
+    mode: play
+    type: play_c_major_triad
+    figure: "Keyboard. C4 E4 G4 glowing together."
+    cleffy: >
+      Play a C major triad. C, E, G — all three at once.
+    interaction:
+      type: sequence
+      keys: [["C4","E4","G4"]]
+
+  - id: 8
+    mode: see
+    type: inversions_recap
+    figure: "Staff: three C chord shapes. Root (C E G), 1st inv (E G C), 2nd inv (G C E). Labels."
+    cleffy: >
+      Same three notes. Different bottom note. Different stacking.
+      Root position — C on bottom. First inversion — E on bottom. Second inversion — G on bottom.
+      All the C chord.
+
+  - id: 9
+    mode: play
+    type: play_inversions
+    figure: "Keyboard showing three positions in sequence."
+    cleffy: >
+      Play all three. Root. First inversion. Second inversion.
+    interaction:
+      type: sequence
+      keys: [["C4","E4","G4"],["E4","G4","C5"],["G4","C5","E5"]]
+
+  - id: 10
+    mode: see
+    type: primary_chords
+    figure: "Staff in C major: I (C-E-G), IV (F-A-C), V (G-B-D). Roman numerals under each."
+    cleffy: >
+      The primary three. I, IV, V.
+      In C major — C chord, F chord, G chord.
+      These three build most pop and classical tunes you know.
+
+  - id: 11
+    mode: hear
+    type: listen_I_IV_V
+    figure: "Play button. A four-bar progression: C - F - G - C."
+    audio:
+      A: "I IV V I progression in C major, block chords"
+    cleffy: >
+      I to IV to V back to I. Home — away — tension — home.
+      The shape of a thousand songs.
+
+  - id: 12
+    mode: play
+    type: play_I_IV_V
+    figure: "Keyboard. Three chords highlighted in order."
+    cleffy: >
+      Play each. C chord. F chord. G chord. Back to C.
+    interaction:
+      type: sequence
+      keys: [["C4","E4","G4"],["F4","A4","C5"],["G4","B4","D5"],["C4","E4","G4"]]
+
+  - id: 13
+    mode: see
+    type: broken_vs_blocked
+    figure: "Two staves. Left: C E G played together (blocked). Right: C, then E, then G one at a time (broken). Labels."
+    cleffy: >
+      Two ways to play any chord.
+      Blocked — all at once. Broken — one at a time, rolled out.
+      Same notes. Different texture.
+
+  - id: 14
+    mode: play
+    type: play_broken_chord
+    figure: "Keyboard. C E G lighting up in sequence, then a second round together."
+    cleffy: >
+      Play C, E, G one at a time. Then all three together.
+      Broken, then blocked.
+    interaction:
+      type: sequence
+      keys: ["C4","E4","G4","C4","E4","G4"]
+
+  - id: 15
+    mode: hear
+    type: pre_check
+    figure: "Banner."
+    cleffy: >
+      Three quick ones.
+
+  - id: 16
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 123. A neat tower of three blocks: INTERVALS, TRIADS, I-IV-V. All checked."
+    cleffy: >
+      Intervals, chords, inversions, primary three — all held.
+      Tomorrow — phrasing. The last review before the big one.
+
+practice_this_week:
+  real_piano:
+    - "C major triad. Play it blocked, then broken. Then first inversion. Then second inversion."
+    - "Play C, then F, then G, then C. One chord per measure. Any voicing you like."
+  virtual_only:
+    - "Replay pages 7, 9, 12, 14"
+  estimated_time: "8 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "Staff with C and G"
+          prompt: "What interval is this?"
+          options: ["3rd", "4th", "5th"]
+          correct: 2
+        - figure: "Staff: C E G stacked"
+          prompt: "What is this?"
+          options: ["C major triad", "C minor triad", "An interval"]
+          correct: 0
+        - figure: "Staff: E G C stacked (E on bottom)"
+          prompt: "What is this?"
+          options: ["Root position C chord", "First inversion C chord", "F chord"]
+          correct: 1
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "A C minor chord played as a block"
+          prompt: "Major or minor?"
+          options: ["Major", "Minor"]
+          correct: 1
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play a C major triad — C, E, G together."
+          accept: "C4 E4 G4 simultaneously"
+
+remediation:
+  id: "123.5"
+  title: "Chords and intervals, slower"
+  pages: 6
+  opening_cleffy: >
+    A lot of theory in one lesson.
+    Let's split it back apart — intervals first, chords second, I-IV-V last.
+
+completion:
+  cleffy: >
+    Theory — re-seated.
+    Tomorrow — phrasing. How all of this breathes.
+  xp: 19
+  unlocks: 124

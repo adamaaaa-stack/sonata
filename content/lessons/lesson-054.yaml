@@ -1,0 +1,217 @@
+id: 54
+tier: elementary
+act: 11
+title: "Ties vs slurs"
+subtitle: "They look alike — they aren't"
+goal: "Tell a tie from a slur and play each correctly."
+prereqs: [23, 51]
+method_focus: "rhythm"
+time_estimate_min: 10
+piece_context: null
+metaphor: "connector-lines"
+vibe: ["gentle", "serious"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Staff with a tie and a slur side by side. Both are curved lines — but they do different things."
+    cleffy: >
+      Two curved-line symbols that look identical.
+      One is a tie. One is a slur.
+      They do totally different things.
+
+  - id: 2
+    mode: see
+    type: tie
+    figure: "Two notes of the SAME pitch joined by a curved line. Label: TIE."
+    cleffy: >
+      A tie connects two notes of the SAME pitch.
+      You play the first note, then hold it through the second note's duration.
+      Don't tap again. Just hold.
+
+  - id: 3
+    mode: see
+    type: slur
+    figure: "Two notes of DIFFERENT pitches joined by a curved line. Label: SLUR."
+    cleffy: >
+      A slur tells you to connect notes smoothly. A tie specifically extends a same-pitch note across beats.
+      You play each note under a slur, but make them smooth — connect them in sound.
+      Later lessons will cover "smooth" more (that's called legato). For now: slur = play connected.
+
+  - id: 4
+    mode: see
+    type: key_difference
+    figure: "Side by side. Tie: C-C. Slur: C-D."
+    cleffy: >
+      Rule of thumb: same pitch = tie. Different pitch = slur.
+
+  - id: 5
+    mode: see
+    type: interactive_tie
+    figure: "Staff with two Cs joined by curve."
+    cleffy: >
+      Tie or slur?
+    interaction:
+      type: choice
+      options: ["Tie", "Slur"]
+      correct: 0
+
+  - id: 6
+    mode: see
+    type: interactive_slur
+    figure: "Staff with C-D joined by curve."
+    cleffy: >
+      This?
+    interaction:
+      type: choice
+      options: ["Tie", "Slur"]
+      correct: 1
+
+  - id: 7
+    mode: see
+    type: drill
+    figure: "Round counter 1 of 4."
+    cleffy: >
+      Four rounds. Tie or slur?
+    interaction:
+      type: drill
+      rounds: 4
+      options: ["Tie", "Slur"]
+
+  - id: 8
+    mode: hear
+    type: tie_sound
+    figure: "Metronome. Two quarter notes of C tied."
+    audio:
+      A: "Middle C played and held for 2 beats (tied quarters)"
+    cleffy: >
+      Listen. Two quarters tied. Sounds like one half note — because it is.
+
+  - id: 9
+    mode: hear
+    type: slur_sound
+    figure: "Two quarter notes C-D slurred (played smoothly)."
+    audio:
+      A: "C-D played connected (slurred)"
+    cleffy: >
+      Two notes slurred. Both play, but connected — no gap between them.
+
+  - id: 10
+    mode: play
+    type: play_tie
+    figure: "Staff: C quarter tied to another C quarter."
+    cleffy: >
+      Tap C once. Hold through 2 beats. Don't tap again.
+    interaction:
+      type: rhythm
+      sequence: ["C4"]
+      durations: ["half"]
+      tempo: 60
+
+  - id: 11
+    mode: play
+    type: play_slur
+    figure: "Staff: C quarter slurred to D quarter."
+    cleffy: >
+      Play both notes. Connect them — the second should start the moment the first ends.
+    interaction:
+      type: rhythm
+      sequence: ["C4","D4"]
+      durations: ["quarter","quarter"]
+      tempo: 60
+
+  - id: 12
+    mode: read
+    type: mixed_phrase
+    figure: "Staff: C tied to C (2 beats), then slurred D-E-F quarters."
+    cleffy: >
+      Read and play. Tie on the C. Slur on D-E-F.
+    interaction:
+      type: rhythm
+      sequence: ["C4","D4","E4","F4"]
+      durations: ["half","quarter","quarter","quarter"]
+      tempo: 60
+
+  - id: 13
+    mode: hear
+    type: tie_or_slur
+    figure: "Round counter 1 of 4."
+    cleffy: >
+      Four rounds. Was that a tie (held one note) or a slur (two different notes)?
+    interaction:
+      type: drill
+      rounds: 4
+      options: ["Tie", "Slur"]
+
+  - id: 14
+    mode: hear
+    type: mixed_drill
+    figure: "Mixed questions."
+    cleffy: >
+      Four rounds.
+    interaction:
+      type: drill
+      rounds: 4
+
+  - id: 15
+    mode: hear
+    type: pre_check
+    figure: "Banner."
+    cleffy: >
+      Four quick ones.
+
+  - id: 16
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 54. A tie and a slur on a staff, clearly labeled."
+    cleffy: >
+      Curved lines, clarified.
+      Tomorrow — Ode to Joy, your first classical melody.
+
+practice_this_week:
+  real_piano:
+    - "Play Middle C tied across two beats. Feel the hold."
+    - "Play C to D slurred. Make them connect — no gap."
+  virtual_only:
+    - "Replay pages 10-12"
+  estimated_time: "5 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "Two notes of same pitch joined by curve"
+          prompt: "Tie or slur?"
+          options: ["Tie", "Slur"]
+          correct: 0
+        - figure: "Two different notes joined by curve"
+          prompt: "Tie or slur?"
+          options: ["Tie", "Slur"]
+          correct: 1
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "Middle C held for 2 beats (tied)"
+          prompt: "Was that one note held, or two notes connected?"
+          options: ["One held", "Two connected"]
+          correct: 0
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play Middle C as a tied-across-two-beats note."
+          accept: "C4 held for 2 beats"
+
+remediation:
+  id: "54.5"
+  title: "Ties vs slurs, slower"
+  pages: 5
+  opening_cleffy: >
+    Same vs different pitch — slow look at each pattern.
+
+completion:
+  cleffy: >
+    Ties and slurs, sorted.
+  xp: 20
+  unlocks: 55

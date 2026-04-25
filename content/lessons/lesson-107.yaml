@@ -1,0 +1,207 @@
+# ============================================================
+# LESSON 107 · Interval names (6th–octave)
+# Tier 3 · Act 22 · Low-Intermediate · Intervals
+# The bigger leaps — 6th, 7th, octave.
+# ============================================================
+id: 107
+tier: low-intermediate
+act: 22
+title: "Interval names (6th–octave)"
+subtitle: "Act 22 · Intervals"
+goal: "Name the bigger intervals — 6th, 7th, and the octave (8th)."
+prereqs: [106]
+method_focus: "see"
+time_estimate_min: 12
+piece_context: "Second half of the interval family. Same counting rule, just farther apart."
+metaphor: "distance-between-notes"
+vibe: ["gentle", "focused"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy with a ruler stretched wide between two C's an octave apart. Title: THE BIG ONES."
+    cleffy: >
+      Yesterday — 2nd through 5th.
+      Today — 6th, 7th, octave.
+      Same counting rule. Bigger reaches.
+
+  - id: 2
+    mode: see
+    type: sixth
+    figure: "Staff showing C4 to A4. Count marked: 1-2-3-4-5-6. Bracket labelled '6th'."
+    cleffy: >
+      A 6th. C up to A.
+      Count both notes and everything between. Six steps.
+      Warm, full sound. Common in melodies.
+
+  - id: 3
+    mode: play
+    type: play_6th
+    figure: "Keyboard. C4 and A4 glowing."
+    cleffy: >
+      Play a 6th. C to A.
+    interaction:
+      type: sequence
+      keys: ["C4","A4"]
+
+  - id: 4
+    mode: see
+    type: seventh
+    figure: "Staff showing C4 to B4. Count: 1-2-3-4-5-6-7. Bracket labelled '7th'."
+    cleffy: >
+      A 7th. C up to B.
+      Almost an octave — but stops one note short.
+      Big reach. Slightly unsettled sound.
+
+  - id: 5
+    mode: play
+    type: play_7th
+    figure: "Keyboard. C4 and B4 glowing."
+    cleffy: >
+      Play a 7th. C to B. Stretch.
+    interaction:
+      type: sequence
+      keys: ["C4","B4"]
+
+  - id: 6
+    mode: see
+    type: octave
+    figure: "Staff showing C4 to C5. Count: 1-2-3-4-5-6-7-8. Bracket labelled 'OCTAVE (8th)'."
+    cleffy: >
+      The octave. C to the next C.
+      Eight notes — count them.
+      Same letter name, higher. You've known octaves since lesson 8.
+
+  - id: 7
+    mode: play
+    type: play_octave
+    figure: "Keyboard. C4 and C5 glowing. Thumb on C4, pinky on C5."
+    cleffy: >
+      Play an octave. C to C. Thumb and pinky.
+    interaction:
+      type: sequence
+      keys: ["C4","C5"]
+
+  - id: 8
+    mode: hear
+    type: listen_all_three
+    figure: "Three play buttons. A: 6th. B: 7th. C: octave."
+    audio:
+      A: "C4 and A4 played together — a 6th"
+      B: "C4 and B4 played together — a 7th"
+      C: "C4 and C5 played together — an octave"
+    cleffy: >
+      Three sounds.
+      6th — warm. 7th — restless. Octave — open and settled.
+
+  - id: 9
+    mode: see
+    type: staff_shapes
+    figure: "Three staff snippets side by side: 6th (line to space farther up), 7th (line to line), octave (line to line, one more step)."
+    cleffy: >
+      Look at the staff shapes.
+      A 6th crosses more lines than a 5th.
+      A 7th is almost the whole staff.
+      An octave — same letter, one clef-width apart.
+
+  - id: 10
+    mode: play
+    type: all_big_intervals
+    figure: "Keyboard sequence: C4-A4, then C4-B4, then C4-C5."
+    cleffy: >
+      Play all three. C to A. C to B. C to C.
+      6th, 7th, octave.
+    interaction:
+      type: sequence
+      keys: ["C4","A4","C4","B4","C4","C5"]
+
+  - id: 11
+    mode: see
+    type: full_table
+    figure: "Full interval table. 2nd, 3rd, 4th, 5th, 6th, 7th, octave — with staff examples of each."
+    cleffy: >
+      The whole family now. Eight names.
+      2nd through octave. Every distance between two notes.
+
+  - id: 12
+    mode: play
+    type: climb_full_ladder
+    figure: "Staff showing C paired with each higher note: D, E, F, G, A, B, C. Keyboard below."
+    cleffy: >
+      Climb the whole ladder. C returns each time.
+      C-D, C-E, C-F, C-G, C-A, C-B, C-C.
+    interaction:
+      type: sequence
+      keys: ["C4","D4","C4","E4","C4","F4","C4","G4","C4","A4","C4","B4","C4","C5"]
+    followup_cleffy: >
+      That.
+      Every interval in the language of music — played once.
+
+  - id: 13
+    mode: hear
+    type: pre_check
+    figure: "Banner."
+    cleffy: >
+      Three quick ones.
+
+  - id: 14
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 107. A ruler with all eight marks, 2nd through octave."
+    cleffy: >
+      Eight names. Full vocabulary.
+      Tomorrow — your ears learn to hear them.
+
+practice_this_week:
+  real_piano:
+    - "From any C, play up to each note and say the interval name: 2nd, 3rd, 4th, 5th, 6th, 7th, octave."
+    - "Find an octave in any song you know. They're everywhere — big-sounding leaps."
+  virtual_only:
+    - "Replay pages 3, 5, 7, 10"
+  estimated_time: "8 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "Staff with C4 and A4"
+          prompt: "What interval?"
+          options: ["5th", "6th", "7th"]
+          correct: 1
+        - figure: "Staff with C4 and C5"
+          prompt: "What interval?"
+          options: ["7th", "Octave (8th)", "6th"]
+          correct: 1
+        - figure: "Staff with C4 and B4"
+          prompt: "What interval?"
+          options: ["6th", "7th", "Octave"]
+          correct: 1
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "C4 and C5 played together"
+          prompt: "Same letter, higher. That's an..."
+          options: ["Octave", "6th"]
+          correct: 0
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play an octave above C4."
+          accept: "C4 and C5"
+
+remediation:
+  id: "107.5"
+  title: "Bigger intervals, slower"
+  pages: 6
+  opening_cleffy: >
+    The counting trips people up at 6 and 7.
+    We'll take each one slow, count every note, say the name.
+
+completion:
+  cleffy: >
+    Eight intervals. Full family.
+    Tomorrow — your ear gets in on it. Hearing the size, not seeing it.
+  xp: 18
+  unlocks: 108

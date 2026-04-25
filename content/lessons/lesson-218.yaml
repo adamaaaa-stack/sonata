@@ -1,0 +1,230 @@
+# ============================================================
+# LESSON 218 · Tempo flexibility
+# Tier 5 · Act 44 · Upper-Intermediate · Push-pull rubato
+# Push-pull, not just slow-down.
+# ============================================================
+id: 218
+tier: upper-intermediate
+act: 44
+title: "Tempo flexibility"
+subtitle: "Act 44 · Push and pull"
+goal: "Play push-pull rubato — speed up slightly toward a peak, stretch on the landing. Subtler than simple rubato."
+prereqs: [217, 144, 197]
+method_focus: "play"
+time_estimate_min: 14
+piece_context: "You've seen rubato twice already — in Act 29 and Act 40. Today — refine it. Beginners think rubato means 'slow down at the end.' It's more than that. Real rubato pushes toward the peak and pulls at the landing. A gentle push, then a gentle stretch. Breathing in time."
+metaphor: "long-line"
+vibe: ["gentle", "reflective", "focused"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Two arrows over a phrase. First arrow — small push forward (→→). Second — small pull back (←). Banner: PUSH AND PULL."
+    cleffy: >
+      Rubato again. Third time.
+      This time — push AND pull.
+      Not just slow at the end.
+
+  - id: 2
+    mode: see
+    type: what_most_people_do
+    figure: "A phrase. A red arrow bending down at the last note only. Caption: 'Just a ritardando. Flat everywhere else.'"
+    cleffy: >
+      Most beginners think rubato is one thing.
+      Slow down at the end.
+      That's a ritardando. Real rubato is bigger.
+
+  - id: 3
+    mode: see
+    type: what_rubato_really_is
+    figure: "Same phrase. Two arrows — a small forward push in bars 3-4 (approaching peak), a small backward stretch in bar 7 (the landing)."
+    cleffy: >
+      Real rubato.
+      A tiny push as you climb toward the peak. Like leaning in.
+      A tiny stretch as you land. Like breathing out.
+      Both. Small.
+
+  - id: 4
+    mode: hear
+    type: listen_three_versions
+    figure: "Three play buttons. A: metronomic. B: ritardando only. C: true push-pull rubato."
+    audio:
+      A: "A phrase played perfectly in time, no flex"
+      B: "Same phrase, only slowing at the very end"
+      C: "Same phrase with a slight push toward the peak and a slight stretch on the landing note"
+    cleffy: >
+      Three versions.
+      Flat. Slow-at-the-end. Push-pull.
+      The third breathes.
+
+  - id: 5
+    mode: see
+    type: the_rule_of_balance
+    figure: "A scale. Left pan up (push — faster). Right pan down (pull — slower). Caption: 'Time stolen here is paid back there.'"
+    cleffy: >
+      The Italian word — rubato — means stolen.
+      Time you steal, you pay back.
+      Push a little faster here. Pull a little slower there. It evens out.
+
+  - id: 6
+    mode: play
+    type: play_metronomic_first
+    figure: "Keyboard. 8-bar phrase. Peak on the E5. Tempo 80 — metronome ticking dead steady."
+    cleffy: >
+      First — metronomic. Dead steady.
+      Feel what no flex sounds like.
+    interaction:
+      type: rhythm
+      sequence: ["C4","E4","G4","C5","D5","E5","D5","C5","B4","G4","E4","C4"]
+      durations: ["quarter","quarter","quarter","quarter","quarter","half","quarter","quarter","quarter","quarter","quarter","half"]
+      tempo: 80
+
+  - id: 7
+    mode: see
+    type: where_to_push
+    figure: "The 8-bar phrase. Arrow marked 'push' over bars 3-5 (climbing toward peak). Arrow marked 'pull' over the landing at bar 6-7."
+    cleffy: >
+      Where to push — the bars right before the peak. The approach.
+      Where to pull — the peak itself, and the first bar after.
+      Small amounts. Like breathing a little faster up a hill.
+
+  - id: 8
+    mode: play
+    type: play_with_push_pull
+    figure: "Same keyboard. 8-bar phrase. Push arrow on bars 3-5, pull on bar 6-7. Tempo still 80 but with human flex."
+    cleffy: >
+      Same notes. Now with flex.
+      Lean forward into the climb. Stretch across the peak.
+      Don't exaggerate — it should still feel like the same tempo overall.
+    interaction:
+      type: rhythm
+      sequence: ["C4","E4","G4","C5","D5","E5","D5","C5","B4","G4","E4","C4"]
+      durations: ["quarter","quarter","quarter","quarter","quarter","half","quarter","quarter","quarter","quarter","quarter","half"]
+      tempo: 80
+    followup_cleffy: >
+      That's rubato. Push then pull.
+
+  - id: 9
+    mode: see
+    type: two_mistakes
+    figure: "Two boxes. Box 1: 'Too much push — racing' — an arrow zooming off the page. Box 2: 'Too much pull — dragging' — a snail. Caption: 'Subtle beats big.'"
+    cleffy: >
+      Two mistakes.
+      Too much push — it sounds panicky.
+      Too much pull — it sounds like the music died.
+      Small is the whole trick.
+
+  - id: 10
+    mode: hear
+    type: drill_subtle_or_not
+    figure: "Round counter. 4 rounds. Banner: SUBTLE OR OVERDONE?"
+    cleffy: >
+      Four rounds. Tasteful push-pull, or too much?
+    interaction:
+      type: drill
+      rounds: 4
+      options: ["Subtle — tasteful", "Overdone — too much"]
+
+  - id: 11
+    mode: see
+    type: chopin_example
+    figure: "Snippet of a Chopin Nocturne. One long phrase. Arrows: tiny push up to the peak (high Bb4 circled), tiny pull on the landing. Caption: 'What Chopin actually asked for.'"
+    cleffy: >
+      Chopin wrote about this.
+      'The left hand keeps time. The right hand breathes.'
+      Left hand steady. Right hand pushes and pulls over it.
+
+  - id: 12
+    mode: play
+    type: play_chopin_style_phrase
+    figure: "Keyboard. A Chopin-flavored RH phrase with LH chord on each beat. Tempo 70. Push-pull arrows."
+    cleffy: >
+      Chopin-style. LH holds the time. RH flexes.
+      Bb4 is the peak. Push toward it. Stretch on it. Settle home.
+    interaction:
+      type: song
+      sequence: [["Eb3","Eb4"],["Eb3","F4"],["Eb3","G4"],["Eb3","Ab4"],["Eb3","Bb4"],["Eb3","Ab4"],["Eb3","G4"],["Eb3","Eb4"]]
+      guides: true
+      tempo: 70
+
+  - id: 13
+    mode: play
+    type: play_one_more
+    figure: "Keyboard. A final 8-bar phrase. Arrows: push across bars 3-4, pull on the landing at bar 6. Gentle."
+    cleffy: >
+      One more. Your call on how much.
+      Lean forward. Then breathe out.
+    interaction:
+      type: sequence
+      keys: ["D4","F4","A4","D5","F5","E5","D5","C5","Bb4","A4","F4","D4"]
+    followup_cleffy: >
+      The music can breathe in time now.
+
+  - id: 14
+    mode: hear
+    type: pre_check
+    figure: "Banner."
+    cleffy: >
+      Three quick ones.
+
+  - id: 15
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 218. A phrase with tiny push and pull arrows. Below: 'steal time, give it back.'"
+    cleffy: >
+      Push-pull rubato. Subtler than slowing down.
+      Tomorrow — memorization. How pianists actually do it.
+
+practice_this_week:
+  real_piano:
+    - "Pick a slow phrase from any piece. Find its peak. Try leaning forward into it, then stretching on the landing note."
+    - "Record yourself with and without flex. The second one will breathe — if you kept it small."
+  virtual_only:
+    - "Replay page 4 — the three versions — and page 8, the push-pull play."
+  estimated_time: "10 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "A phrase with a small push arrow before the peak and a small pull arrow on the landing."
+          prompt: "What is this shape called?"
+          options: ["A ritardando", "Push-pull rubato", "A crescendo"]
+          correct: 1
+        - figure: "A phrase where only the last note is stretched."
+          prompt: "Is this full rubato?"
+          options: ["Yes — full rubato", "No — only a ritardando", "No — it's a crescendo"]
+          correct: 1
+        - figure: "A scale with one pan up and one pan down, labeled 'stolen' and 'given back.'"
+          prompt: "What does rubato mean literally?"
+          options: ["Slowed", "Stolen (time)", "Loud"]
+          correct: 1
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "A phrase with a small forward push to the peak and a small stretch on the landing"
+          prompt: "Is this metronomic, ritardando-only, or push-pull rubato?"
+          options: ["Metronomic", "Ritardando only", "Push-pull rubato"]
+          correct: 2
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play an 8-bar phrase with a gentle push to the peak and a stretch on the landing."
+          accept: "Any 8-bar phrase with audible tempo flex — slight acceleration up, slight stretch at the peak/landing"
+
+remediation:
+  id: "218.5"
+  title: "Rubato, smaller"
+  pages: 7
+  opening_cleffy: >
+    Rubato is subtle. Easy to overdo, easy to miss.
+    We'll make it tiny. Just a touch. Then a touch more.
+
+completion:
+  cleffy: >
+    Time can bend now. Gently.
+    Tomorrow — how to memorize. The three kinds of memory.
+  xp: 18
+  unlocks: 219

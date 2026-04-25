@@ -1,0 +1,210 @@
+# ============================================================
+# LESSON 78 · Accent marks
+# Tier 3 · Act 16 · Low-Intermediate · Articulation
+# The mark that says "play THIS one louder."
+# ============================================================
+id: 78
+tier: low-intermediate
+act: 16
+title: "Accent marks"
+subtitle: "Act 16 · Articulation"
+goal: "Read and play an accent — one note leaned into, louder than the notes around it."
+prereqs: [77, 75]
+method_focus: "combine"
+time_estimate_min: 11
+piece_context: "Legato, slurs, now emphasis. The touch family keeps growing."
+metaphor: "touch-family"
+vibe: ["focused", "playful"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Staff with five even notes. The third one has a sideways wedge (>) above it. The wedge is highlighted."
+    cleffy: >
+      See that sideways wedge? That's an accent.
+      It means — play THIS one louder.
+
+  - id: 2
+    mode: see
+    type: what_accent_is
+    figure: "Zoom-in on a quarter note with a > above it. Label: ACCENT. The > points right."
+    cleffy: >
+      Shaped like a greater-than sign. Points right.
+      Over or under a note — doesn't matter. Same meaning.
+      Lean into the note. A little extra weight.
+
+  - id: 3
+    mode: hear
+    type: listen_accent
+    figure: "Two play buttons."
+    audio:
+      A: "Four even notes, same volume"
+      B: "Four notes, the third one louder (accented)"
+    cleffy: >
+      First — all even.
+      Second — same notes. But number three is louder. That's an accent.
+
+  - id: 4
+    mode: see
+    type: how_to_accent
+    figure: "Cartoon finger pressing a key harder. Tiny burst around the key."
+    cleffy: >
+      Accent is in your finger. Press a bit harder on that one note.
+      Not banging. Just — more weight. Lean in.
+
+  - id: 5
+    mode: play
+    type: play_first_accent
+    figure: "Staff: C D E F. Accent on E. Keyboard below."
+    cleffy: >
+      Play C, D, E, F. Lean on E.
+      Regular, regular, LOUDER, regular.
+    interaction:
+      type: sequence
+      keys: ["C4","D4","E4","F4"]
+
+  - id: 6
+    mode: play
+    type: accent_on_first
+    figure: "Staff: G A B C. Accent on G."
+    cleffy: >
+      Same idea, accent on the first note. LOUDER, soft, soft, soft.
+    interaction:
+      type: sequence
+      keys: ["G4","A4","B4","C5"]
+
+  - id: 7
+    mode: see
+    type: accent_creates_pulse
+    figure: "Four notes in a row. Accents on beats 1 and 3. Arrows below marking the pulse."
+    cleffy: >
+      Accents create pulse. A strong beat followed by weaker ones.
+      It's how music walks. And dances. And marches.
+
+  - id: 8
+    mode: hear
+    type: where_is_accent_drill
+    figure: "Round counter 1 of 4."
+    cleffy: >
+      Four rounds. Which note is accented — 1, 2, 3, or 4?
+    interaction:
+      type: drill
+      rounds: 4
+      options: ["1st note", "2nd note", "3rd note", "4th note"]
+
+  - id: 9
+    mode: play
+    type: two_accents
+    figure: "Staff: C D E F G A. Accents on C and G. Keyboard."
+    cleffy: >
+      Six notes. Accents on 1 and 4. Lean-soft-soft-lean-soft-soft.
+    interaction:
+      type: sequence
+      keys: ["C4","D4","E4","F4","G4","A4"]
+
+  - id: 10
+    mode: see
+    type: accent_with_slur
+    figure: "Staff with a slur over four notes. An accent on the first note only."
+    cleffy: >
+      Accents work with other marks.
+      Slur plus accent — lean into the first note, then smooth the rest.
+
+  - id: 11
+    mode: play
+    type: accent_plus_slur
+    figure: "Keyboard with four notes. Accent on first, slur over all."
+    cleffy: >
+      LEAN on the C. Then smooth through D, E, F.
+    interaction:
+      type: sequence
+      keys: ["C4","D4","E4","F4"]
+
+  - id: 12
+    mode: hear
+    type: pulse_drill
+    figure: "Round counter 1 of 3. A short phrase plays."
+    cleffy: >
+      Three rounds. Does the phrase have accents or not?
+    interaction:
+      type: drill
+      rounds: 3
+      options: ["Has accents", "Even, no accents"]
+
+  - id: 13
+    mode: play
+    type: at_tempo
+    figure: "Short phrase with two accents. Tempo 90."
+    cleffy: >
+      Play it at tempo. Accents stay clear.
+    interaction:
+      type: rhythm
+      sequence: ["G4","A4","B4","G4","A4","B4"]
+      durations: ["quarter","quarter","quarter","quarter","quarter","half"]
+      tempo: 90
+    followup_cleffy: >
+      An accent is a finger that cares.
+
+  - id: 14
+    mode: hear
+    type: pre_check
+    figure: "Banner."
+    cleffy: >
+      Three quick ones.
+
+  - id: 15
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 78. A wedge > glowing over a single note."
+    cleffy: >
+      Accent means lean. One note louder than the rest.
+      Tomorrow — two more touches. Tenuto and marcato.
+
+practice_this_week:
+  real_piano:
+    - "Play a scale. Put an accent on every third note. Feel the pulse."
+    - "Play Ode to Joy. Try accenting the first note of each phrase. The piece shapes itself."
+  virtual_only:
+    - "Replay pages 5, 9, and 13"
+  estimated_time: "7 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "Note with a > above it"
+          prompt: "What does this mark mean?"
+          options: ["Play this note louder", "Play short", "Play smooth"]
+          correct: 0
+        - figure: "Four notes, accent on the second"
+          prompt: "Which note is loudest?"
+          options: ["1st", "2nd", "3rd", "4th"]
+          correct: 1
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "Four notes, accent on the last"
+          prompt: "Which note is accented?"
+          options: ["1st", "2nd", "3rd", "4th"]
+          correct: 3
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play C, D, E, F with an accent on E."
+          accept: "C4 D4 E4 F4 with E louder"
+
+remediation:
+  id: "78.5"
+  title: "Accents, one note at a time"
+  pages: 6
+  opening_cleffy: >
+    Accents can feel like banging. We'll slow down and find "lean" instead of "hit."
+
+completion:
+  cleffy: >
+    Accent read. Accent played.
+    Tomorrow — two more. Tenuto for held. Marcato for firm.
+  xp: 17
+  unlocks: 79

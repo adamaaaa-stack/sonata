@@ -1,0 +1,180 @@
+id: 59
+tier: elementary
+act: 12
+title: "Dynamic drill"
+subtitle: "See, hear, play — all four markings"
+goal: "Quickly identify p, f, crescendo, and diminuendo by sight, sound, and play."
+prereqs: [56, 57, 58]
+method_focus: "dynamics"
+time_estimate_min: 10
+piece_context: null
+metaphor: null
+vibe: ["gentle", "playful", "serious"]
+lesson_type: "drill"
+
+pages:
+  - id: 1
+    mode: see
+    type: recap
+    figure: "Four dynamic markings drawn in a row: p, f, <, >."
+    cleffy: >
+      Four dynamic markings. Drill day.
+      p = soft. f = loud. < = louder. > = softer.
+
+  - id: 2
+    mode: see
+    type: quickfire
+    figure: "Round counter 1 of 6."
+    cleffy: >
+      Six fast rounds. Which marking?
+    interaction:
+      type: drill
+      rounds: 6
+      options: ["p", "f", "crescendo", "diminuendo"]
+      time_limit: 2
+
+  - id: 3
+    mode: hear
+    type: hear_drill
+    figure: "Round counter 1 of 6."
+    cleffy: >
+      Six by ear. Soft, loud, getting louder, or getting softer?
+    interaction:
+      type: drill
+      rounds: 6
+      options: ["p", "f", "crescendo", "diminuendo"]
+
+  - id: 4
+    mode: play
+    type: play_p
+    figure: "Middle C. p marking."
+    cleffy: >
+      Play Middle C softly.
+    interaction:
+      type: tap
+      key: "C4"
+
+  - id: 5
+    mode: play
+    type: play_f
+    figure: "Middle C. f marking."
+    cleffy: >
+      Now loudly.
+    interaction:
+      type: tap
+      key: "C4"
+
+  - id: 6
+    mode: play
+    type: play_cresc
+    figure: "Scale with cresc marking."
+    cleffy: >
+      C D E F G. Get louder.
+    interaction:
+      type: sequence
+      keys: ["C4","D4","E4","F4","G4"]
+
+  - id: 7
+    mode: play
+    type: play_dim
+    figure: "Scale with dim marking."
+    cleffy: >
+      G F E D C. Get softer.
+    interaction:
+      type: sequence
+      keys: ["G4","F4","E4","D4","C4"]
+
+  - id: 8
+    mode: read
+    type: read_phrase_with_dynamics
+    figure: "Staff: four notes with p, then <, then f."
+    cleffy: >
+      Read a phrase that starts soft, grows to loud. Play it.
+    interaction:
+      type: sequence
+      keys: ["C4","D4","E4","F4"]
+
+  - id: 9
+    mode: read
+    type: with_dim
+    figure: "Staff: four notes f, then >, to p."
+    cleffy: >
+      Now loud, shrinking to soft.
+    interaction:
+      type: sequence
+      keys: ["F4","E4","D4","C4"]
+
+  - id: 10
+    mode: hear
+    type: mixed_drill
+    figure: "Four rounds."
+    cleffy: >
+      Mixed.
+    interaction:
+      type: drill
+      rounds: 4
+
+  - id: 11
+    mode: hear
+    type: pre_check
+    figure: "Banner."
+    cleffy: >
+      Four quick ones.
+
+  - id: 12
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 59. All four dynamic markings arranged in a row."
+    cleffy: >
+      Dynamics, drilled. Tomorrow — Ode to Joy with all of this applied.
+
+practice_this_week:
+  real_piano:
+    - "Scale up with crescendo. Scale down with diminuendo. Repeat."
+    - "Play Ode to Joy with phrase dynamics — soft start, louder peak, soft end."
+  virtual_only:
+    - "Replay pages 2-3 (the speed drills)"
+  estimated_time: "7 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "p marking"
+          prompt: "Soft or loud?"
+          options: ["Soft", "Loud"]
+          correct: 0
+        - figure: "<"
+          prompt: "Louder or softer?"
+          options: ["Louder", "Softer"]
+          correct: 0
+    hear:
+      pass_threshold: 2
+      questions:
+        - audio: "Scale with crescendo"
+          prompt: "Growing or shrinking?"
+          options: ["Growing", "Shrinking"]
+          correct: 0
+        - audio: "Single loud note"
+          prompt: "p or f?"
+          options: ["p", "f"]
+          correct: 1
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play Middle C softly."
+          accept: "C4 soft"
+
+remediation:
+  id: "59.5"
+  title: "Dynamic drill, slower"
+  pages: 4
+  opening_cleffy: >
+    Four markings, mixed drill. Slower pace.
+
+completion:
+  cleffy: >
+    All four, locked. Tomorrow — Ode to Joy with dynamics.
+  xp: 15
+  unlocks: 60

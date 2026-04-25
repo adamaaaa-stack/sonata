@@ -1,0 +1,204 @@
+id: 74
+tier: elementary
+act: 15
+title: "Simple cadences"
+subtitle: "How phrases end"
+goal: "Hear and recognize when a musical phrase feels like it's 'landing' — ending."
+prereqs: [57, 72]
+method_focus: "patterns"
+time_estimate_min: 10
+piece_context: null
+metaphor: "sentences-end"
+vibe: ["gentle", "serious"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Staff with a phrase. Last note glowing. Label: THIS FEELS LIKE AN ENDING."
+    cleffy: >
+      Phrases have endings. Some feel final, some feel like a comma.
+      That's called a cadence.
+      You already feel them. Today we name them.
+
+  - id: 2
+    mode: hear
+    type: final_vs_unfinished
+    figure: "Two play buttons."
+    audio:
+      A: "Phrase ending on home note (C in C major)"
+      B: "Phrase ending on a note that feels unresolved (G in C major, hanging)"
+    cleffy: >
+      First: phrase ends on C — feels finished.
+      Second: phrase ends on G — feels like it wants to keep going.
+      Same notes, different ending note. Totally different feeling.
+
+  - id: 3
+    mode: see
+    type: home_note
+    figure: "Staff in C. A melody ending on C, labeled HOME."
+    cleffy: >
+      The "home" note of a key is the key's letter.
+      In C major — C feels like home. In G major, G. In F major, F.
+      When a melody lands on home, it feels final.
+
+  - id: 4
+    mode: see
+    type: not_home
+    figure: "Melody ending on G in C major."
+    cleffy: >
+      When a melody lands on a different note — it feels unfinished. Like a question.
+
+  - id: 5
+    mode: hear
+    type: spot_final
+    figure: "Round counter 1 of 4."
+    cleffy: >
+      Four rounds. Does the phrase feel finished or unfinished?
+    interaction:
+      type: drill
+      rounds: 4
+      options: ["Finished (home)", "Unfinished (hanging)"]
+
+  - id: 6
+    mode: see
+    type: two_types
+    figure: "Staff with two phrases. First ends on a non-home note (unfinished). Second ends on home (finished)."
+    cleffy: >
+      Composers often write phrases in pairs.
+      First phrase unfinished (question). Second phrase finished (answer).
+
+  - id: 7
+    mode: play
+    type: play_unfinished
+    figure: "Keyboard. C-D-E-F (ends on F, feels unresolved)."
+    cleffy: >
+      Play C-D-E-F. Ends on F — not home. Feels hanging.
+    interaction:
+      type: sequence
+      keys: ["C4","D4","E4","F4"]
+
+  - id: 8
+    mode: play
+    type: play_finished
+    figure: "Keyboard. F-E-D-C (ends on home C)."
+    cleffy: >
+      Now F-E-D-C. Ends on C. Home. Finished.
+    interaction:
+      type: sequence
+      keys: ["F4","E4","D4","C4"]
+
+  - id: 9
+    mode: play
+    type: question_answer
+    figure: "Staff with both phrases in sequence."
+    cleffy: >
+      Play both. Question (unfinished), then answer (finished).
+    interaction:
+      type: sequence
+      keys: ["C4","D4","E4","F4","F4","E4","D4","C4"]
+
+  - id: 10
+    mode: hear
+    type: which_type_drill
+    figure: "Round counter 1 of 4."
+    cleffy: >
+      Four rounds. Question or answer?
+    interaction:
+      type: drill
+      rounds: 4
+      options: ["Question (unresolved)", "Answer (resolved)"]
+
+  - id: 11
+    mode: see
+    type: ode_to_joy_cadence
+    figure: "Ode to Joy last phrase ending on C."
+    cleffy: >
+      Ode to Joy ends on C. Because it's in C major. Home note. Feels final.
+
+  - id: 12
+    mode: see
+    type: amazing_grace_cadence
+    figure: "Amazing Grace ending on F."
+    cleffy: >
+      Amazing Grace ends on F. Because it's in F major.
+      Same idea. Different key. Same feeling of "finished."
+
+  - id: 13
+    mode: hear
+    type: identify_home
+    figure: "Play button. A phrase ends on home. Which key?"
+    cleffy: >
+      Four rounds. A phrase plays and ends on the home note. What key is it in?
+    interaction:
+      type: drill
+      rounds: 4
+      options: ["C major", "G major", "F major"]
+
+  - id: 14
+    mode: hear
+    type: mixed
+    figure: "Four rounds."
+    cleffy: >
+      Mixed.
+    interaction:
+      type: drill
+      rounds: 4
+
+  - id: 15
+    mode: hear
+    type: pre_check
+    figure: "Banner."
+    cleffy: >
+      Four quick ones.
+
+  - id: 16
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 74. Two phrases drawn — one ending hanging, one ending on home."
+    cleffy: >
+      Phrases end. Some feel final, some feel open.
+      Tomorrow — the big one. Tier 2 boss. Für Elise.
+
+practice_this_week:
+  real_piano:
+    - "Play any melody you know. Notice where the phrases feel finished vs where they feel open."
+    - "Play C-D-E-F (hanging). Then F-E-D-C (resolving). Feel the difference."
+  virtual_only:
+    - "Replay pages 5, 9-10"
+  estimated_time: "5 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 1
+      questions:
+        - figure: "Phrase in C major ending on C"
+          prompt: "Does this feel finished or unfinished?"
+          options: ["Finished", "Unfinished"]
+          correct: 0
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "Phrase ending on home note"
+          prompt: "Finished or unfinished?"
+          options: ["Finished", "Unfinished"]
+          correct: 0
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play a 4-note phrase in C major that ENDS on C."
+          accept: "4 notes ending on C4"
+
+remediation:
+  id: "74.5"
+  title: "Cadences, slower"
+  pages: 5
+  opening_cleffy: >
+    Finished vs unfinished. Slow listen.
+
+completion:
+  cleffy: >
+    Cadences felt. One lesson left in Tier 2.
+  xp: 20
+  unlocks: 75

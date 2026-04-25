@@ -1,0 +1,242 @@
+# ============================================================
+# LESSON 23 · Rhythm: quarter, half, whole
+# Tier 1 · Act 5 · Beginner
+# Central metaphor: HOW LONG EACH NOTE LIVES
+# ============================================================
+id: 23
+tier: beginner
+act: 5
+title: "How long does a note last?"
+subtitle: "Quarter, half, and whole notes"
+goal: "Read three basic note durations from a staff — and clap the right rhythm."
+prereqs: [11]
+method_focus: "rhythm"
+time_estimate_min: 12
+piece_context: "You've been reading pitches. Now we add time. Together they become a real song."
+metaphor: "how-long-a-note-lives"
+vibe: ["gentle", "playful"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy holding up three different notes drawn big: whole, half, quarter."
+    cleffy: >
+      Up until now, every note you've read has been the same length.
+      Real music isn't like that. Some notes are quick. Some hang around.
+      Today we learn the three most common note lengths.
+
+  - id: 2
+    mode: see
+    type: the_three
+    figure: "Three notes drawn in a row. Whole note (open oval, no stem). Half note (open oval with stem). Quarter note (filled oval with stem)."
+    cleffy: >
+      Three shapes to recognize.
+      Whole note — empty oval, no stem. Lasts a long time.
+      Half note — empty oval with a stem. Medium.
+      Quarter note — FILLED oval with a stem. Quick.
+
+  - id: 3
+    mode: see
+    type: how_long
+    figure: "Chart. Whole = 4 beats. Half = 2 beats. Quarter = 1 beat."
+    cleffy: >
+      How long exactly?
+      Quarter note = 1 beat. The basic pulse.
+      Half note = 2 beats. Twice as long.
+      Whole note = 4 beats in 4/4 time (which we meet tomorrow). Four times as long as a quarter.
+      Think of a beat like a heartbeat — a steady pulse. The notes just say how many beats each sound gets.
+
+  - id: 4
+    mode: see
+    type: memory_trick
+    figure: "The three notes. Arrows show that FILLED means SHORT, EMPTY means LONG, STEM means STEM (shorter than whole)."
+    cleffy: >
+      Quick memory trick. Looking at the shape:
+      If it's FILLED IN — it's quick. One beat.
+      If it's OPEN — it's longer.
+      If it has NO stem at all — it's the longest. Four beats.
+      Filled means fast. Empty means slow.
+
+  - id: 5
+    mode: see
+    type: identify
+    figure: "A single quarter note on a staff."
+    cleffy: >
+      Which note is that?
+    interaction:
+      type: choice
+      options: ["Quarter (1 beat)", "Half (2 beats)", "Whole (4 beats)"]
+      correct: 0
+
+  - id: 6
+    mode: see
+    type: identify
+    figure: "A single whole note on a staff."
+    cleffy: >
+      And this one?
+    interaction:
+      type: choice
+      options: ["Quarter", "Half", "Whole"]
+      correct: 2
+
+  - id: 7
+    mode: see
+    type: identify
+    figure: "A half note on a staff."
+    cleffy: >
+      Last identify: this one.
+    interaction:
+      type: choice
+      options: ["Quarter", "Half", "Whole"]
+      correct: 1
+
+  - id: 8
+    mode: hear
+    type: clap_quarter
+    figure: "A metronome ticks. Each tick — a quarter note fills in on the staff, one after another, in time with the clicks."
+    audio:
+      A: "Metronome at 60 bpm, 4 quarter notes"
+    cleffy: >
+      This is the quarter-note pulse. One note per beat. Tap along with your finger.
+      Each click of the metronome is one beat. Each note lasts one click.
+
+  - id: 9
+    mode: hear
+    type: clap_half
+    figure: "Metronome ticks. Half notes appear and LAST for 2 clicks each."
+    audio:
+      A: "Metronome at 60 bpm, 2 half notes (each lasting 2 clicks)"
+    cleffy: >
+      Now half notes. Each note holds through TWO clicks.
+      Tap once. Keep that sound going in your head for the second click too.
+
+  - id: 10
+    mode: hear
+    type: clap_whole
+    figure: "Metronome ticks. A single whole note lasts for ALL 4 clicks."
+    audio:
+      A: "Metronome at 60 bpm, 1 whole note lasting 4 clicks"
+    cleffy: >
+      Whole note. One note, four beats. Tap and hold.
+      This is the longest note we'll meet for a while.
+
+  - id: 11
+    mode: hear
+    type: pattern_drill
+    figure: "Round counter 1 of 3. Each round: a short rhythm pattern shown + clicked."
+    cleffy: >
+      Three rounds. I'll play a short rhythm — either all quarters, all halves, or one whole.
+      Which length were the notes?
+    interaction:
+      type: drill
+      rounds: 3
+      options: ["Quarters", "Halves", "Whole"]
+
+  - id: 12
+    mode: play
+    type: play_rhythm
+    figure: "Staff. Middle C written four times as quarter notes. Metronome below."
+    cleffy: >
+      Play Middle C, four times, once per beat. Follow the metronome.
+      Quarters.
+    interaction:
+      type: rhythm
+      note: "C4"
+      durations: ["quarter", "quarter", "quarter", "quarter"]
+      tempo: 60
+
+  - id: 13
+    mode: play
+    type: mixed_durations
+    figure: "Staff. Middle C as: half, half, quarter, quarter. Metronome below."
+    cleffy: >
+      Same note, different lengths. Two halves, then two quarters. Hold the halves for two beats each.
+    interaction:
+      type: rhythm
+      note: "C4"
+      durations: ["half", "half", "quarter", "quarter"]
+      tempo: 60
+
+  - id: 14
+    mode: hear
+    type: pre_check
+    figure: "Banner."
+    cleffy: >
+      Four quick ones.
+
+  - id: 15
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 23. The three note shapes lined up with their beat counts."
+    cleffy: >
+      Filled = fast. Empty = slow. No stem = slowest.
+      Tomorrow — bars. Groups of beats. Once you see bars, you can count.
+      Then — Happy Birthday.
+
+  - id: 16
+    mode: see
+    type: preview
+    figure: "Preview of a staff with bar lines and a 4/4 time signature."
+    cleffy: >
+      Sneak peek. Tomorrow this funny '4 over 4' at the start of the staff makes sense.
+      It tells you how beats are grouped. See you then.
+
+# ─── Practice this week ────────────────────────────────
+practice_this_week:
+  real_piano:
+    - "Clap a steady pulse. One clap per second. Count 1-2-3-4, over and over."
+    - "Alternate: two quarter claps (one per second), then hold for two seconds (like a half). Repeat."
+    - "Hold for 4 full seconds without clapping. That's a whole note of silence + counting."
+  virtual_only:
+    - "Replay pages 8-10 (the metronome exercises) two times"
+  estimated_time: "5 min/day"
+
+# ─── Mastery check ──────────────────────────────────────
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 3
+      questions:
+        - figure: "A filled quarter note"
+          prompt: "How long is this note?"
+          options: ["1 beat", "2 beats", "4 beats"]
+          correct: 0
+        - figure: "A half note"
+          prompt: "How long is this note?"
+          options: ["1 beat", "2 beats", "4 beats"]
+          correct: 1
+        - figure: "A whole note"
+          prompt: "How long is this note?"
+          options: ["1 beat", "2 beats", "4 beats"]
+          correct: 2
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "Metronome with 4 quarter notes"
+          prompt: "How many notes did you hear?"
+          options: ["2", "4", "1"]
+          correct: 1
+    play:
+      pass_threshold: 1
+      questions:
+        - figure: "Staff with two halves and two quarters"
+          prompt: "Play Middle C with the rhythm shown. Follow the metronome."
+          accept: "C4 × 4 with correct durations"
+
+# ─── Remediation ────────────────────────────────────────
+remediation:
+  id: "23.5"
+  title: "Rhythm, slower"
+  pages: 5
+  opening_cleffy: >
+    Rhythm is a whole new axis. It's normal to take a couple passes.
+    Let's redo it with the metronome very slow, and lots of clapping.
+
+# ─── Completion ─────────────────────────────────────────
+completion:
+  cleffy: >
+    Three durations in your pocket. Quarter, half, whole.
+    Two more lessons in Tier 1.
+  xp: 20
+  unlocks: 24

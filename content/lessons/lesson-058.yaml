@@ -1,0 +1,211 @@
+id: 58
+tier: elementary
+act: 12
+title: "Crescendo and diminuendo"
+subtitle: "Getting louder, getting softer"
+goal: "Read the two volume-change symbols and play them correctly."
+prereqs: [56, 57]
+method_focus: "dynamics"
+time_estimate_min: 10
+piece_context: null
+metaphor: "growing-and-shrinking"
+vibe: ["gentle", "playful"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Two triangular symbols on a staff: one opens outward (<), one closes inward (>)."
+    cleffy: >
+      Two more dynamic symbols. They're not letters — they're lines that grow or shrink.
+
+  - id: 2
+    mode: see
+    type: crescendo
+    figure: "A hairpin opening to the right: <. Label: CRESCENDO = GET LOUDER."
+    cleffy: >
+      Crescendo. In Italian, it means "growing".
+      The symbol opens from a point into a wide mouth.
+      Play gets louder as the line grows.
+
+  - id: 3
+    mode: see
+    type: diminuendo
+    figure: "Hairpin closing: >. Label: DIMINUENDO = GET SOFTER."
+    cleffy: >
+      Diminuendo. Italian for "diminishing".
+      Opens wide and closes to a point.
+      Play gets softer as the line shrinks.
+
+  - id: 4
+    mode: see
+    type: memory_trick
+    figure: "Two arrows. < = opens right = louder. > = closes right = softer."
+    cleffy: >
+      Memory trick — follow the shape.
+      Opening mouth = getting bigger = louder.
+      Closing mouth = getting smaller = softer.
+
+  - id: 5
+    mode: see
+    type: interactive_cresc
+    figure: "Staff with a <."
+    cleffy: >
+      Louder or softer?
+    interaction:
+      type: choice
+      options: ["Louder (crescendo)", "Softer (diminuendo)"]
+      correct: 0
+
+  - id: 6
+    mode: see
+    type: interactive_dim
+    figure: "Staff with >."
+    cleffy: >
+      This?
+    interaction:
+      type: choice
+      options: ["Louder", "Softer"]
+      correct: 1
+
+  - id: 7
+    mode: see
+    type: drill
+    figure: "Round counter 1 of 4."
+    cleffy: >
+      Four rounds. Crescendo or diminuendo?
+    interaction:
+      type: drill
+      rounds: 4
+      options: ["Crescendo (louder)", "Diminuendo (softer)"]
+
+  - id: 8
+    mode: hear
+    type: cresc_sample
+    figure: "Play button."
+    audio:
+      A: "A scale played with crescendo"
+    cleffy: >
+      Hear it. Starts soft, grows.
+
+  - id: 9
+    mode: hear
+    type: dim_sample
+    figure: "Play button."
+    audio:
+      A: "Same scale played with diminuendo"
+    cleffy: >
+      Now getting softer. Starts loud, shrinks.
+
+  - id: 10
+    mode: play
+    type: play_cresc
+    figure: "Staff: C-D-E-F-G with crescendo marking."
+    cleffy: >
+      Play C D E F G. Start soft. Get louder as you go.
+    interaction:
+      type: sequence
+      keys: ["C4","D4","E4","F4","G4"]
+
+  - id: 11
+    mode: play
+    type: play_dim
+    figure: "Staff: G-F-E-D-C with diminuendo."
+    cleffy: >
+      Now come back down. Start loud. Get softer.
+    interaction:
+      type: sequence
+      keys: ["G4","F4","E4","D4","C4"]
+
+  - id: 12
+    mode: play
+    type: arch_with_marks
+    figure: "Staff: C-E-G-E-C with cresc then dim."
+    cleffy: >
+      Arch with marks. C to G gets louder. G back to C gets softer.
+    interaction:
+      type: sequence
+      keys: ["C4","E4","G4","E4","C4"]
+
+  - id: 13
+    mode: hear
+    type: cresc_or_dim
+    figure: "Round counter 1 of 4."
+    cleffy: >
+      Four rounds by ear. Growing or shrinking?
+    interaction:
+      type: drill
+      rounds: 4
+      options: ["Crescendo", "Diminuendo"]
+
+  - id: 14
+    mode: hear
+    type: mixed
+    figure: "Four rounds."
+    cleffy: >
+      Mixed.
+    interaction:
+      type: drill
+      rounds: 4
+
+  - id: 15
+    mode: hear
+    type: pre_check
+    figure: "Banner."
+    cleffy: >
+      Four quick ones.
+
+  - id: 16
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 58. Both hairpins drawn big with arrows showing direction."
+    cleffy: >
+      Growing, shrinking. You can shape a phrase with just these two signs.
+      Tomorrow we drill them. Then Ode to Joy with real dynamics.
+
+practice_this_week:
+  real_piano:
+    - "Play a C-major five-finger scale with a crescendo (soft to loud) ascending, diminuendo back down."
+    - "Try it with Ode to Joy — arch each phrase."
+  virtual_only:
+    - "Replay pages 10-12"
+  estimated_time: "7 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "<"
+          prompt: "Louder or softer?"
+          options: ["Louder", "Softer"]
+          correct: 0
+        - figure: ">"
+          prompt: "Louder or softer?"
+          options: ["Louder", "Softer"]
+          correct: 1
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "Crescendo on a scale"
+          prompt: "Crescendo or diminuendo?"
+          options: ["Crescendo", "Diminuendo"]
+          correct: 0
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play C-D-E-F-G with a crescendo."
+          accept: "5 notes ascending with volume increasing"
+
+remediation:
+  id: "58.5"
+  title: "Crescendo/diminuendo, slower"
+  pages: 5
+  opening_cleffy: >
+    Two shapes, two volumes. Slow with visuals.
+
+completion:
+  cleffy: >
+    Growing and shrinking. Real expression on the page now.
+  xp: 20
+  unlocks: 59

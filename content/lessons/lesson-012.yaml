@@ -1,0 +1,241 @@
+# ============================================================
+# LESSON 12 · The treble clef
+# Tier 1 · Act 3 · Beginner
+# Central metaphor: CLEFFY IS LITERALLY THE TREBLE CLEF
+# ============================================================
+id: 12
+tier: beginner
+act: 3
+title: "The treble clef"
+subtitle: "Meet your mascot — again"
+goal: "Understand the treble clef symbol, what it does, and recognize it on a staff."
+prereqs: [11]
+method_focus: "notation"
+time_estimate_min: 10
+piece_context: null
+metaphor: "cleffy-as-clef"
+vibe: ["gentle", "playful"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy, standing next to an empty staff. He clears his throat, looking a little shy."
+    cleffy: >
+      Okay. I have a secret I've been keeping for twelve lessons.
+      I'm not just a made-up character with a hat.
+      I AM the weird curly thing at the start of a piece of music.
+      Look.
+
+  - id: 2
+    mode: see
+    type: reveal
+    figure: "Cleffy slowly morphs into the treble clef symbol on the staff. Back and forth a few times — Cleffy, treble clef, Cleffy, treble clef."
+    cleffy: >
+      I'm the treble clef.
+      My shape is the same shape you've seen as my body this whole time.
+      That swirl on my chest — that's the treble clef's loop.
+      Surprise.
+
+  - id: 3
+    mode: see
+    type: definition
+    figure: "Staff with the treble clef drawn at the beginning. The clef's loop hugs line 2 (the G line)."
+    cleffy: >
+      Here's what the treble clef actually does.
+      It's a road sign at the start of the staff.
+      It tells you: this staff is for higher notes.
+      Specifically — the curly loop wraps around one line, and that line is called G.
+      We'll use that later. For now, just know — treble clef means higher notes. Usually your right hand.
+
+  - id: 4
+    mode: see
+    type: purpose
+    figure: "Two staves stacked. Both blank. Top staff has treble clef at start. Bottom staff has a different, simpler clef (bass) at start."
+    cleffy: >
+      Music has two main staves.
+      Top one usually uses the treble clef. That's me — higher notes, right hand.
+      Bottom one uses a different clef called bass. We meet it in a few weeks.
+      Two clefs, two staves, one piano. Most written music uses both.
+
+  - id: 5
+    mode: see
+    type: spot_the_clef
+    figure: "Four mini-staves. Three have treble clefs, one has a different clef."
+    cleffy: >
+      Which one of these does NOT have a treble clef?
+    interaction:
+      type: choice
+      options: ["A", "B", "C", "D"]
+      correct: 3
+    corrections:
+      - wrong_label: "general"
+        cleffy: >
+          The treble clef is the fancy spiral one — the one that looks like me.
+          The other one has dots and a thicker shape.
+
+  - id: 6
+    mode: see
+    type: where_g_is
+    figure: "Treble clef on staff. The clef's loop is highlighted. An arrow points to the line the loop wraps around. Label: G."
+    cleffy: >
+      Look at the curl at the bottom of the clef.
+      See how it wraps around one specific line?
+      That line is G. Whenever you see a note sitting on that line, it's called G.
+      That's a handy landmark. But the REAL anchor — the note we'll count from — comes in two lessons.
+      Middle C. Hang tight.
+
+  - id: 7
+    mode: hear
+    type: g_sound
+    figure: "Keyboard. G4 glowing green. A staff with a note on the G line."
+    audio:
+      A: "G4 note"
+    cleffy: >
+      That's the sound of G. Middle-ish area of the piano.
+      The note on the G line of the staff — the one I wrap around — sounds like that.
+
+  - id: 8
+    mode: play
+    type: play_g
+    figure: "Keyboard. G4 glowing."
+    cleffy: >
+      Find G on the piano. Above F — which you already know — go one more white key to the right.
+      Tap G.
+    interaction:
+      type: tap
+      key: "G4"
+
+  - id: 9
+    mode: see
+    type: why_useful
+    figure: "Staff with treble clef and three notes — one on the G line, one above, one below. Each labeled with how far from G."
+    cleffy: >
+      G is useful as a quick landmark.
+      See a note near the middle of the staff? Count steps from G and you can name it.
+      But the note we'll ACTUALLY anchor the whole method to is Middle C, coming in Lesson 14.
+      For now, just remember — that line I wrap around is G.
+
+  - id: 10
+    mode: see
+    type: interactive_g_spot
+    figure: "Staff with treble clef. A note sits on the G line."
+    cleffy: >
+      Is that note on the G line?
+    interaction:
+      type: choice
+      options: ["Yes", "No"]
+      correct: 0
+
+  - id: 11
+    mode: see
+    type: interactive_g_no
+    figure: "Staff with treble clef. A note sits in the space above G."
+    cleffy: >
+      What about this one?
+    interaction:
+      type: choice
+      options: ["On the G line", "Not on the G line"]
+      correct: 1
+    corrections:
+      - wrong_label: "general"
+        cleffy: >
+          Look closely. The G line is where the curl wraps.
+          This note is sitting in the space above it — not ON it.
+
+  - id: 12
+    mode: hear
+    type: g_drill
+    figure: "Staff with treble clef. A note appears. Student hears a sound. Is it G or not?"
+    cleffy: >
+      Four rounds. You'll see a note on the staff and hear it at the same time.
+      Is the note on the G line — the one I wrap around?
+    interaction:
+      type: drill
+      rounds: 4
+      options: ["Yes (G)", "No (something else)"]
+
+  - id: 13
+    mode: read
+    type: spot_and_play
+    figure: "Staff with treble clef. A note sits on the G line."
+    cleffy: >
+      See the note. Find G on the piano. Play it.
+    interaction:
+      type: see_hear_play
+      target_key: "G4"
+
+  - id: 14
+    mode: see
+    type: drill
+    figure: "Mix of identify-the-clef and find-G questions."
+    cleffy: >
+      Four rounds.
+    interaction:
+      type: drill
+      rounds: 4
+
+  - id: 15
+    mode: hear
+    type: pre_check
+    figure: "Banner."
+    cleffy: >
+      Four quick ones.
+
+  - id: 16
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 12. Cleffy blending back into the treble clef with a little wave. A caption — That's me."
+    cleffy: >
+      Now you know the secret. I'm the treble clef.
+      I show up at the start of every piece written for the right hand.
+      Tomorrow — lines and spaces. How to tell them apart. No names yet — just the shape.
+      Patience pays off. I promise.
+
+# ─── Mastery check ──────────────────────────────────────
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 3
+      questions:
+        - figure: "Four staves. Two have treble clefs, two have something else."
+          prompt: "Which staff has a treble clef?"
+          options: ["A", "B", "C", "D"]
+          correct: 2
+        - figure: "Staff with treble clef, note on G line."
+          prompt: "Is this note on the G line?"
+          options: ["Yes", "No"]
+          correct: 0
+        - figure: "Staff with treble clef, note in a space."
+          prompt: "Is this note on the G line?"
+          options: ["Yes", "No"]
+          correct: 1
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "G4 played"
+          prompt: "That sound is the note on the G line."
+          options: ["Got it", "Replay"]
+          correct: 0
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Tap G on the piano."
+          accept: "G4"
+
+# ─── Remediation ────────────────────────────────────────
+remediation:
+  id: "12.5"
+  title: "The clef, once more"
+  pages: 5
+  opening_cleffy: >
+    The G-line thing can feel abstract. Let me show you — slowly — how the clef wraps,
+    and how that one line becomes the anchor for everything.
+
+# ─── Completion ─────────────────────────────────────────
+completion:
+  cleffy: >
+    You know me, officially. The treble clef. Now you'll see me on every piece of music
+    for the rest of your life.
+  xp: 20
+  unlocks: 13

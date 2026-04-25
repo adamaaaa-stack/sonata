@@ -1,0 +1,222 @@
+# ============================================================
+# LESSON 114 · Transposition
+# Tier 3 · Act 23 · Low-Intermediate · New keys + transposition
+# Mary Had a Little Lamb in C, then G, then F.
+# Same shape, new home.
+# ============================================================
+id: 114
+tier: low-intermediate
+act: 23
+title: "Transposition"
+subtitle: "Act 23 · Same tune, new home"
+goal: "Take a melody you know and move it into a different key."
+prereqs: [113, 112, 111, 75]
+method_focus: "combine"
+time_estimate_min: 14
+piece_context: "All the key-signature work from this act pays off here. If you know a tune in C, you can play it in G, F, D, or B-flat — same shape, new home."
+metaphor: "same-shape-new-home"
+vibe: ["playful", "focused"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy holding a small house. Three keys on the wall behind him — C, G, F. Title: SAME TUNE, NEW HOME."
+    cleffy: >
+      One tune. Many homes.
+      Take a melody you know. Start it on a new note. Same shape follows.
+      That's transposition.
+
+  - id: 2
+    mode: see
+    type: mary_in_c
+    figure: "Staff in C major. Mary Had a Little Lamb, first phrase: E D C D E E E."
+    cleffy: >
+      You know this one. Mary Had a Little Lamb. In C major.
+      E D C D E E E. Mar-y had a lit-tle lamb.
+
+  - id: 3
+    mode: play
+    type: play_mary_c
+    figure: "Keyboard. E4 D4 C4 D4 E4 E4 E4 highlighted."
+    cleffy: >
+      Play it in C. Your old key.
+    interaction:
+      type: sequence
+      keys: ["E4","D4","C4","D4","E4","E4","E4"]
+
+  - id: 4
+    mode: see
+    type: the_shape
+    figure: "Staff close-up. Arrows showing: step down, step down, step up, step up, same, same."
+    cleffy: >
+      Look at the shape — not the letters.
+      Down a step, down a step, up a step, up a step, same, same.
+      That shape is the tune. The letters are just what it lands on.
+
+  - id: 5
+    mode: see
+    type: shift_to_g
+    figure: "Arrow from C position to G position. Staff shows G major key signature."
+    cleffy: >
+      Move every note up a fifth. Keep the same shape and the same roles.
+      In C, Mary starts on E — the third note of the scale (the mediant).
+      In G, the third note of the scale is B. So Mary starts on B, not G.
+      E becomes B. D becomes A. C becomes G. New home — G major.
+
+  - id: 6
+    mode: see
+    type: mary_in_g
+    figure: "Staff in G major (F# key sig). Melody: B A G A B B B."
+    cleffy: >
+      Mary in G. B A G A B B B.
+      Same tune. Same shape. Same roles — 3 2 1 2 3 3 3.
+      New home.
+
+  - id: 7
+    mode: play
+    type: play_mary_g
+    figure: "Keyboard. B4 A4 G4 A4 B4 B4 B4."
+    cleffy: >
+      Play it in G. Start on B — the mediant, same role as E was in C.
+    interaction:
+      type: sequence
+      keys: ["B4","A4","G4","A4","B4","B4","B4"]
+
+  - id: 8
+    mode: hear
+    type: hear_both
+    figure: "Two play buttons."
+    audio:
+      A: "Mary in C"
+      B: "Mary in G"
+    cleffy: >
+      Same tune, twice. Different home.
+      Your ear recognizes it instantly — even though almost no notes are the same.
+
+  - id: 9
+    mode: see
+    type: shift_to_f
+    figure: "Staff in F major (B♭ key sig). Melody: A G F G A A A."
+    cleffy: >
+      One more. F major this time.
+      Third of F major is A — so Mary starts on A. Same role, new letter.
+      E becomes A. D becomes G. C becomes F.
+      A G F G A A A.
+
+  - id: 10
+    mode: play
+    type: play_mary_f
+    figure: "Keyboard. A G F G A A A."
+    cleffy: >
+      Play it in F. No black keys in this phrase — lucky.
+    interaction:
+      type: sequence
+      keys: ["A4","G4","F4","G4","A4","A4","A4"]
+
+  - id: 11
+    mode: see
+    type: the_recipe
+    figure: "Three-step recipe card. 1. Know the shape. 2. Pick a new starting note. 3. Let the key signature handle the accidentals."
+    cleffy: >
+      Three steps. That's the whole trick.
+      Know the shape. Pick a new home. Let the key signature do the rest.
+
+  - id: 12
+    mode: play
+    type: full_phrase_c
+    figure: "Staff. Full first line of Mary: E D C D E E E D D D E G G."
+    cleffy: >
+      Full first line in C. Both phrases.
+    interaction:
+      type: sequence
+      keys: ["E4","D4","C4","D4","E4","E4","E4","D4","D4","D4","E4","G4","G4"]
+
+  - id: 13
+    mode: play
+    type: full_phrase_g
+    figure: "Staff in G major. Full first line transposed."
+    cleffy: >
+      Same full line. Now in G. Every note up a fifth.
+      B A G A B B B A A A B D D.
+    interaction:
+      type: sequence
+      keys: ["B4","A4","G4","A4","B4","B4","B4","A4","A4","A4","B4","D5","D5"]
+    followup_cleffy: >
+      That.
+      You just transposed a tune you've known since you were three.
+
+  - id: 14
+    mode: hear
+    type: which_key_drill
+    figure: "Round counter. Four rounds."
+    cleffy: >
+      Four rounds. Mary plays — which key is she in?
+    interaction:
+      type: drill
+      rounds: 4
+      options: ["C major", "G major", "F major"]
+
+  - id: 15
+    mode: hear
+    type: pre_check
+    figure: "Banner."
+    cleffy: >
+      Four quick ones.
+
+  - id: 16
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 114. Mary Had a Little Lamb written three times — in C, G, and F."
+    cleffy: >
+      Same shape. New homes.
+      Tomorrow — act boss. We take a Minuet you already know, and move it.
+
+practice_this_week:
+  real_piano:
+    - "Pick a tune you know — Hot Cross Buns, Twinkle, anything simple. Play it in C. Then play it starting on G. Same shape, new letters."
+    - "Try Mary Had a Little Lamb in all three keys this week. C, G, F. One each day."
+  virtual_only:
+    - "Replay pages 12 and 13"
+  estimated_time: "12 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "Mary Had a Little Lamb in C (E D C D E E E)"
+          prompt: "What's the same when you move this tune to a new key?"
+          options: ["The shape", "The letter names", "Nothing"]
+          correct: 0
+        - figure: "Mary transposed to G major (B A G A B B B)"
+          prompt: "Why does Mary in G start on B, not G?"
+          options: ["A mistake — it should start on G", "B is the third of G major, same role as E was in C", "Because G major has an F-sharp"]
+          correct: 1
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "Mary Had a Little Lamb in G major"
+          prompt: "Is this the same tune as the one in C?"
+          options: ["Yes — same tune, new key", "No — different tune"]
+          correct: 0
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play Mary's first phrase in G: B A G A B B B."
+          accept: "B4 A4 G4 A4 B4 B4 B4"
+
+remediation:
+  id: "114.5"
+  title: "Transposition, step by step"
+  pages: 8
+  opening_cleffy: >
+    Moving a tune is a real brain-switch.
+    We'll do it one interval at a time — first the shape, then the home, then the key signature's job.
+
+completion:
+  cleffy: >
+    Transposition unlocked.
+    Tomorrow — act boss. Minuet in G, moved to D. Your first real transposed piece.
+  xp: 20
+  unlocks: 115

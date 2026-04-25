@@ -1,0 +1,246 @@
+# ============================================================
+# LESSON 235 · Perform a memorized piece 🎯 ACT BOSS
+# Tier 6 · Act 47 · Advanced · ACT BOSS
+# Meta lesson: the ACT of performing. Not a new piece.
+# For one person. One take. Live.
+# ============================================================
+id: 235
+tier: advanced
+act: 47
+title: "Perform a memorized piece"
+subtitle: "Act 47 · For one person, one take"
+goal: "Play the piece you memorized — from memory, start to finish, for one other human being, one take."
+prereqs: [230, 231, 232, 233, 234]
+method_focus: "play"
+time_estimate_min: 16
+piece_context: "Act 47 boss. This lesson is different. We can't do it inside the app — you have to go out into the world. Find a person. Play for them. Come back. The performance itself is the lesson. Everything else we've done — memorization, recording, dynamic arc, silent rehearsal — funnels into this one act. One take. One audience. Live."
+metaphor: "playing-for-one"
+vibe: ["honest", "serious", "celebratory"]
+is_act_boss: true
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy and a single empty chair in front of a piano. No stage. No lights. Just two people and an instrument. Banner: ACT 47 BOSS — FOR ONE PERSON."
+    cleffy: >
+      Act 47 boss.
+      This one's different.
+      No staff to read today. No drills.
+      You go find a person. You play for them. One take.
+
+  - id: 2
+    mode: see
+    type: honest_framing
+    figure: "A simple screen with bold text: 'we can't actually record you here.' Below — Cleffy with crossed arms, smiling gently. 'Go find someone. Play for them. Come back and tell me how it went.'"
+    cleffy: >
+      Honest part.
+      We can't actually watch you perform through this app.
+      No camera. No live grader.
+      The whole lesson is: go do it. Then come back.
+      Trust system today. Trust yourself.
+
+  - id: 3
+    mode: see
+    type: who_is_it_for
+    figure: "A small pencil sketch of different possible audiences. A roommate. A partner. A parent. A friend. A neighbor. A cat. Cross through the cat with a red line. Caption: 'must be human.'"
+    cleffy: >
+      One person. Any person.
+      Roommate. Partner. Parent. Friend. Neighbor.
+      Not the cat. Not your reflection.
+      A human who will sit and listen for three minutes.
+
+  - id: 4
+    mode: see
+    type: why_one_person
+    figure: "Two panels. Left: a packed concert hall — 'too abstract to start.' Right: one chair, one person, one lamp — 'perfect.' Arrow between them: 'start small.'"
+    cleffy: >
+      Why one person — not a crowd?
+      A crowd is abstract. One person is real.
+      One set of eyes. One reaction.
+      Nerves scale to the audience. One person is the right first step.
+      Everything bigger starts here.
+
+  - id: 5
+    mode: see
+    type: the_piece
+    figure: "A thought bubble showing three piece icons from Act 46 — a Nocturne, an Arietta, a Gymnopédie. Caption: 'the one you memorized in L230.'"
+    cleffy: >
+      The piece — the one you memorized in Lesson 230.
+      Nocturne. Arietta. Gymnopédie. Whichever you picked.
+      No sheet music. No app. Just you and the keys.
+
+  - id: 6
+    mode: see
+    type: set_the_stage
+    figure: "A simple room. A piano. A chair placed nearby. A lamp. Optional — a small printed program. A glass of water. Cleffy standing back, looking at it, approving."
+    cleffy: >
+      Set the stage, even if the stage is your living room.
+      Move the chair near the piano.
+      Turn off the TV.
+      If you want it to feel formal — hand them a sheet of the music.
+      If you want it casual — just start.
+
+  - id: 7
+    mode: see
+    type: the_announce
+    figure: "A cartoon speech bubble: 'I'd like to play something for you. Just sit right there. Takes about three minutes.' Below — Cleffy nodding."
+    cleffy: >
+      Announce it. Don't apologize.
+      'I'd like to play something for you. Sit right there. Three minutes.'
+      Don't preface with 'I'm not very good at this.'
+      Don't warn them about the parts you'll mess up.
+      Just play.
+
+  - id: 8
+    mode: see
+    type: what_will_happen
+    figure: "A short list. Heart rate up. Hands shake slightly. One or two stumbles. Time feels compressed. A strange pride at the end. Caption: 'all of this is normal.'"
+    cleffy: >
+      What will happen — so you're not surprised.
+      Your heart rate will go up.
+      Your hands will shake a little.
+      You'll stumble somewhere you never stumble in practice.
+      Time will feel weirdly short.
+      At the end — a strange, real pride. That's the reward.
+
+  - id: 9
+    mode: see
+    type: when_you_stumble
+    figure: "A line of music with a stumble-mark halfway through — but the line continues. Caption: 'stumbles are not stops. Find the beat and keep going.'"
+    cleffy: >
+      When you stumble — and you will stumble — do not stop.
+      Don't start over.
+      Don't apologize mid-piece.
+      Find the beat. Land on the next downbeat. Keep going.
+      Your audience won't notice nearly as much as you think.
+
+  - id: 10
+    mode: play
+    type: final_warmup
+    figure: "Keyboard. A four-bar arpeggio-and-scale warmup. Tempo 60. Caption: 'final warmup. Then — go perform.'"
+    cleffy: >
+      Final warmup before you go.
+      Simple arpeggio. Right hand.
+      Loose. Relaxed. Arm heavy.
+    interaction:
+      type: sequence
+      keys: ["C4","E4","G4","C5","E5","G5","E5","C5","G4","E4","C4"]
+
+  - id: 11
+    mode: see
+    type: go_do_it
+    figure: "An arrow pointing off the screen. Cleffy stepping back, giving a nod. Big text: 'GO. COME BACK.'"
+    cleffy: >
+      Close the app.
+      Find the person. Set up the room.
+      Play the piece. One take. Don't stop.
+      Come back when it's done.
+
+  - id: 12
+    mode: see
+    type: welcome_back
+    figure: "A soft pause screen. Cleffy in the same spot, waiting. Caption: 'welcome back. You did it — however it went.'"
+    cleffy: >
+      You're back.
+      Whatever happened — you did the thing most adult self-teachers never do.
+      You played a memorized piece for another human being.
+      That alone is a milestone.
+
+  - id: 13
+    mode: see
+    type: the_debrief
+    figure: "Three questions as pencil-written notes. 1: What surprised you? 2: Where did you stumble? 3: What would you try differently next time?"
+    cleffy: >
+      Three questions. Think — don't answer out loud.
+      What surprised you?
+      Where did you stumble?
+      What would you try differently next time?
+      That's your next-steps list.
+
+  - id: 14
+    mode: hear
+    type: pre_check
+    figure: "Banner — Act 47 boss mastery check. Caption: 'on your honor.'"
+    cleffy: >
+      Three quick ones. On your honor.
+      The real mastery check was the performance.
+
+  - id: 15
+    mode: see
+    type: wrap_celebration
+    figure: "Celebration card — ACT 47 COMPLETE 🎯. Cleffy holding a small bouquet. A pyramid showing 47/50 acts complete. Only three acts to graduation."
+    cleffy: >
+      Act 47. Closed.
+      Recording. Dynamic arc. Pianissimo endurance. Silent rehearsal. Performance.
+      Every tool polishes the same thing — the piece you bring to someone.
+      You brought one today.
+
+  - id: 16
+    mode: see
+    type: whats_next
+    figure: "A preview card. The Moonlight Sonata first movement score opening, lit softly. Caption: 'next — the final piece. Three acts left. Fifteen lessons to graduation.'"
+    cleffy: >
+      Three acts left. Fifteen lessons.
+      Next act — the Moonlight Sonata first movement, expanded from the eight bars you learned in Tier 4.
+      Bars 1 through 69. Every one.
+      You're very close now.
+
+practice_this_week:
+  real_piano:
+    - "Play the memorized piece for one more person this week. A different one if you can. Each performance makes the next one smaller."
+    - "Record one of the performances — audio or video. Listen back the same day."
+    - "If you stumbled somewhere in the live performance — open the score, work just that bar, go back to silent rehearsal for it."
+  virtual_only:
+    - "This lesson doesn't have a virtual-only replacement. Performance is the whole point. Ask a housemate, a family member, a friend on a video call. A human ear is required."
+  estimated_time: "15 min — one performance, one listen-back"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "A concert hall and a single chair side by side"
+          prompt: "Why start with one person instead of a crowd?"
+          options: ["Crowds are abstract — one person is real", "Crowds are louder", "One person is harder"]
+          correct: 0
+        - figure: "A line of music with a stumble mark halfway, but continuing"
+          prompt: "What should you do when you stumble mid-performance?"
+          options: ["Start over from bar 1", "Stop and apologize", "Find the beat and keep going"]
+          correct: 2
+        - figure: "A speech bubble: 'I'd like to play something for you. Three minutes.'"
+          prompt: "The way to announce a performance is…"
+          options: ["Apologize in advance", "Warn them about the hard parts", "Simple, direct, no apology"]
+          correct: 2
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "Two announcements — one apologetic ('sorry, I'm not very good…'), one confident ('I'd like to play something for you')"
+          prompt: "Which is the better way to start a performance?"
+          options: ["Apologetic", "Confident, no apology"]
+          correct: 1
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Did you actually perform your memorized piece for one other human this week? On your honor — play the warmup arpeggio to confirm you're ready."
+          accept: "The warmup arpeggio played as an honor-system completion of the real-world performance"
+
+remediation:
+  id: "235.5"
+  title: "Perform, even smaller"
+  pages: 10
+  opening_cleffy: >
+    If finding one person felt like too much, start smaller.
+    Perform for a video call. For a voice memo you'll send to someone.
+    The point is: not you, alone. Someone receives the music.
+    We'll scale it back down. Then back up.
+
+completion:
+  cleffy: >
+    Act 47. Sealed.
+    You performed. Live. For a human. One take.
+    That changes the piece. That changes you.
+    Three acts left. Fifteen lessons. Moonlight first movement, all bars, coming up.
+    The road is short now.
+  xp: 30
+  unlocks: 236

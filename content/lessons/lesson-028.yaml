@@ -1,0 +1,234 @@
+# ============================================================
+# LESSON 28 · Left-hand finger numbers
+# Tier 2 · Act 6 · Elementary
+# Central metaphor: SAME NUMBERS, FLIPPED POSITION
+# ============================================================
+id: 28
+tier: elementary
+act: 6
+title: "Your left hand, by the numbers"
+subtitle: "Same fingers, flipped position"
+goal: "Play comfortably with a left-hand five-finger position. Know which number is which finger."
+prereqs: [9]
+method_focus: "hands"
+time_estimate_min: 12
+piece_context: "From here on, your left hand does real work. Time to get organized over there too."
+metaphor: "crew-with-numbers-flipped"
+vibe: ["gentle", "playful"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Left hand floating beside Cleffy, fingers wiggling. A big label: LH."
+    cleffy: >
+      You've been using your right hand for twenty-seven lessons.
+      Today the left hand stops watching and starts playing.
+      Good news — the numbering is exactly the same.
+
+  - id: 2
+    mode: see
+    type: same_numbers
+    figure: "Both hands shown palm-out, side by side. Thumbs = 1. Pinkies = 5. Mirrored."
+    cleffy: >
+      Left hand uses 1, 2, 3, 4, 5.
+      Thumb is 1. Pointer 2. Middle 3. Ring 4. Pinky 5.
+      Same numbers as the right hand. Both thumbs are 1.
+
+  - id: 3
+    mode: see
+    type: flipped_position
+    figure: "Keyboard. Right hand in C-D-E-F-G position (thumb on C, pinky on G). Left hand in bass — on C3-D3-E3-F3-G3 — pinky on low C, thumb on G3."
+    cleffy: >
+      Here's the catch — where your hands sit is mirrored.
+      Right hand going up — thumb is on the LEFT of the hand, pinky on the right.
+      Left hand going up — pinky is on the LEFT, thumb on the RIGHT.
+      The numbers stay the same. The hand flips.
+
+  - id: 4
+    mode: see
+    type: why_flipped
+    figure: "Close-up of both hands resting on the keyboard. Arrows show thumb positions — right thumb left, left thumb right. They ALMOST meet in the middle."
+    cleffy: >
+      Think about it this way. Thumbs are closer to your body.
+      So when both hands sit on the piano, both thumbs point toward the middle.
+      That's why left-hand 1 is the high-ish note, not the low one.
+
+  - id: 5
+    mode: see
+    type: interactive_identify
+    figure: "Left hand diagram. Finger 3 (middle) circled."
+    cleffy: >
+      Which finger?
+    interaction:
+      type: choice
+      options: ["1", "2", "3", "4", "5"]
+      correct: 2
+
+  - id: 6
+    mode: see
+    type: interactive_identify
+    figure: "Left hand diagram. Finger 5 (pinky) circled."
+    cleffy: >
+      This one?
+    interaction:
+      type: choice
+      options: ["1", "2", "3", "4", "5"]
+      correct: 4
+
+  - id: 7
+    mode: see
+    type: interactive_identify
+    figure: "Left hand diagram. Finger 1 (thumb) circled."
+    cleffy: >
+      This one?
+    interaction:
+      type: choice
+      options: ["1", "2", "3", "4", "5"]
+      correct: 0
+
+  - id: 8
+    mode: play
+    type: tap_with_thumb
+    figure: "Keyboard. Low G3 glowing. A blue 1 above it."
+    cleffy: >
+      Left hand, finger 1. Thumb. Tap low G.
+    interaction:
+      type: tap
+      key: "G3"
+
+  - id: 9
+    mode: play
+    type: tap_with_pinky
+    figure: "Keyboard. Low C3 glowing. A blue 5 above it."
+    cleffy: >
+      Left hand, finger 5. Pinky. Tap low C.
+    interaction:
+      type: tap
+      key: "C3"
+
+  - id: 10
+    mode: play
+    type: left_five_finger_position
+    figure: "Keyboard. C3, D3, E3, F3, G3 all glowing. Labels above: 5, 4, 3, 2, 1 (LH fingers)."
+    cleffy: >
+      Now the whole left-hand five-finger position.
+      Pinky on low C (finger 5). Ring on D. Middle on E. Pointer on F. Thumb on G.
+      Your hand should feel relaxed — no stretch, no squeeze.
+    interaction:
+      type: sequence
+      keys: ["C3", "D3", "E3", "F3", "G3"]
+
+  - id: 11
+    mode: play
+    type: call_fingers_lh
+    figure: "Left hand sitting on C3-G3. Cleffy calls out a number."
+    cleffy: >
+      Keep your hand where it is. I call a number, you tap that key.
+    interaction:
+      type: finger_call
+      rounds: 5
+      hand: "left"
+      position: ["C3", "D3", "E3", "F3", "G3"]
+
+  - id: 12
+    mode: play
+    type: both_thumbs
+    figure: "Keyboard. Middle C glowing gold (RH thumb area), G3 glowing blue (LH thumb area). Arrow between them."
+    cleffy: >
+      Try both thumbs at once.
+      Right-hand thumb on Middle C. Left-hand thumb on G3.
+      Tap them together.
+    interaction:
+      type: sequence
+      keys: ["C4", "G3"]
+    followup_cleffy: >
+      That's both hands making sound at the same time. Tiny moment. Big deal.
+
+  - id: 13
+    mode: play
+    type: lh_walk_up
+    figure: "Keyboard. LH five-finger position. Arrows show LH walking UP: finger 5, 4, 3, 2, 1."
+    cleffy: >
+      Left hand walking up. Pinky, ring, middle, pointer, thumb.
+      C3, D3, E3, F3, G3.
+    interaction:
+      type: sequence
+      keys: ["C3", "D3", "E3", "F3", "G3"]
+
+  - id: 14
+    mode: hear
+    type: drill_mixed
+    figure: "Mix of finger-ID and play questions."
+    cleffy: >
+      Four rounds.
+    interaction:
+      type: drill
+      rounds: 4
+
+  - id: 15
+    mode: hear
+    type: pre_check
+    figure: "Banner."
+    cleffy: >
+      Four quick ones.
+
+  - id: 16
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 28. Both hands on the keyboard, thumbs pointing inward, fingers numbered."
+    cleffy: >
+      Left hand is organized now. Fingers numbered, position set.
+      Tomorrow — one more bass-clef landmark. Then we read.
+
+# ─── Practice this week ────────────────────────────────
+practice_this_week:
+  real_piano:
+    - "Left hand, five-finger position on C3-D3-E3-F3-G3. Play ascending (pinky to thumb), then descending. Ten times."
+    - "Practice this: RH thumb on Middle C, LH thumb on G3. Tap both hands together. Simple, but it's the first real two-hand move."
+  virtual_only:
+    - "Replay pages 10-13 (the LH five-finger position drills)"
+  estimated_time: "7 min/day"
+
+# ─── Mastery check ──────────────────────────────────────
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "Left hand, finger 2 circled."
+          prompt: "Which number?"
+          options: ["1", "2", "3", "4", "5"]
+          correct: 1
+        - figure: "Left hand, finger 4 circled."
+          prompt: "Which number?"
+          options: ["1", "2", "3", "4", "5"]
+          correct: 3
+    hear:
+      pass_threshold: 1
+      questions:
+        - prompt: "When the left hand is in the C-G position, which finger is on low C?"
+          options: ["1 (thumb)", "3 (middle)", "5 (pinky)"]
+          correct: 2
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Put your left hand on C3-G3. Tap finger 3."
+          accept: "E3"
+
+# ─── Remediation ────────────────────────────────────────
+remediation:
+  id: "28.5"
+  title: "Left hand, slower"
+  pages: 5
+  opening_cleffy: >
+    The flipped-hand thing can feel weird the first time.
+    Let's do it again with both hands mirrored on screen.
+
+# ─── Completion ─────────────────────────────────────────
+completion:
+  cleffy: >
+    Both hands have numbers now. Both have fingers. Both know where they live.
+    Ready for the grand staff.
+  xp: 20
+  unlocks: 29

@@ -1,0 +1,201 @@
+# ============================================================
+# LESSON 76 · Legato vs staccato
+# Tier 3 · Act 16 · Low-Intermediate · Articulation
+# The first two members of the touch family.
+# ============================================================
+id: 76
+tier: low-intermediate
+act: 16
+title: "Legato vs staccato"
+subtitle: "Act 16 · Articulation"
+goal: "Hear and play the difference between smooth-connected notes and short-detached notes."
+prereqs: [75, 70, 55, 35]
+method_focus: "combine"
+time_estimate_min: 12
+piece_context: "Tier 3 begins. You know how to read. Now we add craft. First up — how you touch the keys."
+metaphor: "touch-family"
+vibe: ["gentle", "focused"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy holding up two hands — one smooth and flowing, one with fingers popping up. Title: THE TOUCH FAMILY."
+    cleffy: >
+      New tier. New chapter.
+      You can read. Now — how you touch the keys.
+      Same notes can sound smooth or short. That's articulation.
+
+  - id: 2
+    mode: see
+    type: concept_legato
+    figure: "Staff with four quarter notes connected by a curved line above them. Label: LEGATO."
+    cleffy: >
+      First member of the touch family — legato.
+      Smooth. Connected. One note flows into the next.
+      No gap between the sound of one note and the next.
+
+  - id: 3
+    mode: see
+    type: concept_staccato
+    figure: "Staff with four quarter notes, each with a small dot above it. Label: STACCATO."
+    cleffy: >
+      Second member — staccato.
+      Short. Detached. Each note finishes before the next starts.
+      The dot above the note is the sign.
+
+  - id: 4
+    mode: hear
+    type: listen_to_both
+    figure: "Two play buttons. A: legato. B: staccato."
+    audio:
+      A: "C-D-E-F played smooth and connected"
+      B: "C-D-E-F played short and bouncy"
+    cleffy: >
+      Same four notes. Two different touches.
+      First — legato. Smooth. Second — staccato. Short.
+      Hear the space between the notes in the second one.
+
+  - id: 5
+    mode: play
+    type: play_legato
+    figure: "Keyboard. C4 D4 E4 F4 glowing. A curved slur above them."
+    cleffy: >
+      Play C, D, E, F — legato. Smooth.
+      Stay down on C until D presses. Stay on D until E. Don't rush. No gaps.
+    interaction:
+      type: sequence
+      keys: ["C4","D4","E4","F4"]
+
+  - id: 6
+    mode: play
+    type: play_staccato
+    figure: "Keyboard. C4 D4 E4 F4 with dots above each."
+    cleffy: >
+      Same notes. Staccato this time.
+      Touch. Release. Touch. Release. Short. Bouncy.
+    interaction:
+      type: sequence
+      keys: ["C4","D4","E4","F4"]
+
+  - id: 7
+    mode: see
+    type: how_to_legato
+    figure: "Cartoon hand — finger 2 pressing D while finger 1 still on C. Overlap highlighted."
+    cleffy: >
+      The trick for legato — the old finger stays down until the new finger presses.
+      Tiny overlap. No silence between notes.
+
+  - id: 8
+    mode: see
+    type: how_to_staccato
+    figure: "Cartoon hand — finger bounces off the key. Small arrow up."
+    cleffy: >
+      The trick for staccato — finger bounces.
+      Press and release fast. The note is halved — half sound, half silence.
+
+  - id: 9
+    mode: play
+    type: legato_longer
+    figure: "Staff with a slur over five notes. Keyboard below."
+    cleffy: >
+      Five notes, legato. G, A, B, C, D. Smooth.
+    interaction:
+      type: sequence
+      keys: ["G4","A4","B4","C5","D5"]
+
+  - id: 10
+    mode: play
+    type: staccato_longer
+    figure: "Staff with five notes, each dotted. Keyboard below."
+    cleffy: >
+      Same five notes. All staccato. Pop each one off.
+    interaction:
+      type: sequence
+      keys: ["G4","A4","B4","C5","D5"]
+
+  - id: 11
+    mode: hear
+    type: identify_drill
+    figure: "Round counter 1 of 4."
+    cleffy: >
+      Four rounds. Legato or staccato?
+    interaction:
+      type: drill
+      rounds: 4
+      options: ["Legato", "Staccato"]
+
+  - id: 12
+    mode: play
+    type: mixed_phrase
+    figure: "Staff: three notes with a slur (legato), then three notes with dots (staccato)."
+    cleffy: >
+      Now both in one phrase. First three legato. Last three staccato.
+      Smooth, smooth, smooth — pop, pop, pop.
+    interaction:
+      type: sequence
+      keys: ["C4","D4","E4","F4","G4","A4"]
+
+  - id: 13
+    mode: hear
+    type: pre_check
+    figure: "Banner."
+    cleffy: >
+      Three quick ones.
+
+  - id: 14
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 76. Two pictures: flowing ribbon (legato) and bouncing ball (staccato)."
+    cleffy: >
+      Two touches. Legato — smooth. Staccato — short.
+      Tomorrow — the line that tells you to play legato. Slurs.
+
+practice_this_week:
+  real_piano:
+    - "Play C D E F G A. Once legato (smooth). Once staccato (short). Feel the difference in your fingers."
+    - "Play any melody you know. First all legato. Then all staccato. The tune changes character."
+  virtual_only:
+    - "Replay pages 5-6 and 9-10"
+  estimated_time: "8 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "Staff with four notes under a curved line"
+          prompt: "How should these notes be played?"
+          options: ["Legato (smooth)", "Staccato (short)", "Loud"]
+          correct: 0
+        - figure: "Staff with four notes, each with a dot above it"
+          prompt: "How should these notes be played?"
+          options: ["Legato (smooth)", "Staccato (short)", "Soft"]
+          correct: 1
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "Four notes played short and bouncy"
+          prompt: "Legato or staccato?"
+          options: ["Legato", "Staccato"]
+          correct: 1
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play C, D, E, F legato — smooth, no gaps."
+          accept: "C4 D4 E4 F4 played connected"
+
+remediation:
+  id: "76.5"
+  title: "Legato and staccato, slower"
+  pages: 6
+  opening_cleffy: >
+    New touch. Takes a minute.
+    We'll slow it down — one note at a time, legato first, then staccato.
+
+completion:
+  cleffy: >
+    Tier 3 is open. First touch unlocked.
+    Tomorrow — slurs. The curved line that makes legato official.
+  xp: 18
+  unlocks: 77

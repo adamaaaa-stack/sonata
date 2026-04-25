@@ -1,0 +1,248 @@
+# ============================================================
+# LESSON 30 · LH steps
+# Tier 2 · Act 6 · Elementary · ACT BOSS 🎯
+# Central metaphor: THE METHOD WORKS HERE TOO
+# ============================================================
+id: 30
+tier: elementary
+act: 6
+title: "Steps in the left hand"
+subtitle: "Act 6 · The method, now in the bass"
+goal: "Read and play steps on the bass staff with your left hand. Prove the Sonata method works everywhere."
+prereqs: [16, 17, 18, 19, 26, 27, 28, 29]
+method_focus: "steps"
+time_estimate_min: 12
+piece_context: "Everything you learned about steps in Tier 1 — on the treble staff, with your right hand — works exactly the same on the bass staff with your left."
+metaphor: "method-is-universal"
+vibe: ["gentle", "playful", "serious", "celebratory"]
+is_act_boss: true
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy holding up two flags — one gold (treble side), one blue (bass side). Between them, a glowing sign: STEP."
+    cleffy: >
+      You made it to the end of Act 6.
+      Today we prove something cool.
+      Everything you learned about steps in Tier 1 — line to space, space to line, kinds switch — it all works in the bass clef too.
+      Same rule. New staff. Left hand this time.
+
+  - id: 2
+    mode: see
+    type: recap_even
+    figure: "Bass staff showing three step examples: line to space above, space to line below, line to space. Each labeled STEP."
+    cleffy: >
+      Remember the even rule? Steps switch kinds.
+      Same on the bass staff. Line to next space, or space to next line.
+      If you see two notes and one's on a line and the next is touching a space — that's a step.
+
+  - id: 3
+    mode: see
+    type: compare_staves
+    figure: "Split screen. Left: treble staff with a step pair (line 2 → space 2). Right: bass staff with a step pair (line 3 → space 3). Both look identical."
+    cleffy: >
+      Look at these two pairs side by side.
+      One's treble. One's bass. The shape is the same.
+      Step up on a treble staff looks exactly like a step up on a bass staff.
+
+  - id: 4
+    mode: see
+    type: interactive
+    figure: "Bass staff with line 2 → space 2 above."
+    cleffy: >
+      Step or not, on the bass staff?
+    interaction:
+      type: choice
+      options: ["Step", "Not a step"]
+      correct: 0
+
+  - id: 5
+    mode: see
+    type: interactive
+    figure: "Bass staff with line 3 → line 4."
+    cleffy: >
+      And this?
+    interaction:
+      type: choice
+      options: ["Step", "Not a step"]
+      correct: 1
+    corrections:
+      - wrong_label: "picked_step"
+        cleffy: >
+          Both on lines — kind didn't switch. Not a step.
+          Same reasoning as on the treble staff.
+
+  - id: 6
+    mode: see
+    type: drill
+    figure: "Round counter 1 of 6. Bass-staff pairs. Step or not?"
+    cleffy: >
+      Six rounds. All bass-staff pairs. Step or not a step?
+    interaction:
+      type: drill
+      rounds: 6
+      options: ["Step", "Not a step"]
+
+  - id: 7
+    mode: hear
+    type: bass_step_sound
+    figure: "Keyboard. LH five-finger position. A step in the bass range played."
+    audio:
+      A: "C3 to D3 (step up in bass)"
+    cleffy: >
+      Here's a bass-range step. Sounds just like a treble step — close, smooth — but deeper.
+      The relationship is the same. The pitch zone is just lower.
+
+  - id: 8
+    mode: hear
+    type: step_drill_bass
+    figure: "Round counter 1 of 4."
+    cleffy: >
+      Four rounds by ear. All in the bass range. Step or bigger?
+    interaction:
+      type: drill
+      rounds: 4
+      options: ["Step", "Bigger"]
+
+  - id: 9
+    mode: play
+    type: lh_step_up
+    figure: "Keyboard. LH in C3-G3 position. Pinky (5) on C3, ring (4) on D3. Both glowing."
+    cleffy: >
+      Left hand, step up from bass C.
+      Pinky on C3. Then ring on D3.
+    interaction:
+      type: sequence
+      keys: ["C3", "D3"]
+    followup_cleffy: >
+      Step up. Pinky → ring. C3 → D3.
+      Same move as right-hand thumb → pointer — just flipped direction.
+
+  - id: 10
+    mode: play
+    type: lh_step_down
+    figure: "Keyboard. E3 glowing, then D3. LH middle (3) to ring (4)."
+    cleffy: >
+      Step down in the left hand. Middle finger on E3, then ring on D3.
+    interaction:
+      type: sequence
+      keys: ["E3", "D3"]
+
+  - id: 11
+    mode: read
+    type: read_lh_step
+    figure: "Bass staff with a step pair (space 2 to line 3). Keyboard below."
+    cleffy: >
+      See the step on the bass staff. Play a step up in the LH five-finger position.
+    interaction:
+      type: shape
+      shape_type: "step"
+      direction: "up"
+
+  - id: 12
+    mode: read
+    type: step_sequence_lh
+    figure: "Bass staff with 5 ascending step-notes starting from bass C."
+    cleffy: >
+      Five notes all stepping up on the bass staff.
+      Play them with the left hand — pinky, ring, middle, pointer, thumb.
+    interaction:
+      type: sequence
+      keys: ["C3", "D3", "E3", "F3", "G3"]
+
+  - id: 13
+    mode: read
+    type: step_sequence_lh_down
+    figure: "Bass staff with 5 descending step-notes from G3 to C3."
+    cleffy: >
+      And back down. Thumb, pointer, middle, ring, pinky.
+    interaction:
+      type: sequence
+      keys: ["G3", "F3", "E3", "D3", "C3"]
+
+  - id: 14
+    mode: hear
+    type: pre_check
+    figure: "Banner — Act 6 mastery incoming."
+    cleffy: >
+      Four quick ones.
+
+  - id: 15
+    mode: see
+    type: reflection
+    figure: "Tier 1 pyramid next to Tier 2 pyramid. Tier 1 with a gold trophy. Tier 2 with Act 6 highlighted in progress."
+    cleffy: >
+      Six acts in. You know both staves, both clefs, both hands.
+      Steps work on both. The method is the same everywhere.
+      That's a big idea. That's why we call it a method.
+
+  - id: 16
+    mode: see
+    type: wrap
+    figure: "Celebration card — ACT 6 complete. Small trophy engraved 6/10. Cleffy saluting."
+    cleffy: >
+      Act 6 closed.
+      Tomorrow — LH skips, then LH rhythm, then the grand staff brings the two hands together.
+      Merrily We Roll Along is five lessons away. Your first piece with both hands.
+
+# ─── Practice this week ────────────────────────────────
+practice_this_week:
+  real_piano:
+    - "Left hand, five-finger position C3-G3. Play C3-D3-E3-F3-G3, then back down. Five times slow."
+    - "Isolate just steps: play C3-D3, then E3-D3, then D3-E3. Each pair is a step. Ten total."
+    - "Right hand warm-up: do the same five-finger walk on C4-G4. Both hands should feel equally confident."
+  virtual_only:
+    - "Replay pages 11-13 (the LH step reading drills)"
+  estimated_time: "7 min/day"
+
+# ─── Mastery check ──────────────────────────────────────
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 3
+      questions:
+        - figure: "Bass staff, line to next space above."
+          prompt: "Step or not?"
+          options: ["Step", "Not a step"]
+          correct: 0
+        - figure: "Bass staff, line to next line."
+          prompt: "Step or not?"
+          options: ["Step", "Not a step"]
+          correct: 1
+        - figure: "Bass staff, space to next line below."
+          prompt: "Step or not?"
+          options: ["Step", "Not a step"]
+          correct: 0
+    hear:
+      pass_threshold: 2
+      questions:
+        - audio: "C3 to D3 (bass step)"
+          prompt: "Step or bigger?"
+          options: ["Step", "Bigger"]
+          correct: 0
+        - audio: "C3 to F3 (bigger)"
+          prompt: "Step or bigger?"
+          options: ["Step", "Bigger"]
+          correct: 1
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play a step up with your left hand, anywhere in the low half of the keyboard."
+          accept: "two adjacent white keys ascending in left half"
+
+# ─── Remediation ────────────────────────────────────────
+remediation:
+  id: "30.5"
+  title: "Left-hand steps, slower"
+  pages: 5
+  opening_cleffy: >
+    Left hand takes a minute to get going. Let's re-do steps with LH slowly.
+
+# ─── Completion ─────────────────────────────────────────
+completion:
+  cleffy: >
+    Act 6: sealed. The method is now running in both hands.
+    Six acts behind you. Four tiers ahead. Keep going.
+  xp: 30
+  unlocks: 31

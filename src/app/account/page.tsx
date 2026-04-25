@@ -14,7 +14,11 @@ import "@/app/app/sonata.css";
 
 export default function AccountPage() {
   return (
-    <Suspense fallback={<div style={{ minHeight: '100vh', background: '#FFF6E4' }} />}>
+    <Suspense fallback={
+      <div style={{ position: 'relative', minHeight: '100vh', background: '#FFF6E4', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+        <div style={{ width: 28, height: 28, border: '4px solid var(--parchment, #E9DCC0)', borderTopColor: 'var(--berry, #E86D6D)', borderRadius: '50%', animation: 'sn-spin 0.8s linear infinite' }} />
+      </div>
+    }>
       <AccountInner />
     </Suspense>
   );
@@ -122,8 +126,18 @@ function AccountInner() {
 
   if (!user) {
     return (
-      <div style={{ minHeight: '100vh', background: 'var(--cream)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-        <p style={{ color: 'var(--ink3)', fontFamily: 'var(--sans)', fontWeight: 700 }}>Loading...</p>
+      <div style={{ position: 'relative', minHeight: '100vh', background: 'var(--cream)', fontFamily: 'var(--sans)', overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 24 }}>
+        <StaffBG opacity={0.22} />
+        <FloatingNotes count={5} />
+        <div style={{ position: 'relative', zIndex: 2, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 18 }}>
+          <div style={{ animation: 'sn-breathe 2.4s ease-in-out infinite', transformOrigin: 'center bottom' }}>
+            <Cleffy size={110} mood="thinking" />
+          </div>
+          <div style={{ background: 'var(--paper)', border: '3px solid var(--ink)', borderRadius: 'var(--r2)', padding: '14px 22px', boxShadow: '0 5px 0 var(--ink)', display: 'flex', alignItems: 'center', gap: 12 }}>
+            <div style={{ width: 24, height: 24, border: '4px solid var(--parchment)', borderTopColor: 'var(--berry)', borderRadius: '50%', animation: 'sn-spin 0.8s linear infinite', flexShrink: 0 }} />
+            <div style={{ fontFamily: 'var(--serif)', fontStyle: 'italic', fontSize: 16, color: 'var(--ink)', fontWeight: 600 }}>Loading your account…</div>
+          </div>
+        </div>
       </div>
     );
   }

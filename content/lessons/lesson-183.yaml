@@ -1,0 +1,231 @@
+# ============================================================
+# LESSON 183 · Phrasing two voices
+# Tier 5 · Act 37 · Upper-Intermediate
+# Two voices. Two different breaths. Same moment.
+# ============================================================
+id: 183
+tier: upper-intermediate
+act: 37
+title: "Phrasing two voices"
+subtitle: "Act 37 · Bach Invention deeper"
+goal: "Shape each voice independently — one hand can crescendo while the other stays level, one can phrase off while the other phrases on."
+prereqs: [182, 119]
+method_focus: "combine"
+time_estimate_min: 15
+piece_context: "Until now, both hands shared a feeling. In counterpoint, they don't. Each voice is a singer. Two singers in the same room, singing different phrases, at the same time. Breathing separately."
+metaphor: "two-voices-converging"
+vibe: ["quiet", "focused", "reflective"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Two cartoon singers. One with mouth open on a held note. The other just inhaling, about to start. Banner: TWO BREATHS."
+    cleffy: >
+      Two voices.
+      Each one breathes on its own clock.
+      One can swell while the other settles.
+
+  - id: 2
+    mode: see
+    type: concept_independent_phrasing
+    figure: "A grand staff. Treble: a slur arching over four notes with crescendo. Bass: a slur ending earlier with decrescendo starting. The slurs don't line up."
+    cleffy: >
+      Look at the slurs.
+      The top voice arcs over four notes. The bottom voice ends its slur two beats earlier.
+      They don't match. They're not supposed to.
+
+  - id: 3
+    mode: hear
+    type: listen_unified
+    figure: "Play button. Caption: both voices shaped the same — both crescendo together."
+    audio:
+      A: "Two voices playing same phrase shape — both crescendo from soft to loud together, flat and uninteresting"
+    cleffy: >
+      First — both voices shaped the same way.
+      Both swell. Both settle. Same arc.
+      Sounds fine. A little flat.
+
+  - id: 4
+    mode: hear
+    type: listen_independent
+    figure: "Play button. Caption: same notes. Right crescendos while left stays even."
+    audio:
+      A: "Same two voices — RH swells from soft to loud, LH stays at same volume throughout. Much more interesting texture."
+    cleffy: >
+      Same notes. Different shaping.
+      Right hand swells. Left stays level.
+      Hear how much more alive that is?
+
+  - id: 5
+    mode: see
+    type: rule_one
+    figure: "A teacher's-card graphic. Rule 1: if one voice has the subject, it gets the attention. The other voice holds steady."
+    cleffy: >
+      Rule one.
+      When one voice has the subject, that voice leads.
+      The other voice supports — quieter, steadier.
+
+  - id: 6
+    mode: see
+    type: rule_two
+    figure: "Rule 2: each voice has its own phrase marks. Breathe where the slur ends — not where the other hand breathes."
+    cleffy: >
+      Rule two.
+      Breathe where YOUR slur ends. Not where the other hand's slur ends.
+      Two singers. Two breaths.
+
+  - id: 7
+    mode: play
+    type: play_rh_shaped
+    figure: "Treble staff. RH subject with a crescendo through it. Keyboard shows C5 D5 E5 F5 D5 E5 C5."
+    cleffy: >
+      Right hand alone. Shape it — soft at the start, a little louder on the high F, ease back.
+      The subject, sung.
+    interaction:
+      type: sequence
+      keys: ["C5","D5","E5","F5","D5","E5","C5"]
+
+  - id: 8
+    mode: play
+    type: play_lh_flat
+    figure: "Bass staff. LH holding two half-notes, even volume. C3 then G3."
+    cleffy: >
+      Now left hand alone. Two held notes. Flat. Steady.
+      You are the room the right hand sings in.
+    interaction:
+      type: rhythm
+      sequence: ["C3","G3"]
+      durations: ["half","half"]
+      tempo: 60
+
+  - id: 9
+    mode: see
+    type: combining_independence
+    figure: "Grand staff. RH subject with hairpin crescendo. LH two half-notes with flat dynamic mark. Both happen in the same four beats."
+    cleffy: >
+      Both at once now.
+      Right hand shaping. Left hand flat.
+      Same four beats — two different intentions.
+
+  - id: 10
+    mode: play
+    type: combine_slow
+    figure: "Grand staff. Same as page 9. Metronome 50."
+    cleffy: >
+      Very slow. Fifty on the metronome.
+      Right hand breathes. Left hand doesn't.
+    interaction:
+      type: song
+      sequence: [["C5","C3"],["D5"],["E5"],["F5","G3"],["D5"],["E5"],["C5"]]
+      guides: true
+      tempo: 50
+
+  - id: 11
+    mode: see
+    type: swap_roles
+    figure: "Grand staff. LH now has the subject with a crescendo. RH holds two long notes, flat."
+    cleffy: >
+      Swap. Now left hand has the subject.
+      Right hand is the room.
+      Lead voice crescendos. Accompanying voice stays flat.
+
+  - id: 12
+    mode: play
+    type: play_swapped
+    figure: "Grand staff. LH subject with dynamic shaping. RH two half-notes, flat. Metronome 50."
+    cleffy: >
+      Both hands. Left hand leads this time.
+      The shaping moves downstairs.
+    interaction:
+      type: song
+      sequence: [["C4","C5"],["D4"],["E4"],["F4","G4"],["D4"],["E4"],["C4"]]
+      guides: true
+      tempo: 50
+    followup_cleffy: >
+      Two voices. One shaped. One steady.
+      The shaped one always leads.
+
+  - id: 13
+    mode: play
+    type: both_shaped_differently
+    figure: "Grand staff. RH with a long slur. LH with two shorter slurs. Both have phrase marks — they don't line up."
+    cleffy: >
+      One more. Both voices shape — but differently.
+      Right hand one long arc. Left hand two shorter arcs.
+      Don't worry about being exact. Feel the independence.
+    interaction:
+      type: song
+      sequence: [["C5","C4"],["D5","D4"],["E5","E4"],["F5","F4"],["D5","G4"],["E5","A4"],["C5","G4"]]
+      guides: true
+      tempo: 55
+
+  - id: 14
+    mode: hear
+    type: pre_check
+    figure: "Banner — pre-check."
+    cleffy: >
+      Three quick ones.
+
+  - id: 15
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 183. Two singers standing back-to-back, each with their own breath cloud. A Bach manuscript between them."
+    cleffy: >
+      Two voices. Two breaths. Same moment.
+      The hand with the subject leads. The other hand gives it space.
+      Tomorrow — we speed the whole thing up. Adagio to moderato.
+
+practice_this_week:
+  real_piano:
+    - "Pick any two-hand piece you know. Play it once with both hands shaping together. Then play it again — right hand shapes, left hand stays flat. Hear the difference."
+    - "Say out loud which hand has the melody as you play. When the melody moves hands, the shaping moves with it."
+  virtual_only:
+    - "Replay pages 10 and 12 — feel both hands playing different dynamic shapes at once"
+  estimated_time: "12 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "Grand staff. Treble slur over 4 notes. Bass slur over 2 notes. They start at the same moment but end differently."
+          prompt: "What should the pianist do?"
+          options: ["Breathe at the end of both slurs, at different times", "Ignore one of the slurs", "Breathe at the same time for both hands"]
+          correct: 0
+        - figure: "A passage with the subject in the right hand and accompaniment in the left"
+          prompt: "Which hand should lead in dynamic shape?"
+          options: ["Left hand", "Right hand — it has the subject", "Both equally"]
+          correct: 1
+        - figure: "Two voices, both marked with hairpins, but the hairpins are in different places"
+          prompt: "What does this tell you?"
+          options: ["The voices shape independently", "It's a mistake in the score", "Only the top voice matters"]
+          correct: 0
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "Two voices — one crescendos, the other stays flat"
+          prompt: "Are the two voices shaped the same or differently?"
+          options: ["Same", "Differently"]
+          correct: 1
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play the subject in the right hand with a crescendo to the F, while the left hand holds C3 then G3 flat."
+          accept: "RH plays subject with dynamic shape, LH holds steady"
+
+remediation:
+  id: "183.5"
+  title: "Two voices, hand by hand"
+  pages: 8
+  opening_cleffy: >
+    This is a big idea — two voices, two intentions.
+    Let's go hand by hand. Shape the right. Then add a flat left. Then swap.
+    Slow and separate until it clicks.
+
+completion:
+  cleffy: >
+    Two voices. Two breaths. You can shape them independently now.
+    Tomorrow — we take the Invention from slow to moderato.
+  xp: 18
+  unlocks: 184

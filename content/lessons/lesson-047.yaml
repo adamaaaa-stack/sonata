@@ -1,0 +1,217 @@
+id: 47
+tier: elementary
+act: 10
+title: "Bass spaces, derived from F"
+subtitle: "A, C, E, G — the four spaces"
+goal: "Name every space of the bass staff by counting from bass F."
+prereqs: [46]
+method_focus: "notation"
+time_estimate_min: 10
+piece_context: null
+metaphor: "count-from-anchor"
+vibe: ["gentle", "playful"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Bass staff with lines labeled G B D F A, question marks on spaces."
+    cleffy: >
+      Lines done. Four spaces left.
+
+  - id: 2
+    mode: see
+    type: from_f_to_space
+    figure: "Bass staff. F (line 4) → step down to space 3 (E). Labeled."
+    cleffy: >
+      From bass F, step down — E. That's space 3.
+      From there, skip down — C. Space 2.
+      Skip again — A. Space 1.
+
+  - id: 3
+    mode: see
+    type: space_4
+    figure: "Bass staff. Space 4 labeled G (above the F line, step up)."
+    cleffy: >
+      Space 4, above F — step up — G.
+      All four spaces: A, C, E, G, bottom to top.
+
+  - id: 4
+    mode: see
+    type: all_spaces
+    figure: "Bass staff with all spaces labeled A, C, E, G."
+    cleffy: >
+      A, C, E, G.
+      Some people spell this ACE-G. You don't need a mnemonic — just count from bass F.
+
+  - id: 5
+    mode: see
+    type: interactive_space_1
+    figure: "Bass staff, space 1 (A)."
+    cleffy: >
+      Which letter?
+    interaction:
+      type: choice
+      options: ["A", "C", "E", "G"]
+      correct: 0
+
+  - id: 6
+    mode: see
+    type: interactive_space_3
+    figure: "Bass staff, space 3 (E)."
+    cleffy: >
+      This?
+    interaction:
+      type: choice
+      options: ["A", "C", "E", "G"]
+      correct: 2
+
+  - id: 7
+    mode: see
+    type: drill
+    figure: "Round counter 1 of 6."
+    cleffy: >
+      Six rounds. Which space?
+    interaction:
+      type: drill
+      rounds: 6
+      options: ["A", "C", "E", "G"]
+
+  - id: 8
+    mode: see
+    type: mixed_lines_spaces
+    figure: "Bass staff with a random note (line or space)."
+    cleffy: >
+      Now mix. Name any bass-staff note — line or space.
+    interaction:
+      type: drill
+      rounds: 6
+      options: ["G", "A", "B", "C", "D", "E", "F"]
+
+  - id: 9
+    mode: hear
+    type: hear_spaces
+    figure: "Bass space notes with audio."
+    audio:
+      A: "A2"
+      B: "C3 (bass C)"
+      C: "E3"
+      D: "G3"
+    cleffy: >
+      A, C, E, G on the piano.
+
+  - id: 10
+    mode: play
+    type: play_bass_c
+    figure: "Keyboard. Bass C (C3) glowing. Bass staff with note in space 2."
+    cleffy: >
+      Play bass C. Space 2. You've played this before.
+    interaction:
+      type: tap
+      key: "C3"
+
+  - id: 11
+    mode: play
+    type: play_bass_e
+    figure: "Keyboard. E3 glowing."
+    cleffy: >
+      Now E — space 3.
+    interaction:
+      type: tap
+      key: "E3"
+
+  - id: 12
+    mode: read
+    type: see_hear_play
+    figure: "Bass staff with space note."
+    cleffy: >
+      Three rounds. See, hear, play.
+    interaction:
+      type: see_hear_play
+      rounds: 3
+
+  - id: 13
+    mode: hear
+    type: mixed_drill
+    figure: "Mixed naming."
+    cleffy: >
+      Four rounds.
+    interaction:
+      type: drill
+      rounds: 4
+
+  - id: 14
+    mode: play
+    type: read_melody_bass
+    figure: "Bass staff with 4-note melody using lines AND spaces."
+    cleffy: >
+      Four-note bass melody. Read and play with LH.
+    interaction:
+      type: sequence
+      count: 4
+
+  - id: 15
+    mode: hear
+    type: pre_check
+    figure: "Banner."
+    cleffy: >
+      Four quick ones.
+
+  - id: 16
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 47. Full bass staff with every line AND space labeled."
+    cleffy: >
+      Every bass-staff spot, named. Same job as the treble side.
+      Tomorrow — ledger lines in the bass.
+
+practice_this_week:
+  real_piano:
+    - "Label both staves on paper. Treble lines+spaces. Bass lines+spaces."
+    - "Play each bass space on the piano: A2, C3, E3, G3."
+  virtual_only:
+    - "Replay page 8 (mixed bass naming)"
+  estimated_time: "5 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 3
+      questions:
+        - figure: "Bass staff space 1 (A)"
+          prompt: "Which letter?"
+          options: ["A", "C", "E", "G"]
+          correct: 0
+        - figure: "Bass staff space 2 (C)"
+          prompt: "Which letter?"
+          options: ["A", "C", "E", "G"]
+          correct: 1
+        - figure: "Bass staff space 4 (G)"
+          prompt: "Which letter?"
+          options: ["A", "C", "E", "G"]
+          correct: 3
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "C3 (bass C)"
+          prompt: "Which bass space?"
+          options: ["A", "C", "E", "G"]
+          correct: 1
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play E on the bass staff (space 3)."
+          accept: "E3"
+
+remediation:
+  id: "47.5"
+  title: "Bass spaces, slower"
+  pages: 5
+  opening_cleffy: >
+    Four spaces, counted from F. Slower walkthrough.
+
+completion:
+  cleffy: >
+    Bass staff is yours. Every line, every space, named.
+  xp: 20
+  unlocks: 48

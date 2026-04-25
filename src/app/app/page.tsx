@@ -32,13 +32,102 @@ class ErrorBoundary extends Component<{ children: React.ReactNode; fallback?: Re
 
 function LoadingSpinner({ text }: { text?: string }) {
   return (
-    <div style={{ textAlign: 'center', padding: 40, color: 'var(--text3)' }}>
-      <div style={{ width: 24, height: 24, border: '2px solid var(--bg3)', borderTopColor: 'var(--gold)', borderRadius: '50%', animation: 'spin 0.8s linear infinite', margin: '0 auto 12px' }} />
-      <div style={{ fontSize: 13 }}>{text || 'Loading...'}</div>
-      <style>{`@keyframes spin { to { transform: rotate(360deg) } }`}</style>
+    <div style={{ textAlign: 'center', padding: 32, color: 'var(--ink3)', fontFamily: 'var(--sans)' }}>
+      <div style={{
+        width: 36, height: 36,
+        border: '4px solid var(--parchment)',
+        borderTopColor: 'var(--berry)',
+        borderRadius: '50%',
+        animation: 'sn-spin 0.8s linear infinite',
+        margin: '0 auto 12px',
+      }} />
+      <div style={{ fontFamily: 'var(--serif)', fontStyle: 'italic', fontSize: 16, color: 'var(--ink2)', fontWeight: 600 }}>
+        {text || 'Loading…'}
+      </div>
     </div>
   );
 }
+
+const BOOT_TIPS = [
+  'Middle C sits right between the staves.',
+  'Steps go to the next line or space — skips leap over one.',
+  'Every Good Boy Deserves Fudge — treble clef lines, bottom to top.',
+  'All Cows Eat Grass — bass clef spaces, bottom to top.',
+  'FACE spells the treble spaces from bottom to top.',
+  'Every note you name makes Cleffy smile.',
+];
+
+function BootScreen() {
+  const [tipIdx, setTipIdx] = React.useState(() => Math.floor(Math.random() * BOOT_TIPS.length));
+  const [fade, setFade] = React.useState(true);
+  React.useEffect(() => {
+    const iv = setInterval(() => {
+      setFade(false);
+      setTimeout(() => {
+        setTipIdx(i => (i + 1) % BOOT_TIPS.length);
+        setFade(true);
+      }, 220);
+    }, 2600);
+    return () => clearInterval(iv);
+  }, []);
+  return (
+    <div style={{ position: 'relative', minHeight: '100vh', background: 'var(--cream)', fontFamily: 'var(--sans)', overflow: 'hidden', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: 32, textAlign: 'center' }}>
+      <StaffBG opacity={0.28} />
+      <FloatingNotes count={8} />
+      <div style={{ position: 'relative', zIndex: 2, display: 'flex', flexDirection: 'column', alignItems: 'center', maxWidth: 420 }}>
+        {/* Cleffy — breathing */}
+        <div style={{ animation: 'sn-breathe 2.4s ease-in-out infinite', transformOrigin: 'center bottom' }}>
+          <Cleffy size={160} mood="thinking" />
+        </div>
+        {/* Wordmark */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginTop: 14 }}>
+          <span style={{ width: 44, height: 44, borderRadius: 14, background: 'var(--ink)', color: 'var(--gold)', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', fontFamily: 'var(--serif)', fontSize: 28, border: '3px solid var(--ink)', boxShadow: '0 4px 0 var(--gold-deep)' }}>𝄞</span>
+          <div style={{ fontFamily: 'var(--serif)', fontStyle: 'italic', fontSize: 44, fontWeight: 900, color: 'var(--ink)', letterSpacing: '-0.03em', lineHeight: 1 }}>Sonata</div>
+        </div>
+        <div style={{ fontSize: 11, color: 'var(--ink3)', fontWeight: 800, letterSpacing: '0.16em', textTransform: 'uppercase', marginTop: 6 }}>Learn music, beautifully</div>
+
+        {/* Chunky spinner card */}
+        <div style={{ marginTop: 28, background: 'var(--paper)', border: '3px solid var(--ink)', borderRadius: 'var(--r2)', padding: '18px 26px', boxShadow: '0 5px 0 var(--ink)', display: 'flex', alignItems: 'center', gap: 14 }}>
+          <div style={{
+            width: 28, height: 28,
+            border: '4px solid var(--parchment)',
+            borderTopColor: 'var(--berry)',
+            borderRadius: '50%',
+            animation: 'sn-spin 0.8s linear infinite',
+            flexShrink: 0,
+          }} />
+          <div style={{ fontFamily: 'var(--serif)', fontStyle: 'italic', fontSize: 17, color: 'var(--ink)', fontWeight: 600 }}>
+            Tuning up your progress…
+          </div>
+        </div>
+
+        {/* Rotating tip */}
+        <div style={{
+          marginTop: 18,
+          minHeight: 44,
+          maxWidth: 340,
+          padding: '10px 16px',
+          background: 'transparent',
+          fontFamily: 'var(--serif)',
+          fontStyle: 'italic',
+          fontSize: 14,
+          fontWeight: 500,
+          color: 'var(--ink2)',
+          lineHeight: 1.5,
+          opacity: fade ? 1 : 0,
+          transform: fade ? 'translateY(0)' : 'translateY(4px)',
+          transition: 'opacity 220ms ease, transform 220ms ease',
+        }}>
+          <span style={{ fontSize: 10, fontWeight: 900, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--berry)', fontStyle: 'normal', fontFamily: 'var(--sans)', marginRight: 8 }}>♪ Tip</span>
+          {BOOT_TIPS[tipIdx]}
+        </div>
+      </div>
+      <Candle x={16} y="calc(50% - 60px)" size={20} />
+      <Candle x="calc(100% - 38px)" y="calc(50% - 60px)" size={20} />
+    </div>
+  );
+}
+
 import {
   NOTES, midiToNote, isBlack,
   makeABC,
@@ -58,6 +147,8 @@ import {
 import type { Question, DrillConfig, RhythmPattern, CatalogEntry, Lesson } from "@/lib/music";
 import { checkAuth, signOut, loadProgress, saveDrillSession, saveLessonComplete, loadLicense } from "@/lib/supabaseData";
 import { Cleffy } from "./Cleffy";
+import { LessonV2Screen } from "./LessonV2";
+import { lessonsV2, findLessonV2 } from "@/lib/music/lessonsV2";
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { ChunkyButton, Sticker, StaffBG, FloatingNotes, StreakFlame, DotRow, Candle, ChunkyCard, type ChunkyColor } from "./design";
 import type { User } from "@supabase/supabase-js";
@@ -542,19 +633,7 @@ export default function SonataApp() {
   // RENDER
   // ============================================================
   if (state.screen === 'loading') {
-    return (
-      <div style={s.page} className="sonata-page">
-        <div style={s.app}>
-          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: '80vh' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 20 }}>
-              <SonataLogo size={48} />
-              <div style={{ fontFamily: 'var(--serif)', fontSize: 36, color: 'var(--gold)' }}>Sonata</div>
-            </div>
-            <LoadingSpinner text="Loading your progress..." />
-          </div>
-        </div>
-      </div>
-    );
+    return <BootScreen />;
   }
 
   return (
@@ -569,7 +648,19 @@ export default function SonataApp() {
             {state.screen === 'drill' && <DrillScreen state={state} handleAnswer={handleAnswer} handleEndDrill={handleEndDrill} renderNotation={renderNotation} />}
             {state.screen === 'results' && <ResultsScreen state={state} dispatch={dispatch} />}
             {state.screen === 'lessons' && <LessonsListScreen state={state} dispatch={dispatch} />}
-            {state.screen === 'lesson' && <LessonScreen state={state} dispatch={dispatch} renderNotation={renderNotation} loadScore={loadScore} playScore={playScore} />}
+            {state.screen === 'lesson' && (() => {
+              const v2 = findLessonV2(state.currentLesson);
+              if (v2) {
+                return (
+                  <LessonV2Screen
+                    lesson={v2}
+                    onExit={() => { stopSpeaking(); dispatch({ type: 'SET_SCREEN', screen: 'lessons' }); }}
+                    onComplete={() => { stopSpeaking(); dispatch({ type: 'COMPLETE_LESSON' }); dispatch({ type: 'SET_SCREEN', screen: 'lessons' }); }}
+                  />
+                );
+              }
+              return <LessonScreen state={state} dispatch={dispatch} renderNotation={renderNotation} loadScore={loadScore} playScore={playScore} />;
+            })()}
             {state.screen === 'library' && <LibraryScreen state={state} dispatch={dispatch} loadScore={loadScore} playScore={playScore} />}
             {state.screen === 'progress' && <ProgressScreen state={state} dispatch={dispatch} />}
             {state.screen === 'sightReading' && <SightReadingScreen dispatch={dispatch} renderNotation={renderNotation} userId={state.user?.id} />}
@@ -701,9 +792,10 @@ function PianoKeyboard({ startMidi = 48, endMidi = 84, highlights = {}, fingers 
               }} />}
               {fingers[m] && <div style={{
                 position: 'absolute', top: 10, width: 20, height: 20, borderRadius: '50%',
-                background: '#0C0A09', color: '#C8A96E',
+                background: 'var(--ink)', color: 'var(--gold)',
+                border: '2px solid var(--ink)',
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
-                fontSize: 11, fontWeight: 600, pointerEvents: 'none', zIndex: 3,
+                fontSize: 11, fontWeight: 800, pointerEvents: 'none', zIndex: 3,
               }}>{fingers[m]}</div>}
               {showNames && (
                 <span style={{
@@ -751,7 +843,7 @@ function PianoKeyboard({ startMidi = 48, endMidi = 84, highlights = {}, fingers 
               {fingers[nb] && <div style={{
                 position: 'absolute', top: 8, left: '50%', transform: 'translateX(-50%)',
                 width: 16, height: 16, borderRadius: '50%',
-                background: '#FAFAF9', color: '#0C0A09',
+                background: 'var(--ink)', color: 'var(--gold)',
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
                 fontSize: 9, fontWeight: 600, pointerEvents: 'none', zIndex: 3,
               }}>{fingers[nb]}</div>}
@@ -1064,9 +1156,16 @@ function OnboardingScreen({ slide, setSlide, dispatch, renderNotation }: {
 // ============================================================
 // SCREEN: MENU
 // ============================================================
-function getNextLesson(completed: number[]): typeof lessons[0] | null {
-  for (const l of lessons) {
-    if (!completed.includes(l.id)) return l;
+function getNextLesson(completed: number[]): { id: number; title: string; subtitle: string; piece: string } | null {
+  for (const l of lessonsV2) {
+    if (!completed.includes(l.id)) {
+      return {
+        id: l.id,
+        title: l.title,
+        subtitle: l.subtitle || l.goal || "",
+        piece: l.piece?.title || "",
+      };
+    }
   }
   return null;
 }
@@ -1172,7 +1271,7 @@ function MenuScreen({ state, dispatch }: { state: AppState; dispatch: React.Disp
   }, []);
 
   const name = email ? email.split('@')[0].replace(/[._-]+/g, ' ').replace(/\b\w/g, c => c.toUpperCase()) : '';
-  const lessonPct = Math.round(state.lessonsCompleted.length / lessons.length * 100);
+  const lessonPct = Math.round(state.lessonsCompleted.length / lessonsV2.length * 100);
   const nextLesson = getNextLesson(state.lessonsCompleted);
   const achievements = getAchievements(state);
   const earnedAchievements = achievements.filter(a => a.done);
@@ -1839,7 +1938,7 @@ function LessonsListScreen({ state, dispatch }: { state: AppState; dispatch: Rea
           style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '10px 16px', background: 'var(--cream)', color: 'var(--ink)', border: '3px solid var(--ink)', borderRadius: 999, boxShadow: '0 4px 0 var(--ink)', fontWeight: 800, fontSize: 14, cursor: 'pointer', fontFamily: 'var(--sans)' }}>
           ← Home
         </button>
-        <Sticker color="peach" rotate={-2}>◆ {state.lessonsCompleted.length}/{lessons.length} complete</Sticker>
+        <Sticker color="peach" rotate={-2}>◆ {state.lessonsCompleted.length}/{lessonsV2.length} · {Math.round((state.lessonsCompleted.length / lessonsV2.length) * 100)}%</Sticker>
         <div style={{ width: 80 }} />
       </div>
 
@@ -1854,11 +1953,13 @@ function LessonsListScreen({ state, dispatch }: { state: AppState; dispatch: Rea
       </div>
 
       <div style={{ position: 'relative', zIndex: 2, padding: '0 24px', display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: 14, maxWidth: 1100, margin: '0 auto' }}>
-        {lessons.map((l, i) => {
+        {lessonsV2.map((l, i) => {
           const complete = state.lessonsCompleted.includes(l.id);
-          const prevComplete = i === 0 || state.lessonsCompleted.includes(lessons[i - 1].id);
+          const prevComplete = i === 0 || state.lessonsCompleted.includes(lessonsV2[i - 1].id);
           const locked = !prevComplete && !complete;
           const color: ChunkyColor = locked ? 'cream' : complete ? 'mint' : tileColors[i % tileColors.length];
+          const pieceLabel = l.piece?.title || '';
+          const bossBadge = l.is_graduation ? ' 🏆' : l.is_tier_boss ? ' 👑' : l.is_mid_boss ? ' 👑' : l.is_act_boss ? ' 🎯' : '';
           return (
             <ChunkyCard
               key={l.id}
@@ -1871,11 +1972,11 @@ function LessonsListScreen({ state, dispatch }: { state: AppState; dispatch: Rea
                 width: 52, height: 52, flexShrink: 0, borderRadius: 'var(--r1)',
                 background: 'var(--cream)', border: '3px solid var(--ink)',
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
-                fontFamily: 'var(--serif)', fontStyle: 'italic', fontWeight: 900, fontSize: 24, color: 'var(--ink)',
+                fontFamily: 'var(--serif)', fontStyle: 'italic', fontWeight: 900, fontSize: 22, color: 'var(--ink)',
               }}>{l.id}</div>
               <div style={{ flex: 1, minWidth: 0 }}>
-                <div style={{ fontFamily: 'var(--serif)', fontSize: 18, fontWeight: 900, fontStyle: 'italic', color: 'var(--ink)', lineHeight: 1.1 }}>{l.title}</div>
-                <div style={{ fontSize: 12, color: 'var(--ink)', opacity: 0.75, fontWeight: 600, marginTop: 3 }}>{l.sub}{l.piece ? ` · ${l.piece}` : ''}</div>
+                <div style={{ fontFamily: 'var(--serif)', fontSize: 17, fontWeight: 900, fontStyle: 'italic', color: 'var(--ink)', lineHeight: 1.1 }}>{l.title}{bossBadge}</div>
+                <div style={{ fontSize: 12, color: 'var(--ink)', opacity: 0.75, fontWeight: 600, marginTop: 3 }}>{l.subtitle || l.goal}{pieceLabel ? ` · ${pieceLabel}` : ''}</div>
               </div>
               <div style={{ fontSize: 22, color: 'var(--ink)', fontWeight: 800 }}>{complete ? '✓' : locked ? '🔒' : '→'}</div>
             </ChunkyCard>

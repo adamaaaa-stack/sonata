@@ -1,0 +1,4202 @@
+library: Sonata — solo piano piece library
+description: Curated catalog of public-domain solo piano repertoire spanning Henle difficulty 1-6. Cross-linked to Sonata lessons via sonata_lesson field.
+total_pieces: 213
+pieces:
+- id: 1
+  title: Menuet in D minor, BWV Anh. 132 (simplified)
+  composer: Anonymous (from Anna Magdalena Notebook)
+  composer_dates: c. 1725
+  period: Baroque
+  key: D minor
+  time_signature: 3/4
+  length_bars: 16
+  length_minutes: 1.0
+  difficulty_henle: 1
+  difficulty_tier: 1
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/Notebook_for_Anna_Magdalena_Bach_(Bach%2C_Johann_Sebastian)
+  description: A short, expressive Baroque dance in D minor. Teaches the natural minor contour (raised 7th only at the cadence) and two-voice texture at an entry level.
+  tags:
+  - baroque
+  - bach-notebook
+  - minor
+  - two-voice
+  - menuet
+- id: 2
+  title: Musette in D major, BWV Anh. 126
+  composer: Anonymous (from Anna Magdalena Notebook)
+  composer_dates: c. 1725
+  period: Baroque
+  key: D major
+  time_signature: 2/4
+  length_bars: 24
+  length_minutes: 1.0
+  difficulty_henle: 1
+  difficulty_tier: 1
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/Notebook_for_Anna_Magdalena_Bach_(Bach%2C_Johann_Sebastian)
+  description: A cheerful pastoral with a constant D drone imitating the French bagpipe (musette). The bright key of D and the drone bass make hand coordination unusually approachable.
+  tags:
+  - baroque
+  - bach-notebook
+  - drone
+  - dance
+  - d-major
+- id: 3
+  title: Mikrokosmos Vol. 1, No. 1 'Unison Melody'
+  composer: Béla Bartók
+  composer_dates: 1881-1945
+  period: 20th-century
+  key: C major
+  time_signature: 4/4
+  length_bars: 16
+  length_minutes: 0.5
+  difficulty_henle: 1
+  difficulty_tier: 1
+  public_domain: false
+  description: Both hands play the same line an octave apart — Bartók's ingenious first exercise. Teaches hand independence by ensuring there is none yet, freeing the student to focus on pure pulse and shape.
+  tags:
+  - 20th-century
+  - bartok
+  - mikrokosmos
+  - unison
+  - pedagogical
+- id: 4
+  title: Mikrokosmos Vol. 1, No. 2
+  composer: Béla Bartók
+  composer_dates: 1881-1945
+  period: 20th-century
+  key: C major (modal)
+  time_signature: 4/4
+  length_bars: 16
+  length_minutes: 0.5
+  difficulty_henle: 1
+  difficulty_tier: 1
+  public_domain: false
+  description: Continues the unison idea with slightly expanded range. Bartók uses a narrow mode to produce a distinctly folk-Hungarian flavor from the very first lessons.
+  tags:
+  - 20th-century
+  - bartok
+  - mikrokosmos
+  - modal
+  - folk-influenced
+- id: 5
+  title: Mikrokosmos Vol. 1, No. 6 'Question and Answer'
+  composer: Béla Bartók
+  composer_dates: 1881-1945
+  period: 20th-century
+  key: C (modal, mixolydian-leaning)
+  time_signature: 4/4
+  length_bars: 16
+  length_minutes: 0.6
+  difficulty_henle: 1
+  difficulty_tier: 1
+  public_domain: false
+  description: 'A two-phrase dialogue: right-hand ''question,'' left-hand ''answer.'' Introduces hand-alternation and the musical concept of call-and-response with almost no notes per hand.'
+  tags:
+  - 20th-century
+  - bartok
+  - mikrokosmos
+  - dialogue
+  - hand-alternation
+- id: 6
+  title: Menuet in G minor, BWV Anh. 115 (simplified)
+  composer: Christian Petzold (attrib. Bach)
+  composer_dates: 1677-1733
+  period: Baroque
+  key: G minor
+  time_signature: 3/4
+  length_bars: 16
+  length_minutes: 1.0
+  difficulty_henle: 1
+  difficulty_tier: 1
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/Notebook_for_Anna_Magdalena_Bach_(Bach%2C_Johann_Sebastian)
+  description: The melancholy sibling of the famous G major Menuet from the Anna Magdalena Notebook. In simplified form, it introduces the minor-mode Baroque dance and three-quarter time.
+  tags:
+  - baroque
+  - bach-notebook
+  - minor
+  - dance
+  - menuet
+- id: 7
+  title: The First Step, Op. 82 No. 1
+  composer: Cornelius Gurlitt
+  composer_dates: 1820-1901
+  period: Romantic
+  key: C major
+  time_signature: 4/4
+  length_bars: 16
+  length_minutes: 0.6
+  difficulty_henle: 1
+  difficulty_tier: 1
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/First_Lessons_for_the_Piano%2C_Op.82_(Gurlitt%2C_Cornelius)
+  description: The opening piece of Gurlitt's 'First Lessons.' A true miniature in ternary form — 8 bars of tune, a contrasting middle, then a return. Small enough to memorise, rich enough to phrase.
+  tags:
+  - romantic
+  - gurlitt
+  - ternary
+  - pedagogical
+- id: 8
+  title: Vorschule im Klavierspiel, Op. 101, No. 1
+  composer: Ferdinand Beyer
+  composer_dates: 1803-1863
+  period: Romantic
+  key: C major
+  time_signature: 4/4
+  length_bars: 16
+  length_minutes: 0.5
+  difficulty_henle: 1
+  difficulty_tier: 1
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/Vorschule_im_Klavierspiel%2C_Op.101_(Beyer%2C_Ferdinand)
+  description: The opening exercise from the most-used European beginner method of the 19th century. Quarter-note-only, hands-together, pure middle C — the definitive starting point.
+  tags:
+  - romantic
+  - beyer
+  - method
+  - middle-c-position
+- id: 9
+  title: Vorschule im Klavierspiel, Op. 101, No. 8
+  composer: Ferdinand Beyer
+  composer_dates: 1803-1863
+  period: Romantic
+  key: C major
+  time_signature: 3/4
+  length_bars: 16
+  length_minutes: 0.6
+  difficulty_henle: 1
+  difficulty_tier: 1
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/Vorschule_im_Klavierspiel%2C_Op.101_(Beyer%2C_Ferdinand)
+  description: Beyer's first excursion into 3/4 time. The right hand sings a simple waltz tune while the left holds whole-note roots — ideal for introducing waltz feel.
+  tags:
+  - romantic
+  - beyer
+  - waltz
+  - 3/4
+- id: 10
+  title: Aura Lee
+  composer: George R. Poulton
+  composer_dates: 1828-1867
+  period: Romantic
+  key: G major
+  time_signature: 4/4
+  length_bars: 16
+  length_minutes: 0.8
+  difficulty_henle: 1
+  difficulty_tier: 1
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/Aura_Lee_(Poulton%2C_George_R.)
+  description: The Civil War-era ballad later reworked as Elvis Presley's 'Love Me Tender.' Beautiful stepwise contour with a gentle arch — ideal for phrase-shaping practice at the beginner level.
+  tags:
+  - romantic
+  - ballad
+  - lyrical
+  - stepwise
+- id: 11
+  title: The Can-Can (simplified)
+  composer: Jacques Offenbach, arr. traditional
+  composer_dates: 1819-1880
+  period: Romantic
+  key: C major
+  time_signature: 2/4
+  length_bars: 16
+  length_minutes: 0.5
+  difficulty_henle: 1
+  difficulty_tier: 1
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/Orph%C3%A9e_aux_enfers_(Offenbach%2C_Jacques)
+  description: The galop from 'Orpheus in the Underworld' in a simplified single-line arrangement. Fast 2/4 pulse and a cheeky descending run give beginners their first taste of virtuosic character at a manageable tempo.
+  tags:
+  - romantic
+  - offenbach
+  - galop
+  - 2/4
+  - energetic
+- id: 12
+  title: Jingle Bells (simplified)
+  composer: James Lord Pierpont
+  composer_dates: 1822-1893
+  period: Traditional
+  key: C major
+  time_signature: 4/4
+  length_bars: 32
+  length_minutes: 1.0
+  difficulty_henle: 1
+  difficulty_tier: 1
+  public_domain: true
+  description: The repeated E-E-E 'jingle bells' opener cements the concept of rhythmic repetition on a single note. The chorus introduces stepwise descent from G through the five-finger position.
+  tags:
+  - seasonal
+  - 5-note-range
+  - repetition
+  - c-major
+  sonata_lesson: 65
+- id: 13
+  title: Little Flower, Op. 205 No. 1
+  composer: Louis Köhler
+  composer_dates: 1820-1886
+  period: Romantic
+  key: C major
+  time_signature: 4/4
+  length_bars: 16
+  length_minutes: 0.6
+  difficulty_henle: 1
+  difficulty_tier: 1
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/Der_Kleine_Pianist%2C_Op.300_(K%C3%B6hler%2C_Louis)
+  description: From Köhler's 'Der kleine Pianist' — a gentle lyrical study aimed at even tone production. Both hands stay in strict five-finger position throughout.
+  tags:
+  - romantic
+  - kohler
+  - lyrical
+  - five-finger-position
+- id: 14
+  title: Ode to Joy (simplified theme)
+  composer: Ludwig van Beethoven, arr. traditional
+  composer_dates: 1770-1827
+  period: Classical
+  key: C major
+  time_signature: 4/4
+  length_bars: 16
+  length_minutes: 0.5
+  difficulty_henle: 1
+  difficulty_tier: 1
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/Symphony_No.9%2C_Op.125_(Beethoven%2C_Ludwig_van)
+  description: The most famous melody in Western music compressed to five notes. Pure stepwise motion (E-E-F-G-G-F-E-D-C) — the ideal vehicle for teaching students that great themes can come from simple neighbor tones.
+  tags:
+  - classical
+  - stepwise
+  - 5-note-range
+  - iconic
+  sonata_lesson: 55
+- id: 15
+  title: Sonatina in C major, Op. 36 No. 1, Mvt. 1 (Spiritoso)
+  composer: Muzio Clementi
+  composer_dates: 1752-1832
+  period: Classical
+  key: C major
+  time_signature: 4/4
+  length_bars: 38
+  length_minutes: 1.5
+  difficulty_henle: 1
+  difficulty_tier: 1
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/6_Progressive_Sonatinas%2C_Op.36_(Clementi%2C_Muzio)
+  description: The gateway Classical sonatina — a miniature sonata-form movement with crystalline C major figuration. Teaches Alberti-style left-hand patterns and the feel of a true classical phrase.
+  tags:
+  - classical
+  - clementi
+  - sonatina
+  - alberti-bass
+  - sonata-form
+- id: 16
+  title: Happy Birthday to You
+  composer: Patty & Mildred Hill
+  composer_dates: '1893'
+  period: Traditional
+  key: F major
+  time_signature: 3/4
+  length_bars: 8
+  length_minutes: 0.3
+  difficulty_henle: 1
+  difficulty_tier: 1
+  public_domain: true
+  description: Now public domain (as of 2016), this is the world's most-sung melody. The anacrusis (pickup) and dotted-eighth rhythm introduce students to off-beat starts in a familiar context.
+  tags:
+  - celebratory
+  - 3/4
+  - anacrusis
+  - dotted-rhythm
+  sonata_lesson: 25
+- id: 17
+  title: Chorale (from Album for the Young), Op. 68 No. 4
+  composer: Robert Schumann
+  composer_dates: 1810-1856
+  period: Romantic
+  key: G major
+  time_signature: 4/4
+  length_bars: 16
+  length_minutes: 1.0
+  difficulty_henle: 1
+  difficulty_tier: 1
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/Album_for_the_Young%2C_Op.68_(Schumann%2C_Robert)
+  description: A simple four-voice chorale written in homage to Bach. Teaches the beginner to listen to four moving lines at once — the earliest real chorale-texture piece in the repertoire.
+  tags:
+  - romantic
+  - schumann
+  - chorale
+  - four-voice
+  - bach-homage
+- id: 18
+  title: Humming Song, Op. 68 No. 3
+  composer: Robert Schumann
+  composer_dates: 1810-1856
+  period: Romantic
+  key: C major
+  time_signature: 2/4
+  length_bars: 16
+  length_minutes: 0.8
+  difficulty_henle: 1
+  difficulty_tier: 1
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/Album_for_the_Young%2C_Op.68_(Schumann%2C_Robert)
+  description: A quiet inward piece — Schumann imagining a child humming to themselves. The accompaniment's pulsing eighth-notes set up future etude-style textures without the difficulty.
+  tags:
+  - romantic
+  - schumann
+  - intimate
+  - pulsing-eighths
+- id: 19
+  title: Kinderlied (Children's Song), Op. 68 No. 5
+  composer: Robert Schumann
+  composer_dates: 1810-1856
+  period: Romantic
+  key: C major
+  time_signature: 4/4
+  length_bars: 16
+  length_minutes: 0.8
+  difficulty_henle: 1
+  difficulty_tier: 1
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/Album_for_the_Young%2C_Op.68_(Schumann%2C_Robert)
+  description: A warm, vocal line supported by sustained chord tones. Teaches cantabile touch — the ability to let the melody sing above a softer accompaniment — in a genuinely short piece.
+  tags:
+  - romantic
+  - schumann
+  - cantabile
+  - album-for-the-young
+- id: 20
+  title: Melody, Op. 68 No. 1
+  composer: Robert Schumann
+  composer_dates: 1810-1856
+  period: Romantic
+  key: C major
+  time_signature: 4/4
+  length_bars: 16
+  length_minutes: 1.5
+  difficulty_henle: 1
+  difficulty_tier: 1
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/Album_for_the_Young%2C_Op.68_(Schumann%2C_Robert)
+  description: 'The opening piece of Schumann''s Album for the Young — a singing right-hand line over simple block-chord accompaniment. The ideal first Romantic piece: all the lyricism, none of the technical difficulty.'
+  tags:
+  - romantic
+  - schumann
+  - lyrical
+  - album-for-the-young
+- id: 21
+  title: Soldiers' March, Op. 68 No. 2
+  composer: Robert Schumann
+  composer_dates: 1810-1856
+  period: Romantic
+  key: G major
+  time_signature: 2/4
+  length_bars: 16
+  length_minutes: 0.8
+  difficulty_henle: 1
+  difficulty_tier: 1
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/Album_for_the_Young%2C_Op.68_(Schumann%2C_Robert)
+  description: Crisp dotted rhythms evoke a toy-soldier parade. Staccato articulation and repeated rhythmic cells make this the archetypal 'character piece' for beginners.
+  tags:
+  - romantic
+  - schumann
+  - march
+  - staccato
+  - album-for-the-young
+- id: 22
+  title: Volkslied (Folk Song), Op. 68 No. 9
+  composer: Robert Schumann
+  composer_dates: 1810-1856
+  period: Romantic
+  key: D minor
+  time_signature: 4/4
+  length_bars: 16
+  length_minutes: 1.0
+  difficulty_henle: 1
+  difficulty_tier: 1
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/Album_for_the_Young%2C_Op.68_(Schumann%2C_Robert)
+  description: A dark, expressive piece in D minor with an unexpected D major shift mid-way. One of the most emotionally mature pieces a true beginner can play.
+  tags:
+  - romantic
+  - schumann
+  - minor
+  - modal-shift
+  - album-for-the-young
+- id: 23
+  title: Frère Jacques
+  composer: Traditional
+  composer_dates: 18th-century French
+  period: Traditional
+  key: C major
+  time_signature: 4/4
+  length_bars: 8
+  length_minutes: 0.3
+  difficulty_henle: 1
+  difficulty_tier: 1
+  public_domain: true
+  description: Four two-bar phrases that each repeat — a built-in canon structure beginners grasp instantly. Perfect introduction to phrase symmetry.
+  tags:
+  - folk
+  - french
+  - canon
+  - phrase-structure
+- id: 24
+  title: Hot Cross Buns
+  composer: Traditional
+  composer_dates: 18th-century English street cry
+  period: Traditional
+  key: C major
+  time_signature: 4/4
+  length_bars: 8
+  length_minutes: 0.3
+  difficulty_henle: 1
+  difficulty_tier: 1
+  public_domain: true
+  description: A three-note melody (E-D-C) built entirely from descending steps and simple repetition. The shortest true piece in the beginner repertoire and a common first song for reading practice.
+  tags:
+  - folk
+  - stepwise
+  - 3-note-range
+  - first-piece
+  sonata_lesson: 20
+- id: 25
+  title: London Bridge Is Falling Down
+  composer: Traditional
+  composer_dates: 17th-century English
+  period: Traditional
+  key: C major
+  time_signature: 4/4
+  length_bars: 8
+  length_minutes: 0.3
+  difficulty_henle: 1
+  difficulty_tier: 1
+  public_domain: true
+  description: A compact nursery melody that teaches the dominant-to-tonic descent (G-F-E-D-C). The very short form makes it memorable after a single sitting.
+  tags:
+  - folk
+  - nursery
+  - 5-note-range
+  - descending
+- id: 26
+  title: Mary Had a Little Lamb
+  composer: Traditional
+  composer_dates: 19th century (Lowell Mason, 1830)
+  period: Traditional
+  key: C major
+  time_signature: 4/4
+  length_bars: 16
+  length_minutes: 0.5
+  difficulty_henle: 1
+  difficulty_tier: 1
+  public_domain: true
+  description: The quintessential first melody — three notes (E, D, C) carry most of the tune, making it ideal for introducing stepwise motion and fixed-hand position. Students immediately recognize the shape on the staff.
+  tags:
+  - folk
+  - stepwise
+  - 5-note-range
+  - c-major
+  sonata_lesson: 45
+- id: 27
+  title: Merrily We Roll Along
+  composer: Traditional
+  composer_dates: American folk, 19th century
+  period: Traditional
+  key: C major
+  time_signature: 4/4
+  length_bars: 8
+  length_minutes: 0.3
+  difficulty_henle: 1
+  difficulty_tier: 1
+  public_domain: true
+  description: Shares its tune with 'Mary Had a Little Lamb' in many method books but uses a fresh rhythmic pattern. Excellent reinforcement for the E-D-C three-note core.
+  tags:
+  - folk
+  - stepwise
+  - 3-note-range
+  sonata_lesson: 35
+- id: 28
+  title: Old MacDonald Had a Farm
+  composer: Traditional
+  composer_dates: Earliest print 1917
+  period: Traditional
+  key: G major
+  time_signature: 4/4
+  length_bars: 16
+  length_minutes: 0.5
+  difficulty_henle: 1
+  difficulty_tier: 1
+  public_domain: true
+  description: Pure pentatonic melody — no half-steps, no accidentals. The 'E-I-E-I-O' phrase teaches students to comfortably move between third and fifth scale degrees.
+  tags:
+  - folk
+  - pentatonic
+  - children
+  - g-major
+- id: 29
+  title: Row, Row, Row Your Boat
+  composer: Traditional
+  composer_dates: American, 1852
+  period: Traditional
+  key: C major
+  time_signature: 6/8
+  length_bars: 8
+  length_minutes: 0.3
+  difficulty_henle: 1
+  difficulty_tier: 1
+  public_domain: true
+  description: One of the few Henle-1 pieces in compound 6/8 time. The rising C-C-C-D-E-F-G opening arpeggio-by-steps is a beautiful first exposure to the lilting 6/8 feel.
+  tags:
+  - folk
+  - 6/8
+  - canon
+  - ascending
+- id: 30
+  title: Skip to My Lou
+  composer: Traditional
+  composer_dates: American, 1840s
+  period: Traditional
+  key: C major
+  time_signature: 4/4
+  length_bars: 16
+  length_minutes: 0.5
+  difficulty_henle: 1
+  difficulty_tier: 1
+  public_domain: true
+  description: Uses the G-E skip motive throughout — the perfect companion piece when introducing the concept of 'skips' (thirds) versus steps in the steps-and-skips method.
+  tags:
+  - folk
+  - american
+  - skips
+  - steps-and-skips
+- id: 31
+  title: This Old Man
+  composer: Traditional
+  composer_dates: English, 1906 (earliest source)
+  period: Traditional
+  key: F major
+  time_signature: 4/4
+  length_bars: 16
+  length_minutes: 0.5
+  difficulty_henle: 1
+  difficulty_tier: 1
+  public_domain: true
+  description: The G-E-G motif (sol-mi-sol) is the universal playground-chant figure — already internalised by most children before they touch a keyboard. Great for ear-to-hand mapping.
+  tags:
+  - folk
+  - nursery
+  - sol-mi-sol
+  - 5-note-range
+- id: 32
+  title: When the Saints Go Marching In
+  composer: Traditional
+  composer_dates: American gospel, published 1896
+  period: Traditional
+  key: C major
+  time_signature: 4/4
+  length_bars: 16
+  length_minutes: 0.5
+  difficulty_henle: 1
+  difficulty_tier: 1
+  public_domain: true
+  description: The 1-3-4-5 (C-E-F-G) opening pattern is the clearest illustration of 'gapped' major-scale motion any beginner will meet. A foundational tune for understanding the major scale's shape.
+  tags:
+  - gospel
+  - major-scale
+  - iconic
+  - 5-note-range
+- id: 33
+  title: Yankee Doodle
+  composer: Traditional
+  composer_dates: Pre-1775, American
+  period: Traditional
+  key: G major
+  time_signature: 2/4
+  length_bars: 32
+  length_minutes: 0.8
+  difficulty_henle: 1
+  difficulty_tier: 1
+  public_domain: true
+  description: An early example of 2/4 march feel. The tune hops between G and B a lot, reinforcing third-interval recognition within a five-finger frame.
+  tags:
+  - folk
+  - march
+  - 2/4
+  - patriotic
+- id: 34
+  title: Twinkle, Twinkle, Little Star
+  composer: 'Traditional (melody: French folk, arr. many)'
+  composer_dates: 1761 (melody 'Ah! vous dirai-je, maman')
+  period: Traditional
+  key: C major
+  time_signature: 4/4
+  length_bars: 24
+  length_minutes: 0.8
+  difficulty_henle: 1
+  difficulty_tier: 1
+  public_domain: true
+  description: The opening leap from C to G introduces the perfect fifth — the first interval larger than a step most students play. The A-A-G pattern then teaches returning within a five-finger position.
+  tags:
+  - folk
+  - 5-note-range
+  - fifth-leap
+  - c-major
+- id: 35
+  title: Au Clair de la Lune
+  composer: Traditional (often attrib. Lully)
+  composer_dates: 18th-century French
+  period: Traditional
+  key: C major
+  time_signature: 4/4
+  length_bars: 16
+  length_minutes: 0.5
+  difficulty_henle: 1
+  difficulty_tier: 1
+  public_domain: true
+  description: Historically notable as the earliest known audio recording (1860). Three repeated Cs open the tune — perfect for a steady-quarter-note rhythm drill.
+  tags:
+  - folk
+  - french
+  - repetition
+  - c-major
+- id: 36
+  title: Good King Wenceslas
+  composer: 'Traditional (text: J. M. Neale, 1853)'
+  composer_dates: 'Tune: 13th-century ''Tempus adest floridum'''
+  period: Traditional
+  key: F major
+  time_signature: 4/4
+  length_bars: 16
+  length_minutes: 0.8
+  difficulty_henle: 1
+  difficulty_tier: 1
+  public_domain: true
+  description: A medieval spring carol repurposed as a Christmas hymn. Mostly stepwise with one gentle sixth leap — a taste of modal color within a beginner-friendly shape.
+  tags:
+  - carol
+  - seasonal
+  - medieval
+  - modal-flavor
+- id: 37
+  title: Amazing Grace (melody)
+  composer: 'Traditional (text: John Newton)'
+  composer_dates: 1779 (text); tune 'New Britain' 1835
+  period: Traditional
+  key: G major
+  time_signature: 3/4
+  length_bars: 16
+  length_minutes: 0.8
+  difficulty_henle: 1
+  difficulty_tier: 1
+  public_domain: true
+  description: A pentatonic hymn in 3/4 — introduces the waltz feel and dotted-rhythm phrasing. The opening upward leap from D to G gives students a singable fourth to anchor the tune.
+  tags:
+  - hymn
+  - pentatonic
+  - 3/4
+  - dotted-rhythm
+  sonata_lesson: 70
+- id: 38
+  title: Greensleeves (simplified melody)
+  composer: Traditional English
+  composer_dates: Published 1580
+  period: Folk
+  key: A minor
+  time_signature: 6/8
+  length_bars: 16
+  length_minutes: 1.2
+  difficulty_henle: 1
+  difficulty_tier: 1
+  public_domain: true
+  description: The most famous Renaissance tune, in a genuine A minor setting. The 6/8 meter and the rise to the high C at the refrain's climax give beginners their first lyrical peak to shape toward.
+  tags:
+  - folk
+  - renaissance
+  - minor
+  - 6/8
+  - iconic
+- id: 39
+  title: Scarborough Fair
+  composer: Traditional English
+  composer_dates: Medieval/Renaissance; notated 19th century
+  period: Folk
+  key: E minor (Dorian)
+  time_signature: 3/4
+  length_bars: 16
+  length_minutes: 1.0
+  difficulty_henle: 1
+  difficulty_tier: 1
+  public_domain: true
+  description: A Dorian-mode ballad (minor sound with a raised 6th) — a rare chance for beginners to play genuinely modal music. The 3/4 lilt and narrow range keep it playable while sounding ancient.
+  tags:
+  - folk
+  - english
+  - dorian
+  - modal
+  - ballad
+- id: 40
+  title: Lightly Row
+  composer: Traditional German
+  composer_dates: 19th century
+  period: Traditional
+  key: C major
+  time_signature: 4/4
+  length_bars: 16
+  length_minutes: 0.5
+  difficulty_henle: 1
+  difficulty_tier: 1
+  public_domain: true
+  description: A Suzuki Book 1 staple. The melody outlines a C major triad in its opening G-E-E pattern, planting the seed for later chord-tone awareness.
+  tags:
+  - folk
+  - suzuki
+  - triadic
+  - method-classic
+- id: 41
+  title: Musette in D major (BWV Anh. 126)
+  composer: Anonymous (attrib. Bach)
+  composer_dates: c. 1725
+  period: Baroque
+  key: D major
+  time_signature: 2/4
+  length_bars: 24
+  length_minutes: 1.0
+  difficulty_henle: 2
+  difficulty_tier: 2
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/Notebook_for_Anna_Magdalena_Bach_(Bach%2C_Johann_Sebastian)
+  description: A rustic dance imitating the drone of a bagpipe (musette). Cheerful, bouncy, with a pedal-point D in the left hand. Teaches steady rhythm and articulation.
+  tags:
+  - baroque
+  - dance
+  - drone
+  - rustic
+  - cheerful
+  sonata_lesson: null
+- id: 42
+  title: Polonaise in G minor (BWV Anh. 119)
+  composer: Anonymous (attrib. Bach)
+  composer_dates: c. 1725
+  period: Baroque
+  key: G minor
+  time_signature: 3/4
+  length_bars: 16
+  length_minutes: 1.0
+  difficulty_henle: 2
+  difficulty_tier: 2
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/Notebook_for_Anna_Magdalena_Bach_(Bach%2C_Johann_Sebastian)
+  description: A short, stately Polish dance in minor. Features the characteristic Polonaise rhythm. Good introduction to compound articulation patterns.
+  tags:
+  - baroque
+  - dance
+  - minor
+  - polonaise
+  - short
+  sonata_lesson: null
+- id: 43
+  title: Sonatina in G major, Op. 168 No. 1
+  composer: Anton Diabelli
+  composer_dates: 1781–1858
+  period: Classical
+  key: G major
+  time_signature: 4/4
+  length_bars: 40
+  length_minutes: 2.0
+  difficulty_henle: 2
+  difficulty_tier: 2
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/7_Sonatinas%2C_Op.168_(Diabelli%2C_Anton)
+  description: A cheerful first-movement sonatina. Diatonic, well-fingered, great stepping stone between Clementi and Kuhlau levels.
+  tags:
+  - classical
+  - sonatina
+  - cheerful
+  - diatonic
+  sonata_lesson: null
+- id: 44
+  title: Humoresque, Op. 101 No. 7 (simplified opening)
+  composer: Antonín Dvořák (arr.)
+  composer_dates: 1841–1904
+  period: Romantic
+  key: G-flat major (or G major simplified)
+  time_signature: 2/4
+  length_bars: 16
+  length_minutes: 1.2
+  difficulty_henle: 2
+  difficulty_tier: 2
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/Humoresques%2C_Op.101_(Dvo%C5%99%C3%A1k%2C_Anton%C3%ADn)
+  description: Simplified elementary arrangement of Dvořák's world-famous Humoresque — just the opening 16 bars, transposed to an easier key. Teaches dotted rhythms and lyrical phrasing.
+  tags:
+  - romantic
+  - famous
+  - dotted-rhythm
+  - arrangement
+  sonata_lesson: null
+- id: 45
+  title: 'Mikrokosmos Vol. 2 No. 40: In Yugoslav Style'
+  composer: Béla Bartók
+  composer_dates: 1881–1945
+  period: 20th Century
+  key: G (modal)
+  time_signature: 2/4
+  length_bars: 24
+  length_minutes: 0.9
+  difficulty_henle: 2
+  difficulty_tier: 2
+  public_domain: false
+  imslp_url: https://imslp.org/wiki/Mikrokosmos%2C_Sz.107_(Bart%C3%B3k%2C_B%C3%A9la)
+  description: A folk-flavored piece from Mikrokosmos Vol. 2. Balkan rhythmic character with dry staccato accompaniment. A staple 20th-century elementary work.
+  tags:
+  - 20th-century
+  - modal
+  - folk
+  - mikrokosmos
+  - balkan
+  sonata_lesson: null
+- id: 46
+  title: 'Mikrokosmos Vol. 2 No. 43: In Hungarian Style'
+  composer: Béla Bartók
+  composer_dates: 1881–1945
+  period: 20th Century
+  key: D (modal)
+  time_signature: 2/4
+  length_bars: 20
+  length_minutes: 0.8
+  difficulty_henle: 2
+  difficulty_tier: 2
+  public_domain: false
+  imslp_url: https://imslp.org/wiki/Mikrokosmos%2C_Sz.107_(Bart%C3%B3k%2C_B%C3%A9la)
+  description: A short modal piece from Mikrokosmos Volume 2, exploring Hungarian folk inflections. Teaches asymmetric phrasing and modal ears.
+  tags:
+  - 20th-century
+  - modal
+  - folk
+  - mikrokosmos
+  - hungarian
+  sonata_lesson: null
+- id: 47
+  title: Etude Op. 823 No. 16
+  composer: Carl Czerny
+  composer_dates: 1791–1857
+  period: Classical
+  key: G major
+  time_signature: 2/4
+  length_bars: 16
+  length_minutes: 0.7
+  difficulty_henle: 2
+  difficulty_tier: 2
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/The_Little_Pianist%2C_Op.823_(Czerny%2C_Carl)
+  description: A short étude from Czerny's 'The Little Pianist' Op. 823. Focuses on hand independence and basic two-voice coordination.
+  tags:
+  - classical
+  - etude
+  - hand-independence
+  - little-pianist
+  sonata_lesson: null
+- id: 48
+  title: Etude in C major, Op. 599 No. 18
+  composer: Carl Czerny
+  composer_dates: 1791–1857
+  period: Classical
+  key: C major
+  time_signature: 2/4
+  length_bars: 16
+  length_minutes: 0.7
+  difficulty_henle: 2
+  difficulty_tier: 2
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/Practical_Method_for_Beginners%2C_Op.599_(Czerny%2C_Carl)
+  description: A classic Czerny first-position étude from Op. 599, the Practical Method for Beginners. Scalar runs for right-hand evenness.
+  tags:
+  - classical
+  - etude
+  - scales
+  - finger-technique
+  sonata_lesson: null
+- id: 49
+  title: March in D major (BWV Anh. 122)
+  composer: Carl Philipp Emanuel Bach
+  composer_dates: 1714–1788
+  period: Baroque
+  key: D major
+  time_signature: 2/4
+  length_bars: 24
+  length_minutes: 1.2
+  difficulty_henle: 2
+  difficulty_tier: 2
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/Notebook_for_Anna_Magdalena_Bach_(Bach%2C_Johann_Sebastian)
+  description: A crisp, dotted-rhythm march from the Anna Magdalena Notebook, likely by C.P.E. Bach. Teaches dotted rhythms and confident articulation.
+  tags:
+  - baroque
+  - march
+  - dotted-rhythm
+  - notebook
+  sonata_lesson: null
+- id: 50
+  title: Minuet in D major (transposed, BWV Anh. 114)
+  composer: Christian Petzold (arr.)
+  composer_dates: 1677–1733
+  period: Baroque
+  key: D major
+  time_signature: 3/4
+  length_bars: 32
+  length_minutes: 1.5
+  difficulty_henle: 2
+  difficulty_tier: 2
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/Notebook_for_Anna_Magdalena_Bach_(Bach%2C_Johann_Sebastian)
+  description: The famous Petzold Minuet transposed to D major for transposition study. Same melodic contour, new key-signature reading practice (two sharps).
+  tags:
+  - baroque
+  - dance
+  - transposition
+  - notebook
+  sonata_lesson: 115
+- id: 51
+  title: Minuet in G major (BWV Anh. 114)
+  composer: Christian Petzold (attrib. Bach)
+  composer_dates: 1677–1733
+  period: Baroque
+  key: G major
+  time_signature: 3/4
+  length_bars: 32
+  length_minutes: 1.5
+  difficulty_henle: 2
+  difficulty_tier: 2
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/Notebook_for_Anna_Magdalena_Bach_(Bach%2C_Johann_Sebastian)
+  description: The most famous minuet in the Anna Magdalena Notebook, long attributed to Bach. Symmetrical, stepwise right-hand melody over a simple broken-chord left hand. A cornerstone elementary Baroque piece.
+  tags:
+  - baroque
+  - dance
+  - famous
+  - symmetrical
+  - notebook
+  sonata_lesson: 80
+- id: 52
+  title: Minuet in G minor (BWV Anh. 115)
+  composer: Christian Petzold (attrib. Bach)
+  composer_dates: 1677–1733
+  period: Baroque
+  key: G minor
+  time_signature: 3/4
+  length_bars: 24
+  length_minutes: 1.5
+  difficulty_henle: 2
+  difficulty_tier: 2
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/Notebook_for_Anna_Magdalena_Bach_(Bach%2C_Johann_Sebastian)
+  description: The melancholic companion to the famous G major Minuet. Lyrical minor-key melody, often paired with BWV Anh. 114 as a contrasting pair. Teaches expressive phrasing in minor.
+  tags:
+  - baroque
+  - dance
+  - minor
+  - notebook
+  - lyrical
+  sonata_lesson: null
+- id: 53
+  title: Waltz in A minor, Op. 12 No. 2
+  composer: Edvard Grieg
+  composer_dates: 1843–1907
+  period: Romantic
+  key: A minor
+  time_signature: 3/4
+  length_bars: 56
+  length_minutes: 2.0
+  difficulty_henle: 2
+  difficulty_tier: 2
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/Lyric_Pieces%2C_Op.12_(Grieg%2C_Edvard)
+  description: A melancholy Norwegian waltz from Grieg's Lyric Pieces Book I. Haunting melody over a classic waltz accompaniment. Introduces Romantic rubato and character.
+  tags:
+  - romantic
+  - waltz
+  - minor
+  - lyrical
+  - nordic
+  sonata_lesson: null
+- id: 54
+  title: Arabesque, Op. 100 No. 2
+  composer: Friedrich Burgmüller
+  composer_dates: 1806–1874
+  period: Romantic
+  key: A minor
+  time_signature: 2/4
+  length_bars: 24
+  length_minutes: 1.0
+  difficulty_henle: 2
+  difficulty_tier: 2
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/25_%C3%89tudes_faciles_et_progressives%2C_Op.100_(Burgm%C3%BCller%2C_Friedrich)
+  description: One of the most popular student études ever written. Fast five-finger patterns in A minor, teaches evenness and light fingerwork.
+  tags:
+  - romantic
+  - etude
+  - minor
+  - finger-agility
+  - famous
+  sonata_lesson: null
+- id: 55
+  title: Innocence, Op. 100 No. 5
+  composer: Friedrich Burgmüller
+  composer_dates: 1806–1874
+  period: Romantic
+  key: F major
+  time_signature: 4/4
+  length_bars: 16
+  length_minutes: 1.0
+  difficulty_henle: 2
+  difficulty_tier: 2
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/25_%C3%89tudes_faciles_et_progressives%2C_Op.100_(Burgm%C3%BCller%2C_Friedrich)
+  description: A bright, running-sixteenth étude in F major. Teaches even finger passages and graceful phrasing.
+  tags:
+  - romantic
+  - etude
+  - sixteenths
+  - finger-agility
+  sonata_lesson: null
+- id: 56
+  title: La Candeur (Candor), Op. 100 No. 1
+  composer: Friedrich Burgmüller
+  composer_dates: 1806–1874
+  period: Romantic
+  key: C major
+  time_signature: 4/4
+  length_bars: 16
+  length_minutes: 1.2
+  difficulty_henle: 2
+  difficulty_tier: 2
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/25_%C3%89tudes_faciles_et_progressives%2C_Op.100_(Burgm%C3%BCller%2C_Friedrich)
+  description: The gentle opening étude — flowing right-hand melody over arpeggiated left hand. Teaches legato and relaxed hand motion.
+  tags:
+  - romantic
+  - etude
+  - lyrical
+  - arpeggio
+  sonata_lesson: null
+- id: 57
+  title: Pastorale, Op. 100 No. 3
+  composer: Friedrich Burgmüller
+  composer_dates: 1806–1874
+  period: Romantic
+  key: G major
+  time_signature: 6/8
+  length_bars: 32
+  length_minutes: 1.3
+  difficulty_henle: 2
+  difficulty_tier: 2
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/25_%C3%89tudes_faciles_et_progressives%2C_Op.100_(Burgm%C3%BCller%2C_Friedrich)
+  description: A lilting 6/8 pastoral. Teaches phrasing over compound meter and the rocking feel of a siciliano rhythm.
+  tags:
+  - romantic
+  - etude
+  - compound-meter
+  - pastoral
+  sonata_lesson: null
+- id: 58
+  title: Progress, Op. 100 No. 6
+  composer: Friedrich Burgmüller
+  composer_dates: 1806–1874
+  period: Romantic
+  key: C major
+  time_signature: 2/4
+  length_bars: 32
+  length_minutes: 0.9
+  difficulty_henle: 2
+  difficulty_tier: 2
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/25_%C3%89tudes_faciles_et_progressives%2C_Op.100_(Burgm%C3%BCller%2C_Friedrich)
+  description: A sprightly hand-crossing étude titled 'Progress.' Teaches clean thumb-under work and scalar fluency.
+  tags:
+  - romantic
+  - etude
+  - scales
+  - hand-coordination
+  sonata_lesson: null
+- id: 59
+  title: Sonatina in C major, Op. 20 No. 1 — I. Allegro
+  composer: Friedrich Kuhlau
+  composer_dates: 1786–1832
+  period: Classical
+  key: C major
+  time_signature: 4/4
+  length_bars: 48
+  length_minutes: 2.5
+  difficulty_henle: 2
+  difficulty_tier: 2
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/3_Sonatinas%2C_Op.20_(Kuhlau%2C_Friedrich)
+  description: Bright, bubbly opening of Kuhlau's first Op. 20 sonatina. Features scalar runs, Alberti bass, and clear Classical phrasing.
+  tags:
+  - classical
+  - sonatina
+  - sonata-form
+  - scales
+  sonata_lesson: null
+- id: 60
+  title: Canon in D (simplified)
+  composer: Johann Pachelbel (arr.)
+  composer_dates: 1653–1706
+  period: Baroque
+  key: D major
+  time_signature: 4/4
+  length_bars: 32
+  length_minutes: 2.5
+  difficulty_henle: 2
+  difficulty_tier: 2
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/Canon_and_Gigue_in_D_major%2C_P.37_(Pachelbel%2C_Johann)
+  description: The world's most famous chord progression, simplified for elementary pianists. Steady eighth-note bass under simple melodic variations over the I-V-vi-iii-IV-I-IV-V ostinato.
+  tags:
+  - baroque
+  - famous
+  - ostinato
+  - arrangement
+  - wedding
+  sonata_lesson: 90
+- id: 61
+  title: Minuet in D minor (BWV Anh. 132)
+  composer: Johann Sebastian Bach (attrib.)
+  composer_dates: 1685–1750
+  period: Baroque
+  key: D minor
+  time_signature: 3/4
+  length_bars: 16
+  length_minutes: 1.0
+  difficulty_henle: 2
+  difficulty_tier: 2
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/Notebook_for_Anna_Magdalena_Bach_(Bach%2C_Johann_Sebastian)
+  description: A short, plaintive minuet from the Anna Magdalena Notebook. Simple two-voice texture, one of the first pieces students learn for independence of hands in minor tonality.
+  tags:
+  - baroque
+  - dance
+  - minor
+  - notebook
+  - short
+  sonata_lesson: null
+- id: 62
+  title: Etude Op. 218 No. 20
+  composer: Louis Köhler
+  composer_dates: 1820–1886
+  period: Romantic
+  key: D major
+  time_signature: 4/4
+  length_bars: 20
+  length_minutes: 1.0
+  difficulty_henle: 2
+  difficulty_tier: 2
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/Der_Klavier-Lehrer%2C_Op.300_(K%C3%B6hler%2C_Louis)
+  description: A graceful Romantic étude by Köhler, teaching smooth hand-position shifts and expressive phrasing.
+  tags:
+  - romantic
+  - etude
+  - position-shifts
+  - phrasing
+  sonata_lesson: null
+- id: 63
+  title: Für Elise (opening theme)
+  composer: Ludwig van Beethoven
+  composer_dates: 1770–1827
+  period: Classical
+  key: A minor
+  time_signature: 3/8
+  length_bars: 22
+  length_minutes: 1.0
+  difficulty_henle: 2
+  difficulty_tier: 2
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/F%C3%BCr_Elise%2C_WoO_59_(Beethoven%2C_Ludwig_van)
+  description: The iconic opening A-section of Für Elise — the most recognized classical melody in the world. Students typically learn just the main theme (bars 1-22) at this level.
+  tags:
+  - classical
+  - minor
+  - famous
+  - theme
+  - iconic
+  sonata_lesson: 75
+- id: 64
+  title: Russian Folk Song, Op. 107 No. 3
+  composer: Ludwig van Beethoven
+  composer_dates: 1770–1827
+  period: Classical
+  key: A minor
+  time_signature: 2/4
+  length_bars: 24
+  length_minutes: 1.2
+  difficulty_henle: 2
+  difficulty_tier: 2
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/10_Themes_and_Variations%2C_Op.107_(Beethoven%2C_Ludwig_van)
+  description: A simple, haunting Russian folk tune arranged by Beethoven. Modal minor, teaches lyrical playing in a folk style.
+  tags:
+  - classical
+  - folk
+  - minor
+  - lyrical
+  sonata_lesson: null
+- id: 65
+  title: Bagatelle in G major, Op. 119 No. 1 (simplified)
+  composer: Ludwig van Beethoven (arr.)
+  composer_dates: 1770–1827
+  period: Classical
+  key: G minor
+  time_signature: 3/4
+  length_bars: 24
+  length_minutes: 2.0
+  difficulty_henle: 2
+  difficulty_tier: 2
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/11_Bagatelles%2C_Op.119_(Beethoven%2C_Ludwig_van)
+  description: A gentle elementary arrangement of Beethoven's Bagatelle Op. 119 No. 1. Captures Beethoven's lyrical voice at an accessible level.
+  tags:
+  - classical
+  - bagatelle
+  - lyrical
+  - arrangement
+  sonata_lesson: 120
+- id: 66
+  title: Sonatina in G major, Anh. 5 No. 1 — I. Moderato
+  composer: Ludwig van Beethoven (attrib.)
+  composer_dates: 1770–1827
+  period: Classical
+  key: G major
+  time_signature: 4/4
+  length_bars: 32
+  length_minutes: 1.8
+  difficulty_henle: 2
+  difficulty_tier: 2
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/2_Sonatinas%2C_Anh.5_(Beethoven%2C_Ludwig_van)
+  description: The first movement of the famous 'Beethoven' Sonatina in G (likely not authentic). A cornerstone of the elementary Classical repertoire.
+  tags:
+  - classical
+  - sonatina
+  - sonata-form
+  - famous
+  sonata_lesson: null
+- id: 67
+  title: Sonatina in C major, Op. 36 No. 1 — I. Spiritoso
+  composer: Muzio Clementi
+  composer_dates: 1752–1832
+  period: Classical
+  key: C major
+  time_signature: 4/4
+  length_bars: 38
+  length_minutes: 2.0
+  difficulty_henle: 2
+  difficulty_tier: 2
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/6_Sonatinas%2C_Op.36_(Clementi%2C_Muzio)
+  description: The most famous student sonatina. Clear sonata form in miniature, with Alberti bass and scalar passages. A rite-of-passage piece for Classical style.
+  tags:
+  - classical
+  - sonatina
+  - alberti-bass
+  - sonata-form
+  - famous
+  sonata_lesson: null
+- id: 68
+  title: Sonatina in C major, Op. 36 No. 1 — II. Andante
+  composer: Muzio Clementi
+  composer_dates: 1752–1832
+  period: Classical
+  key: F major
+  time_signature: 3/4
+  length_bars: 24
+  length_minutes: 1.5
+  difficulty_henle: 2
+  difficulty_tier: 2
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/6_Sonatinas%2C_Op.36_(Clementi%2C_Muzio)
+  description: The lyrical slow movement of Clementi's first sonatina. Simple ternary form, teaches expressive singing-tone in Classical style.
+  tags:
+  - classical
+  - sonatina
+  - lyrical
+  - ternary-form
+  sonata_lesson: null
+- id: 69
+  title: Sonatina in C major, Op. 36 No. 1 — III. Vivace
+  composer: Muzio Clementi
+  composer_dates: 1752–1832
+  period: Classical
+  key: C major
+  time_signature: 3/8
+  length_bars: 56
+  length_minutes: 1.3
+  difficulty_henle: 2
+  difficulty_tier: 2
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/6_Sonatinas%2C_Op.36_(Clementi%2C_Muzio)
+  description: A bright, skipping rondo finale in 3/8. Teaches finger agility and light staccato in Classical rondo form.
+  tags:
+  - classical
+  - sonatina
+  - rondo
+  - finale
+  sonata_lesson: null
+- id: 70
+  title: Sonatina in G major, Op. 36 No. 2 — I. Allegretto
+  composer: Muzio Clementi
+  composer_dates: 1752–1832
+  period: Classical
+  key: G major
+  time_signature: 2/4
+  length_bars: 40
+  length_minutes: 2.0
+  difficulty_henle: 2
+  difficulty_tier: 2
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/6_Sonatinas%2C_Op.36_(Clementi%2C_Muzio)
+  description: Graceful opening movement in G. Sonata form with clear themes and Alberti-bass textures. Slightly longer reach than Op. 36 No. 1.
+  tags:
+  - classical
+  - sonatina
+  - sonata-form
+  - alberti-bass
+  sonata_lesson: null
+- id: 71
+  title: Italian Song, Op. 39 No. 15
+  composer: Pyotr Ilyich Tchaikovsky
+  composer_dates: 1840–1893
+  period: Romantic
+  key: D major
+  time_signature: 3/8
+  length_bars: 48
+  length_minutes: 1.3
+  difficulty_henle: 2
+  difficulty_tier: 2
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/Album_for_the_Young%2C_Op.39_(Tchaikovsky%2C_Pyotr)
+  description: A bright, lilting tune in 3/8 evoking an Italian song. Teaches phrasing over compound meter with a light, dance-like character.
+  tags:
+  - romantic
+  - dance
+  - compound-meter
+  - album-for-young
+  sonata_lesson: null
+- id: 72
+  title: Morning Prayer, Op. 39 No. 1
+  composer: Pyotr Ilyich Tchaikovsky
+  composer_dates: 1840–1893
+  period: Romantic
+  key: G major
+  time_signature: 3/4
+  length_bars: 32
+  length_minutes: 1.8
+  difficulty_henle: 2
+  difficulty_tier: 2
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/Album_for_the_Young%2C_Op.39_(Tchaikovsky%2C_Pyotr)
+  description: The opening piece of the Album for the Young — a reverent, chorale-like prayer. Teaches voice-leading and sustained legato touch.
+  tags:
+  - romantic
+  - chorale
+  - voice-leading
+  - album-for-young
+  sonata_lesson: null
+- id: 73
+  title: Old French Song, Op. 39 No. 16
+  composer: Pyotr Ilyich Tchaikovsky
+  composer_dates: 1840–1893
+  period: Romantic
+  key: G minor
+  time_signature: 2/4
+  length_bars: 24
+  length_minutes: 1.5
+  difficulty_henle: 2
+  difficulty_tier: 2
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/Album_for_the_Young%2C_Op.39_(Tchaikovsky%2C_Pyotr)
+  description: A haunting, modal melody in G minor from the Album for the Young. Simple texture, deeply expressive. A beloved first Tchaikovsky.
+  tags:
+  - romantic
+  - minor
+  - lyrical
+  - album-for-young
+  - famous
+  sonata_lesson: null
+- id: 74
+  title: Sweet Dream (Douce Rêverie), Op. 39 No. 21
+  composer: Pyotr Ilyich Tchaikovsky
+  composer_dates: 1840–1893
+  period: Romantic
+  key: C major
+  time_signature: 3/4
+  length_bars: 48
+  length_minutes: 2.2
+  difficulty_henle: 2
+  difficulty_tier: 2
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/Album_for_the_Young%2C_Op.39_(Tchaikovsky%2C_Pyotr)
+  description: A poignant, dreamy piece with flowing melody over arpeggiated accompaniment. Expressive phrasing and melodic shaping.
+  tags:
+  - romantic
+  - lyrical
+  - arpeggio
+  - album-for-young
+  sonata_lesson: null
+- id: 75
+  title: Little Piece (Stückchen), Op. 68 No. 5
+  composer: Robert Schumann
+  composer_dates: 1810–1856
+  period: Romantic
+  key: C major
+  time_signature: 2/4
+  length_bars: 24
+  length_minutes: 1.0
+  difficulty_henle: 2
+  difficulty_tier: 2
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/Album_f%C3%BCr_die_Jugend%2C_Op.68_(Schumann%2C_Robert)
+  description: A simple, song-like miniature with a singing right-hand melody and broken-chord accompaniment. A favorite first Schumann piece.
+  tags:
+  - romantic
+  - lyrical
+  - broken-chord
+  - album-for-young
+  sonata_lesson: null
+- id: 76
+  title: The Wild Horseman, Op. 68 No. 8
+  composer: Robert Schumann
+  composer_dates: 1810–1856
+  period: Romantic
+  key: A minor
+  time_signature: 6/8
+  length_bars: 24
+  length_minutes: 0.7
+  difficulty_henle: 2
+  difficulty_tier: 2
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/Album_f%C3%BCr_die_Jugend%2C_Op.68_(Schumann%2C_Robert)
+  description: Galloping 6/8 piece with hands alternating to imitate hoofbeats. Short, vivid, and one of the most popular pieces in the Album for the Young.
+  tags:
+  - romantic
+  - minor
+  - compound-meter
+  - character-piece
+  - famous
+  sonata_lesson: null
+- id: 77
+  title: Twinkle Twinkle (harmonized variation)
+  composer: Traditional (arr.)
+  composer_dates: 18th century
+  period: Classical
+  key: C major
+  time_signature: 2/4
+  length_bars: 24
+  length_minutes: 1.0
+  difficulty_henle: 2
+  difficulty_tier: 2
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/12_Variations_on_%22Ah%2C_vous_dirai-je%2C_maman%22%2C_K.265%2F300e_(Mozart%2C_Wolfgang_Amadeus)
+  description: The familiar tune dressed up with broken-chord left hand and added melodic ornamentation. A step beyond single-line Twinkle toward real two-hand playing.
+  tags:
+  - classical
+  - folk
+  - variation
+  - arrangement
+  sonata_lesson: 105
+- id: 78
+  title: Humoresque, Op. 101 No. 7 (simplified)
+  composer: Antonín Dvořák
+  composer_dates: 1841–1904
+  period: Romantic
+  key: G♭ major (often transposed to G)
+  time_signature: 2/4
+  length_bars: 72
+  length_minutes: 3.5
+  difficulty_henle: 3
+  difficulty_tier: 3
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/Humoresques%2C_Op.101_(Dvo%C5%99%C3%A1k%2C_Anton%C3%ADn)
+  description: The universally-known 'Humoresque' — simplified arrangement (often transposed to G major) keeps the dotted charm and the famous minor trio. Study in rhythmic suavity and dotted-rhythm feel.
+  tags:
+  - romantic
+  - czech
+  - famous
+  - arrangement
+  - charming
+- id: 79
+  title: Etude in C major, Op. 849 No. 1
+  composer: Carl Czerny
+  composer_dates: 1791–1857
+  period: Classical/Romantic
+  key: C major
+  time_signature: 2/4
+  length_bars: 40
+  length_minutes: 1.2
+  difficulty_henle: 3
+  difficulty_tier: 3
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/30_New_Studies_in_Technics%2C_Op.849_(Czerny%2C_Carl)
+  description: Op. 849 is the first 'adult' Czerny set — 30 Études de Mécanisme. No. 1 sets even sixteenth-note finger-work against a waltz-like LH. Cornerstone of technique-building after School of Velocity Op. 299 prep.
+  tags:
+  - classical
+  - czerny
+  - etude
+  - austrian
+  - pedagogy-staple
+- id: 80
+  title: Arietta, Op. 12 No. 1
+  composer: Edvard Grieg
+  composer_dates: 1843–1907
+  period: Romantic
+  key: E♭ major
+  time_signature: 2/4
+  length_bars: 20
+  length_minutes: 1.5
+  difficulty_henle: 3
+  difficulty_tier: 3
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/Lyric_Pieces%2C_Op.12_(Grieg%2C_Edvard)
+  description: Opens Grieg's ten-book Lyric Pieces cycle. Tender song-without-words — delicate RH melody doubled at the octave above flowing LH arpeggios. Thirty years later Grieg closed Op. 71 with a haunting variation of this same tune.
+  tags:
+  - romantic
+  - norwegian
+  - lyrical
+  - lyric-pieces
+  - famous
+- id: 81
+  title: Waltz, Op. 12 No. 2
+  composer: Edvard Grieg
+  composer_dates: 1843–1907
+  period: Romantic
+  key: A minor
+  time_signature: 3/4
+  length_bars: 96
+  length_minutes: 2.0
+  difficulty_henle: 3
+  difficulty_tier: 3
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/Lyric_Pieces%2C_Op.12_(Grieg%2C_Edvard)
+  description: Nordic-flavored minor waltz with grace-note ornaments evoking hardanger fiddle. Teaches rubato, lilting rhythm, and crisp articulation of decorated melody notes.
+  tags:
+  - romantic
+  - norwegian
+  - dance
+  - lyric-pieces
+  - minor
+- id: 82
+  title: Watchman's Song, Op. 12 No. 3
+  composer: Edvard Grieg
+  composer_dates: 1843–1907
+  period: Romantic
+  key: E major
+  time_signature: 4/4
+  length_bars: 65
+  length_minutes: 3.0
+  difficulty_henle: 3
+  difficulty_tier: 3
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/Lyric_Pieces%2C_Op.12_(Grieg%2C_Edvard)
+  description: Inspired by a performance of Macbeth — the watchman's hymn frames an 'Ghosts' episode with eerie tritones and trills. Pedal-rich atmospheric writing. One of the more dramatic early Lyric Pieces.
+  tags:
+  - romantic
+  - norwegian
+  - atmospheric
+  - lyric-pieces
+  - programmatic
+- id: 83
+  title: Gnossienne No. 1
+  composer: Erik Satie
+  composer_dates: 1866–1925
+  period: Impressionist
+  key: F minor
+  time_signature: free (no bar lines)
+  length_bars: 0
+  length_minutes: 3.5
+  difficulty_henle: 3
+  difficulty_tier: 3
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/Gnossiennes_(Satie%2C_Erik)
+  description: Unbarred — Satie omitted time signatures entirely. Hypnotic, modal, Middle-Eastern tinged melody over ostinato LH thirds. Italicized French performance directions ('with astonishment') are part of the score. A masterclass in atmosphere over technique.
+  tags:
+  - impressionist
+  - famous
+  - modal
+  - atmospheric
+  - unbarred
+- id: 84
+  title: Gymnopédie No. 1
+  composer: Erik Satie
+  composer_dates: 1866–1925
+  period: Impressionist
+  key: D major
+  time_signature: 3/4
+  length_bars: 78
+  length_minutes: 3.5
+  difficulty_henle: 3
+  difficulty_tier: 3
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/Gymnop%C3%A9dies_(Satie%2C_Erik)
+  description: Slow, quiet, unhurried. One of the most instantly recognizable piano pieces of the 20th century. Simple LH waltz bass on beats 2–3, drifting RH melody over Lydian-tinged harmonies. Teaches independence and patience — hardest part is playing unhurried.
+  tags:
+  - impressionist
+  - famous
+  - slow
+  - atmospheric
+  - french
+  sonata_lesson: 95
+- id: 85
+  title: Song Without Words in A major, Op. 19 No. 4 'Confidence'
+  composer: Felix Mendelssohn
+  composer_dates: 1809–1847
+  period: Romantic
+  key: A major
+  time_signature: 2/4
+  length_bars: 40
+  length_minutes: 2.0
+  difficulty_henle: 3
+  difficulty_tier: 3
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/6_Lieder_ohne_Worte%2C_Op.19b_(Mendelssohn%2C_Felix)
+  description: The most approachable of the first Songs Without Words book. Gentle, conversational cantabile in the RH over steady LH accompaniment. Introduces Mendelssohn's signature three-layer texture (tune, bass, filler).
+  tags:
+  - romantic
+  - german
+  - mendelssohn
+  - lyrical
+  - song-without-words
+- id: 86
+  title: Song Without Words in F major, Op. 30 No. 3
+  composer: Felix Mendelssohn
+  composer_dates: 1809–1847
+  period: Romantic
+  key: F major
+  time_signature: 4/4
+  length_bars: 38
+  length_minutes: 2.5
+  difficulty_henle: 3
+  difficulty_tier: 3
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/6_Lieder_ohne_Worte%2C_Op.30_(Mendelssohn%2C_Felix)
+  description: Warmly lyrical F major, marked Adagio non troppo. Inner-voice writing requires shaping three simultaneous lines in the RH alone — a pre-echo of later Mendelssohn songs.
+  tags:
+  - romantic
+  - german
+  - mendelssohn
+  - lyrical
+  - song-without-words
+- id: 87
+  title: Ballade, Op. 100 No. 15
+  composer: Friedrich Burgmüller
+  composer_dates: 1806–1874
+  period: Romantic
+  key: C minor
+  time_signature: 3/8
+  length_bars: 84
+  length_minutes: 1.5
+  difficulty_henle: 3
+  difficulty_tier: 3
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/25_%C3%89tudes_faciles_et_progressives%2C_Op.100_(Burgm%C3%BCller%2C_Friedrich)
+  description: Stormy, dramatic study with driving LH tremolo-style accompaniment. Sudden shifts between minor unrest and major relief. A student favorite — sounds much harder than it is, great for recitals.
+  tags:
+  - romantic
+  - etude
+  - character-piece
+  - minor
+  - dramatic
+- id: 88
+  title: Harmony of the Angels, Op. 100 No. 21
+  composer: Friedrich Burgmüller
+  composer_dates: 1806–1874
+  period: Romantic
+  key: E♭ major
+  time_signature: 4/4
+  length_bars: 38
+  length_minutes: 2.0
+  difficulty_henle: 3
+  difficulty_tier: 3
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/25_%C3%89tudes_faciles_et_progressives%2C_Op.100_(Burgm%C3%BCller%2C_Friedrich)
+  description: Continuous rippling sixteenth-note arpeggios across both hands suggest harp-like celestial sonorities. Essential study for even finger work and pedal-wash tone. The technical cornerstone of Op. 100.
+  tags:
+  - romantic
+  - etude
+  - arpeggios
+  - atmospheric
+- id: 89
+  title: Tender Flower, Op. 100 No. 10
+  composer: Friedrich Burgmüller
+  composer_dates: 1806–1874
+  period: Romantic
+  key: D major
+  time_signature: 4/4
+  length_bars: 32
+  length_minutes: 1.5
+  difficulty_henle: 3
+  difficulty_tier: 3
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/25_%C3%89tudes_faciles_et_progressives%2C_Op.100_(Burgm%C3%BCller%2C_Friedrich)
+  description: Graceful lyrical study. Dotted-rhythm RH melody with expressive turns over flowing LH arpeggios. Classic 19th-century pedagogical writing — teaches voicing melody against accompaniment.
+  tags:
+  - romantic
+  - etude
+  - lyrical
+  - major
+- id: 90
+  title: Sonatina in C major, Op. 20 No. 1
+  composer: Friedrich Kuhlau
+  composer_dates: 1786–1832
+  period: Classical
+  key: C major
+  time_signature: 4/4
+  length_bars: 140
+  length_minutes: 6.5
+  difficulty_henle: 3
+  difficulty_tier: 3
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/3_Sonatinas%2C_Op.20_(Kuhlau%2C_Friedrich)
+  description: Kuhlau's sonatinas sit beside Clementi's as essential Classical-style training. More lyrical than Clementi, with singing Mozart-like slow movements. Three movements; demands clean scale technique.
+  tags:
+  - classical
+  - sonatina
+  - danish
+  - pedagogy-staple
+- id: 91
+  title: Sonatina in C major, Op. 55 No. 1
+  composer: Friedrich Kuhlau
+  composer_dates: 1786–1832
+  period: Classical
+  key: C major
+  time_signature: 4/4
+  length_bars: 120
+  length_minutes: 5.0
+  difficulty_henle: 3
+  difficulty_tier: 3
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/6_Sonatinas%2C_Op.55_(Kuhlau%2C_Friedrich)
+  description: Two-movement sonatina, perhaps the most famous of all teaching sonatinas. Bright Allegro opening, rondo Vivace finale with the catchy hopping theme that every piano student recognizes instantly.
+  tags:
+  - classical
+  - sonatina
+  - danish
+  - famous
+  - pedagogy-staple
+- id: 92
+  title: Prelude in A major, Op. 28 No. 7
+  composer: Frédéric Chopin
+  composer_dates: 1810–1849
+  period: Romantic
+  key: A major
+  time_signature: 3/4
+  length_bars: 16
+  length_minutes: 0.8
+  difficulty_henle: 3
+  difficulty_tier: 3
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/Preludes%2C_Op.28_(Chopin%2C_Fr%C3%A9d%C3%A9ric)
+  description: Sixteen bars, repeated mazurka rhythm, one perfect melodic gesture. Chopin at his most distilled. A first real Chopin piece for most students — demands rubato, pedaling, and mazurka lilt.
+  tags:
+  - romantic
+  - polish
+  - chopin
+  - famous
+  - short
+  - mazurka
+- id: 93
+  title: Prelude in C minor, Op. 28 No. 20
+  composer: Frédéric Chopin
+  composer_dates: 1810–1849
+  period: Romantic
+  key: C minor
+  time_signature: 4/4
+  length_bars: 13
+  length_minutes: 1.5
+  difficulty_henle: 3
+  difficulty_tier: 3
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/Preludes%2C_Op.28_(Chopin%2C_Fr%C3%A9d%C3%A9ric)
+  description: Massive chordal funeral chorale compressed into thirteen bars. Every bar is a four-voice sonority demanding careful voicing. Basis for Rachmaninoff's Variations on a Theme of Chopin.
+  tags:
+  - romantic
+  - polish
+  - chopin
+  - chorale
+  - minor
+  - dramatic
+- id: 94
+  title: Canon in D (simplified piano arrangement)
+  composer: Johann Pachelbel
+  composer_dates: 1653–1706
+  period: Baroque
+  key: D major
+  time_signature: 4/4
+  length_bars: 56
+  length_minutes: 4.0
+  difficulty_henle: 3
+  difficulty_tier: 3
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/Canon_and_Gigue_in_D_major%2C_T.337_(Pachelbel%2C_Johann)
+  description: The famous I–V–vi–iii–IV–I–IV–V progression, the basis of countless pop songs. Simplified piano arrangement keeps the iconic bass ostinato in LH and the three canonic violin lines distilled into singing RH figuration.
+  tags:
+  - baroque
+  - german
+  - famous
+  - canon
+  - wedding
+  - arrangement
+- id: 95
+  title: Little Prelude in C major, BWV 924
+  composer: Johann Sebastian Bach
+  composer_dates: 1685–1750
+  period: Baroque
+  key: C major
+  time_signature: 4/4
+  length_bars: 18
+  length_minutes: 1.5
+  difficulty_henle: 3
+  difficulty_tier: 3
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/6_Little_Preludes%2C_BWV_933-938_(Bach%2C_Johann_Sebastian)
+  description: From the Little Preludes collection assembled for Bach's son Wilhelm Friedemann. Continuous RH sixteenth-note figuration over sustained LH chords. Study in flowing line and single-voice Baroque style.
+  tags:
+  - baroque
+  - german
+  - prelude
+  - bach
+  - pedagogy-staple
+- id: 96
+  title: Little Prelude in D minor, BWV 926
+  composer: Johann Sebastian Bach
+  composer_dates: 1685–1750
+  period: Baroque
+  key: D minor
+  time_signature: 3/8
+  length_bars: 48
+  length_minutes: 1.5
+  difficulty_henle: 3
+  difficulty_tier: 3
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/6_Little_Preludes%2C_BWV_933-938_(Bach%2C_Johann_Sebastian)
+  description: Perpetual-motion triplets in 3/8 — requires absolute evenness and relaxed wrist. Hand-crossing leaps in the middle section add drama. A pre-Invention workout for independence.
+  tags:
+  - baroque
+  - german
+  - prelude
+  - bach
+  - minor
+  - finger-work
+- id: 97
+  title: Little Prelude in F major, BWV 927
+  composer: Johann Sebastian Bach
+  composer_dates: 1685–1750
+  period: Baroque
+  key: F major
+  time_signature: 4/4
+  length_bars: 12
+  length_minutes: 1.0
+  difficulty_henle: 3
+  difficulty_tier: 3
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/6_Little_Preludes%2C_BWV_933-938_(Bach%2C_Johann_Sebastian)
+  description: Shortest of the Little Preludes but densely contrapuntal. Three real voices throughout. Perfect two-week study in voicing — a pre-Invention Invention.
+  tags:
+  - baroque
+  - german
+  - prelude
+  - bach
+  - counterpoint
+- id: 98
+  title: Two-Part Invention No. 1 in C major, BWV 772
+  composer: Johann Sebastian Bach
+  composer_dates: 1685–1750
+  period: Baroque
+  key: C major
+  time_signature: 4/4
+  length_bars: 22
+  length_minutes: 1.5
+  difficulty_henle: 3
+  difficulty_tier: 3
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/15_Inventions%2C_BWV_772-786_(Bach%2C_Johann_Sebastian)
+  description: The first and most famous Two-Part Invention. Two equal voices in imitation from bar 1 — a litmus test for true hand independence. Every serious pianist learns this piece.
+  tags:
+  - baroque
+  - german
+  - invention
+  - bach
+  - counterpoint
+  - famous
+- id: 99
+  title: Two-Part Invention No. 13 in A minor, BWV 784
+  composer: Johann Sebastian Bach
+  composer_dates: 1685–1750
+  period: Baroque
+  key: A minor
+  time_signature: 4/4
+  length_bars: 22
+  length_minutes: 1.5
+  difficulty_henle: 3
+  difficulty_tier: 3
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/15_Inventions%2C_BWV_772-786_(Bach%2C_Johann_Sebastian)
+  description: Dark, rhetorical A minor invention. Sweeping broken-chord subject contrasted with chromatic counter-subject. Short enough to memorize quickly — a gateway to the Sinfonias.
+  tags:
+  - baroque
+  - german
+  - invention
+  - bach
+  - counterpoint
+  - minor
+- id: 100
+  title: Two-Part Invention No. 8 in F major, BWV 779
+  composer: Johann Sebastian Bach
+  composer_dates: 1685–1750
+  period: Baroque
+  key: F major
+  time_signature: 3/4
+  length_bars: 34
+  length_minutes: 1.5
+  difficulty_henle: 3
+  difficulty_tier: 3
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/15_Inventions%2C_BWV_772-786_(Bach%2C_Johann_Sebastian)
+  description: Zippy, cheerful F major invention — the 'easy' one after No. 1. Broken-chord subject bounces between hands. Good study in articulating non-legato Baroque line.
+  tags:
+  - baroque
+  - german
+  - invention
+  - bach
+  - counterpoint
+  - cheerful
+- id: 101
+  title: 6 Ecossaises, WoO 83
+  composer: Ludwig van Beethoven
+  composer_dates: 1770–1827
+  period: Classical
+  key: E♭ major
+  time_signature: 2/4
+  length_bars: 48
+  length_minutes: 2.0
+  difficulty_henle: 3
+  difficulty_tier: 3
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/6_Ecossaises%2C_WoO_83_(Beethoven%2C_Ludwig_van)
+  description: Six tiny Scottish-style country dances, performed as a continuous set. Full of Beethoven's rustic humor — hunt horns, drone basses, sudden dynamic jolts. Popular encore.
+  tags:
+  - classical
+  - beethoven
+  - german
+  - dance
+  - cheerful
+  sonata_lesson: 115
+- id: 102
+  title: Bagatelle in G minor, Op. 119 No. 1
+  composer: Ludwig van Beethoven
+  composer_dates: 1770–1827
+  period: Classical/Romantic
+  key: G minor
+  time_signature: 3/4
+  length_bars: 65
+  length_minutes: 3.0
+  difficulty_henle: 3
+  difficulty_tier: 3
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/11_Bagatelles%2C_Op.119_(Beethoven%2C_Ludwig_van)
+  description: Wistful, nostalgic late Beethoven miniature. Sighing appoggiaturas, unexpected silences, and sudden sforzandos. Emotionally ambiguous — a serious musical study in a small frame.
+  tags:
+  - classical
+  - beethoven
+  - german
+  - bagatelle
+  - minor
+- id: 103
+  title: Sonatina in C major, Op. 36 No. 3
+  composer: Muzio Clementi
+  composer_dates: 1752–1832
+  period: Classical
+  key: C major
+  time_signature: 4/4
+  length_bars: 108
+  length_minutes: 5.5
+  difficulty_henle: 3
+  difficulty_tier: 3
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/6_Sonatinas%2C_Op.36_(Clementi%2C_Muzio)
+  description: Three-movement sonatina with bright Spiritoso opening, songful Un poco adagio, and zippy Allegro finale. Classic teaching sonatina — introduces sonata form, Alberti bass variations, and full three-movement pacing.
+  tags:
+  - classical
+  - sonatina
+  - italian
+  - pedagogy-staple
+- id: 104
+  title: Sonatina in D major, Op. 36 No. 6
+  composer: Muzio Clementi
+  composer_dates: 1752–1832
+  period: Classical
+  key: D major
+  time_signature: 4/4
+  length_bars: 186
+  length_minutes: 7.5
+  difficulty_henle: 3
+  difficulty_tier: 3
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/6_Sonatinas%2C_Op.36_(Clementi%2C_Muzio)
+  description: Most virtuosic of the Op. 36 set. Allegro con spirito with scale runs, Rondo-Allegretto spiritoso finale. Real fingerwork challenge — a true stepping stone to Haydn/Mozart sonatas.
+  tags:
+  - classical
+  - sonatina
+  - italian
+  - virtuosic
+- id: 105
+  title: Sonatina in F major, Op. 36 No. 4
+  composer: Muzio Clementi
+  composer_dates: 1752–1832
+  period: Classical
+  key: F major
+  time_signature: 4/4
+  length_bars: 152
+  length_minutes: 6.0
+  difficulty_henle: 3
+  difficulty_tier: 3
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/6_Sonatinas%2C_Op.36_(Clementi%2C_Muzio)
+  description: Graceful con spirito first movement, andante con espressione middle in B♭, rondo finale. More elaborate than Nos. 1–3; demands cleaner scale passagework and more refined dynamic contrast.
+  tags:
+  - classical
+  - sonatina
+  - italian
+  - pedagogy-staple
+- id: 106
+  title: Sonatina in G major, Op. 36 No. 5
+  composer: Muzio Clementi
+  composer_dates: 1752–1832
+  period: Classical
+  key: G major
+  time_signature: 3/4
+  length_bars: 168
+  length_minutes: 7.0
+  difficulty_henle: 3
+  difficulty_tier: 3
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/6_Sonatinas%2C_Op.36_(Clementi%2C_Muzio)
+  description: Presto 3/4 opening with hunt-style LH leaps. Air Suisse slow movement quotes a Swiss folk yodel. Rondo finale in 2/4. The most characterful of the Op. 36 set.
+  tags:
+  - classical
+  - sonatina
+  - italian
+  - folk-influenced
+- id: 107
+  title: Mama, Op. 39 No. 4
+  composer: Pyotr Ilyich Tchaikovsky
+  composer_dates: 1840–1893
+  period: Romantic
+  key: G major
+  time_signature: 3/4
+  length_bars: 32
+  length_minutes: 1.5
+  difficulty_henle: 3
+  difficulty_tier: 3
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/Children%27s_Album%2C_Op.39_(Tchaikovsky%2C_Pyotr)
+  description: Tender portrait of the composer's mother. Cantabile RH over gentle rocking LH accompaniment. Study in singing tone and pedaling legato lines. Emotionally direct.
+  tags:
+  - romantic
+  - russian
+  - expressive
+  - lyrical
+  - childrens-album
+- id: 108
+  title: The Doll's Funeral, Op. 39 No. 7
+  composer: Pyotr Ilyich Tchaikovsky
+  composer_dates: 1840–1893
+  period: Romantic
+  key: C minor
+  time_signature: 3/4
+  length_bars: 32
+  length_minutes: 2.0
+  difficulty_henle: 3
+  difficulty_tier: 3
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/Children%27s_Album%2C_Op.39_(Tchaikovsky%2C_Pyotr)
+  description: Solemn funeral march for a broken toy. Heavy chordal writing demands careful voicing and pedal. Repeated rhythmic dirge figure — teaches steady tempo under emotional weight. From Children's Album.
+  tags:
+  - romantic
+  - russian
+  - character-piece
+  - minor
+  - childrens-album
+- id: 109
+  title: Waltz, Op. 39 No. 8
+  composer: Pyotr Ilyich Tchaikovsky
+  composer_dates: 1840–1893
+  period: Romantic
+  key: E♭ major
+  time_signature: 3/4
+  length_bars: 48
+  length_minutes: 1.5
+  difficulty_henle: 3
+  difficulty_tier: 3
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/Children%27s_Album%2C_Op.39_(Tchaikovsky%2C_Pyotr)
+  description: Charming salon waltz in E♭. Graceful RH melody with grace notes, classic oom-pah-pah LH. Slightly awkward key signature stretches young readers. From Children's Album.
+  tags:
+  - romantic
+  - russian
+  - dance
+  - waltz
+  - childrens-album
+- id: 110
+  title: First Loss (Erster Verlust), Op. 68 No. 16
+  composer: Robert Schumann
+  composer_dates: 1810–1856
+  period: Romantic
+  key: E minor
+  time_signature: 2/4
+  length_bars: 34
+  length_minutes: 1.5
+  difficulty_henle: 3
+  difficulty_tier: 3
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/Album_f%C3%BCr_die_Jugend%2C_Op.68_(Schumann%2C_Robert)
+  description: Aching, childlike sorrow. Voice-leading gem from the Album for the Young — the dotted sigh motif returns transformed. Requires genuine legato and timing of the rests. Short but emotionally complete; a favorite audition piece.
+  tags:
+  - romantic
+  - german
+  - expressive
+  - minor
+  - album-for-the-young
+- id: 111
+  title: Knecht Ruprecht, Op. 68 No. 12
+  composer: Robert Schumann
+  composer_dates: 1810–1856
+  period: Romantic
+  key: A minor
+  time_signature: 6/8
+  length_bars: 81
+  length_minutes: 2.0
+  difficulty_henle: 3
+  difficulty_tier: 3
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/Album_f%C3%BCr_die_Jugend%2C_Op.68_(Schumann%2C_Robert)
+  description: St. Nicholas's scary helper stomping through the snow. Staccato LH octaves march relentlessly while RH flashes dotted figures. Contrasting major middle section. Builds forearm stamina and staccato articulation.
+  tags:
+  - romantic
+  - german
+  - character-piece
+  - minor
+  - album-for-the-young
+- id: 112
+  title: Little Folk Song (Kleines Volkslied), Op. 68 No. 9
+  composer: Robert Schumann
+  composer_dates: 1810–1856
+  period: Romantic
+  key: A minor
+  time_signature: 2/4
+  length_bars: 24
+  length_minutes: 1.0
+  difficulty_henle: 3
+  difficulty_tier: 3
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/Album_f%C3%BCr_die_Jugend%2C_Op.68_(Schumann%2C_Robert)
+  description: Simple folk tune with mournful minor opening that blossoms into A major for the middle. Two-voice texture throughout. Perfect study in shaping phrase endings and balancing voices.
+  tags:
+  - romantic
+  - german
+  - folk
+  - minor
+  - album-for-the-young
+- id: 113
+  title: Study in A minor, Op. 45 No. 2
+  composer: Stephen Heller
+  composer_dates: 1813–1888
+  period: Romantic
+  key: A minor
+  time_signature: 2/4
+  length_bars: 40
+  length_minutes: 1.5
+  difficulty_henle: 3
+  difficulty_tier: 3
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/25_%C3%89tudes%2C_Op.45_(Heller%2C_Stephen)
+  description: Heller's Op. 45 studies sit between Burgmüller Op. 100 and Op. 109 in difficulty — more Romantic musical content, real expressive substance. No. 2's LH accompaniment pattern is a classic voicing study.
+  tags:
+  - romantic
+  - etude
+  - hungarian
+  - minor
+- id: 114
+  title: The Avalanche, Op. 45 No. 2 (sometimes No. 8)
+  composer: Stephen Heller
+  composer_dates: 1813–1888
+  period: Romantic
+  key: A minor
+  time_signature: 3/8
+  length_bars: 60
+  length_minutes: 1.5
+  difficulty_henle: 3
+  difficulty_tier: 3
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/25_%C3%89tudes%2C_Op.45_(Heller%2C_Stephen)
+  description: Rushing cascades of sixteenths evoke a tumbling mountainside. A favorite recital piece — sounds thrillingly difficult but sits well under the hand. Study in light, even finger-work and building/releasing tension.
+  tags:
+  - romantic
+  - etude
+  - hungarian
+  - minor
+  - programmatic
+- id: 115
+  title: Minuet in F major, K. 2
+  composer: Wolfgang Amadeus Mozart
+  composer_dates: 1756–1791
+  period: Classical
+  key: F major
+  time_signature: 3/4
+  length_bars: 24
+  length_minutes: 1.2
+  difficulty_henle: 3
+  difficulty_tier: 3
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/Menuett_in_F_major%2C_K.2_(Mozart%2C_Wolfgang_Amadeus)
+  description: Mozart wrote this at age six. Elegant courtly minuet with proto-Mozartean turn figures and a graceful middle section. Historical artifact and genuine teaching piece in one.
+  tags:
+  - classical
+  - mozart
+  - austrian
+  - minuet
+  - dance
+  - historical
+- id: 116
+  title: Minuet in F major, K. 5
+  composer: Wolfgang Amadeus Mozart
+  composer_dates: 1756–1791
+  period: Classical
+  key: F major
+  time_signature: 3/4
+  length_bars: 32
+  length_minutes: 1.5
+  difficulty_henle: 3
+  difficulty_tier: 3
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/Menuett_in_F_major%2C_K.5_(Mozart%2C_Wolfgang_Amadeus)
+  description: Companion minuet, slightly more ambitious than K. 2 — eight-year-old Mozart now handles hand-crossings and longer phrases. Still displays the uncanny proportional sense that marked him from the start.
+  tags:
+  - classical
+  - mozart
+  - austrian
+  - minuet
+  - dance
+  - historical
+  sonata_lesson: 120
+- id: 117
+  title: Clair de Lune (Suite bergamasque No. 3)
+  composer: Claude Debussy
+  composer_dates: 1862–1918
+  period: Impressionist
+  key: D-flat major
+  time_signature: 9/8
+  length_bars: 72
+  length_minutes: 5
+  difficulty_henle: 4
+  difficulty_tier: 4
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/Suite_bergamasque_(Debussy,_Claude)
+  description: Debussy's moonlit masterpiece — arguably the most famous Impressionist piano piece ever written. Rolled chords, floating arpeggios, and ppp dynamics paint Verlaine's poem of moonlight on a sleeping garden. A long-term project for committed intermediates.
+  tags:
+  - impressionist
+  - famous
+  - moonlight
+  - d-flat-major
+  - lyrical
+- id: 118
+  title: The Little Negro (Le petit nègre)
+  composer: Claude Debussy
+  composer_dates: 1862–1918
+  period: Impressionist
+  key: C major
+  time_signature: 2/4
+  length_bars: 54
+  length_minutes: 2
+  difficulty_henle: 4
+  difficulty_tier: 4
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/Le_petit_nègre_(Debussy,_Claude)
+  description: Debussy's jaunty early cakewalk, composed as a teaching piece. Syncopated ragtime rhythms meet Parisian sophistication — a delightful bridge between Romantic and Impressionist styles.
+  tags:
+  - impressionist
+  - cakewalk
+  - syncopated
+  - c-major
+- id: 119
+  title: Arietta (Lyric Pieces Op. 12 No. 1)
+  composer: Edvard Grieg
+  composer_dates: 1843–1907
+  period: Romantic
+  key: E-flat major
+  time_signature: 2/4
+  length_bars: 19
+  length_minutes: 2
+  difficulty_henle: 4
+  difficulty_tier: 4
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/Lyric_Pieces,_Op.12_(Grieg,_Edvard)
+  description: The opening piece of Grieg's Lyric Pieces cycle. A tender singing melody floats over rippling triplet arpeggios — a miniature of great charm and simplicity.
+  tags:
+  - romantic
+  - nordic
+  - lyrical
+  - e-flat-major
+- id: 120
+  title: Butterfly (Lyric Pieces Op. 43 No. 1)
+  composer: Edvard Grieg
+  composer_dates: 1843–1907
+  period: Romantic
+  key: A major
+  time_signature: 4/4
+  length_bars: 72
+  length_minutes: 2
+  difficulty_henle: 4
+  difficulty_tier: 4
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/Lyric_Pieces,_Op.43_(Grieg,_Edvard)
+  description: Darting chromatic flickers and fluttering grace notes paint a butterfly in flight. A beautiful study in light touch, rapid finger work, and sudden changes of register.
+  tags:
+  - romantic
+  - character-piece
+  - virtuosic
+  - a-major
+- id: 121
+  title: Solitary Traveller (Lyric Pieces Op. 43 No. 2)
+  composer: Edvard Grieg
+  composer_dates: 1843–1907
+  period: Romantic
+  key: E minor
+  time_signature: 6/8
+  length_bars: 60
+  length_minutes: 3
+  difficulty_henle: 4
+  difficulty_tier: 4
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/Lyric_Pieces,_Op.43_(Grieg,_Edvard)
+  description: A brooding Norwegian wanderer's song in lilting 6/8. Open-fifth drones and modal harmonies evoke a lonely figure against a vast landscape.
+  tags:
+  - romantic
+  - nordic
+  - character-piece
+  - e-minor
+- id: 122
+  title: Gnossienne No. 3
+  composer: Erik Satie
+  composer_dates: 1866–1925
+  period: Impressionist
+  key: A minor
+  time_signature: free (no time signature)
+  length_bars: 40
+  length_minutes: 3
+  difficulty_henle: 4
+  difficulty_tier: 4
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/3_Gnossiennes_(Satie,_Erik)
+  description: The shortest and most accessible Gnossienne. Exotic modal turns over a gently pulsing left-hand chord pattern. Excellent first Satie for intermediate players.
+  tags:
+  - impressionist
+  - modal
+  - a-minor
+- id: 123
+  title: Spring Song (Songs Without Words Op. 62 No. 6)
+  composer: Felix Mendelssohn
+  composer_dates: 1809–1847
+  period: Romantic
+  key: A major
+  time_signature: 6/8
+  length_bars: 103
+  length_minutes: 3
+  difficulty_henle: 4
+  difficulty_tier: 4
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/6_Lieder_ohne_Worte,_Op.62_(Mendelssohn,_Felix)
+  description: Mendelssohn's most famous Song Without Words. Delicate staccato accompaniment patterns shimmer beneath a lilting melody — the very picture of springtime freshness.
+  tags:
+  - romantic
+  - famous
+  - song-without-words
+  - a-major
+- id: 124
+  title: Venetian Gondola Song (Songs Without Words Op. 19 No. 6)
+  composer: Felix Mendelssohn
+  composer_dates: 1809–1847
+  period: Romantic
+  key: G minor
+  time_signature: 6/8
+  length_bars: 46
+  length_minutes: 3
+  difficulty_henle: 4
+  difficulty_tier: 4
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/6_Lieder_ohne_Worte,_Op.19b_(Mendelssohn,_Felix)
+  description: A gently rocking barcarolle evoking a gondola on the Venetian lagoon. The swaying 6/8 accompaniment and plaintive minor melody make it a study in sustained legato cantabile.
+  tags:
+  - romantic
+  - barcarolle
+  - song-without-words
+  - g-minor
+- id: 125
+  title: German Dance in C minor, D. 790 No. 6
+  composer: Franz Schubert
+  composer_dates: 1797–1828
+  period: Romantic
+  key: C minor
+  time_signature: 3/4
+  length_bars: 32
+  length_minutes: 2
+  difficulty_henle: 4
+  difficulty_tier: 4
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/12_Deutsche,_D.790_(Schubert,_Franz)
+  description: A darkly expressive German dance from Schubert's 12 Deutsche. Rustic Ländler character meets Schubert's trademark harmonic shadowing between minor and major.
+  tags:
+  - romantic
+  - dance
+  - c-minor
+- id: 126
+  title: Moment Musical Op. 94 No. 3 in F minor
+  composer: Franz Schubert
+  composer_dates: 1797–1828
+  period: Romantic
+  key: F minor
+  time_signature: 2/4
+  length_bars: 54
+  length_minutes: 2
+  difficulty_henle: 4
+  difficulty_tier: 4
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/6_Moments_musicaux,_D.780_(Schubert,_Franz)
+  description: A bittersweet miniature that became Schubert's single most popular short piece in his lifetime. A simple dance-like tune with a surprisingly rich emotional arc.
+  tags:
+  - romantic
+  - famous
+  - character-piece
+  - f-minor
+- id: 127
+  title: Nocturne Op. 9 No. 2 in E-flat major (simplified)
+  composer: Frédéric Chopin
+  composer_dates: 1810–1849
+  period: Romantic
+  key: E-flat major
+  time_signature: 12/8
+  length_bars: 34
+  length_minutes: 4
+  difficulty_henle: 4
+  difficulty_tier: 4
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/Nocturnes,_Op.9_(Chopin,_Frédéric)
+  description: Chopin's most beloved nocturne in a streamlined reading that preserves the singing bel canto melody and lilting 12/8 pulse while simplifying the most ornate roulades.
+  tags:
+  - romantic
+  - nocturne
+  - famous
+  - lyrical
+  - e-flat-major
+  sonata_lesson: 145
+- id: 128
+  title: Prelude Op. 28 No. 4 in E minor
+  composer: Frédéric Chopin
+  composer_dates: 1810–1849
+  period: Romantic
+  key: E minor
+  time_signature: 2/2
+  length_bars: 25
+  length_minutes: 2
+  difficulty_henle: 4
+  difficulty_tier: 4
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/Preludes,_Op.28_(Chopin,_Frédéric)
+  description: A hauntingly simple elegy — a sighing melody over slowly descending chromatic chords. Chopin himself requested this prelude be played at his funeral.
+  tags:
+  - romantic
+  - famous
+  - prelude
+  - e-minor
+  - lyrical
+- id: 129
+  title: Prelude Op. 28 No. 6 in B minor
+  composer: Frédéric Chopin
+  composer_dates: 1810–1849
+  period: Romantic
+  key: B minor
+  time_signature: 3/4
+  length_bars: 26
+  length_minutes: 2
+  difficulty_henle: 4
+  difficulty_tier: 4
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/Preludes,_Op.28_(Chopin,_Frédéric)
+  description: A cello-like tenor melody sings beneath a gentle right-hand accompaniment. Often called the 'Tolling Bells' prelude for its somber, funereal character.
+  tags:
+  - romantic
+  - prelude
+  - b-minor
+  - lyrical
+- id: 130
+  title: Prelude in E minor, Op. 28 No. 4
+  composer: Frédéric Chopin
+  composer_dates: 1810–1849
+  period: Romantic
+  key: E minor
+  time_signature: 2/2
+  length_bars: 25
+  length_minutes: 2
+  difficulty_henle: 4
+  difficulty_tier: 5
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/Preludes%2C_Op.28_(Chopin%2C_Fr%C3%A9d%C3%A9ric)
+  description: The funeral prelude (1838–39), played at Chopin's own funeral. Deceptively simple — the challenge is pacing the slow chromatic descent of the inner voices.
+  tags:
+  - romantic
+  - chopin
+  - prelude
+  - famous
+  - minor
+  - chromatic
+  sonata_lesson: 205
+- id: 131
+  title: Waltz in A minor, B. 150 (posthumous)
+  composer: Frédéric Chopin
+  composer_dates: 1810–1849
+  period: Romantic
+  key: A minor
+  time_signature: 3/4
+  length_bars: 48
+  length_minutes: 2
+  difficulty_henle: 4
+  difficulty_tier: 4
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/Waltz_in_A_minor,_B.150_(Chopin,_Frédéric)
+  description: The gateway Chopin waltz. A wistful A minor melody alternates with a brighter A major middle section, teaching the essential left-hand oom-pah-pah and rubato.
+  tags:
+  - romantic
+  - waltz
+  - famous
+  - a-minor
+  sonata_lesson: 150
+- id: 132
+  title: Prelude No. 1 in C major, BWV 846 (WTC Book 1)
+  composer: Johann Sebastian Bach
+  composer_dates: 1685–1750
+  period: Baroque
+  key: C major
+  time_signature: 4/4
+  length_bars: 35
+  length_minutes: 3
+  difficulty_henle: 4
+  difficulty_tier: 4
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/Das_wohltemperirte_Clavier_I,_BWV_846-869_(Bach,_Johann_Sebastian)
+  description: Bach's most famous prelude. A single broken-chord pattern repeats through a chain of shifting harmonies, creating a hypnotic meditation later used by Gounod as the basis for his Ave Maria.
+  tags:
+  - baroque
+  - famous
+  - prelude
+  - c-major
+  sonata_lesson: 160
+- id: 133
+  title: Prelude No. 2 in C minor, BWV 847 (WTC Book 1)
+  composer: Johann Sebastian Bach
+  composer_dates: 1685–1750
+  period: Baroque
+  key: C minor
+  time_signature: 4/4
+  length_bars: 38
+  length_minutes: 2
+  difficulty_henle: 4
+  difficulty_tier: 4
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/Das_wohltemperirte_Clavier_I,_BWV_846-869_(Bach,_Johann_Sebastian)
+  description: Relentless sixteenth-note motion drives this Baroque toccata-prelude. A furious presto coda erupts before the final plagal cadence — a thrilling study in finger independence.
+  tags:
+  - baroque
+  - prelude
+  - toccata
+  - c-minor
+- id: 134
+  title: Two-Part Invention No. 4 in D minor, BWV 775
+  composer: Johann Sebastian Bach
+  composer_dates: 1685–1750
+  period: Baroque
+  key: D minor
+  time_signature: 3/8
+  length_bars: 52
+  length_minutes: 1
+  difficulty_henle: 4
+  difficulty_tier: 4
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/15_Inventions,_BWV_772-786_(Bach,_Johann_Sebastian)
+  description: A lively invention in 3/8 with a flowing sixteenth-note subject and expressive trills. The minor mode gives it a driving, almost gigue-like character.
+  tags:
+  - baroque
+  - invention
+  - d-minor
+- id: 135
+  title: Intermezzo Op. 117 No. 1 in E-flat major
+  composer: Johannes Brahms
+  composer_dates: 1833–1897
+  period: Romantic
+  key: E-flat major
+  time_signature: 6/8
+  length_bars: 51
+  length_minutes: 5
+  difficulty_henle: 4
+  difficulty_tier: 4
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/3_Intermezzi,_Op.117_(Brahms,_Johannes)
+  description: Brahms's 'lullaby of my sorrows.' An inner-voice melody sings tenderly between the hands, surrounded by gentle rocking figuration — one of his most profound late miniatures.
+  tags:
+  - romantic
+  - intermezzo
+  - lullaby
+  - e-flat-major
+  - lyrical
+- id: 136
+  title: Waltz Op. 39 No. 15 in A-flat major
+  composer: Johannes Brahms
+  composer_dates: 1833–1897
+  period: Romantic
+  key: A-flat major
+  time_signature: 3/4
+  length_bars: 37
+  length_minutes: 2
+  difficulty_henle: 4
+  difficulty_tier: 4
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/16_Waltzes,_Op.39_(Brahms,_Johannes)
+  description: The most beloved of Brahms's Op. 39 waltzes. Warm parallel thirds and sixths in a tender Viennese dance — often called simply 'the Brahms Waltz.'
+  tags:
+  - romantic
+  - famous
+  - waltz
+  - a-flat-major
+- id: 137
+  title: Waltz Op. 39 No. 2 in E major
+  composer: Johannes Brahms
+  composer_dates: 1833–1897
+  period: Romantic
+  key: E major
+  time_signature: 3/4
+  length_bars: 27
+  length_minutes: 2
+  difficulty_henle: 4
+  difficulty_tier: 4
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/16_Waltzes,_Op.39_(Brahms,_Johannes)
+  description: A suave, slightly melancholic waltz in E major with cross-rhythms between hands. Brahms's characteristic hemiola gives it subtle rhythmic tension.
+  tags:
+  - romantic
+  - waltz
+  - e-major
+- id: 138
+  title: Nocturne No. 5 in B-flat major, H. 37
+  composer: John Field
+  composer_dates: 1782–1837
+  period: Romantic
+  key: B-flat major
+  time_signature: 12/8
+  length_bars: 54
+  length_minutes: 4
+  difficulty_henle: 4
+  difficulty_tier: 4
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/Nocturnes_(Field,_John)
+  description: Field invented the piano nocturne genre that Chopin would later perfect. This gently flowing B-flat nocturne has a singing right-hand melody over wide arpeggiated left-hand harmonies.
+  tags:
+  - romantic
+  - nocturne
+  - b-flat-major
+  - lyrical
+- id: 139
+  title: Piano Sonata in D major, Hob. XVI:37 — I. Allegro con brio
+  composer: Joseph Haydn
+  composer_dates: 1732–1809
+  period: Classical
+  key: D major
+  time_signature: 4/4
+  length_bars: 103
+  length_minutes: 4
+  difficulty_henle: 4
+  difficulty_tier: 4
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/Keyboard_Sonata_in_D_major,_Hob.XVI:37_(Haydn,_Joseph)
+  description: Haydn at his wittiest. Bright D major sonata-form movement full of chirpy ornaments, sudden dynamic switches, and the composer's signature humorous surprises.
+  tags:
+  - classical
+  - sonata
+  - d-major
+  - cheerful
+- id: 140
+  title: Bagatelle Op. 33 No. 1 in E-flat major
+  composer: Ludwig van Beethoven
+  composer_dates: 1770–1827
+  period: Classical
+  key: E-flat major
+  time_signature: 4/4
+  length_bars: 98
+  length_minutes: 4
+  difficulty_henle: 4
+  difficulty_tier: 4
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/7_Bagatelles,_Op.33_(Beethoven,_Ludwig_van)
+  description: Graceful Andante opening the Op. 33 set. A lyrical right-hand melody floats over broken-chord accompaniment, with ornamental turns and a playful contrasting episode in the minor.
+  tags:
+  - classical
+  - bagatelle
+  - lyrical
+  - e-flat-major
+- id: 141
+  title: Für Elise (WoO 59)
+  composer: Ludwig van Beethoven
+  composer_dates: 1770–1827
+  period: Classical/Early Romantic
+  key: A minor
+  time_signature: 3/8
+  length_bars: 103
+  length_minutes: 3
+  difficulty_henle: 4
+  difficulty_tier: 4
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/Für_Elise,_WoO_59_(Beethoven,_Ludwig_van)
+  description: One of the most recognized piano pieces ever written. Signature E–D#–E motif opens a gentle rondo, with a sunnier F major episode and a stormy A minor middle section full of broken chords and agitated repeated notes.
+  tags:
+  - romantic
+  - famous
+  - rondo
+  - a-minor
+  sonata_lesson: 155
+- id: 142
+  title: Écossaise in E-flat major, WoO 86
+  composer: Ludwig van Beethoven
+  composer_dates: 1770–1827
+  period: Classical
+  key: E-flat major
+  time_signature: 2/4
+  length_bars: 32
+  length_minutes: 1
+  difficulty_henle: 4
+  difficulty_tier: 4
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/Ecossaise,_WoO_86_(Beethoven,_Ludwig_van)
+  description: A spirited Scottish-style country dance in binary form. Crisp dotted rhythms and bright articulation make it an excellent study in Classical dance character.
+  tags:
+  - classical
+  - dance
+  - short
+  - e-flat-major
+- id: 143
+  title: Sonatina in G major, Anh. 5 No. 1 (attrib. Beethoven)
+  composer: Ludwig van Beethoven (attributed)
+  composer_dates: 1770–1827
+  period: Classical
+  key: G major
+  time_signature: 4/4
+  length_bars: 60
+  length_minutes: 3
+  difficulty_henle: 4
+  difficulty_tier: 4
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/2_Sonatinas,_Anh.5_(Beethoven,_Ludwig_van)
+  description: A beloved two-movement sonatina of disputed authorship. Bright G major Moderato followed by a charming Romance, perfect for learning Classical phrasing and Alberti bass patterns.
+  tags:
+  - classical
+  - sonatina
+  - pedagogical
+  - g-major
+- id: 144
+  title: Country Gardens (English Morris Dance)
+  composer: Percy Grainger
+  composer_dates: 1882–1961
+  period: Early 20th century
+  key: G major
+  time_signature: 4/4
+  length_bars: 48
+  length_minutes: 2
+  difficulty_henle: 4
+  difficulty_tier: 4
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/Country_Gardens_(Grainger,_Percy)
+  description: Grainger's colorful piano setting of the English Morris dance tune. Bright parallel chords, crisp articulation, and folkloric energy make this an exhilarating encore-piece.
+  tags:
+  - early-20th-century
+  - folk
+  - cheerful
+  - g-major
+- id: 145
+  title: Album for the Young Op. 39 No. 8 — Waltz
+  composer: Pyotr Ilyich Tchaikovsky
+  composer_dates: 1840–1893
+  period: Romantic
+  key: E-flat major
+  time_signature: 3/4
+  length_bars: 60
+  length_minutes: 2
+  difficulty_henle: 4
+  difficulty_tier: 4
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/Children's_Album,_Op.39_(Tchaikovsky,_Pyotr)
+  description: A graceful miniature waltz with Tchaikovsky's ballet-composer flair. Light ornamental triplets and expressive rubato transform a simple dance into a scene from a Russian ballroom.
+  tags:
+  - romantic
+  - waltz
+  - e-flat-major
+- id: 146
+  title: The Seasons Op. 37a — June (Barcarolle)
+  composer: Pyotr Ilyich Tchaikovsky
+  composer_dates: 1840–1893
+  period: Romantic
+  key: G minor
+  time_signature: 4/4
+  length_bars: 102
+  length_minutes: 5
+  difficulty_henle: 4
+  difficulty_tier: 4
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/The_Seasons,_Op.37a_(Tchaikovsky,_Pyotr)
+  description: The most famous piece from Tchaikovsky's monthly cycle. A gently rocking barcarolle in G minor opens out into a passionate G major middle section before returning home — pure Russian lyricism.
+  tags:
+  - romantic
+  - famous
+  - barcarolle
+  - g-minor
+  - lyrical
+- id: 147
+  title: Album for the Young Op. 68 No. 10 — The Happy Farmer
+  composer: Robert Schumann
+  composer_dates: 1810–1856
+  period: Romantic
+  key: F major
+  time_signature: 4/4
+  length_bars: 24
+  length_minutes: 1
+  difficulty_henle: 4
+  difficulty_tier: 4
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/Album_für_die_Jugend,_Op.68_(Schumann,_Robert)
+  description: A cheerful tune carried in the left hand while the right fills in light chords above — a clever inversion that trains voicing in the lower register.
+  tags:
+  - romantic
+  - pedagogical
+  - f-major
+  - cheerful
+- id: 148
+  title: Of Strange Lands and People (Kinderszenen Op. 15 No. 1)
+  composer: Robert Schumann
+  composer_dates: 1810–1856
+  period: Romantic
+  key: G major
+  time_signature: 2/4
+  length_bars: 22
+  length_minutes: 2
+  difficulty_henle: 4
+  difficulty_tier: 4
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/Kinderszenen,_Op.15_(Schumann,_Robert)
+  description: The wide-eyed opener to Schumann's Scenes from Childhood. A gentle triplet-ostinato accompaniment supports a tender melody full of yearning for distant places.
+  tags:
+  - romantic
+  - character-piece
+  - lyrical
+  - g-major
+- id: 149
+  title: Träumerei (Kinderszenen Op. 15 No. 7)
+  composer: Robert Schumann
+  composer_dates: 1810–1856
+  period: Romantic
+  key: F major
+  time_signature: 4/4
+  length_bars: 24
+  length_minutes: 3
+  difficulty_henle: 4
+  difficulty_tier: 4
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/Kinderszenen,_Op.15_(Schumann,_Robert)
+  description: Perhaps the most famous miniature in the piano repertoire. Four-voice texture wrapped in dream-logic harmonies — a profound exercise in voicing and inner-line projection.
+  tags:
+  - romantic
+  - famous
+  - character-piece
+  - f-major
+- id: 150
+  title: Träumerei from Kinderszenen, Op. 15 No. 7
+  composer: Robert Schumann
+  composer_dates: 1810–1856
+  period: Romantic
+  key: F major
+  time_signature: 4/4
+  length_bars: 24
+  length_minutes: 3
+  difficulty_henle: 4
+  difficulty_tier: 5
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/Kinderszenen%2C_Op.15_(Schumann%2C_Robert)
+  description: '''Dreaming'' (1838) — the most famous movement of Kinderszenen. Simple on the page, devastatingly difficult to voice and pace. Iconic romantic miniature.'
+  tags:
+  - romantic
+  - schumann
+  - miniature
+  - famous
+  - lyrical
+  sonata_lesson: 210
+- id: 151
+  title: Wichtige Begebenheit (Kinderszenen Op. 15 No. 6)
+  composer: Robert Schumann
+  composer_dates: 1810–1856
+  period: Romantic
+  key: A major
+  time_signature: 3/4
+  length_bars: 16
+  length_minutes: 1
+  difficulty_henle: 4
+  difficulty_tier: 4
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/Kinderszenen,_Op.15_(Schumann,_Robert)
+  description: '''An Important Event'' — a child''s pompous march of dotted rhythms and bold chords. A crash course in chordal playing and dramatic articulation.'
+  tags:
+  - romantic
+  - character-piece
+  - march
+  - a-major
+- id: 152
+  title: The Entertainer (simplified)
+  composer: Scott Joplin
+  composer_dates: 1868–1917
+  period: Ragtime
+  key: C major
+  time_signature: 2/4
+  length_bars: 90
+  length_minutes: 3
+  difficulty_henle: 4
+  difficulty_tier: 4
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/The_Entertainer_(Joplin,_Scott)
+  description: Joplin's immortal ragtime classic in an abridged intermediate arrangement. Steady left-hand stride accompanies a syncopated right-hand melody — the perfect introduction to ragtime feel.
+  tags:
+  - ragtime
+  - famous
+  - syncopated
+  - c-major
+- id: 153
+  title: Piano Sonata No. 16 in C major, K. 545 — I. Allegro
+  composer: Wolfgang Amadeus Mozart
+  composer_dates: 1756–1791
+  period: Classical
+  key: C major
+  time_signature: 4/4
+  length_bars: 73
+  length_minutes: 4
+  difficulty_henle: 4
+  difficulty_tier: 4
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/Piano_Sonata_No.16_in_C_major,_K.545_(Mozart,_Wolfgang_Amadeus)
+  description: Mozart's 'Sonata facile' — the first movement every piano student learns in sonata form. Scalar runs, Alberti bass, and crystalline Classical textures in a compact Allegro.
+  tags:
+  - classical
+  - sonata
+  - famous
+  - c-major
+- id: 154
+  title: Arabesque No. 1 in E major
+  composer: Claude Debussy
+  composer_dates: 1862–1918
+  period: Impressionist
+  key: E major
+  time_signature: 4/4
+  length_bars: 107
+  length_minutes: 4
+  difficulty_henle: 5
+  difficulty_tier: 5
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/Deux_Arabesques_(Debussy%2C_Claude)
+  description: Early Debussy (1888–1891), flowing triplet arpeggios against duplet melody — the classic two-against-three challenge. Gentle and pastoral with a more animated middle section.
+  tags:
+  - impressionist
+  - famous
+  - polyrhythm
+  - debussy
+  - arpeggios
+  sonata_lesson: 215
+- id: 155
+  title: Arabesque No. 2 in G major
+  composer: Claude Debussy
+  composer_dates: 1862–1918
+  period: Impressionist
+  key: G major
+  time_signature: 4/4
+  length_bars: 110
+  length_minutes: 3
+  difficulty_henle: 5
+  difficulty_tier: 5
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/Deux_Arabesques_(Debussy%2C_Claude)
+  description: The livelier sibling of the first Arabesque. Scherzando character, quick staccato articulation, and an impish right-hand figuration.
+  tags:
+  - impressionist
+  - scherzando
+  - debussy
+  - staccato
+- id: 156
+  title: Clair de Lune
+  composer: Claude Debussy
+  composer_dates: 1862–1918
+  period: Impressionist
+  key: D-flat major
+  time_signature: 9/8
+  length_bars: 72
+  length_minutes: 5
+  difficulty_henle: 5
+  difficulty_tier: 5
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/Suite_bergamasque_(Debussy%2C_Claude)
+  description: The third movement of Debussy's Suite bergamasque (published 1905). Atmospheric, floating, dreamlike. One of the most famous pieces in the repertoire — five flats, wide voicings, delicate pedaling, and cross-hand arpeggios in the middle section.
+  tags:
+  - impressionist
+  - famous
+  - atmospheric
+  - five-flats
+  - debussy
+  sonata_lesson: 225
+- id: 157
+  title: Rêverie
+  composer: Claude Debussy
+  composer_dates: 1862–1918
+  period: Impressionist
+  key: F major
+  time_signature: 4/4
+  length_bars: 101
+  length_minutes: 5
+  difficulty_henle: 5
+  difficulty_tier: 5
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/R%C3%AAverie_(Debussy%2C_Claude)
+  description: Early Debussy (1890) — dreamy, stepwise melody over rolling left-hand arpeggios. The composer later disowned it but it remains beloved.
+  tags:
+  - impressionist
+  - dreamy
+  - arpeggios
+  - debussy
+- id: 158
+  title: The Girl with the Flaxen Hair
+  composer: Claude Debussy
+  composer_dates: 1862–1918
+  period: Impressionist
+  key: G-flat major
+  time_signature: 3/4
+  length_bars: 39
+  length_minutes: 3
+  difficulty_henle: 5
+  difficulty_tier: 5
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/Pr%C3%A9ludes_(Book_1)_(Debussy%2C_Claude)
+  description: Prelude No. 8 from Book 1 (1910). Pentatonic, tender, unhurried. Six flats but deceptively simple textures — the challenge is voicing and color, not notes.
+  tags:
+  - impressionist
+  - pentatonic
+  - voicing
+  - six-flats
+  - debussy
+- id: 159
+  title: Notturno, Op. 54 No. 4
+  composer: Edvard Grieg
+  composer_dates: 1843–1907
+  period: Late Romantic
+  key: C major
+  time_signature: 4/4
+  length_bars: 58
+  length_minutes: 4
+  difficulty_henle: 5
+  difficulty_tier: 5
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/Lyric_Pieces%2C_Op.54_(Grieg%2C_Edvard)
+  description: From Lyric Pieces Book V (1891). Nocturnal, trill-laced, with a rapturous middle section evoking birdsong. Grieg at his most atmospheric.
+  tags:
+  - romantic
+  - grieg
+  - nocturne
+  - lyrical
+  - trills
+- id: 160
+  title: To Spring, Op. 43 No. 6
+  composer: Edvard Grieg
+  composer_dates: 1843–1907
+  period: Late Romantic
+  key: F-sharp major
+  time_signature: 4/4
+  length_bars: 94
+  length_minutes: 3
+  difficulty_henle: 5
+  difficulty_tier: 5
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/Lyric_Pieces%2C_Op.43_(Grieg%2C_Edvard)
+  description: From Lyric Pieces Book III (1886). Six sharps — blooming, effusive, climactic. Demands large-span arpeggios and a singing top line.
+  tags:
+  - romantic
+  - grieg
+  - six-sharps
+  - lyrical
+  - arpeggios
+- id: 161
+  title: Gymnopédie No. 2
+  composer: Erik Satie
+  composer_dates: 1866–1925
+  period: Early Modern
+  key: C major
+  time_signature: 3/4
+  length_bars: 78
+  length_minutes: 3
+  difficulty_henle: 5
+  difficulty_tier: 5
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/3_Gymnop%C3%A9dies_(Satie%2C_Erik)
+  description: Slightly more ornate than the famous first (1888). The same slow waltz template with wandering seventh chords.
+  tags:
+  - modern
+  - satie
+  - lyrical
+  - waltz
+- id: 162
+  title: Cançó i Dansa No. 6
+  composer: Federico Mompou
+  composer_dates: 1893–1987
+  period: 20th Century
+  key: F-sharp minor
+  time_signature: various
+  length_bars: 78
+  length_minutes: 5
+  difficulty_henle: 5
+  difficulty_tier: 5
+  public_domain: false
+  imslp_url: https://imslp.org/wiki/Can%C3%A7ons_i_danses_(Mompou%2C_Federico)
+  description: Catalan folk song paired with a dance (1942). Mompou's intimate, bell-like textures and modal harmony — understated but haunting.
+  tags:
+  - modern
+  - mompou
+  - folk
+  - catalan
+  - modal
+- id: 163
+  title: Mompou — Cançó i Dansa No. 1
+  composer: Federico Mompou
+  composer_dates: 1893–1987
+  period: 20th Century
+  key: E major
+  time_signature: 3/4
+  length_bars: 62
+  length_minutes: 4
+  difficulty_henle: 5
+  difficulty_tier: 5
+  public_domain: false
+  imslp_url: https://imslp.org/wiki/Can%C3%A7ons_i_danses_(Mompou%2C_Federico)
+  description: The first of Mompou's Catalan song-and-dance pairings (1921). Bell-like resonance, plain-spoken harmony, childlike purity.
+  tags:
+  - modern
+  - mompou
+  - folk
+  - catalan
+- id: 164
+  title: Mendelssohn — 'Spring Song', Op. 62 No. 6
+  composer: Felix Mendelssohn
+  composer_dates: 1809–1847
+  period: Romantic
+  key: A major
+  time_signature: 2/4
+  length_bars: 101
+  length_minutes: 3
+  difficulty_henle: 5
+  difficulty_tier: 5
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/Lieder_ohne_Worte%2C_Op.62_(Mendelssohn%2C_Felix)
+  description: The most famous Song Without Words (1842–44). Pastoral A-major melody with ornamented repeats and filigree turns — a staple of Victorian parlors.
+  tags:
+  - romantic
+  - mendelssohn
+  - famous
+  - pastoral
+  - ornaments
+- id: 165
+  title: Rondo Capriccioso in E major, Op. 14
+  composer: Felix Mendelssohn
+  composer_dates: 1809–1847
+  period: Romantic
+  key: E major
+  time_signature: 6/8
+  length_bars: 195
+  length_minutes: 6
+  difficulty_henle: 5
+  difficulty_tier: 5
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/Rondo_Capriccioso%2C_Op.14_(Mendelssohn%2C_Felix)
+  description: Introduction and Presto (1824, rev. 1830) — four sharps, fairy-scherzo textures with lightning staccato. Mendelssohn's signature elfin style.
+  tags:
+  - romantic
+  - mendelssohn
+  - scherzo
+  - virtuoso
+  - four-sharps
+- id: 166
+  title: Songs Without Words — 'Venetian Boat Song' No. 2, Op. 30 No. 6
+  composer: Felix Mendelssohn
+  composer_dates: 1809–1847
+  period: Romantic
+  key: F-sharp minor
+  time_signature: 6/8
+  length_bars: 50
+  length_minutes: 3
+  difficulty_henle: 5
+  difficulty_tier: 5
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/Lieder_ohne_Worte%2C_Op.30_(Mendelssohn%2C_Felix)
+  description: The second 'Venetian Boat Song' (1834) — rocking 6/8 barcarolle in three sharps. Sustained melody over a gently oscillating accompaniment.
+  tags:
+  - romantic
+  - mendelssohn
+  - barcarolle
+  - minor
+  - lyrical
+- id: 167
+  title: Consolation No. 1 in E major, S.172
+  composer: Franz Liszt
+  composer_dates: 1811–1886
+  period: Romantic
+  key: E major
+  time_signature: 4/4
+  length_bars: 19
+  length_minutes: 2
+  difficulty_henle: 5
+  difficulty_tier: 5
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/Consolations%2C_S.172_(Liszt%2C_Franz)
+  description: A short, hymn-like consolation (1850) — warm four-part chorale in four sharps. Liszt at his most restrained.
+  tags:
+  - romantic
+  - liszt
+  - consolation
+  - chorale
+  - four-sharps
+- id: 168
+  title: Impromptu in G-flat major, Op. 90 No. 3, D.899
+  composer: Franz Schubert
+  composer_dates: 1797–1828
+  period: Early Romantic
+  key: G-flat major
+  time_signature: 4/2 (cut)
+  length_bars: 86
+  length_minutes: 6
+  difficulty_henle: 5
+  difficulty_tier: 5
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/4_Impromptus%2C_D.899_(Schubert%2C_Franz)
+  description: Schubert's most celebrated impromptu (1827). A long-breathed melody over rippling sextuplet accompaniment, in six flats. The hand-division alone is a puzzle.
+  tags:
+  - romantic
+  - schubert
+  - impromptu
+  - six-flats
+  - lyrical
+- id: 169
+  title: Moments Musicaux No. 3 in F minor, D.780
+  composer: Franz Schubert
+  composer_dates: 1797–1828
+  period: Early Romantic
+  key: F minor
+  time_signature: 2/4
+  length_bars: 54
+  length_minutes: 2
+  difficulty_henle: 5
+  difficulty_tier: 5
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/6_Moments_musicaux%2C_D.780_(Schubert%2C_Franz)
+  description: 'The ''air russe'' (1823–1828) — pizzicato-like staccato accompaniment under a wistful folk melody. Deceptive: evenness and character are everything.'
+  tags:
+  - romantic
+  - schubert
+  - miniature
+  - minor
+  - character-piece
+- id: 170
+  title: Mazurka in A minor, Op. 17 No. 4
+  composer: Frédéric Chopin
+  composer_dates: 1810–1849
+  period: Romantic
+  key: A minor
+  time_signature: 3/4
+  length_bars: 132
+  length_minutes: 4
+  difficulty_henle: 5
+  difficulty_tier: 5
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/Mazurkas%2C_Op.17_(Chopin%2C_Fr%C3%A9d%C3%A9ric)
+  description: One of Chopin's most expressive mazurkas (1832–33) — hollow open-fifth drones, modal inflection, and a floating, unresolved ending.
+  tags:
+  - romantic
+  - chopin
+  - mazurka
+  - minor
+  - modal
+- id: 171
+  title: Nocturne in E-flat major, Op. 9 No. 2 (complete)
+  composer: Frédéric Chopin
+  composer_dates: 1810–1849
+  period: Romantic
+  key: E-flat major
+  time_signature: 12/8
+  length_bars: 35
+  length_minutes: 4
+  difficulty_henle: 5
+  difficulty_tier: 5
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/Nocturnes%2C_Op.9_(Chopin%2C_Fr%C3%A9d%C3%A9ric)
+  description: The most famous nocturne ever written (1830–31). Ornamented melody with elaborate cadenza-like runs; the full score demands mature rubato and fingering choices.
+  tags:
+  - romantic
+  - famous
+  - chopin
+  - nocturne
+  - ornaments
+  sonata_lesson: 200
+- id: 172
+  title: Nocturne in F minor, Op. 55 No. 1
+  composer: Frédéric Chopin
+  composer_dates: 1810–1849
+  period: Romantic
+  key: F minor
+  time_signature: 4/4
+  length_bars: 101
+  length_minutes: 5
+  difficulty_henle: 5
+  difficulty_tier: 5
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/Nocturnes%2C_Op.55_(Chopin%2C_Fr%C3%A9d%C3%A9ric)
+  description: A funeral-march-tinged nocturne (1842–44) that opens somber and builds to an agitated coda in the parallel major. One of Chopin's more approachable late nocturnes.
+  tags:
+  - romantic
+  - minor
+  - chopin
+  - nocturne
+- id: 173
+  title: Waltz in C-sharp minor, Op. 64 No. 2
+  composer: Frédéric Chopin
+  composer_dates: 1810–1849
+  period: Romantic
+  key: C-sharp minor
+  time_signature: 3/4
+  length_bars: 193
+  length_minutes: 4
+  difficulty_henle: 5
+  difficulty_tier: 5
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/Waltzes%2C_Op.64_(Chopin%2C_Fr%C3%A9d%C3%A9ric)
+  description: Melancholy waltz (1847) with three contrasting sections — pensive, yearning, and whirling. Four sharps and demanding right-hand passagework.
+  tags:
+  - romantic
+  - waltz
+  - minor
+  - chopin
+  - four-sharps
+- id: 174
+  title: Waltz in D-flat major, Op. 64 No. 1 (Minute Waltz)
+  composer: Frédéric Chopin
+  composer_dates: 1810–1849
+  period: Romantic
+  key: D-flat major
+  time_signature: 3/4
+  length_bars: 138
+  length_minutes: 2
+  difficulty_henle: 5
+  difficulty_tier: 5
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/Waltzes%2C_Op.64_(Chopin%2C_Fr%C3%A9d%C3%A9ric)
+  description: The 'Minute' Waltz (1847) — a dog chasing its tail. Perpetual-motion right hand in five flats; fingering choices make or break it.
+  tags:
+  - romantic
+  - waltz
+  - famous
+  - chopin
+  - five-flats
+  - perpetual-motion
+- id: 175
+  title: Prelude in D minor, BWV 851 (WTC I)
+  composer: Johann Sebastian Bach
+  composer_dates: 1685–1750
+  period: Baroque
+  key: D minor
+  time_signature: 3/4
+  length_bars: 26
+  length_minutes: 1
+  difficulty_henle: 5
+  difficulty_tier: 5
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/Das_wohltemperierte_Klavier_I%2C_BWV_846-869_(Bach%2C_Johann_Sebastian)
+  description: Stormy running-sixteenths prelude from Well-Tempered Clavier Book 1 (1722). Wrist flexibility and evenness are the challenges.
+  tags:
+  - baroque
+  - bach
+  - prelude
+  - minor
+  - wtc
+- id: 176
+  title: Prelude in E-flat minor, BWV 853 (WTC I)
+  composer: Johann Sebastian Bach
+  composer_dates: 1685–1750
+  period: Baroque
+  key: E-flat minor
+  time_signature: 3/2
+  length_bars: 40
+  length_minutes: 4
+  difficulty_henle: 5
+  difficulty_tier: 5
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/Das_wohltemperierte_Klavier_I%2C_BWV_846-869_(Bach%2C_Johann_Sebastian)
+  description: Deeply expressive prelude in six flats — slow, chromatic, operatic. One of the most beautiful movements in WTC Book 1.
+  tags:
+  - baroque
+  - bach
+  - prelude
+  - expressive
+  - six-flats
+  - wtc
+- id: 177
+  title: Three-Part Invention (Sinfonia) No. 15 in B minor, BWV 801
+  composer: Johann Sebastian Bach
+  composer_dates: 1685–1750
+  period: Baroque
+  key: B minor
+  time_signature: 9/16
+  length_bars: 38
+  length_minutes: 2
+  difficulty_henle: 5
+  difficulty_tier: 5
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/15_Sinfonias%2C_BWV_787-801_(Bach%2C_Johann_Sebastian)
+  description: Fast 9/16 sinfonia closing the set. Tricky finger-crossings in three voices and driving sixteenths throughout.
+  tags:
+  - baroque
+  - bach
+  - sinfonia
+  - counterpoint
+  - minor
+- id: 178
+  title: Three-Part Invention (Sinfonia) No. 6 in E major, BWV 792
+  composer: Johann Sebastian Bach
+  composer_dates: 1685–1750
+  period: Baroque
+  key: E major
+  time_signature: 9/8
+  length_bars: 23
+  length_minutes: 2
+  difficulty_henle: 5
+  difficulty_tier: 5
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/15_Sinfonias%2C_BWV_787-801_(Bach%2C_Johann_Sebastian)
+  description: A pastoral 9/8 sinfonia, one of the friendlier three-part inventions. Three simultaneous voices require clear articulation and independence.
+  tags:
+  - baroque
+  - bach
+  - sinfonia
+  - counterpoint
+  - pastoral
+- id: 179
+  title: Three-Part Invention (Sinfonia) No. 9 in F minor, BWV 795
+  composer: Johann Sebastian Bach
+  composer_dates: 1685–1750
+  period: Baroque
+  key: F minor
+  time_signature: 3/2
+  length_bars: 34
+  length_minutes: 4
+  difficulty_henle: 5
+  difficulty_tier: 5
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/15_Sinfonias%2C_BWV_787-801_(Bach%2C_Johann_Sebastian)
+  description: The most chromatic and expressive of the sinfonias — three interwoven subjects, one of them the 'cross' motif. Bach at his most searching.
+  tags:
+  - baroque
+  - bach
+  - sinfonia
+  - counterpoint
+  - chromatic
+  - minor
+- id: 180
+  title: Intermezzo in B-flat minor, Op. 117 No. 2
+  composer: Johannes Brahms
+  composer_dates: 1833–1897
+  period: Late Romantic
+  key: B-flat minor
+  time_signature: 3/8
+  length_bars: 84
+  length_minutes: 5
+  difficulty_henle: 5
+  difficulty_tier: 5
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/3_Intermezzi%2C_Op.117_(Brahms%2C_Johannes)
+  description: Whispered, anxious intermezzo in five flats — melody woven through broken-chord arpeggios. The hardest of the Op. 117 set.
+  tags:
+  - romantic
+  - brahms
+  - intermezzo
+  - minor
+  - five-flats
+- id: 181
+  title: Intermezzo in C-sharp minor, Op. 117 No. 3
+  composer: Johannes Brahms
+  composer_dates: 1833–1897
+  period: Late Romantic
+  key: C-sharp minor
+  time_signature: 2/4
+  length_bars: 108
+  length_minutes: 7
+  difficulty_henle: 5
+  difficulty_tier: 5
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/3_Intermezzi%2C_Op.117_(Brahms%2C_Johannes)
+  description: Austere, hollow octaves in bare two-voice texture opening into richer chorales. Late Brahms at his most withdrawn.
+  tags:
+  - romantic
+  - brahms
+  - intermezzo
+  - minor
+  - austere
+- id: 182
+  title: Intermezzo in E-flat major, Op. 117 No. 1
+  composer: Johannes Brahms
+  composer_dates: 1833–1897
+  period: Late Romantic
+  key: E-flat major
+  time_signature: 6/8
+  length_bars: 107
+  length_minutes: 5
+  difficulty_henle: 5
+  difficulty_tier: 5
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/3_Intermezzi%2C_Op.117_(Brahms%2C_Johannes)
+  description: Brahms called these 'lullabies of my griefs' (1892). Inner-voice melody buried under the top line — a voicing masterclass inscribed with a Scottish lullaby.
+  tags:
+  - romantic
+  - brahms
+  - intermezzo
+  - lullaby
+  - inner-voice
+- id: 183
+  title: Nocturne No. 5 in B-flat major, H.37
+  composer: John Field
+  composer_dates: 1782–1837
+  period: Early Romantic
+  key: B-flat major
+  time_signature: 12/8
+  length_bars: 54
+  length_minutes: 4
+  difficulty_henle: 5
+  difficulty_tier: 5
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/Nocturnes_(Field%2C_John)
+  description: Field invented the piano nocturne — this is one of the most beautiful examples (c.1817). The direct precursor to Chopin's nocturnes.
+  tags:
+  - romantic
+  - field
+  - nocturne
+  - historical
+- id: 184
+  title: Moonlight Sonata (Sonata No. 14), Op. 27 No. 2 — I. Adagio sostenuto
+  composer: Ludwig van Beethoven
+  composer_dates: 1770–1827
+  period: Classical
+  key: C-sharp minor
+  time_signature: 2/2 (alla breve)
+  length_bars: 69
+  length_minutes: 6
+  difficulty_henle: 5
+  difficulty_tier: 5
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/Piano_Sonata_No.14%2C_Op.27_No.2_(Beethoven%2C_Ludwig_van)
+  description: 'The full first movement (1801) — continuous triplet arpeggios, a floating dotted melody, and four sharps. Famously deceptive: the notes come, but the balance and pedaling don''t.'
+  tags:
+  - classical
+  - beethoven
+  - sonata
+  - famous
+  - minor
+  - arpeggios
+  sonata_lesson: 250
+- id: 185
+  title: Pathétique Sonata, Op. 13 — II. Adagio cantabile
+  composer: Ludwig van Beethoven
+  composer_dates: 1770–1827
+  period: Classical
+  key: A-flat major
+  time_signature: 2/4
+  length_bars: 73
+  length_minutes: 5
+  difficulty_henle: 5
+  difficulty_tier: 5
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/Piano_Sonata_No.8%2C_Op.13_(Beethoven%2C_Ludwig_van)
+  description: The slow movement of the Pathétique (1798) — a hymn-like rondo with one of the most famous melodies Beethoven ever wrote. Inner-voice balance is everything.
+  tags:
+  - classical
+  - beethoven
+  - sonata
+  - famous
+  - cantabile
+- id: 186
+  title: Piano Sonata No. 1 in F minor, Op. 2 No. 1 — I. Allegro
+  composer: Ludwig van Beethoven
+  composer_dates: 1770–1827
+  period: Classical
+  key: F minor
+  time_signature: 2/2 (alla breve)
+  length_bars: 152
+  length_minutes: 5
+  difficulty_henle: 5
+  difficulty_tier: 5
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/Piano_Sonata_No.1%2C_Op.2_No.1_(Beethoven%2C_Ludwig_van)
+  description: The first movement of Beethoven's Op. 2 No. 1 (1795) — dedicated to Haydn. Four-flat Allegro with Mannheim rockets and terse development.
+  tags:
+  - classical
+  - beethoven
+  - sonata
+  - minor
+  - four-flats
+- id: 187
+  title: Piano Sonata in G major, Op. 49 No. 2
+  composer: Ludwig van Beethoven
+  composer_dates: 1770–1827
+  period: Classical
+  key: G major
+  time_signature: 2/4
+  length_bars: 259
+  length_minutes: 8
+  difficulty_henle: 5
+  difficulty_tier: 5
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/Piano_Sonata_No.20%2C_Op.49_No.2_(Beethoven%2C_Ludwig_van)
+  description: Bright two-movement sonata whose Tempo di Menuetto second movement Beethoven reused in his Septet. The approachable gateway to the full sonatas.
+  tags:
+  - classical
+  - beethoven
+  - sonata
+  - menuetto
+- id: 188
+  title: Piano Sonata in G minor, Op. 49 No. 1
+  composer: Ludwig van Beethoven
+  composer_dates: 1770–1827
+  period: Classical
+  key: G minor
+  time_signature: 2/4
+  length_bars: 280
+  length_minutes: 9
+  difficulty_henle: 5
+  difficulty_tier: 5
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/Piano_Sonata_No.19%2C_Op.49_No.1_(Beethoven%2C_Ludwig_van)
+  description: Two-movement 'easy' sonata (composed c.1795–97) — Andante in G minor and Rondo in G major. An ideal first Beethoven sonata.
+  tags:
+  - classical
+  - beethoven
+  - sonata
+  - minor
+- id: 189
+  title: The Seasons, Op. 37a — June (Barcarolle)
+  composer: Pyotr Ilyich Tchaikovsky
+  composer_dates: 1840–1893
+  period: Late Romantic
+  key: G minor
+  time_signature: 4/4
+  length_bars: 103
+  length_minutes: 5
+  difficulty_henle: 5
+  difficulty_tier: 5
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/The_Seasons%2C_Op.37a_(Tchaikovsky%2C_Pyotr)
+  description: The most famous movement of The Seasons (1876). Gently rocking barcarolle with a faster middle section and a dissolving coda.
+  tags:
+  - romantic
+  - tchaikovsky
+  - barcarolle
+  - seasons
+  - minor
+- id: 190
+  title: The Seasons, Op. 37a — November (Troika)
+  composer: Pyotr Ilyich Tchaikovsky
+  composer_dates: 1840–1893
+  period: Late Romantic
+  key: E major
+  time_signature: 4/4
+  length_bars: 92
+  length_minutes: 3
+  difficulty_henle: 5
+  difficulty_tier: 5
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/The_Seasons%2C_Op.37a_(Tchaikovsky%2C_Pyotr)
+  description: Sleigh-ride piece with jingling grace notes and galloping triplet figures. Four sharps, infectious middle section.
+  tags:
+  - romantic
+  - tchaikovsky
+  - seasons
+  - four-sharps
+  - scherzando
+- id: 191
+  title: The Seasons, Op. 37a — October (Autumn Song)
+  composer: Pyotr Ilyich Tchaikovsky
+  composer_dates: 1840–1893
+  period: Late Romantic
+  key: D minor
+  time_signature: 4/4
+  length_bars: 63
+  length_minutes: 6
+  difficulty_henle: 5
+  difficulty_tier: 5
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/The_Seasons%2C_Op.37a_(Tchaikovsky%2C_Pyotr)
+  description: The most famous of Tchaikovsky's Seasons (1876). Slow, autumnal, with chorale textures and sighing suspensions.
+  tags:
+  - romantic
+  - tchaikovsky
+  - seasons
+  - autumnal
+  - minor
+- id: 192
+  title: Arabeske in C major, Op. 18
+  composer: Robert Schumann
+  composer_dates: 1810–1856
+  period: Romantic
+  key: C major
+  time_signature: 2/4
+  length_bars: 221
+  length_minutes: 7
+  difficulty_henle: 5
+  difficulty_tier: 5
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/Arabeske%2C_Op.18_(Schumann%2C_Robert)
+  description: A rondo in C major (1839) with two minor-key episodes and a quietly philosophical coda. Elegant, rhythmically off-balance, quintessentially Schumann.
+  tags:
+  - romantic
+  - schumann
+  - rondo
+  - lyrical
+- id: 193
+  title: Kinderszenen, Op. 15 (complete)
+  composer: Robert Schumann
+  composer_dates: 1810–1856
+  period: Romantic
+  key: various
+  time_signature: various
+  length_bars: 450
+  length_minutes: 18
+  difficulty_henle: 5
+  difficulty_tier: 5
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/Kinderszenen%2C_Op.15_(Schumann%2C_Robert)
+  description: Thirteen 'Scenes from Childhood' (1838) including Träumerei. Not actually for children — Schumann's adult reflection on childhood. A set studied as a whole rewards interpretive maturity.
+  tags:
+  - romantic
+  - schumann
+  - character-pieces
+  - suite
+  - famous
+- id: 194
+  title: Schumann — Des Abends (Fantasiestücke, Op. 12 No. 1)
+  composer: Robert Schumann
+  composer_dates: 1810–1856
+  period: Romantic
+  key: D-flat major
+  time_signature: 2/8
+  length_bars: 79
+  length_minutes: 4
+  difficulty_henle: 5
+  difficulty_tier: 5
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/Fantasiest%C3%BCcke%2C_Op.12_(Schumann%2C_Robert)
+  description: '''In the Evening'' (1837) — cross-rhythm 2/8 with continuous triplets against duplets. Five flats, hushed dynamics throughout.'
+  tags:
+  - romantic
+  - schumann
+  - polyrhythm
+  - five-flats
+  - atmospheric
+- id: 195
+  title: Debussy — Reflets dans l'eau (Images, Book 1, No. 1)
+  composer: Claude Debussy
+  composer_dates: 1862–1918
+  period: Impressionist
+  key: D-flat major
+  time_signature: 4/4
+  length_bars: 94
+  length_minutes: 5
+  difficulty_henle: 6
+  difficulty_tier: 6
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/Images%2C_Book_1_(Debussy%2C_Claude)
+  description: '''Reflections in the water'' (1905) — shimmering chord-layered textures, cascading arpeggios, three-staff writing. At the ceiling of this range.'
+  tags:
+  - impressionist
+  - debussy
+  - images
+  - virtuoso
+- id: 196
+  title: La Cathédrale engloutie
+  composer: Claude Debussy
+  composer_dates: 1862–1918
+  period: Impressionist
+  key: C major (modal)
+  time_signature: 6/4
+  length_bars: 89
+  length_minutes: 6
+  difficulty_henle: 6
+  difficulty_tier: 6
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/Pr%C3%A9ludes_(Book_1)_(Debussy%2C_Claude)
+  description: Prelude No. 10 from Book 1 (1910) — a Breton legend of a drowned cathedral rising from the sea. Parallel fifths, massive sonorities, huge dynamic range.
+  tags:
+  - impressionist
+  - debussy
+  - preludes
+  - modal
+  - dramatic
+- id: 197
+  title: Grieg — Wedding Day at Troldhaugen, Op. 65 No. 6
+  composer: Edvard Grieg
+  composer_dates: 1843–1907
+  period: Late Romantic
+  key: D major
+  time_signature: 4/4
+  length_bars: 192
+  length_minutes: 6
+  difficulty_henle: 6
+  difficulty_tier: 6
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/Lyric_Pieces%2C_Op.65_(Grieg%2C_Edvard)
+  description: A processional Norwegian wedding march (1897) with a lyrical trio. Grieg wrote it at his home, Troldhaugen. Fanfare textures and big chordal climaxes.
+  tags:
+  - romantic
+  - grieg
+  - processional
+  - famous
+- id: 198
+  title: Schubert — Impromptu Op. 90 No. 2 in E-flat, D.899
+  composer: Franz Schubert
+  composer_dates: 1797–1828
+  period: Early Romantic
+  key: E-flat major
+  time_signature: 3/4
+  length_bars: 285
+  length_minutes: 5
+  difficulty_henle: 6
+  difficulty_tier: 6
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/4_Impromptus%2C_D.899_(Schubert%2C_Franz)
+  description: Running triplet outer sections with a stormy B-minor middle (1827). Demanding evenness and a Schubertian singing touch across vast stretches.
+  tags:
+  - romantic
+  - schubert
+  - impromptu
+  - perpetual-motion
+- id: 199
+  title: Nocturne in B major, Op. 32 No. 1
+  composer: Frédéric Chopin
+  composer_dates: 1810–1849
+  period: Romantic
+  key: B major
+  time_signature: 4/4
+  length_bars: 65
+  length_minutes: 5
+  difficulty_henle: 6
+  difficulty_tier: 6
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/Nocturnes%2C_Op.32_(Chopin%2C_Fr%C3%A9d%C3%A9ric)
+  description: Five sharps, songlike, with a shocking recitative coda that lands in B minor (1837). Famously used in Les Sylphides.
+  tags:
+  - romantic
+  - chopin
+  - nocturne
+  - five-sharps
+- id: 200
+  title: Nocturne in F major, Op. 15 No. 1
+  composer: Frédéric Chopin
+  composer_dates: 1810–1849
+  period: Romantic
+  key: F major
+  time_signature: 3/4
+  length_bars: 74
+  length_minutes: 5
+  difficulty_henle: 6
+  difficulty_tier: 6
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/Nocturnes%2C_Op.15_(Chopin%2C_Fr%C3%A9d%C3%A9ric)
+  description: Two tranquil outer sections framing a 'con fuoco' F-minor middle that erupts into double-note fury (1830–33). A real test of contrast.
+  tags:
+  - romantic
+  - chopin
+  - nocturne
+  - dramatic-contrast
+- id: 201
+  title: Prelude in D-flat major, Op. 28 No. 15 (Raindrop)
+  composer: Frédéric Chopin
+  composer_dates: 1810–1849
+  period: Romantic
+  key: D-flat major
+  time_signature: 4/4
+  length_bars: 89
+  length_minutes: 6
+  difficulty_henle: 6
+  difficulty_tier: 6
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/Preludes%2C_Op.28_(Chopin%2C_Fr%C3%A9d%C3%A9ric)
+  description: The 'Raindrop' Prelude (1838–39), the longest of Op. 28. Obsessive repeated A-flat/G-sharp pulse becomes the bell-toll of the C-sharp minor middle section.
+  tags:
+  - romantic
+  - chopin
+  - prelude
+  - famous
+  - five-flats
+- id: 202
+  title: Nocturne No. 1 in E-flat minor, Op. 33 No. 1
+  composer: Gabriel Fauré
+  composer_dates: 1845–1924
+  period: Late Romantic
+  key: E-flat minor
+  time_signature: 4/4
+  length_bars: 86
+  length_minutes: 6
+  difficulty_henle: 6
+  difficulty_tier: 6
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/3_Nocturnes%2C_Op.33_(Faur%C3%A9%2C_Gabriel)
+  description: Fauré's first published nocturne (1883), six flats, long-breathed and harmonically restless. A hallmark of French late-Romantic piano writing.
+  tags:
+  - romantic
+  - faure
+  - nocturne
+  - six-flats
+  - minor
+- id: 203
+  title: Bach — Italian Concerto, BWV 971 (II. Andante)
+  composer: Johann Sebastian Bach
+  composer_dates: 1685–1750
+  period: Baroque
+  key: D minor
+  time_signature: 4/4
+  length_bars: 49
+  length_minutes: 5
+  difficulty_henle: 6
+  difficulty_tier: 6
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/Italian_Concerto%2C_BWV_971_(Bach%2C_Johann_Sebastian)
+  description: The slow movement (1735) — an aria over an obstinate bass. One of Bach's most operatic keyboard movements; the ornamentation is notated in full.
+  tags:
+  - baroque
+  - bach
+  - concerto
+  - aria
+  - minor
+- id: 204
+  title: English Suite No. 3 in G minor — Sarabande, BWV 808
+  composer: Johann Sebastian Bach
+  composer_dates: 1685–1750
+  period: Baroque
+  key: G minor
+  time_signature: 3/4
+  length_bars: 24
+  length_minutes: 4
+  difficulty_henle: 6
+  difficulty_tier: 6
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/English_Suite_No.3_in_G_minor%2C_BWV_808_(Bach%2C_Johann_Sebastian)
+  description: A dignified sarabande with an ornamented 'double' version. The hand-filling chord voicings require careful voicing and pedal restraint.
+  tags:
+  - baroque
+  - bach
+  - suite
+  - sarabande
+  - minor
+- id: 205
+  title: French Suite No. 5 in G major — Allemande, BWV 816
+  composer: Johann Sebastian Bach
+  composer_dates: 1685–1750
+  period: Baroque
+  key: G major
+  time_signature: 4/4
+  length_bars: 24
+  length_minutes: 3
+  difficulty_henle: 6
+  difficulty_tier: 6
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/French_Suite_No.5_in_G_major%2C_BWV_816_(Bach%2C_Johann_Sebastian)
+  description: The opening allemande of the sunniest French Suite (c.1722). Continuous sixteenth-note flow in two voices with decorative figuration.
+  tags:
+  - baroque
+  - bach
+  - suite
+  - allemande
+  - counterpoint
+- id: 206
+  title: Intermezzo in A major, Op. 118 No. 2
+  composer: Johannes Brahms
+  composer_dates: 1833–1897
+  period: Late Romantic
+  key: A major
+  time_signature: 3/4
+  length_bars: 116
+  length_minutes: 7
+  difficulty_henle: 6
+  difficulty_tier: 6
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/6_Klavierst%C3%BCcke%2C_Op.118_(Brahms%2C_Johannes)
+  description: Perhaps Brahms's most beloved intermezzo (1893). Tender A-major outer sections with a soaring F-sharp minor canon at the heart. Dedicated to Clara Schumann.
+  tags:
+  - romantic
+  - brahms
+  - intermezzo
+  - canon
+  - famous
+- id: 207
+  title: 'Pathétique Sonata, Op. 13 — III. Rondo: Allegro'
+  composer: Ludwig van Beethoven
+  composer_dates: 1770–1827
+  period: Classical
+  key: C minor
+  time_signature: 2/2 (cut)
+  length_bars: 210
+  length_minutes: 5
+  difficulty_henle: 6
+  difficulty_tier: 6
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/Piano_Sonata_No.8%2C_Op.13_(Beethoven%2C_Ludwig_van)
+  description: The fiery finale (1798) of the Pathétique. Rondo form with sweeping scales, octave runs, and a virtuoso coda — a major step up from the second movement.
+  tags:
+  - classical
+  - beethoven
+  - sonata
+  - rondo
+  - virtuoso
+  - minor
+- id: 208
+  title: Piano Sonata in G major, Op. 14 No. 2 — I. Allegro
+  composer: Ludwig van Beethoven
+  composer_dates: 1770–1827
+  period: Classical
+  key: G major
+  time_signature: 2/4
+  length_bars: 200
+  length_minutes: 7
+  difficulty_henle: 6
+  difficulty_tier: 6
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/Piano_Sonata_No.10%2C_Op.14_No.2_(Beethoven%2C_Ludwig_van)
+  description: Graceful first movement (1799) with tricky tempo rubato between right-hand embroidery and precise left-hand figuration.
+  tags:
+  - classical
+  - beethoven
+  - sonata
+  - graceful
+- id: 209
+  title: Sonata quasi una fantasia, Op. 27 No. 1 — I–II
+  composer: Ludwig van Beethoven
+  composer_dates: 1770–1827
+  period: Classical
+  key: E-flat major
+  time_signature: varied
+  length_bars: 195
+  length_minutes: 8
+  difficulty_henle: 6
+  difficulty_tier: 6
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/Piano_Sonata_No.13%2C_Op.27_No.1_(Beethoven%2C_Ludwig_van)
+  description: Companion to the Moonlight (1800–01). Movements I and II played attacca — dreamy chorale-variation then scherzo. Three flats, nuanced dynamics.
+  tags:
+  - classical
+  - beethoven
+  - sonata
+  - fantasy-sonata
+- id: 210
+  title: The Seasons, Op. 37a — May (White Nights)
+  composer: Pyotr Ilyich Tchaikovsky
+  composer_dates: 1840–1893
+  period: Late Romantic
+  key: G major
+  time_signature: 9/8
+  length_bars: 106
+  length_minutes: 5
+  difficulty_henle: 6
+  difficulty_tier: 6
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/The_Seasons%2C_Op.37a_(Tchaikovsky%2C_Pyotr)
+  description: St. Petersburg's 'white nights' (1876) — dreamy 9/8 outer sections and an agitated middle. Cross-rhythm and wide voicings.
+  tags:
+  - romantic
+  - tchaikovsky
+  - seasons
+  - dreamy
+- id: 211
+  title: Warum? from Fantasiestücke, Op. 12 No. 3
+  composer: Robert Schumann
+  composer_dates: 1810–1856
+  period: Romantic
+  key: D-flat major
+  time_signature: 2/4
+  length_bars: 48
+  length_minutes: 3
+  difficulty_henle: 6
+  difficulty_tier: 6
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/Fantasiest%C3%BCcke%2C_Op.12_(Schumann%2C_Robert)
+  description: '''Why?'' (1837) — a question without answer. Inner-voice melody hidden between the hands in five flats. Schumann''s most achingly subtle miniature.'
+  tags:
+  - romantic
+  - schumann
+  - miniature
+  - five-flats
+  - inner-voice
+- id: 212
+  title: Prelude in C-sharp minor, Op. 3 No. 2
+  composer: Sergei Rachmaninoff
+  composer_dates: 1873–1943
+  period: Late Romantic
+  key: C-sharp minor
+  time_signature: 4/4
+  length_bars: 62
+  length_minutes: 4
+  difficulty_henle: 6
+  difficulty_tier: 6
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/Morceaux_de_fantaisie%2C_Op.3_(Rachmaninoff%2C_Sergei)
+  description: The 'Bells of Moscow' prelude (1892) — three-note tolling motive, monumental chordal climax. Four sharps, huge-span chords, Rachmaninoff's calling card.
+  tags:
+  - romantic
+  - rachmaninoff
+  - prelude
+  - famous
+  - bells
+  - minor
+- id: 213
+  title: Prelude in D major, Op. 23 No. 4
+  composer: Sergei Rachmaninoff
+  composer_dates: 1873–1943
+  period: Late Romantic
+  key: D major
+  time_signature: 3/4
+  length_bars: 96
+  length_minutes: 5
+  difficulty_henle: 6
+  difficulty_tier: 6
+  public_domain: true
+  imslp_url: https://imslp.org/wiki/10_Preludes%2C_Op.23_(Rachmaninoff%2C_Sergei)
+  description: Lyrical D-major prelude (1901–03) — long singing melody over an undulating left-hand accompaniment. The most approachable of the Op. 23 preludes.
+  tags:
+  - romantic
+  - rachmaninoff
+  - prelude
+  - lyrical

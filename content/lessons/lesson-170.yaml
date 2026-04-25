@@ -1,0 +1,260 @@
+# ============================================================
+# LESSON 170 · Moonlight 1 — bars 1-4 (slow)
+# Tier 4 · Act 34 · Intermediate · ACT BOSS 🎯
+# First brick of the Moonlight Sonata. Adagio sostenuto — slow and sustained.
+# RH triplet arpeggios C#-E-G# over LH octaves C#2, C#3. No melody yet.
+# ============================================================
+id: 170
+tier: intermediate
+act: 34
+title: "Moonlight 1 — bars 1-4 (slow)"
+subtitle: "Act 34 · Minor keys + Moonlight intro"
+goal: "Play the opening four bars of Moonlight Sonata 1st movement — the texture, slow and sustained."
+prereqs: [163, 165, 167, 168, 169]
+method_focus: "combine"
+time_estimate_min: 18
+piece_context: "Act 34 boss. The first brick of the graduation piece. Four bars. No melody yet — that comes at L171. Today is the TEXTURE — the endless triplet arpeggio engine in the right hand, over two deep pedal-tone octaves in the left. Adagio sostenuto means slow and sustained. Very slow. Every note held until the next. You have been building toward this moment for 34 acts."
+metaphor: "moonlight-first-brick"
+vibe: ["serious", "quiet", "triumphant"]
+is_act_boss: true
+piece:
+  title: "Piano Sonata No. 14 in C-sharp minor, Op. 27 No. 2 (Moonlight)"
+  composer: "Ludwig van Beethoven (1801)"
+  key_center: "C-sharp minor"
+  time_signature: "4/4 (alla breve in original; treated as 4/4 here)"
+  difficulty: "intermediate — opening texture only, very slow, both hands"
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy in a moonlit room. A single candle. A staff overhead with the first bar of Moonlight. Banner: ACT 34 BOSS · MOONLIGHT, BAR 1."
+    cleffy: >
+      You've been building to this.
+      Triplet arpeggios, C-sharp minor, dotted rhythm, pedal. All of it in one piece now.
+      Moonlight Sonata. Bar one.
+
+  - id: 2
+    mode: see
+    type: honest_framing
+    figure: "Two boxes. Left — 'what today is NOT': full melody, full movement, at tempo. Right — 'what today IS': four bars of texture, very slow, no melody yet."
+    cleffy: >
+      The honest part.
+      Today IS: four bars. The texture. The engine. Very, very slow.
+      Today is NOT: the melody. That lands tomorrow.
+      Today is NOT: full speed. That lands in Tier 6.
+
+  - id: 3
+    mode: see
+    type: adagio_sostenuto
+    figure: "Italian words on screen — ADAGIO SOSTENUTO. Translations below — ADAGIO = slow. SOSTENUTO = sustained, held."
+    cleffy: >
+      Adagio sostenuto.
+      Adagio — slow. Sostenuto — sustained. Held.
+      Every note rings into the next. No gaps. No rushing.
+
+  - id: 4
+    mode: see
+    type: the_three_layers
+    figure: "Grand staff divided into three layers. Top — melody (greyed out, marked 'tomorrow'). Middle — RH triplet arpeggio C#-E-G#, rolling. Bottom — LH octave C#2 and C#3, held whole notes."
+    cleffy: >
+      Three layers in this piece.
+      Top — the melody. Not today.
+      Middle — the triplet arpeggio. C-sharp, E, G-sharp. Rolling forever.
+      Bottom — two deep C-sharps. Held under everything.
+
+  - id: 5
+    mode: hear
+    type: listen_to_real_opening
+    figure: "Play button. Label: Moonlight Sonata opening, real recording, bars 1-4."
+    audio:
+      A: "Moonlight Sonata opening, first four bars, real piano, with pedal, adagio sostenuto"
+    cleffy: >
+      Listen. The real thing. Four bars.
+      Hear the rolling triplets in the middle. Hear the deep C-sharps underneath.
+      No melody has entered yet.
+
+  - id: 6
+    mode: see
+    type: right_hand_pattern
+    figure: "Treble staff. Bar 1 of RH: four groups of triplet eighths — C#4 E4 G#4 repeated four times. Fingering 1-2-5 above."
+    cleffy: >
+      Right hand. One bar, four triplets.
+      Same three notes each time. C-sharp, E, G-sharp.
+      Fingers — one, two, five. Thumb, index, pinky.
+      New fingering. The triplet arpeggios you drilled before used 1-3-5 — those were triads.
+      Moonlight uses 1-2-5 here because the C#-E-G# spread is a fifth — not a triad like before. New fingering for a wider hand position.
+
+  - id: 7
+    mode: play
+    type: rh_alone_one_bar
+    figure: "Keyboard. C#4 E4 G#4 highlighted. One bar of triplets. Metronome 50."
+    cleffy: >
+      Right hand only. One bar of triplets.
+      Same shape you drilled in five keys. This is just the C-sharp minor version.
+    interaction:
+      type: rhythm
+      sequence: ["C#4", "E4", "G#4", "C#4", "E4", "G#4", "C#4", "E4", "G#4", "C#4", "E4", "G#4"]
+      durations: ["triplet_eighth", "triplet_eighth", "triplet_eighth", "triplet_eighth", "triplet_eighth", "triplet_eighth", "triplet_eighth", "triplet_eighth", "triplet_eighth", "triplet_eighth", "triplet_eighth", "triplet_eighth"]
+      tempo: 50
+
+  - id: 8
+    mode: see
+    type: left_hand_pattern
+    figure: "Bass staff. Bars 1-2 of LH: C#2 and C#3 played together as an octave, held as whole notes. Just two octave chords, one per bar."
+    cleffy: >
+      Left hand. Very simple.
+      Two C-sharps together — one low, one higher. An octave.
+      Hold it. Whole note. One chord, one bar.
+
+  - id: 9
+    mode: play
+    type: lh_alone
+    figure: "Keyboard. C#2 and C#3 highlighted together. LH thumb on C#3, pinky on C#2."
+    cleffy: >
+      Left hand alone. Both C-sharps at once. Hold them four full beats.
+    interaction:
+      type: sequence
+      keys: ["C#2", "C#3"]
+
+  - id: 10
+    mode: play
+    type: rh_four_bars
+    figure: "Treble staff. Four bars of RH triplets — C#4 E4 G#4 rolling. Metronome 50."
+    cleffy: >
+      Right hand — four full bars. Same shape every bar.
+      Steady. Even. No accent on any one note.
+    interaction:
+      type: rhythm
+      sequence: ["C#4", "E4", "G#4", "C#4", "E4", "G#4", "C#4", "E4", "G#4", "C#4", "E4", "G#4", "C#4", "E4", "G#4", "C#4", "E4", "G#4", "C#4", "E4", "G#4", "C#4", "E4", "G#4", "C#4", "E4", "G#4", "C#4", "E4", "G#4", "C#4", "E4", "G#4", "C#4", "E4", "G#4", "C#4", "E4", "G#4", "C#4", "E4", "G#4", "C#4", "E4", "G#4", "C#4", "E4", "G#4"]
+      durations: ["triplet_eighth", "triplet_eighth", "triplet_eighth", "triplet_eighth", "triplet_eighth", "triplet_eighth", "triplet_eighth", "triplet_eighth", "triplet_eighth", "triplet_eighth", "triplet_eighth", "triplet_eighth", "triplet_eighth", "triplet_eighth", "triplet_eighth", "triplet_eighth", "triplet_eighth", "triplet_eighth", "triplet_eighth", "triplet_eighth", "triplet_eighth", "triplet_eighth", "triplet_eighth", "triplet_eighth", "triplet_eighth", "triplet_eighth", "triplet_eighth", "triplet_eighth", "triplet_eighth", "triplet_eighth", "triplet_eighth", "triplet_eighth", "triplet_eighth", "triplet_eighth", "triplet_eighth", "triplet_eighth", "triplet_eighth", "triplet_eighth", "triplet_eighth", "triplet_eighth", "triplet_eighth", "triplet_eighth", "triplet_eighth", "triplet_eighth", "triplet_eighth", "triplet_eighth", "triplet_eighth", "triplet_eighth"]
+      tempo: 50
+
+  - id: 11
+    mode: play
+    type: hands_together_bar_one
+    figure: "Grand staff. Bar 1 only. LH holds C#2-C#3 octave as whole note. RH plays four triplets of C#4-E4-G#4 above it. Metronome 50."
+    cleffy: >
+      Both hands. One bar.
+      Left hand holds the octave. Right hand rolls the triplets.
+      Very slow. Let it breathe.
+    interaction:
+      type: song
+      sequence: [["C#4", "C#2", "C#3"], "E4", "G#4", "C#4", "E4", "G#4", "C#4", "E4", "G#4", "C#4", "E4", "G#4"]
+      guides: true
+      tempo: 50
+
+  - id: 12
+    mode: play
+    type: hands_together_two_bars
+    figure: "Grand staff. Bars 1-2. LH plays C#2-C#3 octave at the start of each bar, holds through. RH triplets rolling above. Metronome 50."
+    cleffy: >
+      Two bars. Left hand strikes once per bar, holds.
+      Right hand keeps rolling. Don't stop between bars.
+    interaction:
+      type: song
+      sequence: [["C#4", "C#2", "C#3"], "E4", "G#4", "C#4", "E4", "G#4", "C#4", "E4", "G#4", "C#4", "E4", "G#4", ["C#4", "C#2", "C#3"], "E4", "G#4", "C#4", "E4", "G#4", "C#4", "E4", "G#4", "C#4", "E4", "G#4"]
+      guides: true
+      tempo: 50
+
+  - id: 13
+    mode: play
+    type: all_four_bars_guided
+    figure: "Grand staff. All four opening bars. Guides on. Metronome 48."
+    cleffy: >
+      All four bars. Guides on. Forty-eight on the click.
+      Left hand — strike, hold. Right hand — roll, endless.
+    interaction:
+      type: song
+      sequence: [["C#4", "C#2", "C#3"], "E4", "G#4", "C#4", "E4", "G#4", "C#4", "E4", "G#4", "C#4", "E4", "G#4", ["C#4", "C#2", "C#3"], "E4", "G#4", "C#4", "E4", "G#4", "C#4", "E4", "G#4", "C#4", "E4", "G#4", ["C#4", "C#2", "C#3"], "E4", "G#4", "C#4", "E4", "G#4", "C#4", "E4", "G#4", "C#4", "E4", "G#4", ["C#4", "C#2", "C#3"], "E4", "G#4", "C#4", "E4", "G#4", "C#4", "E4", "G#4", "C#4", "E4", "G#4"]
+      guides: true
+      tempo: 48
+
+  - id: 14
+    mode: play
+    type: all_four_bars_unguided
+    figure: "Grand staff. All four opening bars. No guides. Metronome 48. Label: adagio sostenuto."
+    cleffy: >
+      Once more. No guides. Read the page.
+      Hear Beethoven listening.
+    interaction:
+      type: song
+      sequence: [["C#4", "C#2", "C#3"], "E4", "G#4", "C#4", "E4", "G#4", "C#4", "E4", "G#4", "C#4", "E4", "G#4", ["C#4", "C#2", "C#3"], "E4", "G#4", "C#4", "E4", "G#4", "C#4", "E4", "G#4", "C#4", "E4", "G#4", ["C#4", "C#2", "C#3"], "E4", "G#4", "C#4", "E4", "G#4", "C#4", "E4", "G#4", "C#4", "E4", "G#4", ["C#4", "C#2", "C#3"], "E4", "G#4", "C#4", "E4", "G#4", "C#4", "E4", "G#4", "C#4", "E4", "G#4"]
+      guides: false
+      tempo: 48
+    followup_cleffy: >
+      That. The first four bars of Moonlight.
+      No melody yet. Just the world the melody will live in.
+
+  - id: 15
+    mode: hear
+    type: pre_check
+    figure: "Banner — Act 34 boss mastery check."
+    cleffy: >
+      Four quick ones. Take your time.
+
+  - id: 16
+    mode: see
+    type: wrap
+    figure: "Celebration card — ACT 34 COMPLETE 🎯. Cleffy looking at moonlight through a window, piano open. Map of acts: 34/50 complete. Banner: FIRST BRICK LAID."
+    cleffy: >
+      Act 34. Closed.
+      You just played the opening of Moonlight Sonata. Four bars, slow, both hands.
+      First brick. The graduation piece starts here.
+      Next act — bars five through eight. The melody enters. The piece really begins.
+
+practice_this_week:
+  real_piano:
+    - "Play the four bars every day. Slow. Never faster than 50 bpm this week — the speed will come much later."
+    - "Try it with the sustain pedal down the whole bar, then clear it when the left hand strikes the next bar. That's the sound."
+    - "Listen to the full Moonlight 1st movement recording at least once. Hear where you are — and where you're going."
+  virtual_only:
+    - "Replay pages 10, 11, 12, 13, and 14. Each one builds the last."
+  estimated_time: "15 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "Italian markings on the Moonlight score"
+          prompt: "What does 'adagio sostenuto' mean?"
+          options: ["Fast and loud", "Slow and sustained", "Light and playful"]
+          correct: 1
+        - figure: "Right-hand opening of Moonlight — one triplet"
+          prompt: "Which three notes does the triplet arpeggio use?"
+          options: ["C, E, G", "C#, E, G#", "D, F, A"]
+          correct: 1
+        - figure: "Left-hand opening of Moonlight — one bar"
+          prompt: "What does the left hand play in bar 1?"
+          options: ["An octave of C-sharp, held", "A rolling C-sharp minor chord", "Nothing"]
+          correct: 0
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "Moonlight opening four bars, real recording"
+          prompt: "Which hand has the melody in these bars?"
+          options: ["Right hand", "Left hand", "Neither — no melody yet"]
+          correct: 2
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play bar one of Moonlight: LH C#2-C#3 octave held, RH triplet arpeggio C#4-E4-G#4 four times, at 48 bpm."
+          accept: "LH C#2 and C#3 held as octave, RH four triplet groups of C#4 E4 G#4"
+
+remediation:
+  id: "170.5"
+  title: "Moonlight, bar by bar"
+  pages: 11
+  opening_cleffy: >
+    Act boss. First bar of the graduation piece. Big moment.
+    We'll slow to 40. One hand at a time. One bar at a time.
+    Four bars is enough for today. The rest of the piece is waiting — it's not running away.
+
+completion:
+  cleffy: >
+    Act 34 sealed. You played the first four bars of Moonlight Sonata.
+    The first brick of your graduation piece is laid.
+    Next act — bars five through eight. The melody enters.
+  xp: 30
+  unlocks: 171

@@ -1,0 +1,220 @@
+# ============================================================
+# LESSON 167 · C# minor (the Moonlight key)
+# Tier 4 · Act 34 · Intermediate · Minor keys + Moonlight intro
+# Four sharps — F#, C#, G#, D#. The cold, deep home of Moonlight.
+# ============================================================
+id: 167
+tier: intermediate
+act: 34
+title: "C-sharp minor (the Moonlight key)"
+subtitle: "Act 34 · Minor keys + Moonlight intro"
+goal: "Meet C-sharp minor — four sharps, the home key of the Moonlight Sonata."
+prereqs: [166]
+method_focus: "keys"
+time_estimate_min: 14
+piece_context: "Yesterday — what makes minor sound minor. Today — the specific minor key Beethoven chose for Moonlight. Four sharps. Cold. Deep. Its relative major is E major — but the piece lives in the shadow, not the light."
+metaphor: "cold-deep-color"
+vibe: ["serious", "quiet", "reflective"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy holding a staff with four sharps stacked at the front. Moonlight silhouette behind. Banner: C# MINOR."
+    cleffy: >
+      C-sharp minor.
+      Four sharps. F, C, G, D.
+      The key Beethoven chose for Moonlight.
+
+  - id: 2
+    mode: see
+    type: four_sharps_stacked
+    figure: "Treble staff close-up. Key signature for C# minor / E major — F# (top line), C# (third space), G# (space above), D# (fourth line)."
+    cleffy: >
+      Four sharps, in order.
+      F-sharp. C-sharp. G-sharp. D-sharp.
+      Say them out loud — F, C, G, D. Sharp each one.
+
+  - id: 3
+    mode: see
+    type: the_scale
+    figure: "Staff with key signature. C# minor scale written: C# D# E F# G# A B C#."
+    cleffy: >
+      The scale. C-sharp, D-sharp, E, F-sharp, G-sharp, A, B, C-sharp.
+      Four black keys going up. Three white keys — E, A, B — between them.
+      Third is E. Lowered from E-sharp. That's the minor shadow.
+
+  - id: 4
+    mode: hear
+    type: hear_cs_minor
+    figure: "Play button. Label: C# MINOR SCALE."
+    audio:
+      A: "C-sharp minor scale ascending, slow and clean"
+    cleffy: >
+      Listen. Cold. Dark. Deep.
+      Not sad like a folk tune sad — a bigger sad. Noble.
+
+  - id: 5
+    mode: see
+    type: relative_to_e_major
+    figure: "Two doors side by side. E major (sunlit) and C# minor (moonlit). Both share the same four sharps."
+    cleffy: >
+      Same four sharps as E major.
+      E major is the bright twin. C-sharp minor is the shadow one.
+      Beethoven wrote in the shadow.
+
+  - id: 6
+    mode: play
+    type: find_cs_on_keyboard
+    figure: "Keyboard. C# highlighted in two octaves — middle (C#4) and one below (C#3). Finger 1 on each."
+    cleffy: >
+      Find C-sharp. The black key right after C.
+      Two of them on our map — C-sharp below middle C, and C-sharp above.
+    interaction:
+      type: sequence
+      keys: ["C#3", "C#4"]
+
+  - id: 7
+    mode: play
+    type: first_five_of_scale
+    figure: "Keyboard. C# D# E F# G# highlighted. Fingering: 1 2 3 4 5 shown above."
+    cleffy: >
+      First five notes. C-sharp, D-sharp, E, F-sharp, G-sharp.
+      Fingers one through five. Thumb on C-sharp.
+    interaction:
+      type: sequence
+      keys: ["C#4", "D#4", "E4", "F#4", "G#4"]
+
+  - id: 8
+    mode: play
+    type: full_scale_up
+    figure: "Keyboard. Full C# minor scale highlighted, ascending."
+    cleffy: >
+      Full scale going up. C-sharp, D-sharp, E, F-sharp, G-sharp, A, B, C-sharp.
+      Three black keys, one white, one black, two whites, back to black. Slow.
+    interaction:
+      type: sequence
+      keys: ["C#4", "D#4", "E4", "F#4", "G#4", "A4", "B4", "C#5"]
+
+  - id: 9
+    mode: see
+    type: reading_rule_reminder
+    figure: "Staff in C# minor with plain F and plain D notes circled. Arrows to keyboard: F# and D# keys lit."
+    cleffy: >
+      Reading rule again.
+      Plain F on the page — still F-sharp.
+      Plain D on the page — still D-sharp.
+      The key signature already told you. It doesn't repeat.
+
+  - id: 10
+    mode: play
+    type: scale_down
+    figure: "Keyboard. C# minor scale descending: C# B A G# F# E D# C#."
+    cleffy: >
+      Coming down. Same notes, reversed.
+      Listen for the landing on C-sharp at the bottom. That's home.
+    interaction:
+      type: sequence
+      keys: ["C#5", "B4", "A4", "G#4", "F#4", "E4", "D#4", "C#4"]
+
+  - id: 11
+    mode: play
+    type: cs_minor_chord
+    figure: "Keyboard. C#-E-G# glowing. Label: C# minor chord, root-3-5."
+    cleffy: >
+      The home chord. C-sharp, E, G-sharp.
+      Root, minor third, fifth.
+      This chord opens the Moonlight Sonata.
+    interaction:
+      type: sequence
+      keys: ["C#4", "E4", "G#4"]
+
+  - id: 12
+    mode: hear
+    type: cs_minor_chord_hear
+    figure: "Play button. Label: C# MINOR CHORD — held and rolled."
+    audio:
+      A: "C-sharp minor triad held, then rolled bottom to top slowly"
+    cleffy: >
+      Listen. Held first. Then rolled.
+      When Beethoven rolls it slowly — triplets — that becomes Moonlight.
+
+  - id: 13
+    mode: play
+    type: chord_to_arpeggio
+    figure: "Keyboard. First held chord, then rolled as triplet arpeggio: C#4 E4 G#4."
+    cleffy: >
+      Play it as an arpeggio. Three notes up.
+      Your fingers already know this shape — you drilled it in five keys last act.
+    interaction:
+      type: sequence
+      keys: ["C#4", "E4", "G#4"]
+
+  - id: 14
+    mode: hear
+    type: pre_check
+    figure: "Banner."
+    cleffy: >
+      Three quick ones.
+
+  - id: 15
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 167. C# minor key signature glowing. A small moon rising. Text: THE MOONLIGHT KEY."
+    cleffy: >
+      C-sharp minor. Four sharps. F, C, G, D.
+      The home of the Moonlight Sonata.
+      Tomorrow — reading short phrases in it.
+
+practice_this_week:
+  real_piano:
+    - "Play the C-sharp minor scale slowly, both directions. Say each sharp as you land — F-sharp, C-sharp, G-sharp, D-sharp."
+    - "Play the C-sharp minor chord — C#, E, G-sharp. Then roll it as an arpeggio. That's the Moonlight engine."
+  virtual_only:
+    - "Replay pages 7, 8, and 11."
+  estimated_time: "12 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "C# minor key signature"
+          prompt: "How many sharps?"
+          options: ["Three", "Four", "Five"]
+          correct: 1
+        - figure: "C# minor key signature"
+          prompt: "Which four notes are sharp?"
+          options: ["F, C, G, D", "B, E, A, D", "F, C, G, B"]
+          correct: 0
+        - figure: "C# minor chord on keyboard"
+          prompt: "What are the three notes of the C# minor chord?"
+          options: ["C#, E, G#", "C#, F, G#", "C, E, G"]
+          correct: 0
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "C-sharp minor scale ascending"
+          prompt: "Major or minor?"
+          options: ["Major", "Minor"]
+          correct: 1
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play the first five notes of C-sharp minor: C#, D#, E, F#, G#."
+          accept: "C#4 D#4 E4 F#4 G#4"
+
+remediation:
+  id: "167.5"
+  title: "C-sharp minor, slower"
+  pages: 8
+  opening_cleffy: >
+    Four sharps is the most you've seen.
+    We'll take it slow. The black keys first, then the whole scale.
+
+completion:
+  cleffy: >
+    C-sharp minor — met. Four sharps known.
+    Tomorrow — reading short phrases in this key.
+  xp: 18
+  unlocks: 168

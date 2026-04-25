@@ -1,0 +1,266 @@
+# ============================================================
+# LESSON 190 · Scale & arpeggio speed drill
+# Tier 5 · Act 38 · Upper-Intermediate · ACT BOSS 🎯
+# All 12 keys. Scales and arpeggios. Fast. Drill boss — no piece.
+# ============================================================
+id: 190
+tier: upper-intermediate
+act: 38
+title: "Scale & arpeggio speed drill"
+subtitle: "Act 38 · All-keys scales & arpeggios"
+goal: "Play all twelve major scales and all twelve major arpeggios cleanly at a rising tempo — the act boss drill."
+prereqs: [186, 187, 188, 189]
+method_focus: "play"
+time_estimate_min: 18
+piece_context: "Act 38 boss. Not a piece today — a drill, like L40 and L110 and L165. Four lessons of scales and arpeggios in twelve keys. Today they all have to be there, under your fingers, at speed. When you close this lesson, you have the technical vocabulary of every working pianist."
+metaphor: "all-twelve-doors"
+vibe: ["focused", "serious", "triumphant"]
+is_act_boss: true
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy in front of a starting gate. Twelve colored tracks stretch behind him — each labeled with a key. Banner: ACT 38 BOSS · ALL TWELVE DOORS."
+    cleffy: >
+      Act 38 boss.
+      Not a piece today. A drill.
+      Twelve keys. Two shapes each. Fast.
+
+  - id: 2
+    mode: see
+    type: what_this_is
+    figure: "Two columns. Left — WHAT THIS IS NOT — 'one long perfect performance'. Right — WHAT IT IS — 'twelve short sprints, each as clean as you can make it'."
+    cleffy: >
+      Honest framing.
+      This isn't one long, perfect performance of everything.
+      It's twelve short sprints. Each as clean as you can make it, at a tempo you can hold.
+
+  - id: 3
+    mode: see
+    type: the_map
+    figure: "Circle of fifths. Each key highlighted in sequence order for today's drill: C, G, D, A, E, B, F, Bb, Eb, Ab, Db, Gb. Arrows connecting them in order."
+    cleffy: >
+      Order of the day.
+      Clockwise around the circle from C, then the flats counter-clockwise from F.
+      Sharps first, flats second. Twelve doors, in a row.
+
+  - id: 4
+    mode: play
+    type: sprint_c
+    figure: "Keyboard. C major scale + arpeggio. Metronome 80."
+    cleffy: >
+      Door one — C. Scale, then arpeggio. Both up and down.
+      Eighty on the click.
+    interaction:
+      type: rhythm
+      sequence: ["C4","D4","E4","F4","G4","A4","B4","C5","B4","A4","G4","F4","E4","D4","C4","C4","E4","G4","C5","G4","E4","C4"]
+      durations: ["eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth"]
+      tempo: 80
+
+  - id: 5
+    mode: play
+    type: sprint_g
+    figure: "Keyboard. G major scale + arpeggio. Metronome 80."
+    cleffy: >
+      G. One sharp. Same pattern.
+    interaction:
+      type: rhythm
+      sequence: ["G3","A3","B3","C4","D4","E4","F#4","G4","F#4","E4","D4","C4","B3","A3","G3","G3","B3","D4","G4","D4","B3","G3"]
+      durations: ["eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth"]
+      tempo: 80
+
+  - id: 6
+    mode: play
+    type: sprint_d_a
+    figure: "Keyboard. D then A — scales only, back to back. Metronome 80."
+    cleffy: >
+      D and A — scales, both. F-sharp, C-sharp in D. Add G-sharp in A.
+    interaction:
+      type: rhythm
+      sequence: ["D4","E4","F#4","G4","A4","B4","C#5","D5","C#5","B4","A4","G4","F#4","E4","D4","A3","B3","C#4","D4","E4","F#4","G#4","A4","G#4","F#4","E4","D4","C#4","B3","A3"]
+      durations: ["eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth"]
+      tempo: 80
+
+  - id: 7
+    mode: play
+    type: sprint_e_b
+    figure: "Keyboard. E then B — arpeggios only. Metronome 80."
+    cleffy: >
+      E and B — arpeggios.
+      Four sharps, then five. Middle of the circle.
+    interaction:
+      type: rhythm
+      sequence: ["E4","G#4","B4","E5","B4","G#4","E4","B3","D#4","F#4","B4","F#4","D#4","B3"]
+      durations: ["eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth"]
+      tempo: 80
+
+  - id: 8
+    mode: play
+    type: sprint_f_bb
+    figure: "Keyboard. F and Bb — scales, both. Metronome 80."
+    cleffy: >
+      Flip sides. F and B-flat. Scales.
+      F all white except B-flat. B-flat starts on finger four.
+    interaction:
+      type: rhythm
+      sequence: ["F4","G4","A4","Bb4","C5","D5","E5","F5","E5","D5","C5","Bb4","A4","G4","F4","Bb3","C4","D4","Eb4","F4","G4","A4","Bb4","A4","G4","F4","Eb4","D4","C4","Bb3"]
+      durations: ["eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth"]
+      tempo: 80
+
+  - id: 9
+    mode: play
+    type: sprint_eb_ab
+    figure: "Keyboard. E-flat and A-flat — arpeggios. Metronome 75."
+    cleffy: >
+      E-flat and A-flat. Black-key homes. Arpeggios.
+      Start on finger two each time.
+    interaction:
+      type: rhythm
+      sequence: ["Eb4","G4","Bb4","Eb5","Bb4","G4","Eb4","Ab3","C4","Eb4","Ab4","Eb4","C4","Ab3"]
+      durations: ["eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth"]
+      tempo: 75
+
+  - id: 10
+    mode: play
+    type: sprint_db_gb
+    figure: "Keyboard. D-flat and G-flat — arpeggios. Metronome 75."
+    cleffy: >
+      D-flat and G-flat. The deep flat doors.
+      Five flats, six flats. Take your time.
+    interaction:
+      type: rhythm
+      sequence: ["Db4","F4","Ab4","Db5","Ab4","F4","Db4","Gb3","Bb3","Db4","Gb4","Db4","Bb3","Gb3"]
+      durations: ["eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth"]
+      tempo: 75
+
+  - id: 11
+    mode: hear
+    type: identify_at_speed
+    figure: "Drill banner. Six rounds — random scale or arpeggio from any key, played at tempo."
+    cleffy: >
+      Six rounds. Name the key.
+      Scale or arpeggio — doesn't matter. Just the home note.
+    interaction:
+      type: drill
+      rounds: 6
+      options: ["C", "G", "D", "A", "E", "B", "F", "Bb", "Eb", "Ab", "Db", "Gb"]
+
+  - id: 12
+    mode: play
+    type: speed_up_c
+    figure: "Keyboard. C major scale + arpeggio at rising tempo — 90 bpm."
+    cleffy: >
+      Tempo up. Ninety. Just C, both shapes.
+      When it gets sloppy — back off.
+    interaction:
+      type: rhythm
+      sequence: ["C4","D4","E4","F4","G4","A4","B4","C5","B4","A4","G4","F4","E4","D4","C4","C4","E4","G4","C5","G4","E4","C4"]
+      durations: ["eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth"]
+      tempo: 90
+
+  - id: 13
+    mode: play
+    type: chain_three_scales
+    figure: "Keyboard. G-D-A scales, back to back. Metronome 85."
+    cleffy: >
+      Three keys, no stopping. G, D, A.
+      Keep the pulse going between scales.
+    interaction:
+      type: rhythm
+      sequence: ["G3","A3","B3","C4","D4","E4","F#4","G4","D4","E4","F#4","G4","A4","B4","C#5","D5","A4","B4","C#5","D5","E5","F#5","G#5","A5"]
+      durations: ["eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth"]
+      tempo: 85
+
+  - id: 14
+    mode: play
+    type: final_chain
+    figure: "Keyboard. Final run — C scale, C arpeggio, F scale, F arpeggio. Metronome 80."
+    cleffy: >
+      Final run. Two keys, both shapes. C then F.
+      The act boss closes with this.
+    interaction:
+      type: song
+      sequence: ["C4","D4","E4","F4","G4","A4","B4","C5","C4","E4","G4","C5","G4","E4","C4","F4","G4","A4","Bb4","C5","D5","E5","F5","F4","A4","C5","F5","C5","A4","F4"]
+      guides: false
+      tempo: 80
+    followup_cleffy: >
+      That. Twelve doors, all open.
+      Act 38 — sealed.
+
+  - id: 15
+    mode: hear
+    type: pre_check
+    figure: "Banner — Act 38 boss mastery check."
+    cleffy: >
+      Four quick ones. Take your time.
+
+  - id: 16
+    mode: see
+    type: wrap
+    figure: "Celebration card — ACT 38 COMPLETE 🎯. All twelve doors glowing gold. Map of acts: 38/50 complete. Cleffy with a quiet fist-pump."
+    cleffy: >
+      Act 38. Closed.
+      Every major key. Scales and arpeggios. At tempo.
+      You now have the technical vocabulary of a working pianist.
+      Next act — ornaments. Trills, mordents, turns. The little decorations that make Baroque and Chopin sparkle.
+
+practice_this_week:
+  real_piano:
+    - "Every day, pick four of the twelve keys at random. Play scale and arpeggio in each. Rotate through all twelve across the week."
+    - "Metronome starts at 70. Raise by five only when it's genuinely clean."
+    - "Weakest key gets double attention. You know which one it is."
+  virtual_only:
+    - "Replay pages 4-10 — all twelve sprints"
+  estimated_time: "15 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "Circle of fifths with all twelve keys labeled"
+          prompt: "How many major keys are there?"
+          options: ["Seven", "Ten", "Twelve"]
+          correct: 2
+        - figure: "A major scale fingering 1-2-3-1-2-3-4-5 for the right hand"
+          prompt: "Which keys use this exact fingering?"
+          options: ["Only C", "Most white-starting keys", "Only black-key keys"]
+          correct: 1
+        - figure: "A four-note arpeggio on the staff"
+          prompt: "What four scale degrees make up a major arpeggio?"
+          options: ["1, 2, 3, 4", "1, 3, 5, 8", "1, 4, 5, 7"]
+          correct: 1
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "A major scale in an unspecified key at 80 bpm"
+          prompt: "Is this a scale or an arpeggio?"
+          options: ["Scale", "Arpeggio"]
+          correct: 0
+        - audio: "An A-flat major arpeggio at 80 bpm"
+          prompt: "Scale or arpeggio?"
+          options: ["Scale", "Arpeggio"]
+          correct: 1
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play the C major scale and arpeggio — one octave each, up and down — at 80 bpm."
+          accept: "C scale + C arpeggio both up and down at 80 bpm"
+
+remediation:
+  id: "190.5"
+  title: "Drill, slower, fewer keys at a time"
+  pages: 11
+  opening_cleffy: >
+    Twelve keys is a mountain. Expected.
+    We'll drop to 60 bpm and work four keys per page — sharps first, flats second.
+    Three remediation sessions through this, and you'll find all twelve show up.
+
+completion:
+  cleffy: >
+    Act 38 sealed.
+    Scales and arpeggios in every key, at tempo. Real pianist's hands.
+    Next — ornaments. Trills. The decorations that make Baroque and Chopin sparkle.
+  xp: 30
+  unlocks: 191

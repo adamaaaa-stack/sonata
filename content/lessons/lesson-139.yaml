@@ -1,0 +1,244 @@
+# ============================================================
+# LESSON 139 · Rhythm at speed
+# Tier 4 · Act 28 · Intermediate
+# Reading sixteenths at tempo — short patterns, gently sped up.
+# ============================================================
+id: 139
+tier: intermediate
+act: 28
+title: "Rhythm at speed"
+subtitle: "Act 28 · Time signatures & meters"
+goal: "Read short sixteenth-note patterns at increasing tempo — clean, even, no rushing."
+prereqs: [138, 131]
+method_focus: "rhythm"
+time_estimate_min: 14
+piece_context: "In L131 you met sixteenths. Four notes per beat. Today — at speed. Short one-bar patterns, started slow, stepped up gently. The point isn't to play fast. The point is to play fast CLEANLY."
+metaphor: "rolling-meter"
+vibe: ["focused", "serious"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy at a metronome dial, slowly turning it clockwise. Banner: RHYTHM AT SPEED."
+    cleffy: >
+      Sixteenths. Four per beat.
+      Today — at tempo.
+      Not to impress. To stay clean.
+
+  - id: 2
+    mode: see
+    type: sixteenth_reminder
+    figure: "One beat divided four ways. Four sixteenth notes beamed together. Label: 1-e-and-a."
+    cleffy: >
+      Reminder. Sixteenths split a beat into four.
+      Count: one-e-and-a, two-e-and-a.
+      Say it out loud. It anchors the hand.
+
+  - id: 3
+    mode: see
+    type: the_trap
+    figure: "Cleffy frowning at a wobbly sixteenth run. Arrow labels: 'the trap — rushing on beat 3'."
+    cleffy: >
+      The trap with fast notes — rushing.
+      Beat 1 is steady. Beat 2 is steady. Beat 3 — the hand gets ahead of itself.
+      Metronome fixes this. Always.
+
+  - id: 4
+    mode: hear
+    type: clean_vs_rushed
+    figure: "Two play buttons. A = clean. B = rushed."
+    audio:
+      A: "Four sixteenth-note groups played perfectly even at 60 bpm"
+      B: "Four sixteenth-note groups rushed — the third group accelerates"
+    cleffy: >
+      A — even. B — rushed.
+      Your ear already knows which one is wrong. Trust it.
+
+  - id: 5
+    mode: play
+    type: pattern_one_slow
+    figure: "One bar in 4/4. Four sixteenths on C5, then held quarter. Metronome 60."
+    cleffy: >
+      Pattern one. Four sixteenths, then a quarter rest.
+      Slow — sixty.
+    interaction:
+      type: rhythm
+      sequence: ["C5","C5","C5","C5"]
+      durations: ["sixteenth","sixteenth","sixteenth","sixteenth"]
+      tempo: 60
+
+  - id: 6
+    mode: play
+    type: pattern_one_faster
+    figure: "Same pattern. Metronome 72."
+    cleffy: >
+      Same pattern. Seventy-two.
+      Even. Not louder. Not pushed.
+    interaction:
+      type: rhythm
+      sequence: ["C5","C5","C5","C5"]
+      durations: ["sixteenth","sixteenth","sixteenth","sixteenth"]
+      tempo: 72
+
+  - id: 7
+    mode: play
+    type: pattern_one_faster_still
+    figure: "Same pattern. Metronome 84."
+    cleffy: >
+      Eighty-four. Each sixteenth still distinct.
+      If it starts to blur, we back off.
+    interaction:
+      type: rhythm
+      sequence: ["C5","C5","C5","C5"]
+      durations: ["sixteenth","sixteenth","sixteenth","sixteenth"]
+      tempo: 84
+
+  - id: 8
+    mode: see
+    type: stepwise_pattern
+    figure: "Staff: four sixteenths stepping C5 D5 E5 F5, then quarter rest."
+    cleffy: >
+      New pattern. Four sixteenths, stepwise up.
+      C, D, E, F. One beat total.
+
+  - id: 9
+    mode: play
+    type: stepwise_60
+    figure: "Keyboard. C5 D5 E5 F5 lit in order. Metronome 60."
+    cleffy: >
+      Slow. Each note clean. Each finger lift.
+    interaction:
+      type: rhythm
+      sequence: ["C5","D5","E5","F5"]
+      durations: ["sixteenth","sixteenth","sixteenth","sixteenth"]
+      tempo: 60
+
+  - id: 10
+    mode: play
+    type: stepwise_80
+    figure: "Same pattern. Metronome 80."
+    cleffy: >
+      Eighty. Stay even.
+    interaction:
+      type: rhythm
+      sequence: ["C5","D5","E5","F5"]
+      durations: ["sixteenth","sixteenth","sixteenth","sixteenth"]
+      tempo: 80
+
+  - id: 11
+    mode: play
+    type: stepwise_100
+    figure: "Same pattern. Metronome 100."
+    cleffy: >
+      One hundred. Last notch today.
+      If it goes clean — we're done climbing.
+    interaction:
+      type: rhythm
+      sequence: ["C5","D5","E5","F5"]
+      durations: ["sixteenth","sixteenth","sixteenth","sixteenth"]
+      tempo: 100
+
+  - id: 12
+    mode: see
+    type: mixed_pattern
+    figure: "Staff: eighth, two sixteenths, eighth, two sixteenths. One bar. Mixed rhythm."
+    cleffy: >
+      Mixed pattern. Eighth, two sixteenths — twice.
+      The sixteenths sit inside the second half of each beat.
+      Counts: one-and-a, two-and-a.
+
+  - id: 13
+    mode: play
+    type: mixed_play
+    figure: "Staff with mixed pattern. Notes: C5, D5, E5, C5, D5, E5. Metronome 80."
+    cleffy: >
+      Play it. Steady. No rush.
+    interaction:
+      type: rhythm
+      sequence: ["C5","D5","E5","C5","D5","E5"]
+      durations: ["eighth","sixteenth","sixteenth","eighth","sixteenth","sixteenth"]
+      tempo: 80
+
+  - id: 14
+    mode: play
+    type: full_bar_run
+    figure: "One full bar of 4/4: sixteen sixteenth notes, stepwise shape C5 D5 E5 F5 repeated. Metronome 72."
+    cleffy: >
+      Full bar. Sixteen sixteenths.
+      One bar. Steady metronome. Don't speed up mid-bar.
+    interaction:
+      type: rhythm
+      sequence: ["C5","D5","E5","F5","C5","D5","E5","F5","C5","D5","E5","F5","C5","D5","E5","F5"]
+      durations: ["sixteenth","sixteenth","sixteenth","sixteenth","sixteenth","sixteenth","sixteenth","sixteenth","sixteenth","sixteenth","sixteenth","sixteenth","sixteenth","sixteenth","sixteenth","sixteenth"]
+      tempo: 72
+    followup_cleffy: >
+      Clean speed beats fast speed.
+
+  - id: 15
+    mode: hear
+    type: pre_check
+    figure: "Banner."
+    cleffy: >
+      Three quick ones.
+
+  - id: 16
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 139. Metronome with a clean click graph. Cleffy giving a small steady nod."
+    cleffy: >
+      Sixteenths at speed. You climbed from 60 to 100 without blurring.
+      Tomorrow — 6/8 at speed. Act boss. Tarantella.
+
+practice_this_week:
+  real_piano:
+    - "One pattern, one metronome, five minutes a day. Start at 60. Every day add 4. No mistakes — if the mistakes start, drop back 4."
+    - "Any scale you know — play it in sixteenths, slow, then one notch faster each pass."
+  virtual_only:
+    - "Replay pages 5-7 (the tempo climb) and 14 (full bar)"
+  estimated_time: "12 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "Four sixteenth notes beamed together"
+          prompt: "How many sixteenths fit in one beat?"
+          options: ["Two", "Three", "Four"]
+          correct: 2
+        - figure: "A rhythm: eighth, two sixteenths"
+          prompt: "How should you count this?"
+          options: ["one-e-and-a", "one-and-a", "one-two-three"]
+          correct: 1
+        - figure: "Two sixteenth-note runs — one even, one with a rushed third beat"
+          prompt: "Which is correct?"
+          options: ["The even one", "The rushed one"]
+          correct: 0
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "A clean sixteenth-note pattern"
+          prompt: "Is this even or rushed?"
+          options: ["Even", "Rushed"]
+          correct: 0
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play four sixteenths on C5 evenly at 80 bpm."
+          accept: "C5 four times as sixteenths at 80 bpm, even"
+
+remediation:
+  id: "139.5"
+  title: "Slower first"
+  pages: 8
+  opening_cleffy: >
+    Fast isn't the goal. Even is.
+    We'll drop to 50 bpm, clap each sixteenth, then add the keyboard one pattern at a time.
+
+completion:
+  cleffy: >
+    Sixteenths — clean, even, up to a hundred.
+    Tomorrow — act boss. Tarantella. 6/8 with drive.
+  xp: 18
+  unlocks: 140

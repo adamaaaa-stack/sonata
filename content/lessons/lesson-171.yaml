@@ -1,0 +1,239 @@
+# ============================================================
+# LESSON 171 · Moonlight 1 — bars 5–8
+# Tier 4 · Act 35 · Intermediate
+# The first complete phrase. Melody enters over the triplet engine.
+# ============================================================
+id: 171
+tier: intermediate
+act: 35
+title: "Moonlight 1 — bars 5–8"
+subtitle: "Act 35 · The first phrase"
+goal: "Play bars 5–8 of Moonlight Sonata — the bars where the melody finally enters, sitting on top of the triplet engine."
+prereqs: [165, 167, 168, 169, 170]
+method_focus: "combine"
+time_estimate_min: 16
+piece_context: "Bars 1–4 (Lesson 170) were just engine — triplet arpeggios humming in C-sharp minor. Today the melody arrives. Bar 5 is where Moonlight becomes Moonlight. A high G-sharp, held. Then that famous long-short-short dotted rhythm. The sound most people picture when they hear the word 'Moonlight' is these four bars."
+metaphor: "melody-enters"
+vibe: ["quiet", "serious", "focused"]
+piece:
+  title: "Moonlight Sonata, 1st mvt — bars 5–8"
+  composer: "Beethoven (1801)"
+  key_center: "C-sharp minor"
+  time_signature: "2/2 (alla breve, felt in 4)"
+  difficulty: "intermediate — single-hand melody with dotted rhythm, simplified"
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy at a piano under a low moon. The triplet engine drawn fading from the left; a single high note appearing on the right."
+    cleffy: >
+      Bars 1 through 4 were the engine.
+      Bar 5 is where the melody enters.
+      The sound everyone remembers.
+
+  - id: 2
+    mode: see
+    type: where_we_are
+    figure: "A four-bar grid. Bars 1-4 labelled 'engine only — yesterday.' Bars 5-8 labelled 'melody enters — today.' A small moon above bar 5."
+    cleffy: >
+      Eight bars total.
+      Yesterday you played the first four — just triplets humming.
+      Today — bars 5 through 8. A voice on top of the engine.
+
+  - id: 3
+    mode: hear
+    type: listen
+    figure: "Play button. Caption: 'bars 5-8, melody audible.'"
+    audio:
+      A: "Moonlight Sonata bars 5-8 played slowly, pedaled. Melody clearly above the triplet figuration."
+    cleffy: >
+      Listen. The high note on top is the melody.
+      Same triplets underneath. But something above them now.
+
+  - id: 4
+    mode: see
+    type: the_melody_note
+    figure: "Staff. A single G-sharp 4 drawn very large and high, held over the first triplet group."
+    cleffy: >
+      The melody note. G-sharp — just above the top line of the treble staff.
+      Held. Long. It sits on top while the engine rolls underneath.
+
+  - id: 5
+    mode: play
+    type: play_gsharp
+    figure: "Keyboard. G#4 glowing, held."
+    cleffy: >
+      Play it. G-sharp. Right hand. Hold it for a count of four.
+    interaction:
+      type: sequence
+      keys: ["G#4"]
+
+  - id: 6
+    mode: see
+    type: the_dotted_rhythm
+    figure: "Staff. Three G-sharps in a row with the rhythm: dotted-quarter, eighth, quarter. Labelled 'long — short — short.'"
+    cleffy: >
+      The famous rhythm. Long. Short. Short.
+      Three G-sharps. The first one held. The second snaps quick. The third steps on the beat.
+      Say it out loud — 'LONG short short.' That's Moonlight's melody.
+
+  - id: 7
+    mode: hear
+    type: hear_the_rhythm
+    figure: "Play button. Caption: 'long-short-short, three times.'"
+    audio:
+      A: "G#4 played three times in dotted rhythm — long, short, short — with pedal."
+    cleffy: >
+      Listen again. Just the rhythm.
+      Long-short-short. Like a sigh that keeps trying to finish.
+
+  - id: 8
+    mode: play
+    type: play_dotted_rhythm
+    figure: "Keyboard. G#4 glowing three times. Metronome 50."
+    cleffy: >
+      Play the rhythm. Three G-sharps. Long, short, short.
+      Right hand, middle finger.
+    interaction:
+      type: rhythm
+      sequence: ["G#4","G#4","G#4"]
+      durations: ["dotted_quarter","eighth","quarter"]
+      tempo: 50
+
+  - id: 9
+    mode: see
+    type: the_phrase_shape
+    figure: "Staff showing bars 5-8 melody simplified: G#4 G#4 G#4 (bar 5) | G#4 G#4 A4 (bar 6) | A4 A4 G#4 (bar 7) | G#4 F#4 E4 (bar 8 — a little descent)."
+    cleffy: >
+      Four bars of melody.
+      Bar 5 — three G-sharps.
+      Bar 6 — two G-sharps, then a step up to A.
+      Bar 7 — two A's, then back to G-sharp.
+      Bar 8 — a small descent. G-sharp, F-sharp, E. Lands.
+
+  - id: 10
+    mode: play
+    type: play_melody_only
+    figure: "Keyboard. The simplified melody line lights up in order."
+    cleffy: >
+      The whole melody, right hand only. Slow.
+      Listen to the shape — mostly G-sharp, one step up, one step back, then down to rest.
+    interaction:
+      type: sequence
+      keys: ["G#4","G#4","G#4","G#4","G#4","A4","A4","A4","G#4","G#4","F#4","E4"]
+
+  - id: 11
+    mode: see
+    type: engine_beneath
+    figure: "Grand staff. Top: melody G#4 held. Bottom: LH octave C#2-C#3 bass + a rolling triplet figure (C#3-G#3-C#4 repeated). Arrows pointing up to the melody note."
+    cleffy: >
+      Underneath the melody — the same engine as yesterday.
+      Left hand holds a low C-sharp octave. The triplets roll between them.
+      You don't need to play all of it today. Just picture it holding the melody up.
+
+  - id: 12
+    mode: play
+    type: melody_over_simplified_engine
+    figure: "Grand staff. RH melody. LH: a single low C#2 held, with one C#3 triplet group per bar. Tempo 50."
+    cleffy: >
+      Both hands. Left hand — low C-sharp, hold.
+      Right hand — the melody on top.
+      Simplified. The engine is there, but quiet.
+    interaction:
+      type: song
+      sequence: [["C#2","G#4"],"G#4","G#4","G#4","G#4","A4","A4","A4","G#4","G#4","F#4","E4"]
+      guides: true
+      tempo: 50
+
+  - id: 13
+    mode: play
+    type: phrase_slow
+    figure: "Bars 5-8, RH melody only, expressive. Tempo 45. Dynamic: pp."
+    cleffy: >
+      Right hand alone. Very slow. Very soft.
+      Feel the long-short-short in every bar.
+    interaction:
+      type: rhythm
+      sequence: ["G#4","G#4","G#4","G#4","G#4","A4","A4","A4","G#4","G#4","F#4","E4"]
+      durations: ["dotted_quarter","eighth","quarter","dotted_quarter","eighth","quarter","dotted_quarter","eighth","quarter","dotted_quarter","eighth","quarter"]
+      tempo: 45
+
+  - id: 14
+    mode: play
+    type: full_bars_5_8
+    figure: "Full bars 5-8. Both hands. Guides off. Tempo 50."
+    cleffy: >
+      Bars 5 through 8. Both hands. No guides.
+      Quiet. Like moonlight on water.
+    interaction:
+      type: song
+      sequence: [["C#2","G#4"],"G#4","G#4","G#4","G#4","A4","A4","A4","G#4","G#4","F#4","E4"]
+      guides: false
+      tempo: 50
+    followup_cleffy: >
+      That's the first full phrase of Moonlight.
+      Your hands just played the sound the whole world recognizes.
+
+  - id: 15
+    mode: hear
+    type: pre_check
+    figure: "Banner — Lesson 171 mastery check."
+    cleffy: >
+      Three quick ones.
+
+practice_this_week:
+  real_piano:
+    - "Bars 5-8, melody only, once a day. Hear the long-short-short rhythm in every bar."
+    - "Then add the low C-sharp bass. Don't worry about the triplet figure yet — just the melody over the bass note."
+    - "Sing the melody while your left hand holds the bass. Helps your ear."
+  virtual_only:
+    - "Replay pages 13 and 14 — melody alone, then both hands."
+  estimated_time: "10 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "The rhythm: dotted-quarter, eighth, quarter"
+          prompt: "How is this rhythm described?"
+          options: ["Long-short-short", "Short-short-long", "Three equal notes"]
+          correct: 0
+        - figure: "G-sharp note written above the top line of the treble staff"
+          prompt: "What is this note?"
+          options: ["G-natural", "G-sharp", "A"]
+          correct: 1
+        - figure: "Bar 8 melody: G#4, F#4, E4"
+          prompt: "What's happening in this bar?"
+          options: ["Stepping up", "Stepping down", "Staying the same"]
+          correct: 1
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "Bars 5-8 played with melody clearly on top"
+          prompt: "Is the melody above the engine or below?"
+          options: ["Above", "Below"]
+          correct: 0
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play the long-short-short rhythm: three G-sharps, dotted-quarter, eighth, quarter."
+          accept: "G#4 three times with dotted-quarter + eighth + quarter rhythm"
+
+remediation:
+  id: "171.5"
+  title: "Bars 5-8, one hand at a time"
+  pages: 8
+  opening_cleffy: >
+    Melody and engine at once is a lot for one lesson.
+    Let's take the melody alone first. Get the long-short-short rhythm into your body.
+    Then add the left hand. Slowly.
+
+completion:
+  cleffy: >
+    Bars 5 through 8. The melody arrives.
+    Four lessons from here, you play the whole opening — all eight bars — as the Tier 4 boss.
+    Tomorrow — what actually makes the melody sing.
+  xp: 19
+  unlocks: 172

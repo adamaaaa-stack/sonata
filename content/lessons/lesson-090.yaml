@@ -1,0 +1,253 @@
+# ============================================================
+# LESSON 90 · Canon in D
+# Tier 3 · Act 18 · Low-Intermediate · ACT BOSS 🎯
+# A repeating left-hand chord pattern under a melody.
+# ============================================================
+id: 90
+tier: low-intermediate
+act: 18
+title: "Canon in D"
+subtitle: "Act 18 · Your first chord progression"
+goal: "Play the famous 8-chord Canon in D progression in the left hand, with a simple right-hand melody on top."
+prereqs: [85, 86, 87, 88, 89]
+method_focus: "combine"
+time_estimate_min: 16
+piece_context: "Pachelbel's Canon in D is built on the most famous chord progression in music. Eight chords, one per bar, repeated forever. Today you play those chords — and a simple descending melody on top."
+metaphor: "eight-chords-forever"
+vibe: ["gentle", "serious", "celebratory"]
+is_act_boss: true
+piece:
+  title: "Canon in D (simplified)"
+  composer: "Pachelbel"
+  key_center: "D major"
+  time_signature: "4/4"
+  difficulty: "low-intermediate — LH block triads + simple RH descent"
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy holding a scroll that reads PACHELBEL'S CANON IN D. Eight chord stacks drawn underneath in a row."
+    cleffy: >
+      End of Act 18. Chord week wraps here.
+      Canon in D. Three hundred years old. Still the most-used progression in music.
+      Eight chords. Your left hand plays all of them.
+
+  - id: 2
+    mode: hear
+    type: listen
+    figure: "Big play button. A simplified Canon in D plays — LH chords with a descending RH melody."
+    audio:
+      A: "Simplified Canon in D — LH block chords, RH scale descent"
+    cleffy: >
+      Listen. The LH is the engine. Eight chords, looping.
+      The RH just steps down. Simple melody, deep chords under it.
+
+  - id: 3
+    mode: see
+    type: the_eight_chords
+    figure: "Staff showing eight stacked triads in a row, one per bar. Labels underneath: D, A, Bm, F#m, G, D, G, A."
+    cleffy: >
+      Here they are. All eight.
+      D. A. B minor. F-sharp minor. G. D. G. A.
+      Three majors, two minors, repeated. One chord per bar.
+
+  - id: 4
+    mode: see
+    type: the_pattern
+    figure: "Same eight chords, now with notes labeled: D-F#-A | A-C#-E | B-D-F# | F#-A-C# | G-B-D | D-F#-A | G-B-D | A-C#-E."
+    cleffy: >
+      Each chord is a triad you already know how to build. Root, third, fifth.
+      D chord — D, F-sharp, A. A chord — A, C-sharp, E. And so on.
+      Sharps because we're in D major — F-sharp and C-sharp, every time.
+
+  - id: 5
+    mode: play
+    type: play_first_four
+    figure: "Keyboard. First four chords — D, A, Bm, F#m — highlighted one by one, in LH register."
+    cleffy: >
+      First four chords in the left hand. One chord, one bar.
+      D, A, B minor, F-sharp minor. Slow.
+    interaction:
+      type: rhythm
+      sequence: [["D3","F#3","A3"],["A2","C#3","E3"],["B2","D3","F#3"],["F#2","A2","C#3"]]
+      durations: ["whole","whole","whole","whole"]
+      tempo: 60
+
+  - id: 6
+    mode: play
+    type: play_last_four
+    figure: "Keyboard. Last four chords — G, D, G, A."
+    cleffy: >
+      Second half. G, D, G, A.
+    interaction:
+      type: rhythm
+      sequence: [["G2","B2","D3"],["D3","F#3","A3"],["G2","B2","D3"],["A2","C#3","E3"]]
+      durations: ["whole","whole","whole","whole"]
+      tempo: 60
+
+  - id: 7
+    mode: play
+    type: all_eight_lh
+    figure: "Keyboard. Full eight-chord LH loop."
+    cleffy: >
+      All eight, back to back. One per bar. Don't rush — let each chord ring.
+    interaction:
+      type: rhythm
+      sequence: [["D3","F#3","A3"],["A2","C#3","E3"],["B2","D3","F#3"],["F#2","A2","C#3"],["G2","B2","D3"],["D3","F#3","A3"],["G2","B2","D3"],["A2","C#3","E3"]]
+      durations: ["whole","whole","whole","whole","whole","whole","whole","whole"]
+      tempo: 60
+    followup_cleffy: >
+      That's the whole engine of Canon in D. One loop.
+
+  - id: 8
+    mode: see
+    type: the_rh_melody
+    figure: "Treble staff showing a simple descending melody — F#, E, D, C#, B, A, B, C# — one note per bar."
+    cleffy: >
+      Right hand now. One note per bar.
+      F-sharp, E, D, C-sharp, B, A, B, C-sharp.
+      It just steps down, then hops back up at the end.
+
+  - id: 9
+    mode: play
+    type: play_rh_melody
+    figure: "Keyboard. RH melody — F#4, E4, D4, C#4, B3, A3, B3, C#4."
+    cleffy: >
+      Right hand alone. Slow. Each note gets a whole bar.
+    interaction:
+      type: rhythm
+      sequence: ["F#4","E4","D4","C#4","B3","A3","B3","C#4"]
+      durations: ["whole","whole","whole","whole","whole","whole","whole","whole"]
+      tempo: 60
+
+  - id: 10
+    mode: play
+    type: two_hand_warmup
+    figure: "Grand staff. Just bar 1 — RH F#4, LH D major triad. Both land together."
+    cleffy: >
+      Warm-up. Just the first bar. Both hands land together.
+      RH F-sharp. LH D chord. Once.
+    interaction:
+      type: rhythm
+      sequence: [["F#4","D3","F#3","A3"]]
+      durations: ["whole"]
+      tempo: 60
+
+  - id: 11
+    mode: play
+    type: full_piece_guided
+    figure: "Grand staff. Full eight bars. Guides ON. LH chord stacks, RH melody on top."
+    cleffy: >
+      Full thing. Both hands. Guides on. Very slow.
+      Each bar — one melody note on top, one chord underneath.
+    interaction:
+      type: song
+      sequence: [["F#4","D3","F#3","A3"],["E4","A2","C#3","E3"],["D4","B2","D3","F#3"],["C#4","F#2","A2","C#3"],["B3","G2","B2","D3"],["A3","D3","F#3","A3"],["B3","G2","B2","D3"],["C#4","A2","C#3","E3"]]
+      guides: true
+      tempo: 55
+
+  - id: 12
+    mode: play
+    type: full_piece_no_guides
+    figure: "Grand staff. No highlights."
+    cleffy: >
+      No guides. You read, you play.
+      If a chord feels wobbly, slow down. Don't stop.
+    interaction:
+      type: song
+      sequence: [["F#4","D3","F#3","A3"],["E4","A2","C#3","E3"],["D4","B2","D3","F#3"],["C#4","F#2","A2","C#3"],["B3","G2","B2","D3"],["A3","D3","F#3","A3"],["B3","G2","B2","D3"],["A2","C#3","E3","C#4"]]
+      guides: false
+      tempo: 55
+    followup_cleffy: >
+      That.
+      Eight chords of Pachelbel. You played the progression a million songs are built on.
+
+  - id: 13
+    mode: play
+    type: at_tempo
+    figure: "Grand staff. Tempo 70."
+    cleffy: >
+      One more time, a little faster. 70 bpm.
+      Don't stop if you stumble. The loop keeps going.
+    interaction:
+      type: song
+      sequence: [["F#4","D3","F#3","A3"],["E4","A2","C#3","E3"],["D4","B2","D3","F#3"],["C#4","F#2","A2","C#3"],["B3","G2","B2","D3"],["A3","D3","F#3","A3"],["B3","G2","B2","D3"],["C#4","A2","C#3","E3"]]
+      guides: false
+      tempo: 70
+
+  - id: 14
+    mode: hear
+    type: pre_check
+    figure: "Banner — last check before Act 18 ends."
+    cleffy: >
+      Four quick ones. Act boss — so a bigger check.
+
+  - id: 15
+    mode: see
+    type: wrap
+    figure: "Celebration card — ACT 18 COMPLETE 🎯. Trophy engraved 18/50. Eight chord stacks in a row across the bottom."
+    cleffy: >
+      Act 18, done.
+      Triads. Major, minor. Broken. Inverted. And now — a real chord progression under a melody.
+      Canon in D, in your hands. Pachelbel would be fine with it.
+      Next act — sight-reading. Eyes ahead, always.
+
+practice_this_week:
+  real_piano:
+    - "Play the LH eight-chord loop every day. Don't worry about RH at first — just the chords."
+    - "Once LH is automatic, add the RH melody. One note per bar."
+    - "Listen to pop music this week. Half the songs use a version of this same progression. You'll start hearing it."
+  virtual_only:
+    - "Replay pages 7, 11, 12 until both hands feel locked together."
+  estimated_time: "15 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "Staff showing eight triads labeled D, A, Bm, F#m, G, D, G, A."
+          prompt: "How many chords are in the Canon in D loop?"
+          options: ["Four", "Eight", "Twelve"]
+          correct: 1
+        - figure: "Staff with the D chord stacked: D-F#-A."
+          prompt: "Which note in the D triad is on a black key?"
+          options: ["D", "F-sharp", "A"]
+          correct: 1
+        - figure: "Eight Canon chords labeled with major and minor markings."
+          prompt: "Are there any minor chords in the Canon loop?"
+          options: ["Yes (B minor and F-sharp minor)", "No — all major"]
+          correct: 0
+    hear:
+      pass_threshold: 2
+      questions:
+        - audio: "First four chords of the Canon — D, A, Bm, F#m"
+          prompt: "Do all four chords sound the same, or do some feel sadder?"
+          options: ["They're all the same", "Some feel sad — those are the minor ones"]
+          correct: 1
+        - audio: "Canon in D full loop"
+          prompt: "Do the chords repeat in a loop?"
+          options: ["Yes", "No"]
+          correct: 0
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play the first two chords of Canon in D in the left hand — D major then A major."
+          accept: "D-F#-A followed by A-C#-E in the left-hand register"
+
+remediation:
+  id: "90.5"
+  title: "Canon in D, one chord at a time"
+  pages: 10
+  opening_cleffy: >
+    Act boss is a big one. Let's break it down — one LH chord per page, then two, then four, then all eight. Then add RH when both hands feel ready.
+
+completion:
+  cleffy: >
+    Act 18 — closed.
+    You play triads. Major and minor. Block and broken. Root position and inversions.
+    And you play a real chord progression under a real melody.
+    Next up — sight-reading. Your eyes go first.
+  xp: 30
+  unlocks: 91

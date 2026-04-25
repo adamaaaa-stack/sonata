@@ -1,0 +1,198 @@
+id: 60
+tier: elementary
+act: 12
+title: "Ode to Joy, with shape"
+subtitle: "Act 12 · Same piece, now expressive"
+goal: "Play Ode to Joy with dynamics — phrase shape, crescendos, and a soft-to-loud arc."
+prereqs: [55, 56, 57, 58, 59]
+method_focus: "dynamics"
+time_estimate_min: 12
+piece_context: "You played Ode to Joy flat in Lesson 55. Today you play it alive."
+metaphor: "same-notes-alive"
+vibe: ["gentle", "playful", "celebratory"]
+is_act_boss: true
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Ode to Joy sheet music, this time with p, f, and crescendo/diminuendo marks added."
+    cleffy: >
+      Same tune. Different version.
+      Today you add the dynamics. Suddenly it's music, not just notes.
+
+  - id: 2
+    mode: hear
+    type: flat_vs_shaped
+    figure: "Two playback cards."
+    audio:
+      A: "Ode to Joy flat"
+      B: "Ode to Joy with dynamics"
+    cleffy: >
+      Listen to both. Flat first. Shaped second.
+      The shaped one is the one people remember.
+
+  - id: 3
+    mode: see
+    type: dynamic_plan
+    figure: "Full Ode to Joy with dynamic markings drawn: p at start, crescendo at peak, diminuendo at end, new p repeat, final rising phrase."
+    cleffy: >
+      Here's the plan.
+      Phrase 1 starts p. Grows slightly. Softens to end.
+      Phrase 2 stays medium.
+      Phrase 3 repeats 1 but this time growing stronger.
+      Phrase 4 softens to p and rests on C.
+
+  - id: 4
+    mode: play
+    type: phrase_1_soft
+    figure: "First phrase with p + slight crescendo."
+    cleffy: >
+      Phrase 1. Start soft. Slight growth at the peak (G). Soften the ending.
+    interaction:
+      type: sequence
+      keys: ["E4","E4","F4","G4","G4","F4","E4","D4"]
+
+  - id: 5
+    mode: play
+    type: phrase_2_medium
+    figure: "Phrase 2 at medium dynamic."
+    cleffy: >
+      Phrase 2. C C D E E D D. Medium-loud. Let the climb feel slightly bigger.
+    interaction:
+      type: sequence
+      keys: ["C4","C4","D4","E4","E4","D4","D4"]
+
+  - id: 6
+    mode: play
+    type: phrase_3_stronger
+    figure: "Phrase 3, same notes as 1 but marked f."
+    cleffy: >
+      Phrase 3. Same notes as phrase 1. Play it fuller — f at the start, drive the climb.
+    interaction:
+      type: sequence
+      keys: ["E4","E4","F4","G4","G4","F4","E4","D4"]
+
+  - id: 7
+    mode: play
+    type: phrase_4_finale
+    figure: "Phrase 4 with diminuendo toward the end."
+    cleffy: >
+      Final phrase. C C D E D C C. Get softer as you come home.
+    interaction:
+      type: sequence
+      keys: ["C4","C4","D4","E4","D4","C4","C4"]
+
+  - id: 8
+    mode: play
+    type: full_with_shape_slow
+    figure: "Full tune, dynamics written. Tempo 60."
+    cleffy: >
+      Whole tune with shape. Slow.
+    interaction:
+      type: song
+      sequence: ["E4","E4","F4","G4","G4","F4","E4","D4","C4","C4","D4","E4","E4","D4","D4","E4","E4","F4","G4","G4","F4","E4","D4","C4","C4","D4","E4","D4","C4","C4"]
+      guides: true
+      tempo: 60
+
+  - id: 9
+    mode: play
+    type: full_at_tempo
+    figure: "Same. No guides. Tempo 90."
+    cleffy: >
+      No guides. At tempo. Shape it.
+    interaction:
+      type: song
+      sequence: ["E4","E4","F4","G4","G4","F4","E4","D4","C4","C4","D4","E4","E4","D4","D4","E4","E4","F4","G4","G4","F4","E4","D4","C4","C4","D4","E4","D4","C4","C4"]
+      guides: false
+      tempo: 90
+
+  - id: 10
+    mode: hear
+    type: comparison
+    figure: "Cleffy plays your version back, then a flat version."
+    cleffy: >
+      Can you hear the difference now?
+      Dynamics aren't decoration. They're what makes it music.
+
+  - id: 11
+    mode: play
+    type: one_more_time
+    figure: "Full tune, tempo 90, shape attention."
+    cleffy: >
+      One more time, your best attempt.
+    interaction:
+      type: song
+      sequence: ["E4","E4","F4","G4","G4","F4","E4","D4","C4","C4","D4","E4","E4","D4","D4","E4","E4","F4","G4","G4","F4","E4","D4","C4","C4","D4","E4","D4","C4","C4"]
+      guides: false
+      tempo: 90
+
+  - id: 12
+    mode: see
+    type: why_it_matters
+    figure: "Image: same tune played flat vs shaped, audience yawning vs engaged."
+    cleffy: >
+      Dynamics are the difference between a robot playing piano and a person playing piano.
+      You played Beethoven today. Keep doing that.
+
+  - id: 13
+    mode: hear
+    type: pre_check
+    figure: "Banner — Act 12 boss check."
+    cleffy: >
+      Three quick ones.
+
+  - id: 14
+    mode: see
+    type: wrap
+    figure: "Celebration — ACT 12 COMPLETE. Trophy 12/15."
+    cleffy: >
+      Act 12, sealed. You played Beethoven expressively.
+      Tomorrow starts Act 13 — sharps, flats, and naturals.
+
+practice_this_week:
+  real_piano:
+    - "Ode to Joy with dynamics, every day this week."
+    - "Record yourself. Listen back. Hear the shape."
+  virtual_only:
+    - "Replay pages 8-9 (full tune)"
+  estimated_time: "12 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "Ode to Joy phrase 1 with p marking at start"
+          prompt: "Start loud or soft?"
+          options: ["Loud", "Soft"]
+          correct: 1
+        - figure: "Phrase 3 with f"
+          prompt: "Louder or softer than phrase 1?"
+          options: ["Louder", "Softer"]
+          correct: 0
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "Phrase 1 shaped"
+          prompt: "Did the phrase grow, shrink, or stay flat?"
+          options: ["Grow + shrink (arch)", "Stay flat"]
+          correct: 0
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play the first phrase of Ode to Joy softly (p)."
+          accept: "E4 E4 F4 G4 G4 F4 E4 D4 played soft"
+
+remediation:
+  id: "60.5"
+  title: "Ode to Joy with shape, slower"
+  pages: 6
+  opening_cleffy: >
+    Shape takes practice. Slow, phrase-by-phrase with clear dynamic plan.
+
+completion:
+  cleffy: >
+    Act 12 done. Three acts left in Tier 2.
+  xp: 30
+  unlocks: 61

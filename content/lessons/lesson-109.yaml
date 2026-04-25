@@ -1,0 +1,222 @@
+# ============================================================
+# LESSON 109 · Interval sight-quiz
+# Tier 3 · Act 22 · Low-Intermediate · Intervals
+# Rapid see-and-name. Speed before the boss.
+# ============================================================
+id: 109
+tier: low-intermediate
+act: 22
+title: "Interval sight-quiz"
+subtitle: "Act 22 · Intervals"
+goal: "See an interval on the staff and name it fast — no counting, just shape-recognition."
+prereqs: [108, 107, 106]
+method_focus: "see"
+time_estimate_min: 12
+piece_context: "You know the names. You hear the sounds. Now — sight-read the shapes. Fast. The goal is recognition, not counting."
+metaphor: "distance-between-notes"
+vibe: ["focused", "playful"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy with a stopwatch. A staff behind him showing six interval pairs."
+    cleffy: >
+      Third day of intervals.
+      You can count. You can hear.
+      Today — see and name. No counting. Just recognize.
+
+  - id: 2
+    mode: see
+    type: odd_vs_even
+    figure: "Two staff snippets. Left: line-to-line (odd). Right: line-to-space (even)."
+    cleffy: >
+      First shortcut.
+      Line to line, or space to space — the number is odd. 3rd, 5th, 7th.
+      Line to space, or space to line — the number is even. 2nd, 4th, 6th, octave.
+
+  - id: 3
+    mode: see
+    type: shape_library
+    figure: "Staff chart. Each interval shown: 2nd (adjacent), 3rd (one skipped), 4th, 5th, 6th, 7th, octave. Labels under each."
+    cleffy: >
+      Memorize the shapes.
+      A 3rd — one line between two notes. A 5th — two lines between. A 7th — three lines between.
+      Even ones — count the spaces between.
+
+  - id: 4
+    mode: see
+    type: quick_3_or_5
+    figure: "Round counter 1 of 4. A staff with two notes. Options: 3rd, 5th."
+    cleffy: >
+      Four rounds. 3rd or 5th?
+      One line between — 3rd. Two lines between — 5th.
+    interaction:
+      type: drill
+      rounds: 4
+      options: ["3rd", "5th"]
+
+  - id: 5
+    mode: see
+    type: quick_2_or_4
+    figure: "Round counter 1 of 4. Options: 2nd, 4th."
+    cleffy: >
+      Even ones now. 2nd or 4th?
+    interaction:
+      type: drill
+      rounds: 4
+      options: ["2nd", "4th"]
+
+  - id: 6
+    mode: see
+    type: spotting_the_octave
+    figure: "Staff showing C4 and C5. Highlight: the notes are one full clef apart."
+    cleffy: >
+      The octave has a signature shape.
+      Two C's, two E's, two G's — same letter, one clef-width apart.
+      Learn it at a glance.
+
+  - id: 7
+    mode: see
+    type: quick_6_or_octave
+    figure: "Round counter 1 of 4. Options: 6th, Octave."
+    cleffy: >
+      4 rounds. 6th or octave?
+    interaction:
+      type: drill
+      rounds: 4
+      options: ["6th", "Octave"]
+
+  - id: 8
+    mode: see
+    type: all_five
+    figure: "Round counter 1 of 5. A staff with two notes each round. Options: 2nd, 3rd, 4th, 5th, 6th."
+    cleffy: >
+      Mixed. Five rounds. Small-and-medium intervals.
+    interaction:
+      type: drill
+      rounds: 5
+      options: ["2nd", "3rd", "4th", "5th", "6th"]
+
+  - id: 9
+    mode: see
+    type: all_eight
+    figure: "Round counter 1 of 6. Any interval 2nd through octave."
+    cleffy: >
+      Everything. Six rounds. Any of the eight.
+    interaction:
+      type: drill
+      rounds: 6
+      options: ["2nd", "3rd", "4th", "5th", "6th", "7th", "Octave"]
+
+  - id: 10
+    mode: play
+    type: name_then_play_1
+    figure: "Staff with C4 and E4. Prompt: name it, then play it."
+    cleffy: >
+      Name this one in your head. Then play both notes.
+    interaction:
+      type: sequence
+      keys: ["C4","E4"]
+
+  - id: 11
+    mode: play
+    type: name_then_play_2
+    figure: "Staff with G3 and D4. Prompt: name it, then play it."
+    cleffy: >
+      Name. Then play.
+    interaction:
+      type: sequence
+      keys: ["G3","D4"]
+
+  - id: 12
+    mode: play
+    type: name_then_play_3
+    figure: "Staff with F4 and F5 (octave)."
+    cleffy: >
+      One more. Big one. Name. Play.
+    interaction:
+      type: sequence
+      keys: ["F4","F5"]
+    followup_cleffy: >
+      Octave.
+      You saw it before you counted it.
+
+  - id: 13
+    mode: see
+    type: speed_drill
+    figure: "Round counter 1 of 8. Faster tempo. All intervals. Label: SPEED ROUND."
+    cleffy: >
+      Speed round. Eight rounds. Trust the shape.
+    interaction:
+      type: drill
+      rounds: 8
+      options: ["2nd", "3rd", "4th", "5th", "6th", "7th", "Octave"]
+
+  - id: 14
+    mode: hear
+    type: pre_check
+    figure: "Banner."
+    cleffy: >
+      Three quick ones.
+
+  - id: 15
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 109. A staff with a blur of interval pairs, each labelled."
+    cleffy: >
+      Shapes learned. You see a 3rd without counting now.
+      Tomorrow — boss. Everything together.
+
+practice_this_week:
+  real_piano:
+    - "Open any piece of sheet music. Pick five random pairs of adjacent notes. Name each interval."
+    - "Line-to-line means odd. Space-to-space means odd. Line-to-space means even. Chant it till it sticks."
+  virtual_only:
+    - "Replay pages 8, 9, 13 — the mixed drills"
+  estimated_time: "10 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "Staff with two notes, line to next line"
+          prompt: "Odd or even interval?"
+          options: ["Odd (3rd, 5th, 7th)", "Even (2nd, 4th, 6th)"]
+          correct: 0
+        - figure: "Staff with G and B (one line between)"
+          prompt: "What interval?"
+          options: ["2nd", "3rd", "5th"]
+          correct: 1
+        - figure: "Staff with C4 and G4"
+          prompt: "What interval?"
+          options: ["4th", "5th", "6th"]
+          correct: 1
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "C and E played together"
+          prompt: "What interval?"
+          options: ["2nd", "3rd", "5th"]
+          correct: 1
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play a 4th above G. (G to C.)"
+          accept: "G3 or G4 plus the C a 4th above"
+
+remediation:
+  id: "109.5"
+  title: "Shapes, slowly"
+  pages: 6
+  opening_cleffy: >
+    Speed comes after shape.
+    We'll look at each interval shape for a beat longer. No rush.
+
+completion:
+  cleffy: >
+    Shapes locked in. You recognize faster than you count.
+    Tomorrow — act boss. See, hear, name, play. All eight intervals.
+  xp: 18
+  unlocks: 110

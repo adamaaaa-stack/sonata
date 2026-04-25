@@ -1,0 +1,225 @@
+# ============================================================
+# LESSON 227 · Muscle memory
+# Tier 6 · Act 46 · Advanced · Memorization
+# Fingers knowing before the brain does — strong but fragile.
+# ============================================================
+id: 227
+tier: advanced
+act: 46
+title: "Muscle memory"
+subtitle: "Act 46 · Memorization"
+goal: "Build muscle memory in a short phrase through repetition — and understand why it works, and why it alone isn't enough."
+prereqs: [226]
+method_focus: "play"
+time_estimate_min: 14
+piece_context: "First of three memory types. Muscle memory is the workhorse. Repeat a passage enough times — slowly, carefully — and your fingers learn the shape without your brain saying each note. It's real. It's fast to build. And under the lights, it can vanish. That's why it's only one of three."
+metaphor: "three-kinds-of-memory"
+vibe: ["gentle", "focused", "honest"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy holding up one hand, fingers curled as if mid-arpeggio. Banner: MUSCLE MEMORY. A small thought bubble — empty."
+    cleffy: >
+      Muscle memory.
+      Your fingers know the shape before your brain names the notes.
+      Built by one thing — repetition.
+
+  - id: 2
+    mode: see
+    type: what_it_is
+    figure: "A hand icon with arrows looping back to the same position, over and over. Caption: 'the same motion, many times, slowly.'"
+    cleffy: >
+      Here's how it works.
+      You play a phrase slowly. Same fingering. Same motion. Same keys.
+      Do it five times. Ten. Twenty.
+      Eventually your fingers go there without you telling them.
+
+  - id: 3
+    mode: see
+    type: why_slow
+    figure: "Two clocks. First labeled 'slow = clean path.' Second labeled 'fast = messy path.' Arrow between them: 'build the clean one first.'"
+    cleffy: >
+      The rule — slow before fast.
+      Fast repetitions burn in mistakes just as well as right notes.
+      Slow repetitions build a clean path. You speed up later.
+
+  - id: 4
+    mode: play
+    type: first_reps_slow
+    figure: "Keyboard. A four-note shape glowing: C5 E5 G5 E5. Labeled 'rep 1 of 5.' Very slow tempo."
+    cleffy: >
+      A tiny shape. C, E, G, E.
+      Play it five times in a row. Slow.
+      Same finger plan each time — thumb, middle, pinky, middle.
+    interaction:
+      type: sequence
+      keys: ["C5","E5","G5","E5","C5","E5","G5","E5","C5","E5","G5","E5","C5","E5","G5","E5","C5","E5","G5","E5"]
+
+  - id: 5
+    mode: see
+    type: what_just_happened
+    figure: "A brain and a hand side by side. The brain is labeled 'started telling each note.' The hand is labeled 'took over by rep 4.'"
+    cleffy: >
+      Felt it?
+      Rep 1 — your brain worked hard. C. E. G. E.
+      Rep 4 or 5 — the hand just went.
+      That's muscle memory starting.
+
+  - id: 6
+    mode: see
+    type: how_long_to_stick
+    figure: "A calendar. Day 1 — shape learned. Day 2 — played again. Day 7 — played again. Caption: 'repeat across days, not just one sitting.'"
+    cleffy: >
+      Here's the catch.
+      Muscle memory needs days, not just reps.
+      You play it five times today. Five times tomorrow. Five the day after.
+      One sitting doesn't finish it.
+
+  - id: 7
+    mode: play
+    type: longer_shape
+    figure: "Keyboard. An 8-note shape: C5 E5 G5 C6 G5 E5 D5 C5. Labeled 'the same shape, three times.'"
+    cleffy: >
+      A longer shape. C E G C-high G E D C.
+      Three times through. Same fingering each time.
+      Feel where it wants to trip — that's where to go slower.
+    interaction:
+      type: sequence
+      keys: ["C5","E5","G5","C6","G5","E5","D5","C5","C5","E5","G5","C6","G5","E5","D5","C5","C5","E5","G5","C6","G5","E5","D5","C5"]
+
+  - id: 8
+    mode: see
+    type: the_fragile_part
+    figure: "A pianist on stage with a spotlight. Their hand is frozen mid-air. Thought bubble: 'wait — what note?' Caption: 'muscle memory under nerves.'"
+    cleffy: >
+      Now the honest part.
+      Muscle memory is strong in your living room.
+      It can vanish under nerves. On stage. In front of someone.
+      Your hands forget because your brain interrupted them.
+
+  - id: 9
+    mode: see
+    type: why_alone_isnt_enough
+    figure: "A single pillar holding up a ceiling labeled 'performance.' The pillar is cracked. Below: 'one kind of memory = one pillar.'"
+    cleffy: >
+      One kind of memory is one pillar.
+      Strong — until it's not.
+      That's why pianists use three.
+      When muscle slips, ear catches. When ear slips, structure catches.
+
+  - id: 10
+    mode: play
+    type: rep_with_eyes_off
+    figure: "Keyboard. Same 4-note shape: C5 E5 G5 E5. Caption: 'try it looking away from the screen.'"
+    cleffy: >
+      Try the first shape again. C, E, G, E.
+      Look at your hand, not the screen.
+      If your fingers find it without the highlight — muscle memory is working.
+    interaction:
+      type: sequence
+      keys: ["C5","E5","G5","E5","C5","E5","G5","E5"]
+    followup_cleffy: >
+      If it slipped — that's the fragility.
+      If it held — that's the strength.
+
+  - id: 11
+    mode: see
+    type: how_to_build_it_well
+    figure: "A checklist. 1. Slow first. 2. Same fingering every time. 3. Small chunks — 2 to 4 bars. 4. Across days, not one sitting. 5. Eyes off the page sometimes."
+    cleffy: >
+      Five rules for good muscle memory.
+      Slow first. Same fingering every rep. Small chunks. Across days. Eyes off the page sometimes.
+      Every one of those matters.
+
+  - id: 12
+    mode: play
+    type: three_chunk_drill
+    figure: "Keyboard. Three tiny shapes labeled chunk A, B, C. A: G4 B4 D5. B: A4 C5 E5. C: B4 D5 G5. Two reps each."
+    cleffy: >
+      Three chunks. Two reps each. Slow.
+      Notice — each chunk feels harder the first rep and easier the second.
+      That's it working.
+    interaction:
+      type: sequence
+      keys: ["G4","B4","D5","G4","B4","D5","A4","C5","E5","A4","C5","E5","B4","D5","G5","B4","D5","G5"]
+
+  - id: 13
+    mode: see
+    type: the_name_for_this
+    figure: "Cleffy at a piano with his eyes closed, hands playing. Caption: 'sometimes called finger memory, or hand memory. Same thing.'"
+    cleffy: >
+      Some teachers call it finger memory. Or hand memory.
+      Same thing.
+      What matters — the hands hold the piece even when the brain doesn't.
+
+  - id: 14
+    mode: hear
+    type: pre_check
+    figure: "Banner."
+    cleffy: >
+      Three quick ones.
+
+  - id: 15
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 227. A hand icon with small gold motion-lines around it. Banner: MUSCLE MEMORY · PILLAR ONE OF THREE."
+    cleffy: >
+      Muscle memory. Pillar one.
+      Built slow. Built across days. Strong — and alone, fragile.
+      Tomorrow — pillar two. Ear memory. The singer in you.
+
+practice_this_week:
+  real_piano:
+    - "Pick one short passage from a piece you know — four bars, not more. Play it slowly, five times, same fingering. Do it every day this week."
+    - "Play the passage once with your eyes closed. Don't panic if it slips — that's muscle memory being tested."
+  virtual_only:
+    - "Replay pages 4 and 10 — the same four-note shape, first with guides and then eyes off."
+  estimated_time: "10 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "A hand looping through the same motion many times, slowly"
+          prompt: "How is muscle memory built?"
+          options: ["By thinking hard about each note", "By slow, consistent repetition with the same fingering", "By playing as fast as possible"]
+          correct: 1
+        - figure: "A pianist on stage, frozen, with a thought bubble saying 'wait — what note?'"
+          prompt: "What is muscle memory's main weakness?"
+          options: ["It takes too long to build", "It can fail under nerves or when the brain interrupts", "It only works in one key"]
+          correct: 1
+        - figure: "A single cracked pillar holding up a ceiling"
+          prompt: "Why isn't muscle memory alone enough for performance?"
+          options: ["It's always wrong", "One kind of memory is fragile — you want three working together", "It's too fast"]
+          correct: 1
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "A short phrase played cleanly five times in a row"
+          prompt: "What's this demonstrating?"
+          options: ["Ear memory", "Muscle memory — slow reps building a clean path"]
+          correct: 1
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play C5 E5 G5 E5 three times in a row."
+          accept: "C5 E5 G5 E5 repeated three times"
+
+remediation:
+  id: "227.5"
+  title: "Muscle memory, even slower"
+  pages: 7
+  opening_cleffy: >
+    Slow is the whole trick. If the reps felt fast, we'll go slower.
+    One shape. Three notes. Five reps. That's the whole lesson.
+
+completion:
+  cleffy: >
+    Muscle memory — in the body.
+    Pillar one. Do the reps this week.
+    Tomorrow — ear memory. The one that lives above your hands.
+  xp: 17
+  unlocks: 228

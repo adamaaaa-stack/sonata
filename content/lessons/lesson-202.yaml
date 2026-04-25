@@ -1,0 +1,233 @@
+# ============================================================
+# LESSON 202 · Pedal: flutter
+# Tier 5 · Act 41 · Upper-Intermediate · Advanced pedal technique
+# Fast partial releases to clear mud.
+# ============================================================
+id: 202
+tier: upper-intermediate
+act: 41
+title: "Pedal: flutter"
+subtitle: "Act 41 · Advanced pedal technique"
+goal: "Use fast, partial pedal releases to thin the sound without fully changing it."
+prereqs: [201]
+method_focus: "play"
+time_estimate_min: 14
+piece_context: "Yesterday — depth. Today — speed. Flutter pedal is a rapid series of tiny lifts. Not a full change — just a quick clearing. The trick for long phrases where harmony evolves but you don't want a hard pedal break."
+metaphor: "right-foot-artistry"
+vibe: ["focused", "quiet"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy watching a foot on a pedal twitch up-down-up-down in fast bursts. Small motion blur. Banner: FLUTTER PEDAL."
+    cleffy: >
+      New trick. Fast little releases.
+      Not a full change. Not a full hold.
+      A flutter — tiny lifts while the foot stays near the pedal.
+
+  - id: 2
+    mode: see
+    type: what_flutter_is
+    figure: "A timeline. Full pedal shown as a solid bar. Flutter shown as the same bar with tiny notches cut out at regular intervals. Label: 'nicks of silence.'"
+    cleffy: >
+      Flutter is pedal-mostly-down, with quick little ups.
+      Each lift is a nick of silence — just enough to drop some of the old sound.
+      The new notes keep ringing. The old ones get thinned.
+
+  - id: 3
+    mode: hear
+    type: before_and_after
+    figure: "Two play buttons. A: long phrase, full pedal, no flutter. B: same phrase, flutter applied."
+    audio:
+      A: "A descending melodic line held under full pedal — notes start to pile into a hum"
+      B: "The same line with flutter pedal — each new note is clear, old notes fade faster"
+    cleffy: >
+      Same phrase. Two pedals.
+      First — full pedal. Mud builds.
+      Second — flutter. The mud gets swept out every beat.
+
+  - id: 4
+    mode: see
+    type: when_flutter_helps
+    figure: "Three scenarios as icons. 1: a long legato phrase with many different harmonies. 2: a descending scale with pedal. 3: a big dynamic swell where too much ring would swamp it."
+    cleffy: >
+      When flutter earns its keep.
+      Long phrases that change harmony slowly — too many to pedal-change, too smeared to hold.
+      Scales with pedal. Big swells.
+      Anywhere you need to clean — not reset.
+
+  - id: 5
+    mode: see
+    type: foot_motion
+    figure: "A foot on a pedal, viewed from the side. Arrow showing the toe lifting maybe an inch, then back down. Tempo marking: 'one flick per beat.'"
+    cleffy: >
+      The motion.
+      Stay near the bottom. Flick the toe up an inch. Drop it back down.
+      Small. Fast. The heel never leaves the floor.
+
+  - id: 6
+    mode: hear
+    type: one_flutter
+    figure: "Play button. Label: 'ONE FLUTTER — HELD CHORD, SINGLE LIFT.'"
+    audio:
+      A: "A chord held under pedal. Mid-way through, a quick partial lift — volume dips slightly — pedal drops back. Chord continues."
+    cleffy: >
+      One flutter. Listen for the dip.
+      The sound doesn't stop — it thins, then resumes.
+
+  - id: 7
+    mode: play
+    type: practice_the_flick
+    figure: "Keyboard. C4 glowing. Pedal meter animating: DOWN — flick UP — back DOWN."
+    cleffy: >
+      Play C. Hold the pedal down.
+      One quick flutter while it rings — flick the toe up, drop it back.
+      Feel the sound thin and return.
+    interaction:
+      type: sequence
+      keys: ["C4"]
+
+  - id: 8
+    mode: see
+    type: rhythm_of_flutter
+    figure: "A staff showing four quarter notes. Below each note: a small upward arrow labeled 'flick.' Caption: 'one flutter per beat — or more.'"
+    cleffy: >
+      Flutter has a rhythm.
+      Most common — one flick per beat.
+      Fast passages — two per beat. Slow passages — one per bar.
+
+  - id: 9
+    mode: play
+    type: four_notes_flutter
+    figure: "Keyboard. C4 D4 E4 F4. Pedal meter showing a flicker on each beat."
+    cleffy: >
+      Four notes. Pedal mostly down.
+      Flick on each beat as the next note arrives.
+      The sound should never fully stop.
+    interaction:
+      type: rhythm
+      sequence: ["C4", "D4", "E4", "F4"]
+      durations: ["quarter", "quarter", "quarter", "quarter"]
+      tempo: 70
+
+  - id: 10
+    mode: hear
+    type: compare_full_vs_flutter
+    figure: "Two play buttons. A: scale with full pedal. B: same scale with flutter."
+    audio:
+      A: "An ascending five-finger scale under unbroken full pedal — notes blur together"
+      B: "Same scale with a small flutter on each note — notes stay clearer while still ringing"
+    cleffy: >
+      Same scale. A is full pedal. B is flutter.
+      A smears. B glows.
+      That's the whole difference.
+
+  - id: 11
+    mode: play
+    type: scale_with_flutter
+    figure: "Keyboard. Five-finger scale C to G. Pedal meter flickering on each note."
+    cleffy: >
+      Scale up, pedal fluttering. One flick per note.
+      Listen — each note is clear, but the whole phrase still rings.
+    interaction:
+      type: rhythm
+      sequence: ["C4", "D4", "E4", "F4", "G4"]
+      durations: ["quarter", "quarter", "quarter", "quarter", "quarter"]
+      tempo: 72
+
+  - id: 12
+    mode: play
+    type: descending_flutter
+    figure: "Keyboard. G4 down to C4. Pedal flutter marked on each beat."
+    cleffy: >
+      Now down. G, F, E, D, C. Flutter each note.
+      Descending lines build mud fastest. Flutter fixes it.
+    interaction:
+      type: rhythm
+      sequence: ["G4", "F4", "E4", "D4", "C4"]
+      durations: ["quarter", "quarter", "quarter", "quarter", "quarter"]
+      tempo: 72
+
+  - id: 13
+    mode: play
+    type: phrase_flutter
+    figure: "Keyboard. A gentle melody: E4 G4 A4 G4 E4 D4 C4. Flutter marked throughout."
+    cleffy: >
+      A small phrase. Flutter throughout. Listen for both — the ring and the clarity.
+    interaction:
+      type: rhythm
+      sequence: ["E4", "G4", "A4", "G4", "E4", "D4", "C4"]
+      durations: ["quarter", "quarter", "quarter", "quarter", "quarter", "quarter", "half"]
+      tempo: 70
+    followup_cleffy: >
+      That's flutter. A clean phrase, still bathed in ring.
+
+  - id: 14
+    mode: hear
+    type: pre_check
+    figure: "Banner — three quick questions."
+    cleffy: >
+      Three quick ones.
+
+  - id: 15
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 202. A foot on a pedal with small flicker lines above the toe. Banner: FLUTTER."
+    cleffy: >
+      Flutter. Fast tiny lifts. Sweep the mud without breaking the ring.
+      Tomorrow — syncopated pedal. The advanced way to change pedal cleanly.
+
+practice_this_week:
+  real_piano:
+    - "Sit at the piano. No notes. Flutter the pedal — flick, flick, flick — to a metronome at 60. Small motions. Heel on floor."
+    - "Play a scale two octaves with flutter. One flick per note. Listen for the clarity."
+    - "On any piece with pedal — try fluttering once per bar. Notice which spots need it and which don't."
+  virtual_only:
+    - "Replay pages 7, 9, 11, and 13 — feel the flicker rhythm."
+  estimated_time: "10 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "A pedal timeline with tiny notches cut out at regular intervals"
+          prompt: "What technique does this show?"
+          options: ["Full pedal", "Flutter pedal", "No pedal"]
+          correct: 1
+        - figure: "A fast descending scale starting to blur"
+          prompt: "Which technique would clear the mud without stopping the ring?"
+          options: ["Lift the pedal completely", "Flutter the pedal", "Press harder"]
+          correct: 1
+        - figure: "A diagram of a foot on the pedal with a small upward arrow from the toe"
+          prompt: "How big is the flutter motion?"
+          options: ["A full lift to the top", "A small toe flick, heel stays down", "Both feet off the floor"]
+          correct: 1
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "A scale played with flutter pedal — clear but still ringing"
+          prompt: "Which technique is this?"
+          options: ["Full pedal — smeared", "Flutter — clear with ring", "No pedal"]
+          correct: 1
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play C, D, E, F, G. Flutter the pedal on each note — one flick per beat."
+          accept: "Five-finger ascending scale played with flutter pedal — notes clear, pedal mostly down"
+
+remediation:
+  id: "202.5"
+  title: "Flutter, slower"
+  pages: 6
+  opening_cleffy: >
+    Flutter is a motion more than a rule.
+    We'll practice the foot alone first. Slow metronome. Ten flicks in a row. Then add one note. Then a scale.
+
+completion:
+  cleffy: >
+    Flutter in the foot. The ring stays, the mud goes.
+    Tomorrow — syncopated pedal. Changing pedal after the beat, not with it.
+  xp: 18
+  unlocks: 203

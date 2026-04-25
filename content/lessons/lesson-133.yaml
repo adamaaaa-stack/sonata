@@ -1,0 +1,214 @@
+# ============================================================
+# LESSON 133 · Triplets
+# Tier 4 · Act 27 · Intermediate · Advanced rhythm
+# Three notes in the time of two. The "3" bracket.
+# ============================================================
+id: 133
+tier: intermediate
+act: 27
+title: "Triplets"
+subtitle: "Act 27 · Three notes in the time of two"
+goal: "Recognize, count, and play triplets — three equal notes squeezed into one beat."
+prereqs: [132, 131]
+method_focus: "rhythm"
+time_estimate_min: 12
+piece_context: "Triplets bend the rules. Normally, a beat splits into 2 or 4. A triplet splits it into 3 — three even notes in the space where two would live. The number 3 above the notes is the signal."
+metaphor: "faster-smaller-pieces"
+vibe: ["focused", "playful"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Three beamed eighth notes with a small 3 above them and a bracket. Title: THE ODD ONE."
+    cleffy: >
+      Most rhythm splits evenly. Two eighths per beat. Four sixteenths.
+      Not today. Today we fit three into the space of two.
+      Triplets. The little 3 is the signal.
+
+  - id: 2
+    mode: see
+    type: shape
+    figure: "Eighth-note triplet drawn large — three notes beamed together, with a bracket and a small numeral 3 above."
+    cleffy: >
+      Shape: three eighth notes beamed together.
+      Above the beam — a little 3. Sometimes a bracket.
+      That 3 says: squeeze these three into one beat.
+
+  - id: 3
+    mode: see
+    type: the_count
+    figure: "One beat. Below it, three triplet eighths with the count 'tri-puh-let' or '1-trip-let' written underneath."
+    cleffy: >
+      Count: one-trip-let, two-trip-let, three-trip-let, four-trip-let.
+      Three equal syllables per beat.
+      Not faster. Just evened into three instead of two.
+
+  - id: 4
+    mode: see
+    type: two_vs_three
+    figure: "Two bars side by side. Left: four beats, each with two eighths (8 notes). Right: four beats, each a triplet (12 notes). Both labeled."
+    cleffy: >
+      Two rhythms, same time.
+      Eighths — eight notes, two per beat.
+      Triplets — twelve notes, three per beat.
+      Different feel. Same bar.
+
+  - id: 5
+    mode: hear
+    type: listen_triplets
+    figure: "Metronome at 60. Below: one bar of four triplets on Middle C."
+    audio:
+      A: "Metronome at 60 + four eighth-note triplets on C4, one bar"
+    cleffy: >
+      Listen. Three even taps per click.
+      One-trip-let, two-trip-let. Feel the roll.
+
+  - id: 6
+    mode: hear
+    type: triplets_vs_eighths
+    figure: "Two play buttons. A: straight eighths. B: triplets."
+    audio:
+      A: "8 eighth notes on C, tempo 60"
+      B: "12 triplet eighths on C, tempo 60"
+    cleffy: >
+      First — eighths. Two per beat. Even.
+      Second — triplets. Three per beat. Rolls a little.
+      Same tempo. Different subdivision.
+
+  - id: 7
+    mode: play
+    type: play_one_triplet
+    figure: "Keyboard. Middle C. One beat. Three triplet eighths."
+    cleffy: >
+      Just one triplet. Three taps on C.
+      Say it: one-trip-let. Even spacing.
+    interaction:
+      type: rhythm
+      sequence: ["C4","C4","C4"]
+      durations: ["triplet_eighth","triplet_eighth","triplet_eighth"]
+      tempo: 55
+
+  - id: 8
+    mode: play
+    type: four_triplets
+    figure: "Bar of 4/4. Four triplet groups, all on C. Metronome at 55."
+    cleffy: >
+      Four triplets in a row. One full bar.
+      One-trip-let, two-trip-let, three-trip-let, four-trip-let.
+    interaction:
+      type: rhythm
+      sequence: ["C4","C4","C4","C4","C4","C4","C4","C4","C4","C4","C4","C4"]
+      durations: ["triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth"]
+      tempo: 55
+
+  - id: 9
+    mode: see
+    type: where_triplets_live
+    figure: "Three examples: Moonlight Sonata opening, Swing feel label, waltz jazz bass. Caption: triplets are everywhere."
+    cleffy: >
+      Triplets show up in:
+      Moonlight Sonata — the whole opening is triplet arpeggios.
+      Jazz and blues — the "swing" feel is triplets in disguise.
+      Waltzes and folk tunes. Once you know the feel, you hear it everywhere.
+
+  - id: 10
+    mode: play
+    type: triplet_arpeggio
+    figure: "Staff. A C major arpeggio as a triplet — C E G. Played four times in a bar."
+    cleffy: >
+      Triplets with different notes. C, E, G — a C arpeggio.
+      One triplet on each beat. Even. Rolling.
+    interaction:
+      type: rhythm
+      sequence: ["C4","E4","G4","C4","E4","G4","C4","E4","G4","C4","E4","G4"]
+      durations: ["triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth"]
+      tempo: 55
+
+  - id: 11
+    mode: hear
+    type: two_or_three
+    figure: "Round counter 1 of 4. Each round plays one beat of either eighths or triplets."
+    cleffy: >
+      Four rounds. Two per beat or three per beat?
+    interaction:
+      type: drill
+      rounds: 4
+      options: ["Eighths (2 per beat)", "Triplets (3 per beat)"]
+
+  - id: 12
+    mode: play
+    type: mix_quarters_triplets
+    figure: "Bar: quarter, quarter, triplet, triplet. Counts labeled under each."
+    cleffy: >
+      Mix. Two quarters — walking. Then two triplets — rolling.
+      Feel the change mid-bar.
+    interaction:
+      type: rhythm
+      sequence: ["C4","D4","E4","F4","G4","A4","B4","C5"]
+      durations: ["quarter","quarter","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth"]
+      tempo: 55
+
+  - id: 13
+    mode: hear
+    type: pre_check
+    figure: "Banner."
+    cleffy: >
+      Four quick ones.
+
+  - id: 14
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 133. Three beamed eighths with a small 3 above, glowing. Caption: one-trip-let."
+    cleffy: >
+      Triplets. Three in the space of two. The little 3 tells you.
+      Tomorrow — rhythm puzzles. Clap first. Then play.
+
+practice_this_week:
+  real_piano:
+    - "Metronome at 55. Tap Middle C three times per click. Say 'one-trip-let, two-trip-let' out loud."
+    - "Play a C major arpeggio (C E G) as triplets. One triplet per beat for a full bar."
+  virtual_only:
+    - "Replay pages 7, 8, 10"
+  estimated_time: "8 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "Three eighth notes beamed with a small 3 above"
+          prompt: "What does the 3 mean?"
+          options: ["Three beats", "Three notes in one beat", "Three bars"]
+          correct: 1
+        - figure: "Bar with four triplet groups"
+          prompt: "How many total notes in this bar?"
+          options: ["8", "12", "16"]
+          correct: 1
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "One bar of triplet eighths on C at tempo 60"
+          prompt: "How many notes per beat?"
+          options: ["2", "3", "4"]
+          correct: 1
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play a C major arpeggio — C, E, G — as a triplet in one beat."
+          accept: "C4 E4 G4 as triplet eighth notes"
+
+remediation:
+  id: "133.5"
+  title: "Triplets, with chanting"
+  pages: 7
+  opening_cleffy: >
+    Three-against-two is a new thing for the brain. It'll click.
+    We'll chant "one-trip-let" over and over before we touch a key.
+
+completion:
+  cleffy: >
+    Triplets unlocked. You just earned the Moonlight Sonata opening — that's all triplets.
+    Tomorrow — puzzle time. Rhythm without pitch.
+  xp: 18
+  unlocks: 134

@@ -1,0 +1,242 @@
+# ============================================================
+# LESSON 11 · The staff
+# Tier 1 · Act 3 · Beginner
+# Central metaphor: THE STAFF IS STAIRS DRAWN ON PAPER
+# ============================================================
+id: 11
+tier: beginner
+act: 3
+title: "The staff"
+subtitle: "Stairs on paper"
+goal: "Meet the five-line staff. Understand it's just a picture of the stairs you already know."
+prereqs: [1, 2, 10]
+method_focus: "notation"
+time_estimate_min: 10
+piece_context: "Every piece of written music in the world sits on a staff. Today we meet it."
+metaphor: "stairs-on-paper"
+vibe: ["gentle", "playful"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "A piano keyboard on the bottom of the screen. Above it, empty space. Cleffy holds up a blank sheet of paper."
+    cleffy: >
+      You've been playing by ear. That's how every great pianist starts.
+      But today we meet the thing that lets you play ANY song, not just ones you've heard.
+      Written music.
+      I know — sheet music looks scary. It's not.
+      Watch.
+
+  - id: 2
+    mode: see
+    type: definition
+    figure: "Empty paper. Then — bump! — five horizontal lines draw themselves on the page, evenly spaced."
+    cleffy: >
+      This is a staff. Five lines. Four spaces in between.
+      That's it. That's the whole thing.
+
+  - id: 3
+    mode: see
+    type: stairs_transform
+    figure: "Animation — a vertical staircase slowly rotates 90 degrees and morphs INTO the five-line staff. The stair steps become the lines of the staff."
+    cleffy: >
+      Now watch this — because this is the whole secret of written music.
+      Remember the stairs from Lesson 1?
+      The staff IS the stairs. Someone just drew them on paper.
+      Lines and spaces are your stairs. Higher on the page means higher in pitch — up the stairs.
+      Lower on the page means lower pitch — down.
+      That's the whole idea.
+
+  - id: 4
+    mode: see
+    type: note_position
+    figure: "The staff. A single round note sits on the middle line. Another note sits one line below it. Another sits in a space."
+    cleffy: >
+      A note is just a little oval. Where it sits on the staff tells you how high or low it is.
+      On a line — it's on that stair.
+      In a space — it's on the stair between those two lines.
+      Higher on the page is higher sound. That's it.
+
+  - id: 5
+    mode: see
+    type: higher_lower
+    figure: "Two notes on the staff, one higher than the other. An arrow points up."
+    cleffy: >
+      Look at these two notes. Which one is higher?
+    interaction:
+      type: choice
+      options: ["Left one", "Right one"]
+      correct: 1
+    corrections:
+      - wrong_label: "general"
+        cleffy: >
+          Higher on the page means higher in pitch. The one that sits further up
+          is the higher note. Up and down on the page matches up and down on the piano.
+
+  - id: 6
+    mode: see
+    type: lines_count
+    figure: "Staff. An arrow points to each line one at a time: 1, 2, 3, 4, 5 — counting from the bottom up."
+    cleffy: >
+      Five lines. We count them from the bottom up.
+      Line 1 is the lowest. Line 5 is the highest.
+      You don't need to memorize this — it's just counting.
+
+  - id: 7
+    mode: see
+    type: spaces_count
+    figure: "Staff. An arrow points to each space from bottom to top: space 1, 2, 3, 4."
+    cleffy: >
+      Four spaces. Also counted bottom to top.
+      Space 1 is the lowest, space 4 is the highest.
+
+  - id: 8
+    mode: see
+    type: interactive_identify
+    figure: "Staff. A single note sits on line 3 (the middle line)."
+    cleffy: >
+      Is this note on a line, or in a space?
+    interaction:
+      type: choice
+      options: ["Line", "Space"]
+      correct: 0
+    corrections:
+      - wrong_label: "general"
+        cleffy: >
+          Look at the note. The line goes through the middle of it.
+          If a line cuts through it, it's on a line.
+
+  - id: 9
+    mode: see
+    type: interactive_identify
+    figure: "Staff. A single note sits in space 2."
+    cleffy: >
+      What about this one?
+    interaction:
+      type: choice
+      options: ["Line", "Space"]
+      correct: 1
+
+  - id: 10
+    mode: hear
+    type: direction_demo
+    figure: "Staff. Two notes appear one at a time. First low on the staff, then high on the staff. Each plays a tone that matches."
+    audio:
+      A: "Two notes — low pitch, then high pitch"
+    cleffy: >
+      Here's a note low on the staff. Listen.
+      Now a note high on the staff.
+      Low on the page = low sound. High on the page = high sound.
+      Just like the stairs.
+
+  - id: 11
+    mode: hear
+    type: drill_direction
+    figure: "Staff shows two notes per round — one higher, one lower."
+    cleffy: >
+      Four rounds. Looking at the staff, is the second note higher or lower than the first?
+    interaction:
+      type: drill
+      rounds: 4
+      question: "Higher or lower?"
+      options: ["Higher", "Lower"]
+
+  - id: 12
+    mode: play
+    type: staff_to_piano
+    figure: "Staff at top. Keyboard at bottom. A note appears on a random line or space. An arrow connects it to a key on the keyboard."
+    cleffy: >
+      Here's the magic link.
+      For every spot on the staff, there's a matching key on the piano.
+      Higher on the staff = further right on the piano.
+      You'll learn the exact spots over the next few lessons. For now, just trust the link.
+
+  - id: 13
+    mode: play
+    type: contour
+    figure: "Staff with three notes drawn: going up, up, up."
+    cleffy: >
+      Three notes. The shape goes up, up, up.
+      Tap three keys going up on the piano — any three. The shape is what matters, not the exact notes.
+    interaction:
+      type: sequence
+      count: 3
+    followup_cleffy: >
+      You just read a shape off the page. Without names, without anything fancy —
+      your eyes saw "going up" and your hands went up. That's reading music.
+
+  - id: 14
+    mode: hear
+    type: drill
+    figure: "Mixed: some staff questions, some hearing questions."
+    cleffy: >
+      Four rounds. Mix of looking at the staff and listening.
+    interaction:
+      type: drill
+      rounds: 4
+
+  - id: 15
+    mode: hear
+    type: pre_check
+    figure: "Banner."
+    cleffy: >
+      Four quick ones.
+
+  - id: 16
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 11. A staff with a staircase behind it, fading. Cleffy giving a small confident nod."
+    cleffy: >
+      The staff is just stairs on paper. Remember that.
+      Tomorrow you meet someone you've known this whole time.
+      That curly thing at the start of the staff? That's me.
+
+# ─── Mastery check ──────────────────────────────────────
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 3
+      questions:
+        - figure: "Staff with a note on line 2."
+          prompt: "Line or space?"
+          options: ["Line", "Space"]
+          correct: 0
+        - figure: "Staff with a note in space 3."
+          prompt: "Line or space?"
+          options: ["Line", "Space"]
+          correct: 1
+        - figure: "Staff with two notes. One high, one low."
+          prompt: "Which note is higher?"
+          options: ["A (left)", "B (right)"]
+          correct: 0
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "Two notes — ascending"
+          prompt: "Did the music go up or down?"
+          options: ["Up", "Down"]
+          correct: 0
+    play:
+      pass_threshold: 1
+      questions:
+        - figure: "Staff with three ascending notes."
+          prompt: "Play three keys that go UP the keyboard."
+          accept: "any 3 ascending keys"
+
+# ─── Remediation ────────────────────────────────────────
+remediation:
+  id: "11.5"
+  title: "The staff, slower"
+  pages: 5
+  opening_cleffy: >
+    Paper music is a big shift. Takes a minute.
+    Let's go again with the stairs right next to the staff, side by side.
+
+# ─── Completion ─────────────────────────────────────────
+completion:
+  cleffy: >
+    You met the staff. That was the hard part. Really.
+    From here it gets way more specific — we start naming exactly where notes live.
+  xp: 20
+  unlocks: 12

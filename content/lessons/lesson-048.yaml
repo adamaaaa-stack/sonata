@@ -1,0 +1,206 @@
+id: 48
+tier: elementary
+act: 10
+title: "Bass ledger lines"
+subtitle: "Notes outside the bass staff"
+goal: "Read notes above and below the bass staff using ledger lines."
+prereqs: [43, 46, 47]
+method_focus: "notation"
+time_estimate_min: 10
+piece_context: null
+metaphor: "staff-extends-both-ways"
+vibe: ["gentle", "playful"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Bass staff. Middle C above on a ledger line (familiar). Another note below staff on a ledger line."
+    cleffy: >
+      Same idea as the treble side — the staff extends with little ledger lines.
+
+  - id: 2
+    mode: see
+    type: middle_c_above
+    figure: "Bass staff. Middle C on ledger line above."
+    cleffy: >
+      You know Middle C sits above the bass staff on its own ledger line.
+      Same one you met in Lesson 14 — different side of the staff.
+
+  - id: 3
+    mode: see
+    type: below_staff
+    figure: "Bass staff. Low F (F2), labeled, on a ledger line below."
+    cleffy: >
+      Below the bass staff. From line 1 (G) step down — F. Space below staff.
+      Then E on the first ledger line below. Then D.
+
+  - id: 4
+    mode: see
+    type: above_staff
+    figure: "Bass staff. Line 5 (A). Space above — B. Ledger line above — Middle C."
+    cleffy: >
+      Above the bass staff. A is the top line. Space above — B. Ledger above — Middle C.
+
+  - id: 5
+    mode: see
+    type: interactive_middle_c
+    figure: "Bass staff, Middle C on ledger above."
+    cleffy: >
+      Which note?
+    interaction:
+      type: choice
+      options: ["Middle C", "Low B", "High A"]
+      correct: 0
+
+  - id: 6
+    mode: see
+    type: interactive_low
+    figure: "Bass staff, E on ledger line below."
+    cleffy: >
+      This one?
+    interaction:
+      type: choice
+      options: ["E (below)", "D (below)", "Middle C"]
+      correct: 0
+
+  - id: 7
+    mode: see
+    type: drill
+    figure: "Round counter 1 of 5."
+    cleffy: >
+      Five rounds. Bass ledger-line notes.
+    interaction:
+      type: drill
+      rounds: 5
+      options: ["Middle C", "B (above)", "A (below)", "E (below)", "D (below)"]
+
+  - id: 8
+    mode: hear
+    type: high_vs_low_bass
+    figure: "Two playback cards."
+    audio:
+      A: "D2 (below bass staff)"
+      B: "C4 (Middle C, above bass staff)"
+    cleffy: >
+      Below the bass staff goes really low. Above reaches Middle C and beyond.
+
+  - id: 9
+    mode: play
+    type: play_middle_c_from_bass
+    figure: "Keyboard. Middle C glowing. Bass staff with note on ledger line above."
+    cleffy: >
+      Play Middle C from the bass staff. Right hand or left — both can reach it.
+    interaction:
+      type: tap
+      key: "C4"
+
+  - id: 10
+    mode: play
+    type: play_low_e
+    figure: "Keyboard. E2 glowing."
+    cleffy: >
+      Play E2 — the E on the first ledger below the bass staff.
+    interaction:
+      type: tap
+      key: "E2"
+
+  - id: 11
+    mode: read
+    type: see_hear_play
+    figure: "Bass staff with ledger note."
+    cleffy: >
+      Three rounds.
+    interaction:
+      type: see_hear_play
+      rounds: 3
+
+  - id: 12
+    mode: read
+    type: grand_staff_preview
+    figure: "Grand staff. Middle C between — shared ledger line."
+    cleffy: >
+      Quick reminder: Middle C is the bridge. Above bass. Below treble.
+      Same note, same key. Both staves touch at Middle C.
+
+  - id: 13
+    mode: hear
+    type: mixed_drill
+    figure: "Four rounds mixed."
+    cleffy: >
+      Four rounds.
+    interaction:
+      type: drill
+      rounds: 4
+
+  - id: 14
+    mode: play
+    type: sequence_across_staves
+    figure: "Grand staff with a 4-note melody: bass line 2 (B), bass line 4 (F), Middle C, treble line 1 (E). Crossing over."
+    cleffy: >
+      Four notes — climbing from the bass staff through Middle C to the treble.
+      Play them with any hand.
+    interaction:
+      type: sequence
+      keys: ["B2", "F3", "C4", "E4"]
+
+  - id: 15
+    mode: hear
+    type: pre_check
+    figure: "Banner."
+    cleffy: >
+      Four quick ones.
+
+  - id: 16
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 48. Bass staff with ledger lines drawn above and below."
+    cleffy: >
+      Bass staff extends. Tomorrow — LH positions. Then act boss.
+
+practice_this_week:
+  real_piano:
+    - "Play the climb: B2 (bass line 2), F3 (bass F), C4 (Middle C), E4 (treble line 1). Feel how it moves up across both staves."
+    - "From bass staff reading, play Middle C. Either hand works."
+  virtual_only:
+    - "Replay page 14 (the climb)"
+  estimated_time: "5 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "Bass staff, ledger line ABOVE."
+          prompt: "Is this Middle C?"
+          options: ["Yes", "No"]
+          correct: 0
+        - figure: "Bass staff, ledger line BELOW."
+          prompt: "Which direction are these notes?"
+          options: ["Higher than the staff", "Lower than the staff"]
+          correct: 1
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "Middle C"
+          prompt: "High or low from the bass staff's view?"
+          options: ["High (above)", "Low (below)"]
+          correct: 0
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play Middle C."
+          accept: "C4"
+
+remediation:
+  id: "48.5"
+  title: "Bass ledgers, slower"
+  pages: 5
+  opening_cleffy: >
+    Bass ledgers — let's draw them slow and name each one.
+
+completion:
+  cleffy: >
+    Bass staff reads in all directions now.
+  xp: 20
+  unlocks: 49

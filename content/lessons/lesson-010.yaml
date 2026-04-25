@@ -1,0 +1,234 @@
+# ============================================================
+# LESSON 10 · Hot Cross Buns by ear
+# Tier 1 · Act 2 · Beginner · ACT BOSS 🎯
+# Central metaphor: YOU'RE PLAYING PIANO NOW
+# ============================================================
+id: 10
+tier: beginner
+act: 2
+title: "Hot Cross Buns by ear"
+subtitle: "Act 2 · Your first real song"
+goal: "Play a full song — Hot Cross Buns — by listening and finding the notes. No reading yet."
+prereqs: [4, 6, 7, 8, 9]
+method_focus: "play-by-ear"
+time_estimate_min: 12
+piece_context: "This is you playing piano. A real song people recognize. Not a drill. A song."
+metaphor: "first-real-song"
+vibe: ["gentle", "playful", "celebratory"]
+is_act_boss: true
+piece:
+  title: "Hot Cross Buns"
+  notes: "E D C | E D C | C C C C | D D D D | E D C"
+  key_center: "C major"
+  difficulty: "beginner — 3 notes total"
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy holding sheet music that says Hot Cross Buns across the top. He tosses it over his shoulder."
+    cleffy: >
+      Today you play a song.
+      I know — that sounds big. It's not. It's three notes.
+      But at the end of this lesson, you will have played a real song on a piano.
+      Not a drill. A song. By ear. Ready?
+
+  - id: 2
+    mode: hear
+    type: listen_to_song
+    figure: "Play button. Cleffy plays Hot Cross Buns once, straight through."
+    audio:
+      A: "Hot Cross Buns performed cleanly"
+    cleffy: >
+      First — just listen. This is the whole song.
+      [Cleffy plays it]
+      You know this one. Everyone knows this one.
+
+  - id: 3
+    mode: see
+    type: only_three_notes
+    figure: "Keyboard. Three keys glow: E (green), D (blue), C (gold). Labels above each."
+    cleffy: >
+      Here's the whole secret. The song uses three notes.
+      E, D, and C. That's it.
+      Three next-door neighbors. Steps, all of them.
+      E is a step above D. D is a step above C.
+
+  - id: 4
+    mode: see
+    type: find_e
+    figure: "Zoomed keyboard. Middle C labeled gold. D labeled blue. Arrow points to E, prompt: tap E."
+    cleffy: >
+      Find E. It's right next to D, which is right next to C.
+      C, D, E — three white keys in a row, starting from C.
+      Tap E.
+    interaction:
+      type: tap
+      key: "E4"
+
+  - id: 5
+    mode: play
+    type: three_notes
+    figure: "Keyboard. E, D, C glowing in order with numbers 3, 2, 1 above (right-hand fingering)."
+    cleffy: >
+      Put your right hand on C, D, E. Thumb on C, pointer on D, middle on E.
+      Now play E, then D, then C — using fingers 3, 2, 1.
+      That's Hot, Cross, Buns.
+    interaction:
+      type: sequence
+      keys: ["E4", "D4", "C4"]
+    followup_cleffy: >
+      You just played the first line.
+      Hot. Cross. Buns.
+
+  - id: 6
+    mode: play
+    type: first_line_twice
+    figure: "Keyboard. Instruction: play E-D-C, then again."
+    cleffy: >
+      The first line happens twice. Hot cross buns. Hot cross buns.
+      Play E-D-C, then pause, then play it again.
+    interaction:
+      type: sequence
+      keys: ["E4", "D4", "C4", "E4", "D4", "C4"]
+
+  - id: 7
+    mode: play
+    type: middle_part
+    figure: "Keyboard. C and D glowing. Instruction: four Cs, then four Ds."
+    cleffy: >
+      Middle part. This is the one-a-penny, two-a-penny line.
+      Tap C four times. Then tap D four times.
+      One, one, one, one — two, two, two, two.
+    interaction:
+      type: sequence
+      keys: ["C4", "C4", "C4", "C4", "D4", "D4", "D4", "D4"]
+    followup_cleffy: >
+      One a penny. Two a penny.
+
+  - id: 8
+    mode: play
+    type: final_line
+    figure: "Keyboard. E D C glowing one more time."
+    cleffy: >
+      Last line. Back to Hot Cross Buns.
+      E, D, C.
+    interaction:
+      type: sequence
+      keys: ["E4", "D4", "C4"]
+
+  - id: 9
+    mode: play
+    type: full_song_slow
+    figure: "Keyboard. Each key lights up just before you need to tap it, like a guide. Slow tempo."
+    cleffy: >
+      Now the whole song, with training wheels on.
+      The key you need to tap next will glow before you play it. Go slow. No rush.
+    interaction:
+      type: song
+      sequence: ["E4", "D4", "C4", "E4", "D4", "C4", "C4", "C4", "C4", "C4", "D4", "D4", "D4", "D4", "E4", "D4", "C4"]
+      guides: true
+    followup_cleffy: >
+      That's the whole song. First time through.
+      Breathe.
+
+  - id: 10
+    mode: play
+    type: full_song_at_tempo
+    figure: "Keyboard. Keys still glow, but at normal tempo."
+    cleffy: >
+      Now at normal speed with guides still on. Same keys, just faster. You've got this.
+    interaction:
+      type: song
+      sequence: ["E4", "D4", "C4", "E4", "D4", "C4", "C4", "C4", "C4", "C4", "D4", "D4", "D4", "D4", "E4", "D4", "C4"]
+      guides: true
+      tempo: "moderate"
+
+  - id: 11
+    mode: play
+    type: alone
+    figure: "Keyboard. NO glowing keys. Just the keyboard. A title card says: Hot Cross Buns — you play it."
+    cleffy: >
+      One more time. No highlights. No help. Just you.
+      Play Hot Cross Buns.
+    interaction:
+      type: song
+      target_sequence: ["E4", "D4", "C4", "E4", "D4", "C4", "C4", "C4", "C4", "C4", "D4", "D4", "D4", "D4", "E4", "D4", "C4"]
+    followup_cleffy: >
+      That.
+      That was you. Playing piano. By ear.
+      A thing you could not do two weeks ago.
+
+  - id: 12
+    mode: play
+    type: octave_up
+    figure: "Keyboard. The C, D, E one octave higher all glow."
+    cleffy: >
+      Fun version. Play it one octave higher.
+      Same song, same three fingers, same pattern — just up a floor.
+    interaction:
+      type: song
+      sequence: ["E5", "D5", "C5", "E5", "D5", "C5", "C5", "C5", "C5", "C5", "D5", "D5", "D5", "D5", "E5", "D5", "C5"]
+      guides: true
+    followup_cleffy: >
+      Same song, different floor. That's octaves at work.
+
+  - id: 13
+    mode: hear
+    type: pre_check
+    figure: "Banner — last check before the mastery test."
+    cleffy: >
+      Three quick ones.
+
+  - id: 14
+    mode: see
+    type: wrap
+    figure: "Celebration card — Act 2 complete. A small trophy with 2/10 acts. Cleffy clapping."
+    cleffy: >
+      That's Act 2.
+      You know every white key. You know octaves. Your fingers have numbers.
+      And you played a real song.
+      Starting tomorrow, we look at music on a page.
+      Get ready — it's going to be a lot less scary than it looks.
+      See you in Act 3.
+
+# ─── Mastery check ──────────────────────────────────────
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "Keyboard. Prompt: tap E."
+          prompt: "Tap E."
+        - figure: "Keyboard. Prompt: tap D."
+          prompt: "Tap D."
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "First line of Hot Cross Buns (E-D-C)"
+          prompt: "Was that the first line of Hot Cross Buns?"
+          options: ["Yes", "No"]
+          correct: 0
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play the first line of Hot Cross Buns: E, D, C."
+          accept: "E4 D4 C4 in order"
+
+# ─── Remediation ────────────────────────────────────────
+remediation:
+  id: "10.5"
+  title: "Hot Cross Buns, bar by bar"
+  pages: 7
+  opening_cleffy: >
+    Hey. Your first song. It takes a few tries. That's totally fine.
+    Let's split it into really small pieces and rebuild it, bar by bar.
+
+# ─── Completion ─────────────────────────────────────────
+completion:
+  cleffy: >
+    Ten lessons. Two acts. A song under your hands.
+    Halfway through the first twenty-five.
+    You're closer to Happy Birthday than you realize.
+  xp: 30   # act boss bonus
+  unlocks: 11

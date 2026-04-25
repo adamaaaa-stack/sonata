@@ -1,0 +1,228 @@
+# ============================================================
+# LESSON 98 · Blocked accompaniment
+# Tier 3 · Act 20 · Low-Intermediate · Chords & accompaniment
+# RH melody, LH holds a chord block.
+# ============================================================
+id: 98
+tier: low-intermediate
+act: 20
+title: "Blocked accompaniment"
+subtitle: "Act 20 · Chords & accompaniment"
+goal: "Hold a full triad in the left hand while the right hand plays a melody."
+prereqs: [97, 96, 75]
+method_focus: "play"
+time_estimate_min: 13
+piece_context: "The simplest accompaniment in music — LH grabs the whole chord at once, holds it, lets it ring. Your RH melody floats on top."
+metaphor: "harmony-under-melody"
+vibe: ["gentle", "focused"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Grand staff. RH single notes on top. LH three stacked notes as a whole-note block."
+    cleffy: >
+      RH plays the tune.
+      LH grabs the whole chord. Holds it.
+      That's blocked accompaniment. Simplest kind there is.
+
+  - id: 2
+    mode: see
+    type: concept
+    figure: "Close-up of LH hand position. Pinky on C3, middle on E3, thumb on G3."
+    cleffy: >
+      LH plays all three chord notes at once.
+      For I in C: pinky on C, middle on E, thumb on G.
+      Press them together. Hold.
+
+  - id: 3
+    mode: play
+    type: play_I_blocked
+    figure: "Keyboard. C3-E3-G3 glowing in LH."
+    cleffy: >
+      Left hand only. Play the I chord blocked. C, E, G together.
+      Hold it for four beats.
+    interaction:
+      type: rhythm
+      sequence: [["C3","E3","G3"]]
+      durations: ["whole"]
+      tempo: 60
+
+  - id: 4
+    mode: play
+    type: play_IV_blocked
+    figure: "Keyboard. F3-A3-C4 glowing in LH."
+    cleffy: >
+      Now IV. F, A, C. Pinky on F.
+      Held. Whole bar.
+    interaction:
+      type: rhythm
+      sequence: [["F3","A3","C4"]]
+      durations: ["whole"]
+      tempo: 60
+
+  - id: 5
+    mode: play
+    type: play_V_blocked
+    figure: "Keyboard. G3-B3-D4 glowing in LH."
+    cleffy: >
+      V. G, B, D. Pinky on G.
+    interaction:
+      type: rhythm
+      sequence: [["G3","B3","D4"]]
+      durations: ["whole"]
+      tempo: 60
+
+  - id: 6
+    mode: play
+    type: chord_sequence_blocked
+    figure: "Four-bar staff, LH only. I - IV - V - I. Each a whole-note block."
+    cleffy: >
+      All four in a row. I, IV, V, I. Left hand only. One chord per bar.
+    interaction:
+      type: rhythm
+      sequence: [["C3","E3","G3"],["F3","A3","C4"],["G3","B3","D4"],["C3","E3","G3"]]
+      durations: ["whole","whole","whole","whole"]
+      tempo: 60
+
+  - id: 7
+    mode: see
+    type: add_rh
+    figure: "Grand staff. RH melody: C D E C. LH: I chord held underneath as a whole note."
+    cleffy: >
+      Now the other hand joins.
+      RH plays C, D, E, C — four quarter notes.
+      LH holds the I chord underneath the whole bar.
+
+  - id: 8
+    mode: play
+    type: rh_only
+    figure: "Treble staff. C D E C. Keyboard below."
+    cleffy: >
+      Just the right hand first. C, D, E, C.
+    interaction:
+      type: rhythm
+      sequence: ["C4","D4","E4","C4"]
+      durations: ["quarter","quarter","quarter","quarter"]
+      tempo: 60
+
+  - id: 9
+    mode: play
+    type: both_hands_one_bar
+    figure: "Grand staff. RH melody + LH blocked I. Tempo 50."
+    cleffy: >
+      Both hands. LH presses the chord on beat 1 and holds.
+      RH plays C, D, E, C on top.
+    interaction:
+      type: song
+      sequence: [["C4","C3","E3","G3"],"D4","E4","C4"]
+      guides: true
+      tempo: 50
+
+  - id: 10
+    mode: see
+    type: two_bars_two_chords
+    figure: "Grand staff. Bar 1: RH C D E C, LH I block. Bar 2: RH F E D C, LH IV block."
+    cleffy: >
+      Two bars now. Two different chords.
+      Bar 1: RH C-D-E-C over I. Bar 2: RH F-E-D-C over IV.
+      LH has to let go of I and grab IV on beat 1 of bar 2.
+
+  - id: 11
+    mode: play
+    type: two_bars_play
+    figure: "Grand staff. Two bars. Tempo 50."
+    cleffy: >
+      Both hands. Two bars. LH changes chord when the bar line arrives.
+    interaction:
+      type: song
+      sequence: [["C4","C3","E3","G3"],"D4","E4","C4",["F4","F3","A3","C4"],"E4","D4","C4"]
+      guides: true
+      tempo: 50
+
+  - id: 12
+    mode: play
+    type: four_bars_full
+    figure: "Grand staff. I - IV - V - I. RH simple stepwise melody. LH blocked chords held."
+    cleffy: >
+      Four bars. I, IV, V, I. LH blocks each chord.
+      RH walks a simple melody on top. Slow.
+    interaction:
+      type: song
+      sequence: [["C4","C3","E3","G3"],"D4","E4","C4",["F4","F3","A3","C4"],"E4","D4","C4",["G4","G3","B3","D4"],"F4","E4","D4",["C4","C3","E3","G3"],"D4","E4","C4"]
+      guides: true
+      tempo: 55
+    followup_cleffy: >
+      That sound — the chord ringing under a tune — that's most of Western music.
+
+  - id: 13
+    mode: play
+    type: no_guides
+    figure: "Same four bars. No glowing keys."
+    cleffy: >
+      Again. No highlights.
+    interaction:
+      type: song
+      sequence: [["C4","C3","E3","G3"],"D4","E4","C4",["F4","F3","A3","C4"],"E4","D4","C4",["G4","G3","B3","D4"],"F4","E4","D4",["C4","C3","E3","G3"],"D4","E4","C4"]
+      guides: false
+      tempo: 55
+
+  - id: 14
+    mode: hear
+    type: pre_check
+    figure: "Banner."
+    cleffy: >
+      Three quick ones.
+
+  - id: 15
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 98. A whole-note chord block in the bass, a flowing melody above."
+    cleffy: >
+      Blocked. Chord grabs, chord holds.
+      Tomorrow — same notes, rolled out one at a time. Broken.
+
+practice_this_week:
+  real_piano:
+    - "Play the I-IV-V-I blocked progression, LH only, every day. Slow. Clean chord grabs."
+    - "Once LH is easy, add any RH melody you know that stays in C, E, G territory — Twinkle works."
+  virtual_only:
+    - "Replay pages 9 and 12"
+  estimated_time: "10 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 1
+      questions:
+        - figure: "LH staff with three stacked notes held as a whole note"
+          prompt: "What kind of accompaniment is this?"
+          options: ["Blocked (held chord)", "Broken (rolled chord)", "Single bass note"]
+          correct: 0
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "A chord played as a solid block, held for a full bar"
+          prompt: "Blocked or broken?"
+          options: ["Blocked", "Broken"]
+          correct: 0
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play the I chord blocked in the left hand (C3, E3, G3 together)."
+          accept: "C3 E3 G3 simultaneously"
+
+remediation:
+  id: "98.5"
+  title: "Blocked chords, slower"
+  pages: 7
+  opening_cleffy: >
+    Two hands doing different things — takes some time.
+    We'll start with LH alone, then add one RH note, then a whole bar.
+
+completion:
+  cleffy: >
+    Blocked accompaniment in your hands.
+    Tomorrow — rolled. Same notes, different feel.
+  xp: 18
+  unlocks: 99

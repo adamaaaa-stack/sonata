@@ -1,0 +1,260 @@
+# ============================================================
+# LESSON 130 · Prelude in C (Bach) 🎯 ACT 26 BOSS
+# Tier 4 · Act 26 · Intermediate
+# BWV 846 — first 4 bars. All arpeggios, all the time.
+# ============================================================
+id: 130
+tier: intermediate
+act: 26
+title: "Prelude in C (Bach)"
+subtitle: "Act 26 · A piece of pure arpeggios"
+goal: "Play the first four bars of Bach's Prelude in C — slow, even, broken chords changing underneath."
+prereqs: [126, 127, 128, 129, 125]
+method_focus: "play"
+time_estimate_min: 18
+piece_context: "Your first Tier 4 piece. No melody to worry about. No sharps or flats. Just even arpeggios and the harmony slowly changing."
+metaphor: "map-of-all-keys"
+vibe: ["gentle", "quiet", "celebratory"]
+is_act_boss: true
+piece:
+  title: "Prelude in C, BWV 846"
+  composer: "J.S. Bach"
+  key_center: "C major"
+  time_signature: "4/4"
+  difficulty: "intermediate — steady arpeggios, hand coordination, very slow"
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy holding a yellowed manuscript. Banner: ACT 26 BOSS · PRELUDE IN C · BACH. Subtitle: Well-Tempered Clavier, Book 1."
+    cleffy: >
+      First Tier 4 piece.
+      You just finished Tier 3. Clair de Lune was four lessons ago.
+      Now — Bach. The Prelude in C.
+
+  - id: 2
+    mode: see
+    type: about_the_piece
+    figure: "A title page: 'The Well-Tempered Clavier, Book 1, 1722 — J.S. Bach.' Prelude No. 1 circled."
+    cleffy: >
+      Bach wrote 48 preludes. This is the first one.
+      No melody. No sharps, no flats. Just broken chords — arpeggios — rolling quietly.
+      One of the gentlest pieces in all of classical music.
+
+  - id: 3
+    mode: hear
+    type: listen_full
+    figure: "Play button. Label: PRELUDE IN C · BARS 1-4."
+    audio:
+      A: "Bach Prelude in C, first 4 bars, gentle, quarter note = 66"
+    cleffy: >
+      Listen to the first four bars.
+      Same pattern, every bar. Only the notes of the chord change.
+
+  - id: 4
+    mode: see
+    type: the_pattern
+    figure: "One bar written out: eight notes. LH: C3-E3. RH: G3-C4-E4-C4-E4-C4 with some positions — shows the 8-note shape."
+    cleffy: >
+      Eight notes per bar. Same shape, every bar.
+      Left hand plays two low notes. Right hand plays five. Then the last three of the right hand repeat.
+      Eight notes. One bar. Bach did this for 35 bars.
+
+  - id: 5
+    mode: see
+    type: bar_1_chord
+    figure: "Bar 1 on the grand staff. Notes labeled: C3 E3 (LH) G3 C4 E4 G3 C4 E4 (RH). Chord box: C major."
+    cleffy: >
+      Bar 1. C major chord, broken.
+      LH: low C, E above it. Stays down.
+      RH: G, C, E — rolled up. Then G, C, E again. Same five notes twice.
+
+  - id: 6
+    mode: play
+    type: play_lh_bar_1
+    figure: "Keyboard. LH fingers on C3 and E3. Both glowing."
+    cleffy: >
+      Left hand only. Bar 1. C and E, low.
+      Play them together. Hold.
+    interaction:
+      type: sequence
+      keys: ["C3","E3"]
+
+  - id: 7
+    mode: play
+    type: play_rh_bar_1
+    figure: "Keyboard. RH pattern: G3, C4, E4, G3, C4, E4. Five notes, then three more."
+    cleffy: >
+      Right hand. Five notes. G, C, E, then G, C, E again.
+      Don't hold. Let each note ring for a moment, then move.
+    interaction:
+      type: sequence
+      keys: ["G3","C4","E4","G3","C4","E4"]
+
+  - id: 8
+    mode: play
+    type: play_bar_1_both
+    figure: "Grand staff bar 1. Quarter note = 60. Guides on."
+    cleffy: >
+      Both hands, bar 1.
+      LH holds C and E. RH rolls up G, C, E — twice.
+      Slow. Even. Don't rush the climb.
+    interaction:
+      type: song
+      sequence: [["C3","E3"],"G3","C4","E4","G3","C4","E4","G3","C4","E4"]
+      guides: true
+      tempo: 60
+
+  - id: 9
+    mode: see
+    type: bar_2_chord
+    figure: "Bar 2 on the grand staff. LH: C3 D3. RH: A3 D4 F4 A3 D4 F4. Chord box: D minor / 7."
+    cleffy: >
+      Bar 2 — harmony moves. LH holds C and D now.
+      RH rolls A, D, F. Then again.
+      Same shape as bar 1. New notes. A gentle, slightly darker color.
+
+  - id: 10
+    mode: play
+    type: play_bar_2
+    figure: "Grand staff bar 2. Guides on. Tempo 60."
+    cleffy: >
+      Bar 2. LH: C and D. RH: A, D, F — twice.
+    interaction:
+      type: song
+      sequence: [["C3","D3"],"A3","D4","F4","A3","D4","F4","A3","D4","F4"]
+      guides: true
+      tempo: 60
+
+  - id: 11
+    mode: see
+    type: bars_3_and_4
+    figure: "Bars 3 and 4 on the grand staff. Bar 3: B2 D3 + G3 D4 F4 (G7-ish). Bar 4: C3 E3 + G3 C4 E4 (back to C major)."
+    cleffy: >
+      Bar 3 — LH moves to B and D. RH: G, D, F.
+      Bar 4 — back home. Same as bar 1. C major.
+      Chord change. Chord change. Back to rest.
+
+  - id: 12
+    mode: play
+    type: play_bar_3
+    figure: "Grand staff bar 3. Guides on. Tempo 60."
+    cleffy: >
+      Bar 3. LH: B and D. RH: G, D, F — twice.
+    interaction:
+      type: song
+      sequence: [["B2","D3"],"G3","D4","F4","G3","D4","F4","G3","D4","F4"]
+      guides: true
+      tempo: 60
+
+  - id: 13
+    mode: play
+    type: play_bar_4
+    figure: "Grand staff bar 4. Back to C major. Guides on. Tempo 60."
+    cleffy: >
+      Bar 4. Same as bar 1 — LH C and E, RH G-C-E twice.
+      Feel the landing. That's home.
+    interaction:
+      type: song
+      sequence: [["C3","E3"],"G3","C4","E4","G3","C4","E4","G3","C4","E4"]
+      guides: true
+      tempo: 60
+
+  - id: 14
+    mode: play
+    type: all_four_bars_guided
+    figure: "Grand staff. All four bars. Guides on. Tempo 60. Subtitle: FIRST PLAY-THROUGH."
+    cleffy: >
+      All four bars. Guides on. Very slow — 60.
+      Don't stop for stumbles. Keep the pattern rolling.
+    interaction:
+      type: song
+      sequence: [["C3","E3"],"G3","C4","E4","G3","C4","E4","G3","C4","E4",["C3","D3"],"A3","D4","F4","A3","D4","F4","A3","D4","F4",["B2","D3"],"G3","D4","F4","G3","D4","F4","G3","D4","F4",["C3","E3"],"G3","C4","E4","G3","C4","E4","G3","C4","E4"]
+      guides: true
+      tempo: 60
+
+  - id: 15
+    mode: play
+    type: at_tempo
+    figure: "Grand staff. Four bars. Quarter note = 66 — Bach's suggested tempo. Guides off."
+    cleffy: >
+      Real tempo now. Quarter note equals 66.
+      No guides. Read the pattern. Let the hands roll.
+    interaction:
+      type: song
+      sequence: [["C3","E3"],"G3","C4","E4","G3","C4","E4","G3","C4","E4",["C3","D3"],"A3","D4","F4","A3","D4","F4","A3","D4","F4",["B2","D3"],"G3","D4","F4","G3","D4","F4","G3","D4","F4",["C3","E3"],"G3","C4","E4","G3","C4","E4","G3","C4","E4"]
+      guides: false
+      tempo: 66
+    followup_cleffy: >
+      That.
+      That's Bach. 1722. Four bars of it, in your hands.
+
+  - id: 16
+    mode: see
+    type: wrap
+    figure: "Celebration card — ACT 26 COMPLETE 🎯. Cleffy holding the Bach manuscript. Banner: 26/50 ACTS DONE · TIER 4 BEGUN."
+    cleffy: >
+      Act 26 closed.
+      Three new keys this week. A major. E-flat major. The whole circle of fifths.
+      And you played Bach. Real Bach. Gently.
+      Next act — sixteenth notes. Four notes per beat. The fast stuff starts.
+
+practice_this_week:
+  real_piano:
+    - "Play the first four bars every day this week. Start at 55 bpm. Build up to 66 by week's end."
+    - "Listen to a full recording of the Prelude. Glenn Gould, Andras Schiff, or Lang Lang — all different, all beautiful."
+    - "Try bar 1 alone, ten times in a row. The evenness comes from repetition."
+  virtual_only:
+    - "Replay pages 14 and 15"
+  estimated_time: "15 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "Bar 1 of the Prelude"
+          prompt: "What chord is outlined in bar 1?"
+          options: ["C major", "G major", "F major"]
+          correct: 0
+        - figure: "The full 8-note pattern of one bar"
+          prompt: "How many notes per bar?"
+          options: ["Four", "Six", "Eight"]
+          correct: 2
+        - figure: "Key signature of the Prelude"
+          prompt: "How many sharps or flats?"
+          options: ["None", "One sharp", "One flat"]
+          correct: 0
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "Bar 1 of the Prelude, played slowly"
+          prompt: "Is there a separate melody, or just broken chords?"
+          options: ["Just broken chords", "A melody on top"]
+          correct: 0
+        - audio: "Bars 1-4 played cleanly"
+          prompt: "Does the last bar sound like home?"
+          options: ["Yes", "No"]
+          correct: 0
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play bar 1 — LH C and E, RH rolls G, C, E, G, C, E."
+          accept: "C3 and E3 held, then G3 C4 E4 G3 C4 E4"
+
+remediation:
+  id: "130.5"
+  title: "Prelude, one bar at a time"
+  pages: 10
+  opening_cleffy: >
+    Act boss, first one in Tier 4. Expect a real test.
+    We'll rebuild it. Bar 1 alone. Hands separately. Then bar 2, same way. One brick at a time.
+
+completion:
+  cleffy: >
+    Act 26 sealed. Your first Bach.
+    Three new keys. The full circle. And a piece that's almost 300 years old, gently alive in your hands.
+    Tomorrow — sixteenth notes. Time to speed up.
+  xp: 30
+  unlocks: 131

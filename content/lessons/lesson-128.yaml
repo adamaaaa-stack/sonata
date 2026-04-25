@@ -1,0 +1,206 @@
+# ============================================================
+# LESSON 128 · Three-sharp / three-flat reading
+# Tier 4 · Act 26 · Intermediate
+# Same shapes, new colors. Read short exercises in A and Eb.
+# ============================================================
+id: 128
+tier: intermediate
+act: 26
+title: "Three-sharp / three-flat reading"
+subtitle: "Act 26 · More keys"
+goal: "Read and play short phrases in A major and E-flat major without losing track of the key signature."
+prereqs: [127, 126]
+method_focus: "see"
+time_estimate_min: 13
+piece_context: "Two new keys in two days. Now — put them to work. Short phrases. Eyes on the key signature. Fingers follow."
+metaphor: "map-of-all-keys"
+vibe: ["focused", "gentle"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy between two staves — one with three sharps, one with three flats. Banner: SAME SHAPES, NEW COLORS."
+    cleffy: >
+      You have A major. You have E-flat major.
+      Today — read in both. Same shapes on the staff. Different hands on the keyboard.
+
+  - id: 2
+    mode: see
+    type: key_sig_check
+    figure: "Two staves side by side. Left: 3 sharps (F#, C#, G#). Right: 3 flats (Bb, Eb, Ab)."
+    cleffy: >
+      First glance. Before you play a note — look at the key signature.
+      Three sharps? A major. F, C, G are sharp.
+      Three flats? E-flat major. B, E, A are flat.
+
+  - id: 3
+    mode: see
+    type: shape_in_a
+    figure: "Treble staff in A major. Notes: A C# E — a stacked-3rd shape."
+    cleffy: >
+      A shape in A major. Notes on lines: A, C, E.
+      The C is sharp — the key said so.
+
+  - id: 4
+    mode: play
+    type: play_shape_a
+    figure: "Keyboard. A C# E."
+    cleffy: >
+      Play it. A, C-sharp, E.
+    interaction:
+      type: sequence
+      keys: ["A4","C#5","E5"]
+
+  - id: 5
+    mode: see
+    type: shape_in_eb
+    figure: "Treble staff in E-flat major. Notes: Eb G Bb — same shape, different place."
+    cleffy: >
+      Same shape — skip, skip. But in E-flat major.
+      E, G, B — the E and the B are flat.
+
+  - id: 6
+    mode: play
+    type: play_shape_eb
+    figure: "Keyboard. Eb G Bb."
+    cleffy: >
+      Play it. Eb, G, Bb.
+    interaction:
+      type: sequence
+      keys: ["Eb4","G4","Bb4"]
+
+  - id: 7
+    mode: see
+    type: phrase_a_major
+    figure: "Staff in A major. Eight notes: A B C# E C# B A — walking up, then down."
+    cleffy: >
+      Short phrase in A major. Seven notes.
+      Two sharps show up — C on the way up, C on the way down.
+
+  - id: 8
+    mode: play
+    type: play_phrase_a
+    figure: "Keyboard. A B C# E C# B A."
+    cleffy: >
+      Play it. Watch the two C's.
+    interaction:
+      type: sequence
+      keys: ["A4","B4","C#5","E5","C#5","B4","A4"]
+
+  - id: 9
+    mode: see
+    type: phrase_eb_major
+    figure: "Staff in E-flat major. Seven notes: Eb F G Bb G F Eb."
+    cleffy: >
+      Short phrase in E-flat major.
+      Two flats show up — the Eb at the start, the Bb in the middle, the Eb at the end.
+
+  - id: 10
+    mode: play
+    type: play_phrase_eb
+    figure: "Keyboard. Eb F G Bb G F Eb."
+    cleffy: >
+      Play it. Don't forget the flats.
+    interaction:
+      type: sequence
+      keys: ["Eb4","F4","G4","Bb4","G4","F4","Eb4"]
+
+  - id: 11
+    mode: hear
+    type: sharp_or_flat
+    figure: "Four rounds. Each round: a key signature flashes. 3 sharps or 3 flats — which key?"
+    cleffy: >
+      Four rounds. Name the key from the signature alone.
+    interaction:
+      type: drill
+      rounds: 4
+      options: ["A major", "E-flat major"]
+
+  - id: 12
+    mode: play
+    type: switch_exercise
+    figure: "Two mini-staves stacked — top in A major, bottom in E-flat major. Each four notes."
+    cleffy: >
+      Switch keys mid-exercise. Four notes in A, then four notes in E-flat.
+      Reset your eyes when the key changes.
+    interaction:
+      type: sequence
+      keys: ["A4","C#5","E5","A5","Eb4","G4","Bb4","Eb5"]
+
+  - id: 13
+    mode: play
+    type: longer_in_a
+    figure: "Staff in A major. Nine notes: A C# E F# E D C# B A."
+    cleffy: >
+      Longer A major phrase. Nine notes. Two sharps live inside — F and C.
+    interaction:
+      type: sequence
+      keys: ["A4","C#5","E5","F#5","E5","D5","C#5","B4","A4"]
+
+  - id: 14
+    mode: hear
+    type: pre_check
+    figure: "Banner."
+    cleffy: >
+      Three quick ones.
+
+  - id: 15
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 128. A and E-flat side by side. Banner: TWO KEYS, READ."
+    cleffy: >
+      Two new keys, reading clean.
+      Tomorrow — the circle of fifths. The map that holds all twelve keys at once.
+
+practice_this_week:
+  real_piano:
+    - "Play a short phrase in A, then the same phrase in E-flat. Your ears will hear the family resemblance."
+    - "Write (or choose) any 5-note phrase. Play it in both keys."
+  virtual_only:
+    - "Replay pages 8, 10, and 12"
+  estimated_time: "10 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "Key signature with three sharps"
+          prompt: "What key is this?"
+          options: ["A major", "E-flat major", "G major"]
+          correct: 0
+        - figure: "Key signature with three flats"
+          prompt: "What key is this?"
+          options: ["A major", "E-flat major", "F major"]
+          correct: 1
+        - figure: "Staff in A major with plain notes on F and C lines"
+          prompt: "What accidentals do you apply?"
+          options: ["F-sharp and C-sharp", "F-natural and C-natural", "F-flat and C-flat"]
+          correct: 0
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "A major scale, then E-flat major scale"
+          prompt: "Are these both major scales?"
+          options: ["Yes", "No"]
+          correct: 0
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play A, C-sharp, E — an A major chord rolled."
+          accept: "A4 C#5 E5"
+
+remediation:
+  id: "128.5"
+  title: "Keys side by side, slower"
+  pages: 6
+  opening_cleffy: >
+    Two keys in one lesson is a lot. We'll do each one by itself first — A major alone, then E-flat alone, then switch.
+
+completion:
+  cleffy: >
+    Two keys read. Both colors.
+    Tomorrow — the map. All twelve keys on one circle.
+  xp: 18
+  unlocks: 129

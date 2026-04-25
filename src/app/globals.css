@@ -13,7 +13,7 @@ body {
   margin: 0;
   padding-top: var(--safe-top);
   padding-bottom: var(--safe-bottom);
-  background: #0C0A09;
+  background: #FFF6E4;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;

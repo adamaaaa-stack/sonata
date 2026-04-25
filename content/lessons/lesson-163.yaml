@@ -1,0 +1,234 @@
+# ============================================================
+# LESSON 163 · The 3-note arpeggio
+# Tier 4 · Act 33 · Intermediate · Triplets deeper
+# The engine of Moonlight Sonata. C-E-G as a unit. Fingering 1-3-5.
+# ============================================================
+id: 163
+tier: intermediate
+act: 33
+title: "The 3-note arpeggio"
+subtitle: "Act 33 · Triplets deeper"
+goal: "Play the rising C-E-G as a single unit — one shape, one gesture — with fingering 1-3-5."
+prereqs: [162, 147]
+method_focus: "play"
+time_estimate_min: 13
+piece_context: "A rising triplet on root-third-fifth has a name: a 3-note arpeggio. It's not three separate notes. It's one chord, unrolled. And this exact shape — C-E-G, rolled as triplets — is the engine of the Moonlight Sonata first movement. Learning to see and play it as a unit is the key to the whole piece."
+metaphor: "moonlight-engine"
+vibe: ["focused", "serious"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy holding a C major chord in his hand. Next to him — the same three notes rolled out one by one. Banner: ONE CHORD, UNROLLED."
+    cleffy: >
+      Today the triplet gets a name.
+      C, E, G — rising, as a triplet — is a 3-note arpeggio.
+      Not three notes. One chord, unrolled.
+
+  - id: 2
+    mode: see
+    type: what_is_arpeggio
+    figure: "Top: C major triad stacked — C, E, G all played at once. Bottom: same notes as triplet, one at a time. An equals sign between them."
+    cleffy: >
+      Arpeggio means: play a chord one note at a time.
+      Three notes of the C chord — C, E, G — rolled instead of stacked.
+      Same harmony. Different delivery.
+
+  - id: 3
+    mode: see
+    type: the_engine
+    figure: "Moonlight Sonata opening — first two bars of the right hand. Triplet arpeggios labeled. Caption: every beat is a 3-note arpeggio."
+    cleffy: >
+      Look at the Moonlight Sonata opening.
+      Every single beat. A 3-note arpeggio.
+      Learn this shape — you've learned the whole piece's engine.
+
+  - id: 4
+    mode: see
+    type: fingering
+    figure: "Keyboard. C4 E4 G4 with finger numbers: 1 on C, 3 on E, 5 on G."
+    cleffy: >
+      The fingering. One, three, five.
+      Thumb on the bottom. Middle on the middle. Pinky on the top.
+      Hand barely moves. Three fingers do the work.
+
+  - id: 5
+    mode: hear
+    type: hear_arpeggio
+    figure: "Play button. One bar of four C-E-G triplet arpeggios."
+    audio:
+      A: "Four rising C-E-G triplet arpeggios on C4 E4 G4 at 60 bpm"
+    cleffy: >
+      Listen. One shape, four times.
+      Up, up, up. Up, up, up.
+      That rolling feel — that's the engine.
+
+  - id: 6
+    mode: play
+    type: first_arpeggio
+    figure: "Keyboard. C4, E4, G4. Fingers 1, 3, 5 marked. Metronome 55."
+    cleffy: >
+      One arpeggio. C, E, G.
+      Fingers 1, 3, 5. Let the hand shape itself — no reaching.
+    interaction:
+      type: rhythm
+      sequence: ["C4","E4","G4"]
+      durations: ["triplet_eighth","triplet_eighth","triplet_eighth"]
+      tempo: 55
+
+  - id: 7
+    mode: play
+    type: four_arpeggios
+    figure: "Bar of four C-E-G triplet arpeggios. Metronome 55."
+    cleffy: >
+      Four in a row. Same shape, same fingers.
+      Don't reset between them. Stay in the shape.
+    interaction:
+      type: rhythm
+      sequence: ["C4","E4","G4","C4","E4","G4","C4","E4","G4","C4","E4","G4"]
+      durations: ["triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth"]
+      tempo: 55
+
+  - id: 8
+    mode: see
+    type: one_gesture
+    figure: "A hand. Over it, a curved arc from thumb to pinky. Caption: one gesture, not three key-presses."
+    cleffy: >
+      Think of it as one gesture. Not three separate key-presses.
+      The hand rolls from thumb to pinky.
+      Three notes, one motion.
+
+  - id: 9
+    mode: play
+    type: smooth_roll
+    figure: "Same four arpeggios. Focus on smoothness. Metronome 55."
+    cleffy: >
+      Same four arpeggios. Focus: smooth.
+      Each note equal. No bump, no gap.
+    interaction:
+      type: rhythm
+      sequence: ["C4","E4","G4","C4","E4","G4","C4","E4","G4","C4","E4","G4"]
+      durations: ["triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth"]
+      tempo: 55
+
+  - id: 10
+    mode: play
+    type: gmajor_arpeggio
+    figure: "Keyboard. G4 B4 D5 highlighted. Fingers 1, 3, 5. Metronome 55."
+    cleffy: >
+      Same shape, new home. G major arpeggio.
+      G, B, D. Fingers 1, 3, 5 again.
+      The shape doesn't change — the notes do.
+    interaction:
+      type: rhythm
+      sequence: ["G4","B4","D5","G4","B4","D5","G4","B4","D5","G4","B4","D5"]
+      durations: ["triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth"]
+      tempo: 55
+
+  - id: 11
+    mode: play
+    type: tempo_up_c
+    figure: "Four C-E-G triplet arpeggios. Metronome 65."
+    cleffy: >
+      Back to C. A little faster. Sixty-five.
+      Shape, not speed. If it gets bumpy — slow down.
+    interaction:
+      type: rhythm
+      sequence: ["C4","E4","G4","C4","E4","G4","C4","E4","G4","C4","E4","G4"]
+      durations: ["triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth"]
+      tempo: 65
+
+  - id: 12
+    mode: hear
+    type: which_arpeggio
+    figure: "Drill. Four rounds — each plays a C or G arpeggio."
+    cleffy: >
+      Four rounds. C arpeggio or G arpeggio?
+    interaction:
+      type: drill
+      rounds: 4
+      options: ["C (C-E-G)", "G (G-B-D)"]
+
+  - id: 13
+    mode: play
+    type: eight_in_a_row
+    figure: "Two bars — eight C arpeggios in a row. Endurance. Metronome 60."
+    cleffy: >
+      Eight in a row. Two bars.
+      This is what Moonlight demands. Sustained rolling.
+    interaction:
+      type: rhythm
+      sequence: ["C4","E4","G4","C4","E4","G4","C4","E4","G4","C4","E4","G4","C4","E4","G4","C4","E4","G4","C4","E4","G4","C4","E4","G4"]
+      durations: ["triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth"]
+      tempo: 60
+    followup_cleffy: >
+      Two full bars. You just played the engine of Moonlight Sonata.
+
+  - id: 14
+    mode: hear
+    type: pre_check
+    figure: "Banner."
+    cleffy: >
+      Three quick ones.
+
+  - id: 15
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 163. C major chord rolled into a triplet. Banner: THE MOONLIGHT ENGINE."
+    cleffy: >
+      The 3-note arpeggio. Fingering 1-3-5.
+      Tomorrow — add the pedal. That's when it starts sounding like Moonlight.
+
+practice_this_week:
+  real_piano:
+    - "Metronome at 60. Play C-E-G triplet arpeggios for one full minute. Fingers 1-3-5."
+    - "Try the same shape on G (G-B-D), F (F-A-C), and D (D-F#-A). Same fingering every time."
+  virtual_only:
+    - "Replay pages 7, 10, 13"
+  estimated_time: "10 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "C major triad stacked and C-E-G as triplet"
+          prompt: "What's the relationship between these?"
+          options: ["Different chords", "Same chord — one stacked, one rolled", "The triplet is a different key"]
+          correct: 1
+        - figure: "C4, E4, G4 on the keyboard"
+          prompt: "What fingering for a right-hand 3-note arpeggio?"
+          options: ["1, 2, 3", "1, 3, 5", "2, 3, 4"]
+          correct: 1
+        - figure: "Moonlight Sonata opening — right hand"
+          prompt: "What shape repeats through the whole opening?"
+          options: ["Scale", "3-note arpeggio", "Chord blocks"]
+          correct: 1
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "Four C-E-G triplet arpeggios at 60 bpm"
+          prompt: "What is this shape?"
+          options: ["Rising arpeggio", "Falling arpeggio", "Scale"]
+          correct: 0
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play four C-E-G triplet arpeggios at 60 bpm, fingers 1-3-5."
+          accept: "C4 E4 G4 repeated four times as triplets"
+
+remediation:
+  id: "163.5"
+  title: "Arpeggio, one finger at a time"
+  pages: 7
+  opening_cleffy: >
+    One-three-five isn't automatic yet. Fair enough.
+    We'll isolate each finger — thumb, middle, pinky — before rolling them together.
+
+completion:
+  cleffy: >
+    The 3-note arpeggio. The engine is yours.
+    Tomorrow — add the right foot. The pedal changes everything.
+  xp: 18
+  unlocks: 164

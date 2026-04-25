@@ -1,0 +1,230 @@
+# ============================================================
+# LESSON 207 · Voicing: inner melody
+# Tier 5 · Act 42 · Upper-Intermediate · Voicing
+# The middle note of the chord becomes the tune.
+# ============================================================
+id: 207
+tier: upper-intermediate
+act: 42
+title: "Voicing: inner melody"
+subtitle: "Act 42 · Voicing"
+goal: "Play a three-note chord with the middle note singing above the others — a hidden melody inside the texture."
+prereqs: [206]
+method_focus: "combine"
+time_estimate_min: 14
+piece_context: "Yesterday — the top. Today — the middle. The hardest voicing, and the most magical. This is what makes Schumann's Träumerei sound the way it does. A melody buried inside a warm blanket of chords."
+metaphor: "hidden-melody"
+vibe: ["quiet", "reflective"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy pointing at a chord with the middle note glowing gold. Banner: THE HIDDEN MELODY."
+    cleffy: >
+      Yesterday — top voicing.
+      Today — harder. The middle note sings.
+      A melody hiding inside the chord.
+
+  - id: 2
+    mode: see
+    type: middle_voicing_shown
+    figure: "Staff. C4-E4-G4 chord stack. E4 (middle) circled in gold. Label: 'inner voice.'"
+    cleffy: >
+      Same C chord. Same three notes.
+      But this time — the E in the middle is the melody.
+      Top and bottom sit quiet. The middle speaks.
+
+  - id: 3
+    mode: hear
+    type: three_versions
+    figure: "Three play buttons. A: flat. B: top voiced. C: middle voiced."
+    audio:
+      A: "C-E-G chord, all three notes equal."
+      B: "Same chord, top G firmer."
+      C: "Same chord, middle E firmer — a different note sings."
+    cleffy: >
+      Three versions of the same chord.
+      Flat, top, middle.
+      Listen to the third one. The E is floating in the middle. Warm.
+
+  - id: 4
+    mode: see
+    type: the_finger_challenge
+    figure: "Cartoon right hand pressing C-E-G. Middle finger (3) glowing. Arrows showing weight on finger 3, less on 1 and 5."
+    cleffy: >
+      The trick — finger 3 presses firmer. Fingers 1 and 5 brush.
+      Harder than the top. Your middle finger has to push past the pinky's strength.
+      This is the skill piano players chase for years.
+
+  - id: 5
+    mode: play
+    type: first_middle_voicing
+    figure: "Keyboard. C4, E4, G4. E4 glowing gold."
+    cleffy: >
+      Try it. C, E, G — lean into the E.
+      Middle finger deeper. Thumb light. Pinky light.
+    interaction:
+      type: sequence
+      keys: [["C4","E4","G4"]]
+
+  - id: 6
+    mode: play
+    type: contrast_top_vs_middle
+    figure: "Keyboard. Two labelled attempts: first G gold, second E gold."
+    cleffy: >
+      Now both in a row.
+      First — same chord, top G voiced. Then — middle E voiced.
+      Feel the hand tilt change.
+    interaction:
+      type: sequence
+      keys: [["C4","E4","G4"], ["C4","E4","G4"]]
+    followup_cleffy: >
+      Two different chords. Same three keys.
+      That's the power of voicing.
+
+  - id: 7
+    mode: see
+    type: why_it_matters
+    figure: "Diagram. A chord sitting still, with an arrow from the middle note stretching out into a melodic line."
+    cleffy: >
+      Why voice the middle?
+      Because the best composers hide melodies there. Schumann. Brahms. Bach.
+      A tune in the middle, wrapped in chords on either side. Warm, inward, private.
+
+  - id: 8
+    mode: see
+    type: inner_line_example
+    figure: "Staff. Three chords: C-E-G, C-F-G, C-E-G. Middle notes circled: E, F, E. Label: 'inner melody — E F E.'"
+    cleffy: >
+      Here's an inner melody across three chords.
+      Middle notes — E, F, E. A tiny shape.
+      Outside notes stay put. The middle moves.
+
+  - id: 9
+    mode: hear
+    type: listen_inner_line
+    figure: "Play button. 'Three chords — middle notes voiced.'"
+    audio:
+      A: "Three chords C-E-G, C-F-G, C-E-G played with middle notes firmer — E F E is audible as a melody."
+    cleffy: >
+      Listen for E, F, E.
+      Not the top G — that's sitting still.
+      The middle is the one moving. The middle is the tune.
+
+  - id: 10
+    mode: play
+    type: play_inner_line
+    figure: "Keyboard. Three chords. Middle notes highlighted."
+    cleffy: >
+      Play it. Three chords, middle voiced.
+      Finger 3 sinks each time. Outside fingers brush.
+    interaction:
+      type: rhythm
+      sequence: [["C4","E4","G4"], ["C4","F4","G4"], ["C4","E4","G4"]]
+      durations: ["half","half","half"]
+      tempo: 50
+
+  - id: 11
+    mode: play
+    type: inner_line_longer
+    figure: "Staff. Five chords with the middle voice moving — E, F, E, D, E. Keyboard below."
+    cleffy: >
+      Longer now. Five chords. The middle is the melody.
+      E, F, E, D, E. Can you hear the shape?
+    interaction:
+      type: rhythm
+      sequence: [["C4","E4","G4"], ["C4","F4","G4"], ["C4","E4","G4"], ["B3","D4","G4"], ["C4","E4","G4"]]
+      durations: ["quarter","quarter","quarter","quarter","half"]
+      tempo: 55
+    followup_cleffy: >
+      The middle sang.
+      That's an inner melody.
+
+  - id: 12
+    mode: hear
+    type: identify_which_voice
+    figure: "Round counter. Four rounds — top, middle, or flat?"
+    cleffy: >
+      Four rounds. Top voiced, middle voiced, or flat?
+    interaction:
+      type: drill
+      rounds: 4
+      options: ["Top voiced", "Middle voiced", "Flat"]
+
+  - id: 13
+    mode: see
+    type: the_two_so_far
+    figure: "Two small cards side by side. Card 1: top note gold. Card 2: middle note gold. Banner below: 'two voicings. One more tomorrow.'"
+    cleffy: >
+      Two voicings now in your hands.
+      Top — the common one. Middle — the magical one.
+      Tomorrow — the left hand takes over.
+
+  - id: 14
+    mode: hear
+    type: pre_check
+    figure: "Banner — Lesson 207 mastery check."
+    cleffy: >
+      Three quick ones.
+
+  - id: 15
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 207. A chord with the middle note glowing, a small arrow labelled 'hidden.'"
+    cleffy: >
+      Inner voicing. The tough one.
+      Tomorrow — the left hand sings the tune.
+
+practice_this_week:
+  real_piano:
+    - "Play C-E-G. Voice the top. Then voice the middle. Alternate, ten times. Feel your hand re-tilt."
+    - "Any piece you know with block chords — try voicing the middle note. Even if it sounds wrong, the skill is in your fingers."
+  virtual_only:
+    - "Replay pages 5-6 and page 10."
+  estimated_time: "10 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "A three-note chord with the middle note circled in gold"
+          prompt: "What is being voiced?"
+          options: ["The top note", "The middle note", "The bottom note"]
+          correct: 1
+        - figure: "Right hand pressing C-E-G with finger 3 highlighted"
+          prompt: "Which finger presses firmer for middle voicing?"
+          options: ["Thumb (1)", "Middle (3)", "Pinky (5)"]
+          correct: 1
+        - figure: "Three chords with middle notes E-F-E circled"
+          prompt: "What is the inner melody here?"
+          options: ["E F E", "C C C", "G G G"]
+          correct: 0
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "A chord with the middle note firmer"
+          prompt: "Which voice is singing?"
+          options: ["Top", "Middle", "Bottom"]
+          correct: 1
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play C-E-G with the middle E singing above the others."
+          accept: "C4-E4-G4 chord with audible emphasis on E4"
+
+remediation:
+  id: "207.5"
+  title: "Middle voicing, slowed down"
+  pages: 8
+  opening_cleffy: >
+    Middle voicing is the hardest of the three. Finger 3 has to push past finger 5's strength.
+    We'll slow down. One chord. Tilt in. Tilt out. Until the middle note speaks on its own.
+
+completion:
+  cleffy: >
+    The middle can sing now.
+    Tomorrow — the tune moves to the left hand.
+  xp: 18
+  unlocks: 208

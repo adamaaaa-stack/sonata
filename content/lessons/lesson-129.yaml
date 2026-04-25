@@ -1,0 +1,226 @@
+# ============================================================
+# LESSON 129 · Circle of fifths intro
+# Tier 4 · Act 26 · Intermediate
+# The map of all 12 keys.
+# ============================================================
+id: 129
+tier: intermediate
+act: 26
+title: "Circle of fifths intro"
+subtitle: "Act 26 · The map of all keys"
+goal: "See how all 12 keys live on one circle — clockwise adds sharps, counter-clockwise adds flats."
+prereqs: [128, 127, 126, 111, 112, 67, 68]
+method_focus: "see"
+time_estimate_min: 14
+piece_context: "You've met C, G, D, A, F, Bb, Eb. Seven keys already. Today — the picture that ties them all together."
+metaphor: "twelve-doors-on-the-circle"
+vibe: ["focused", "quiet"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy pointing at a large circular diagram — a clock face with letters around it. Banner: THE CIRCLE OF FIFTHS."
+    cleffy: >
+      One picture. Twelve keys. One circle.
+      This is the map musicians use to keep all the keys straight.
+      It's called the circle of fifths.
+
+  - id: 2
+    mode: see
+    type: the_top
+    figure: "Circle diagram. C at the 12-o'clock position. All other letters grayed out."
+    cleffy: >
+      Top of the circle — C major.
+      No sharps, no flats. The starting point.
+
+  - id: 3
+    mode: see
+    type: clockwise_sharps
+    figure: "Circle diagram. C at top, then clockwise: G (1 sharp), D (2 sharps), A (3 sharps), E, B, F#. Sharp counts labeled."
+    cleffy: >
+      Clockwise — each step adds one sharp.
+      G has one. D has two. A has three.
+      Keep going and you reach E, B, F-sharp.
+
+  - id: 4
+    mode: see
+    type: counter_flats
+    figure: "Circle diagram. C at top, then counter-clockwise: F (1 flat), Bb (2 flats), Eb (3 flats), Ab, Db, Gb. Flat counts labeled."
+    cleffy: >
+      Counter-clockwise — each step adds one flat.
+      F has one. B-flat has two. E-flat has three.
+      Keep going and you reach A-flat, D-flat, G-flat.
+
+  - id: 5
+    mode: see
+    type: fifths_explained
+    figure: "Two keyboards. Top: C to G, five white keys counted (C-D-E-F-G). Bottom: C to F, five white keys the other way."
+    cleffy: >
+      Why "fifths"? Each step around the circle is a 5th apart.
+      C up to G — that's five notes. G up to D — five notes. And so on.
+      A fifth clockwise adds a sharp. A fifth counter-clockwise adds a flat.
+
+  - id: 6
+    mode: hear
+    type: hear_fifths
+    figure: "Play button. Five fifths in a row climbing: C-G, G-D, D-A, A-E, E-B."
+    audio:
+      A: "Ascending fifths: C then G, G then D, D then A, A then E, E then B"
+    cleffy: >
+      Listen. That's the climb up the circle.
+      Every jump is a fifth — the same distance, every time.
+
+  - id: 7
+    mode: see
+    type: your_known_keys
+    figure: "Circle with C, G, D, A, F, Bb, Eb highlighted in gold. Others faded. Label: KEYS YOU ALREADY KNOW."
+    cleffy: >
+      You already know seven of these.
+      C. G. D. A. F. B-flat. E-flat.
+      More than half the circle. You've been filling in the map this whole time.
+
+  - id: 8
+    mode: see
+    type: pattern_of_sharps
+    figure: "Four treble staves showing key signatures for G (1#), D (2#), A (3#), E (4#). The new sharp each time is circled."
+    cleffy: >
+      The sharps come in a fixed order.
+      G adds F-sharp. D adds C-sharp. A adds G-sharp. E adds D-sharp.
+      F, C, G, D — always in that order.
+
+  - id: 9
+    mode: see
+    type: pattern_of_flats
+    figure: "Four treble staves showing key signatures for F (1b), Bb (2b), Eb (3b), Ab (4b). The new flat each time is circled."
+    cleffy: >
+      The flats come in a fixed order too.
+      F adds B-flat. Bb adds E-flat. Eb adds A-flat. Ab adds D-flat.
+      B, E, A, D — always in that order.
+      Reverse of the sharps. Clean.
+
+  - id: 10
+    mode: play
+    type: play_C_G_D_A
+    figure: "Keyboard. Four root notes lit: C, G, D, A. Label: FOUR STEPS CLOCKWISE."
+    cleffy: >
+      Play the first four keys clockwise. Just the root notes.
+      C, G, D, A. Each one a fifth up from the last.
+    interaction:
+      type: sequence
+      keys: ["C4","G4","D5","A5"]
+
+  - id: 11
+    mode: play
+    type: play_C_F_Bb_Eb
+    figure: "Keyboard. Four root notes lit going down: C, F, Bb, Eb. Label: FOUR STEPS COUNTER-CLOCKWISE."
+    cleffy: >
+      Now counter-clockwise. C, F, B-flat, E-flat.
+      Each one a fifth down from the last.
+    interaction:
+      type: sequence
+      keys: ["C5","F4","Bb3","Eb3"]
+
+  - id: 12
+    mode: hear
+    type: name_the_key
+    figure: "Four rounds. Each round: a key signature shown. Student names the key."
+    cleffy: >
+      Four rounds. Name the key from the signature.
+    interaction:
+      type: drill
+      rounds: 4
+      options: ["C", "G", "D", "A", "F", "Bb", "Eb"]
+
+  - id: 13
+    mode: see
+    type: why_it_matters
+    figure: "Circle with two arrows — one curving clockwise, one counter-clockwise. Label: MOST SONGS MOVE BY FIFTHS."
+    cleffy: >
+      Why musicians love this circle.
+      Most chord changes in most songs move by fifths.
+      C to G. G to D. A minor to D. The circle is the shape of harmony itself.
+
+  - id: 14
+    mode: play
+    type: scale_around_circle
+    figure: "Keyboard. Short 3-note scale fragment in each of C, G, D, A — just the first three notes of each."
+    cleffy: >
+      Play the first three notes of each scale, moving clockwise.
+      C-D-E. G-A-B. D-E-F#. A-B-C#.
+    interaction:
+      type: sequence
+      keys: ["C4","D4","E4","G4","A4","B4","D5","E5","F#5","A5","B5","C#6"]
+
+  - id: 15
+    mode: hear
+    type: pre_check
+    figure: "Banner."
+    cleffy: >
+      Three quick ones.
+
+  - id: 16
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 129. Full circle of fifths with all 12 keys. Banner: THE MAP IS YOURS."
+    cleffy: >
+      Twelve doors. One circle.
+      Sharps clockwise. Flats counter-clockwise.
+      Tomorrow — a full piece in C. Bach's Prelude. Nothing but arpeggios.
+
+practice_this_week:
+  real_piano:
+    - "Draw the circle from memory. Start with C at the top. Put G, D, A going clockwise. Put F, B-flat, E-flat going counter-clockwise."
+    - "Play a C major scale, then a G major scale, then a D major scale. Feel the map move."
+  virtual_only:
+    - "Replay pages 7, 8, 9, and 14"
+  estimated_time: "10 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "Circle of fifths with C at top"
+          prompt: "Going clockwise, what happens at each step?"
+          options: ["Add a sharp", "Add a flat", "Nothing changes"]
+          correct: 0
+        - figure: "Circle of fifths with C at top"
+          prompt: "Which direction adds flats?"
+          options: ["Clockwise", "Counter-clockwise"]
+          correct: 1
+        - figure: "Three-sharp key signature"
+          prompt: "How many steps clockwise from C?"
+          options: ["One", "Two", "Three"]
+          correct: 2
+        - figure: "Three-flat key signature"
+          prompt: "Which key is this?"
+          options: ["A major", "E-flat major", "D major"]
+          correct: 1
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "Ascending fifths: C to G to D to A"
+          prompt: "Is each jump the same size?"
+          options: ["Yes", "No"]
+          correct: 0
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play four root notes clockwise from C: C, G, D, A."
+          accept: "C G D A in any reasonable octave"
+
+remediation:
+  id: "129.5"
+  title: "The circle, slower"
+  pages: 7
+  opening_cleffy: >
+    Big picture. Let's walk it slowly.
+    C at top. One door at a time, clockwise first.
+
+completion:
+  cleffy: >
+    The circle is yours. You already knew most of it — now you can see it whole.
+    Tomorrow — Bach's Prelude in C. Act 26 boss.
+  xp: 20
+  unlocks: 130

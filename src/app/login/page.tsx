@@ -10,7 +10,11 @@ import "@/app/app/sonata.css";
 
 export default function LoginPage() {
   return (
-    <Suspense fallback={<div style={{ minHeight: '100vh', background: '#FFF6E4' }} />}>
+    <Suspense fallback={
+      <div style={{ position: 'relative', minHeight: '100vh', background: '#FFF6E4', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+        <div style={{ width: 28, height: 28, border: '4px solid var(--parchment, #E9DCC0)', borderTopColor: 'var(--berry, #E86D6D)', borderRadius: '50%', animation: 'sn-spin 0.8s linear infinite' }} />
+      </div>
+    }>
       <LoginInner />
     </Suspense>
   );

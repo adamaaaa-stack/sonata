@@ -1,0 +1,271 @@
+# ============================================================
+# LESSON 165 · Triplet arpeggio drill
+# Tier 4 · Act 33 · Intermediate · ACT BOSS 🎯
+# See, hear, play — at tempo. Five keys: C, G, F, D, A.
+# A DRILL boss. No piece. Like L20 or L40.
+# ============================================================
+id: 165
+tier: intermediate
+act: 33
+title: "Triplet arpeggio drill"
+subtitle: "Act 33 · Triplets deeper"
+goal: "See, hear, and play 3-note triplet arpeggios in five keys — C, G, F, D, A — at gradually rising tempo."
+prereqs: [161, 162, 163, 164]
+method_focus: "combine"
+time_estimate_min: 16
+piece_context: "Act 33 boss. Not a piece today — a drill. Same shape you know, moved to five home keys. See it, hear it, play it, at rising tempo. When you close this lesson, you have the technical vocabulary for Moonlight. Act 34 builds C-sharp minor on top of it. Then L170 is the first four bars of the real sonata."
+metaphor: "moonlight-engine"
+vibe: ["focused", "serious", "triumphant"]
+is_act_boss: true
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy in front of a banner — ACT 33 BOSS. Five colored circles labeled C, G, F, D, A. Three-note arpeggios stacked above each."
+    cleffy: >
+      Act 33 boss.
+      Not a piece today. A drill.
+      Same triplet arpeggio shape. Five different homes. See, hear, play.
+
+  - id: 2
+    mode: see
+    type: the_five_keys
+    figure: "Five staves stacked. Top to bottom: C (C-E-G), G (G-B-D), F (F-A-C), D (D-F#-A), A (A-C#-E). Each shown as a triplet arpeggio."
+    cleffy: >
+      Five keys. Five arpeggios. All rising triplets.
+      C — C, E, G.
+      G — G, B, D.
+      F — F, A, C.
+      D — D, F-sharp, A.
+      A — A, C-sharp, E.
+      Two of them have a sharp. The others are all white.
+
+  - id: 3
+    mode: see
+    type: same_fingering
+    figure: "Keyboard showing all five arpeggios. Each one labeled 1-3-5. Caption: same three fingers, every key."
+    cleffy: >
+      The fingering never changes.
+      One, three, five. Thumb, middle, pinky.
+      Same hand shape. Different keys.
+
+  - id: 4
+    mode: hear
+    type: hear_all_five
+    figure: "Five play buttons — one per key. Each plays one bar of triplet arpeggios."
+    audio:
+      A: "Four C-E-G arpeggios at 60 bpm"
+      B: "Four G-B-D arpeggios at 60 bpm"
+      C: "Four F-A-C arpeggios at 60 bpm"
+      D: "Four D-F#-A arpeggios at 60 bpm"
+      E: "Four A-C#-E arpeggios at 60 bpm"
+    cleffy: >
+      Listen through each.
+      Same shape. Different color every time.
+      Notice the two with sharps — D and A — have a slightly brighter edge.
+
+  - id: 5
+    mode: play
+    type: play_c
+    figure: "One bar C-E-G triplet arpeggios. Metronome 55."
+    cleffy: >
+      Key one. C. Fingers 1, 3, 5.
+    interaction:
+      type: rhythm
+      sequence: ["C4","E4","G4","C4","E4","G4","C4","E4","G4","C4","E4","G4"]
+      durations: ["triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth"]
+      tempo: 55
+
+  - id: 6
+    mode: play
+    type: play_g
+    figure: "One bar G-B-D triplet arpeggios. Metronome 55."
+    cleffy: >
+      Key two. G. G, B, D. All white keys.
+    interaction:
+      type: rhythm
+      sequence: ["G4","B4","D5","G4","B4","D5","G4","B4","D5","G4","B4","D5"]
+      durations: ["triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth"]
+      tempo: 55
+
+  - id: 7
+    mode: play
+    type: play_f
+    figure: "One bar F-A-C triplet arpeggios. Metronome 55."
+    cleffy: >
+      Key three. F. F, A, C. Also all white.
+    interaction:
+      type: rhythm
+      sequence: ["F4","A4","C5","F4","A4","C5","F4","A4","C5","F4","A4","C5"]
+      durations: ["triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth"]
+      tempo: 55
+
+  - id: 8
+    mode: play
+    type: play_d
+    figure: "One bar D-F#-A triplet arpeggios. F-sharp highlighted in a different color. Metronome 55."
+    cleffy: >
+      Key four. D. D, F-sharp, A.
+      The F is a black key now. Middle finger lands on black.
+    interaction:
+      type: rhythm
+      sequence: ["D4","F#4","A4","D4","F#4","A4","D4","F#4","A4","D4","F#4","A4"]
+      durations: ["triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth"]
+      tempo: 55
+
+  - id: 9
+    mode: play
+    type: play_a
+    figure: "One bar A-C#-E triplet arpeggios. C-sharp highlighted. Metronome 55."
+    cleffy: >
+      Key five. A. A, C-sharp, E.
+      Middle finger on black again.
+    interaction:
+      type: rhythm
+      sequence: ["A4","C#5","E5","A4","C#5","E5","A4","C#5","E5","A4","C#5","E5"]
+      durations: ["triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth"]
+      tempo: 55
+
+  - id: 10
+    mode: hear
+    type: name_that_arpeggio
+    figure: "Drill banner. Five rounds — one per key. Student hears arpeggio, names the key."
+    cleffy: >
+      Five rounds. Which arpeggio is this?
+    interaction:
+      type: drill
+      rounds: 5
+      options: ["C", "G", "F", "D", "A"]
+
+  - id: 11
+    mode: play
+    type: tempo_60
+    figure: "One bar C-E-G arpeggios. Metronome 60."
+    cleffy: >
+      Tempo up. Sixty on the click. C arpeggio.
+      Smoothness matters more than speed.
+    interaction:
+      type: rhythm
+      sequence: ["C4","E4","G4","C4","E4","G4","C4","E4","G4","C4","E4","G4"]
+      durations: ["triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth"]
+      tempo: 60
+
+  - id: 12
+    mode: play
+    type: tempo_70
+    figure: "One bar G-B-D arpeggios. Metronome 70."
+    cleffy: >
+      Seventy. G arpeggio.
+      If it gets messy — slow back down.
+    interaction:
+      type: rhythm
+      sequence: ["G4","B4","D5","G4","B4","D5","G4","B4","D5","G4","B4","D5"]
+      durations: ["triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth"]
+      tempo: 70
+
+  - id: 13
+    mode: play
+    type: chain_three_keys
+    figure: "Three bars — C, G, F arpeggios back to back. Metronome 60."
+    cleffy: >
+      Three keys in a row. C, G, F.
+      One bar each. Don't stop between.
+    interaction:
+      type: rhythm
+      sequence: ["C4","E4","G4","C4","E4","G4","C4","E4","G4","C4","E4","G4","G4","B4","D5","G4","B4","D5","G4","B4","D5","G4","B4","D5","F4","A4","C5","F4","A4","C5","F4","A4","C5","F4","A4","C5"]
+      durations: ["triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth"]
+      tempo: 60
+
+  - id: 14
+    mode: play
+    type: final_run_c_with_feel
+    figure: "Four bars of C-E-G arpeggios. Metronome 60. Label: like Moonlight."
+    cleffy: >
+      Final run. Four bars. C arpeggio. Soft.
+      Imagine the pedal. Imagine the moonlight.
+    interaction:
+      type: song
+      sequence: ["C4","E4","G4","C4","E4","G4","C4","E4","G4","C4","E4","G4","C4","E4","G4","C4","E4","G4","C4","E4","G4","C4","E4","G4","C4","E4","G4","C4","E4","G4","C4","E4","G4","C4","E4","G4","C4","E4","G4","C4","E4","G4","C4","E4","G4","C4","E4","G4"]
+      guides: false
+      tempo: 60
+    followup_cleffy: >
+      Four bars of rolling triplet arpeggios. At tempo.
+      That's Act 33. Sealed.
+
+  - id: 15
+    mode: hear
+    type: pre_check
+    figure: "Banner — Act 33 boss mastery check."
+    cleffy: >
+      Four quick ones. Take your time.
+
+  - id: 16
+    mode: see
+    type: wrap
+    figure: "Celebration card — ACT 33 COMPLETE 🎯. Cleffy next to a piano with moonlight streaming in. Map of acts: 33/50 complete."
+    cleffy: >
+      Act 33. Closed.
+      Triplets, deeper. Shapes known. Fingering burned in. Pedal combined. Five keys under your hand.
+      You are now holding the engine of the Moonlight Sonata in your two hands.
+      Next act — C-sharp minor. The actual key. The actual piece. It starts at lesson 170.
+
+practice_this_week:
+  real_piano:
+    - "Cycle through all five keys every day — C, G, F, D, A. One bar of triplet arpeggios each. Metronome 60."
+    - "Try playing C arpeggios with pedal held through each bar. That's Moonlight waiting."
+    - "Push the tempo up one notch each day. 60, 65, 70. Stop the moment it gets rough."
+  virtual_only:
+    - "Replay pages 5-9 (all five keys), then 13 and 14."
+  estimated_time: "12 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "Five triplet arpeggios: C, G, F, D, A"
+          prompt: "Which fingering works for all five?"
+          options: ["1, 2, 3", "1, 3, 5", "2, 3, 4"]
+          correct: 1
+        - figure: "D-F#-A arpeggio"
+          prompt: "What's the middle note?"
+          options: ["F-natural", "F-sharp", "E"]
+          correct: 1
+        - figure: "A-C#-E arpeggio"
+          prompt: "Which finger lands on a black key?"
+          options: ["Thumb (1)", "Middle (3)", "Pinky (5)"]
+          correct: 1
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "C arpeggio and G arpeggio, one after the other"
+          prompt: "Same key or different keys?"
+          options: ["Same", "Different"]
+          correct: 1
+        - audio: "One bar of D-F#-A arpeggios at 60 bpm"
+          prompt: "Which arpeggio is this?"
+          options: ["C", "G", "D", "F"]
+          correct: 2
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play one bar of C-E-G triplet arpeggios at 60 bpm, fingers 1-3-5."
+          accept: "Four C-E-G triplet groups at 60 bpm"
+
+remediation:
+  id: "165.5"
+  title: "Drill, one key at a time"
+  pages: 11
+  opening_cleffy: >
+    Five keys is a lot.
+    We'll walk them one by one. Spend a full minute on each before moving on.
+    By the end, all five will feel like the same shape.
+
+completion:
+  cleffy: >
+    Act 33 sealed. You have the triplet arpeggio — in five keys, at tempo, with pedal.
+    Ten lessons from now — Moonlight Sonata, bars 1 through 4.
+    Keep rolling.
+  xp: 30
+  unlocks: 166

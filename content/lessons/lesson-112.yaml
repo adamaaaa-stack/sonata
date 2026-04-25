@@ -1,0 +1,205 @@
+# ============================================================
+# LESSON 112 · B♭ major (2 flats)
+# Tier 3 · Act 23 · Low-Intermediate · New keys + transposition
+# Two flats — B-flat and E-flat.
+# ============================================================
+id: 112
+tier: low-intermediate
+act: 23
+title: "B-flat major"
+subtitle: "Act 23 · Two flats — B♭ and E♭"
+goal: "Read and play in B-flat major — two flats, B-flat and E-flat."
+prereqs: [111, 68, 75]
+method_focus: "keys"
+time_estimate_min: 13
+piece_context: "The flat side of the ladder. F major was one flat. B-flat is two. Tons of wind-instrument music lives here — and plenty of piano."
+metaphor: "new-keys-new-colors"
+vibe: ["gentle", "focused"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Treble staff with B♭ major key signature — B♭ on middle line, E♭ in top space. Title: B♭ MAJOR."
+    cleffy: >
+      New key. Two flats.
+      B-flat and E-flat. Every time.
+      You already know one of them — B-flat from F major. Now the other joins.
+
+  - id: 2
+    mode: see
+    type: where_the_flats_sit
+    figure: "Close-up of the B♭ key signature. Arrow pointing to B♭ on line 3 and E♭ in space 4."
+    cleffy: >
+      Two flats, in order. B-flat first — middle line.
+      Then E-flat — fourth space, the top one.
+      Any B, any octave — flat. Any E, any octave — flat.
+
+  - id: 3
+    mode: see
+    type: the_scale
+    figure: "Staff with B♭ scale: B♭ C D E♭ F G A B♭. Key signature at the left."
+    cleffy: >
+      B-flat scale. B-flat C D E-flat F G A B-flat.
+      Two black keys. Both the flats the key signature named.
+
+  - id: 4
+    mode: play
+    type: bflat_five_finger
+    figure: "Keyboard. B♭ C D E♭ F glowing. Key signature B♭ E♭."
+    cleffy: >
+      B-flat position — B-flat C D E-flat F.
+      Two black keys in the first five. Slow.
+    interaction:
+      type: sequence
+      keys: ["Bb3","C4","D4","Eb4","F4"]
+
+  - id: 5
+    mode: play
+    type: full_scale
+    figure: "Keyboard. Full B♭ major scale highlighted."
+    cleffy: >
+      Full B-flat major scale. Eight notes.
+      Both B's are flat. E is flat too.
+    interaction:
+      type: sequence
+      keys: ["Bb3","C4","D4","Eb4","F4","G4","A4","Bb4"]
+
+  - id: 6
+    mode: hear
+    type: bflat_sound
+    figure: "Play button."
+    audio:
+      A: "B-flat major scale ascending"
+    cleffy: >
+      B-flat major. Warm. Rounder than D.
+      Horn players love this key.
+
+  - id: 7
+    mode: see
+    type: melody_in_bflat
+    figure: "Staff in B♭ major. Melody: B♭ D F D B♭. Skips on the B-flat chord."
+    cleffy: >
+      Short melody. B-flat D F D B-flat.
+      No symbol in front of the B — the key signature already handled it.
+
+  - id: 8
+    mode: play
+    type: play_melody
+    figure: "Keyboard. B♭ D F D B♭."
+    cleffy: >
+      Play it.
+    interaction:
+      type: sequence
+      keys: ["Bb3","D4","F4","D4","Bb3"]
+
+  - id: 9
+    mode: see
+    type: melody_with_eflat
+    figure: "Staff in B♭ major. Melody: B♭ C D E♭ D C B♭. E♭ highlighted — no symbol needed."
+    cleffy: >
+      Now a melody that hits E-flat too.
+      B-flat C D E-flat D C B-flat. Both flats in one phrase.
+
+  - id: 10
+    mode: play
+    type: play_with_both_flats
+    figure: "Keyboard. Phrase using B♭ and E♭."
+    cleffy: >
+      Play it. Two black keys — B and E.
+    interaction:
+      type: sequence
+      keys: ["Bb3","C4","D4","Eb4","D4","C4","Bb3"]
+
+  - id: 11
+    mode: see
+    type: drill_read
+    figure: "Staff in B♭ major. Various notes."
+    cleffy: >
+      Four rounds. In B-flat major — flat or natural?
+    interaction:
+      type: drill
+      rounds: 4
+      options: ["Natural", "Flat"]
+
+  - id: 12
+    mode: play
+    type: real_phrase
+    figure: "Staff in B♭. Melody: F G A B♭ A G F E♭ F."
+    cleffy: >
+      Real phrase. 9 notes. Both flats show up.
+    interaction:
+      type: sequence
+      keys: ["F4","G4","A4","Bb4","A4","G4","F4","Eb4","F4"]
+
+  - id: 13
+    mode: see
+    type: the_key_map
+    figure: "Table: C major (0), G major (1#), D major (2#), F major (1♭), B♭ major (2♭)."
+    cleffy: >
+      Five keys now.
+      Sharps side: G, D. Flats side: F, B-flat.
+      C sits in the middle — no sharps, no flats.
+
+  - id: 14
+    mode: hear
+    type: pre_check
+    figure: "Banner."
+    cleffy: >
+      Four quick ones.
+
+  - id: 15
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 112. B♭ major key signature, two flats highlighted."
+    cleffy: >
+      B-flat major, in.
+      Tomorrow — every major key has a twin. Minor keys.
+
+practice_this_week:
+  real_piano:
+    - "B-flat major scale up and back, both hands. Every B flat, every E flat."
+    - "Try this phrase: F G A B-flat A G F E-flat F. The black keys should start feeling easy."
+  virtual_only:
+    - "Replay pages 5 and 10"
+  estimated_time: "10 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "B♭ major key signature"
+          prompt: "Which two notes are flat in B-flat major?"
+          options: ["B and E", "B and A", "F and C", "E and A"]
+          correct: 0
+        - figure: "Staff in B♭ major with a note in the top space (E)"
+          prompt: "What do you play?"
+          options: ["E-natural", "E-flat"]
+          correct: 1
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "B-flat major scale"
+          prompt: "Which key — D major or B-flat major?"
+          options: ["D major", "B-flat major"]
+          correct: 1
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play B-flat C D E-flat F."
+          accept: "Bb3 C4 D4 Eb4 F4"
+
+remediation:
+  id: "112.5"
+  title: "B-flat major, slower"
+  pages: 6
+  opening_cleffy: >
+    Two flats. Slow pass — B-flat first, then E-flat, then both in a phrase.
+
+completion:
+  cleffy: >
+    B-flat major, done. Five keys known — three sharp-side, two flat-side, plus C.
+    Tomorrow — every major key has a shadow. Minor keys.
+  xp: 18
+  unlocks: 113

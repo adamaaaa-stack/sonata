@@ -1,0 +1,228 @@
+# ============================================================
+# LESSON 5 · Any C, anywhere
+# Tier 1 · Act 1 · Beginner · ACT BOSS 🎯
+# Central metaphor: FLAGS ON EVERY STAIR
+# ============================================================
+id: 5
+tier: beginner
+act: 1
+title: "Any C, anywhere"
+subtitle: "Act 1 · End of the first five"
+goal: "Prove you own C — find it anywhere on the piano, by sight and by sound."
+prereqs: [1, 2, 3, 4]
+method_focus: "piano-geography"
+time_estimate_min: 12
+piece_context: "Every piece you'll ever play starts somewhere on this keyboard. Today you own the landmark we'll count from once we start reading."
+metaphor: "flags-on-every-stair"
+vibe: ["gentle", "playful", "celebratory"]
+is_act_boss: true
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy standing between a small gold trophy and the piano, looking pleased."
+    cleffy: >
+      You made it. Five lessons in.
+      Today we put it all together and you prove something to yourself —
+      that you know where C lives, anywhere on the piano.
+      This is the end of Act 1. Let's go.
+
+  - id: 2
+    mode: see
+    type: recap
+    figure: "Four small panels: a staircase, a horizontal piano, the black-key map, a keyboard with every C glowing."
+    cleffy: >
+      Quick recap of the whole act.
+      Lesson 1 — music is stairs.
+      Lesson 2 — the piano is stairs, lying sideways.
+      Lesson 3 — the black keys are the map.
+      Lesson 4 — C is the landmark, right before every 2-group.
+      Hold all of that in your head. We're using all of it today.
+
+  - id: 3
+    mode: play
+    type: challenge
+    figure: "Full keyboard, no highlights."
+    cleffy: >
+      First challenge. Find a C on the LEFT side of the piano. Tap it.
+    interaction:
+      type: tap
+      accept: "any C in lowest 3 octaves"
+
+  - id: 4
+    mode: play
+    type: challenge
+    figure: "Full keyboard."
+    cleffy: >
+      Now a C on the RIGHT side. Up high.
+    interaction:
+      type: tap
+      accept: "any C in highest 3 octaves"
+
+  - id: 5
+    mode: play
+    type: challenge
+    figure: "Full keyboard. Middle area gently pulses."
+    cleffy: >
+      And Middle C. The one right in the middle.
+    interaction:
+      type: tap
+      key: "C4"
+
+  - id: 6
+    mode: play
+    type: treasure_hunt
+    figure: "Full keyboard. Counter shows 0 of 5 Cs found. Each tapped C turns gold and stays."
+    cleffy: >
+      Now for fun. Find five different Cs. Any five.
+      Each one lights up when you tap it.
+    interaction:
+      type: sequence
+      count: 5
+      accept: "5 different Cs"
+    followup_cleffy: >
+      There you go. Five Cs, five different parts of the piano.
+      All the same letter. Something just clicked.
+
+  - id: 7
+    mode: hear
+    type: demo
+    figure: "Four play buttons labeled A, B, C, D. Each plays a C in a different octave."
+    audio:
+      A: "C2"
+      B: "C4 Middle C"
+      C: "C5"
+      D: "C7"
+    cleffy: >
+      Listen to four different Cs.
+      They're all C. Different heights. Same letter.
+
+  - id: 8
+    mode: hear
+    type: drill
+    figure: "Round counter 1 of 5. Play button. Three answers: Low C, Middle C, High C."
+    cleffy: >
+      Five rounds. I'll play a C somewhere on the piano. Tell me — low, middle, or high.
+    interaction:
+      type: drill
+      rounds: 5
+      options: ["Low C", "Middle C", "High C"]
+
+  - id: 9
+    mode: read
+    type: see_hear_play
+    figure: "Keyboard. Cleffy plays a C. Then student plays the same one back."
+    cleffy: >
+      I'll play a C. You listen, then find it and play it back.
+      Three rounds.
+    interaction:
+      type: echo
+      rounds: 3
+      target: "any C"
+
+  - id: 10
+    mode: play
+    type: mini_performance
+    figure: "Keyboard with three C positions labeled 1, 2, 3 from low to high."
+    cleffy: >
+      Your first little piano moment.
+      Play three Cs — low, then middle, then high. One, two, three.
+      Slow. Steady. No rush.
+    interaction:
+      type: sequence
+      keys: ["C2", "C4", "C6"]
+    followup_cleffy: >
+      Hear that? You just climbed up the stairs using the same note in three places.
+      That's not a trick. That's music.
+
+  - id: 11
+    mode: play
+    type: mini_performance_reverse
+    figure: "Same keyboard, numbers now run 3 at low, 1 at high."
+    cleffy: >
+      Now come back down. High, middle, low.
+    interaction:
+      type: sequence
+      keys: ["C6", "C4", "C2"]
+    followup_cleffy: >
+      Down the stairs. Same Cs. Sleepier feel, right?
+      Direction matters, even when the note stays the same.
+
+  - id: 12
+    mode: hear
+    type: drill
+    figure: "Round counter 1 of 4. Mixed questions."
+    cleffy: >
+      One last warm-up. Mix of everything from the last five lessons.
+    interaction:
+      type: drill
+      rounds: 4
+
+  - id: 13
+    mode: hear
+    type: pre_check
+    figure: "Banner — last check before the real test."
+    cleffy: >
+      Four quick ones. You got this.
+
+  - id: 14
+    mode: see
+    type: wrap
+    figure: "Celebration card — Act 1 complete. A small trophy with 1/10 acts. Cleffy giving a thumbs up."
+    cleffy: >
+      That's Act 1.
+      You have ears. You have a keyboard. You have a map. You have C.
+      That's already more than most people who sit down at a piano.
+      Tomorrow we find F. One more landmark, and the keyboard starts to feel like yours.
+
+# ─── Mastery check ──────────────────────────────────────
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 3
+      questions:
+        - figure: "Full keyboard."
+          prompt: "Tap any C on the left side."
+          accept: "any C in left half"
+        - figure: "Full keyboard."
+          prompt: "Tap any C on the right side."
+          accept: "any C in right half"
+        - figure: "Full keyboard."
+          prompt: "Tap Middle C."
+          accept: "C4"
+    hear:
+      pass_threshold: 2
+      questions:
+        - audio: "Random C somewhere on keyboard"
+          prompt: "Low, middle, or high C?"
+          options: ["Low", "Middle", "High"]
+          correct: 0
+        - audio: "Another random C"
+          prompt: "Low, middle, or high C?"
+          options: ["Low", "Middle", "High"]
+          correct: 1
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play three different Cs in a row — going up."
+          accept: "3 Cs ascending"
+
+# ─── Remediation ────────────────────────────────────────
+remediation:
+  id: "5.5"
+  title: "Act 1, one more pass"
+  pages: 6
+  opening_cleffy: >
+    Hey. This is the first real checkpoint — it's supposed to feel bigger.
+    Let's walk through Act 1 again, slower, with everything highlighted.
+
+# ─── Completion ─────────────────────────────────────────
+completion:
+  cleffy: >
+    You closed out your first act. That is a real thing.
+    Act 2 opens tomorrow — we find F, then the rest of the alphabet,
+    then your hands do something besides poke.
+    Good work today.
+  xp: 30   # bigger bonus for act boss
+  unlocks: 6

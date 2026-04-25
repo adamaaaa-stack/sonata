@@ -1,0 +1,213 @@
+id: 39
+tier: elementary
+act: 8
+title: "Leap fingering"
+subtitle: "Plan which finger lands where"
+goal: "Choose fingers intelligently when a leap appears. Avoid the crash."
+prereqs: [36, 37, 38]
+method_focus: "fingering"
+time_estimate_min: 12
+piece_context: "When your hand has to leap, you need to plan — otherwise you collide with yourself."
+metaphor: "choreography"
+vibe: ["gentle", "serious"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Hand about to play a leap, with a question mark between two keys."
+    cleffy: >
+      Leaps come with a planning problem.
+      If you don't decide which finger lands on the second note BEFORE you jump,
+      you'll crash — or end up in a weird hand position.
+      Today we practice planning.
+
+  - id: 2
+    mode: see
+    type: why_fingering_matters
+    figure: "Two hand attempts side by side. Left: wrong fingering, tangled fingers. Right: correct fingering, clean."
+    cleffy: >
+      Good fingering means your hand is already shaped for what comes next.
+      Bad fingering means you play one note, realize your fingers are tangled, panic.
+
+  - id: 3
+    mode: see
+    type: thumb_and_pinky
+    figure: "RH palm. Thumb and pinky highlighted. Arrow shows they're at the far ends."
+    cleffy: >
+      The thumb and pinky are farthest apart.
+      When a leap goes up, thumb usually stays low, pinky reaches high.
+      When a leap goes down, flip it.
+
+  - id: 4
+    mode: see
+    type: position_for_leap
+    figure: "Keyboard. RH thumb on Middle C (labeled 1). RH pinky on G (labeled 5). C-G is a 5th."
+    cleffy: >
+      Standard setup: thumb on the lower note, pinky on the higher. That's a 5-finger position for a 5th.
+      Your hand is ready — you just tap thumb, then pinky.
+
+  - id: 5
+    mode: play
+    type: leap_with_plan
+    figure: "Keyboard. C4 labeled 1, G4 labeled 5."
+    cleffy: >
+      Play the leap with the planned fingering. Thumb on C, pinky on G.
+      Tap both.
+    interaction:
+      type: sequence
+      keys: ["C4", "G4"]
+
+  - id: 6
+    mode: play
+    type: leap_down_with_plan
+    figure: "Keyboard. G4 labeled 5, C4 labeled 1."
+    cleffy: >
+      Leap down. Pinky on G, thumb on C.
+    interaction:
+      type: sequence
+      keys: ["G4", "C4"]
+
+  - id: 7
+    mode: see
+    type: bigger_leap
+    figure: "Keyboard. C4 labeled 1, A4 labeled 5. Thumb and pinky stretched to a 6th."
+    cleffy: >
+      Bigger leaps need a bigger stretch between thumb and pinky.
+      A 6th — C to A — pinky has to reach. Your hand opens up.
+
+  - id: 8
+    mode: play
+    type: sixth_leap
+    figure: "Keyboard. C and A glowing, numbered 1 and 5."
+    cleffy: >
+      Play C to A with fingers 1 and 5.
+    interaction:
+      type: sequence
+      keys: ["C4", "A4"]
+
+  - id: 9
+    mode: see
+    type: octave_stretch
+    figure: "Keyboard. C4 and C5 glowing. Hand stretched to its max."
+    cleffy: >
+      Octave — biggest reach. Most adult hands can do it. Kids and smaller hands can't always —
+      and that's fine. Just tap both keys. Don't force the stretch.
+
+  - id: 10
+    mode: play
+    type: octave_attempt
+    figure: "Keyboard. C4 and C5 glowing, numbered 1 and 5."
+    cleffy: >
+      Try an octave. Thumb on C, pinky reaching for the C above.
+      If it hurts, let go and just tap both.
+    interaction:
+      type: sequence
+      keys: ["C4", "C5"]
+
+  - id: 11
+    mode: see
+    type: plan_ahead
+    figure: "Staff with 3-note melody: C (thumb) - G (pinky) - A (stretch). Fingering shown above each note."
+    cleffy: >
+      Here's the real trick — planning for the NEXT leap while you're playing the current one.
+      Three notes: C, G, A. Thumb, pinky, then stretch pinky further.
+      Look ahead. Your fingers set up before the leap, not during.
+
+  - id: 12
+    mode: play
+    type: planned_melody
+    figure: "Same staff. Keyboard. Numbers above each key."
+    cleffy: >
+      Play C-G-A. Thumb, pinky, stretch pinky further.
+    interaction:
+      type: sequence
+      keys: ["C4", "G4", "A4"]
+
+  - id: 13
+    mode: play
+    type: leap_mix
+    figure: "Staff with 4 notes: C-G-E-C4 (ending on the same C). Mixed moves."
+    cleffy: >
+      Four notes. Plan your fingering as you go.
+      C (1) → G (5) → E (3) → C (1). The middle note uses a finger in between.
+    interaction:
+      type: sequence
+      keys: ["C4", "G4", "E4", "C4"]
+
+  - id: 14
+    mode: hear
+    type: mixed_drill
+    figure: "Mix of step/skip/leap and fingering questions."
+    cleffy: >
+      Four rounds.
+    interaction:
+      type: drill
+      rounds: 4
+
+  - id: 15
+    mode: hear
+    type: pre_check
+    figure: "Banner."
+    cleffy: >
+      Four quick ones.
+
+  - id: 16
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 39. Hand with fingers numbered, ready for a leap."
+    cleffy: >
+      Fingering is choreography. Plan before you play.
+      Tomorrow — the full method review. Step, skip, leap — all three, at speed.
+
+practice_this_week:
+  real_piano:
+    - "RH thumb on C. Play C-G with thumb-pinky five times. Feel the hand shape."
+    - "Stretch to A (6th). Play C-A ten times. Pinky reaches."
+    - "Octave attempt: C-C. If your hand is too small, just tap both keys — no stretch required yet."
+  virtual_only:
+    - "Replay pages 5-10 (the planned fingering exercises)"
+  estimated_time: "7 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "Staff with a leap labeled C to G. Question: which finger pair?"
+          prompt: "For a 5th in the right hand, which finger pair makes sense?"
+          options: ["1 and 2", "1 and 3", "1 and 5"]
+          correct: 2
+        - figure: "Keyboard. Thumb on Middle C, pinky on A."
+          prompt: "Can your hand play C to A comfortably with thumb-pinky?"
+          options: ["Yes (6th stretch)", "No (too far)"]
+          correct: 0
+        - figure: "Staff with a leap labeled C to G."
+          prompt: "For this leap, thumb and pinky is a good pair. Agree?"
+          options: ["Yes", "No"]
+          correct: 0
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "C4 to G4 (5th)"
+          prompt: "Did you hear a leap or a step?"
+          options: ["Leap", "Step"]
+          correct: 0
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play Middle C with your thumb, then G with your pinky."
+          accept: "C4 and G4 with declared 1 and 5"
+
+remediation:
+  id: "39.5"
+  title: "Leap fingering, slower"
+  pages: 5
+  opening_cleffy: >
+    Hand choreography is real practice. Let's slow it down and feel each leap.
+
+completion:
+  cleffy: >
+    Leaps, planned. Tomorrow we review the whole method at speed.
+  xp: 20
+  unlocks: 40

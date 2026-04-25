@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "build:mobile": "NEXT_PUBLIC_PLATFORM=mobile NEXT_PUBLIC_API_BASE_URL=https://learnwithsonata.com next build",
+    "build:mobile": "bash scripts/build-mobile.sh",
     "cap:sync": "npx cap sync",
     "cap:ios": "npx cap open ios",
     "cap:android": "npx cap open android",

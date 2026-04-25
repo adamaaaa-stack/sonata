@@ -1,0 +1,253 @@
+# ============================================================
+# LESSON 140 · Tarantella
+# Tier 4 · Act 28 · Intermediate · ACT BOSS 🎯
+# 6/8 at full speed — a fast Italian folk dance.
+# Simplified. Slow tempo. Honest about the real thing.
+# ============================================================
+id: 140
+tier: intermediate
+act: 28
+title: "Tarantella"
+subtitle: "Act 28 · Time signatures & meters"
+goal: "Play a simplified Tarantella shape in 6/8 — feel the Italian dance rhythm, even at a slow tempo."
+prereqs: [136, 137, 138, 139]
+method_focus: "combine"
+time_estimate_min: 16
+piece_context: "Act 28 boss. You've met 6/8, 3/4 vs 6/8, cut time, and sixteenths at speed. Now — a Tarantella. A fast Italian folk dance in 6/8, meant to be played wildly. You will not play it wildly today. You'll play a simplified six-note pattern at a slow tempo. The real Tarantella is much faster — you are playing its shape, not its speed."
+metaphor: "rolling-meter"
+vibe: ["playful", "honest", "focused"]
+is_act_boss: true
+piece:
+  title: "Tarantella"
+  composer: "Traditional Italian (simplified)"
+  key_center: "D minor (simplified melody)"
+  time_signature: "6/8"
+  difficulty: "intermediate — opening shape only, slow tempo, right hand only"
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy in a red neckerchief, tapping a tambourine. Italian village square behind him. Banner: ACT 28 BOSS — TARANTELLA."
+    cleffy: >
+      Act 28 boss.
+      The Tarantella. An Italian folk dance. Fast, wild, 6/8.
+      But first — the honest truth.
+
+  - id: 2
+    mode: see
+    type: honest_framing
+    figure: "Two boxes. Left: 'the real Tarantella' — fiddles, tambourines, dizzy fast tempo. Right: 'today' — a simplified six-note shape, slow tempo, one hand."
+    cleffy: >
+      The real Tarantella runs at 160, 180, sometimes faster.
+      Tonight — sixty to seventy-two. Much slower.
+      You're playing the shape of the dance, not its speed. That shape still teaches you 6/8.
+
+  - id: 3
+    mode: see
+    type: the_story
+    figure: "Illustration of a spider. Old Italian text. 'Tarantula → Tarantella'."
+    cleffy: >
+      The name comes from the tarantula.
+      Legend said dancing the Tarantella cured a tarantula bite.
+      Whether or not it works — the music survived. Hundreds of years old.
+
+  - id: 4
+    mode: see
+    type: the_shape
+    figure: "Treble staff in 6/8. Melody: D5, E5, F5, E5, D5, C5 — six eighth notes, beamed in two groups of three."
+    cleffy: >
+      Six notes. One bar of 6/8.
+      D, E, F, E, D, C.
+      Up, then down. That rocking shape — that's the Tarantella engine.
+
+  - id: 5
+    mode: hear
+    type: hear_real_tarantella
+    figure: "Play button. Caption: real Tarantella at full tempo."
+    audio:
+      A: "Traditional Italian Tarantella at full tempo — fast 6/8 with tambourine"
+    cleffy: >
+      Listen to the real thing. Fast.
+      Don't panic — you're not trying to match it.
+      Just feel the two rolling pulses. ONE-and-a, TWO-and-a.
+
+  - id: 6
+    mode: hear
+    type: hear_slow_version
+    figure: "Play button. Caption: your simplified version, 72 bpm."
+    audio:
+      A: "Simplified six-note Tarantella figure D E F E D C played at 72 bpm in 6/8"
+    cleffy: >
+      Now yours. Six notes. Seventy-two.
+      Same shape. Much slower.
+      Still has the lilt.
+
+  - id: 7
+    mode: play
+    type: notes_first
+    figure: "Keyboard. D5 E5 F5 E5 D5 C5 highlighted in order. Even quarters, no 6/8 rhythm yet."
+    cleffy: >
+      Notes first. Even quarters. No rhythm yet.
+      D, E, F, E, D, C.
+    interaction:
+      type: sequence
+      keys: ["D5","E5","F5","E5","D5","C5"]
+
+  - id: 8
+    mode: play
+    type: in_6_8_slow
+    figure: "Staff in 6/8. Same six notes as eighth notes, beamed in two triplets. Tempo 60."
+    cleffy: >
+      Now in 6/8. Six eighths. Sixty.
+      Lean on the first and fourth. ONE-and-a, TWO-and-a.
+    interaction:
+      type: rhythm
+      sequence: ["D5","E5","F5","E5","D5","C5"]
+      durations: ["eighth","eighth","eighth","eighth","eighth","eighth"]
+      tempo: 60
+
+  - id: 9
+    mode: play
+    type: with_accents
+    figure: "Same staff. Accent marks above beats 1 and 4 of the bar. Tempo 66."
+    cleffy: >
+      Same notes. Sixty-six.
+      Accent the first and fourth this time. Make the dance pulse.
+    interaction:
+      type: rhythm
+      sequence: ["D5","E5","F5","E5","D5","C5"]
+      durations: ["eighth","eighth","eighth","eighth","eighth","eighth"]
+      tempo: 66
+
+  - id: 10
+    mode: play
+    type: with_guides
+    figure: "Grand staff in 6/8. Two bars of the six-note figure, repeated. Guides on. Tempo 66."
+    cleffy: >
+      Two bars. With guides.
+      Same shape, twice through.
+    interaction:
+      type: song
+      sequence: ["D5","E5","F5","E5","D5","C5","D5","E5","F5","E5","D5","C5"]
+      guides: true
+      tempo: 66
+
+  - id: 11
+    mode: play
+    type: no_guides
+    figure: "Same two bars. No guides. Tempo 66."
+    cleffy: >
+      No guides. Read the page.
+      Feel the two pulses. Lean, lean. Lean, lean.
+    interaction:
+      type: song
+      sequence: ["D5","E5","F5","E5","D5","C5","D5","E5","F5","E5","D5","C5"]
+      guides: false
+      tempo: 66
+
+  - id: 12
+    mode: play
+    type: extended
+    figure: "Four bars. The six-note figure, then a variant: D E F E D A4 (ending on A). Repeat the opening, then the variant."
+    cleffy: >
+      Four bars. The figure plus a little ending.
+      Last bar ends low — A — to close the phrase.
+    interaction:
+      type: song
+      sequence: ["D5","E5","F5","E5","D5","C5","D5","E5","F5","E5","D5","A4","D5","E5","F5","E5","D5","C5","D5","E5","F5","E5","D5","A4"]
+      guides: true
+      tempo: 66
+
+  - id: 13
+    mode: play
+    type: step_up_tempo
+    figure: "Same four bars. Tempo 72 — a touch faster."
+    cleffy: >
+      Seventy-two. One notch up.
+      Still not Italian-village-speed. Still teaching the feel.
+    interaction:
+      type: song
+      sequence: ["D5","E5","F5","E5","D5","C5","D5","E5","F5","E5","D5","A4","D5","E5","F5","E5","D5","C5","D5","E5","F5","E5","D5","A4"]
+      guides: false
+      tempo: 72
+    followup_cleffy: >
+      That. The Tarantella shape — yours now.
+
+  - id: 14
+    mode: hear
+    type: pre_check
+    figure: "Banner — Act 28 boss mastery check."
+    cleffy: >
+      Four quick ones. Take your time.
+
+  - id: 15
+    mode: see
+    type: wrap
+    figure: "Celebration card — ACT 28 COMPLETE 🎯. Cleffy with a tambourine. A pyramid showing 28/50 acts complete. Italian village at sunset."
+    cleffy: >
+      Act 28. Closed.
+      You did not play the Tarantella at real speed today. That would take months of fast-finger work.
+      What you DID do — feel 6/8 as a dance. Tell 3/4 from 6/8. Read cut time. Play sixteenths at 100 without blurring. And carry a Tarantella shape, clean, in both hands of your ear.
+      Time signatures and meters — you can read them all now.
+      Next act — dynamics and tempo words.
+
+practice_this_week:
+  real_piano:
+    - "Play the six-note Tarantella figure every day this week. Start at 60. By Friday, try 80. If it gets sloppy, drop back."
+    - "Pick any 6/8 piece you've heard — Row Row Row, For He's a Jolly Good Fellow, any jig. Play its opening. Count ONE-and-a, TWO-and-a out loud."
+    - "Search 'tarantella piano' — listen to a few. Tchaikovsky wrote one. Rossini too. Feel the dance even at fast speeds."
+  virtual_only:
+    - "Replay pages 8, 10, and 13"
+  estimated_time: "12 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "A six-note figure beamed in two groups of three"
+          prompt: "Which meter is this?"
+          options: ["3/4", "6/8", "Cut time"]
+          correct: 1
+        - figure: "A 6/8 bar with accents on notes 1 and 4"
+          prompt: "How many big beats are felt per bar?"
+          options: ["Two", "Three", "Six"]
+          correct: 0
+        - figure: "The six-note melody D E F E D C on staff"
+          prompt: "What country did the Tarantella come from?"
+          options: ["France", "Italy", "Germany"]
+          correct: 1
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "The simplified Tarantella figure at 66 bpm"
+          prompt: "How many big pulses do you feel per bar?"
+          options: ["Two", "Three", "Six"]
+          correct: 0
+        - audio: "A real Tarantella and a waltz played back to back"
+          prompt: "Which is the Tarantella?"
+          options: ["First", "Second"]
+          correct: 0
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play the six-note Tarantella figure — D5, E5, F5, E5, D5, C5 — in 6/8 at 66 bpm, leaning on beats 1 and 4."
+          accept: "D5 E5 F5 E5 D5 C5 as six eighth notes in 6/8 at 66 bpm"
+
+remediation:
+  id: "140.5"
+  title: "Tarantella, slower still"
+  pages: 11
+  opening_cleffy: >
+    Act boss, and a new meter still fresh — expected to be a stretch.
+    We'll drop to 54 bpm, play three notes at a time, then six, then the full phrase.
+    The real Tarantella is fast. You are learning the shape, not the speed. No rush.
+
+completion:
+  cleffy: >
+    Act 28 sealed. Time signatures — all the important ones, now under your hands.
+    4/4, 3/4, 6/8, cut time. You can read them. You can feel them.
+    Tomorrow — dynamics and tempo words. How to play loud, soft, fast, slow.
+  xp: 30
+  unlocks: 141

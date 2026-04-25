@@ -1,0 +1,206 @@
+# ============================================================
+# LESSON 84 · Finger substitution
+# Tier 3 · Act 17 · Low-intermediate
+# Swap fingers on a held note without re-striking it.
+# ============================================================
+id: 84
+tier: low-intermediate
+act: 17
+title: "Finger substitution"
+subtitle: "Act 17 · Fingering"
+goal: "Swap fingers on a held key silently, so the hand can reposition mid-phrase."
+prereqs: [83, 82, 81, 75]
+method_focus: "play"
+time_estimate_min: 12
+piece_context: "The third and quietest fingering trick. Same key stays down. Different finger takes over."
+metaphor: "hand-as-choreography"
+vibe: ["focused", "quiet"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Close-up of a hand holding one key. Arrow showing finger 3 leaving the key as finger 1 takes over. The key never lifts."
+    cleffy: >
+      One key. Two fingers. No re-striking.
+      Today's trick is the sneakiest. Finger substitution.
+
+  - id: 2
+    mode: see
+    type: concept
+    figure: "Animated diagram. Finger 3 is pressing E4. Finger 1 slides in, takes over. Finger 3 releases. E4 never stops sounding."
+    cleffy: >
+      Press a note with one finger. While it's held — slide another finger underneath.
+      The new finger takes the weight. The old finger lifts off. The key never rises.
+      The note keeps sounding. Nobody hears the swap.
+
+  - id: 3
+    mode: see
+    type: why_substitute
+    figure: "Staff with a long held note, then a fast run beginning. Finger 3 on the held note, finger 1 waiting to take over before the run."
+    cleffy: >
+      Why? Because sometimes you need a finger free.
+      You're holding a note. A fast passage is coming up. The finger that's holding is the finger you need.
+      Swap, then run.
+
+  - id: 4
+    mode: hear
+    type: listen_substitute
+    figure: "Play button. A held note with no audible break."
+    audio:
+      A: "A single sustained E4, held for four seconds, with a substitution happening in the middle"
+    cleffy: >
+      Listen. One note held for four seconds.
+      Somewhere in the middle, fingers swapped. You can't hear it. That's the point.
+
+  - id: 5
+    mode: see
+    type: mechanic
+    figure: "Side-view of a hand on a white key. Finger 3 pressing. Finger 1 arriving with the TIP touching the key just behind the other fingertip."
+    cleffy: >
+      The mechanic. Finger 3 is pressing the key.
+      Finger 1 arrives — tip touches the key next to the other finger.
+      Weight shifts to finger 1. Finger 3 floats up.
+      Key stays down the whole time.
+
+  - id: 6
+    mode: play
+    type: first_substitute
+    figure: "Keyboard. E4 glowing. Label: press with finger 3, then substitute to finger 1."
+    cleffy: >
+      Try it. Press E with finger 3. Hold it.
+      Now slide your thumb tip onto the same key, next to finger 3.
+      Shift your weight to the thumb. Lift finger 3. Key should still be down.
+    interaction:
+      type: sequence
+      keys: ["E4"]
+
+  - id: 7
+    mode: play
+    type: substitute_three_to_one
+    figure: "Keyboard. E4 held. Then sequence runs E4 → F4 → G4 with thumb-2-3 after substitution."
+    cleffy: >
+      Now in context. Press E with finger 3. Substitute to thumb — silently.
+      Now your thumb is on E, fingers 2-3-4-5 are free. Play E, F, G with 1-2-3.
+    interaction:
+      type: sequence
+      keys: ["E4","F4","G4"]
+
+  - id: 8
+    mode: see
+    type: another_use
+    figure: "Staff: long held C, then a phrase that needs the hand to shift position. Substitution marked with tiny 5→1."
+    cleffy: >
+      Another use. You're holding a long note with your pinky.
+      Substitute to the thumb. Now the hand can reach up the keyboard without letting the note go.
+
+  - id: 9
+    mode: play
+    type: five_to_one
+    figure: "Keyboard. G4 glowing. Press with pinky, substitute to thumb, then reach up to C5."
+    cleffy: >
+      Pinky on G. Hold it.
+      Substitute — thumb slides onto G. Pinky lifts.
+      Now your hand is shifted up. Play C5.
+    interaction:
+      type: sequence
+      keys: ["G4","C5"]
+
+  - id: 10
+    mode: see
+    type: written_notation
+    figure: "Staff snippet with a note and tiny numbers '3-1' above it, connected by a small hyphen or slash."
+    cleffy: >
+      In sheet music, substitution is written as two numbers on one note.
+      "3-1" means start with finger 3, end with finger 1.
+      Same key. Two fingers. In order.
+
+  - id: 11
+    mode: play
+    type: read_substitution
+    figure: "Staff: F4 marked 2-1, then a short phrase F-G-A-B with fingers 1-2-3-4."
+    cleffy: >
+      Read it. F marked 2-1. Press F with pointer, substitute to thumb.
+      Then play G-A-B with fingers 2-3-4. Your hand's already in position because you substituted.
+    interaction:
+      type: sequence
+      keys: ["F4","G4","A4","B4"]
+
+  - id: 12
+    mode: play
+    type: in_context
+    figure: "Staff: E4 held for two beats with 3-1 substitution, then a scale run E-F-G-A-B-C up using thumb-under after."
+    cleffy: >
+      Real use. Hold E with finger 3 — substitute to thumb. Then scale up E-F-G-A-B-C.
+      With the thumb on E, fingers 2-3-4-5 and back to thumb are ready to roll.
+    interaction:
+      type: rhythm
+      sequence: ["E4","F4","G4","A4","B4","C5"]
+      durations: ["half","quarter","quarter","quarter","quarter","quarter"]
+      tempo: 70
+    followup_cleffy: >
+      Silent swap. Smooth run. That's the whole trick.
+
+  - id: 13
+    mode: hear
+    type: pre_check
+    figure: "Banner."
+    cleffy: >
+      Three quick ones.
+
+  - id: 14
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 84. A held note with two fingers side by side on it, one lifting."
+    cleffy: >
+      Substitution. Same key, two fingers, no break.
+      Tomorrow — the boss. Minuet in G, with every fingering planned.
+
+practice_this_week:
+  real_piano:
+    - "Pick any note. Press with finger 3. Substitute to thumb. Substitute back. Do this ten times on the same key."
+    - "Try a held note with 5-1 substitution. Feel the hand shift up the keyboard."
+    - "Listen: if the note wobbles or double-strikes, the weight shifted too fast. Slow down."
+  virtual_only:
+    - "Replay pages 6-7 and 9"
+  estimated_time: "5 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "Note marked 3-1"
+          prompt: "What does 3-1 mean?"
+          options: ["Play twice", "Two fingers, same key, in order", "Skip the note"]
+          correct: 1
+        - figure: "Hand substituting thumb for finger 3 on E"
+          prompt: "Does the key come back up during the swap?"
+          options: ["Yes", "No — it stays pressed"]
+          correct: 1
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "A sustained note with a silent finger swap"
+          prompt: "How many times was the note struck?"
+          options: ["Once", "Twice"]
+          correct: 0
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play E4. Press with finger 3. Substitute to thumb. Keep the note sounding."
+          accept: "E4 sustained with one strike"
+
+remediation:
+  id: "84.5"
+  title: "Substitution, slower"
+  pages: 6
+  opening_cleffy: >
+    Silent swap. Tricky at first. Let's slow it down to single-key drills.
+
+completion:
+  cleffy: >
+    Substitution, understood. Three tricks now in your hand — thumb-under, cross-over, substitution.
+    Tomorrow: act boss. Minuet in G, with a planned hand.
+  xp: 20
+  unlocks: 85

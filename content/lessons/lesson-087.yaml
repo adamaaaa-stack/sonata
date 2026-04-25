@@ -1,0 +1,221 @@
+# ============================================================
+# LESSON 87 · Major vs minor
+# Tier 3 · Act 18 · Low-Intermediate
+# Bright vs sad — hear the difference.
+# ============================================================
+id: 87
+tier: low-intermediate
+act: 18
+title: "Major vs minor"
+subtitle: "Act 18 · Chords"
+goal: "Hear and play the difference between a major triad and a minor triad."
+prereqs: [86, 75]
+method_focus: "hear"
+time_estimate_min: 13
+piece_context: "Triads come in two main flavors. Same shape, one note moves by a half step — and the whole mood changes."
+metaphor: "bright-and-sad"
+vibe: ["gentle", "focused"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Split screen. Left: a sun labeled MAJOR. Right: a rain cloud labeled MINOR. Both with the same triad-snowman shape underneath."
+    cleffy: >
+      Same three notes. One note moves a hair.
+      The whole mood flips.
+      That's major and minor.
+
+  - id: 2
+    mode: hear
+    type: hear_both
+    figure: "Two play buttons — MAJOR and MINOR."
+    audio:
+      A: "C major triad (C-E-G)"
+      B: "C minor triad (C-Eb-G)"
+    cleffy: >
+      First one — bright. That's major.
+      Second one — sad. That's minor.
+      Root is the same. Top is the same. Middle note moved.
+
+  - id: 3
+    mode: see
+    type: which_note_moves
+    figure: "C major triad and C minor triad side by side. Arrow showing E dropped to E-flat. Label: THE MIDDLE NOTE."
+    cleffy: >
+      The third moves. The middle note.
+      Major — the third is a little higher. Minor — the third is a half step lower.
+      Root and fifth don't change.
+
+  - id: 4
+    mode: see
+    type: half_step_down
+    figure: "Keyboard showing C major triad (C-E-G), then C minor triad (C-Eb-G). E-flat is the black key just below E."
+    cleffy: >
+      From C major to C minor — E drops to E-flat.
+      E-flat is the black key just below E.
+      Same root C. Same fifth G. Just the middle pulled down one.
+
+  - id: 5
+    mode: play
+    type: play_c_major
+    figure: "Keyboard. C4, E4, G4 glowing. Label: C MAJOR."
+    cleffy: >
+      C major first. Thumb, middle, pinky. C, E, G.
+    interaction:
+      type: sequence
+      keys: [["C4","E4","G4"]]
+
+  - id: 6
+    mode: play
+    type: play_c_minor
+    figure: "Keyboard. C4, Eb4, G4 glowing. Eb shown as a black key."
+    cleffy: >
+      Now C minor. Middle finger slides down to E-flat — the black key.
+      C, E-flat, G.
+    interaction:
+      type: sequence
+      keys: [["C4","Eb4","G4"]]
+    followup_cleffy: >
+      Feel the mood change?
+
+  - id: 7
+    mode: hear
+    type: spot_major_minor
+    figure: "Round counter 1 of 4."
+    cleffy: >
+      Four rounds. Major or minor?
+    interaction:
+      type: drill
+      rounds: 4
+      options: ["Major (bright)", "Minor (sad)"]
+
+  - id: 8
+    mode: see
+    type: a_minor
+    figure: "Staff showing A-C-E. Label: A MINOR. All white keys."
+    cleffy: >
+      Here's A minor. Root A. Third C. Fifth E.
+      All white keys. But it's minor — the third between A and C is the small kind.
+
+  - id: 9
+    mode: play
+    type: play_a_minor
+    figure: "Keyboard. A3, C4, E4 glowing."
+    cleffy: >
+      Play A minor. A, C, E together.
+    interaction:
+      type: sequence
+      keys: [["A3","C4","E4"]]
+
+  - id: 10
+    mode: see
+    type: d_minor_e_minor
+    figure: "Two staves. Left: D-F-A labeled D MINOR. Right: E-G-B labeled E MINOR."
+    cleffy: >
+      Two more. D minor is D, F, A. E minor is E, G, B.
+      All white keys. All minor.
+      The ear tells you before the theory does.
+
+  - id: 11
+    mode: play
+    type: play_d_minor
+    figure: "Keyboard. D4, F4, A4 glowing."
+    cleffy: >
+      Play D minor. D, F, A.
+    interaction:
+      type: sequence
+      keys: [["D4","F4","A4"]]
+
+  - id: 12
+    mode: play
+    type: major_minor_pair
+    figure: "Keyboard. C major then C minor shown side by side."
+    cleffy: >
+      Now both. C major, then C minor. Same root. Hear the drop.
+    interaction:
+      type: sequence
+      keys: [["C4","E4","G4"],["C4","Eb4","G4"]]
+
+  - id: 13
+    mode: hear
+    type: mixed_drill
+    figure: "Round counter 1 of 4."
+    cleffy: >
+      Mixed. Major or minor?
+    interaction:
+      type: drill
+      rounds: 4
+      options: ["Major", "Minor"]
+
+  - id: 14
+    mode: hear
+    type: pre_check
+    figure: "Banner."
+    cleffy: >
+      Three quick ones.
+
+  - id: 15
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 87. A sun and a cloud sharing the same triad shape."
+    cleffy: >
+      Major, bright. Minor, sad. One note does all the work.
+      Tomorrow — same chords, but rolled. One note at a time.
+
+practice_this_week:
+  real_piano:
+    - "Play C major, then C minor. Back and forth. Feel the mood flip."
+    - "Try A minor, D minor, E minor. All white keys. All sad."
+    - "Find a song you like. Is it major or minor? Most will be obvious once you listen for it."
+  virtual_only:
+    - "Replay pages 5-6 and 11-12 until the shift feels automatic."
+  estimated_time: "5 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "C major triad and C minor triad side by side."
+          prompt: "Which note moves between major and minor?"
+          options: ["The root", "The third (middle)", "The fifth (top)"]
+          correct: 1
+        - figure: "Keyboard with A-C-E highlighted."
+          prompt: "Is this A triad major or minor?"
+          options: ["Major", "Minor"]
+          correct: 1
+        - figure: "Label: C major."
+          prompt: "How does the third of a major triad compare to the third of a minor triad?"
+          options: ["A half step higher", "A half step lower", "The same"]
+          correct: 0
+    hear:
+      pass_threshold: 2
+      questions:
+        - audio: "A major triad (bright)"
+          prompt: "Major or minor?"
+          options: ["Major", "Minor"]
+          correct: 0
+        - audio: "A minor triad (sad)"
+          prompt: "Major or minor?"
+          options: ["Major", "Minor"]
+          correct: 1
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play A minor — A, C, E together."
+          accept: "A3, C4, E4 sounded simultaneously"
+
+remediation:
+  id: "87.5"
+  title: "Major and minor, slower"
+  pages: 7
+  opening_cleffy: >
+    Major vs minor is an ear thing before it's a theory thing. Let's just listen — a lot — before we play again.
+
+completion:
+  cleffy: >
+    Two flavors. Known.
+    Tomorrow — broken chords.
+  xp: 18
+  unlocks: 88

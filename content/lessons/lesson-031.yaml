@@ -1,0 +1,239 @@
+# ============================================================
+# LESSON 31 · LH skips
+# Tier 2 · Act 7 · Elementary
+# Central metaphor: SKIPS WORK IN BASS TOO
+# ============================================================
+id: 31
+tier: elementary
+act: 7
+title: "Skips in the left hand"
+subtitle: "Same rule, new staff"
+goal: "Read and play skips on the bass staff with your left hand."
+prereqs: [21, 30]
+method_focus: "skips"
+time_estimate_min: 12
+piece_context: null
+metaphor: "hop-over-one"
+vibe: ["gentle", "playful"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Bass staff with a skip pair — line 2 to line 3."
+    cleffy: >
+      Steps work in the bass staff. So do skips.
+      Same rule. Same shape. Just the left hand this time.
+
+  - id: 2
+    mode: see
+    type: the_rule_again
+    figure: "Chart. Step = kinds switch. Skip = kinds stay the same."
+    cleffy: >
+      Remember — skips keep kinds.
+      Line to line. Or space to space.
+      One spot got hopped over in the middle.
+
+  - id: 3
+    mode: see
+    type: bass_skip_examples
+    figure: "Bass staff with three skip pairs: line→line up, space→space up, line→line down."
+    cleffy: >
+      Three bass-staff skips.
+      Same shape whether they go up or down. Both on lines, or both in spaces.
+
+  - id: 4
+    mode: see
+    type: interactive
+    figure: "Bass staff with a pair: line 2 → line 3."
+    cleffy: >
+      Skip or not?
+    interaction:
+      type: choice
+      options: ["Skip", "Not a skip"]
+      correct: 0
+
+  - id: 5
+    mode: see
+    type: interactive
+    figure: "Bass staff with a pair: line 2 → space 2."
+    cleffy: >
+      And this?
+    interaction:
+      type: choice
+      options: ["Skip", "Not a skip"]
+      correct: 1
+    corrections:
+      - wrong_label: "picked_skip"
+        cleffy: >
+          Line to space. Kind switched. That's a step, not a skip.
+
+  - id: 6
+    mode: see
+    type: drill
+    figure: "Round counter 1 of 6. Step, skip, or bigger?"
+    cleffy: >
+      Six rounds on the bass staff. Step, skip, or bigger?
+    interaction:
+      type: drill
+      rounds: 6
+      options: ["Step", "Skip", "Bigger"]
+
+  - id: 7
+    mode: hear
+    type: bass_skip_sound
+    figure: "Keyboard. C3 to E3 played."
+    audio:
+      A: "C3 to E3 (bass skip)"
+    cleffy: >
+      Bass-range skip. Two left-hand fingers apart — pinky to middle. A small hop.
+
+  - id: 8
+    mode: hear
+    type: skip_or_step_bass
+    figure: "Round counter 1 of 4."
+    cleffy: >
+      Four by ear. Step or skip in the bass range?
+    interaction:
+      type: drill
+      rounds: 4
+      options: ["Step", "Skip"]
+
+  - id: 9
+    mode: play
+    type: lh_skip_up
+    figure: "Keyboard. C3 glowing (LH pinky 5), E3 glowing (LH middle 3). D3 dimmed (hopped over)."
+    cleffy: >
+      Left hand, skip up from bass C. Pinky, then middle finger.
+      C3 to E3. You're hopping over D3.
+    interaction:
+      type: sequence
+      keys: ["C3", "E3"]
+
+  - id: 10
+    mode: play
+    type: lh_skip_down
+    figure: "Keyboard. G3 glowing (LH thumb 1), E3 glowing (LH middle 3)."
+    cleffy: >
+      Now skip down. Thumb, then middle. G3 to E3.
+    interaction:
+      type: sequence
+      keys: ["G3", "E3"]
+
+  - id: 11
+    mode: play
+    type: step_and_skip_mixed
+    figure: "Keyboard. LH position. A melody: C3 → D3 (step) → F3 (skip) → E3 (step)."
+    cleffy: >
+      Step and skip, both hands of experience coming together.
+      C3 to D3 (step up). D3 to F3 (skip up). F3 to E3 (step down).
+      Play it with LH.
+    interaction:
+      type: sequence
+      keys: ["C3", "D3", "F3", "E3"]
+
+  - id: 12
+    mode: read
+    type: read_bass_skip
+    figure: "Bass staff with skip pair. Keyboard below."
+    cleffy: >
+      See a skip on the bass staff. Play a skip up in the LH.
+    interaction:
+      type: shape
+      shape_type: "skip"
+      direction: "up"
+
+  - id: 13
+    mode: read
+    type: read_melody
+    figure: "Bass staff with 4 notes. Shape: step up, skip up, step down."
+    cleffy: >
+      Four-note bass melody. Step up, skip up, step down. Read and play.
+    interaction:
+      type: sequence
+      shape: ["step_up", "skip_up", "step_down"]
+
+  - id: 14
+    mode: hear
+    type: drill_mixed
+    figure: "Mix of step/skip bass questions."
+    cleffy: >
+      Four rounds.
+    interaction:
+      type: drill
+      rounds: 4
+
+  - id: 15
+    mode: hear
+    type: pre_check
+    figure: "Banner."
+    cleffy: >
+      Four quick ones.
+
+  - id: 16
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 31. Bass staff with step pair and skip pair labeled side by side."
+    cleffy: >
+      Skips, locked in for both hands.
+      Tomorrow we add rhythm to the left hand. Then the grand staff. Then we play.
+
+# ─── Practice this week ────────────────────────────────
+practice_this_week:
+  real_piano:
+    - "Left hand, pinky on C3, middle on E3. Play C3-E3, then E3-C3. Skip up, skip down. Ten times."
+    - "Mix it: C3 (step to) D3 (step to) E3 (skip to) G3 (skip down to) E3. Slow."
+  virtual_only:
+    - "Replay pages 11-13 (mixed step + skip reading)"
+  estimated_time: "6 min/day"
+
+# ─── Mastery check ──────────────────────────────────────
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 3
+      questions:
+        - figure: "Bass staff, line 2 to line 3."
+          prompt: "Step, skip, or bigger?"
+          options: ["Step", "Skip", "Bigger"]
+          correct: 1
+        - figure: "Bass staff, line 1 to space 1."
+          prompt: "Step, skip, or bigger?"
+          options: ["Step", "Skip", "Bigger"]
+          correct: 0
+        - figure: "Bass staff, space 2 to space 3."
+          prompt: "Step, skip, or bigger?"
+          options: ["Step", "Skip", "Bigger"]
+          correct: 1
+    hear:
+      pass_threshold: 2
+      questions:
+        - audio: "C3 to E3"
+          prompt: "Step or skip?"
+          options: ["Step", "Skip"]
+          correct: 1
+        - audio: "F3 to G3"
+          prompt: "Step or skip?"
+          options: ["Step", "Skip"]
+          correct: 0
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play a skip up with your left hand, anywhere in the low half of the keyboard."
+          accept: "two white keys one apart in low half"
+
+# ─── Remediation ────────────────────────────────────────
+remediation:
+  id: "31.5"
+  title: "LH skips, slower"
+  pages: 5
+  opening_cleffy: >
+    Step/skip mix-up is normal. Same drill as before, slower pacing, both hands available.
+
+# ─── Completion ─────────────────────────────────────────
+completion:
+  cleffy: >
+    Both moves, both hands, both staves.
+    The method is running on full power now.
+  xp: 20
+  unlocks: 32

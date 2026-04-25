@@ -1,0 +1,208 @@
+id: 57
+tier: elementary
+act: 12
+title: "Shape of a phrase"
+subtitle: "Music breathes"
+goal: "Feel how a musical phrase rises and falls — and play it that way."
+prereqs: [56]
+method_focus: "dynamics"
+time_estimate_min: 10
+piece_context: null
+metaphor: "phrase-is-a-sentence"
+vibe: ["gentle", "serious"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Wave shape drawn over a staff — a phrase arches up and comes back down."
+    cleffy: >
+      A phrase is a musical sentence. It has a beginning, a middle, and an end.
+      And just like a sentence, it has a shape. It rises, peaks, relaxes.
+
+  - id: 2
+    mode: see
+    type: phrase_arch
+    figure: "Arch drawn over 5 notes on a staff."
+    cleffy: >
+      Most phrases arch. They start quiet, get louder in the middle, soften at the end.
+      That's called phrase shape — and you can play it even without markings.
+
+  - id: 3
+    mode: see
+    type: sentence_comparison
+    figure: "Side by side: spoken sentence 'I really love this' with stress on middle. And a musical phrase with stress in the middle."
+    cleffy: >
+      Think of a sentence. You don't say every word at the same volume.
+      You stress the important one in the middle.
+      Music is the same.
+
+  - id: 4
+    mode: hear
+    type: flat_vs_shaped
+    figure: "Two play buttons."
+    audio:
+      A: "Phrase played flat — same volume throughout"
+      B: "Same phrase played with shape — arches up and down"
+    cleffy: >
+      Listen. Flat first. Then shaped.
+      Same notes. Completely different feeling.
+
+  - id: 5
+    mode: hear
+    type: which_is_shaped
+    figure: "Two play buttons."
+    cleffy: >
+      Two recordings. Which one is shaped?
+    interaction:
+      type: choice
+      options: ["A", "B"]
+      correct: 1
+
+  - id: 6
+    mode: see
+    type: arch_example
+    figure: "Staff with a 5-note phrase. Dynamics drawn: p → louder → peak → softer → p."
+    cleffy: >
+      Here's a phrase with dynamics written in.
+      Starts p. Grows. Peaks in the middle. Comes back down.
+
+  - id: 7
+    mode: play
+    type: play_shaped
+    figure: "Keyboard. C-D-E-D-C. Arrow shows volume rising then falling."
+    cleffy: >
+      Play this: C D E D C.
+      Start soft. Get a bit louder at E (the peak). Come back to soft.
+    interaction:
+      type: sequence
+      keys: ["C4","D4","E4","D4","C4"]
+
+  - id: 8
+    mode: play
+    type: arch_2
+    figure: "Keyboard. Scale up and back. Arrow shows arch."
+    cleffy: >
+      Seven-note arch: C-D-E-F-E-D-C. Shape it.
+    interaction:
+      type: sequence
+      keys: ["C4","D4","E4","F4","E4","D4","C4"]
+
+  - id: 9
+    mode: hear
+    type: drill_shapes
+    figure: "Round counter 1 of 4."
+    cleffy: >
+      Four rounds. Shaped or flat?
+    interaction:
+      type: drill
+      rounds: 4
+      options: ["Shaped", "Flat"]
+
+  - id: 10
+    mode: read
+    type: ode_to_joy_shaped
+    figure: "First phrase of Ode to Joy with arch drawn above it."
+    cleffy: >
+      Try it with Ode to Joy's first phrase. E E F G — that's the climb.
+      Get slightly louder as you rise. Then G F E D — softer coming down.
+    interaction:
+      type: sequence
+      keys: ["E4","E4","F4","G4","G4","F4","E4","D4"]
+
+  - id: 11
+    mode: see
+    type: not_every_phrase
+    figure: "Two phrases side by side. One arches up. One stays flat. Label: some phrases are flat on purpose."
+    cleffy: >
+      Not every phrase arches. Some stay flat, some fall, some rise.
+      Shape depends on the music. Your job is to notice what the melody is doing.
+
+  - id: 12
+    mode: play
+    type: falling_phrase
+    figure: "Staff: G-F-E-D-C, all descending. Label: falling phrase."
+    cleffy: >
+      Descending phrase. Start slightly louder, fade as it falls.
+    interaction:
+      type: sequence
+      keys: ["G4","F4","E4","D4","C4"]
+
+  - id: 13
+    mode: hear
+    type: shape_types
+    figure: "Three recordings."
+    audio:
+      A: "Rising phrase"
+      B: "Falling phrase"
+      C: "Arched phrase"
+    cleffy: >
+      Three shapes. Listen and notice how each feels.
+
+  - id: 14
+    mode: hear
+    type: mixed
+    figure: "Four rounds."
+    cleffy: >
+      Mixed.
+    interaction:
+      type: drill
+      rounds: 4
+
+  - id: 15
+    mode: hear
+    type: pre_check
+    figure: "Banner."
+    cleffy: >
+      Four quick ones.
+
+  - id: 16
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 57. A phrase with dynamic arch drawn above."
+    cleffy: >
+      Phrases have shape. Your hand can give it to them.
+      Tomorrow — the exact symbols for volume changes. Crescendo and diminuendo.
+
+practice_this_week:
+  real_piano:
+    - "Play Ode to Joy with phrase shape — each phrase arches slightly."
+    - "Don't overdo it at first. Just a little louder in the middle, a little softer at the ends."
+  virtual_only:
+    - "Replay page 4 (flat vs shaped comparison)"
+  estimated_time: "7 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 1
+      questions:
+        - figure: "Staff with a rising phrase."
+          prompt: "As this phrase rises, should the volume typically..."
+          options: ["Stay flat", "Grow slightly", "Drop"]
+          correct: 1
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "Shaped phrase"
+          prompt: "Is this flat or shaped?"
+          options: ["Flat", "Shaped"]
+          correct: 1
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play a C-D-E-D-C phrase with an arch shape."
+          accept: "C-D-E-D-C with volume increase at E"
+
+remediation:
+  id: "57.5"
+  title: "Phrase shape, slower"
+  pages: 5
+  opening_cleffy: >
+    Phrase shape is a feel thing. Slow examples, clear arches.
+
+completion:
+  cleffy: >
+    Phrases can breathe now. Your playing will feel more alive.
+  xp: 20
+  unlocks: 58

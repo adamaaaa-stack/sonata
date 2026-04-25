@@ -1,0 +1,209 @@
+# ============================================================
+# LESSON 179 · Counter-melody awareness
+# Tier 5 · Act 36 · Upper-Intermediate
+# Hear the left hand as a second tune, not a bass support.
+# ============================================================
+id: 179
+tier: upper-intermediate
+act: 36
+title: "Counter-melody awareness"
+subtitle: "Act 36 · Counterpoint intro"
+goal: "Train the ear to hear the left-hand line as its own melody, following it consciously."
+prereqs: [178, 177]
+method_focus: "hear"
+time_estimate_min: 13
+piece_context: "Your eyes learned to read both staves. Your hands learned to share weight. Now the ear. Most people's ear locks onto the top of any texture. Time to widen it."
+metaphor: "hands-as-singers"
+vibe: ["quiet", "focused"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy cupping a hand to his ear. A grand staff behind him with the bottom staff glowing warmly. Banner: LISTEN DOWN."
+    cleffy: >
+      Today — the ear.
+      People hear the top of any music first. It's how ears are wired.
+      Today we widen it. Listen down.
+
+  - id: 2
+    mode: hear
+    type: top_vs_bottom
+    figure: "Play button. Caption: a two-voice phrase."
+    audio:
+      A: "A Bach-style two-voice phrase, both voices equal volume, moderate tempo"
+    cleffy: >
+      Listen once.
+      What did you follow?
+      Most people follow the top voice. That's fine — it's louder in your head.
+
+  - id: 3
+    mode: hear
+    type: listen_again_bottom
+    figure: "Same play button. Label: LISTEN AGAIN — FOLLOW THE BOTTOM."
+    audio:
+      A: "Same Bach-style two-voice phrase, unchanged"
+    cleffy: >
+      Same phrase. Don't touch the top this time.
+      Follow only the bottom voice. Hum it in your head if it helps.
+
+  - id: 4
+    mode: see
+    type: counter_melody_name
+    figure: "Two ribbon-lines stacked — top ribbon labelled MELODY, bottom ribbon labelled COUNTER-MELODY. Both colored equally."
+    cleffy: >
+      A name for the bottom voice. Counter-melody.
+      Not "bass." Not "accompaniment." A second tune that runs with the main one.
+      Counter-melody — the other tune.
+
+  - id: 5
+    mode: hear
+    type: isolate_counter
+    figure: "Play button. Caption: just the counter-melody."
+    audio:
+      A: "Just the bottom voice of the Bach-style phrase, alone"
+    cleffy: >
+      Just the counter-melody alone. No top voice.
+      See? A real tune. Singable.
+
+  - id: 6
+    mode: hear
+    type: counter_in_mix
+    figure: "Play button. Caption: full texture — now try to pull the bottom voice forward with your ears."
+    audio:
+      A: "The full two-voice phrase again, both voices equal"
+    cleffy: >
+      Full thing again. Pull the bottom voice forward with your ears.
+      Ignore the top. Let it blur.
+      Harder. But trainable.
+
+  - id: 7
+    mode: see
+    type: the_shape
+    figure: "Bass staff. A counter-melody line: C3 D3 E3 C3 G3 E3 C3 — marked with phrase arrows."
+    cleffy: >
+      The counter-melody has its own shape.
+      Rise, turn, come home — just like any melody.
+      Read it as a tune, not as bass notes.
+
+  - id: 8
+    mode: play
+    type: play_counter_alone
+    figure: "Bass staff. C3 D3 E3 C3 G3 E3 C3. Keyboard below."
+    cleffy: >
+      Play the counter-melody alone. With feeling.
+      Treat it like the main tune — because right now, it is.
+    interaction:
+      type: sequence
+      keys: ["C3","D3","E3","C3","G3","E3","C3"]
+
+  - id: 9
+    mode: play
+    type: sing_and_play
+    figure: "Keyboard with LH notes glowing. Speech bubble from Cleffy: 'hum it as you play.'"
+    cleffy: >
+      Play it again. This time hum along if you can.
+      Any pitch — just match the shape. Humming teaches the ear faster than anything.
+    interaction:
+      type: sequence
+      keys: ["C3","D3","E3","C3","G3","E3","C3"]
+
+  - id: 10
+    mode: hear
+    type: which_voice_drill
+    figure: "Four rounds. Banner: 'Which voice is doing what?'"
+    cleffy: >
+      Four rounds. A two-voice phrase plays. Pick which voice moves more.
+    interaction:
+      type: drill
+      rounds: 4
+      options: ["Top voice moves more", "Bottom voice moves more", "They move equally"]
+
+  - id: 11
+    mode: see
+    type: two_tunes_diagram
+    figure: "Grand staff with both voices drawn. Arrows following the shape of each — both marked with their own peak and valley. Caption: TWO STORIES, SAME TIME."
+    cleffy: >
+      Each voice has its own story.
+      Its own rises. Its own landings.
+      When you play, you'll shape both. Not just the top.
+
+  - id: 12
+    mode: play
+    type: bring_out_lh
+    figure: "Grand staff. RH simple line: E5 E5 E5 E5. LH counter-melody: C3 D3 E3 C3. Arrow: LH LOUDER — just to feel the voice."
+    cleffy: >
+      Now a flip. Play both hands — but make the LEFT hand the tune.
+      Right hand, background. Left hand, sing.
+      Strange feeling. Worth doing.
+    interaction:
+      type: rhythm
+      sequence: [["E5","C3"], ["E5","D3"], ["E5","E3"], ["E5","C3"]]
+      durations: ["quarter","quarter","quarter","quarter"]
+      tempo: 55
+    followup_cleffy: >
+      That. The left hand as the tune. You can hear it now.
+
+  - id: 13
+    mode: hear
+    type: pre_check
+    figure: "Banner."
+    cleffy: >
+      Three quick ones.
+
+  - id: 14
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 179. Two ribbons of color, equally bright. Banner: TWO TUNES, HEARD."
+    cleffy: >
+      The ear widened. Two tunes heard at once.
+      Tomorrow — the act boss. Your first counterpoint piece. Bach.
+
+practice_this_week:
+  real_piano:
+    - "Pick any song with accompaniment you've played — Amazing Grace, Ode to Joy, anything. Play it with the LEFT hand louder than the right for a minute. Strange, but it teaches the ear."
+    - "Put on any recording with multiple instruments (Bach is best, but anything works). For 30 seconds, listen only to the lowest instrument. Don't let your ear drift up."
+  virtual_only:
+    - "Replay pages 3, 5, and 12 — each one trains a different ear habit."
+  estimated_time: "10 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "Two ribbons, top labelled MELODY and bottom labelled COUNTER-MELODY"
+          prompt: "What is a counter-melody?"
+          options: ["A chord under the tune", "A second tune that runs with the main one", "A fast bass line"]
+          correct: 1
+        - figure: "Grand staff with two voices"
+          prompt: "In counterpoint, should the left-hand line sound like…?"
+          options: ["A chord progression", "A melody of its own", "Random notes"]
+          correct: 1
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "A two-voice phrase where the bottom voice has a distinct melodic shape"
+          prompt: "Does the bottom voice have a melodic shape — or is it just bass notes?"
+          options: ["It's a melody", "It's just bass support"]
+          correct: 0
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play the counter-melody: C3 D3 E3 C3 G3 E3 C3, with shape — like it's the main tune."
+          accept: "The seven bass notes in order, with expressive phrasing"
+
+remediation:
+  id: "179.5"
+  title: "Hearing the counter-melody, slower"
+  pages: 7
+  opening_cleffy: >
+    The ear takes time to widen. That's normal.
+    We'll isolate each voice, then mix them, slower.
+
+completion:
+  cleffy: >
+    Two tunes heard. Counter-melody no longer invisible.
+    Tomorrow — Bach. Your first counterpoint piece.
+  xp: 17
+  unlocks: 180

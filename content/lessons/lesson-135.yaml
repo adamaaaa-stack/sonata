@@ -1,0 +1,254 @@
+# ============================================================
+# LESSON 135 · The Entertainer
+# Tier 4 · Act 27 · Intermediate · ACT BOSS 🎯
+# Scott Joplin's The Entertainer — opening phrase only, very slow.
+# Goal: introduce SYNCOPATION. Not to play the piece at tempo.
+# ============================================================
+id: 135
+tier: intermediate
+act: 27
+title: "The Entertainer"
+subtitle: "Act 27 · Syncopation in action"
+goal: "Feel syncopation — accents that land off the beat — through the opening of Scott Joplin's The Entertainer, heavily simplified."
+prereqs: [131, 132, 133, 134]
+method_focus: "combine"
+time_estimate_min: 16
+piece_context: "This is the act boss for rhythm. And here's the honest part — nobody plays The Entertainer well on their first try. It's a hard piece. Today is not about playing it at tempo. Today is about feeling what syncopation is — notes that land between the beats instead of on them. The feel that makes ragtime sound like ragtime."
+metaphor: "rhythm-as-puzzle"
+vibe: ["honest", "playful", "focused"]
+is_act_boss: true
+piece:
+  title: "The Entertainer"
+  composer: "Scott Joplin (1902)"
+  key_center: "C major (transposed / simplified)"
+  time_signature: "4/4"
+  difficulty: "intermediate — opening melody only, heavily simplified, slow"
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy in a bowler hat. An old piano roll behind him. Banner: ACT 27 BOSS — THE ENTERTAINER."
+    cleffy: >
+      Act 27 boss.
+      Scott Joplin. 1902. The Entertainer.
+      Before we start — the honest truth. You are not playing this at full speed today.
+
+  - id: 2
+    mode: see
+    type: honest_framing
+    figure: "Two boxes side by side. Left: 'what this lesson is NOT' — playing The Entertainer at tempo, both hands, all of it. Right: 'what it IS' — feeling syncopation through the opening melody, very slow, one hand."
+    cleffy: >
+      What today IS: the first phrase of the melody. Right hand only. Much slower than the recording.
+      What today IS: the feel of syncopation.
+      What today IS NOT: playing The Entertainer as written. That takes years.
+
+  - id: 3
+    mode: see
+    type: what_is_syncopation
+    figure: "Two staves. Top — notes on beats 1, 2, 3, 4 (straight). Bottom — notes on the 'ands' between beats (syncopated). Accent marks on the offbeats."
+    cleffy: >
+      Syncopation. New word, big idea.
+      Normal rhythm — accents land on the beat. One, TWO, three, FOUR.
+      Syncopated rhythm — accents land off the beat. In the cracks. Surprising.
+      Ragtime lives on syncopation.
+
+  - id: 4
+    mode: hear
+    type: listen_to_piece
+    figure: "A play button. Caption: The Entertainer, opening phrase, real recording."
+    audio:
+      A: "The Entertainer opening — original tempo, piano solo, the famous tune everyone knows"
+    cleffy: >
+      Listen. Just the opening.
+      Hear how the melody doesn't sit on the beats?
+      It dances around them. That's the syncopation.
+
+  - id: 5
+    mode: hear
+    type: slow_version
+    figure: "A play button. Caption: same phrase, half speed, simplified."
+    audio:
+      A: "The Entertainer opening melody simplified — D5, B4, D5, E5, C5 — played at slow tempo"
+    cleffy: >
+      Now the same melody — simplified. Slower.
+      Five notes: D, B, D, E, C.
+      Still has the off-beat feel, but manageable.
+
+  - id: 6
+    mode: see
+    type: the_notes
+    figure: "Treble staff. Five notes: D5 (space above middle line), B4 (middle line), D5, E5 (top space), C5 (third space)."
+    cleffy: >
+      The five notes you'll play.
+      D — the space above the middle line.
+      B — the middle line.
+      D again — same place.
+      E — top space.
+      C — third space.
+
+  - id: 7
+    mode: see
+    type: the_rhythm
+    figure: "Staff. Five notes with rhythm: eighth, eighth, dotted quarter, eighth, quarter (or similar syncopation)."
+    cleffy: >
+      The rhythm. This is the puzzle part.
+      Two quick notes, then a long held note, then a quick one, then a landed one.
+      The "long note" is what throws the accent off the beat.
+
+  - id: 8
+    mode: play
+    type: play_notes_first
+    figure: "Keyboard with D5, B4, D5, E5, C5 glowing in order. No rhythm yet — even quarters."
+    cleffy: >
+      Notes first. Rhythm second.
+      Five notes, even quarters. D, B, D, E, C.
+    interaction:
+      type: sequence
+      keys: ["D5","B4","D5","E5","C5"]
+
+  - id: 9
+    mode: play
+    type: play_rhythm_only
+    figure: "Rhythm staff on Middle C. Same syncopated pattern. Counts labeled: 1-and, 2-and-a, 3, 4."
+    cleffy: >
+      Now the rhythm. On one note. Feel the syncopation.
+      Count out loud as you play.
+    interaction:
+      type: rhythm
+      sequence: ["C4","C4","C4","C4","C4"]
+      durations: ["eighth","eighth","dotted_quarter","eighth","quarter"]
+      tempo: 50
+
+  - id: 10
+    mode: play
+    type: combine_slow
+    figure: "Grand staff. Five notes D5, B4, D5, E5, C5 with syncopated rhythm. Metronome 50."
+    cleffy: >
+      Both together. Very slow. Fifty on the metronome.
+      Speed does not matter. Feel matters.
+    interaction:
+      type: rhythm
+      sequence: ["D5","B4","D5","E5","C5"]
+      durations: ["eighth","eighth","dotted_quarter","eighth","quarter"]
+      tempo: 50
+
+  - id: 11
+    mode: play
+    type: with_guides
+    figure: "Same phrase. Guides on. Tempo 55."
+    cleffy: >
+      With guides. A little faster — 55.
+      Still not ragtime speed. That's fine.
+    interaction:
+      type: song
+      sequence: ["D5","B4","D5","E5","C5"]
+      guides: true
+      tempo: 55
+
+  - id: 12
+    mode: play
+    type: no_guides
+    figure: "Same phrase. No guides. Read and play."
+    cleffy: >
+      No guides. Read the page.
+      Listen for the offbeat accent on the long note.
+    interaction:
+      type: song
+      sequence: ["D5","B4","D5","E5","C5"]
+      guides: false
+      tempo: 55
+    followup_cleffy: >
+      That. The opening of The Entertainer.
+      Slow, simplified, and syncopated.
+
+  - id: 13
+    mode: play
+    type: repeat_for_feel
+    figure: "Same phrase, played twice in a row. Metronome 55."
+    cleffy: >
+      Once more, twice through.
+      Each pass, lean into the held note. That's where the swing lives.
+    interaction:
+      type: song
+      sequence: ["D5","B4","D5","E5","C5","D5","B4","D5","E5","C5"]
+      guides: false
+      tempo: 55
+
+  - id: 14
+    mode: hear
+    type: pre_check
+    figure: "Banner — Act 27 boss mastery check."
+    cleffy: >
+      Four quick ones. Act boss — take your time.
+
+  - id: 15
+    mode: see
+    type: wrap
+    figure: "Celebration card — ACT 27 COMPLETE 🎯. Cleffy holding an old Joplin sheet. A pyramid of acts showing 27/50 complete."
+    cleffy: >
+      Act 27. Closed.
+      You did not play The Entertainer today. You played five notes in its shape, at half speed.
+      What you DID do — feel syncopation. Hear accents land off the beat. Know why ragtime sounds like ragtime.
+      Sixteenths, galloping rhythm, triplets, puzzles, syncopation. All new. All yours now.
+      Next act — 6/8 time. A whole different kind of beat.
+
+practice_this_week:
+  real_piano:
+    - "The opening of The Entertainer every day this week. Five notes. Slow metronome. Focus on the held note that creates the off-beat feel."
+    - "Try to speed it up gently across the week — 55, then 60, then 65 bpm. Stop the moment it gets sloppy."
+    - "Search 'The Entertainer Scott Joplin' — listen to any version. Feel where the accents land. You now understand why that feel exists."
+  virtual_only:
+    - "Replay pages 10, 11, 12 — slow, guided, then unguided"
+  estimated_time: "12 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "Two rhythms — one with accents on the beats, one with accents between the beats"
+          prompt: "Which is syncopated?"
+          options: ["The one with accents on beats", "The one with accents off beats"]
+          correct: 1
+        - figure: "Five notes: D5, B4, D5, E5, C5 on the staff"
+          prompt: "These are the five notes of which opening melody?"
+          options: ["Twinkle Twinkle", "The Entertainer", "Happy Birthday"]
+          correct: 1
+        - figure: "A rhythm: eighth, eighth, dotted quarter, eighth, quarter"
+          prompt: "Which note creates the syncopated feel?"
+          options: ["The first eighth", "The dotted quarter held through the beat", "The final quarter"]
+          correct: 1
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "The simplified Entertainer opening at 55 bpm"
+          prompt: "Do the accents land on the beats or between them?"
+          options: ["On the beats", "Between the beats"]
+          correct: 1
+        - audio: "A syncopated phrase vs a straight phrase"
+          prompt: "Which one is syncopated?"
+          options: ["First", "Second"]
+          correct: 0
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play the five notes — D5, B4, D5, E5, C5 — with the syncopated rhythm at 55 bpm."
+          accept: "D5 B4 D5 E5 C5 with eighth, eighth, dotted quarter, eighth, quarter durations"
+
+remediation:
+  id: "135.5"
+  title: "Entertainer, even slower"
+  pages: 11
+  opening_cleffy: >
+    Act boss. Expected to be a real test — and syncopation is a whole new feel.
+    We'll slow to 40 bpm, clap the rhythm only, then add one note at a time.
+    No rush. The feel matters more than the speed.
+
+completion:
+  cleffy: >
+    Act 27 sealed. You have advanced rhythm — sixteenths, gallops, triplets, syncopation.
+    You also have honesty. You didn't fake The Entertainer. You understood it.
+    Tomorrow — 6/8 time. A whole new meter.
+  xp: 30
+  unlocks: 136

@@ -1,0 +1,223 @@
+# ============================================================
+# LESSON 217 · Dynamic arc over 16 bars
+# Tier 5 · Act 44 · Upper-Intermediate · Planning the arc
+# Plan a climb, plan a release.
+# ============================================================
+id: 217
+tier: upper-intermediate
+act: 44
+title: "Dynamic arc over 16 bars"
+subtitle: "Act 44 · Plan the climb"
+goal: "Plan and play a dynamic arc across 16 bars — pencil cresc. and dim. where they belong, then execute."
+prereqs: [216]
+method_focus: "combine"
+time_estimate_min: 14
+piece_context: "Yesterday — the long line exists. Today — you plan its shape. Sixteen bars is long enough that you have to decide, with a pencil, where the climb starts and where the release begins. Most students don't plan. That's why their playing sounds flat."
+metaphor: "long-line"
+vibe: ["focused", "reflective"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "A 16-bar system on a staff. A huge, gentle arc drawn above it — labeled CLIMB, PEAK, RELEASE. Below: a pencil."
+    cleffy: >
+      Yesterday — the long line.
+      Today — you plan it.
+      Pencil in hand.
+
+  - id: 2
+    mode: see
+    type: the_three_parts
+    figure: "A horizontal bar split into three regions. Bars 1-6: CLIMB. Bars 7-9: PEAK. Bars 10-16: RELEASE. Gentle arc on top."
+    cleffy: >
+      Three parts to a long arc.
+      The climb. The peak. The release.
+      Each one has its own job.
+
+  - id: 3
+    mode: see
+    type: where_is_peak
+    figure: "Three arcs side by side. Peak at bar 4 (too early). Peak at bar 8 (middle — balanced). Peak at bar 14 (too late)."
+    cleffy: >
+      Where should the peak live?
+      Usually around two-thirds through. Bar 10 or 11 of 16.
+      Not the middle. A little past.
+
+  - id: 4
+    mode: hear
+    type: listen_to_planned_arc
+    figure: "A 16-bar phrase plays. A moving arc traces above it — rising slowly for 10 bars, landing, then settling for 6."
+    audio:
+      A: "A 16-bar melody with a slow 10-bar crescendo to a gentle peak, then a longer 6-bar descent to pp"
+    cleffy: >
+      Sixteen bars. One arc.
+      Notice — the climb takes longer than the release.
+      The peak sits past halfway. That's the Romantic rule.
+
+  - id: 5
+    mode: see
+    type: pencil_in_the_markings
+    figure: "A 16-bar phrase with pencil marks written in: 'p' at bar 1, 'cresc.' starting at bar 3, 'mf' at bar 8, 'f' at bar 10 (peak), 'dim.' starting at bar 11, 'mp' at bar 14, 'p' at bar 16."
+    cleffy: >
+      Before you play — write it in. Literally.
+      p at the start. cresc. above the rising bars. mf where it lands. f at the peak. dim. then p at the end.
+      Your pencil does the thinking once. Your hands do it every day after.
+
+  - id: 6
+    mode: play
+    type: play_first_half
+    figure: "Keyboard. First 8 bars of a scale-based Romantic phrase. Climbing. p → mf."
+    cleffy: >
+      First half. Eight bars of climb.
+      Start p. Grow slowly. End at mf.
+      Don't rush the growth. Let each bar be a little fuller than the last.
+    interaction:
+      type: sequence
+      keys: ["C4","D4","E4","F4","G4","A4","B4","C5","D5","E5","F5","G5","E5","F5","G5","A5"]
+
+  - id: 7
+    mode: see
+    type: the_peak_moment
+    figure: "Zoomed-in view of the peak bar. Notes getting bigger. 'f' marked. A tiny star on the highest note."
+    cleffy: >
+      The peak is one moment.
+      Not a whole section — one bar, maybe one note.
+      That's the place everything is heading toward.
+
+  - id: 8
+    mode: play
+    type: play_peak_area
+    figure: "Keyboard. Four bars around the peak. f at the high A5, then dim. starting immediately."
+    cleffy: >
+      The peak area.
+      Arrive at f. Hold that moment. Then start letting go right away.
+      The release begins as soon as the peak is in the air.
+    interaction:
+      type: sequence
+      keys: ["G5","A5","G5","F5","E5","D5","C5","B4"]
+
+  - id: 9
+    mode: play
+    type: play_second_half
+    figure: "Keyboard. Last 8 bars. Descending. f → p."
+    cleffy: >
+      Second half. Eight bars of release.
+      Start around f. Soften gradually. End at p.
+      The descent takes patience — don't collapse to quiet in one bar.
+    interaction:
+      type: sequence
+      keys: ["A5","G5","F5","E5","D5","C5","B4","A4","G4","F4","E4","D4","C4","D4","C4","C4"]
+
+  - id: 10
+    mode: see
+    type: small_waves_inside
+    figure: "The big 16-bar arc. Inside it — tiny small arches on every 2-bar unit. Caption: 'small waves inside the big one.'"
+    cleffy: >
+      One more thing.
+      Inside the big arc, smaller waves live.
+      Each 2-bar group has its own tiny rise and fall — but they all add up to the big one.
+
+  - id: 11
+    mode: hear
+    type: drill_peak_location
+    figure: "Round counter. 4 rounds. Banner: WHERE'S THE PEAK?"
+    cleffy: >
+      Four rounds. Where does the peak sit?
+    interaction:
+      type: drill
+      rounds: 4
+      options: ["Early (bar 4-6)", "Past middle (bar 10-11)", "Very late (bar 14-15)"]
+
+  - id: 12
+    mode: play
+    type: play_whole_arc
+    figure: "Keyboard. All 16 bars. Full arc drawn above. Tempo 72."
+    cleffy: >
+      Now the whole thing. Sixteen bars. One arc.
+      Climb. Peak. Release.
+      Plan it. Play it. Listen.
+    interaction:
+      type: rhythm
+      sequence: ["C4","D4","E4","F4","G4","A4","B4","C5","D5","E5","F5","G5","A5","G5","F5","E5","D5","C5","B4","A4","G4","F4","E4","D4","C4","D4","C4","C4"]
+      durations: ["quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","half","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","half"]
+      tempo: 72
+    followup_cleffy: >
+      That's how a long phrase sounds when it's planned.
+
+  - id: 13
+    mode: see
+    type: mark_your_music
+    figure: "A piece of real sheet music on a music stand. Pencil marks visible: cresc., dim., a circled peak note. Caption: 'Every pianist does this.'"
+    cleffy: >
+      Real pianists mark their music.
+      Peak note — circle it. Cresc — draw the line. Dim — draw it.
+      Don't try to remember. Write it.
+
+  - id: 14
+    mode: hear
+    type: pre_check
+    figure: "Banner."
+    cleffy: >
+      Three quick ones.
+
+  - id: 15
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 217. The 16-bar arc, with cresc. and dim. penciled in. Below: 'plan the climb, plan the release.'"
+    cleffy: >
+      A plan for a long arc.
+      Tomorrow — rubato. Push and pull. Time bends too.
+
+practice_this_week:
+  real_piano:
+    - "Take a piece you're learning. Find a 16-bar section. With a pencil, mark where the peak is and where cresc. / dim. go."
+    - "Play that section three times, following your own plan."
+  virtual_only:
+    - "Replay page 12 — the full 16-bar arc — until the shape is in your ears."
+  estimated_time: "12 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "A 16-bar phrase with an arc peaking at bar 11."
+          prompt: "Where does the Romantic arc usually peak?"
+          options: ["At the very start", "Around two-thirds through, past the middle", "At the very end"]
+          correct: 1
+        - figure: "Three parts of a long arc labeled."
+          prompt: "What are the three parts of a long dynamic arc?"
+          options: ["Loud, louder, loudest", "Climb, peak, release", "Verse, chorus, bridge"]
+          correct: 1
+        - figure: "Sheet music with 'cresc.' penciled in above bars 3-10."
+          prompt: "Why do pianists pencil cresc. onto the page?"
+          options: ["To make the page look nicer", "So the plan is visible every time they play", "It's a legal requirement"]
+          correct: 1
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "A 16-bar phrase with a slow climb, peak past the middle, and a long release"
+          prompt: "Where does the peak sit in this phrase?"
+          options: ["Early (first third)", "Past middle (two-thirds)", "Very late (last bar)"]
+          correct: 1
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play an 8-bar climbing line from p to mf, without rushing the growth."
+          accept: "Any ascending 8-bar line with audible, gradual crescendo"
+
+remediation:
+  id: "217.5"
+  title: "The 16-bar arc, in pieces"
+  pages: 7
+  opening_cleffy: >
+    Sixteen bars is a lot to plan. Most students skip the pencil step.
+    We'll break it into four 4-bar chunks. Plan each. Then stitch.
+
+completion:
+  cleffy: >
+    A plan on the page. A shape in the hands.
+    Tomorrow — time bends. Push-pull rubato.
+  xp: 18
+  unlocks: 218

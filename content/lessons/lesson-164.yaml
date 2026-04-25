@@ -1,0 +1,232 @@
+# ============================================================
+# LESSON 164 · Triplets with pedal
+# Tier 4 · Act 33 · Intermediate · Triplets deeper
+# Triplet arpeggio + sustain pedal = the Moonlight sound. One bar.
+# ============================================================
+id: 164
+tier: intermediate
+act: 33
+title: "Triplets with pedal"
+subtitle: "Act 33 · Triplets deeper"
+goal: "Combine the C-E-G triplet arpeggio with sustain pedal — the exact texture of Moonlight Sonata's opening. One bar."
+prereqs: [163, 160]
+method_focus: "combine"
+time_estimate_min: 14
+piece_context: "Yesterday — the 3-note arpeggio shape. Act 32 — the sustain pedal. Today they meet. Triplet arpeggio, pedal held down, the notes blur into one warm chord. That blur is the Moonlight sound. One bar today. The real piece comes in Act 34."
+metaphor: "moonlight-engine"
+vibe: ["quiet", "serious", "reflective"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy sitting at a quiet, dim-lit upright. A moon out the window. Banner: THE MOONLIGHT SOUND."
+    cleffy: >
+      Act 32 — pedal.
+      Yesterday — triplet arpeggio.
+      Today they meet. And what comes out is the opening of the Moonlight Sonata.
+
+  - id: 2
+    mode: see
+    type: why_pedal
+    figure: "Left: C-E-G arpeggio dry, three separate notes. Right: same arpeggio with pedal down, all three notes ringing together at the end."
+    cleffy: >
+      Without pedal — three separate notes. Each one fades.
+      With pedal — all three sustain. By the end of the triplet, you hear a full C chord ringing.
+      The arpeggio becomes the chord it came from.
+
+  - id: 3
+    mode: hear
+    type: hear_dry
+    figure: "Play button labeled DRY. C-E-G triplet arpeggios, no pedal."
+    audio:
+      A: "Four C-E-G triplet arpeggios at 55 bpm, no pedal, dry"
+    cleffy: >
+      Dry version. No pedal.
+      Hear how each note is its own thing? Clean, but thin.
+
+  - id: 4
+    mode: hear
+    type: hear_wet
+    figure: "Play button labeled WITH PEDAL. Same arpeggios, pedal held through each bar."
+    audio:
+      A: "Four C-E-G triplet arpeggios at 55 bpm with sustain pedal held through the bar"
+    cleffy: >
+      Same notes. Pedal held.
+      Everything rings. The three notes become one warm chord.
+      That's Moonlight.
+
+  - id: 5
+    mode: see
+    type: pedal_rule
+    figure: "Time diagram. Beat 1 — pedal goes DOWN. Beats 1-4 — pedal STAYS down. Beat 1 of next bar — pedal comes UP then back DOWN on the new chord."
+    cleffy: >
+      Rule for today. One pedal change per bar.
+      Down at the start. Hold through all four beats.
+      Lift and press again when the next chord arrives.
+
+  - id: 6
+    mode: hear
+    type: hear_the_piece
+    figure: "Play button. A real recording — Moonlight Sonata, bar 1. Just one bar."
+    audio:
+      A: "Moonlight Sonata 1st movement, bar 1 only — slow, with pedal, real piano sound"
+    cleffy: >
+      Listen. Just bar 1 of the real piece.
+      Same shape you played yesterday. Same pedal rule.
+      You're listening to something you can almost play.
+
+  - id: 7
+    mode: play
+    type: arpeggio_no_pedal
+    figure: "C-E-G triplet arpeggio, four times. No pedal. Metronome 55."
+    cleffy: >
+      Warm up dry first. Four arpeggios, no pedal.
+      Know the shape before we blur it.
+    interaction:
+      type: rhythm
+      sequence: ["C4","E4","G4","C4","E4","G4","C4","E4","G4","C4","E4","G4"]
+      durations: ["triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth"]
+      tempo: 55
+
+  - id: 8
+    mode: see
+    type: pedal_hand_coordination
+    figure: "Two-row diagram. Top: the hand playing C-E-G triplets across the bar. Bottom: a foot icon going DOWN on beat 1, STAY across all beats, then UP-DOWN at the bar line."
+    cleffy: >
+      Foot and hand do different jobs.
+      Hand — rolls the triplets. Four groups.
+      Foot — down once, holds, lifts at the bar line.
+
+  - id: 9
+    mode: play
+    type: one_bar_with_pedal
+    figure: "One bar of four C-E-G triplet arpeggios. Pedal indicator below: down on beat 1, hold, release at end. Metronome 50."
+    cleffy: >
+      One bar. Pedal down on beat 1.
+      Hold it the whole bar. Feel the notes pile up.
+    interaction:
+      type: rhythm
+      sequence: ["C4","E4","G4","C4","E4","G4","C4","E4","G4","C4","E4","G4"]
+      durations: ["triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth"]
+      tempo: 50
+
+  - id: 10
+    mode: see
+    type: listen_to_the_blur
+    figure: "A cross-section of the bar — all three notes (C, E, G) shown sustaining simultaneously by beat 4. Caption: by the end of the bar, the whole chord is ringing."
+    cleffy: >
+      Listen as you play. By beat 4, all three notes are ringing together.
+      The arpeggio has become the chord.
+      That's the moonlight blur.
+
+  - id: 11
+    mode: play
+    type: slower_softer
+    figure: "Same one bar. Metronome 45. Dynamic marking: pp (very soft)."
+    cleffy: >
+      Slower. Softer. Forty-five on the click.
+      Moonlight is quiet. Play almost whispering.
+    interaction:
+      type: rhythm
+      sequence: ["C4","E4","G4","C4","E4","G4","C4","E4","G4","C4","E4","G4"]
+      durations: ["triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth"]
+      tempo: 45
+
+  - id: 12
+    mode: play
+    type: one_bar_song
+    figure: "Full one-bar phrase as song. Guides on. Tempo 50. Pedal indicator below."
+    cleffy: >
+      One bar as a phrase. Guides on. Pedal down through.
+      Think of the whole bar as one long breath.
+    interaction:
+      type: song
+      sequence: ["C4","E4","G4","C4","E4","G4","C4","E4","G4","C4","E4","G4"]
+      guides: true
+      tempo: 50
+
+  - id: 13
+    mode: play
+    type: no_guides_final
+    figure: "Same bar. No guides. Play it from the page. Tempo 50."
+    cleffy: >
+      No guides. Read the shape.
+      Pedal down. Four rolling triplets. Pedal up at the end.
+    interaction:
+      type: song
+      sequence: ["C4","E4","G4","C4","E4","G4","C4","E4","G4","C4","E4","G4"]
+      guides: false
+      tempo: 50
+    followup_cleffy: >
+      That sound. That quiet, blurred, rolling sound.
+      You are one act away from playing the real thing.
+
+  - id: 14
+    mode: hear
+    type: pre_check
+    figure: "Banner."
+    cleffy: >
+      Three quick ones.
+
+  - id: 15
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 164. A glowing C chord rippling outward. Banner: MOONLIGHT TEXTURE."
+    cleffy: >
+      Triplet arpeggio plus pedal equals Moonlight texture.
+      Tomorrow — the act boss. Triplet arpeggios in five keys, at tempo.
+
+practice_this_week:
+  real_piano:
+    - "Play C-E-G triplet arpeggios with pedal, one bar at a time. Pedal down on beat 1, lift on the bar line."
+    - "Play very softly — pp. Moonlight lives in the whisper range."
+    - "Listen to a recording of Moonlight Sonata 1st movement, bar 1 only. Match your sound to it."
+  virtual_only:
+    - "Replay pages 9, 11, 13"
+  estimated_time: "12 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "Arpeggio with pedal diagram — pedal down beat 1, hold through bar"
+          prompt: "How often does the pedal change in this bar?"
+          options: ["Once per beat", "Once per bar", "Never"]
+          correct: 1
+        - figure: "C-E-G arpeggio with pedal held"
+          prompt: "By the end of the bar, what's ringing?"
+          options: ["Just G", "All three notes — the full C chord", "Silence"]
+          correct: 1
+        - figure: "Moonlight Sonata opening"
+          prompt: "Which two elements combine to make the Moonlight texture?"
+          options: ["Triplet arpeggios + pedal", "Scales + pedal", "Chords + staccato"]
+          correct: 0
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "Same arpeggios twice — once dry, once with pedal"
+          prompt: "Which has the Moonlight blur?"
+          options: ["First (dry)", "Second (with pedal)"]
+          correct: 1
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play one bar of C-E-G triplet arpeggios with pedal down through the bar, at 50 bpm."
+          accept: "Four C-E-G triplet groups at 50 bpm"
+
+remediation:
+  id: "164.5"
+  title: "Pedal and triplets, separately first"
+  pages: 8
+  opening_cleffy: >
+    Two new things at once is hard.
+    We'll do the hand alone, then the foot alone, then put them together slowly.
+
+completion:
+  cleffy: >
+    Moonlight texture. Yours.
+    Tomorrow — act boss. Five keys, at tempo.
+  xp: 18
+  unlocks: 165

@@ -1,0 +1,337 @@
+# ============================================================
+# LESSON 200 · Nocturne Op. 9 No. 2 (full) — TIER 5 MID-BOSS 👑
+# Tier 5 · Act 40 · Upper-Intermediate · MID-BOSS
+# 20 pages. Your first complete Chopin. Halfway through Tier 5.
+# Tier 5 itself ends at L225 — so NO tier_complete here.
+# ============================================================
+id: 200
+tier: upper-intermediate
+act: 40
+title: "Nocturne Op. 9 No. 2 (full)"
+subtitle: "Tier 5 · Mid-boss — your first complete Chopin"
+goal: "Read and play Chopin's Nocturne Op. 9 No. 2 — simplified, complete — A section, B section, and the return. Legato, rubato, wide bass, pedal by ear."
+prereqs: [145, 196, 197, 198, 199]
+method_focus: "combine"
+time_estimate_min: 22
+piece_context: "Two hundred lessons in. Halfway through Tier 5. This is a mid-boss — not a tier-closer (that's 225 with Clair de Lune) but a milestone big enough to count. Your first whole Chopin Nocturne. Simplified, yes. Shorter than the real thing, yes. But whole — A section, B section, A section back. The four tools from this act all come together: melody-as-speech, rubato, guitar-bass, pedal by ear. The original is in 12/8 felt as slow 4. We'll keep that feel, simplify the rhythm so it's readable, and hold the key at E-flat major where you've been living all act."
+metaphor: "singing-at-the-piano"
+vibe: ["gentle", "reflective", "celebratory"]
+is_mid_boss: true
+piece:
+  title: "Nocturne Op. 9 No. 2 in E-flat major — simplified, complete"
+  composer: "Frédéric Chopin (1832)"
+  key_center: "E-flat major"
+  time_signature: "12/8 (felt as slow 4)"
+  difficulty: "upper-intermediate — simplified, complete A-B-A form, roughly 16 bars"
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy at the piano under a window. Full moon. A portrait of Chopin above the instrument. Banner: LESSON 200 — MID-BOSS — NOCTURNE COMPLETE."
+    cleffy: >
+      Lesson 200.
+      Halfway through Tier 5. Halfway through this road.
+      Today — your first complete Chopin.
+      The whole Nocturne Op. 9 No. 2. Simplified. But whole.
+
+  - id: 2
+    mode: see
+    type: the_scope
+    figure: "Three boxes labeled A, B, A. A bracket under all three: 'THE WHOLE PIECE.' Small text: 'simplified — 16 bars, E-flat major.'"
+    cleffy: >
+      A, B, A. Three sections.
+      A — the famous first phrase. You met this at 145.
+      B — the middle. New melody, a little more motion.
+      A — the first phrase comes back home.
+      Simplified. About 16 bars. About 90 seconds of music.
+
+  - id: 3
+    mode: see
+    type: the_toolkit
+    figure: "Four tool icons in a row: a speech bubble (melody-as-speech), a stopwatch with stretch marks (rubato), a guitar (wide LH), a foot on a pedal (pedal by ear). Banner: 'YOU HAVE EVERYTHING.'"
+    cleffy: >
+      Four tools. Act 40 built them.
+      Read the melody like speech. Stretch the peaks, arrive early on landings.
+      Left hand wide and rocking. Pedal when your ear catches mud.
+      You have everything. Today we use it.
+
+  - id: 4
+    mode: hear
+    type: listen_whole_thing
+    figure: "Play button. Caption: 'The full piece, simplified, slow — one listen.'"
+    audio:
+      A: "The complete simplified Nocturne — A section melody over wide bass, a B section that climbs and returns, and the A section coming home — played slowly in E-flat major, about 90 seconds, with real rubato and pedal"
+    cleffy: >
+      Listen once. The whole piece.
+      Mark the sections in your head as they pass. A, then B, then A again.
+      Notice when the peaks stretch. Notice the bass rocking underneath.
+
+  - id: 5
+    mode: see
+    type: section_a_map
+    figure: "Grand staff. Four bars. RH: the opening Nocturne melody — Bb4, G4, Bb4, Ab4, G4, Ab4, Bb4, C5, Bb4 (first phrase), then F4, Bb4, D5, Eb5, D5, C5, Bb4 (second phrase — from 196). LH: Eb2-Bb3G4-Bb3G4 in each bar (from 198). Labels: PHRASE 1, PHRASE 2."
+    cleffy: >
+      A section. Four bars. Two phrases.
+      Phrase 1 — the one from lesson 145. Nine notes ending on B-flat.
+      Phrase 2 — the one from 196. Seven notes, up to E-flat, home to B-flat.
+      Two sentences, one paragraph.
+
+  - id: 6
+    mode: play
+    type: play_section_a_rh
+    figure: "Keyboard. Sixteen right-hand notes — both A-section phrases, in order. Metronome 56."
+    cleffy: >
+      RH only. Section A.
+      Phrase 1, breath, phrase 2. Legato throughout.
+    interaction:
+      type: rhythm
+      sequence: ["Bb4", "G4", "Bb4", "Ab4", "G4", "Ab4", "Bb4", "C5", "Bb4", "F4", "Bb4", "D5", "Eb5", "D5", "C5", "Bb4"]
+      durations: ["quarter", "quarter", "quarter", "quarter", "quarter", "quarter", "quarter", "half", "half", "eighth", "quarter", "quarter", "half", "quarter", "quarter", "half"]
+      tempo: 56
+
+  - id: 7
+    mode: play
+    type: play_section_a_both
+    figure: "Grand staff. Section A, both hands. LH: bass-chord-chord pattern under each bar. RH: the melody. Guides on. Metronome 54."
+    cleffy: >
+      Both hands, section A. Slow.
+      Left hand rocks. Right hand sings.
+      Peaks linger. Landings arrive.
+      (Simplified — the real Nocturne has more chord beats per bar.)
+    interaction:
+      type: song
+      sequence: [["Bb4", "Eb3"], ["G4", "Bb3", "G4"], ["Bb4", "Bb3", "G4"], ["Ab4", "Eb3"], ["G4", "Bb3", "G4"], ["Ab4", "Bb3", "G4"], ["Bb4", "Eb3"], ["C5", "Bb3", "G4"], ["Bb4", "Bb3", "G4"], ["F4", "Eb3"], ["Bb4", "Bb3", "G4"], ["D5", "Bb3", "G4"], ["Eb5", "Eb3"], ["D5", "Bb3", "G4"], ["C5", "Bb3", "G4"], ["Bb4", "Bb3", "G4"]]
+      guides: true
+      tempo: 54
+
+  - id: 8
+    mode: see
+    type: section_b_intro
+    figure: "Grand staff. Four new bars in E-flat. RH: a more active line climbing from C5 up to F5 and back — C5, D5, Eb5, F5, Eb5, D5, C5, Bb4. LH: continues the wide bass, now shifting through Ab-Eb-Bb chords. Label: B SECTION."
+    cleffy: >
+      B section. New melody.
+      More motion now. The line walks up — C, D, E-flat, F — then settles back down.
+      Left hand keeps rocking, but the chords move. A-flat here. E-flat there. Back to home.
+
+  - id: 9
+    mode: play
+    type: play_section_b_rh
+    figure: "Keyboard. Eight RH notes of the B section climb-and-return. Metronome 56."
+    cleffy: >
+      RH only. Section B.
+      Walk up to F. Walk home to B-flat.
+    interaction:
+      type: rhythm
+      sequence: ["C5", "D5", "Eb5", "F5", "Eb5", "D5", "C5", "Bb4"]
+      durations: ["quarter", "quarter", "quarter", "half", "quarter", "quarter", "quarter", "half"]
+      tempo: 56
+
+  - id: 10
+    mode: see
+    type: section_b_peak
+    figure: "The B section staff with a big bracket over the F5: 'PEAK OF THE WHOLE PIECE.' A hairpin swelling into it and away from it."
+    cleffy: >
+      The F is the highest note of the piece.
+      The whole Nocturne climbs for this note.
+      When it arrives, you linger. Rubato. All of it.
+      After — you settle, not rush.
+
+  - id: 11
+    mode: play
+    type: play_section_b_both
+    figure: "Grand staff. Section B both hands. LH: Ab2-Eb3 bass, Ab3-C4-Eb4 chords, then Eb2 bass, Bb3-Eb4-G4 chords, etc. Guides on. Metronome 54."
+    cleffy: >
+      Both hands, section B. Still slow.
+      Up to F. Linger. Then home.
+      Hear the bass shift under you. New chords, same rock.
+    interaction:
+      type: song
+      sequence: [["C5", "Ab2"], ["D5", "Ab3", "Eb4"], ["Eb5", "Ab3", "Eb4"], ["F5", "Eb3"], ["Eb5", "Bb3", "G4"], ["D5", "Bb3", "G4"], ["C5", "Eb3"], ["Bb4", "Bb3", "G4"]]
+      guides: true
+      tempo: 54
+
+  - id: 12
+    mode: see
+    type: section_a_return
+    figure: "Grand staff. Four more bars — identical to section A's first four. Label: A — RETURN."
+    cleffy: >
+      A, one more time.
+      Same as the opening. Same phrase 1, same phrase 2.
+      But after the B section, it feels different. Home, after a trip.
+      Same notes, new meaning.
+
+  - id: 13
+    mode: play
+    type: play_section_a_return
+    figure: "Grand staff. Section A both hands. Guides on. Metronome 54. Dynamic: p again, even softer than before."
+    cleffy: >
+      Section A again. Softer than the first time.
+      The piece is winding down. Coming home.
+    interaction:
+      type: song
+      sequence: [["Bb4", "Eb3"], ["G4", "Bb3", "G4"], ["Bb4", "Bb3", "G4"], ["Ab4", "Eb3"], ["G4", "Bb3", "G4"], ["Ab4", "Bb3", "G4"], ["Bb4", "Eb3"], ["C5", "Bb3", "G4"], ["Bb4", "Bb3", "G4"], ["F4", "Eb3"], ["Bb4", "Bb3", "G4"], ["D5", "Bb3", "G4"], ["Eb5", "Eb3"], ["D5", "Bb3", "G4"], ["C5", "Bb3", "G4"], ["Bb4", "Bb3", "G4"]]
+      guides: true
+      tempo: 54
+
+  - id: 14
+    mode: play
+    type: full_piece_guided
+    figure: "Full score — A, B, A. Sixteen bars total. Dynamics marked: p, cresc. to peak F5, then dim. to pp at the return. Metronome 52."
+    cleffy: >
+      Whole piece. Guides on. Slow — 52.
+      A — settle in. B — climb to F. A — come home softer.
+      Breathe between sections.
+    interaction:
+      type: song
+      sequence: [["Bb4", "Eb3"], ["G4", "Bb3", "G4"], ["Bb4", "Bb3", "G4"], ["Ab4", "Eb3"], ["G4", "Bb3", "G4"], ["Ab4", "Bb3", "G4"], ["Bb4", "Eb3"], ["C5", "Bb3", "G4"], ["Bb4", "Bb3", "G4"], ["F4", "Eb3"], ["Bb4", "Bb3", "G4"], ["D5", "Bb3", "G4"], ["Eb5", "Eb3"], ["D5", "Bb3", "G4"], ["C5", "Bb3", "G4"], ["Bb4", "Bb3", "G4"], ["C5", "Ab2"], ["D5", "Ab3", "Eb4"], ["Eb5", "Ab3", "Eb4"], ["F5", "Eb3"], ["Eb5", "Bb3", "G4"], ["D5", "Bb3", "G4"], ["C5", "Eb3"], ["Bb4", "Bb3", "G4"], ["Bb4", "Eb3"], ["G4", "Bb3", "G4"], ["Bb4", "Bb3", "G4"], ["Ab4", "Eb3"], ["G4", "Bb3", "G4"], ["Ab4", "Bb3", "G4"], ["Bb4", "Eb3"], ["C5", "Bb3", "G4"], ["Bb4", "Bb3", "G4"], ["F4", "Eb3"], ["Bb4", "Bb3", "G4"], ["D5", "Bb3", "G4"], ["Eb5", "Eb3"], ["D5", "Bb3", "G4"], ["C5", "Bb3", "G4"], ["Bb4", "Bb3", "G4"]]
+      guides: true
+      tempo: 52
+
+  - id: 15
+    mode: play
+    type: full_piece_no_guides
+    figure: "Same score. No guides. Reader on their own. Metronome 52."
+    cleffy: >
+      No guides. You read.
+      All your tools. Use them.
+    interaction:
+      type: song
+      sequence: [["Bb4", "Eb3"], ["G4", "Bb3", "G4"], ["Bb4", "Bb3", "G4"], ["Ab4", "Eb3"], ["G4", "Bb3", "G4"], ["Ab4", "Bb3", "G4"], ["Bb4", "Eb3"], ["C5", "Bb3", "G4"], ["Bb4", "Bb3", "G4"], ["F4", "Eb3"], ["Bb4", "Bb3", "G4"], ["D5", "Bb3", "G4"], ["Eb5", "Eb3"], ["D5", "Bb3", "G4"], ["C5", "Bb3", "G4"], ["Bb4", "Bb3", "G4"], ["C5", "Ab2"], ["D5", "Ab3", "Eb4"], ["Eb5", "Ab3", "Eb4"], ["F5", "Eb3"], ["Eb5", "Bb3", "G4"], ["D5", "Bb3", "G4"], ["C5", "Eb3"], ["Bb4", "Bb3", "G4"], ["Bb4", "Eb3"], ["G4", "Bb3", "G4"], ["Bb4", "Bb3", "G4"], ["Ab4", "Eb3"], ["G4", "Bb3", "G4"], ["Ab4", "Bb3", "G4"], ["Bb4", "Eb3"], ["C5", "Bb3", "G4"], ["Bb4", "Bb3", "G4"], ["F4", "Eb3"], ["Bb4", "Bb3", "G4"], ["D5", "Bb3", "G4"], ["Eb5", "Eb3"], ["D5", "Bb3", "G4"], ["C5", "Bb3", "G4"], ["Bb4", "Bb3", "G4"]]
+      guides: false
+      tempo: 52
+    followup_cleffy: >
+      That.
+      That was a complete Chopin Nocturne, played by you.
+      A piece concert pianists spend years on. In your hands today.
+
+  - id: 16
+    mode: play
+    type: with_all_the_expression
+    figure: "Same score. Dynamic and rubato marks drawn in. Linger bracket over F5 in section B, over the Eb5 in section A phrase 2. Pedal flicks at every bar change. Dynamic p at start, cresc to the F5, dim back to pp. Metronome 50."
+    cleffy: >
+      One more pass. Everything you have.
+      Sing the peaks. Rock the bass. Flick the pedal. Soft throughout except the climb to F.
+      This is the one.
+    interaction:
+      type: song
+      sequence: [["Bb4", "Eb3"], ["G4", "Bb3", "G4"], ["Bb4", "Bb3", "G4"], ["Ab4", "Eb3"], ["G4", "Bb3", "G4"], ["Ab4", "Bb3", "G4"], ["Bb4", "Eb3"], ["C5", "Bb3", "G4"], ["Bb4", "Bb3", "G4"], ["F4", "Eb3"], ["Bb4", "Bb3", "G4"], ["D5", "Bb3", "G4"], ["Eb5", "Eb3"], ["D5", "Bb3", "G4"], ["C5", "Bb3", "G4"], ["Bb4", "Bb3", "G4"], ["C5", "Ab2"], ["D5", "Ab3", "Eb4"], ["Eb5", "Ab3", "Eb4"], ["F5", "Eb3"], ["Eb5", "Bb3", "G4"], ["D5", "Bb3", "G4"], ["C5", "Eb3"], ["Bb4", "Bb3", "G4"], ["Bb4", "Eb3"], ["G4", "Bb3", "G4"], ["Bb4", "Bb3", "G4"], ["Ab4", "Eb3"], ["G4", "Bb3", "G4"], ["Ab4", "Bb3", "G4"], ["Bb4", "Eb3"], ["C5", "Bb3", "G4"], ["Bb4", "Bb3", "G4"], ["F4", "Eb3"], ["Bb4", "Bb3", "G4"], ["D5", "Bb3", "G4"], ["Eb5", "Eb3"], ["D5", "Bb3", "G4"], ["C5", "Bb3", "G4"], ["Bb4", "Bb3", "G4"]]
+      guides: false
+      tempo: 50
+
+  - id: 17
+    mode: hear
+    type: pre_check
+    figure: "Banner — Mid-boss mastery check."
+    cleffy: >
+      Five quick ones. Mid-boss — take your time.
+
+  - id: 18
+    mode: see
+    type: reflection
+    figure: "A small gallery of every piece in your hands so far. Tier 1: Happy Birthday. Tier 2: Für Elise theme. Tier 3: Clair de Lune opening. Tier 4: Moonlight opening, Prelude in C, Nocturne phrase. Tier 5 so far: Bach Invention. And — at the top, glowing — the Nocturne complete."
+    cleffy: >
+      Look back at Act 40.
+      Melody as speech — you read phrases like sentences.
+      Rubato — you borrow time and pay it back.
+      Left hand as guitar — pinky deep, strum up, rock.
+      Pedal by ear — mud tells you when to lift.
+      Four tools. One piece tonight.
+      Two hundred lessons. A complete Nocturne. That's real.
+
+  - id: 19
+    mode: see
+    type: whats_next
+    figure: "Pyramid preview. Tier 5 midway flag planted. Ahead: L201-225. Four small thumbnails — 'Half-pedal,' 'Voicing,' 'Arabesque,' 'Clair de Lune (full).'"
+    cleffy: >
+      You are halfway through Tier 5. Not done.
+      Next — pedal gets finer. Half-pedal, flutter, syncopated. Subtle color.
+      Voicing — thumb melodies, inner melodies, left-hand tunes.
+      Debussy's Arabesque. Schumann's Träumerei. Grieg's Arietta.
+      Then, at 225 — the real tier boss. Clair de Lune, all of it. The one you started at 125.
+      But not today. Today was its own summit.
+
+  - id: 20
+    mode: see
+    type: wrap
+    figure: "Celebration card — LESSON 200 · NOCTURNE COMPLETE 👑. Cleffy at a candlelit piano, moon out the window, a page of Chopin sheet music on the stand. A small 200 star on the corner."
+    cleffy: >
+      Lesson 200.
+      You play a complete Chopin Nocturne. Simplified, yes. But the whole piece. Start to finish.
+      Two hundred lessons ago, you learned what a staff was.
+      Tonight, you speak Chopin.
+      Halfway there. Rest up. Tier 5 keeps going when you're ready.
+
+practice_this_week:
+  real_piano:
+    - "The full Nocturne, once a day. Very slow. All four tools on — speech-shape, rubato, wide bass, pedal by ear."
+    - "Play it for someone you care about. Turn the lights down. Tell them it's Chopin, 1832, and he was twenty when he wrote it."
+    - "Find a concert recording — Rubinstein, Pollini, Horowitz. Listen once with eyes closed. Mark the lingers and the landings. You do this already, in a smaller way."
+    - "Revisit lesson 145's phrase. Notice how small it feels now."
+  virtual_only:
+    - "Replay pages 14, 15, 16 — the three full-piece passes. One with guides, one without, one with all the expression."
+  estimated_time: "20 min/day this week — celebrate"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 3
+      questions:
+        - figure: "Three boxes labeled A, B, A"
+          prompt: "What form is the Nocturne in?"
+          options: ["Verse-chorus-verse", "A-B-A — ternary", "Through-composed"]
+          correct: 1
+        - figure: "The F5 at the peak of the B section, with a hairpin swelling into it"
+          prompt: "What is special about the F?"
+          options: ["It's the highest note of the piece", "It's the shortest note", "It's the quietest"]
+          correct: 0
+        - figure: "A key signature with three flats"
+          prompt: "What key is this Nocturne in?"
+          options: ["B-flat major", "E-flat major", "A-flat major"]
+          correct: 1
+        - figure: "A left-hand bass note followed by a chord a 10th above"
+          prompt: "What's the nickname for this pattern?"
+          options: ["Alberti bass", "Wide bass — 'guitar' bass", "Octave bass"]
+          correct: 1
+        - figure: "A pedal flick right after a new bass note lands"
+          prompt: "When do you change pedal?"
+          options: ["A beat before the new bass", "Right after the new bass lands", "Never — one pedal for the whole piece"]
+          correct: 1
+    hear:
+      pass_threshold: 2
+      questions:
+        - audio: "The A section played first, then the B section, then the A section again"
+          prompt: "Did the opening melody return?"
+          options: ["Yes — that's the A return", "No, it was all new"]
+          correct: 0
+        - audio: "The climb to F5 and the settle back down in the B section"
+          prompt: "Where is the peak of the piece?"
+          options: ["In the middle — the B section", "At the very end", "At the very start"]
+          correct: 0
+        - audio: "Two takes — one muddy-pedal, one clean-pedal"
+          prompt: "Which one has clean pedaling?"
+          options: ["The first", "The second"]
+          correct: 1
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play the A section — both hands, 16 notes in the RH over the wide-bass LH — slowly."
+          accept: "The A section played with both hands, tempo around 54, with the RH melody legato and the LH bass-chord-chord pattern audible underneath"
+
+remediation:
+  id: "200.5"
+  title: "The Nocturne, section by section"
+  pages: 12
+  opening_cleffy: >
+    Big piece. Mid-boss. Expected to stretch you.
+    Let's unstack. A section alone, both hands, very slow. Then B alone. Then the return. Then — and only then — all three strung together.
+    No rush. This Nocturne has been waiting 200 years. It'll wait for you too.
+
+completion:
+  cleffy: >
+    Lesson 200. Sealed.
+    A complete Chopin Nocturne. Your hands. Your ear. Your time.
+    Halfway through Tier 5. Halfway through the whole road.
+    The moon's up. Rest tonight. Tomorrow — half-pedal, and the colors inside the sustain.
+  xp: 100
+  unlocks: 201

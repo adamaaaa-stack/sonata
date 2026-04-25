@@ -1,0 +1,239 @@
+# ============================================================
+# LESSON 204 · Pedal: dry passages
+# Tier 5 · Act 41 · Upper-Intermediate · Advanced pedal technique
+# Know when NOT to pedal.
+# ============================================================
+id: 204
+tier: upper-intermediate
+act: 41
+title: "Pedal: dry passages"
+subtitle: "Act 41 · Advanced pedal technique"
+goal: "Recognize the passages that sound better with no pedal at all — Bach, fast classical runs, scherzos, any music built on clean line."
+prereqs: [203, 201]
+method_focus: "combine"
+time_estimate_min: 14
+piece_context: "Three lessons of pedal depth, speed, and timing. Today — the opposite. Sometimes the right answer is no pedal. A dry passage has no sustain. Every note is exactly as long as the finger holds it. Bach wrote before the sustain pedal existed — his music still breathes without it."
+metaphor: "pedal-as-color"
+vibe: ["focused", "honest"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy holding up a single index finger — 'no foot today.' Behind him, a pedal with a big X over it. Banner: DRY PASSAGES."
+    cleffy: >
+      The quiet truth of pedaling.
+      Sometimes the right answer is no pedal.
+      Three lessons of tricks — today, nothing.
+
+  - id: 2
+    mode: see
+    type: what_is_dry
+    figure: "A staff with a short phrase. No pedal marks at all. Caption: 'dry = fingers only = each note ends when you lift.'"
+    cleffy: >
+      Dry passages. No sustain.
+      Each note ends the instant you lift your finger.
+      Just fingers, just strings. The oldest sound on the piano.
+
+  - id: 3
+    mode: see
+    type: four_places_dry
+    figure: "Four panels. 1: Bach Invention (pre-pedal music). 2: Fast classical scale run. 3: A scherzo — quick playful movement. 4: A melody where the notes are meant to separate."
+    cleffy: >
+      Four places to go dry.
+      Bach and other Baroque music — written before sustain pedals existed.
+      Fast scales and runs — pedal turns them to soup.
+      Scherzos — quick, crisp, playful.
+      Anywhere the notes want to stay separate.
+
+  - id: 4
+    mode: hear
+    type: bach_wet_vs_dry
+    figure: "Two play buttons. A: 'WITH PEDAL' — a Bach Invention phrase with full sustain pedal. B: 'NO PEDAL' — same phrase, no sustain."
+    audio:
+      A: "A Bach Invention phrase played with continuous sustain pedal — voices blur, harmony becomes thick and unclear"
+      B: "Same Bach phrase with no pedal — each voice distinct, conversation between hands audible"
+    cleffy: >
+      Bach, two ways.
+      With pedal — two voices become one smear.
+      No pedal — both voices breathe. You hear the conversation.
+      This is why Bach is dry.
+
+  - id: 5
+    mode: see
+    type: why_bach_dry
+    figure: "A staff with two melodic lines — one in treble, one in bass — labeled 'two voices.' Arrow pointing to each: 'each needs to be heard.'"
+    cleffy: >
+      Why Bach needs dry.
+      Two independent voices. Each has its own story.
+      Pedal glues them together. The stories get lost.
+
+  - id: 6
+    mode: play
+    type: bach_style_dry
+    figure: "Keyboard. RH: C E G E. LH: G E C E. Played at the same time. Pedal icon crossed out."
+    cleffy: >
+      Short Bach-style phrase. Two hands talking.
+      No pedal. Fingers only. Hear both voices.
+    interaction:
+      type: rhythm
+      sequence: ["C4", "G3", "E4", "E3", "G4", "C3", "E4", "E3"]
+      durations: ["quarter", "quarter", "quarter", "quarter", "quarter", "quarter", "quarter", "quarter"]
+      tempo: 80
+
+  - id: 7
+    mode: hear
+    type: fast_scale_comparison
+    figure: "Two play buttons. A: fast scale with pedal. B: same scale, no pedal."
+    audio:
+      A: "A fast two-octave scale played with full pedal — blurs into a single wash of sound"
+      B: "Same scale, no pedal — each note clear, crisp articulation"
+    cleffy: >
+      Fast scale. Same notes, different pedal.
+      With pedal — mush.
+      Without — every note sparkles.
+
+  - id: 8
+    mode: play
+    type: fast_scale_dry
+    figure: "Keyboard. C4 to G4 fast. Pedal crossed out. Tempo 120."
+    cleffy: >
+      Five-finger scale. Fast. No pedal.
+      Clean fingers. Every note cut sharp.
+    interaction:
+      type: rhythm
+      sequence: ["C4", "D4", "E4", "F4", "G4", "F4", "E4", "D4", "C4"]
+      durations: ["eighth", "eighth", "eighth", "eighth", "eighth", "eighth", "eighth", "eighth", "quarter"]
+      tempo: 120
+
+  - id: 9
+    mode: see
+    type: the_test_question
+    figure: "A flowchart. Top: 'Should I pedal?' Branches: Is it Baroque? → NO. Is it fast and linear? → NO. Is the melody supposed to stay separate? → NO. Is it slow, chordal, romantic? → YES."
+    cleffy: >
+      Quick test before you pedal.
+      Is it Baroque? Don't pedal.
+      Is it fast and scalar? Don't pedal.
+      Are the notes meant to stay separate? Don't pedal.
+      If it's slow, chordal, and romantic — pedal.
+
+  - id: 10
+    mode: play
+    type: scherzo_bit
+    figure: "Keyboard. A quick, bouncy eight-note run. Pedal crossed out."
+    cleffy: >
+      Scherzo fragment. Quick, light, bouncy.
+      Dry fingers. No pedal. Pop, pop, pop.
+    interaction:
+      type: rhythm
+      sequence: ["G4", "E4", "C4", "E4", "G4", "E4", "C4", "E4"]
+      durations: ["eighth", "eighth", "eighth", "eighth", "eighth", "eighth", "eighth", "quarter"]
+      tempo: 132
+
+  - id: 11
+    mode: see
+    type: the_hybrid
+    figure: "A piece of music. First half labeled 'dry — fast run.' Second half labeled 'pedal — chordal coda.' Arrow showing the foot coming down at the boundary."
+    cleffy: >
+      Many pieces mix both.
+      Dry for the fast section. Pedal for the slow closing chords.
+      Knowing when to stop pedaling is just as important as knowing when to start.
+
+  - id: 12
+    mode: play
+    type: dry_then_pedal
+    figure: "Keyboard. First four notes: fast scale, pedal crossed out. Then: a held chord with pedal."
+    cleffy: >
+      Two sections. First — fast scale, dry.
+      Then — a held chord with pedal.
+      Watch the switch. Fingers crisp, then foot arrives.
+    interaction:
+      type: rhythm
+      sequence: ["C4", "D4", "E4", "F4", "G4", "C4", "E4", "G4"]
+      durations: ["eighth", "eighth", "eighth", "eighth", "quarter", "half", "half", "half"]
+      tempo: 100
+
+  - id: 13
+    mode: play
+    type: full_phrase_dry
+    figure: "Keyboard. A longer Baroque-style phrase with two voices. Pedal crossed out throughout."
+    cleffy: >
+      Longer Baroque phrase, both hands. Dry throughout.
+      Fingers have to do all the legato work. No foot help.
+    interaction:
+      type: rhythm
+      sequence: ["C4", "C3", "E4", "D3", "G4", "E3", "E4", "F3", "F4", "G3", "D4", "C3"]
+      durations: ["quarter", "quarter", "quarter", "quarter", "quarter", "quarter", "quarter", "quarter", "quarter", "quarter", "half", "half"]
+      tempo: 80
+    followup_cleffy: >
+      That's the old sound. The piano before sustain.
+      Every note earned by the finger.
+
+  - id: 14
+    mode: hear
+    type: pre_check
+    figure: "Banner — three quick questions."
+    cleffy: >
+      Three quick ones.
+
+  - id: 15
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 204. A pedal with a thin X over it and a wooden harpsichord silhouette behind. Banner: DRY PASSAGES."
+    cleffy: >
+      Dry. No sustain. Sometimes the best pedaling is no pedaling.
+      Tomorrow — a Chopin Prelude that uses pedal for pure color. Act boss.
+
+practice_this_week:
+  real_piano:
+    - "Play any Bach piece you know — or just a scale passage — with no pedal. Let the fingers do every bit of the legato. Notice how much work they do."
+    - "In any piece you're learning, find one passage that's currently pedaled. Try it dry. Which way sounds better?"
+    - "Play a fast five-finger scale with pedal down, then again with no pedal. Get the difference in your ears."
+  virtual_only:
+    - "Replay pages 6, 8, and 13 — feel fingers doing the work alone."
+  estimated_time: "10 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "A staff with a Bach Invention — two independent melodic lines"
+          prompt: "How much pedal does this music want?"
+          options: ["Full pedal throughout", "None — fingers only", "Half-pedal"]
+          correct: 1
+        - figure: "A flowchart. 'Is it Baroque?' with YES arrow"
+          prompt: "If the answer is yes, what should you do?"
+          options: ["Pedal heavily", "Don't pedal", "Use half-pedal"]
+          correct: 1
+        - figure: "A fast descending scale marked allegro"
+          prompt: "What happens if you pedal this with full sustain?"
+          options: ["It sounds clearer", "It smears into mud", "Nothing changes"]
+          correct: 1
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "Bach played with pedal (blurry) vs Bach played dry (clear voices)"
+          prompt: "Which version lets you hear both voices clearly?"
+          options: ["The pedaled version", "The dry version"]
+          correct: 1
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play a five-finger scale fast — C up to G and back — with no pedal. Keep it crisp."
+          accept: "Fast five-finger scale, ascending and descending, no sustain pedal"
+
+remediation:
+  id: "204.5"
+  title: "Dry playing, slower"
+  pages: 6
+  opening_cleffy: >
+    Dry playing means the fingers do all the work — harder than it sounds.
+    We'll do a short phrase, slowly, no pedal. Then faster. Then a real Bach-style bit.
+
+completion:
+  cleffy: >
+    Dry in the toolkit. Four pedal tools in your foot now.
+    Tomorrow — the act boss. Chopin uses pedal as pure mood.
+  xp: 18
+  unlocks: 205

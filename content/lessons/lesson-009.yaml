@@ -1,0 +1,245 @@
+# ============================================================
+# LESSON 9 · Finger numbers
+# Tier 1 · Act 2 · Beginner
+# Central metaphor: YOUR CREW HAS A ROLL CALL
+# ============================================================
+id: 9
+tier: beginner
+act: 2
+title: "Finger numbers"
+subtitle: "Your hands, by the numbers"
+goal: "Know which finger is which number on both hands. Thumbs are 1, pinkies are 5."
+prereqs: [2]
+method_focus: "hands"
+time_estimate_min: 10
+piece_context: "From tomorrow on, I'll tell you which finger to use for which key. So today your fingers get their names."
+metaphor: "crew-with-numbers"
+vibe: ["gentle", "playful"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy looking at two hands floating beside him. The fingers wiggle."
+    cleffy: >
+      Look at your hands.
+      You've been tapping the piano with whatever finger felt handy.
+      Today we get organized.
+      Every finger on your hands — left and right — gets a number.
+
+  - id: 2
+    mode: see
+    type: definition
+    figure: "Both hands shown palm-out, side by side. Each finger has a big number label: thumbs = 1, pointer = 2, middle = 3, ring = 4, pinky = 5."
+    cleffy: >
+      Thumbs are 1.
+      Pointers are 2.
+      Middles are 3.
+      Ring fingers are 4.
+      Pinkies are 5.
+      Both hands use the same numbers. Your left thumb is 1. Your right thumb is also 1.
+
+  - id: 3
+    mode: see
+    type: why_same
+    figure: "Both thumbs glow. A curly brace connects them. Label: both = 1."
+    cleffy: >
+      Why are both thumbs 1?
+      Because music notation only uses numbers 1 through 5, ever.
+      If left and right used different numbers, things would get really confusing really fast.
+      So whoever invented this decided — thumb is 1 on both hands, done.
+
+  - id: 4
+    mode: see
+    type: right_hand_focus
+    figure: "Just the right hand, fingers labeled 1-5."
+    cleffy: >
+      Right hand. Thumb 1, pointer 2, middle 3, ring 4, pinky 5.
+      Count them: 1, 2, 3, 4, 5.
+
+  - id: 5
+    mode: see
+    type: left_hand_focus
+    figure: "Just the left hand, fingers labeled 1-5. Thumb is on the RIGHT side of the image this time (because the palm faces you)."
+    cleffy: >
+      Left hand. Same numbers. Thumb still 1.
+      If you look at your left hand with the palm facing you — thumb is on the right side.
+      Doesn't matter. Still 1.
+
+  - id: 6
+    mode: see
+    type: interactive_identify
+    figure: "Right hand diagram. Finger 3 (middle finger) is circled in red."
+    cleffy: >
+      Which finger is that?
+    interaction:
+      type: choice
+      options: ["1", "2", "3", "4", "5"]
+      correct: 2
+    corrections:
+      - wrong_label: "off_by_one"
+        cleffy: >
+          Close. Count from the thumb — thumb 1, pointer 2, middle 3.
+          The circled one is the middle. So it's 3.
+
+  - id: 7
+    mode: see
+    type: interactive_identify
+    figure: "Left hand diagram. Finger 5 (pinky) is circled."
+    cleffy: >
+      This one?
+    interaction:
+      type: choice
+      options: ["1", "2", "3", "4", "5"]
+      correct: 4
+    corrections:
+      - wrong_label: "general"
+        cleffy: >
+          Pinky. Smallest finger, on the outside. That's 5.
+
+  - id: 8
+    mode: play
+    type: use_finger
+    figure: "Virtual keyboard. A blue circle with 3 inside appears above Middle C."
+    cleffy: >
+      On the keyboard, I'll sometimes put a number above a key. That's the finger I want you to use.
+      Right hand, finger 3. Tap Middle C with your middle finger.
+    interaction:
+      type: tap
+      key: "C4"
+      finger: 3
+    followup_cleffy: >
+      Real piano or physical keyboard, this matters a lot.
+      On a touch screen I can't see which finger you actually used — so I'll trust you.
+      But the more you practice using the right one, the easier real playing gets.
+
+  - id: 9
+    mode: play
+    type: use_finger
+    figure: "Keyboard. A blue 1 above any key. Student picks with thumb."
+    cleffy: >
+      Right hand, finger 1. Thumb. Any key.
+    interaction:
+      type: tap
+      finger: 1
+
+  - id: 10
+    mode: play
+    type: use_finger
+    figure: "Keyboard. A 5 above a key on the right."
+    cleffy: >
+      Right hand, finger 5. Pinky. Any high key.
+    interaction:
+      type: tap
+      finger: 5
+
+  - id: 11
+    mode: play
+    type: sequence
+    figure: "Keyboard. Five keys glow in order — C, D, E, F, G. Each has a number 1-5 above it."
+    cleffy: >
+      Put your right hand on C, D, E, F, G — one finger per key.
+      Thumb on C, pointer on D, middle on E, ring on F, pinky on G.
+      That's called a five-finger position. It's the first thing every pianist learns.
+    interaction:
+      type: sequence
+      keys: ["C4", "D4", "E4", "F4", "G4"]
+
+  - id: 12
+    mode: play
+    type: call_fingers
+    figure: "Five fingers on C-D-E-F-G. Cleffy calls out a number, you tap that key."
+    cleffy: >
+      Keep your hand right where it is. I'll call out a number.
+      Whatever I say, tap the key your hand is on with that finger.
+    interaction:
+      type: finger_call
+      rounds: 5
+    followup_cleffy: >
+      Every finger has a note now. That's how pianists think. Not "which key do I hit?"
+      But "which finger plays next?"
+
+  - id: 13
+    mode: see
+    type: left_hand_preview
+    figure: "Left hand at C3-D3-E3-F3-G3. Finger 5 on C3 (low), finger 1 on G3 (high)."
+    cleffy: >
+      Quick preview of your left hand.
+      When you put your left hand on the same five notes but down low, the numbers flip.
+      Your pinky is on the lowest key. Your thumb is on the highest.
+      Left-hand finger 5 is on low C. Left-hand finger 1 is on G.
+      We'll use this later. For now, just know it flips.
+
+  - id: 14
+    mode: hear
+    type: drill
+    figure: "Rotating questions — sometimes a hand diagram, sometimes a keyboard prompt."
+    cleffy: >
+      Mix of seeing and playing. Four rounds.
+    interaction:
+      type: drill
+      rounds: 4
+
+  - id: 15
+    mode: hear
+    type: pre_check
+    figure: "Banner."
+    cleffy: >
+      Four quick ones.
+
+  - id: 16
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 9. Both hands labeled with numbers, waving."
+    cleffy: >
+      Your fingers have names now.
+      Tomorrow — and this is a big deal — you play a real song.
+      By ear. No reading. Just follow along.
+      It's called Hot Cross Buns. Three notes. You're ready.
+
+# ─── Mastery check ──────────────────────────────────────
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 3
+      questions:
+        - figure: "Right hand, finger 2 circled."
+          prompt: "Which finger number?"
+          options: ["1", "2", "3", "4", "5"]
+          correct: 1
+        - figure: "Left hand, finger 1 circled."
+          prompt: "Which finger number?"
+          options: ["1", "2", "3", "4", "5"]
+          correct: 0
+        - figure: "Right hand, finger 4 circled."
+          prompt: "Which finger number?"
+          options: ["1", "2", "3", "4", "5"]
+          correct: 3
+    hear:
+      pass_threshold: 1
+      questions:
+        - prompt: "Both hands use the same finger numbers. What number are both thumbs?"
+          options: ["1", "5"]
+          correct: 0
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Put your right hand on C-D-E-F-G (five-finger position). Tap finger 3."
+          accept: "any tap on E4 with declared finger 3"
+
+# ─── Remediation ────────────────────────────────────────
+remediation:
+  id: "9.5"
+  title: "Fingers, once more"
+  pages: 5
+  opening_cleffy: >
+    The number-your-fingers thing can feel weird at first.
+    Let's go through it again with one hand at a time, slower.
+
+# ─── Completion ─────────────────────────────────────────
+completion:
+  cleffy: >
+    Nine lessons in. Your hands have a roll call now.
+    Tomorrow — song time.
+  xp: 20
+  unlocks: 10

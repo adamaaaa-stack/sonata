@@ -1,0 +1,203 @@
+# ============================================================
+# LESSON 176 · Two voices, one brain
+# Tier 5 · Act 36 · Upper-Intermediate · Start of Tier 5
+# Counterpoint introduction — each hand gets its own story.
+# ============================================================
+id: 176
+tier: upper-intermediate
+act: 36
+title: "Two voices, one brain"
+subtitle: "Act 36 · Counterpoint intro"
+goal: "Understand counterpoint — two independent melodies happening at the same time, one in each hand."
+prereqs: [175]
+method_focus: "combine"
+time_estimate_min: 14
+piece_context: "Tier 5 begins. You just finished Moonlight. Now we step into music where both hands sing — each hand a singer, each with its own line. This is counterpoint. And at the end of this act, your first Bach Invention."
+metaphor: "hands-as-singers"
+vibe: ["gentle", "serious", "focused"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy in a quiet room. Banner behind him: TIER 5 · COUNTERPOINT · EXPRESSION · BIG PIECES. A small Moonlight sheet folded on a shelf."
+    cleffy: >
+      Tier 5. Counterpoint. Expression. Big pieces.
+      Moonlight is behind you. Sat in your hands for a week. Now — forward.
+      Today a new idea. The biggest one yet.
+
+  - id: 2
+    mode: see
+    type: what_you_knew
+    figure: "Split diagram. Left side: RH with a melody line, LH with a block chord — labelled 'melody + accompaniment.' Right side: two independent melody lines, one in each clef — labelled 'counterpoint.'"
+    cleffy: >
+      Until now, most pieces had a melody hand and a helper hand.
+      Right hand sang. Left hand held chords underneath.
+      That's one way music works. Not the only way.
+
+  - id: 3
+    mode: see
+    type: the_new_idea
+    figure: "Grand staff. Top staff has a flowing line of eighth notes. Bottom staff has its own flowing line — different shape, different rhythm. Label: TWO VOICES."
+    cleffy: >
+      Counterpoint.
+      Two melodies at the same time, one in each hand.
+      Both are tunes. Both matter. Neither is the background.
+
+  - id: 4
+    mode: hear
+    type: listen_counterpoint
+    figure: "Play button. Caption: Bach — two voices, a few bars."
+    audio:
+      A: "Eight bars of Bach Invention in C major — both voices clear, moderate tempo"
+    cleffy: >
+      Listen. Bach.
+      Try to follow the right hand. Then try to follow the left hand.
+      Two tunes at once. That's the sound of counterpoint.
+
+  - id: 5
+    mode: see
+    type: two_singers
+    figure: "Two cartoon singers side by side. One labeled 'right hand,' the other 'left hand.' Speech bubbles with different melodic lines."
+    cleffy: >
+      Think of it like two singers in a duet.
+      Each one has their own line. Each one breathes on their own beat.
+      Your two hands are the two singers.
+
+  - id: 6
+    mode: hear
+    type: listen_rh_only
+    figure: "Play button. Caption: just the top voice."
+    audio:
+      A: "The top voice of the same Bach phrase, alone"
+    cleffy: >
+      Top voice alone. A complete tune on its own.
+
+  - id: 7
+    mode: hear
+    type: listen_lh_only
+    figure: "Play button. Caption: just the bottom voice."
+    audio:
+      A: "The bottom voice of the same Bach phrase, alone"
+    cleffy: >
+      Bottom voice alone. Also a complete tune.
+      Neither one is a chord. Neither one is filler.
+
+  - id: 8
+    mode: play
+    type: play_rh_line
+    figure: "Treble staff: C5 D5 E5 F5 D5 E5 C5. Keyboard below with those keys lit."
+    cleffy: >
+      Play just the top voice. Seven notes.
+      C D E F D E C. Slow.
+    interaction:
+      type: sequence
+      keys: ["C5","D5","E5","F5","D5","E5","C5"]
+
+  - id: 9
+    mode: play
+    type: play_lh_line
+    figure: "Bass staff: C3 D3 E3 F3 D3 E3 C3. Keyboard below with those keys lit."
+    cleffy: >
+      Now just the bottom voice. Same shape, two octaves down.
+      Left hand. C D E F D E C.
+    interaction:
+      type: sequence
+      keys: ["C3","D3","E3","F3","D3","E3","C3"]
+
+  - id: 10
+    mode: see
+    type: two_lines_together
+    figure: "Grand staff. Top voice eighth notes moving stepwise. Bottom voice moving in longer notes underneath. Arrows labelling: VOICE 1, VOICE 2."
+    cleffy: >
+      On the page, counterpoint looks like two stories stacked.
+      Top staff does one thing. Bottom staff does another.
+      Your brain has to hold both at once.
+
+  - id: 11
+    mode: play
+    type: play_simple_both
+    figure: "Grand staff. RH: C5 E5. LH: C3 C3. Four notes total, in order."
+    cleffy: >
+      Tiny taste of two voices. Play RH C, RH E, LH C, LH C.
+      Each hand takes its turn. You're not done yet — just starting.
+    interaction:
+      type: sequence
+      keys: ["C5","E5","C3","C3"]
+
+  - id: 12
+    mode: see
+    type: one_brain
+    figure: "Cartoon of a head with two thought bubbles — 'right hand melody' and 'left hand melody' — both glowing at once."
+    cleffy: >
+      One brain. Two voices.
+      It feels impossible the first time. It's not.
+      You will practice one voice alone. Then the other alone. Then together, slow.
+
+  - id: 13
+    mode: hear
+    type: pre_check
+    figure: "Banner."
+    cleffy: >
+      Three quick ones.
+
+  - id: 14
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 176. Two singers icon. Banner: TIER 5 · COUNTERPOINT BEGINS."
+    cleffy: >
+      Counterpoint. Two voices, one brain.
+      Tomorrow — making both hands equal. Neither one hiding.
+
+practice_this_week:
+  real_piano:
+    - "Play any short melody you know. Now play it one octave lower in the left hand, alone. Hear each hand as a tune, not an accompaniment."
+    - "Sit and listen to any Bach Invention (search 'Bach Invention No. 1'). Follow only the right hand once through. Then only the left hand. Then both."
+  virtual_only:
+    - "Replay pages 6, 7, and 8 — listen to each voice alone, then play the top voice."
+  estimated_time: "10 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "Grand staff with two independent melodic lines, one in each clef"
+          prompt: "What is this texture called?"
+          options: ["Melody and accompaniment", "Counterpoint", "Chord progression"]
+          correct: 1
+        - figure: "Diagram — RH melody line and LH block chords"
+          prompt: "Is this counterpoint?"
+          options: ["Yes — both hands are melodies", "No — the left hand is a chord, not a melody"]
+          correct: 1
+        - figure: "Two singers side by side, each with a different line"
+          prompt: "In counterpoint, which hand is the main melody?"
+          options: ["The right hand", "The left hand", "Both — neither is background"]
+          correct: 2
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "A Bach Invention phrase with two clear independent voices"
+          prompt: "How many melody lines are happening?"
+          options: ["One", "Two"]
+          correct: 1
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play the top-voice line: C5 D5 E5 F5 D5 E5 C5."
+          accept: "C5 D5 E5 F5 D5 E5 C5 in order"
+
+remediation:
+  id: "176.5"
+  title: "Two voices, one at a time"
+  pages: 7
+  opening_cleffy: >
+    Counterpoint is a new way of thinking. It takes a minute.
+    We'll go slower. One voice. Then the other. Listening before playing.
+
+completion:
+  cleffy: >
+    Tier 5 is open. Counterpoint is in the room.
+    Tomorrow — equal hands. Breaking the old habit that the left hand is the helper.
+  xp: 18
+  unlocks: 177

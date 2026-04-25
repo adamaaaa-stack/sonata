@@ -1,0 +1,239 @@
+# ============================================================
+# LESSON 159 · Pedal mistakes
+# Tier 4 · Act 32 · Intermediate
+# Muddiness and how to avoid it.
+# ============================================================
+id: 159
+tier: intermediate
+act: 32
+title: "Pedal mistakes"
+subtitle: "Act 32 · Sustain pedal"
+goal: "Understand muddiness — what causes it — and learn the fix: syncopated pedaling, where the pedal presses AFTER the new note."
+prereqs: [158, 157]
+method_focus: "combine"
+time_estimate_min: 14
+piece_context: "Everyone who learns pedal makes mud. It's the pedal beginner's sin. Today — the exact cause, and the exact fix, used by every pianist since the 1830s."
+metaphor: "the-blending-pedal"
+vibe: ["honest", "focused"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy looking a little sheepish. Behind him: a murky brown splotch labeled 'MUD.' Banner: THE PEDAL'S BIGGEST SIN."
+    cleffy: >
+      Today — the classic mistake. Mud.
+      Every pianist makes it. Including the greats, when they were young.
+
+  - id: 2
+    mode: see
+    type: what_is_mud
+    figure: "Diagram: two chords overlapping. Sound waves blending. Red arrow: 'OLD HARMONY + NEW HARMONY = MUD.'"
+    cleffy: >
+      Mud is what happens when two harmonies ring at once.
+      You play chord one. Pedal stays down.
+      You play chord two. Chord one is still ringing.
+      Now both chords are smashed together. Ugly.
+
+  - id: 3
+    mode: hear
+    type: hear_mud
+    figure: "Play button. Warning label: MUDDY."
+    audio:
+      A: "C major, F major, G major, C major progression played with the pedal held down through the entire thing — an ugly blur of notes"
+    cleffy: >
+      Listen. Pedal held through four chords.
+      All four are ringing at the end.
+      That's mud.
+
+  - id: 4
+    mode: see
+    type: cause_one
+    figure: "Two chords. A long pedal line underneath holding through both. Red X."
+    cleffy: >
+      Cause number one.
+      Pedal held too long. Didn't release on the new chord.
+      Most common beginner mistake. Fixable with attention.
+
+  - id: 5
+    mode: see
+    type: cause_two
+    figure: "A scale. Every note under a pedal. Red X."
+    cleffy: >
+      Cause number two.
+      Pedaling a scale.
+      Every scale note rings into the next. The whole scale becomes a blur.
+      Scales usually want dry hands. No pedal.
+
+  - id: 6
+    mode: see
+    type: the_fix
+    figure: "Diagram: new chord hits on beat. Pedal lifts ON the beat, presses DOWN slightly after. Caption: 'SYNCOPATED PEDAL.'"
+    cleffy: >
+      The fix. It has a name — syncopated pedal.
+      New note arrives. Pedal lifts at the same moment.
+      Then — slightly after — pedal presses down again.
+      Press AFTER the new note. Not with it. Not before.
+
+  - id: 7
+    mode: see
+    type: why_it_works
+    figure: "Timeline. Moment 1: pedal up, new chord strikes — dampers catch the old strings clean. Moment 2: pedal back down — new chord rings on fresh pedal."
+    cleffy: >
+      Why it works.
+      When the pedal is up for that tiny instant, the old strings get damped.
+      Then the new chord alone rings on the new pedal. Clean.
+
+  - id: 8
+    mode: hear
+    type: hear_syncopated
+    figure: "Play button. Label: SAME FOUR CHORDS — SYNCOPATED PEDAL."
+    audio:
+      A: "C F G C progression played with clean syncopated pedal — each chord rings fully but none overlap"
+    cleffy: >
+      Same four chords as the muddy version.
+      Now with syncopated pedal.
+      Hear the difference. Each chord blooms. None collide.
+
+  - id: 9
+    mode: see
+    type: the_foot_motion
+    figure: "Side-view diagram of a foot. Three frames. 1: Pedal down, old chord ringing. 2: Finger strikes new chord, foot lifts. 3: Foot drops back down."
+    cleffy: >
+      The foot motion.
+      At the new chord — UP. Right then.
+      Immediately after — DOWN.
+      Feels like a quick hiccup under the chord. You'll get it.
+
+  - id: 10
+    mode: see
+    type: virtual_note
+    figure: "Split screen. Real piano: foot doing the up-down-hiccup motion. Virtual app: pedal icon cycling automatically."
+    cleffy: >
+      Real piano — your foot does the hiccup.
+      Virtual — the app times the pedal changes for you. But the principle matters. You're training an ear, and a concept, that carry to any piano.
+
+  - id: 11
+    mode: play
+    type: try_syncopated
+    figure: "Keyboard. Two chords: C then G. Pedal diagram showing the syncopated release-and-press on chord 2."
+    cleffy: >
+      Try it. C major. Pedal down.
+      Now G major — pedal up RIGHT as you strike, back down right after.
+    interaction:
+      type: sequence
+      keys: ["C4", "E4", "G4", "G4", "B4", "D5"]
+
+  - id: 12
+    mode: play
+    type: four_chord_syncopated
+    figure: "Keyboard. C F G C progression. Syncopated pedal marks on each new chord."
+    cleffy: >
+      Four chords. Syncopated pedal on each.
+      Slow. Don't rush the pedal.
+    interaction:
+      type: song
+      sequence: [["C4","E4","G4"], ["F3","A3","C4"], ["G3","B3","D4"], ["C4","E4","G4"]]
+      guides: true
+      tempo: 50
+
+  - id: 13
+    mode: hear
+    type: spot_the_mud_drill
+    figure: "Four listening rounds. Banner: MUD OR CLEAN?"
+    audio:
+      A: "A chord sequence with pedal — sometimes muddy (pedal held too long), sometimes clean (syncopated)"
+    cleffy: >
+      Four rounds. Each one — mud or clean?
+    interaction:
+      type: drill
+      rounds: 4
+      options: ["Mud", "Clean"]
+
+  - id: 14
+    mode: play
+    type: no_guides_run
+    figure: "Same four-chord progression. No guides. Tempo 55."
+    cleffy: >
+      No guides. You're pedaling by feel now.
+      If you hear mud — release the pedal harder on the new chord.
+    interaction:
+      type: song
+      sequence: [["C4","E4","G4"], ["F3","A3","C4"], ["G3","B3","D4"], ["C4","E4","G4"]]
+      guides: false
+      tempo: 55
+    followup_cleffy: >
+      Clean pedal. On purpose.
+
+  - id: 15
+    mode: hear
+    type: pre_check
+    figure: "Banner — three quick ones."
+    cleffy: >
+      Three to close.
+
+  - id: 16
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 159. Cleffy holding a clean white cloth in one hand, a brown splotch in the other. Banner: SYNCOPATED PEDAL · LEARNED."
+    cleffy: >
+      Mud — identified. Syncopated pedal — your fix.
+      Tomorrow — the act boss. The Prelude in C, again. But this time — with pedal.
+
+practice_this_week:
+  real_piano:
+    - "The four-chord progression — C F G C — with syncopated pedal. Every day. Listen for mud."
+    - "Try any scale with pedal held down. Listen to the mud. Now try it dry. That's why scales usually don't get pedal."
+    - "Listen to any recording. When the pianist shifts harmony, their foot is doing the hiccup. You know the move now."
+  virtual_only:
+    - "Replay pages 11, 12, 14"
+  estimated_time: "10 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "Two overlapping chords in a sound diagram"
+          prompt: "What causes mud?"
+          options: ["Playing too softly", "Pedal held across a harmony change", "Playing the wrong notes"]
+          correct: 1
+        - figure: "Syncopated pedal timing diagram"
+          prompt: "In syncopated pedal, when does the pedal press down?"
+          options: ["Just before the new note", "At the same time as the new note", "Just after the new note"]
+          correct: 2
+        - figure: "A scale passage"
+          prompt: "Should you usually pedal a fast scale?"
+          options: ["Yes", "No — it would blur together"]
+          correct: 1
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "Four chords with pedal held through all of them — muddy"
+          prompt: "Is this muddy or clean?"
+          options: ["Muddy", "Clean"]
+          correct: 0
+        - audio: "Four chords with syncopated pedal — clean"
+          prompt: "Is this muddy or clean?"
+          options: ["Muddy", "Clean"]
+          correct: 1
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play C F G chords with syncopated pedal — no mud between chords."
+          accept: "C, F, G chords with clean pedal changes between each"
+
+remediation:
+  id: "159.5"
+  title: "Pedal hiccup, slow"
+  pages: 8
+  opening_cleffy: >
+    Syncopated pedal is new for your foot. Expect it to feel weird.
+    We'll slow to 40. Two chords only. Foot does just the up-down hiccup, ten times on the same two chords, until the muscle learns it.
+
+completion:
+  cleffy: >
+    Mud — avoided. Syncopated pedal — earned.
+    Tomorrow — a piece you know, reborn with pedal. Act boss.
+  xp: 18
+  unlocks: 160

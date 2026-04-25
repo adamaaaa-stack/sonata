@@ -1,0 +1,246 @@
+# ============================================================
+# LESSON 105 · Twinkle Twinkle harmonized
+# Tier 3 · Act 21 · Low-Intermediate · ACT BOSS 🎯
+# Full two-hand piece. RH melody + LH blocked/broken chords.
+# I-IV-I-V-I approximate progression.
+# ============================================================
+id: 105
+tier: low-intermediate
+act: 21
+title: "Twinkle Twinkle harmonized"
+subtitle: "Act 21 · A full two-hand piece"
+goal: "Play Twinkle Twinkle with the full melody in the right hand and supporting chords in the left."
+prereqs: [100, 101, 102, 103, 104]
+method_focus: "combine"
+time_estimate_min: 18
+piece_context: "Everything from Act 21 lands here. Inversions. Voice-leading. Hand independence. One short, whole piece."
+metaphor: "both-hands-one-mind"
+vibe: ["focused", "celebratory"]
+is_act_boss: true
+piece:
+  title: "Twinkle Twinkle Little Star"
+  key_center: "C major"
+  time_signature: "4/4"
+  difficulty: "low-intermediate — RH melody + LH chord progression"
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy holding Twinkle Twinkle sheet music. A grand staff behind him. Act 21 boss banner."
+    cleffy: >
+      Act 21 boss.
+      Twinkle Twinkle. Full melody in your right hand. Full harmony underneath.
+      Everything from this act lands here.
+
+  - id: 2
+    mode: hear
+    type: listen_to_piece
+    figure: "Big play button. Preview of the whole arrangement."
+    audio:
+      A: "Twinkle Twinkle, both hands, RH melody with LH block chords, clean"
+    cleffy: >
+      Listen. Melody you know. Chords holding it up.
+      The harmony is what makes it sound like real piano music, not a one-finger tune.
+
+  - id: 3
+    mode: see
+    type: the_melody
+    figure: "Treble staff. Full Twinkle melody: C C G G A A G | F F E E D D C."
+    cleffy: >
+      The melody. Same one you knew before you could read.
+      C, C, G, G, A, A, G. Twinkle twinkle little star.
+      F, F, E, E, D, D, C. How I wonder what you are.
+
+  - id: 4
+    mode: see
+    type: the_harmony
+    figure: "Grand staff. Melody notes above. Below, chord letters written out bar by bar: C | C | F | C || F | C | G | C."
+    cleffy: >
+      The chords underneath. C. C. F. C. Then F. C. G. C.
+      The three chords you've been working with all act.
+
+  - id: 5
+    mode: see
+    type: inversion_choices
+    figure: "Flashcard — 'C root. F 2nd inv. G 1st inv.' — same choices from lesson 102."
+    cleffy: >
+      You've met these inversions before.
+      C root. F in second inversion. G in first inversion.
+      Your left hand barely moves the whole song.
+
+  - id: 6
+    mode: play
+    type: rh_phrase_1
+    figure: "Treble staff. First phrase highlighted. C C G G A A G."
+    cleffy: >
+      Right hand, first phrase. Slow.
+      C, C, G, G, A, A, G.
+    interaction:
+      type: sequence
+      keys: ["C4","C4","G4","G4","A4","A4","G4"]
+
+  - id: 7
+    mode: play
+    type: rh_phrase_2
+    figure: "Treble staff. Second phrase. F F E E D D C."
+    cleffy: >
+      Right hand, second phrase. Comes back down.
+      F, F, E, E, D, D, C. Lands on home.
+    interaction:
+      type: sequence
+      keys: ["F4","F4","E4","E4","D4","D4","C4"]
+
+  - id: 8
+    mode: play
+    type: lh_chord_progression
+    figure: "Bass/grand staff. LH plays one chord per bar: C root, C root, F 2nd inv, C root, F 2nd inv, C root, G 1st inv, C root."
+    cleffy: >
+      Left hand. One chord per bar. Hold each one for four beats.
+      C, C, F, C. F, C, G, C.
+    interaction:
+      type: rhythm
+      sequence: [["C3","E3","G3"], ["C3","E3","G3"], ["C3","F3","A3"], ["C3","E3","G3"], ["C3","F3","A3"], ["C3","E3","G3"], ["B2","D3","G3"], ["C3","E3","G3"]]
+      durations: ["whole","whole","whole","whole","whole","whole","whole","whole"]
+      tempo: 60
+
+  - id: 9
+    mode: play
+    type: both_hands_phrase_1
+    figure: "Grand staff. First half of the piece. RH melody over LH blocked chords."
+    cleffy: >
+      Both hands. First half only.
+      LH holds the chord. RH plays the melody above.
+      Slow. 55 bpm.
+    interaction:
+      type: song
+      sequence: [["C4","C3","E3","G3"],"C4","G4","G4","A4","A4","G4",["C4","F3","A3","C4"],"C4","G4","G4","A4","A4","G4"]
+      guides: true
+      tempo: 55
+
+  - id: 10
+    mode: play
+    type: both_hands_phrase_2
+    figure: "Grand staff. Second half. Same structure."
+    cleffy: >
+      Second half. F bar, C bar, G bar, C bar.
+    interaction:
+      type: song
+      sequence: [["F4","C3","F3","A3"],"F4",["E4","C3","E3","G3"],"E4",["D4","B2","D3","G3"],"D4",["C4","C3","E3","G3"]]
+      guides: true
+      tempo: 55
+
+  - id: 11
+    mode: play
+    type: full_piece_guided
+    figure: "Grand staff. Full Twinkle. Guides on. Tempo 55."
+    cleffy: >
+      Full piece. With guides. Slow.
+    interaction:
+      type: song
+      sequence: [["C4","C3","E3","G3"],"C4","G4","G4","A4","A4","G4",["C4","C3","E3","G3"],"C4","G4","G4","A4","A4","G4",["F4","C3","F3","A3"],"F4","E4","E4","D4","D4","C4",["C4","C3","E3","G3"],"C4","F4","F4","E4","E4","D4","D4","C4"]
+      guides: true
+      tempo: 55
+
+  - id: 12
+    mode: play
+    type: full_piece_no_guides
+    figure: "Same grand staff. No guides. You read, you play."
+    cleffy: >
+      No guides. Read the staff. Play it.
+      Stumble? Keep going to the next bar.
+    interaction:
+      type: song
+      sequence: [["C4","C3","E3","G3"],"C4","G4","G4","A4","A4","G4",["C4","C3","E3","G3"],"C4","G4","G4","A4","A4","G4",["F4","C3","F3","A3"],"F4","E4","E4","D4","D4","C4",["C4","C3","E3","G3"],"C4","F4","F4","E4","E4","D4","D4","C4"]
+      guides: false
+    followup_cleffy: >
+      That.
+      Full melody. Full harmony. Both hands doing real work.
+
+  - id: 13
+    mode: play
+    type: at_tempo
+    figure: "Grand staff. Tempo 75."
+    cleffy: >
+      Up to proper tempo. 75 bpm. Don't stop for stumbles.
+    interaction:
+      type: song
+      sequence: [["C4","C3","E3","G3"],"C4","G4","G4","A4","A4","G4",["C4","C3","E3","G3"],"C4","G4","G4","A4","A4","G4",["F4","C3","F3","A3"],"F4","E4","E4","D4","D4","C4",["C4","C3","E3","G3"],"C4","F4","F4","E4","E4","D4","D4","C4"]
+      guides: false
+      tempo: 75
+
+  - id: 14
+    mode: hear
+    type: pre_check
+    figure: "Banner — Act 21 boss mastery check."
+    cleffy: >
+      Four quick ones. Act boss — take your time.
+
+  - id: 15
+    mode: see
+    type: wrap
+    figure: "Celebration card — ACT 21 COMPLETE 🎯. Cleffy holding Twinkle sheet music. A pyramid of acts showing 21/50 complete."
+    cleffy: >
+      Act 21. Closed.
+      You played a whole piece with full harmony. Your right hand and left hand each had their own job.
+      Everything from this act showed up: three shapes of a chord, voice-leading, hand independence, drill. One week ago you were doing one-hand melodies.
+      Next act — interval names. 2nds, 3rds, all the way to octaves. The vocabulary to talk about what you've been playing.
+
+practice_this_week:
+  real_piano:
+    - "Twinkle with both hands every day this week. Start slow. Build up to 80 bpm by week's end."
+    - "If you have family around — play it for someone. It's a real piece now."
+    - "For a challenge: try broken chords in the LH instead of blocked. Roll C-E-G one note at a time."
+  virtual_only:
+    - "Replay pages 11-13 — guided, then no guides, then at tempo"
+  estimated_time: "15 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "First bar of Twinkle — RH C, LH C-E-G chord"
+          prompt: "What chord is the LH playing in bar 1?"
+          options: ["C major", "F major", "G major"]
+          correct: 0
+        - figure: "LH chord on bar 7 — B-D-G"
+          prompt: "Which chord and inversion?"
+          options: ["G major, first inversion", "C major, root", "F major, second inversion"]
+          correct: 0
+        - figure: "Full piece on grand staff"
+          prompt: "Does the LH play one chord per bar or many?"
+          options: ["One per bar", "One per beat", "Random"]
+          correct: 0
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "Twinkle with full harmony"
+          prompt: "Is the melody the one you know?"
+          options: ["Yes", "No"]
+          correct: 0
+        - audio: "Final bar of Twinkle ending on C major"
+          prompt: "Does the piece end on the home note?"
+          options: ["Yes", "No"]
+          correct: 0
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play the first bar of Twinkle — RH C above LH C-E-G chord."
+          accept: "RH C4 and LH C major chord together"
+
+remediation:
+  id: "105.5"
+  title: "Twinkle, hands separately first"
+  pages: 11
+  opening_cleffy: >
+    Act boss. Expected to be a real test.
+    We're going to rebuild it — RH alone, LH alone, then bar by bar together. No rush.
+
+completion:
+  cleffy: >
+    Act 21 sealed. A full two-hand piece with harmony.
+    You can play Twinkle Twinkle like it's real music. Because it is.
+    Tomorrow — intervals by name. See a 3rd. Hear a 5th.
+  xp: 30
+  unlocks: 106

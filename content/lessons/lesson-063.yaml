@@ -1,0 +1,210 @@
+id: 63
+tier: elementary
+act: 13
+title: "Naturals"
+subtitle: "Cancel the sharp or flat"
+goal: "Read the natural symbol and understand when it resets a note back to the white key."
+prereqs: [61, 62]
+method_focus: "accidentals"
+time_estimate_min: 10
+piece_context: null
+metaphor: "eraser"
+vibe: ["gentle", "playful"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Staff with F, then F#, then F♮ (natural)."
+    cleffy: >
+      One more symbol. The natural sign.
+      If a note was sharped or flatted, the natural cancels it back to the regular white key.
+
+  - id: 2
+    mode: see
+    type: definition
+    figure: "Staff: F, F#, then F with a natural sign. Arrow showing it goes back to plain F."
+    cleffy: >
+      When you see a natural (♮), play the plain white key.
+      Not the sharp. Not the flat. The natural.
+
+  - id: 3
+    mode: see
+    type: why
+    figure: "Bar 1: F#. Bar 2: first note F# (still), second note F-natural."
+    cleffy: >
+      Naturals show up when a note was just sharped (or flatted) and the composer wants to undo it mid-piece.
+
+  - id: 4
+    mode: see
+    type: natural_shape
+    figure: "Close-up of natural sign — small rectangle."
+    cleffy: >
+      Natural looks like a small rectangle. Sits just before the note.
+
+  - id: 5
+    mode: see
+    type: interactive
+    figure: "Staff: F♮"
+    cleffy: >
+      Which note do you play?
+    interaction:
+      type: choice
+      options: ["F (white key)", "F-sharp (black key)"]
+      correct: 0
+
+  - id: 6
+    mode: see
+    type: interactive_b
+    figure: "Staff: B♮ (after being flatted earlier)"
+    cleffy: >
+      And this?
+    interaction:
+      type: choice
+      options: ["B-flat", "B natural (white key)"]
+      correct: 1
+
+  - id: 7
+    mode: hear
+    type: sharp_to_natural
+    figure: "Two play buttons."
+    audio:
+      A: "F#"
+      B: "F natural"
+    cleffy: >
+      F-sharp, then F natural.
+      Natural is lower by a tiny step.
+
+  - id: 8
+    mode: play
+    type: play_natural
+    figure: "Keyboard. F glowing (white key, not F#)."
+    cleffy: >
+      Play F natural — the white key.
+    interaction:
+      type: tap
+      key: "F4"
+
+  - id: 9
+    mode: play
+    type: chromatic_with_natural
+    figure: "Keyboard. F, F#, F♮, G."
+    cleffy: >
+      Walk: F, F#, back to F natural, then G.
+    interaction:
+      type: sequence
+      keys: ["F4","F#4","F4","G4"]
+
+  - id: 10
+    mode: see
+    type: three_signs
+    figure: "Three accidentals lined up: #, ♭, ♮."
+    cleffy: >
+      Three signs to know now.
+      # = raise.
+      ♭ = lower.
+      ♮ = cancel.
+
+  - id: 11
+    mode: see
+    type: drill_all_three
+    figure: "Round counter 1 of 6."
+    cleffy: >
+      Six rounds. Sharp, flat, or natural?
+    interaction:
+      type: drill
+      rounds: 6
+      options: ["Sharp", "Flat", "Natural"]
+
+  - id: 12
+    mode: hear
+    type: mixed
+    figure: "Round counter 1 of 4."
+    cleffy: >
+      Four by ear. Sharp, flat, or natural (played against context)?
+    interaction:
+      type: drill
+      rounds: 4
+      options: ["Sharp", "Flat", "Natural"]
+
+  - id: 13
+    mode: read
+    type: read_mixed_phrase
+    figure: "Staff: F, F#, F♮, G. Keyboard."
+    cleffy: >
+      Read and play.
+    interaction:
+      type: sequence
+      keys: ["F4","F#4","F4","G4"]
+
+  - id: 14
+    mode: hear
+    type: mixed
+    figure: "Four rounds."
+    cleffy: >
+      Mixed.
+    interaction:
+      type: drill
+      rounds: 4
+
+  - id: 15
+    mode: hear
+    type: pre_check
+    figure: "Banner."
+    cleffy: >
+      Four quick ones.
+
+  - id: 16
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 63. Three accidentals side by side: sharp, flat, natural."
+    cleffy: >
+      All three accidentals, known.
+      Tomorrow — how they work inside a bar of music.
+
+practice_this_week:
+  real_piano:
+    - "Play F, F#, F♮, G. Feel the sharp go up and the natural cancel it."
+    - "Try the same with B: B, B♭, B♮, C."
+  virtual_only:
+    - "Replay pages 11-12"
+  estimated_time: "5 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "F♮"
+          prompt: "Which key?"
+          options: ["F (white)", "F-sharp (black)"]
+          correct: 0
+        - figure: "Three accidentals in a row."
+          prompt: "Which one cancels a sharp or flat?"
+          options: ["Sharp", "Flat", "Natural"]
+          correct: 2
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "F natural after an F-sharp"
+          prompt: "Did the second note go up or down?"
+          options: ["Up", "Down"]
+          correct: 1
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play F natural."
+          accept: "F4"
+
+remediation:
+  id: "63.5"
+  title: "Naturals, slower"
+  pages: 5
+  opening_cleffy: >
+    Natural cancels. Slow look with before/after examples.
+
+completion:
+  cleffy: >
+    Three accidentals, all done.
+  xp: 20
+  unlocks: 64

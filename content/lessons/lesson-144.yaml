@@ -1,0 +1,246 @@
+# ============================================================
+# LESSON 144 · Simple rubato
+# Tier 4 · Act 29 · Intermediate
+# Stretch time, then give it back. Borrow within the phrase.
+# ============================================================
+id: 144
+tier: intermediate
+act: 29
+title: "Simple rubato"
+subtitle: "Act 29 · Dynamics & tempo"
+goal: "Stretch a note inside a phrase, then speed up the next notes to pay it back — so the phrase still lands on time."
+prereqs: [143, 142, 141]
+method_focus: "tempo"
+time_estimate_min: 13
+piece_context: "Tempo marking at the top of the page sets the speed. But real players don't follow it like a robot. They stretch some notes, hurry others — then land back on the beat. That's rubato. Borrowed time, paid back inside the phrase."
+metaphor: "range-of-voices"
+vibe: ["gentle", "reflective", "focused"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy with a pocket watch that has a soft rubber band wrapped around it, stretched and snapping back. Banner: RUBATO."
+    cleffy: >
+      Rubato.
+      Italian for 'stolen'.
+      Stolen time — borrowed from one note, given back to the next.
+
+  - id: 2
+    mode: see
+    type: the_rule
+    figure: "A phrase of eight notes along a horizontal timeline. First note stretched wide. The next seven compressed to catch up. A banner at the end labeled 'BACK ON THE BEAT'."
+    cleffy: >
+      Here's the rule.
+      Stretch a note — let it sing a little longer.
+      The next notes move a little faster to catch up.
+      By the end of the phrase, you're back on the beat. Always.
+
+  - id: 3
+    mode: see
+    type: not_just_slower
+    figure: "Two staves. Top: 'slowing down' — arrow points to every note, all stretched. Bottom: 'rubato' — one note stretched, the rest hurry. Caption: 'Rubato is local. It lives inside a phrase.'"
+    cleffy: >
+      Rubato is not just slowing down.
+      Slowing down means every note is slower.
+      Rubato means ONE note sings, and the others pay for it.
+
+  - id: 4
+    mode: hear
+    type: hear_strict_time
+    figure: "Play button. Metronome clicks. Label: STRICT TIME — every note locked to the click."
+    audio:
+      A: "An eight-note phrase played in perfectly strict time at 70 bpm — metronome clicking underneath"
+    cleffy: >
+      Listen. Strict time.
+      Correct — but a little mechanical.
+
+  - id: 5
+    mode: hear
+    type: hear_rubato
+    figure: "Play button. Metronome clicks. Label: WITH RUBATO — note three stretched, notes four and five hurry back."
+    audio:
+      A: "The same eight-note phrase with rubato — note three held longer, notes four and five quicker, landing back on the beat by note six"
+    cleffy: >
+      Same notes. Rubato.
+      Hear note three linger? Then the hurry back.
+      That's a phrase breathing.
+
+  - id: 6
+    mode: see
+    type: where_to_stretch
+    figure: "A phrase-arch. Mountain-shape curve over eight notes. Arrow at the peak of the arch labeled 'HERE'. Caption: 'Stretch the note that matters most — the peak, the turning point, a surprising note.'"
+    cleffy: >
+      Which note do you stretch?
+      Usually the most important one.
+      The peak of the phrase. The turning point. A note that surprises.
+      Let it sing. Then catch up.
+
+  - id: 7
+    mode: play
+    type: stretch_note_3
+    figure: "Staff: five notes C D E F G. Note E marked with a wavy bracket — 'stretch'. Metronome 70."
+    cleffy: >
+      Five notes. Stretch the middle one — E.
+      Hold E a beat longer than written.
+      Then hurry F and G to land on time.
+    interaction:
+      type: rhythm
+      sequence: ["C4", "D4", "E4", "F4", "G4"]
+      durations: ["quarter", "quarter", "half", "eighth", "eighth"]
+      tempo: 70
+
+  - id: 8
+    mode: play
+    type: stretch_peak
+    figure: "Staff: seven notes, arch shape — C E G A G E C. Note A (the peak) marked 'stretch'. Metronome 70."
+    cleffy: >
+      Climb to the peak. Let A linger.
+      Then roll back down, a little faster.
+      You'll land on the last C exactly on the beat.
+    interaction:
+      type: rhythm
+      sequence: ["C4", "E4", "G4", "A4", "G4", "E4", "C4"]
+      durations: ["quarter", "quarter", "quarter", "half", "eighth", "eighth", "quarter"]
+      tempo: 70
+
+  - id: 9
+    mode: see
+    type: the_left_hand_rule
+    figure: "Two staves. Top staff: right-hand melody with a stretched note. Bottom staff: left-hand accompaniment, steady as a clock. Arrow labeled 'LH KEEPS TIME'."
+    cleffy: >
+      Real rubato trick — the left hand keeps steady.
+      Right hand floats. Left hand anchors.
+      Only later, the hands drift together. But not yet.
+
+  - id: 10
+    mode: hear
+    type: hear_floating_rh
+    figure: "Play button. Label: RIGHT HAND WITH RUBATO, LEFT HAND STEADY."
+    audio:
+      A: "A melody with stretched notes in the right hand, while a steady left hand plays a quarter-note bass line at 70 bpm"
+    cleffy: >
+      Listen.
+      Bass is a metronome. Melody dances around it.
+      That's the Chopin sound. Coming soon.
+
+  - id: 11
+    mode: play
+    type: rubato_phrase
+    figure: "Staff: eight-note phrase. C D E G E D C G. Arch shape. Stretch bracket over the G at the peak. Metronome 70."
+    cleffy: >
+      Eight-note phrase. Rubato on the peak G.
+      Make it sing. Hurry back. Land on the final G.
+    interaction:
+      type: rhythm
+      sequence: ["C4", "D4", "E4", "G4", "E4", "D4", "C4", "G3"]
+      durations: ["quarter", "quarter", "quarter", "half", "eighth", "eighth", "quarter", "quarter"]
+      tempo: 70
+
+  - id: 12
+    mode: see
+    type: dont_overdo_it
+    figure: "Cleffy holding up a hand. Caption: 'A little goes a long way. Rubato every note = nothing means anything.'"
+    cleffy: >
+      Warning.
+      A little rubato is expressive. Too much is seasick.
+      One stretched note per phrase. Maybe two.
+      Save it for what matters.
+
+  - id: 13
+    mode: play
+    type: long_phrase_with_rubato
+    figure: "Staff: longer phrase, twelve notes. Shape rises then falls. Stretch brackets on two notes — one at the peak, one at the turn before the end."
+    cleffy: >
+      Twelve notes. Two stretches.
+      One at the peak. One just before the last note.
+      Let those two sing. The others carry the line.
+    interaction:
+      type: rhythm
+      sequence: ["C4", "D4", "E4", "F4", "G4", "A4", "G4", "F4", "E4", "D4", "C4", "C4"]
+      durations: ["quarter", "quarter", "quarter", "quarter", "quarter", "half", "eighth", "eighth", "quarter", "quarter", "half", "quarter"]
+      tempo: 70
+    followup_cleffy: >
+      Phrase breathing. That's what we're after.
+
+  - id: 14
+    mode: hear
+    type: strict_or_rubato
+    figure: "Four rounds. Banner — 'Strict time or rubato?'"
+    cleffy: >
+      Four rounds.
+      Listen — strict or stretched?
+    interaction:
+      type: drill
+      rounds: 4
+      options: ["Strict time", "Rubato"]
+
+  - id: 15
+    mode: hear
+    type: pre_check
+    figure: "Banner."
+    cleffy: >
+      Three quick ones.
+
+  - id: 16
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 144. A rubber band stretched over a metronome. Caption: BORROW. PAY BACK."
+    cleffy: >
+      Rubato. Borrow time. Pay it back.
+      The sound of a living pianist, not a machine.
+      Tomorrow — Chopin. Act boss. Rubato goes to work.
+
+practice_this_week:
+  real_piano:
+    - "Take any simple scale. Play it at 70 bpm. Pick one note — usually the top. Hold it a beat longer. Speed the rest to land on time."
+    - "Try the two-hand trick. Play a steady quarter-note bass in the left hand. Improvise a right-hand melody over it, stretching one note per phrase. Listen to them drift and re-align."
+  virtual_only:
+    - "Replay pages 8, 11, 13"
+  estimated_time: "12 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "Italian word: rubato"
+          prompt: "What does rubato mean?"
+          options: ["Stolen (time)", "Smooth", "Fast"]
+          correct: 0
+        - figure: "Phrase with a stretched note marked"
+          prompt: "After the stretched note, what should happen?"
+          options: ["Keep stretching every note", "Hurry the next notes to land on the beat", "Stop the phrase"]
+          correct: 1
+        - figure: "A piece marked 'adagio, poco rubato' at the top"
+          prompt: "How often should rubato happen?"
+          options: ["Every note", "Every phrase — a little, in the right place", "Never"]
+          correct: 1
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "A phrase with one stretched note and a hurried return to the beat"
+          prompt: "Strict time or rubato?"
+          options: ["Strict", "Rubato"]
+          correct: 1
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play a five-note scale at 70 bpm. Stretch the top note. Hurry the last two."
+          accept: "5 notes with a clear stretch on note 3, hurried notes 4 and 5"
+
+remediation:
+  id: "144.5"
+  title: "Rubato, one stretch at a time"
+  pages: 8
+  opening_cleffy: >
+    Rubato is feel, not math. That makes it slippery.
+    We'll start with one stretched note in a three-note phrase. Small, clear.
+    Then build up.
+
+completion:
+  cleffy: >
+    Rubato — yours.
+    Tomorrow — Chopin. The Nocturne. Where rubato was born.
+  xp: 18
+  unlocks: 145

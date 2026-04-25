@@ -1,0 +1,240 @@
+# ============================================================
+# LESSON 33 · The grand staff
+# Tier 2 · Act 7 · Elementary
+# WALL #2: TWO HANDS AT ONCE — handle with care
+# Central metaphor: TWO STAVES STITCHED TOGETHER
+# ============================================================
+id: 33
+tier: elementary
+act: 7
+title: "The grand staff"
+subtitle: "Both staves, one piece"
+goal: "Understand how the treble and bass staves connect into the grand staff, and how to read both at once."
+prereqs: [26, 27, 28, 29, 30, 31, 32]
+method_focus: "notation"
+time_estimate_min: 12
+piece_context: "Nearly every piece of piano music uses a grand staff. Today we learn to see both staves as one system."
+metaphor: "two-staves-stitched"
+vibe: ["gentle", "serious"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Treble staff floating above, bass staff below, a big gap between them. Cleffy holds a glowing brace that will connect them."
+    cleffy: >
+      You've been reading two staves separately.
+      Today we connect them. Welcome to the grand staff.
+      This is how almost every piece of piano music is written.
+
+  - id: 2
+    mode: see
+    type: definition
+    figure: "Grand staff drawn — treble clef on top, bass clef on bottom, a curly brace connecting them on the left."
+    cleffy: >
+      The grand staff is two staves stacked.
+      Treble on top — right hand.
+      Bass on the bottom — left hand.
+      A curly brace on the left ties them together. That means: play both at the same time.
+
+  - id: 3
+    mode: see
+    type: both_clefs_at_once
+    figure: "Grand staff with no notes yet. Just clefs and the brace. Labels: TREBLE, BASS."
+    cleffy: >
+      Both clefs at once. Both hands at once.
+      That's new. We're going to handle it carefully.
+
+  - id: 4
+    mode: see
+    type: simple_example
+    figure: "Grand staff. Treble has a single Middle C. Bass has a single bass C. Both in bar 1."
+    cleffy: >
+      Simplest grand staff ever.
+      Top: Middle C (treble).
+      Bottom: bass C (an octave below).
+      Right hand plays top. Left hand plays bottom. At the same time.
+
+  - id: 5
+    mode: see
+    type: read_top_first
+    figure: "Same grand staff. Highlight the TOP note only, then fade it out and highlight the BOTTOM note."
+    cleffy: >
+      Here's the trick when it feels overwhelming. Read one staff first.
+      Top first. What's the RH doing? Middle C.
+      Now the bottom. What's the LH doing? Bass C.
+      Two separate reads. Then combine.
+
+  - id: 6
+    mode: see
+    type: one_bar_exercise
+    figure: "Grand staff bar. Treble: two quarter notes on Middle C. Bass: one whole note on bass C."
+    cleffy: >
+      One bar. Read it in two passes.
+      Pass 1 — right hand: two Middle Cs, quarter notes.
+      Pass 2 — left hand: one bass C, whole note held through both.
+
+  - id: 7
+    mode: play
+    type: rh_only_first
+    figure: "Same bar. RH highlighted. Metronome 60 bpm."
+    cleffy: >
+      Play the right hand alone first. Two quarter notes on Middle C.
+    interaction:
+      type: rhythm
+      sequence: ["C4", "C4"]
+      durations: ["quarter", "quarter"]
+      tempo: 60
+
+  - id: 8
+    mode: play
+    type: lh_only_second
+    figure: "Same bar. LH highlighted. Metronome 60 bpm."
+    cleffy: >
+      Now the left hand alone. One bass C, held through a whole bar.
+    interaction:
+      type: rhythm
+      sequence: ["C3"]
+      durations: ["whole"]
+      tempo: 60
+
+  - id: 9
+    mode: play
+    type: hands_together_slow
+    figure: "Same bar. Both hands highlighted. Metronome at slow 50 bpm."
+    cleffy: >
+      Now together. Press both notes at the same time for beat 1.
+      Then the LH holds (still pressed) while the RH plays the second quarter.
+      Both hands — but the left just stays down.
+    interaction:
+      type: rhythm
+      sequence: [["C4", "C3"], "C4"]
+      durations: ["quarter", "quarter"]
+      tempo: 50
+    followup_cleffy: >
+      That's the grand staff in action.
+      Right hand moves. Left hand holds. Both hands at once.
+
+  - id: 10
+    mode: read
+    type: second_example
+    figure: "Grand staff. Treble: C4-D4-E4-D4 (quarter notes). Bass: bass C whole note (held through all four)."
+    cleffy: >
+      Second example. RH has four notes. LH holds one note the whole time.
+      Breathe. This looks like a lot. It isn't.
+
+  - id: 11
+    mode: play
+    type: example_2_rh
+    figure: "Same. RH highlighted."
+    cleffy: >
+      RH first: C, D, E, D — four quarters.
+    interaction:
+      type: rhythm
+      sequence: ["C4", "D4", "E4", "D4"]
+      durations: ["quarter", "quarter", "quarter", "quarter"]
+      tempo: 55
+
+  - id: 12
+    mode: play
+    type: example_2_both
+    figure: "Same. Both hands highlighted."
+    cleffy: >
+      Both together. LH holds bass C the whole time. RH plays the melody.
+      Slow tempo. Forgiving rhythm. Focus on hands doing different things without crashing.
+    interaction:
+      type: rhythm
+      sequence: [["C4", "C3"], "D4", "E4", "D4"]
+      durations: ["quarter", "quarter", "quarter", "quarter"]
+      tempo: 50
+    followup_cleffy: >
+      That was you playing two hands at once.
+      Don't worry if it felt sloppy. First attempts are supposed to.
+
+  - id: 13
+    mode: see
+    type: eyes_strategy
+    figure: "Grand staff with arrows showing eye movement: glance top, glance bottom, glance top, glance bottom."
+    cleffy: >
+      Here's the eye trick: when reading a grand staff, your eyes bounce between the two staves fast.
+      Top, bottom, top, bottom.
+      You'll never read both perfectly at the exact same moment. You scan.
+
+  - id: 14
+    mode: hear
+    type: pre_check
+    figure: "Banner."
+    cleffy: >
+      Three quick ones. Just recognition — no two-hand playing in the test this time.
+
+  - id: 15
+    mode: see
+    type: wrap_1
+    figure: "Grand staff with both examples laid out."
+    cleffy: >
+      Today was a big day. Two hands is a real skill.
+      Don't be hard on yourself if it felt weird. It IS weird, the first time.
+
+  - id: 16
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 33. Grand staff with brace connecting treble and bass, both clefs visible. Cleffy giving a reassuring thumbs up."
+    cleffy: >
+      You survived Wall Number Two. Both hands reading together.
+      Tomorrow — Middle C becomes the bridge between the two staves.
+      Two more lessons and you're playing Merrily We Roll Along.
+
+# ─── Practice this week ────────────────────────────────
+practice_this_week:
+  real_piano:
+    - "Hardest practice so far. Start with just your RH on Middle C. Four quarter notes, metronome at 50."
+    - "Then just LH holding bass C as a whole note."
+    - "Now TRY both — RH plays four quarters, LH holds bass C. Expect it to feel awkward. It always does the first few days."
+    - "If it's really hard, go back to hands separately for a day. No shame."
+  virtual_only:
+    - "Replay pages 11-12 (the hands-together drills) slowly. Multiple times."
+  estimated_time: "10-15 min/day — this one deserves more time"
+
+# ─── Mastery check ──────────────────────────────────────
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "Grand staff. Arrow pointing at the top staff."
+          prompt: "Which hand reads the top staff?"
+          options: ["Left hand", "Right hand"]
+          correct: 1
+        - figure: "Grand staff. Brace circled."
+          prompt: "What does the brace on the left of the two staves mean?"
+          options: ["Pick one staff", "Play both staves at the same time", "Decoration"]
+          correct: 1
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "A Middle C and a bass C played together"
+          prompt: "Did you hear one note or two?"
+          options: ["One note blending", "Two notes together (one high, one low)"]
+          correct: 1
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play Middle C with your right hand and bass C with your left hand, at the same time."
+          accept: "C4 and C3 played simultaneously"
+
+# ─── Remediation ────────────────────────────────────────
+remediation:
+  id: "33.5"
+  title: "The grand staff, very slow"
+  pages: 6
+  opening_cleffy: >
+    This is THE wall. Almost everyone takes two or three passes. That's totally fine.
+    Let's separate the hands completely, then bring them together very slowly.
+
+# ─── Completion ─────────────────────────────────────────
+completion:
+  cleffy: >
+    You just did the hardest thing in Tier 2. Hands together is real.
+    Two more lessons and you perform.
+  xp: 20
+  unlocks: 34

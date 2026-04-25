@@ -1,0 +1,198 @@
+id: 65
+tier: elementary
+act: 13
+title: "Jingle Bells"
+subtitle: "Act 13 · First piece with sharps"
+goal: "Play a simplified Jingle Bells with an F# in it — your first piece using accidentals."
+prereqs: [61, 64]
+method_focus: "combine"
+time_estimate_min: 14
+piece_context: "Your first piece with a sharp. It'll still feel familiar — the sharp sneaks in on one note."
+metaphor: "sharp-lives-here"
+vibe: ["gentle", "playful", "celebratory"]
+is_act_boss: true
+piece:
+  title: "Jingle Bells (simplified)"
+  notes: "F# F# F# | F# F# F# | F# A D E F# (D major — two sharps: F# and C#)"
+  key_center: "D major (2 sharps: F# and C#)"
+  time_signature: "4/4"
+  difficulty: "elementary — mostly steps in D major, featuring F#"
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy with sheet music labeled Jingle Bells. Sleigh bells in the background."
+    cleffy: >
+      Act 13 boss. Jingle Bells.
+      Same tune you've heard a thousand times. But now you play it in D major — two sharps: F# and C#.
+
+  - id: 2
+    mode: hear
+    type: listen
+    figure: "Play button."
+    audio:
+      A: "Jingle Bells simplified, RH"
+    cleffy: >
+      Listen. Three phrases. Lots of repeated notes. In the key of D — F# all over the place.
+
+  - id: 3
+    mode: see
+    type: the_sharp
+    figure: "Staff showing where F# appears in Jingle Bells (D major)."
+    cleffy: >
+      Here's the sharp. In D major, every F is F-sharp — it shows up all through this tune.
+      Remember — F-sharp is the black key just above F.
+
+  - id: 4
+    mode: see
+    type: phrase_1
+    figure: "First phrase of Jingle Bells. All F# notes, repeated. F# F# F# (quarter notes)."
+    cleffy: >
+      First phrase. Jingle bells jingle bells.
+      F-sharp, F-sharp, F-sharp. Repeated three times.
+
+  - id: 5
+    mode: play
+    type: play_phrase_1
+    figure: "Keyboard. F#4 highlighted."
+    cleffy: >
+      Play F-sharp three times. All quarters.
+    interaction:
+      type: rhythm
+      sequence: ["F#4","F#4","F#4"]
+      durations: ["quarter","quarter","quarter"]
+      tempo: 80
+
+  - id: 6
+    mode: see
+    type: phrase_2
+    figure: "Phrase 2: F# A D E F# (going up and resolving, in D major)."
+    cleffy: >
+      Second part — jingle all the way.
+      F-sharp, A, D, E, F-sharp. Goes up to A, then drops and comes back up.
+
+  - id: 7
+    mode: play
+    type: play_phrase_2
+    figure: "Keyboard. Phrase 2 notes."
+    cleffy: >
+      Play F-sharp, A, D, E, F-sharp.
+    interaction:
+      type: sequence
+      keys: ["F#4","A4","D4","E4","F#4"]
+
+  - id: 8
+    mode: see
+    type: phrase_3_with_sharp
+    figure: "Phrase 3 in D major (featuring F#)."
+    cleffy: >
+      Third phrase. Oh what fun it is to ride.
+      G G G G G F-sharp F-sharp F-sharp F-sharp E E F-sharp E A.
+      Every F in this tune is F-sharp — that's the key of D.
+
+  - id: 9
+    mode: play
+    type: sharp_note
+    figure: "Keyboard. F# highlighted."
+    cleffy: >
+      Before the phrase — just tap F-sharp twice to get it in your hand.
+    interaction:
+      type: sequence
+      keys: ["F#4","F#4"]
+
+  - id: 10
+    mode: play
+    type: phrase_3_simplified
+    figure: "Simplified phrase in D major: G G G G F# F# E F#."
+    cleffy: >
+      Simplified phrase. Notice every F is F-sharp — that's the key of D doing its job.
+    interaction:
+      type: sequence
+      keys: ["G4","G4","G4","F#4","F#4","E4","E4","F#4"]
+
+  - id: 11
+    mode: play
+    type: full_song_guided
+    figure: "Full Jingle Bells simplified. Guides on. Metronome 90 bpm."
+    cleffy: >
+      Whole song. Guides on.
+    interaction:
+      type: song
+      sequence: ["F#4","F#4","F#4","F#4","F#4","F#4","F#4","A4","D4","E4","F#4","G4","G4","G4","G4","G4","F#4","F#4","F#4","F#4","E4","E4","F#4","E4","A4"]
+      guides: true
+      tempo: 90
+
+  - id: 12
+    mode: play
+    type: full_no_guides
+    figure: "No guides."
+    cleffy: >
+      No guides.
+    interaction:
+      type: song
+      sequence: ["F#4","F#4","F#4","F#4","F#4","F#4","F#4","A4","D4","E4","F#4","G4","G4","G4","G4","G4","F#4","F#4","F#4","F#4","E4","E4","F#4","E4","A4"]
+      guides: false
+
+  - id: 13
+    mode: hear
+    type: pre_check
+    figure: "Banner."
+    cleffy: >
+      Three quick ones.
+
+  - id: 14
+    mode: see
+    type: wrap
+    figure: "Celebration — ACT 13 COMPLETE. Trophy 13/15 acts."
+    cleffy: >
+      Act 13 done. First piece with a sharp.
+      Two acts left in Tier 2. Key signatures come next, then patterns, then Für Elise.
+
+practice_this_week:
+  real_piano:
+    - "Play Jingle Bells every day."
+    - "Try adding a few more F-sharps in the phrases you repeat — hear how they add color."
+    - "Play it soft (p) once, loud (f) once. Different feel each time."
+  virtual_only:
+    - "Replay pages 11-12"
+  estimated_time: "10 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "Sheet music with F# marking"
+          prompt: "On the keyboard, F-sharp is..."
+          options: ["A white key", "A black key above F", "A black key below F"]
+          correct: 1
+        - figure: "First phrase of Jingle Bells"
+          prompt: "Is this phrase mostly repeated notes or stepping notes?"
+          options: ["Repeated", "Stepping"]
+          correct: 0
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "Phrase 1 of Jingle Bells"
+          prompt: "Do you recognize this tune?"
+          options: ["Yes", "No"]
+          correct: 0
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play three F-sharps as quarter notes (the first line of Jingle Bells in D major)."
+          accept: "F#4 F#4 F#4"
+
+remediation:
+  id: "65.5"
+  title: "Jingle Bells, phrase by phrase"
+  pages: 7
+  opening_cleffy: >
+    Slow it down. Three phrases, each practiced separately.
+
+completion:
+  cleffy: >
+    Act 13, closed. First piece with a sharp.
+  xp: 30
+  unlocks: 66

@@ -1,0 +1,216 @@
+id: 64
+tier: elementary
+act: 13
+title: "Accidentals in a bar"
+subtitle: "They last until the bar-line"
+goal: "Understand how sharps, flats, and naturals persist within a bar — and reset at each bar-line."
+prereqs: [24, 61, 62, 63]
+method_focus: "accidentals"
+time_estimate_min: 10
+piece_context: null
+metaphor: "bar-line-resets"
+vibe: ["gentle", "serious"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Staff. Bar 1: F# on beat 1, another F (no sharp written) on beat 3. Bar 2: F (no sharp). Arrows highlight what each F is."
+    cleffy: >
+      Here's a rule that trips up a lot of people.
+      Once you see a sharp or flat, it STAYS ACTIVE for the rest of that bar.
+      Then at the bar-line, everything resets.
+
+  - id: 2
+    mode: see
+    type: accidental_persists
+    figure: "Bar 1: F# (explicit), then F (no symbol). Label: both are F#."
+    cleffy: >
+      Bar 1. First F is marked sharp. Second F has no symbol — but it's ALSO sharp.
+      Why? Because the sharp still applies to every F in the rest of the bar.
+
+  - id: 3
+    mode: see
+    type: bar_line_resets
+    figure: "Bar 1: F#. Bar 2: first F written plain. Arrow: bar-line reset."
+    cleffy: >
+      Bar 2. First F has no symbol. So it's plain F — natural.
+      The bar-line erased the sharp.
+
+  - id: 4
+    mode: see
+    type: natural_during_bar
+    figure: "Bar 1: F# (beat 1), F♮ (beat 3). Arrow: natural sign mid-bar."
+    cleffy: >
+      What if you want a natural F in the same bar as a sharp one?
+      Write a natural sign. It cancels for the rest of the bar.
+
+  - id: 5
+    mode: see
+    type: interactive_bar
+    figure: "Bar 1: F# on beat 1. Beat 3: F (no symbol)."
+    cleffy: >
+      The F on beat 3 — what do you play?
+    interaction:
+      type: choice
+      options: ["F-natural (white)", "F-sharp (black)"]
+      correct: 1
+
+  - id: 6
+    mode: see
+    type: interactive_new_bar
+    figure: "Bar 1: F#. Bar 2: F (no symbol)."
+    cleffy: >
+      The F at the start of bar 2?
+    interaction:
+      type: choice
+      options: ["F-natural", "F-sharp"]
+      correct: 0
+
+  - id: 7
+    mode: see
+    type: drill
+    figure: "Round counter 1 of 4."
+    cleffy: >
+      Four rounds. Sharp or natural?
+    interaction:
+      type: drill
+      rounds: 4
+      options: ["Sharp (#)", "Natural (plain)"]
+
+  - id: 8
+    mode: hear
+    type: listen_and_spot
+    figure: "Play button. A short melody with the sharp carrying across a bar."
+    audio:
+      A: "Two-bar melody with F# persisting through bar 1"
+    cleffy: >
+      Listen. The F-sharp shows up on beat 1 of bar 1. When another F plays later in that bar, it's still sharp.
+
+  - id: 9
+    mode: play
+    type: play_persisting_sharp
+    figure: "Bar 1: F# quarter, G quarter, F (no symbol) quarter, F# (implied) quarter."
+    cleffy: >
+      Play this bar. F-sharp twice, even though only the first one has a sharp written.
+    interaction:
+      type: rhythm
+      sequence: ["F#4","G4","F#4","F#4"]
+      durations: ["quarter","quarter","quarter","quarter"]
+      tempo: 60
+
+  - id: 10
+    mode: play
+    type: bar_line_resets_play
+    figure: "Two bars. Bar 1: F# F (still sharp). Bar 2: F F (both natural)."
+    cleffy: >
+      Two bars. First bar has the sharp. Second bar is all natural.
+    interaction:
+      type: rhythm
+      sequence: ["F#4","F#4","F4","F4"]
+      durations: ["quarter","quarter","quarter","quarter"]
+      tempo: 60
+
+  - id: 11
+    mode: see
+    type: mid_bar_natural
+    figure: "One bar. Beat 1: F#. Beat 2: F♮ (explicit natural)."
+    cleffy: >
+      Explicit natural mid-bar cancels the sharp from beat 2 onward.
+
+  - id: 12
+    mode: play
+    type: play_with_natural
+    figure: "Staff as above."
+    cleffy: >
+      Play it.
+    interaction:
+      type: rhythm
+      sequence: ["F#4","F4","F4","F4"]
+      durations: ["quarter","quarter","quarter","quarter"]
+      tempo: 60
+
+  - id: 13
+    mode: hear
+    type: mixed
+    figure: "Four rounds."
+    cleffy: >
+      Four.
+    interaction:
+      type: drill
+      rounds: 4
+
+  - id: 14
+    mode: read
+    type: real_phrase
+    figure: "Two bars. Bar 1: C, C#, C, B (three C#'s then B). Bar 2: C (no symbol)."
+    cleffy: >
+      Read carefully. The C mid-bar 1 is STILL sharp. The C at start of bar 2 is NOT sharp.
+    interaction:
+      type: rhythm
+      sequence: ["C4","C#4","C#4","B3","C4","C4","C4","C4"]
+      durations: ["quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter"]
+      tempo: 60
+
+  - id: 15
+    mode: hear
+    type: pre_check
+    figure: "Banner."
+    cleffy: >
+      Four quick ones.
+
+  - id: 16
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 64. Two bars with clear accidentals showing persist-then-reset rule."
+    cleffy: >
+      Accidentals live for one bar. Reset at the bar-line.
+      Tomorrow — Jingle Bells. Real piece with sharps.
+
+practice_this_week:
+  real_piano:
+    - "Play F#, F (still sharp), F (still sharp) — one bar."
+    - "Then a new bar starting on F — now back to natural."
+    - "The bar-line does the resetting. Watch for it."
+  virtual_only:
+    - "Replay pages 11-14"
+  estimated_time: "7 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "Bar 1: F# beat 1, F no-symbol beat 3."
+          prompt: "What do you play on beat 3?"
+          options: ["F-natural", "F-sharp"]
+          correct: 1
+        - figure: "Bar 2: F with no symbol."
+          prompt: "What do you play?"
+          options: ["F-natural", "F-sharp"]
+          correct: 0
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "Two-bar melody where F carries sharp through bar 1, resets bar 2"
+          prompt: "Did the F change between bar 1 and bar 2?"
+          options: ["Yes", "No"]
+          correct: 0
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play F-sharp, G, then F still sharp, then bar-line, then plain F."
+          accept: "F#4 G4 F#4 then bar-line then F4"
+
+remediation:
+  id: "64.5"
+  title: "Accidentals in a bar, slower"
+  pages: 5
+  opening_cleffy: >
+    Persist-until-bar-line is the confusing part. Slow examples, clear resets.
+
+completion:
+  cleffy: >
+    Accidentals now behave like they do in real music.
+  xp: 20
+  unlocks: 65

@@ -1,0 +1,214 @@
+# ============================================================
+# LESSON 127 · E♭ major (3 flats)
+# Tier 4 · Act 26 · Intermediate
+# Bb, Eb, Ab — the three-flat key.
+# ============================================================
+id: 127
+tier: intermediate
+act: 26
+title: "E♭ major (3 flats)"
+subtitle: "Act 26 · More keys"
+goal: "Read and play a simple phrase in E-flat major — B-flat, E-flat, A-flat, every time."
+prereqs: [126, 112, 75]
+method_focus: "keys"
+time_estimate_min: 13
+piece_context: "Yesterday, the sharp side. Today, the flat side. E-flat major — the key of Mozart, Beethoven, a lot of jazz."
+metaphor: "map-of-all-keys"
+vibe: ["gentle", "focused"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy holding a treble staff with three flats stacked at the start. Banner: E-FLAT MAJOR."
+    cleffy: >
+      Other side of the map. Flats today.
+      Three of them. B, E, A.
+      E-flat major.
+
+  - id: 2
+    mode: see
+    type: three_flats
+    figure: "Treble staff showing the E-flat major key signature — Bb on middle line, Eb on top space, Ab on second space."
+    cleffy: >
+      Three flats. B, E, A.
+      Every B is B-flat. Every E is E-flat. Every A is A-flat.
+      B, E, A — the same pattern backwards from A major's F, C, G.
+
+  - id: 3
+    mode: see
+    type: eb_major_scale_on_staff
+    figure: "Treble staff with the E-flat major scale written out: Eb F G Ab Bb C D Eb. Key signature at the front."
+    cleffy: >
+      The scale. E F G A B C D E — but three of those are flat.
+      E, A, and B. Same three every time.
+
+  - id: 4
+    mode: hear
+    type: hear_eb_major
+    figure: "Play button. Label: E-FLAT MAJOR SCALE."
+    audio:
+      A: "E-flat major scale ascending, slow and warm"
+    cleffy: >
+      Listen. Warm. Round. A little darker than A major.
+      Composers pick E-flat for solemn, noble music.
+
+  - id: 5
+    mode: play
+    type: five_finger_eb
+    figure: "Keyboard. Eb F G Ab Bb highlighted. Key signature showing 3 flats."
+    cleffy: >
+      E-flat position. Eb, F, G, A-flat, B-flat.
+      Three of the five are black keys. Takes a minute to find.
+    interaction:
+      type: sequence
+      keys: ["Eb4","F4","G4","Ab4","Bb4"]
+
+  - id: 6
+    mode: play
+    type: full_scale_eb
+    figure: "Keyboard. Full E-flat scale highlighted: Eb F G Ab Bb C D Eb."
+    cleffy: >
+      Full scale. Eb, F, G, Ab, Bb, C, D, Eb.
+      Slow. Feel the black keys under your fingers.
+    interaction:
+      type: sequence
+      keys: ["Eb4","F4","G4","Ab4","Bb4","C5","D5","Eb5"]
+
+  - id: 7
+    mode: see
+    type: reading_rule
+    figure: "Staff in E-flat major with a plain B note circled. Arrow to keyboard: Bb key lit."
+    cleffy: >
+      Same rule as the sharp keys.
+      No symbol on the B — still play B-flat.
+      The key signature handles it.
+
+  - id: 8
+    mode: play
+    type: play_with_bflat
+    figure: "Keyboard. Eb F G Ab Bb — played in order."
+    cleffy: >
+      Play up to B-flat. Eb, F, G, Ab, Bb.
+    interaction:
+      type: sequence
+      keys: ["Eb4","F4","G4","Ab4","Bb4"]
+
+  - id: 9
+    mode: see
+    type: short_melody_in_eb
+    figure: "Staff in E-flat major. Melody: Eb G Bb Eb — arpeggio shape."
+    cleffy: >
+      Short melody. E-flat, G, B-flat, E-flat.
+      The B is flat. The first and last E are flat.
+
+  - id: 10
+    mode: play
+    type: play_melody_eb
+    figure: "Keyboard. Eb G Bb Eb."
+    cleffy: >
+      Play it. Eb, G, Bb, Eb. Four notes.
+    interaction:
+      type: sequence
+      keys: ["Eb4","G4","Bb4","Eb5"]
+
+  - id: 11
+    mode: play
+    type: longer_phrase_eb
+    figure: "Staff in E-flat major. Melody: Eb F G Ab Bb Ab G F Eb."
+    cleffy: >
+      Nine notes. Up the scale, back down.
+      Every A and every B — flat. Don't forget on the way down.
+    interaction:
+      type: sequence
+      keys: ["Eb4","F4","G4","Ab4","Bb4","Ab4","G4","F4","Eb4"]
+
+  - id: 12
+    mode: hear
+    type: flat_drill
+    figure: "Four rounds. Banner — 'In E-flat major, what do you play?'"
+    cleffy: >
+      Four rounds. In E-flat major — natural or flat?
+    interaction:
+      type: drill
+      rounds: 4
+      options: ["Natural", "Flat"]
+
+  - id: 13
+    mode: play
+    type: full_scale_again
+    figure: "Keyboard with full E-flat scale."
+    cleffy: >
+      One more full scale. All eight notes.
+      Remember — B, E, A are flat.
+    interaction:
+      type: sequence
+      keys: ["Eb4","F4","G4","Ab4","Bb4","C5","D5","Eb5"]
+
+  - id: 14
+    mode: hear
+    type: pre_check
+    figure: "Banner."
+    cleffy: >
+      Three quick ones.
+
+  - id: 15
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 127. E-flat major key signature with three flats glowing. Banner: TIER 4 · KEY 2."
+    cleffy: >
+      E-flat major. Three flats. B, E, A.
+      Tomorrow — read in both. Same shapes, new colors.
+
+practice_this_week:
+  real_piano:
+    - "Play the full E-flat scale, slow. Say each flat out loud as you hit it — B-flat, E-flat, A-flat."
+    - "Play an A major scale, then an E-flat major scale, back to back. Same shape, different colors."
+  virtual_only:
+    - "Replay pages 6, 11, and 13"
+  estimated_time: "10 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "E-flat major key signature"
+          prompt: "How many flats in E-flat major?"
+          options: ["One", "Two", "Three", "Four"]
+          correct: 2
+        - figure: "E-flat major key signature"
+          prompt: "Which three notes are flat?"
+          options: ["F, C, G", "B, E, A", "B, E, G"]
+          correct: 1
+        - figure: "Staff in E-flat major with a plain A note"
+          prompt: "What do you play?"
+          options: ["A-natural", "A-flat"]
+          correct: 1
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "E-flat major scale ascending"
+          prompt: "Does this scale sound warm and major?"
+          options: ["Yes", "No"]
+          correct: 0
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play the first five notes of E-flat major: Eb F G Ab Bb."
+          accept: "Eb4 F4 G4 Ab4 Bb4"
+
+remediation:
+  id: "127.5"
+  title: "E-flat major, one flat at a time"
+  pages: 7
+  opening_cleffy: >
+    Three black keys in a row of five — it's a hand-feel problem, not a reading one.
+    We'll walk it slowly. B-flat first. Then E-flat. Then A-flat.
+
+completion:
+  cleffy: >
+    E-flat major — three flats, known.
+    Tomorrow — reading short pieces in both three-sharp and three-flat worlds.
+  xp: 18
+  unlocks: 128

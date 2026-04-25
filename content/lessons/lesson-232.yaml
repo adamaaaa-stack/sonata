@@ -1,0 +1,234 @@
+# ============================================================
+# LESSON 232 · Dynamic arc over a full piece
+# Tier 6 · Act 47 · Advanced · Recording & dynamics at scale
+# Pencil the arc. Where's the peak? Where's the quiet?
+# ============================================================
+id: 232
+tier: advanced
+act: 47
+title: "Dynamic arc over a full piece"
+subtitle: "Act 47 · The shape of three minutes"
+goal: "Plan the loud-and-soft shape of a whole piece — peak, valley, arc — before you play a single note."
+prereqs: [231]
+method_focus: "see"
+time_estimate_min: 14
+piece_context: "A three-minute piece is long. If you play it without a plan, every phrase comes out the same volume — and the whole thing sounds flat. Today you take a pencil to the page and draw the shape."
+metaphor: "map-the-mountain"
+vibe: ["focused", "reflective"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy at a desk with a sheet of music in front of him and a pencil in hand. A big curved arc drawn across the page — pp, p, mp, mf, f, mf, p, pp. Banner: MAP THE MOUNTAIN."
+    cleffy: >
+      Three minutes of music.
+      Without a plan — every bar sounds the same volume.
+      With a plan — it breathes.
+      Today, the plan.
+
+  - id: 2
+    mode: see
+    type: problem_of_flat
+    figure: "Two panels. Left: a flat horizontal line labeled 'mf all the way.' Right: a wave with a rising middle, a peak, a slow descent, labeled 'pp-mp-f-mp-pp.' Arrow from left to right: 'boring → alive.'"
+    cleffy: >
+      The mistake — one volume for everything.
+      Pleasant. Forgettable.
+      The fix — a shape. Start somewhere. Peak somewhere. Soften somewhere.
+      That's what a dynamic arc is.
+
+  - id: 3
+    mode: see
+    type: the_four_questions
+    figure: "Four pencil-drawn boxes. 1: Where is the peak? 2: Where is the quietest point? 3: How many phrases? 4: Which phrase carries the climax?"
+    cleffy: >
+      Four questions to ask about any piece.
+      Where's the peak? The loudest moment.
+      Where's the quietest point?
+      How many phrases are there?
+      And — which phrase carries the climax?
+
+  - id: 4
+    mode: hear
+    type: listen_flat_vs_shaped
+    figure: "Two play buttons. A: the same piece, same notes, flat dynamics. B: the same piece, shaped — quiet opening, grow, bloom, release."
+    audio:
+      A: "A simple sixteen-bar piece played entirely mf — no shape"
+      B: "The same piece played with an arc — pp opening, crescendo through the middle, f at bar 10, diminuendo, pp ending"
+    cleffy: >
+      Same notes, twice.
+      First — flat. Everything mf.
+      Second — shaped. Quiet, grow, bloom, release.
+      You can hear which one is music.
+
+  - id: 5
+    mode: see
+    type: the_arc
+    figure: "A long wavy line across three minutes of timeline. Left third rising from pp to mp. Middle third peaking at f at the two-minute mark. Right third falling back to pp, ending ppp. Labels: bloom, valley."
+    cleffy: >
+      The classical arc. Most common shape.
+      Quiet at the start. Grow through the middle.
+      One bloom, usually around two thirds in.
+      A long gentle descent back to quiet. Sometimes quieter than you started.
+
+  - id: 6
+    mode: see
+    type: not_only_shape
+    figure: "Three alternative arc shapes. 1: 'two peaks' — arc rises, softens, rises higher, falls. 2: 'inverted' — starts loud, sinks to a hushed middle, returns loud. 3: 'terraced' — steps up and down like stairs, each landing held."
+    cleffy: >
+      Not every piece is the classical arc.
+      Some have two peaks. Some start loud and sink to a hushed middle, then return.
+      Some are terraced — steps up, steps down.
+      Listen to the piece. Decide its shape. Then draw it.
+
+  - id: 7
+    mode: see
+    type: pencil_the_page
+    figure: "A piece of sheet music. Hand-penciled annotations: 'pp' at bar 1, 'crescendo' across bars 8-12, 'f' at bar 14, 'diminuendo' across bars 18-24, 'ppp' at bar 26. A wavy curve drawn above the staff."
+    cleffy: >
+      Actual pencil. Actual page.
+      Mark the pp. Mark the peak. Draw a wavy line above the staff showing the arc.
+      Even if the composer already wrote dynamics — you're confirming them.
+      You're playing the plan, not the page.
+
+  - id: 8
+    mode: hear
+    type: listen_for_bloom
+    figure: "Play button. Caption: 'a three-minute piece. Where does it bloom?'"
+    audio:
+      A: "A three-minute nocturne-style excerpt — pp opening, slow crescendo over two minutes, peak at 2:05, diminuendo to ppp ending"
+    cleffy: >
+      Listen once. Find the peak.
+      Don't count bars. Just feel — where does it bloom?
+      The loudest moment is usually shorter than you'd think.
+
+  - id: 9
+    mode: see
+    type: peak_is_a_moment
+    figure: "A zoomed-in waveform. A single tall spike, maybe one bar wide, surrounded by lower waves. Caption: 'the peak is a moment, not a plateau.'"
+    cleffy: >
+      Important.
+      The peak is a moment. One bar, maybe two.
+      Not a plateau. Not thirty seconds of f.
+      You climb toward it, you touch it, you release.
+
+  - id: 10
+    mode: play
+    type: play_with_arc
+    figure: "Grand staff. A sixteen-bar phrase. Arc marked: bar 1 pp, bar 5 mp, bar 9 f (peak), bar 13 mp, bar 16 pp. Tempo 55."
+    cleffy: >
+      Sixteen bars. Simple melody.
+      The arc is marked. Start pp. Grow. Peak at bar 9. Release.
+      Hands play notes. Arm weight plays volume.
+    interaction:
+      type: song
+      sequence: [["C4","C3"],"E4",["G4","G3"],"E4",["D4","D3"],"F4",["A4","A3"],"F4",["E4","E3"],"G4",["C5","C3"],"G4",["F4","F3"],"D4",["C4","C3"],"C4"]
+      guides: true
+      tempo: 55
+
+  - id: 11
+    mode: play
+    type: no_guides_arc
+    figure: "Same phrase. No guides. Arc markings still visible. Tempo 55."
+    cleffy: >
+      Once more. No guides. Same arc.
+      Your ear is the guide now.
+    interaction:
+      type: song
+      sequence: [["C4","C3"],"E4",["G4","G3"],"E4",["D4","D3"],"F4",["A4","A3"],"F4",["E4","E3"],"G4",["C5","C3"],"G4",["F4","F3"],"D4",["C4","C3"],"C4"]
+      guides: false
+      tempo: 55
+    followup_cleffy: >
+      That piece just became alive.
+      Same notes as a flat read-through. A whole different piece to listen to.
+
+  - id: 12
+    mode: see
+    type: plan_your_real_piece
+    figure: "Cleffy holding up the memorized piece from Lesson 230. A pencil and a wavy line ready. Caption: 'now do this to YOUR piece.'"
+    cleffy: >
+      Homework for this week.
+      Take the piece you memorized in 230.
+      Find the peak. Find the valley. Pencil the arc above the staff.
+      Play the plan.
+
+  - id: 13
+    mode: see
+    type: three_minute_stamina
+    figure: "A graph — concentration over time. A flat line at full for 30 seconds, then slowly sloping down. Caption: 'your focus has an arc too.'"
+    cleffy: >
+      One more thing.
+      Your own focus has an arc across three minutes.
+      It's strongest at the start. It drifts by the end.
+      That's why we plan — so the last minute doesn't go slack.
+
+  - id: 14
+    mode: hear
+    type: pre_check
+    figure: "Banner — mastery check."
+    cleffy: >
+      Three quick ones.
+
+  - id: 15
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 232. A pencil sketch of an arc across a page of music, peak labeled, pp at both ends. Caption: 'play the plan.'"
+    cleffy: >
+      Dynamic arc. The shape of the whole piece, planned before you play.
+      Tomorrow — the hard one. Playing pianissimo for three full minutes.
+
+practice_this_week:
+  real_piano:
+    - "Pencil a dynamic arc onto your memorized piece. Mark the peak. Mark the valley. Draw a wavy line above the staff."
+    - "Play it once without the arc. Then play it with the arc. Record both. Listen back."
+    - "Adjust the arc if the bloom feels wrong. A plan is a first draft — not law."
+  virtual_only:
+    - "Replay pages 10 and 11 — the sixteen-bar phrase with and without guides."
+  estimated_time: "12 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "Two lines — one flat, one a wave with a peak"
+          prompt: "Which represents a dynamic arc?"
+          options: ["The flat line", "The wave with a peak"]
+          correct: 1
+        - figure: "A classical arc — pp rising to f in the middle, diminuendo to pp at the end"
+          prompt: "Where does the bloom usually fall in a classical arc?"
+          options: ["At the very start", "Around two-thirds in", "At the very end"]
+          correct: 1
+        - figure: "A zoomed waveform showing one tall spike in a sea of lower waves"
+          prompt: "The peak of a piece is…"
+          options: ["A long plateau", "A moment, one bar or two", "Every bar of the loud section"]
+          correct: 1
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "Two takes of the same piece — one flat at mf, one shaped pp-f-pp"
+          prompt: "Which take has a dynamic arc?"
+          options: ["First", "Second"]
+          correct: 1
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play the sixteen-bar phrase with a clear arc — pp at the start, peak in the middle, pp at the end."
+          accept: "The sixteen-bar phrase with audible dynamic shape from pp to f to pp"
+
+remediation:
+  id: "232.5"
+  title: "Dynamic arc, simpler"
+  pages: 6
+  opening_cleffy: >
+    Three volumes. That's all we need.
+    Soft at the start. Loud in the middle. Soft at the end.
+    Not five dynamic levels. Three. We'll start there.
+
+completion:
+  cleffy: >
+    The shape of a whole piece — in your hands now.
+    Peak. Valley. Arc. A piece that breathes.
+    Tomorrow — the endurance test. Pianissimo for minutes.
+  xp: 18
+  unlocks: 233

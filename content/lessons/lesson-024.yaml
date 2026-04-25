@@ -1,0 +1,240 @@
+# ============================================================
+# LESSON 24 · Bars and 4/4 time
+# Tier 1 · Act 5 · Beginner
+# Central metaphor: BEATS COME IN GROUPS
+# ============================================================
+id: 24
+tier: beginner
+act: 5
+title: "Bars and 4/4 time"
+subtitle: "Four beats per bar"
+goal: "Read bar-lines and time signatures. Understand how beats group in 4/4."
+prereqs: [23]
+method_focus: "rhythm"
+time_estimate_min: 12
+piece_context: "Every piece of music has a pulse — and that pulse is usually grouped into fours. Happy Birthday is in 3s — which we'll meet later. Most of your repertoire will be in 4s."
+metaphor: "beats-in-boxes"
+vibe: ["gentle", "playful"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Staff with a few notes on it. A vertical line cuts through the staff between notes 4 and 5. Labeled BAR-LINE."
+    cleffy: >
+      Look at that vertical line cutting through the staff.
+      That's a bar-line. It divides music into chunks.
+      Each chunk is called a bar. And bars are how you keep track of where you are in a piece.
+
+  - id: 2
+    mode: see
+    type: definition
+    figure: "Staff with three bar-lines, creating four bars. Each bar has 4 quarter notes."
+    cleffy: >
+      Here's what it looks like. Bar-lines split the staff into sections.
+      Each section — each bar — has the same number of beats inside it.
+      Usually four. That's called 4/4 time, which we'll meet in a second.
+
+  - id: 3
+    mode: see
+    type: why_bars
+    figure: "Split screen. Left: notes with NO bar-lines, looking chaotic. Right: the same notes with bar-lines, looking organized."
+    cleffy: >
+      Without bar-lines, music is just a long line of dots.
+      With them, you can say 'I'm in bar 3' or 'start from bar 8'.
+      It's the grid that makes sheet music navigable.
+
+  - id: 4
+    mode: see
+    type: time_signature
+    figure: "Staff with a big 4 stacked over another big 4 right at the start — the time signature. Label: 4/4."
+    cleffy: >
+      See this '4 over 4' at the start of the staff?
+      That's a time signature. It tells you the rhythm rules for the whole piece.
+      Top number: how many beats are in each bar.
+      Bottom number: what kind of note gets one beat.
+      4/4 — four beats per bar, and the quarter note (that's the 4 on bottom) gets one beat.
+
+  - id: 5
+    mode: see
+    type: inside_a_bar_4_quarters
+    figure: "One bar with four quarter notes in it. Arrow counting 1-2-3-4 beneath them."
+    cleffy: >
+      Easiest 4/4 bar. Four quarter notes.
+      Each note = one beat. Four notes fill up the bar exactly.
+      Count: 1, 2, 3, 4. Then a bar-line. Then start over.
+
+  - id: 6
+    mode: see
+    type: inside_a_bar_halves
+    figure: "One bar with two half notes in it. Counting below."
+    cleffy: >
+      Same bar, different notes. Two half notes.
+      Each half note is 2 beats. Two halves = 4 beats = one full bar.
+
+  - id: 7
+    mode: see
+    type: inside_a_bar_whole
+    figure: "One bar with a single whole note in it."
+    cleffy: >
+      One whole note. That IS a full bar.
+      4 beats, all on one note.
+
+  - id: 8
+    mode: see
+    type: interactive_count
+    figure: "Staff showing one bar with: quarter, quarter, half."
+    cleffy: >
+      How many beats is this bar? Add them up.
+    interaction:
+      type: choice
+      options: ["3", "4", "5"]
+      correct: 1
+    corrections:
+      - wrong_label: "general"
+        cleffy: >
+          Quarter = 1. Quarter = 1. Half = 2.
+          1 + 1 + 2 = 4. Full bar of 4/4.
+
+  - id: 9
+    mode: see
+    type: interactive_complete
+    figure: "Staff with one bar containing: half, quarter. Then a question mark for the last note."
+    cleffy: >
+      One bar of 4/4. So far, 2 + 1 = 3 beats.
+      What's missing?
+    interaction:
+      type: choice
+      options: ["A quarter note", "A half note", "A whole note"]
+      correct: 0
+
+  - id: 10
+    mode: hear
+    type: count_it
+    figure: "Metronome. A bar of 4 quarter notes plays, then a pause equal to one bar, then another bar plays."
+    audio:
+      A: "Metronome 4 quarters, silent bar, 4 quarters"
+    cleffy: >
+      Listen to two bars of four quarter notes, separated by silence.
+      Count 1-2-3-4 along with it. Let the pulse settle in.
+
+  - id: 11
+    mode: hear
+    type: bar_count_drill
+    figure: "Round counter 1 of 3. Each round: a bar plays, student counts beats."
+    cleffy: >
+      Three rounds. Each bar, count the notes. How many beats did it total?
+    interaction:
+      type: drill
+      rounds: 3
+      options: ["3 beats", "4 beats", "5 beats"]
+
+  - id: 12
+    mode: play
+    type: play_a_bar
+    figure: "Staff with one bar of 4/4. Four quarter notes on Middle C. Metronome."
+    cleffy: >
+      Play Middle C, four times, in time with the metronome. One bar of 4/4.
+    interaction:
+      type: rhythm
+      note: "C4"
+      durations: ["quarter", "quarter", "quarter", "quarter"]
+      tempo: 70
+
+  - id: 13
+    mode: play
+    type: two_bars
+    figure: "Two bars of Middle C. Bar 1: four quarters. Bar 2: half, half."
+    cleffy: >
+      Two bars. Four quarters, then two halves. Both stay on Middle C.
+      Keep the beat steady through the bar-line.
+    interaction:
+      type: rhythm
+      note: "C4"
+      durations: ["quarter", "quarter", "quarter", "quarter", "half", "half"]
+      tempo: 70
+
+  - id: 14
+    mode: read
+    type: melody_with_rhythm
+    figure: "Staff with 2 bars. Melody and rhythm: C (half), D (half) | E (quarter), D (quarter), C (half)."
+    cleffy: >
+      First real melody WITH rhythm. Two bars.
+      Bar 1: C, hold for 2 beats. D, hold for 2 beats.
+      Bar 2: E quick, D quick, C hold for 2 beats.
+      Read shape AND time. Both together.
+    interaction:
+      type: rhythm
+      tempo: 70
+
+  - id: 15
+    mode: hear
+    type: pre_check
+    figure: "Banner."
+    cleffy: >
+      Three quick ones.
+
+  - id: 16
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 24. A staff with clean bar-lines and a 4/4 time signature. Cleffy pointing at bar 1."
+    cleffy: >
+      Bars and beats. Now you can count your way through any piece.
+      Tomorrow — you close Tier 1 with Happy Birthday.
+      It's in 3/4 time — three beats per bar instead of four — but you already have the tools.
+      See you at the finish line.
+
+# ─── Practice this week ────────────────────────────────
+practice_this_week:
+  real_piano:
+    - "With a metronome at 60 bpm, play Middle C four times. That's one bar of 4/4."
+    - "Next: play Middle C as a whole note. One note, hold through four clicks."
+    - "Mix: two halves, then four quarters, then one whole. Each pattern is one bar."
+  virtual_only:
+    - "Replay pages 12-14 (the bar-playing exercises)"
+  estimated_time: "7 min/day"
+
+# ─── Mastery check ──────────────────────────────────────
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "A bar with 2 half notes in 4/4"
+          prompt: "Is this bar complete?"
+          options: ["Yes", "No"]
+          correct: 0
+        - figure: "A bar with 3 quarter notes in 4/4"
+          prompt: "Is this bar complete?"
+          options: ["Yes", "No"]
+          correct: 1
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "One bar of 4 quarter notes on Middle C"
+          prompt: "How many beats did you count?"
+          options: ["2", "3", "4"]
+          correct: 2
+    play:
+      pass_threshold: 1
+      questions:
+        - figure: "One bar of 4/4 with two halves on Middle C"
+          prompt: "Play it in time with the metronome."
+          accept: "C4 + C4 at half-note durations"
+
+# ─── Remediation ────────────────────────────────────────
+remediation:
+  id: "24.5"
+  title: "Bars, slower"
+  pages: 5
+  opening_cleffy: >
+    Bars are the structural bones of music — worth an extra minute.
+    Let's look at 4/4 with a giant, slow metronome and count each beat carefully.
+
+# ─── Completion ─────────────────────────────────────────
+completion:
+  cleffy: >
+    Bars, counted. Time signatures, introduced.
+    Tomorrow — Tier 1 ends with Happy Birthday, the right way.
+  xp: 20
+  unlocks: 25

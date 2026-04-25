@@ -1,0 +1,246 @@
+# ============================================================
+# LESSON 213 · Arabesque patterns
+# Tier 5 · Act 43 · Upper-Intermediate · Impressionism + Arabesque
+# Long flowing right hand over rolling left hand.
+# ============================================================
+id: 213
+tier: upper-intermediate
+act: 43
+title: "Arabesque patterns"
+subtitle: "Act 43 · Impressionism + Arabesque"
+goal: "Play the Debussy-style arabesque texture — a long, flowing right-hand line over a rolling left-hand arpeggio figure."
+prereqs: [212, 211]
+method_focus: "play"
+time_estimate_min: 14
+piece_context: "An 'arabesque' — from Arabic decorative art — is a long curling line, like vines on a wall. In piano, it's a flowing right-hand melody that winds for bars at a time, while the left hand rolls underneath like water. It's the signature Debussy texture. Today you build it from the two parts."
+metaphor: "floating-sound"
+vibe: ["gentle", "quiet", "focused"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy pointing at a curling vine-like shape painted on a wall. Title: ARABESQUE. Underneath: 'a long flowing line.'"
+    cleffy: >
+      Arabesque.
+      The word comes from Arabic decorative art — long curling vines.
+      In piano, it's a right-hand line that winds forever.
+
+  - id: 2
+    mode: see
+    type: two_layers
+    figure: "Grand staff split into two colored bands. Top band (blue): a long curving line of eighth notes. Bottom band (gold): rolling arpeggio patterns in groups of three. Label: TWO LAYERS."
+    cleffy: >
+      The texture has two layers.
+      Top — long, flowing right hand. One line, many notes.
+      Bottom — left hand rolls through chords. Same shape, again and again.
+      One sings. One flows.
+
+  - id: 3
+    mode: hear
+    type: listen_arabesque
+    figure: "Play button. Caption: Debussy-style arabesque texture, slow."
+    audio:
+      A: "A slow arabesque — right hand flowing line over left hand rolling triplets, soft, pedaled"
+    cleffy: >
+      Listen.
+      Right hand — a melody you could follow with your finger.
+      Left hand — a cushion of rolling notes underneath.
+      No weight. No hurry.
+
+  - id: 4
+    mode: see
+    type: lh_pattern
+    figure: "Bass staff: a repeating pattern — E2, B2, E3, G#3 in triplet eighths — bracketed as one group. Arrow showing the pattern repeats."
+    cleffy: >
+      Start with the left hand.
+      A four-note shape — low E, B, E, G-sharp.
+      Rolled, not blocked. One after the other, smoothly.
+      Same shape, over and over.
+
+  - id: 5
+    mode: play
+    type: play_lh_pattern
+    figure: "Keyboard. E2, B2, E3, G#3 lighting up in order."
+    cleffy: >
+      Left hand only. Play the roll.
+      E, B, E, G-sharp.
+      Soft. Even. Let it ring.
+    interaction:
+      type: rhythm
+      sequence: ["E2", "B2", "E3", "G#3"]
+      durations: ["eighth", "eighth", "eighth", "eighth"]
+      tempo: 60
+
+  - id: 6
+    mode: play
+    type: lh_repeat
+    figure: "Keyboard. The same pattern lighting up three times in a row."
+    cleffy: >
+      Three times in a row. Same pattern. No stops between.
+      This is your cushion.
+    interaction:
+      type: rhythm
+      sequence: ["E2", "B2", "E3", "G#3", "E2", "B2", "E3", "G#3", "E2", "B2", "E3", "G#3"]
+      durations: ["eighth", "eighth", "eighth", "eighth", "eighth", "eighth", "eighth", "eighth", "eighth", "eighth", "eighth", "eighth"]
+      tempo: 60
+
+  - id: 7
+    mode: see
+    type: rh_line
+    figure: "Treble staff: a slow descending line — B4, G#4, F#4, E4 — as quarter notes. Label: 'the vine.'"
+    cleffy: >
+      Now the right hand.
+      A simple line. B, G-sharp, F-sharp, E. Coming down.
+      Long notes over the rolling cushion below.
+
+  - id: 8
+    mode: play
+    type: play_rh_line
+    figure: "Keyboard. B4, G#4, F#4, E4 lighting up in order, as slow quarter notes."
+    cleffy: >
+      Right hand only. Slow.
+      B, G-sharp, F-sharp, E.
+      Let each note sing before the next one arrives.
+    interaction:
+      type: rhythm
+      sequence: ["B4", "G#4", "F#4", "E4"]
+      durations: ["quarter", "quarter", "quarter", "quarter"]
+      tempo: 60
+
+  - id: 9
+    mode: see
+    type: how_they_fit
+    figure: "Grand staff: one bar. RH quarter note B over LH four eighths E-B-E-G#. Arrows showing: 'RH note 1 lines up with LH note 1.'"
+    cleffy: >
+      How they fit.
+      The right-hand note arrives at the start of each group.
+      Left hand rolls four notes underneath while it rings.
+      One long note sitting on top of four short ones.
+
+  - id: 10
+    mode: play
+    type: hands_together_slow
+    figure: "Grand staff. One bar. RH: B4 quarter. LH: E2-B2-E3-G#3 eighths underneath."
+    cleffy: >
+      Both hands. Very slow.
+      Left hand starts — E, B, E, G-sharp.
+      Right hand places B on top at the start and holds.
+    interaction:
+      type: song
+      sequence: [["E2", "B4"], ["B2"], ["E3"], ["G#3"]]
+      guides: true
+      tempo: 50
+
+  - id: 11
+    mode: play
+    type: two_bars_together
+    figure: "Grand staff. Two bars. RH: B4 quarter, G#4 quarter, F#4 quarter, E4 quarter. LH: the four-note roll, twice."
+    cleffy: >
+      Two bars now.
+      Right hand walks down — B, G-sharp, F-sharp, E.
+      Left hand rolls underneath the whole time.
+    interaction:
+      type: song
+      sequence: [["E2", "B4"], ["B2"], ["E3"], ["G#3"], ["E2", "G#4"], ["B2"], ["E3"], ["G#3"], ["E2", "F#4"], ["B2"], ["E3"], ["G#3"], ["E2", "E4"], ["B2"], ["E3"], ["G#3"]]
+      guides: true
+      tempo: 50
+    followup_cleffy: >
+      That's an arabesque.
+      One line above. One cushion below. Two layers, one sound.
+
+  - id: 12
+    mode: see
+    type: why_it_floats
+    figure: "Diagram. RH quarter note held long. LH rolling pattern. A soft-pedal icon. Caption: 'pedal holds the layers together.'"
+    cleffy: >
+      Why it floats.
+      Pedal. Soft touch. No accent on any note.
+      The left-hand notes blur into each other. The melody above doesn't crash — it drifts.
+      That's the whole Debussy trick.
+
+  - id: 13
+    mode: play
+    type: with_shape
+    figure: "Same two bars. A dynamic hairpin under the RH — tiny swell on the second note, sigh at the end."
+    cleffy: >
+      One more time. Now with breath.
+      Let B sing slightly brighter. Sigh down to E.
+      Left hand stays even — it's the water, not the melody.
+    interaction:
+      type: song
+      sequence: [["E2", "B4"], ["B2"], ["E3"], ["G#3"], ["E2", "G#4"], ["B2"], ["E3"], ["G#3"], ["E2", "F#4"], ["B2"], ["E3"], ["G#3"], ["E2", "E4"], ["B2"], ["E3"], ["G#3"]]
+      guides: false
+      tempo: 50
+
+  - id: 14
+    mode: hear
+    type: pre_check
+    figure: "Banner — mastery check."
+    cleffy: >
+      Three quick ones.
+
+  - id: 15
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 213. A vine curling across the top of a page, ripples flowing underneath."
+    cleffy: >
+      Arabesque built.
+      One flowing line. One rolling cushion.
+      Tomorrow — same texture, faster. And two different rhythms at once.
+
+practice_this_week:
+  real_piano:
+    - "Left-hand roll only — E, B, E, G-sharp, repeat. Two minutes a day. Even, soft."
+    - "Both hands, two bars, very slow. Eyes on the right hand, ears on the left."
+    - "Once it feels steady, try it with the sustain pedal. Change the pedal each time the right hand changes notes."
+  virtual_only:
+    - "Replay pages 6, 10, and 11"
+  estimated_time: "12 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "Grand staff with a long slow melody on top and a rolling arpeggio on the bottom"
+          prompt: "What is this texture called?"
+          options: ["Arabesque", "Waltz bass", "Alberti bass"]
+          correct: 0
+        - figure: "A repeating four-note shape in the bass: E, B, E, G#"
+          prompt: "How is this played?"
+          options: ["All at once, as a chord", "Rolled, one note at a time", "Only the first note"]
+          correct: 1
+        - figure: "The word 'arabesque' with its origin listed as 'Arabic decorative art'"
+          prompt: "What does the word 'arabesque' describe?"
+          options: ["A long curling line", "A short sharp note", "A loud chord"]
+          correct: 0
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "A flowing RH melody over a rolling LH arpeggio"
+          prompt: "Which hand has the melody?"
+          options: ["Right hand", "Left hand"]
+          correct: 0
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play the left-hand roll — E2, B2, E3, G#3 — smooth and even."
+          accept: "E2 B2 E3 G#3 played in order"
+
+remediation:
+  id: "213.5"
+  title: "Arabesque, one layer at a time"
+  pages: 8
+  opening_cleffy: >
+    Two layers is a lot the first time.
+    We'll go one at a time. Left hand alone until it's automatic. Right hand alone. Then stack.
+    No rush.
+
+completion:
+  cleffy: >
+    Arabesque unlocked.
+    One layer above, one below. Two hands, one sound.
+    Tomorrow — faster. And the two hands in different rhythms.
+  xp: 18
+  unlocks: 214

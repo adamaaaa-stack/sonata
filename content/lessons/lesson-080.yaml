@@ -1,0 +1,248 @@
+# ============================================================
+# LESSON 80 · Minuet in G (articulation)
+# Tier 3 · Act 16 · Low-Intermediate · ACT BOSS 🎯
+# Apply the touch family to a real Baroque melody.
+# ============================================================
+id: 80
+tier: low-intermediate
+act: 16
+title: "Minuet in G (articulation)"
+subtitle: "Act 16 · Your first Baroque piece"
+goal: "Play the opening of Minuet in G using legato and staccato — feel the touch of a real Baroque piece."
+prereqs: [76, 77, 78, 79, 75]
+method_focus: "combine"
+time_estimate_min: 16
+piece_context: "Petzold's Minuet in G — long attributed to Bach. One of the most recognized Baroque melodies. Today you play its opening and use articulation to shape it."
+metaphor: "touch-family"
+vibe: ["gentle", "focused", "celebratory"]
+is_act_boss: true
+piece:
+  title: "Minuet in G"
+  composer: "Petzold (long attributed to Bach, BWV Anh. 114)"
+  notes_rh: "D5 G4 A4 B4 C5 D5 | G4 G4"
+  key_center: "G major"
+  time_signature: "3/4"
+  difficulty: "low-intermediate — articulation focus, mostly stepwise, one sharp (F#)"
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy holding a Baroque-era scroll that says Minuet in G. A small wig on top of the scroll."
+    cleffy: >
+      Act 16 finish line.
+      Today — a real Baroque piece. Minuet in G.
+      Around 250 years old. Still played everywhere.
+
+  - id: 2
+    mode: see
+    type: about_the_piece
+    figure: "Portrait of Christian Petzold beside a portrait of Bach. Note underneath: 'Written by Petzold, long believed to be Bach.'"
+    cleffy: >
+      For 250 years, everyone thought Bach wrote this.
+      Turns out it was Christian Petzold, a friend of Bach's. Bach's wife liked it enough to copy it into her family notebook.
+      Either way — it's gorgeous. And today, yours.
+
+  - id: 3
+    mode: hear
+    type: listen_to_piece
+    figure: "Big play button. Sheet music preview of the opening."
+    audio:
+      A: "Minuet in G, opening phrase, played cleanly with articulation"
+    cleffy: >
+      Listen. Focus on how the notes feel. Some connect. Some bounce.
+      That shape — that's articulation doing its job.
+
+  - id: 4
+    mode: see
+    type: the_opening
+    figure: "Treble staff with the opening melody: D5 | G4 A4 B4 C5 | D5 G4 G4. Key signature with one sharp (F#). 3/4 time."
+    cleffy: >
+      Here it is. G major — one sharp, F-sharp.
+      Three beats per bar. That's 3/4 — the minuet dance.
+      It starts high on D5. Then steps its way back up from G.
+
+  - id: 5
+    mode: see
+    type: articulation_plan
+    figure: "Same staff, now with articulation marks. D5 marcato-ish (strong downbeat). G4 A4 B4 C5 slurred (legato). D5 staccato. G4 G4 tenuto."
+    cleffy: >
+      The touch plan.
+      Opening D — strong. The climb G-A-B-C — legato, one breath. High D — short, sparkling. Final two Gs — held, settled.
+      Five different feelings in eight notes. That's craft.
+
+  - id: 6
+    mode: play
+    type: first_note_alone
+    figure: "Keyboard with D5 glowing. RH finger 5."
+    cleffy: >
+      Opening note alone. D5. Your right pinky.
+      Press it with weight. This is how the piece announces itself.
+    interaction:
+      type: sequence
+      keys: ["D5"]
+
+  - id: 7
+    mode: play
+    type: the_climb_legato
+    figure: "Keyboard with G4 A4 B4 C5 glowing. Slur above. RH fingers 1-2-3-4."
+    cleffy: >
+      The climb. G, A, B, C. Slur it. Smooth.
+      Each finger stays until the next presses. Fingers 1, 2, 3, 4.
+    interaction:
+      type: sequence
+      keys: ["G4","A4","B4","C5"]
+
+  - id: 8
+    mode: play
+    type: top_d_staccato
+    figure: "Keyboard with D5 glowing. Small dot above. RH finger 5."
+    cleffy: >
+      Back to high D. Staccato this time. Short. Bouncy.
+      Pinky touches and lifts.
+    interaction:
+      type: sequence
+      keys: ["D5"]
+
+  - id: 9
+    mode: play
+    type: closing_gs
+    figure: "Keyboard with G4 glowing twice. Tenuto dashes above each. RH finger 1."
+    cleffy: >
+      Closing. Two Gs, tenuto. Thumb on G, press, hold. Release. Press, hold.
+      Settled. Calm. The phrase lands.
+    interaction:
+      type: sequence
+      keys: ["G4","G4"]
+
+  - id: 10
+    mode: play
+    type: full_opening_slow
+    figure: "Full treble staff with all articulation marks. Tempo 60. Guides on."
+    cleffy: >
+      Whole opening, slow, with guides.
+      D. Climb smooth. High D short. Two Gs held.
+    interaction:
+      type: song
+      sequence: ["D5","G4","A4","B4","C5","D5","G4","G4"]
+      guides: true
+      tempo: 60
+
+  - id: 11
+    mode: play
+    type: full_no_guides
+    figure: "Same staff. No guides. Tempo 60."
+    cleffy: >
+      Again. No highlights. You read the marks. You shape the touch.
+    interaction:
+      type: song
+      sequence: ["D5","G4","A4","B4","C5","D5","G4","G4"]
+      guides: false
+    followup_cleffy: >
+      That.
+      Eight notes. Five touches. Real Baroque music.
+      What you just did is what a pianist does.
+
+  - id: 12
+    mode: play
+    type: at_tempo
+    figure: "Same staff. Tempo 100 — minuet feel."
+    cleffy: >
+      At tempo. 100 bpm. Minuet feel.
+      The articulation is where the music lives now, not in the notes.
+    interaction:
+      type: song
+      sequence: ["D5","G4","A4","B4","C5","D5","G4","G4"]
+      guides: false
+      tempo: 100
+
+  - id: 13
+    mode: play
+    type: all_legato_vs_articulated
+    figure: "Same notes, two versions. Top: all legato. Bottom: with full articulation plan."
+    cleffy: >
+      One more — same notes, all legato this time.
+      Then you'll hear why the articulation version sounds so much more alive.
+    interaction:
+      type: song
+      sequence: ["D5","G4","A4","B4","C5","D5","G4","G4"]
+      guides: false
+      tempo: 100
+
+  - id: 14
+    mode: hear
+    type: pre_check
+    figure: "Banner — Act 16 mastery check."
+    cleffy: >
+      Four quick ones. Take your time — act boss.
+
+  - id: 15
+    mode: see
+    type: wrap
+    figure: "Celebration card — ACT 16 COMPLETE 🎯. A pyramid with Acts 1-15 gold and Act 16 glowing. Cleffy holding the Petzold scroll and tipping a tiny wig."
+    cleffy: >
+      Act 16, done.
+      Two weeks ago, you finished Für Elise and thought that was the peak.
+      Today you played a Baroque piece with five different touches in eight notes.
+      That's craft. That's Tier 3.
+      Tomorrow — fingering. The hidden choreography under every piece you'll play from here on out.
+
+# ─── Practice this week ────────────────────────────────
+practice_this_week:
+  real_piano:
+    - "Play the Minuet in G opening once a day. Slow first. Then at minuet tempo."
+    - "Try playing it all legato one time. Then with the full articulation plan. Hear what changes."
+    - "Find someone and play it for them. Tell them it's 250 years old."
+  virtual_only:
+    - "Replay pages 10, 11, and 12 three times this week."
+  estimated_time: "12 min/day"
+
+# ─── Mastery check ──────────────────────────────────────
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "Opening of Minuet in G with articulation marks visible"
+          prompt: "The climb G-A-B-C is under a slur. How do you play it?"
+          options: ["Legato (smooth)", "Staccato (short)", "Accented"]
+          correct: 0
+        - figure: "Key signature with one sharp"
+          prompt: "What key is Minuet in G in?"
+          options: ["C major", "G major", "F major"]
+          correct: 1
+        - figure: "Time signature 3/4"
+          prompt: "How many beats per bar?"
+          options: ["2", "3", "4"]
+          correct: 1
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "Opening of Minuet in G played with articulation"
+          prompt: "Are all the notes played the same length?"
+          options: ["Yes", "No — some short, some held"]
+          correct: 1
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play the Minuet opening: D5, G4, A4, B4, C5, D5, G4, G4 — with the climb legato."
+          accept: "All 8 notes in order, climb connected"
+
+# ─── Remediation ────────────────────────────────────────
+remediation:
+  id: "80.5"
+  title: "Minuet in G, one touch at a time"
+  pages: 10
+  opening_cleffy: >
+    Act boss. First Baroque piece. Lot going on.
+    We'll rebuild it one touch at a time — legato climb, then staccato D, then the tenuto ending.
+    When each piece is reliable, we put them back together.
+
+# ─── Completion ─────────────────────────────────────────
+completion:
+  cleffy: >
+    Act 16, sealed.
+    The touch family — yours. Baroque music — started.
+    Tomorrow, fingering. The choreography under everything.
+  xp: 30
+  unlocks: 81

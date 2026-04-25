@@ -1,0 +1,263 @@
+# ============================================================
+# LESSON 248 · Moonlight 1 — full at near-tempo
+# Tier 6 · Act 50 · Advanced
+# Adagio sostenuto, near real speed. Not too fast. This piece is slow.
+# ============================================================
+id: 248
+tier: advanced
+act: 50
+title: "Moonlight 1 — full at near-tempo"
+subtitle: "Act 50 · The final act"
+goal: "Full Moonlight first movement, bars 1-69, at near-real tempo. Adagio sostenuto — quarter ≈ 56-60. No faster."
+prereqs: [247, 245]
+method_focus: "combine"
+time_estimate_min: 18
+piece_context: "L245 was full Moonlight, slow and careful. Today — the same piece, a little faster. Near real tempo. Adagio sostenuto is *not* fast. Beethoven meant slow. Too fast and it sounds nervous. Right speed and it breathes."
+metaphor: "real-breath"
+vibe: ["quiet", "focused", "serious"]
+
+piece:
+  title: "Moonlight Sonata, 1st movement (full, bars 1-69)"
+  composer: "Beethoven (1801)"
+  key_center: "C-sharp minor"
+  time_signature: "alla breve — felt in 4"
+  difficulty: "advanced — full movement, near-real tempo, all three sections, pedal, voicing, arc"
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy at the piano. A metronome set to 56. Caption: 'adagio sostenuto.'"
+    cleffy: >
+      Today — full Moonlight. All sixty-nine bars.
+      Close to real tempo.
+      Close. Not fast.
+
+  - id: 2
+    mode: see
+    type: what_adagio_means
+    figure: "A tempo dial. 40 on the left (grave), 56-60 in the middle (adagio sostenuto, highlighted), 80 on the right (andante). Caption: 'adagio sostenuto sits here.'"
+    cleffy: >
+      Adagio sostenuto.
+      Quarter note equals roughly 56 to 60.
+      Slow. Sustained.
+      Most recordings come in between 54 and 60. A very few go faster. Most of those sound rushed.
+      We'll land at 58.
+
+  - id: 3
+    mode: see
+    type: why_slow
+    figure: "A slow-burning candle next to a fast-flickering flame. Caption: 'pick which one is Moonlight.'"
+    cleffy: >
+      Why so slow?
+      Because the piece is a thought, not a sentence.
+      Each triplet is a breath.
+      Each bar is a moment of light.
+      Too fast and it turns into a wind-up toy.
+      Beethoven wrote 'delicatissimamente.' Most delicately. There is no hurry anywhere.
+
+  - id: 4
+    mode: hear
+    type: listen_reference
+    figure: "Play button. Caption: 'Moonlight at 58. Full.'"
+    audio:
+      A: "Full Moonlight 1st movement, bars 1-69, at quarter = 58. Voiced melody, proper pedal, pp throughout."
+    cleffy: >
+      Listen once. All of it.
+      At your tempo today.
+      Don't play along yet. Just hear it.
+
+  - id: 5
+    mode: see
+    type: the_three_sections
+    figure: "A piece map. Section A — bars 1-23 (opening through the first modulation). Section B — bars 24-42 (middle, modulating). Section A' — bars 43-69 (return and coda). Each labeled."
+    cleffy: >
+      The map you already know.
+      Section A — bars 1 through 23. The opening. The theme.
+      Section B — bars 24 through 42. The modulation.
+      Section A' — bars 43 through 69. The return and the quiet descent.
+      One arc. Three chapters.
+
+  - id: 6
+    mode: see
+    type: tempo_discipline
+    figure: "A metronome with 58 glowing. A small warning card next to it: 'do not accelerate. Ever.'"
+    cleffy: >
+      Tempo discipline.
+      The biggest trap in this piece — speeding up when your hands feel comfortable.
+      Don't.
+      58 at bar 1. 58 at bar 40. 58 at bar 69.
+      Let the metronome check you for the first few runs. Then trust your ear.
+
+  - id: 7
+    mode: play
+    type: warmup_a_opening
+    figure: "Bars 1-8. Tempo 58. Guides on."
+    cleffy: >
+      Warm up. Bars 1 through 8. Close to tempo.
+      Pedal per bar. Soft.
+    interaction:
+      type: song
+      sequence: [["C#2","C#3"],"C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4",["C#2","C#3"],"C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4",["B1","B2"],"B3","D#4","F#4","B3","D#4","F#4","B3","D#4","F#4",["E2","E3"],"E3","G#3","B3","E3","G#3","B3","E3","G#3","B3",["A2","A3","G#4"],"A3","C#4","E4","A3","C#4","G#4","A3","C#4",["F#2","F#3","A4"],"F#3","A3","C#4","F#3","A3","A4","F#3","A3",["G#2","G#3","G#4"],"G#3","B#3","D#4","G#3","B#3","F#4","G#3","B#3",["C#2","C#3","E4"],"C#3","E3","G#3","C#3","E3","G#3","C#3","E3"]
+      guides: true
+      tempo: 58
+
+  - id: 8
+    mode: play
+    type: warmup_b_middle
+    figure: "Bars 24-32 — the start of the middle section. Tempo 58. Guides on."
+    cleffy: >
+      Warm up B. The modulation bars.
+      Harmony shifts every bar or two. Stay steady.
+    interaction:
+      type: song
+      sequence: [["G#2","G#3","G#4"],"G#3","B#3","D#4","G#3","B#3","F#4","G#3","B#3","E4",["C#2","C#3","E4"],"C#3","E3","G#3","C#3","E3","D#4","C#3","E3","C#4",["F#2","F#3","D#4"],"F#3","A3","C#4","F#3","A3","D#4","F#3","A3","C#4",["B1","B2","D#4"],"B2","D#3","F#3","B2","D#3","B3","B2","D#3","D#4"]
+      guides: true
+      tempo: 58
+
+  - id: 9
+    mode: play
+    type: warmup_a_return
+    figure: "Bars 43-50 — the return of the theme. Tempo 58. Guides on."
+    cleffy: >
+      Warm up A'. The return.
+      You've been here before. It's home.
+    interaction:
+      type: song
+      sequence: [["C#2","C#3"],"C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4",["C#2","C#3"],"C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4",["B1","B2"],"B3","D#4","F#4","B3","D#4","F#4","B3","D#4","F#4",["E2","E3"],"E3","G#3","B3","E3","G#3","B3","E3","G#3","B3"]
+      guides: true
+      tempo: 58
+
+  - id: 10
+    mode: play
+    type: full_movement_guided
+    figure: "Full Moonlight, all sixty-nine bars. Tempo 58. Guides on. Pedal marks at every bar."
+    cleffy: >
+      Full movement. Sixty-nine bars. Guides on. Tempo 58.
+      Warm hands. Three breaths. Hear bar one in your head.
+      If you slip — forward. You know the drill.
+    interaction:
+      type: song
+      sequence: [["C#2","C#3"],"C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4",["C#2","C#3"],"C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4",["B1","B2"],"B3","D#4","F#4","B3","D#4","F#4","B3","D#4","F#4",["E2","G#2"],"E3","G#3","B3","E3","G#3","B3","E3","G#3","B3",["A2","A3","G#4"],"A3","C#4","E4","A3","C#4","G#4","A3","C#4",["F#2","F#3","A4"],"F#3","A3","C#4","F#3","A3","A4","F#3","A3",["G#2","G#3","G#4"],"G#3","B#3","D#4","G#3","B#3","F#4","G#3","B#3",["C#2","C#3","E4"],"C#3","E3","G#3","C#3","E3","G#3","C#3","E3",["C#2","E2"],"G#3","C#4","E4","G#3","C#4","E4","G#3","C#4","E4",["G#2","B2"],"G#3","B3","E4","G#3","B3","E4","G#3","B3","E4",["E2","G#2","B4"],"E3","G#3","B3","E3","G#3","B3","E3","G#3","B3",["G#2","B2","A4"],"G#3","B3","E4","G#3","B3","E4","G#3","B3","E4",["F#2","A2","G#4"],"F#3","A3","C#4","F#3","A3","C#4","F#3","A3","C#4",["B2","D#3","F#4"],"F#3","A3","B3","F#3","A3","B3","F#3","A3","B3",["G#2","B2","D#4"],"G#3","B3","D#4","G#3","B3","D#4","G#3","B3","D#4",["F#2","A2","C#4"],"F#3","A3","C#4","F#3","A3","C#4","F#3","A3","C#4",["E2","G#2","B3"],"G#3","B3","E4","G#3","B3","E4","G#3","B3","E4",["D#2","F#2","A3"],"F#3","A3","D#4","F#3","A3","D#4","F#3","A3","D#4",["C#2","C#3","G#4"],"C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4",["C#2","C#3","G#4"],"C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4",["B1","B2","G#4"],"B3","D#4","F#4","B3","D#4","A4","B3","D#4","G#4",["B1","B2","A4"],"B3","D#4","F#4","B3","D#4","A4","B3","D#4","G#4",["A2","A3","G#4"],"A3","C#4","E4","A3","C#4","G#4","A3","C#4",["F#2","F#3","A4"],"F#3","A3","C#4","F#3","A3","A4","F#3","A3",["G#2","G#3","G#4"],"G#3","B#3","D#4","G#3","B#3","F#4","G#3","B#3",["C#2","C#3","E4"],"C#3","E3","G#3","C#3","E3","G#3","C#3","E3",["F#2","F#3","C#5"],"F#3","A3","C#4","F#3","A3","C#4","F#3","A3",["B2","D#3","B4"],"D#3","F#3","B3","D#3","F#3","B3","D#3","F#3",["E2","G#2","A4"],"E3","G#3","B3","E3","G#3","B3","E3","G#3",["A2","C#3","G#4"],"C#3","E3","A3","C#3","E3","A3","C#3","E3",["D#2","F#2","F#4"],"F#2","A2","D#3","F#2","A2","D#3","F#2","A2",["G#2","B2","E4"],"B2","D#3","G#3","B2","D#3","G#3","B2","D#3",["C#2","G#2","C#4"],"G#2","C#3","E3","G#2","C#3","E3","G#2","C#3",["F#2","A2","C#4"],"A2","C#3","F#3","A2","C#3","F#3","A2","C#3",["G#2","B2","D#4"],"B2","D#3","G#3","B2","D#3","G#3","B2","D#3",["C#2","E2","G#3"],"E2","G#2","C#3","E2","G#2","C#3","E2","G#2",["C#2","C#3","G#4"],"C#4","E4","G#4","C#4","E4","G#4","C#4","E4",["C#2","C#3","E4"],"C#4","E4","G#4","C#4","E4","G#4","C#4","E4",["G#1","G#2"],"E3","G#3","C#4","E3","G#3","C#4","E3","G#3",["C#2","C#3"],"E3","G#3","C#4","E3","G#3","C#4","E3","G#3",["C#2","C#3","E4"],"C#4","E4","G#4","C#4","E4","G#4","C#4","E4",["C#2","G#2","E4"],"G#3","C#4","E4","G#3","C#4","E4","G#3","C#4",["C#2","C#3","E4"],"C#4","E4","G#4","C#4","E4","G#4","C#4","E4",["C#2","C#3"],"C#4","E4","G#4","C#4","E4","G#4","C#4","E4",["C#2","C#3","G#3","C#4","E4"]]
+      guides: true
+      tempo: 58
+
+  - id: 11
+    mode: play
+    type: full_movement_no_guides
+    figure: "Full Moonlight. No guides. Tempo 58. Full dynamic arc. pp throughout with a small rise and fall across the middle."
+    cleffy: >
+      No guides.
+      You read. You play. You don't stop.
+      The piece has three sections. Let each one have its own color.
+      A — quiet arrival. B — a shift in light. A' — return and fade.
+    interaction:
+      type: song
+      sequence: [["C#2","C#3"],"C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4",["C#2","C#3"],"C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4",["B1","B2"],"B3","D#4","F#4","B3","D#4","F#4","B3","D#4","F#4",["E2","G#2"],"E3","G#3","B3","E3","G#3","B3","E3","G#3","B3",["A2","A3","G#4"],"A3","C#4","E4","A3","C#4","G#4","A3","C#4",["F#2","F#3","A4"],"F#3","A3","C#4","F#3","A3","A4","F#3","A3",["G#2","G#3","G#4"],"G#3","B#3","D#4","G#3","B#3","F#4","G#3","B#3",["C#2","C#3","E4"],"C#3","E3","G#3","C#3","E3","G#3","C#3","E3",["C#2","E2"],"G#3","C#4","E4","G#3","C#4","E4","G#3","C#4","E4",["G#2","B2"],"G#3","B3","E4","G#3","B3","E4","G#3","B3","E4",["E2","G#2","B4"],"E3","G#3","B3","E3","G#3","B3","E3","G#3","B3",["G#2","B2","A4"],"G#3","B3","E4","G#3","B3","E4","G#3","B3","E4",["F#2","A2","G#4"],"F#3","A3","C#4","F#3","A3","C#4","F#3","A3","C#4",["B2","D#3","F#4"],"F#3","A3","B3","F#3","A3","B3","F#3","A3","B3",["G#2","B2","D#4"],"G#3","B3","D#4","G#3","B3","D#4","G#3","B3","D#4",["F#2","A2","C#4"],"F#3","A3","C#4","F#3","A3","C#4","F#3","A3","C#4",["E2","G#2","B3"],"G#3","B3","E4","G#3","B3","E4","G#3","B3","E4",["D#2","F#2","A3"],"F#3","A3","D#4","F#3","A3","D#4","F#3","A3","D#4",["C#2","C#3","G#4"],"C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4",["C#2","C#3","G#4"],"C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4",["B1","B2","G#4"],"B3","D#4","F#4","B3","D#4","A4","B3","D#4","G#4",["B1","B2","A4"],"B3","D#4","F#4","B3","D#4","A4","B3","D#4","G#4",["A2","A3","G#4"],"A3","C#4","E4","A3","C#4","G#4","A3","C#4",["F#2","F#3","A4"],"F#3","A3","C#4","F#3","A3","A4","F#3","A3",["G#2","G#3","G#4"],"G#3","B#3","D#4","G#3","B#3","F#4","G#3","B#3",["C#2","C#3","E4"],"C#3","E3","G#3","C#3","E3","G#3","C#3","E3",["F#2","F#3","C#5"],"F#3","A3","C#4","F#3","A3","C#4","F#3","A3",["B2","D#3","B4"],"D#3","F#3","B3","D#3","F#3","B3","D#3","F#3",["E2","G#2","A4"],"E3","G#3","B3","E3","G#3","B3","E3","G#3",["A2","C#3","G#4"],"C#3","E3","A3","C#3","E3","A3","C#3","E3",["D#2","F#2","F#4"],"F#2","A2","D#3","F#2","A2","D#3","F#2","A2",["G#2","B2","E4"],"B2","D#3","G#3","B2","D#3","G#3","B2","D#3",["C#2","G#2","C#4"],"G#2","C#3","E3","G#2","C#3","E3","G#2","C#3",["F#2","A2","C#4"],"A2","C#3","F#3","A2","C#3","F#3","A2","C#3",["G#2","B2","D#4"],"B2","D#3","G#3","B2","D#3","G#3","B2","D#3",["C#2","E2","G#3"],"E2","G#2","C#3","E2","G#2","C#3","E2","G#2",["C#2","C#3","G#4"],"C#4","E4","G#4","C#4","E4","G#4","C#4","E4",["C#2","C#3","E4"],"C#4","E4","G#4","C#4","E4","G#4","C#4","E4",["G#1","G#2"],"E3","G#3","C#4","E3","G#3","C#4","E3","G#3",["C#2","C#3"],"E3","G#3","C#4","E3","G#3","C#4","E3","G#3",["C#2","C#3","E4"],"C#4","E4","G#4","C#4","E4","G#4","C#4","E4",["C#2","G#2","E4"],"G#3","C#4","E4","G#3","C#4","E4","G#3","C#4",["C#2","C#3","E4"],"C#4","E4","G#4","C#4","E4","G#4","C#4","E4",["C#2","C#3"],"C#4","E4","G#4","C#4","E4","G#4","C#4","E4",["C#2","C#3","G#3","C#4","E4"]]
+      guides: false
+      tempo: 58
+    followup_cleffy: >
+      That.
+      Near real tempo. Full movement.
+      You played Moonlight at Beethoven's speed.
+
+  - id: 12
+    mode: see
+    type: the_honest_check
+    figure: "Three checkboxes. Tempo held steady (no accelerating). Pedal changed at every harmony shift. Dynamic stayed mostly pp with one small rise in B."
+    cleffy: >
+      Three honest questions about the last run.
+      Did the tempo hold? Or did you speed up in the middle?
+      Did the pedal change with the harmony? Or did the sound get muddy?
+      Did it stay soft? Or did the melody push too hard?
+      Whatever the answers — tomorrow you run it again, and again, until they're yes.
+
+  - id: 13
+    mode: play
+    type: one_more_shaped
+    figure: "Full Moonlight. No guides. Tempo 58. Dynamic arc marked — pp, slight swell in B, pp again, ppp at the coda."
+    cleffy: >
+      One more time. With shape.
+      A — quiet, steady. B — a little more motion in the harmony, a tiny swell. A' — come back to quiet. Coda — softer than anything.
+      Last note floats. Pedal held after the hands lift.
+    interaction:
+      type: song
+      sequence: [["C#2","C#3"],"C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4",["C#2","C#3"],"C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4",["B1","B2"],"B3","D#4","F#4","B3","D#4","F#4","B3","D#4","F#4",["E2","G#2"],"E3","G#3","B3","E3","G#3","B3","E3","G#3","B3",["A2","A3","G#4"],"A3","C#4","E4","A3","C#4","G#4","A3","C#4",["F#2","F#3","A4"],"F#3","A3","C#4","F#3","A3","A4","F#3","A3",["G#2","G#3","G#4"],"G#3","B#3","D#4","G#3","B#3","F#4","G#3","B#3",["C#2","C#3","E4"],"C#3","E3","G#3","C#3","E3","G#3","C#3","E3",["C#2","E2"],"G#3","C#4","E4","G#3","C#4","E4","G#3","C#4","E4",["G#2","B2"],"G#3","B3","E4","G#3","B3","E4","G#3","B3","E4",["E2","G#2","B4"],"E3","G#3","B3","E3","G#3","B3","E3","G#3","B3",["G#2","B2","A4"],"G#3","B3","E4","G#3","B3","E4","G#3","B3","E4",["F#2","A2","G#4"],"F#3","A3","C#4","F#3","A3","C#4","F#3","A3","C#4",["B2","D#3","F#4"],"F#3","A3","B3","F#3","A3","B3","F#3","A3","B3",["G#2","B2","D#4"],"G#3","B3","D#4","G#3","B3","D#4","G#3","B3","D#4",["F#2","A2","C#4"],"F#3","A3","C#4","F#3","A3","C#4","F#3","A3","C#4",["E2","G#2","B3"],"G#3","B3","E4","G#3","B3","E4","G#3","B3","E4",["D#2","F#2","A3"],"F#3","A3","D#4","F#3","A3","D#4","F#3","A3","D#4",["C#2","C#3","G#4"],"C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4",["C#2","C#3","G#4"],"C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4",["B1","B2","G#4"],"B3","D#4","F#4","B3","D#4","A4","B3","D#4","G#4",["B1","B2","A4"],"B3","D#4","F#4","B3","D#4","A4","B3","D#4","G#4",["A2","A3","G#4"],"A3","C#4","E4","A3","C#4","G#4","A3","C#4",["F#2","F#3","A4"],"F#3","A3","C#4","F#3","A3","A4","F#3","A3",["G#2","G#3","G#4"],"G#3","B#3","D#4","G#3","B#3","F#4","G#3","B#3",["C#2","C#3","E4"],"C#3","E3","G#3","C#3","E3","G#3","C#3","E3",["F#2","F#3","C#5"],"F#3","A3","C#4","F#3","A3","C#4","F#3","A3",["B2","D#3","B4"],"D#3","F#3","B3","D#3","F#3","B3","D#3","F#3",["E2","G#2","A4"],"E3","G#3","B3","E3","G#3","B3","E3","G#3",["A2","C#3","G#4"],"C#3","E3","A3","C#3","E3","A3","C#3","E3",["D#2","F#2","F#4"],"F#2","A2","D#3","F#2","A2","D#3","F#2","A2",["G#2","B2","E4"],"B2","D#3","G#3","B2","D#3","G#3","B2","D#3",["C#2","G#2","C#4"],"G#2","C#3","E3","G#2","C#3","E3","G#2","C#3",["F#2","A2","C#4"],"A2","C#3","F#3","A2","C#3","F#3","A2","C#3",["G#2","B2","D#4"],"B2","D#3","G#3","B2","D#3","G#3","B2","D#3",["C#2","E2","G#3"],"E2","G#2","C#3","E2","G#2","C#3","E2","G#2",["C#2","C#3","G#4"],"C#4","E4","G#4","C#4","E4","G#4","C#4","E4",["C#2","C#3","E4"],"C#4","E4","G#4","C#4","E4","G#4","C#4","E4",["G#1","G#2"],"E3","G#3","C#4","E3","G#3","C#4","E3","G#3",["C#2","C#3"],"E3","G#3","C#4","E3","G#3","C#4","E3","G#3",["C#2","C#3","E4"],"C#4","E4","G#4","C#4","E4","G#4","C#4","E4",["C#2","G#2","E4"],"G#3","C#4","E4","G#3","C#4","E4","G#3","C#4",["C#2","C#3","E4"],"C#4","E4","G#4","C#4","E4","G#4","C#4","E4",["C#2","C#3"],"C#4","E4","G#4","C#4","E4","G#4","C#4","E4",["C#2","C#3","G#3","C#4","E4"]]
+      guides: false
+      tempo: 58
+    followup_cleffy: >
+      The piece at tempo. With care.
+      You are two lessons from graduation.
+
+  - id: 14
+    mode: hear
+    type: pre_check
+    figure: "Banner — mastery check."
+    cleffy: >
+      Three quick ones.
+
+  - id: 15
+    mode: see
+    type: wrap
+    figure: "A low moon through a window. Cleffy at the piano, pedal foot down, hands lifting after the final chord."
+    cleffy: >
+      Full Moonlight. Near real tempo.
+      Tomorrow — dress rehearsal. One take. Recorded. No stopping.
+      Day after — graduation.
+
+practice_this_week:
+  real_piano:
+    - "Full Moonlight once a day at 58. Metronome on for the first run. Off for the second."
+    - "If a section gets tight — isolate it. Bars 24-32 are the trickiest. Ten minutes there, then stitch it back."
+    - "Listen to a real recording — Rubinstein, Arrau, or Barenboim. Compare their tempo to yours. You'll be in range."
+  virtual_only:
+    - "Replay pages 11 and 13 — full no-guide runs."
+  estimated_time: "18 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "A tempo dial with markings 40, 56-60, 80"
+          prompt: "What tempo is adagio sostenuto?"
+          options: ["Quarter = 40", "Quarter = 56-60", "Quarter = 80"]
+          correct: 1
+        - figure: "Section map — A, B, A' with bar ranges"
+          prompt: "Which bars form the middle section?"
+          options: ["1-23", "24-42", "43-69"]
+          correct: 1
+        - figure: "A note card reading 'delicatissimamente'"
+          prompt: "What did Beethoven ask for?"
+          options: ["As fast as possible", "Most delicately", "Very loud"]
+          correct: 1
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "Two versions — Moonlight at 58 vs Moonlight at 84"
+          prompt: "Which sounds like Beethoven meant?"
+          options: ["The slower one", "The faster one"]
+          correct: 0
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play the full movement at tempo 58, no stopping. Land on every downbeat."
+          accept: "All 69 bars at near-real tempo, pulse held throughout"
+
+remediation:
+  id: "248.5"
+  title: "Near-tempo, section by section"
+  pages: 8
+  opening_cleffy: >
+    Full movement at tempo is a big ask. Let's break it.
+    Section A at 58. Then B at 58. Then A' at 58. Then all three, stitched.
+    Tempo doesn't speed up. Ever. That's the only rule.
+
+completion:
+  cleffy: >
+    Two lessons until graduation.
+    You have the piece. At tempo. All of it.
+    Tomorrow — one take. Recorded. No stopping. Dress rehearsal.
+    Then graduation.
+  xp: 22
+  unlocks: 249

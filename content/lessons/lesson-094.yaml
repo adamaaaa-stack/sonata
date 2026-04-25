@@ -1,0 +1,217 @@
+id: 94
+tier: low-intermediate
+act: 19
+title: "Rhythm-only sight-read"
+subtitle: "Act 19 · Sight-reading"
+goal: "Tap the rhythm before you touch a key."
+prereqs: [93, 92, 75]
+method_focus: "play"
+time_estimate_min: 12
+piece_context: "Rhythm and pitch are two skills. Separate them. Tap the rhythm first, on any one key or a table, and the notes come easier."
+metaphor: "eyes-as-scouts"
+vibe: ["focused", "playful"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy tapping a beat on a tabletop. A staff beside him showing rhythms with stems but no pitches — just note-heads on one line."
+    cleffy: >
+      Sight-reading trick — half the work is rhythm.
+      Tap the rhythm first. Then add notes.
+
+  - id: 2
+    mode: see
+    type: two_skills
+    figure: "Venn diagram. Circle 1: PITCH (what notes). Circle 2: RHYTHM (when and how long). Overlap: PLAYING."
+    cleffy: >
+      Reading is two brains at once.
+      What notes. When. How long.
+      Separate them. Easier.
+
+  - id: 3
+    mode: see
+    type: rhythm_only_staff
+    figure: "Staff with notes all on one line (no pitch variation) — just stems and rhythms. Quarters, halves, eighths."
+    cleffy: >
+      Rhythm-only notation. Every note on the same line.
+      You don't care what pitch. You care HOW LONG.
+
+  - id: 4
+    mode: hear
+    type: listen_rhythm
+    figure: "Play button. A steady clap-clap-clap-hold."
+    audio:
+      A: "A rhythm clapped: quarter quarter quarter half, repeated"
+    cleffy: >
+      Listen. Quarter, quarter, quarter, half.
+      No pitch. Just time.
+
+  - id: 5
+    mode: play
+    type: clap_first
+    figure: "Keyboard. C4 only — all notes shown as C4. Rhythm: q q q h."
+    cleffy: >
+      Play this rhythm on just Middle C. Quarter, quarter, quarter, half.
+      Tap it. Feel the length.
+    interaction:
+      type: rhythm
+      sequence: ["C4","C4","C4","C4"]
+      durations: ["quarter","quarter","quarter","half"]
+      tempo: 70
+
+  - id: 6
+    mode: see
+    type: eighths_added
+    figure: "Staff — same-line notes. Now with eighth-note pairs added in."
+    cleffy: >
+      Add eighth notes. Two per beat. Feels faster because it is.
+
+  - id: 7
+    mode: play
+    type: eighths_on_c
+    figure: "Keyboard. All C4. Rhythm: q q ee q h, where ee = two eighths."
+    cleffy: >
+      Still one note. Eighths on beat 3.
+    interaction:
+      type: rhythm
+      sequence: ["C4","C4","C4","C4","C4","C4"]
+      durations: ["quarter","quarter","eighth","eighth","quarter","half"]
+      tempo: 70
+
+  - id: 8
+    mode: see
+    type: dots_and_rests
+    figure: "Staff with a dotted quarter + eighth, and a quarter rest."
+    cleffy: >
+      Dotted quarter + eighth. Then a rest.
+      Rests count too. Silence is in the rhythm.
+
+  - id: 9
+    mode: play
+    type: dotted_rhythm
+    figure: "Keyboard. One note. Rhythm: dotted-q e q rest q h."
+    cleffy: >
+      Play it. One pitch. Just the time.
+    interaction:
+      type: rhythm
+      sequence: ["C4","C4","C4","C4","C4"]
+      durations: ["dotted-quarter","eighth","quarter","quarter-rest","quarter","half"]
+      tempo: 65
+
+  - id: 10
+    mode: see
+    type: tap_before_play
+    figure: "Diagram. Step 1: SEE music. Step 2: CLAP rhythm. Step 3: PLAY."
+    cleffy: >
+      Real habit now.
+      Before you play any new piece — tap the rhythm first.
+      On your leg. On the table. On one key.
+      THEN play the notes.
+
+  - id: 11
+    mode: play
+    type: mystery_rhythm
+    figure: "Staff with 4 bars of rhythm. Same-line notes. Pattern: q q e e | h q | e e e e q | h h (2 bars of half notes over 2 held)."
+    cleffy: >
+      New rhythm. You haven't seen it yet. Tap it first — on Middle C.
+      Slow. Count in your head. One and two and three and four.
+    interaction:
+      type: rhythm
+      sequence: ["C4","C4","C4","C4","C4","C4","C4","C4","C4","C4","C4","C4"]
+      durations: ["quarter","quarter","eighth","eighth","half","quarter","eighth","eighth","eighth","eighth","quarter","whole"]
+      tempo: 60
+
+  - id: 12
+    mode: see
+    type: now_add_pitch
+    figure: "Staff. Top: same rhythm with pitches filled in (a real melody). Bottom: same rhythm rhythm-only."
+    cleffy: >
+      Once the rhythm is in your body — add pitches.
+      Now the melody is easy. You already know the WHEN. Just need the WHAT.
+
+  - id: 13
+    mode: play
+    type: melody_with_pitch
+    figure: "Staff. Same rhythm as page 11, now with pitches C D E F G A G F E D C."
+    cleffy: >
+      Same rhythm. Now with pitches. Rhythm already lives in your hand.
+    interaction:
+      type: rhythm
+      sequence: ["C4","D4","E4","F4","G4","A4","G4","F4","E4","D4","C4","C4"]
+      durations: ["quarter","quarter","eighth","eighth","half","quarter","eighth","eighth","eighth","eighth","quarter","whole"]
+      tempo: 60
+    followup_cleffy: >
+      Notice how much easier it felt.
+
+  - id: 14
+    mode: see
+    type: the_rule
+    figure: "Hand-lettered sign: TAP BEFORE YOU PLAY."
+    cleffy: >
+      Rule.
+      Tap before you play. Every new piece. Every time.
+
+  - id: 15
+    mode: hear
+    type: pre_check
+    figure: "Banner."
+    cleffy: >
+      Three quick ones.
+
+  - id: 16
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 94. A hand tapping on a tabletop with music behind it."
+    cleffy: >
+      Rhythm first. Pitch second.
+      Tomorrow — Satie. Act 19 boss.
+
+practice_this_week:
+  real_piano:
+    - "Pick a new piece. Before playing it — tap the rhythm of the RH on your leg. All the way through. Then play."
+    - "Find a piece with tricky rhythm. Tap it on one key. Then add pitches. Feel the difference."
+  virtual_only:
+    - "Replay pages 5, 9, 11, 13"
+  estimated_time: "10 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "Rhythm-only staff: q q h"
+          prompt: "How many beats total?"
+          options: ["3", "4", "6"]
+          correct: 1
+        - figure: "Diagram of the tap-first workflow."
+          prompt: "What comes before adding pitch?"
+          options: ["Naming the key", "Tapping the rhythm", "Pedaling"]
+          correct: 1
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "A rhythm clapped: q e e q h"
+          prompt: "How many notes did you hear?"
+          options: ["4", "5", "6"]
+          correct: 1
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "On Middle C only, play the rhythm: quarter, quarter, half."
+          accept: "C4 × 3 with correct durations"
+
+remediation:
+  id: "94.5"
+  title: "Rhythm only, really slow"
+  pages: 6
+  opening_cleffy: >
+    Two brains at once is a lot. Let's strip it down.
+    One note. Slow tempo. Count out loud. Rhythm only.
+
+completion:
+  cleffy: >
+    Rhythm first. The trick every sight-reader uses.
+    Tomorrow — Satie. Slow, spacious, beautiful. Act 19 boss.
+  xp: 18
+  unlocks: 95

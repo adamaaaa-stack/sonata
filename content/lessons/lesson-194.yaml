@@ -1,0 +1,239 @@
+# ============================================================
+# LESSON 194 · Baroque vs Romantic ornaments
+# Tier 5 · Act 39 · Upper-Intermediate · Ornaments
+# Same symbols, different rules. Bach vs Chopin.
+# ============================================================
+id: 194
+tier: upper-intermediate
+act: 39
+title: "Baroque vs Romantic ornaments"
+subtitle: "Act 39 · Ornaments"
+goal: "Understand why the same 'tr' symbol means something different in Bach than in Chopin — and how to choose which rule to follow."
+prereqs: [193, 191]
+method_focus: "combine"
+time_estimate_min: 14
+piece_context: "Here's a thing nobody tells beginners. The ornament symbols haven't changed in 300 years — but the rules for playing them have. A Bach trill starts differently from a Chopin trill. Both are right, for their own time. Today you learn the two dialects, and how to tell which one the music is asking for."
+metaphor: "notes-that-sparkle"
+vibe: ["honest", "focused", "reflective"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy at a crossroads. Left sign points to 'BACH · 1720'. Right sign points to 'CHOPIN · 1840'. Same 'tr' symbol floats above both. Banner: SAME SYMBOL, TWO RULES."
+    cleffy: >
+      Here's something that trips up every pianist at some point.
+      The 'tr' symbol has meant two different things across history.
+      Same face on the page. Different instructions underneath.
+
+  - id: 2
+    mode: see
+    type: two_eras
+    figure: "Timeline. Left half — Baroque, 1600–1750, Bach's face. Right half — Romantic, 1820–1910, Chopin's face. Line between them labeled 'the rules changed here.'"
+    cleffy: >
+      Two eras. Baroque — Bach and friends. Romantic — Chopin and friends.
+      Roughly a hundred years between them.
+      The ornament rules shifted in that gap. And nobody updated the symbols.
+
+  - id: 3
+    mode: see
+    type: baroque_rule
+    figure: "Staff. A note with 'tr' and a small label: BAROQUE. Arrow showing: start on the upper note, ON the beat. Below: 'D C D C D C' with the first D circled and beat 1 marked under it."
+    cleffy: >
+      Baroque rule. Bach's rule.
+      Start on the UPPER note. ON the beat.
+      If the printed note is C, the trill starts with D, right where beat 1 falls.
+
+  - id: 4
+    mode: see
+    type: romantic_rule
+    figure: "Staff. A note with 'tr' and a small label: ROMANTIC. Arrow showing: start on the main note, on the beat. Below: 'C D C D C D' with the first C circled and beat 1 marked."
+    cleffy: >
+      Romantic rule. Chopin's rule.
+      Start on the MAIN note. On the beat.
+      If the printed note is C, the trill starts with C itself.
+
+  - id: 5
+    mode: hear
+    type: listen_to_both
+    figure: "Two play buttons. A: Baroque trill on C. B: Romantic trill on C. Both at the same tempo."
+    audio:
+      A: "A Baroque trill on C — starts on D, alternates D-C-D-C-D-C, lands on C"
+      B: "A Romantic trill on C — starts on C, alternates C-D-C-D-C-D, lands on C"
+    cleffy: >
+      Same written note. Same tempo.
+      First — Baroque. Hear the upper note come first.
+      Second — Romantic. Hear the main note come first.
+
+  - id: 6
+    mode: play
+    type: play_baroque_trill
+    figure: "Keyboard. D4 glowing first (labeled '1st'), then C4, alternating, ending on C4. Banner: BAROQUE STYLE."
+    cleffy: >
+      Baroque version. Start on D. Land on C.
+      D, C, D, C, D, C, C.
+    interaction:
+      type: rhythm
+      sequence: ["D4", "C4", "D4", "C4", "D4", "C4", "C4"]
+      durations: ["sixteenth", "sixteenth", "sixteenth", "sixteenth", "sixteenth", "sixteenth", "quarter"]
+      tempo: 70
+
+  - id: 7
+    mode: play
+    type: play_romantic_trill
+    figure: "Keyboard. C4 glowing first (labeled '1st'), then D4, alternating, ending on C4. Banner: ROMANTIC STYLE."
+    cleffy: >
+      Romantic version. Start on C. Land on C.
+      C, D, C, D, C, D, C.
+    interaction:
+      type: rhythm
+      sequence: ["C4", "D4", "C4", "D4", "C4", "D4", "C4"]
+      durations: ["sixteenth", "sixteenth", "sixteenth", "sixteenth", "sixteenth", "sixteenth", "quarter"]
+      tempo: 70
+
+  - id: 8
+    mode: see
+    type: how_to_tell
+    figure: "Two columns. Left: 'Baroque clues' — composer born before 1750, dance titles like Minuet or Gigue, harpsichord in mind. Right: 'Romantic clues' — composer born after 1800, Nocturne or Prelude, piano-as-we-know-it."
+    cleffy: >
+      How do you know which rule to use?
+      Look at the composer. Look at the year. Look at the title.
+      Bach, Handel, Scarlatti — Baroque. Chopin, Schumann, Liszt — Romantic.
+
+  - id: 9
+    mode: see
+    type: the_gray_area
+    figure: "Center figure — Mozart and Haydn. Label: CLASSICAL (1750–1820). Text: 'in between — often Baroque-style, sometimes not. Modern editions usually tell you.'"
+    cleffy: >
+      Between the two eras is Classical. Mozart. Haydn.
+      Usually follows the old Baroque rule — but not always.
+      For anything in this gray zone, a good edition tells you what to do.
+
+  - id: 10
+    mode: play
+    type: same_notes_two_ways
+    figure: "Keyboard. Text: play the same trill both ways — Baroque first (starts D), then Romantic (starts C). Feel which you prefer."
+    cleffy: >
+      Play both. Right after each other.
+      Baroque first — start on D. Then Romantic — start on C.
+      Hear your own ears pick up the difference.
+    interaction:
+      type: rhythm
+      sequence: ["D4", "C4", "D4", "C4", "C4", "C4", "D4", "C4", "D4", "C4"]
+      durations: ["sixteenth", "sixteenth", "sixteenth", "sixteenth", "quarter", "sixteenth", "sixteenth", "sixteenth", "sixteenth", "quarter"]
+      tempo: 70
+
+  - id: 11
+    mode: see
+    type: mordents_and_turns_too
+    figure: "Table. Rows: Trill, Mordent, Turn. Columns: Baroque rule, Romantic rule. Each cell shows a small snippet."
+    cleffy: >
+      The rule shift isn't only trills.
+      Mordents and turns also change a little between the eras.
+      You don't need the full table memorized today. Just know the idea — era matters.
+
+  - id: 12
+    mode: play
+    type: baroque_mordent
+    figure: "Keyboard. D4, C4, D4 on a Middle-C mordent. Banner: BAROQUE MORDENT — starts upper, on the beat."
+    cleffy: >
+      A Baroque mordent on C. Starts on D. Four fast notes: D, C, D, C.
+      On the beat. Crisp.
+    interaction:
+      type: sequence
+      keys: ["D4", "C4", "D4", "C4"]
+
+  - id: 13
+    mode: see
+    type: the_practical_rule
+    figure: "Postcard. Big text: 'When in doubt — follow the edition. When no edition — ask the year.' Caption: trust your ears after that."
+    cleffy: >
+      The practical rule of thumb.
+      If your sheet music says how to play it — follow that.
+      If it doesn't — look at the year. Before 1800? Try Baroque. After? Try Romantic.
+      Then trust your ears.
+
+  - id: 14
+    mode: hear
+    type: baroque_or_romantic_drill
+    figure: "Four rounds. Banner: 'Which era did this trill come from?'"
+    cleffy: >
+      Four rounds. Listen for which note starts the trill.
+      Upper first — Baroque. Main first — Romantic.
+    interaction:
+      type: drill
+      rounds: 4
+      options: ["Baroque (upper first)", "Romantic (main first)"]
+
+  - id: 15
+    mode: hear
+    type: pre_check
+    figure: "Banner."
+    cleffy: >
+      Three quick ones.
+
+  - id: 16
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 194. Two doors labeled 1720 and 1840, each with the same 'tr' symbol on it. Caption: same key, two rooms."
+    cleffy: >
+      Two dialects of ornament. One symbol.
+      Tomorrow — the act boss. All four ornaments, back to back. See, hear, play.
+
+practice_this_week:
+  real_piano:
+    - "If you play any Bach you know — find a trill. Try it both ways. Hear the Baroque version sound right for the piece."
+    - "Same thing in a Chopin piece — Nocturne, Waltz, anything. Romantic starts on the main note. Feel how it fits."
+    - "Pick any long note. Trill it Baroque style (upper first), then Romantic style (main first). Learn your own preference."
+  virtual_only:
+    - "Replay pages 6, 7, and 10. The two styles, back to back."
+  estimated_time: "12 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "A trill on C with the Baroque rule applied"
+          prompt: "In the Baroque rule, which note does the trill start on?"
+          options: ["The main note (C)", "The upper neighbor (D)", "The lower neighbor (B)"]
+          correct: 1
+        - figure: "A trill on C with the Romantic rule applied"
+          prompt: "In the Romantic rule, which note does the trill start on?"
+          options: ["The main note (C)", "The upper neighbor (D)", "The lower neighbor (B)"]
+          correct: 0
+        - figure: "Timeline — Baroque (1600–1750) and Romantic (1820–1910) with composer names"
+          prompt: "Which composer would use the Baroque trill rule?"
+          options: ["Chopin", "Bach", "Schumann"]
+          correct: 1
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "A trill on C that starts with D (upper note first)"
+          prompt: "Baroque or Romantic?"
+          options: ["Baroque", "Romantic"]
+          correct: 0
+        - audio: "A trill on C that starts with C (main note first)"
+          prompt: "Baroque or Romantic?"
+          options: ["Baroque", "Romantic"]
+          correct: 1
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play a Baroque-style trill on C — start on D, alternate, land on C."
+          accept: "D4 C4 D4 C4 D4 C4 C4 — upper note first, landing on C"
+
+remediation:
+  id: "194.5"
+  title: "Two trills, side by side"
+  pages: 7
+  opening_cleffy: >
+    Two rules in one lesson is a stretch.
+    We'll take one era, then the other. Listen first, play second, label last.
+
+completion:
+  cleffy: >
+    Two dialects of one symbol. Baroque up top, Romantic on home.
+    Tomorrow — act boss. All four ornaments, all you've learned.
+  xp: 18
+  unlocks: 195

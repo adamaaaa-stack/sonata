@@ -1,0 +1,198 @@
+id: 50
+tier: elementary
+act: 10
+title: "Both hands, reading together"
+subtitle: "Act 10 · Two-hand reading drill"
+goal: "Read short bars with both hands from a grand staff, using named notes."
+prereqs: [33, 34, 41, 42, 46, 47, 49]
+method_focus: "combine"
+time_estimate_min: 12
+piece_context: "Everything you've learned about both staves, brought together into real reading."
+metaphor: "both-staves-one-piece"
+vibe: ["gentle", "serious", "celebratory"]
+is_act_boss: true
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Grand staff with a simple two-hand bar already written out."
+    cleffy: >
+      Act 10 boss.
+      Today everything gets used — both staves, both hands, named notes, real reading.
+
+  - id: 2
+    mode: see
+    type: simple_bar
+    figure: "Grand staff. RH: C-D-E-F. LH: bass C whole note."
+    cleffy: >
+      Here's a bar. RH plays C-D-E-F. LH holds bass C under it.
+      Everything's in a position you know.
+
+  - id: 3
+    mode: play
+    type: rh_first
+    figure: "RH only."
+    cleffy: >
+      RH alone. C-D-E-F.
+    interaction:
+      type: sequence
+      keys: ["C4", "D4", "E4", "F4"]
+
+  - id: 4
+    mode: play
+    type: lh_first
+    figure: "LH only."
+    cleffy: >
+      LH alone. Bass C, whole note.
+    interaction:
+      type: rhythm
+      sequence: ["C3"]
+      durations: ["whole"]
+      tempo: 55
+
+  - id: 5
+    mode: play
+    type: together
+    figure: "Both hands."
+    cleffy: >
+      Together. Slow.
+    interaction:
+      type: rhythm
+      sequence: [["C4","C3"],"D4","E4","F4"]
+      durations: ["quarter","quarter","quarter","quarter"]
+      tempo: 50
+
+  - id: 6
+    mode: see
+    type: second_bar
+    figure: "Grand staff. RH: G-F-E-D. LH: bass C whole."
+    cleffy: >
+      Second bar. RH comes back down.
+
+  - id: 7
+    mode: play
+    type: bar_2_together
+    figure: "Both hands."
+    cleffy: >
+      Together.
+    interaction:
+      type: rhythm
+      sequence: [["G4","C3"],"F4","E4","D4"]
+      durations: ["quarter","quarter","quarter","quarter"]
+      tempo: 50
+
+  - id: 8
+    mode: see
+    type: two_bars_together
+    figure: "Both bars shown end-to-end."
+    cleffy: >
+      Both bars, one after the other. 8 notes in the RH. 2 whole notes in the LH.
+
+  - id: 9
+    mode: play
+    type: full_drill
+    figure: "Grand staff with both bars."
+    cleffy: >
+      Play it through.
+    interaction:
+      type: song
+      sequence: [["C4","C3"],"D4","E4","F4",["G4","C3"],"F4","E4","D4"]
+      guides: true
+      tempo: 50
+
+  - id: 10
+    mode: play
+    type: full_no_guides
+    figure: "Grand staff. No guides."
+    cleffy: >
+      No guides now.
+    interaction:
+      type: song
+      sequence: [["C4","C3"],"D4","E4","F4",["G4","C3"],"F4","E4","D4"]
+      guides: false
+
+  - id: 11
+    mode: play
+    type: bar_with_lh_motion
+    figure: "Grand staff. RH: E-D-C. LH: C3-E3 (LH moves too)."
+    cleffy: >
+      LH does something now. C3 on beat 1, E3 on beat 3. RH keeps going.
+      This is closer to real music.
+    interaction:
+      type: rhythm
+      sequence: [["E4","C3"],"D4",["C4","E3"]]
+      durations: ["quarter","quarter","half"]
+      tempo: 50
+
+  - id: 12
+    mode: hear
+    type: mixed_drill
+    figure: "Mixed questions: which staff? which clef? which move?"
+    cleffy: >
+      Four rounds.
+    interaction:
+      type: drill
+      rounds: 4
+
+  - id: 13
+    mode: hear
+    type: pre_check
+    figure: "Banner — Act 10 boss check."
+    cleffy: >
+      Three quick ones.
+
+  - id: 14
+    mode: see
+    type: wrap
+    figure: "Celebration — ACT 10 COMPLETE. Trophy showing acts complete so far in Tier 2."
+    cleffy: >
+      Act 10, done. Both hands, both staves, all named notes, real reading.
+      Halfway through Tier 2. Rhythm gets deeper next — eighth notes, rests, dotted notes.
+
+practice_this_week:
+  real_piano:
+    - "The two-bar exercise: RH C-D-E-F then G-F-E-D. LH holds bass C under both bars."
+    - "Build up speed slowly. Match a metronome."
+  virtual_only:
+    - "Replay pages 9-11"
+  estimated_time: "10 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "Grand staff with a bar. RH has 4 notes, LH has a whole."
+          prompt: "Which hand plays more notes?"
+          options: ["RH", "LH"]
+          correct: 0
+        - figure: "Grand staff with two staves connected."
+          prompt: "What connects them on the left side?"
+          options: ["A brace", "A bar-line"]
+          correct: 0
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "Two bars of RH + LH"
+          prompt: "Both hands played, or just one?"
+          options: ["Both", "Just one"]
+          correct: 0
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play RH Middle C and LH bass C at the same time."
+          accept: "C4 and C3 simultaneously"
+
+remediation:
+  id: "50.5"
+  title: "Both-hand drill, slower"
+  pages: 6
+  opening_cleffy: >
+    Two-hand work is the hardest thing so far. Break it into bars, hands separate, then together.
+
+completion:
+  cleffy: >
+    Act 10, sealed. Real two-hand reading. Halfway through Tier 2.
+  xp: 30
+  unlocks: 51

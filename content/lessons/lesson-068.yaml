@@ -1,0 +1,212 @@
+id: 68
+tier: elementary
+act: 14
+title: "F major"
+subtitle: "One flat — B-flat, always"
+goal: "Read and play a simple piece in F major."
+prereqs: [66, 67]
+method_focus: "keys"
+time_estimate_min: 12
+piece_context: null
+metaphor: "one-flat-rule"
+vibe: ["gentle", "serious"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Treble staff with B♭ key signature."
+    cleffy: >
+      One flat. B-flat.
+      F-major key signature. Very common — Amazing Grace, tons of hymns, lots of classical.
+
+  - id: 2
+    mode: see
+    type: where_flat_sits
+    figure: "Close-up of ♭ symbol on the middle line (B line) of the treble staff."
+    cleffy: >
+      The flat sits on line 3 — the B line.
+      Every B, any octave, gets flatted.
+
+  - id: 3
+    mode: play
+    type: f_major_five_finger
+    figure: "Keyboard. F G A B♭ C (F position). Key signature: B♭."
+    cleffy: >
+      F position is F G A B-flat C.
+      Notice the B is flat — that's the only black key in this five-finger range.
+    interaction:
+      type: sequence
+      keys: ["F4","G4","A4","Bb4","C5"]
+
+  - id: 4
+    mode: play
+    type: f_scale
+    figure: "Full F-major scale: F G A B♭ C D E F. Key signature B♭."
+    cleffy: >
+      Full F major scale. F G A B-flat C D E F.
+      Only the B is flat. Everything else is natural.
+    interaction:
+      type: sequence
+      keys: ["F4","G4","A4","Bb4","C5","D5","E5","F5"]
+
+  - id: 5
+    mode: see
+    type: melody_example
+    figure: "Simple F major melody on staff: F G A B♭ A G F."
+    cleffy: >
+      A melody in F. F G A B-flat A G F.
+      Ends on F. The B is automatically flat because of the key.
+
+  - id: 6
+    mode: play
+    type: play_melody
+    figure: "Keyboard. Same melody."
+    cleffy: >
+      Play it.
+    interaction:
+      type: sequence
+      keys: ["F4","G4","A4","Bb4","A4","G4","F4"]
+
+  - id: 7
+    mode: see
+    type: drill_read
+    figure: "Staff in F major. Various notes."
+    cleffy: >
+      Four rounds. In F major — what do you play?
+    interaction:
+      type: drill
+      rounds: 4
+      options: ["Natural", "Flat"]
+
+  - id: 8
+    mode: hear
+    type: f_major_sound
+    figure: "Play button."
+    audio:
+      A: "F major scale"
+    cleffy: >
+      F major scale. A bit warmer than G major. Softer landing.
+
+  - id: 9
+    mode: hear
+    type: g_vs_f
+    figure: "Two play buttons."
+    audio:
+      A: "G major scale"
+      B: "F major scale"
+    cleffy: >
+      G first, then F.
+      Both "major" — both bright. Different starting notes, different feel.
+
+  - id: 10
+    mode: play
+    type: f_scale_again
+    figure: "Keyboard. Full F scale."
+    cleffy: >
+      Play the F scale again, up and back.
+    interaction:
+      type: sequence
+      keys: ["F4","G4","A4","Bb4","C5","D5","E5","F5","E5","D5","C5","Bb4","A4","G4","F4"]
+
+  - id: 11
+    mode: read
+    type: read_phrase_f
+    figure: "Staff in F major: F G A B♭ C B♭ A G F."
+    cleffy: >
+      Read and play.
+    interaction:
+      type: sequence
+      keys: ["F4","G4","A4","Bb4","C5","Bb4","A4","G4","F4"]
+
+  - id: 12
+    mode: hear
+    type: which_key
+    figure: "Play button, four rounds."
+    cleffy: >
+      Four rounds. G major (F# in key), F major (B♭ in key), or C major (neither)?
+    interaction:
+      type: drill
+      rounds: 4
+      options: ["G major", "F major", "C major"]
+
+  - id: 13
+    mode: see
+    type: comparison_table
+    figure: "Table: C major (no sharps/flats), G major (1 sharp: F#), F major (1 flat: B♭)."
+    cleffy: >
+      Three keys you know now.
+      C major — zero sharps, zero flats. Pure white keys.
+      G major — one sharp (F#).
+      F major — one flat (B♭).
+
+  - id: 14
+    mode: hear
+    type: mixed
+    figure: "Four rounds."
+    cleffy: >
+      Mixed.
+    interaction:
+      type: drill
+      rounds: 4
+
+  - id: 15
+    mode: hear
+    type: pre_check
+    figure: "Banner."
+    cleffy: >
+      Four quick ones.
+
+  - id: 16
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 68. F major key signature."
+    cleffy: >
+      F major, in. Tomorrow — reading in both G and F fluidly. Then Amazing Grace.
+
+practice_this_week:
+  real_piano:
+    - "F-major scale up and back, both hands. All B's are flat."
+    - "Compare F major to C major. Same shape except one note is black."
+  virtual_only:
+    - "Replay pages 10-11"
+  estimated_time: "7 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "B♭ key signature"
+          prompt: "Which key?"
+          options: ["F major", "G major", "C major"]
+          correct: 0
+        - figure: "F major, note on B line"
+          prompt: "What do you play?"
+          options: ["B-natural", "B-flat"]
+          correct: 1
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "F major scale"
+          prompt: "Which key — G, F, or C major?"
+          options: ["G major", "F major", "C major"]
+          correct: 1
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play F-G-A-B-flat-C."
+          accept: "F4 G4 A4 Bb4 C5"
+
+remediation:
+  id: "68.5"
+  title: "F major, slower"
+  pages: 5
+  opening_cleffy: >
+    One flat. Slow pass.
+
+completion:
+  cleffy: >
+    F major, done. Three keys, all known.
+  xp: 20
+  unlocks: 69

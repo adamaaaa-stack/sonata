@@ -1,0 +1,231 @@
+# ============================================================
+# LESSON 29 · Bass F and bass C
+# Tier 2 · Act 6 · Elementary
+# Central metaphor: TWO LANDMARKS ON THE BASS STAFF
+# ============================================================
+id: 29
+tier: elementary
+act: 6
+title: "Bass F and bass C"
+subtitle: "Two landmarks on the bass staff"
+goal: "Find bass F and bass C on the staff and on the piano. Two anchors for LH reading."
+prereqs: [26, 27, 28]
+method_focus: "notation"
+time_estimate_min: 10
+piece_context: null
+metaphor: "two-bass-flags"
+vibe: ["gentle", "playful"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Bass staff with bass F labeled (line 4, between the dots). Question mark where bass C will appear."
+    cleffy: >
+      You know bass F. That's one landmark.
+      Today a second. Same strategy as the treble clef — two flags, then the rest of the notes fall into place.
+      Meet bass C.
+
+  - id: 2
+    mode: see
+    type: definition
+    figure: "Bass staff. Bass F highlighted on line 4. Bass C highlighted in space 2 (four spots below F)."
+    cleffy: >
+      Bass C lives in the second space of the bass staff.
+      From bass F, count down — line, space, line, space. You land on C.
+      Different C than Middle C. Two octaves lower, actually.
+
+  - id: 3
+    mode: see
+    type: bass_c_on_keyboard
+    figure: "Keyboard. Middle C glowing gold. One octave below Middle C (C3) glowing blue with label BASS C."
+    cleffy: >
+      On the piano, bass C sits one octave below Middle C.
+      Left-hand pinky, when you're in the C3-G3 position — that's bass C.
+      You already played it in Lesson 28.
+
+  - id: 4
+    mode: see
+    type: two_bass_landmarks
+    figure: "Bass staff with both landmarks highlighted: bass F (line 4, blue) and bass C (space 2, gold)."
+    cleffy: >
+      Two flags on the bass staff now.
+      Bass F up high, bass C down low.
+      Four spots apart on the staff — a familiar shape from the treble side.
+
+  - id: 5
+    mode: see
+    type: interactive_spot_f
+    figure: "Bass staff with a note on line 4 (F)."
+    cleffy: >
+      Bass F or bass C?
+    interaction:
+      type: choice
+      options: ["Bass F", "Bass C"]
+      correct: 0
+
+  - id: 6
+    mode: see
+    type: interactive_spot_c
+    figure: "Bass staff with a note in space 2 (C)."
+    cleffy: >
+      And this one?
+    interaction:
+      type: choice
+      options: ["Bass F", "Bass C"]
+      correct: 1
+
+  - id: 7
+    mode: hear
+    type: sound
+    figure: "Two play buttons. Keyboard shows bass C and bass F glowing."
+    audio:
+      A: "C3 (bass C)"
+      B: "F3 (bass F)"
+    cleffy: >
+      Listen. Bass C. Then bass F.
+      Deeper than Middle C. Deeper than Middle F. Your left hand's home range.
+
+  - id: 8
+    mode: hear
+    type: c_vs_f_drill
+    figure: "Round counter 1 of 4. Audio, student picks."
+    cleffy: >
+      Four rounds. Bass C or bass F?
+    interaction:
+      type: drill
+      rounds: 4
+      options: ["Bass C", "Bass F"]
+
+  - id: 9
+    mode: play
+    type: play_bass_c
+    figure: "Keyboard. Bass C (C3) glowing. LH pinky labeled 5."
+    cleffy: >
+      Left hand, pinky on bass C. Tap it.
+    interaction:
+      type: tap
+      key: "C3"
+
+  - id: 10
+    mode: play
+    type: play_bass_f
+    figure: "Keyboard. Bass F (F3) glowing. LH pointer (2) labeled."
+    cleffy: >
+      Left hand, pointer on bass F. Tap it.
+    interaction:
+      type: tap
+      key: "F3"
+
+  - id: 11
+    mode: play
+    type: c_then_f
+    figure: "Keyboard. Both bass C and bass F glowing."
+    cleffy: >
+      Play bass C, then bass F. Pinky then pointer.
+      Feel the distance.
+    interaction:
+      type: sequence
+      keys: ["C3", "F3"]
+    followup_cleffy: >
+      C to F — the same size of move as on the treble side. Bigger than a step, bigger than a skip.
+      We'll formally name it in Tier 2, Act 8.
+
+  - id: 12
+    mode: read
+    type: see_hear_play
+    figure: "Bass staff with a single note. Keyboard below."
+    cleffy: >
+      Three rounds. See a note on the bass staff, hear it, play it.
+      All of them will be bass C or bass F.
+    interaction:
+      type: see_hear_play
+      rounds: 3
+
+  - id: 13
+    mode: play
+    type: middle_c_comparison
+    figure: "Two staves stacked. Bass C (space 2, bass staff) highlighted. Middle C (ledger line below treble) highlighted. Arrow connecting them labeled ONE OCTAVE."
+    cleffy: >
+      Quick preview. Middle C, which lives below the treble staff, is one octave above bass C.
+      Same letter — C. Different floor.
+      There's a third C between them too. But those live at different spots on different staves.
+      We'll formalize the relationship in Lesson 34.
+
+  - id: 14
+    mode: hear
+    type: drill_mixed
+    figure: "Mix of bass C / bass F by sight and sound."
+    cleffy: >
+      Four rounds.
+    interaction:
+      type: drill
+      rounds: 4
+
+  - id: 15
+    mode: hear
+    type: pre_check
+    figure: "Banner."
+    cleffy: >
+      Four quick ones.
+
+  - id: 16
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 29. Bass staff with two flags planted — bass F on line 4 and bass C in space 2. Cleffy giving a thumbs up."
+    cleffy: >
+      Two bass-staff landmarks. Two anchors.
+      Tomorrow — steps in the left hand. Same rules as the right.
+
+# ─── Practice this week ────────────────────────────────
+practice_this_week:
+  real_piano:
+    - "Left hand, pinky on bass C. Play bass C five times."
+    - "Then pointer on bass F. Play bass F five times."
+    - "Alternate them — pinky C, pointer F — five times each."
+  virtual_only:
+    - "Replay pages 11-12 (the play bass C to bass F exercise)"
+  estimated_time: "5 min/day"
+
+# ─── Mastery check ──────────────────────────────────────
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "Bass staff with note in space 2 (bass C)."
+          prompt: "Bass F or bass C?"
+          options: ["Bass F", "Bass C"]
+          correct: 1
+        - figure: "Bass staff with note on line 4 (bass F)."
+          prompt: "Bass F or bass C?"
+          options: ["Bass F", "Bass C"]
+          correct: 0
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "Bass F played"
+          prompt: "Bass F or bass C?"
+          options: ["Bass F", "Bass C"]
+          correct: 0
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play bass C on the piano."
+          accept: "C3"
+
+# ─── Remediation ────────────────────────────────────────
+remediation:
+  id: "29.5"
+  title: "Two bass landmarks, slower"
+  pages: 5
+  opening_cleffy: >
+    Two landmarks to keep straight. Slow look at each, side by side.
+
+# ─── Completion ─────────────────────────────────────────
+completion:
+  cleffy: >
+    Two bass anchors. Ready to read.
+    Tomorrow: steps in the left hand — act boss.
+  xp: 20
+  unlocks: 30

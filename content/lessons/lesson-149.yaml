@@ -1,0 +1,238 @@
+# ============================================================
+# LESSON 149 · Waltz bass
+# Tier 4 · Act 30 · Intermediate · Pattern recognition + accompaniment
+# Oom-pah-pah — bass note on 1, chord on 2 and 3.
+# ============================================================
+id: 149
+tier: intermediate
+act: 30
+title: "Waltz bass"
+subtitle: "Act 30 · Accompaniment patterns"
+goal: "Play the waltz LH — bass note on beat 1, chord on beats 2 and 3 — in 3/4 time."
+prereqs: [148, 147]
+method_focus: "play"
+time_estimate_min: 14
+piece_context: "Every waltz you've ever heard uses the same left-hand shape. Bass note — thump. Chord — tap. Chord — tap. Oom-pah-pah. Three beats. Chopin, Strauss, Tchaikovsky, all of it."
+metaphor: "hand-patterns"
+vibe: ["gentle", "playful"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy with a small ballroom behind him. Couples frozen mid-turn. Banner: WALTZ BASS."
+    cleffy: >
+      Every waltz — same left hand.
+      Thump. Tap. Tap.
+      Oom. Pah. Pah.
+
+  - id: 2
+    mode: see
+    type: concept
+    figure: "LH staff in 3/4. Bar 1: low C (quarter), then E3-G3 chord (quarter), then E3-G3 chord (quarter). Labels above: OOM PAH PAH."
+    cleffy: >
+      Three beats per bar.
+      Beat 1 — bass note. Low. Strong.
+      Beats 2 and 3 — chord. Higher. Soft.
+
+  - id: 3
+    mode: see
+    type: three_four
+    figure: "Time signature 3/4 with the numbers highlighted. Three beats counted below: 1, 2, 3."
+    cleffy: >
+      3/4 time. Three beats per bar. You know this.
+      Waltzes live here. Always.
+
+  - id: 4
+    mode: hear
+    type: hear_waltz_bass
+    figure: "Play button. Label: Waltz bass on I, two bars."
+    audio:
+      A: "Waltz bass on C major — bass C2, chord C3-E3-G3, chord C3-E3-G3, two bars"
+    cleffy: >
+      Listen.
+      Low note. Higher chord. Higher chord.
+      Low note. Higher chord. Higher chord.
+      Your feet already want to move.
+
+  - id: 5
+    mode: play
+    type: play_bass_alone
+    figure: "Keyboard. Low C2 glowing. Finger 5 labeled."
+    cleffy: >
+      Start with the thump alone. Low C. Pinky.
+      One hit, held for a beat.
+    interaction:
+      type: rhythm
+      sequence: ["C2"]
+      durations: ["quarter"]
+      tempo: 70
+
+  - id: 6
+    mode: play
+    type: play_chord_alone
+    figure: "Keyboard. C3-E3-G3 chord glowing. Thumb, middle, pointer."
+    cleffy: >
+      Now the chord. C, E, G — together.
+      One tap.
+    interaction:
+      type: rhythm
+      sequence: [["C3","E3","G3"]]
+      durations: ["quarter"]
+      tempo: 70
+
+  - id: 7
+    mode: play
+    type: full_waltz_one_bar
+    figure: "LH staff. One bar in 3/4. Bass C2, chord C3-E3-G3, chord C3-E3-G3."
+    cleffy: >
+      Full bar. Bass. Chord. Chord.
+      Oom. Pah. Pah.
+    interaction:
+      type: rhythm
+      sequence: ["C2",["C3","E3","G3"],["C3","E3","G3"]]
+      durations: ["quarter","quarter","quarter"]
+      tempo: 70
+
+  - id: 8
+    mode: play
+    type: four_bars_on_I
+    figure: "LH staff. Four bars of waltz on I. Tempo 80."
+    cleffy: >
+      Four bars. Same chord. Don't stop between bars.
+      Let the beat carry.
+    interaction:
+      type: rhythm
+      sequence: ["C2",["C3","E3","G3"],["C3","E3","G3"],"C2",["C3","E3","G3"],["C3","E3","G3"],"C2",["C3","E3","G3"],["C3","E3","G3"],"C2",["C3","E3","G3"],["C3","E3","G3"]]
+      durations: ["quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter"]
+      tempo: 80
+
+  - id: 9
+    mode: see
+    type: chord_changes
+    figure: "LH staff. Bar 1: C2 + C-E-G chords. Bar 2: G2 + G-B-D chords. Labeled 'I / V'."
+    cleffy: >
+      The chord changes — new bass, new chord.
+      Bar 1 — I. Bass on C, chord C-E-G.
+      Bar 2 — V. Bass on G, chord G-B-D.
+
+  - id: 10
+    mode: play
+    type: i_v_two_bars
+    figure: "LH staff. Two bars. I then V. Tempo 75."
+    cleffy: >
+      Two bars. I, then V. Waltz pattern.
+    interaction:
+      type: rhythm
+      sequence: ["C2",["C3","E3","G3"],["C3","E3","G3"],"G2",["G3","B3","D4"],["G3","B3","D4"]]
+      durations: ["quarter","quarter","quarter","quarter","quarter","quarter"]
+      tempo: 75
+
+  - id: 11
+    mode: play
+    type: full_I_IV_V_I
+    figure: "LH staff. Four bars in 3/4: I, IV, V, I. Each with waltz pattern."
+    cleffy: >
+      Four bars. I, IV, V, I. Bass changes every bar.
+      LH only. Slow.
+    interaction:
+      type: rhythm
+      sequence: ["C2",["C3","E3","G3"],["C3","E3","G3"],"F2",["F3","A3","C4"],["F3","A3","C4"],"G2",["G3","B3","D4"],["G3","B3","D4"],"C2",["C3","E3","G3"],["C3","E3","G3"]]
+      durations: ["quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter"]
+      tempo: 75
+
+  - id: 12
+    mode: play
+    type: melody_over_waltz
+    figure: "Grand staff. RH: E5 D5 C5 across three beats (one per beat). LH: waltz on I."
+    cleffy: >
+      RH melody on top. Three notes. E, D, C.
+      LH keeps oom-pah-pah underneath. Don't let it drop.
+    interaction:
+      type: song
+      sequence: [["E5","C2"],["D5","C3","E3","G3"],["C5","C3","E3","G3"]]
+      guides: true
+      tempo: 70
+    followup_cleffy: >
+      That's a waltz.
+      Right hand sings. Left hand dances.
+
+  - id: 13
+    mode: play
+    type: waltz_no_guides
+    figure: "Same bar. Guides off."
+    cleffy: >
+      Again. No highlights.
+    interaction:
+      type: song
+      sequence: [["E5","C2"],["D5","C3","E3","G3"],["C5","C3","E3","G3"]]
+      guides: false
+      tempo: 70
+
+  - id: 14
+    mode: hear
+    type: pre_check
+    figure: "Banner."
+    cleffy: >
+      Three quick ones.
+
+  - id: 15
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 149. 'OOM PAH PAH' written across three beats, with a couple waltzing below."
+    cleffy: >
+      Waltz bass. Oom. Pah. Pah.
+      Tomorrow — act boss. Chopin. A real waltz, with this pattern underneath.
+
+practice_this_week:
+  real_piano:
+    - "Play the waltz bass on I, IV, V, I — every day. Say oom-pah-pah out loud. Keep the beat steady."
+    - "Pick any melody in 3/4 you know — Happy Birthday works. Add a waltz bass underneath."
+  virtual_only:
+    - "Replay pages 8, 11, and 12"
+  estimated_time: "10 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "LH staff in 3/4 — bass note on beat 1, chord on beats 2 and 3"
+          prompt: "What pattern is this?"
+          options: ["Alberti bass", "Waltz bass (oom-pah-pah)", "Blocked chord"]
+          correct: 1
+        - figure: "Time signature showing 3/4"
+          prompt: "How many beats per bar in a waltz?"
+          options: ["Two", "Three", "Four"]
+          correct: 1
+        - figure: "LH staff with bass C2 then chord C-E-G twice"
+          prompt: "Which chord is this waltz bar on?"
+          options: ["I (C major)", "IV (F major)", "V (G major)"]
+          correct: 0
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "Waltz bass on C — low C, chord, chord, repeating"
+          prompt: "Is this a waltz bass?"
+          options: ["Yes", "No"]
+          correct: 0
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play one bar of waltz bass on I — low C, then C-E-G chord twice."
+          accept: "C2, then C3-E3-G3 chord, then C3-E3-G3 chord"
+
+remediation:
+  id: "149.5"
+  title: "Oom-pah-pah, slower"
+  pages: 8
+  opening_cleffy: >
+    Big jump from low bass to chord — takes practice.
+    We'll break it: just the bass, just the chord, then the handoff.
+
+completion:
+  cleffy: >
+    Waltz bass — yours.
+    Tomorrow — Chopin. Waltz in A minor. The real thing, simplified.
+  xp: 18
+  unlocks: 150

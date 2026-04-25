@@ -1,0 +1,221 @@
+# ============================================================
+# LESSON 178 · Reading two lines at once
+# Tier 5 · Act 36 · Upper-Intermediate
+# Eyes on both staves simultaneously.
+# ============================================================
+id: 178
+tier: upper-intermediate
+act: 36
+title: "Reading two lines at once"
+subtitle: "Act 36 · Counterpoint intro"
+goal: "Train the eyes to take in both staves at the same time — treble and bass, read together, not ping-ponged."
+prereqs: [177, 176, 91]
+method_focus: "see"
+time_estimate_min: 14
+piece_context: "In melody-plus-chords, you could glance at the left hand once per bar and get back to the melody. In counterpoint, both staves matter every single note. Your eyes have to change habits."
+metaphor: "hands-as-singers"
+vibe: ["focused", "honest"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cartoon eyes with arrows pointing to both staves of a grand staff at the same time. Banner: BOTH STAVES. AT ONCE."
+    cleffy: >
+      New skill today. For your eyes.
+      Until now — glance at the bass, get back to the treble fast.
+      Now — both staves, all the time.
+
+  - id: 2
+    mode: see
+    type: the_old_habit
+    figure: "Grand staff. A path drawn from the treble note down to the bass, then back up — a ping-pong route. Arrow labelled: OLD HABIT."
+    cleffy: >
+      The old way — read the treble, peek at the bass, jump back.
+      Works for melody plus chords. The chord rarely changes.
+      Breaks for counterpoint. The bass is a new note every beat.
+
+  - id: 3
+    mode: see
+    type: the_new_habit
+    figure: "Grand staff. A soft oval around both staves together, no ping-pong arrows. Arrow labelled: NEW HABIT — SEE THE WHOLE BAR."
+    cleffy: >
+      New way — let both staves enter your eye at once.
+      Your gaze sits in the middle. You see top and bottom in one look.
+      Like watching two lanes of traffic. Not one, then the other.
+
+  - id: 4
+    mode: see
+    type: simple_two_lines
+    figure: "Grand staff. Treble: C5 D5 E5 F5. Bass: C3 B2 A2 G2. Both lines moving — RH up, LH down — in parallel quarter notes."
+    cleffy: >
+      Read this. Two lines.
+      Top goes up — C D E F.
+      Bottom goes down — C B A G.
+      Try to see both movements at the same time, not one after the other.
+
+  - id: 5
+    mode: hear
+    type: listen_to_it
+    figure: "Play button. Caption: the four-bar two-voice phrase you just read."
+    audio:
+      A: "Four bars — RH ascending C D E F, LH descending C B A G, both in slow quarters"
+    cleffy: >
+      Now hear it.
+      Two voices, moving in opposite directions. Simple.
+
+  - id: 6
+    mode: play
+    type: rh_line_first
+    figure: "Only the treble staff visible. C5 D5 E5 F5. Keyboard below."
+    cleffy: >
+      Top voice alone. C D E F.
+    interaction:
+      type: sequence
+      keys: ["C5","D5","E5","F5"]
+
+  - id: 7
+    mode: play
+    type: lh_line_second
+    figure: "Only the bass staff visible. C3 B2 A2 G2."
+    cleffy: >
+      Bottom voice alone. C B A G. Downhill.
+    interaction:
+      type: sequence
+      keys: ["C3","B2","A2","G2"]
+
+  - id: 8
+    mode: see
+    type: eye_middle
+    figure: "Close-up of a grand staff. A gaze-spot shown hovering between the two staves, with dotted lines fanning up to treble notes and down to bass notes."
+    cleffy: >
+      Trick for the eyes — park your gaze between the two staves.
+      Let the notes come to you from above and below.
+      Not scanning up-down-up-down. Holding the middle.
+
+  - id: 9
+    mode: play
+    type: both_together_slow
+    figure: "Grand staff with both lines visible. Metronome marker: quarter = 50."
+    cleffy: >
+      Both hands. Very slow. Quarter equals fifty.
+      First pair: C on top, C on bottom.
+    interaction:
+      type: rhythm
+      sequence: [["C5","C3"], ["D5","B2"], ["E5","A2"], ["F5","G2"]]
+      durations: ["quarter","quarter","quarter","quarter"]
+      tempo: 50
+
+  - id: 10
+    mode: see
+    type: contrary_motion
+    figure: "Diagram showing two arrows in a grand staff — top arrow going up, bottom arrow going down. Label: CONTRARY MOTION. Caption: hands moving in opposite directions — counterpoint's favorite trick."
+    cleffy: >
+      A name for this. Contrary motion.
+      Hands moving opposite directions.
+      Counterpoint loves it — it makes the two voices stay distinct.
+
+  - id: 11
+    mode: play
+    type: contrary_practice
+    figure: "Grand staff. Longer contrary-motion phrase — RH C D E F G, LH C B A G F."
+    cleffy: >
+      Longer phrase. Five notes each hand.
+      RH up, LH down. Eyes on both.
+    interaction:
+      type: rhythm
+      sequence: [["C5","C3"], ["D5","B2"], ["E5","A2"], ["F5","G2"], ["G5","F2"]]
+      durations: ["quarter","quarter","quarter","quarter","quarter"]
+      tempo: 55
+
+  - id: 12
+    mode: see
+    type: pattern_eye
+    figure: "Grand staff with groups of three notes bracketed together in both clefs. Arrows showing: SEE A GROUP, NOT A NOTE."
+    cleffy: >
+      Old reading trick, now extra important.
+      Don't read one note at a time. Read groups. Chunks.
+      Your eyes take in a bar of each staff together, the way you take in a word not a letter.
+
+  - id: 13
+    mode: play
+    type: similar_motion_phrase
+    figure: "Grand staff. Both hands moving in parallel — RH C D E F, LH C D E F, two octaves apart."
+    cleffy: >
+      Now both hands move the same direction — parallel.
+      Same shape, both going up. Still two voices. Still read both staves.
+    interaction:
+      type: rhythm
+      sequence: [["C5","C3"], ["D5","D3"], ["E5","E3"], ["F5","F3"]]
+      durations: ["quarter","quarter","quarter","quarter"]
+      tempo: 55
+    followup_cleffy: >
+      Eyes stayed in the middle. Both staves got read. Good.
+
+  - id: 14
+    mode: hear
+    type: pre_check
+    figure: "Banner."
+    cleffy: >
+      Three quick ones.
+
+  - id: 15
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 178. Two staves with a gaze-dot hovering between them. Banner: EYES ON BOTH."
+    cleffy: >
+      Both staves, one look. The eye trick of counterpoint.
+      Tomorrow — the ear trick. Hear the left hand as a tune.
+
+practice_this_week:
+  real_piano:
+    - "Open any two-staff music you have — anything, even a hymn book. Rest your eyes between the staves. Try to read one bar of both clefs without ping-ponging. Slow."
+    - "Play a simple contrary-motion scale — both hands starting on middle C, right going up, left going down. Keep your eyes in the middle of the page."
+  virtual_only:
+    - "Replay pages 9, 11, and 13 — two-line reading, slow."
+  estimated_time: "10 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "Grand staff with two moving voices"
+          prompt: "In counterpoint, where should your eyes rest?"
+          options: ["On the treble staff only", "Between the two staves, seeing both", "On the bass staff only"]
+          correct: 1
+        - figure: "Grand staff where RH moves up and LH moves down"
+          prompt: "What's this called?"
+          options: ["Parallel motion", "Contrary motion", "Pedal point"]
+          correct: 1
+        - figure: "Grand staff where RH and LH both move up together"
+          prompt: "What's this called?"
+          options: ["Parallel (or similar) motion", "Contrary motion"]
+          correct: 0
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "A contrary-motion phrase — top voice ascending, bottom descending"
+          prompt: "Are the voices moving the same direction or opposite directions?"
+          options: ["Same direction", "Opposite directions"]
+          correct: 1
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play contrary motion: RH C D E F going up, LH C B A G going down, together."
+          accept: "Four quarter-note pairs with RH ascending and LH descending"
+
+remediation:
+  id: "178.5"
+  title: "Reading two lines, slower"
+  pages: 8
+  opening_cleffy: >
+    Reading two staves together is a real skill. It takes time.
+    We'll slow down, use two notes at a time, and practice keeping the gaze between the staves.
+
+completion:
+  cleffy: >
+    Two lines, one look.
+    Tomorrow — the ear learns to hear the left hand as a tune.
+  xp: 18
+  unlocks: 179

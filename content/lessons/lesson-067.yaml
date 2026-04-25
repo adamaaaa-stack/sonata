@@ -1,0 +1,210 @@
+id: 67
+tier: elementary
+act: 14
+title: "G major"
+subtitle: "One sharp — F-sharp, always"
+goal: "Read and play a simple piece in G major."
+prereqs: [66]
+method_focus: "keys"
+time_estimate_min: 12
+piece_context: "First real key-signature experience. Every F becomes F-sharp."
+metaphor: "one-sharp-rule"
+vibe: ["gentle", "serious"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Treble staff with F# key signature prominent. Label: G major."
+    cleffy: >
+      One sharp. F-sharp.
+      That's the G-major key signature. It shows up everywhere — pop, classical, folk. Most-used key on piano.
+
+  - id: 2
+    mode: see
+    type: where_the_sharp_sits
+    figure: "Close-up of the F# symbol sitting on the top line of the treble staff."
+    cleffy: >
+      The F-sharp sits on the top line of the treble staff. That's line 5 — the F line.
+      Wherever an F is written (any octave), it's sharp.
+
+  - id: 3
+    mode: play
+    type: g_major_five_finger
+    figure: "Keyboard. G A B C D (in G position). Key signature F#."
+    cleffy: >
+      G position — G A B C D. No F in the five-finger range, so no sharps pop up here.
+      But the piece is still in G major. You just haven't met an F yet.
+    interaction:
+      type: sequence
+      keys: ["G4","A4","B4","C5","D5"]
+
+  - id: 4
+    mode: play
+    type: g_with_f_sharp
+    figure: "Keyboard. G A B C D E F# G (full G major scale). Key signature with F#."
+    cleffy: >
+      Full G scale. G A B C D E F-sharp G.
+      Watch the F — it's sharp. Black key.
+    interaction:
+      type: sequence
+      keys: ["G4","A4","B4","C5","D5","E5","F#5","G5"]
+
+  - id: 5
+    mode: see
+    type: first_piece_g
+    figure: "Staff with F# key. Simple melody: G B G D G. Mostly skips."
+    cleffy: >
+      Here's a 5-note melody in G major. No F, so no sharp comes up.
+      Still in G major — the sharp is there, just not used.
+
+  - id: 6
+    mode: play
+    type: play_melody_g
+    figure: "Keyboard. G B G D G."
+    cleffy: >
+      Play it. G position.
+    interaction:
+      type: sequence
+      keys: ["G4","B4","G4","D5","G4"]
+
+  - id: 7
+    mode: see
+    type: with_f_sharp_in_piece
+    figure: "Staff with F# key. Melody: G A B F# (sharp!) G. The F gets sharped automatically."
+    cleffy: >
+      New melody. G A B F-sharp G.
+      The F has no symbol in front of it — but the key signature already said all F's are sharp.
+      So it's F-sharp.
+
+  - id: 8
+    mode: play
+    type: play_with_sharp
+    figure: "Keyboard. G A B F# G."
+    cleffy: >
+      Play it. F# is the black key above F4.
+    interaction:
+      type: sequence
+      keys: ["G4","A4","B4","F#4","G4"]
+
+  - id: 9
+    mode: see
+    type: drill_read
+    figure: "Staff in G major. Various notes marked."
+    cleffy: >
+      Four rounds. In G major — what do you play for each note?
+    interaction:
+      type: drill
+      rounds: 4
+      options: ["Natural", "Sharp"]
+
+  - id: 10
+    mode: hear
+    type: g_major_sound
+    figure: "Play button."
+    audio:
+      A: "G major scale ascending"
+    cleffy: >
+      G major scale. Bright, settled sound.
+
+  - id: 11
+    mode: play
+    type: g_major_scale
+    figure: "Keyboard. Full G major scale."
+    cleffy: >
+      Play the whole scale. G to G, all 8 notes.
+      Remember — F is sharp.
+    interaction:
+      type: sequence
+      keys: ["G4","A4","B4","C5","D5","E5","F#5","G5"]
+
+  - id: 12
+    mode: read
+    type: read_melody_in_g
+    figure: "Staff in G major: G A B C D E F# G — that's the scale written."
+    cleffy: >
+      Read the scale off the staff. Go slow — watch for the F on line 5.
+    interaction:
+      type: sequence
+      keys: ["G4","A4","B4","C5","D5","E5","F#5","G5"]
+
+  - id: 13
+    mode: play
+    type: real_phrase_in_g
+    figure: "Staff in G. Melody: G G A B G A G F# G. All in G position mostly."
+    cleffy: >
+      Short phrase. 9 notes. F appears once — and it's sharp.
+    interaction:
+      type: sequence
+      keys: ["G4","G4","A4","B4","G4","A4","G4","F#4","G4"]
+
+  - id: 14
+    mode: hear
+    type: mixed
+    figure: "Four rounds."
+    cleffy: >
+      Four rounds.
+    interaction:
+      type: drill
+      rounds: 4
+
+  - id: 15
+    mode: hear
+    type: pre_check
+    figure: "Banner."
+    cleffy: >
+      Four quick ones.
+
+  - id: 16
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 67. G major key signature with F# prominent. G scale written."
+    cleffy: >
+      G major is yours. Tomorrow — F major. The one-flat key.
+
+practice_this_week:
+  real_piano:
+    - "Play the full G major scale, both hands, slowly. Every F is sharp."
+    - "Play a phrase in G: G G A B G A G F# G. Works as both a warmup and a musical sentence."
+  virtual_only:
+    - "Replay pages 11-13"
+  estimated_time: "10 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "G major key signature"
+          prompt: "Which note is sharp in G major?"
+          options: ["F", "C", "B", "G"]
+          correct: 0
+        - figure: "Staff in G major with note on F line"
+          prompt: "What do you play?"
+          options: ["F-natural", "F-sharp"]
+          correct: 1
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "G major scale ascending"
+          prompt: "Does this scale sound major (bright, settled) or minor (sad)?"
+          options: ["Major", "Minor"]
+          correct: 0
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play the first 5 notes of G major scale: G-A-B-C-D."
+          accept: "G4 A4 B4 C5 D5"
+
+remediation:
+  id: "67.5"
+  title: "G major, slower"
+  pages: 5
+  opening_cleffy: >
+    One-sharp key. Slow walk with the sharp highlighted.
+
+completion:
+  cleffy: >
+    G major, mastered. F major tomorrow.
+  xp: 20
+  unlocks: 68

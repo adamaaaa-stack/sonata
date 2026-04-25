@@ -1,0 +1,229 @@
+id: 52
+tier: elementary
+act: 11
+title: "Rests"
+subtitle: "Silence is music too"
+goal: "Read quarter, half, and whole rests and play music with gaps of silence."
+prereqs: [23, 51]
+method_focus: "rhythm"
+time_estimate_min: 10
+piece_context: null
+metaphor: "pauses-count"
+vibe: ["gentle", "playful"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Staff with a row of notes. In the middle, a blank space marked REST."
+    cleffy: >
+      Music has silence in it too. Planned silence.
+      A rest is a symbol that says "don't play. Wait."
+      Each rest has a length, same as a note.
+
+  - id: 2
+    mode: see
+    type: three_rests
+    figure: "Quarter rest, half rest, whole rest drawn on a staff."
+    cleffy: >
+      Three rests for now.
+      Quarter rest — squiggly symbol. 1 beat of silence.
+      Half rest — small block sitting on line 3. 2 beats.
+      Whole rest — small block hanging from line 4. 4 beats (a whole bar of silence in 4/4).
+
+  - id: 3
+    mode: see
+    type: memory_trick
+    figure: "Half rest (sits on top of line) vs whole rest (hangs from line). Side by side."
+    cleffy: >
+      Trick: half rest sits ON line 3. Whole rest HANGS from line 4.
+      Or: half = hat on line. Whole = hole under line.
+
+  - id: 4
+    mode: see
+    type: identify
+    figure: "Staff with a quarter rest."
+    cleffy: >
+      Which rest?
+    interaction:
+      type: choice
+      options: ["Quarter (1 beat)", "Half (2 beats)", "Whole (4 beats)"]
+      correct: 0
+
+  - id: 5
+    mode: see
+    type: identify_half
+    figure: "Staff with a half rest."
+    cleffy: >
+      This?
+    interaction:
+      type: choice
+      options: ["Quarter", "Half", "Whole"]
+      correct: 1
+
+  - id: 6
+    mode: see
+    type: identify_whole
+    figure: "Staff with a whole rest."
+    cleffy: >
+      And this?
+    interaction:
+      type: choice
+      options: ["Quarter", "Half", "Whole"]
+      correct: 2
+
+  - id: 7
+    mode: see
+    type: drill
+    figure: "Round counter 1 of 6."
+    cleffy: >
+      Six rounds. Name the rest.
+    interaction:
+      type: drill
+      rounds: 6
+      options: ["Quarter", "Half", "Whole"]
+
+  - id: 8
+    mode: hear
+    type: count_rest
+    figure: "Bar: quarter, quarter, quarter rest, quarter note. Metronome."
+    audio:
+      A: "Metronome 60, 4 beats — note, note, silence, note"
+    cleffy: >
+      Listen. 1, 2, [silence], 4. That silence on beat 3 is a quarter rest.
+      The beat still happens. Nothing is played.
+
+  - id: 9
+    mode: play
+    type: play_with_rest
+    figure: "Bar: C (quarter), C (quarter), quarter rest, C (quarter). Metronome."
+    cleffy: >
+      Tap Middle C on beat 1 and 2. Silence on beat 3. Tap again on 4.
+    interaction:
+      type: rhythm
+      sequence: ["C4","C4","rest","C4"]
+      durations: ["quarter","quarter","quarter","quarter"]
+      tempo: 60
+
+  - id: 10
+    mode: play
+    type: half_rest_bar
+    figure: "Bar: C (half), half rest, in 4/4."
+    cleffy: >
+      Two beats of C, then two beats of silence.
+    interaction:
+      type: rhythm
+      sequence: ["C4","rest"]
+      durations: ["half","half"]
+      tempo: 60
+
+  - id: 11
+    mode: play
+    type: whole_rest_bar
+    figure: "Whole rest."
+    cleffy: >
+      A whole bar of silence. Count 1-2-3-4 in your head.
+    interaction:
+      type: rhythm
+      sequence: ["rest"]
+      durations: ["whole"]
+      tempo: 60
+
+  - id: 12
+    mode: read
+    type: mixed_melody
+    figure: "Two bars. Bar 1: C (quarter), rest, C (quarter), C (quarter). Bar 2: D (half), rest (half)."
+    cleffy: >
+      Two bars with rests. Read and play.
+    interaction:
+      type: rhythm
+      sequence: ["C4","rest","C4","C4","D4","rest"]
+      durations: ["quarter","quarter","quarter","quarter","half","half"]
+      tempo: 60
+
+  - id: 13
+    mode: hear
+    type: rest_drill
+    figure: "Round counter 1 of 4."
+    cleffy: >
+      Four rounds. Which rest did you hear?
+    interaction:
+      type: drill
+      rounds: 4
+      options: ["Quarter rest", "Half rest", "Whole rest"]
+
+  - id: 14
+    mode: hear
+    type: mixed_drill
+    figure: "Mixed rhythm questions."
+    cleffy: >
+      Four rounds.
+    interaction:
+      type: drill
+      rounds: 4
+
+  - id: 15
+    mode: hear
+    type: pre_check
+    figure: "Banner."
+    cleffy: >
+      Four quick ones.
+
+  - id: 16
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 52. Three rests lined up with their beat values."
+    cleffy: >
+      Rests. Silence with a length.
+      Tomorrow — dotted notes. Notes that last a little longer.
+
+practice_this_week:
+  real_piano:
+    - "Metronome at 60. Tap, tap, silence, tap. Four beats. Repeat."
+    - "Now: tap for two clicks, rest for two clicks. Keep counting."
+  virtual_only:
+    - "Replay pages 9-11"
+  estimated_time: "5 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 3
+      questions:
+        - figure: "Half rest on staff."
+          prompt: "How many beats of silence?"
+          options: ["1", "2", "4"]
+          correct: 1
+        - figure: "Quarter rest"
+          prompt: "How many beats?"
+          options: ["1", "2", "4"]
+          correct: 0
+        - figure: "Whole rest"
+          prompt: "How many beats?"
+          options: ["1", "2", "4"]
+          correct: 2
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "Quarter note, quarter rest, quarter note, quarter rest"
+          prompt: "How many notes in 4 beats?"
+          options: ["2", "3", "4"]
+          correct: 0
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play: C, rest, C, rest in 4/4 as quarters."
+          accept: "C4, rest, C4, rest"
+
+remediation:
+  id: "52.5"
+  title: "Rests, slower"
+  pages: 5
+  opening_cleffy: >
+    Silence is weird to read. Let's clap patterns with pauses.
+
+completion:
+  cleffy: >
+    Rests, in. Music now has pauses in it.
+  xp: 20
+  unlocks: 53

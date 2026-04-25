@@ -1,0 +1,228 @@
+# ============================================================
+# LESSON 222 · Clair de Lune: B section
+# Tier 5 · Act 45 · Upper-Intermediate · Clair de Lune full (2/5)
+# The arpeggiated middle. LH rolls, RH melody.
+# ============================================================
+id: 222
+tier: upper-intermediate
+act: 45
+title: "Clair de Lune: B section"
+subtitle: "Act 45 · Clair de Lune full"
+goal: "Play the B section of Clair de Lune — a flowing arpeggiated middle where the left hand rolls under a right-hand melody."
+prereqs: [125, 200, 213, 215, 220, 221]
+method_focus: "combine"
+time_estimate_min: 16
+piece_context: "Day two of Clair de Lune. The A section drifts. The B section flows. The left hand rolls broken chords — the same Arabesque-style motion you played in Act 43. The right hand sings on top."
+metaphor: "debussy-summit"
+vibe: ["quiet", "focused", "gentle"]
+piece:
+  title: "Clair de Lune (B section — simplified)"
+  composer: "Debussy"
+  key_center: "D major (simplified from D-flat)"
+  time_signature: "3/4 (simplified from 9/8)"
+  difficulty: "upper-intermediate — LH broken arpeggios, RH melody, quiet but more motion than A"
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy at the foot of the Debussy mountain. Banner: LESSON 222. A piece map with block B highlighted."
+    cleffy: >
+      Day two. The B section.
+      A section drifts. B section flows.
+      Still quiet — but now the left hand is moving.
+
+  - id: 2
+    mode: see
+    type: new_texture
+    figure: "Split panel. Left: A section — RH thirds, LH one held note. Right: B section — RH single melody notes, LH rolling arpeggio pattern. Arrow between: 'new shape.'"
+    cleffy: >
+      Here's what changes.
+      Left hand — no more one held note. It rolls.
+      Right hand — no more stacked thirds. It sings, one note at a time.
+      Totally different texture. Same quiet world.
+
+  - id: 3
+    mode: hear
+    type: listen
+    figure: "Play button. Caption: 'B section — the flowing middle.'"
+    audio:
+      A: "Clair de Lune B section, softly pedaled — RH melody floats, LH broken chord underneath rolls gently."
+    cleffy: >
+      Listen. Hear the two things at once.
+      Top — a simple melody. Four or five notes.
+      Bottom — a rolling pattern, never still.
+
+  - id: 4
+    mode: see
+    type: the_lh_roll
+    figure: "Bass staff. A rolling six-note pattern: D3-F#3-A3-F#3-A3-D4. Labeled 'one bar — LH broken chord.'"
+    cleffy: >
+      The left-hand roll. Six notes, one bar.
+      D. F-sharp. A. F-sharp. A. D — up an octave.
+      Up, back, up, back, up. Like water.
+
+  - id: 5
+    mode: play
+    type: play_lh_roll
+    figure: "Keyboard. LH pattern highlighted in order: D3-F#3-A3-F#3-A3-D4."
+    cleffy: >
+      Play the left hand alone. Slow.
+      Feel the shape. Up four notes, fall back, rise again.
+    interaction:
+      type: rhythm
+      sequence: ["D3","F#3","A3","F#3","A3","D4"]
+      durations: ["eighth","eighth","eighth","eighth","eighth","eighth"]
+      tempo: 50
+
+  - id: 6
+    mode: see
+    type: the_rh_melody
+    figure: "Treble staff. A four-bar melody. Bar 1: F#4-A4. Bar 2: E4-D4. Bar 3: F#4-G4-F#4. Bar 4: A4-G4. Labeled 'RH sings over the roll — 2 to 3 notes per bar.'"
+    cleffy: >
+      The right hand. Two or three notes per bar — small shapes.
+      Bar one rises F-sharp to A. Bar two falls E to D. Bar three peaks at G then settles. Bar four eases A down to G.
+      Let each shape float while the left rolls underneath.
+
+  - id: 7
+    mode: play
+    type: play_rh_melody
+    figure: "Keyboard. RH melody — small 2-3 note shapes per bar."
+    cleffy: >
+      Right hand alone. Two or three notes per bar. Sing the shape.
+      No rush.
+    interaction:
+      type: rhythm
+      sequence: ["F#4","A4","E4","D4","F#4","G4","F#4","A4","G4"]
+      durations: ["half","quarter","half","quarter","quarter","quarter","quarter","half","quarter"]
+      tempo: 50
+
+  - id: 8
+    mode: play
+    type: hands_together_bar_1
+    figure: "Grand staff. Bar 1. RH F#4 then A4. LH D3-F#3-A3-F#3-A3-D4. Tempo 48."
+    cleffy: >
+      One bar. Both hands.
+      Right hand sings F-sharp into A. Left hand rolls underneath.
+      Don't let the left hand get louder than the right.
+    interaction:
+      type: song
+      sequence: [["F#4","D3"],"F#3","A3",["A4","F#3"],"A3","D4"]
+      guides: true
+      tempo: 48
+
+  - id: 9
+    mode: see
+    type: four_bars_of_b
+    figure: "Grand staff. Four bars. RH holds F#4, E4, F#4, A4 each bar. LH rolls D-F#-A-F#-A-D pattern each bar (shifting slightly under E melody). pp marked."
+    cleffy: >
+      Four bars of the B section.
+      Every bar — LH rolls. RH holds one melody note.
+      Simple, once you see the shape.
+
+  - id: 10
+    mode: play
+    type: play_four_bars_b
+    figure: "Grand staff. Four bars. Tempo 46. Guides on."
+    cleffy: >
+      Four bars. Both hands.
+      Left rolls under every melody note. Keep the left soft — it supports, it doesn't lead.
+    interaction:
+      type: song
+      sequence: [["F#4","D3"],"F#3","A3",["A4","F#3"],"A3","D4",["E4","D3"],"F#3","A3",["D4","F#3"],"A3","D4",["F#4","D3"],"F#3",["G4","A3"],"F#3",["F#4","A3"],"D4",["A4","D3"],"F#3","A3",["G4","F#3"],"A3","D4"]
+      guides: true
+      tempo: 46
+
+  - id: 11
+    mode: see
+    type: voicing_reminder
+    figure: "Diagram. Two hands. RH has a gold glow around its note. LH is in dim grey. Label: 'RH sings. LH supports.'"
+    cleffy: >
+      Voicing. Act 42's gift.
+      Right hand note — loud enough to hear over the roll.
+      Left hand roll — soft enough to stay underneath.
+      Water flows. The singer sings above it.
+
+  - id: 12
+    mode: play
+    type: play_four_bars_voiced
+    figure: "Same four bars. RH notes glowing gold. Tempo 46. No guides."
+    cleffy: >
+      Same four bars. Right hand firmer. Left hand softer.
+      Let the top line sing.
+    interaction:
+      type: song
+      sequence: [["F#4","D3"],"F#3","A3",["A4","F#3"],"A3","D4",["E4","D3"],"F#3","A3",["D4","F#3"],"A3","D4",["F#4","D3"],"F#3",["G4","A3"],"F#3",["F#4","A3"],"D4",["A4","D3"],"F#3","A3",["G4","F#3"],"A3","D4"]
+      guides: false
+      tempo: 46
+    followup_cleffy: >
+      A melody, floating on water.
+      That's the B section.
+
+  - id: 13
+    mode: hear
+    type: pre_check
+    figure: "Banner — Lesson 222 mastery check."
+    cleffy: >
+      Three quick ones.
+
+  - id: 14
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 222. A river under moonlight, a single bird above. Caption: 'B SECTION.'"
+    cleffy: >
+      B section — yours.
+      Tomorrow — climax. The one loud moment in the whole piece.
+
+practice_this_week:
+  real_piano:
+    - "B section, slow, left hand alone. Then hands together."
+    - "Practice keeping LH softer than RH. It's a specific skill."
+  virtual_only:
+    - "Replay pages 10 and 12 — hands together, with and without voicing focus."
+  estimated_time: "12 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "Grand staff. RH long note, LH rolling six-note pattern."
+          prompt: "What is the left hand doing?"
+          options: ["Holding one note", "Rolling a broken chord", "Playing the melody"]
+          correct: 1
+        - figure: "Diagram — RH gold, LH grey."
+          prompt: "Which hand should be louder in the B section?"
+          options: ["Right hand (melody)", "Left hand (roll)", "Both equal"]
+          correct: 0
+        - figure: "Piece map with block B highlighted"
+          prompt: "The B section is..."
+          options: ["The opening", "The middle", "The ending"]
+          correct: 1
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "B section excerpt — RH long melody, LH rolling arpeggio"
+          prompt: "Which hand is moving faster?"
+          options: ["Right hand", "Left hand"]
+          correct: 1
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play the LH roll alone — D3, F#3, A3, F#3, A3, D4."
+          accept: "Six-note LH pattern, even, soft"
+
+remediation:
+  id: "222.5"
+  title: "B section, hand by hand"
+  pages: 8
+  opening_cleffy: >
+    Hands together is hard when one hand moves and the other holds.
+    LH alone. RH alone. One bar together. Then four.
+
+completion:
+  cleffy: >
+    B section in your hands. Rolling water. Melody above.
+    Tomorrow — the one loud moment. The climax.
+  xp: 19
+  unlocks: 223

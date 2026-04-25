@@ -1,0 +1,216 @@
+# ============================================================
+# LESSON 182 · Reading imitative entries
+# Tier 5 · Act 37 · Upper-Intermediate
+# Spotting when the other hand copies.
+# ============================================================
+id: 182
+tier: upper-intermediate
+act: 37
+title: "Reading imitative entries"
+subtitle: "Act 37 · Bach Invention deeper"
+goal: "Recognize imitation on the page — when a melody in one hand reappears in the other, a few beats later."
+prereqs: [181]
+method_focus: "see"
+time_estimate_min: 14
+piece_context: "Counterpoint is a conversation. One voice says something. The other voice answers — with the same thing. Today, you learn to spot the answer."
+metaphor: "imitation"
+vibe: ["focused", "playful"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Two cartoon hands with speech bubbles. Left hand: 'C-D-E-F-D-E-C.' Right hand, two beats later: 'C-D-E-F-D-E-C.' Banner: IMITATION."
+    cleffy: >
+      Imitation.
+      One hand speaks. The other hand copies.
+      Same notes. A beat or two later.
+
+  - id: 2
+    mode: see
+    type: what_to_look_for
+    figure: "A grand staff. An arrow from a melody in the treble to the same melody appearing a bar later in the bass. Arrow labeled: THE COPY."
+    cleffy: >
+      Here's what to look for.
+      A melody in one hand. Then — delayed — the same shape in the other hand.
+      Not an accident. Bach planned it.
+
+  - id: 3
+    mode: hear
+    type: listen_simple
+    figure: "Play button. Caption: two hands. Right enters first. Left copies a bar later."
+    audio:
+      A: "A simple imitative entry — RH plays C-D-E-F, then one bar later LH plays C-D-E-F in a lower register"
+    cleffy: >
+      Listen. Two hands.
+      Right first. Left follows — same notes, one bar later.
+      That's imitation.
+
+  - id: 4
+    mode: see
+    type: bach_example
+    figure: "Opening two bars of Invention No. 1. Bar 1: RH plays the subject. Bar 2: LH plays the subject. Arrow connecting them."
+    cleffy: >
+      Bach's Invention No. 1, bars 1 and 2.
+      Right hand: the subject. Bar two — left hand plays the same subject.
+      One hand answers the other. The whole piece works this way.
+
+  - id: 5
+    mode: play
+    type: play_first_voice
+    figure: "Treble staff, first voice. Keyboard with C5 D5 E5 F5 D5 E5 C5 glowing."
+    cleffy: >
+      First voice. Right hand. The subject.
+      C, D, E, F, D, E, C.
+    interaction:
+      type: sequence
+      keys: ["C5","D5","E5","F5","D5","E5","C5"]
+
+  - id: 6
+    mode: play
+    type: play_second_voice
+    figure: "Bass staff, second voice. Keyboard with C4 D4 E4 F4 D4 E4 C4 glowing."
+    cleffy: >
+      Second voice. Left hand. Same subject — one octave down.
+      C, D, E, F, D, E, C. Same shape.
+    interaction:
+      type: sequence
+      keys: ["C4","D4","E4","F4","D4","E4","C4"]
+
+  - id: 7
+    mode: see
+    type: the_trick
+    figure: "Cartoon eye scanning a grand staff. Arrow bouncing between treble and bass, pointing at repeated shapes. Caption: TRAIN YOUR EYES."
+    cleffy: >
+      The reading trick.
+      When you see a melody, glance ahead — in the other staff — for the same shape.
+      You won't always find it. When you do, it's imitation.
+
+  - id: 8
+    mode: hear
+    type: listen_back_to_back
+    figure: "Play button. Caption: both voices, one after the other — right then left."
+    audio:
+      A: "RH plays subject at C5, then LH plays same subject at C4 — back to back"
+    cleffy: >
+      Both voices. Back to back.
+      Your ear hears the copy.
+      Your eyes need to see it too.
+
+  - id: 9
+    mode: play
+    type: play_both_back_to_back
+    figure: "Grand staff. Treble subject, then bass subject. Metronome 60."
+    cleffy: >
+      You play both. Right hand first. Then left hand.
+      Fourteen notes total. Slow.
+    interaction:
+      type: rhythm
+      sequence: ["C5","D5","E5","F5","D5","E5","C5","C4","D4","E4","F4","D4","E4","C4"]
+      durations: ["eighth","eighth","eighth","eighth","eighth","eighth","quarter","eighth","eighth","eighth","eighth","eighth","eighth","quarter"]
+      tempo: 60
+
+  - id: 10
+    mode: see
+    type: not_always_exact
+    figure: "Two phrases side by side. One labeled 'exact imitation.' The other labeled 'variant — a few notes changed.' A thought bubble: close enough."
+    cleffy: >
+      One more thing. Imitation isn't always exact.
+      Sometimes the second voice changes a note or two.
+      Still imitation. Still a conversation.
+
+  - id: 11
+    mode: hear
+    type: identify_drill
+    figure: "Round counter 1 of 4. Imitation or no imitation?"
+    cleffy: >
+      Four quick rounds. Is the second voice copying the first?
+    interaction:
+      type: drill
+      rounds: 4
+      options: ["Yes — imitation", "No — different melody"]
+
+  - id: 12
+    mode: play
+    type: play_both_at_tempo
+    figure: "Grand staff. Same two voices, tempo 72."
+    cleffy: >
+      Both voices again. Slightly faster — 72.
+      Feel the conversation.
+    interaction:
+      type: rhythm
+      sequence: ["C5","D5","E5","F5","D5","E5","C5","C4","D4","E4","F4","D4","E4","C4"]
+      durations: ["eighth","eighth","eighth","eighth","eighth","eighth","quarter","eighth","eighth","eighth","eighth","eighth","eighth","quarter"]
+      tempo: 72
+    followup_cleffy: >
+      Call. Response.
+      That's what two voices do in Bach.
+
+  - id: 13
+    mode: hear
+    type: pre_check
+    figure: "Banner — pre-check."
+    cleffy: >
+      Three quick ones.
+
+  - id: 14
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 182. Two speech bubbles in conversation. A scroll of Bach manuscript behind them."
+    cleffy: >
+      Imitation. One voice speaks. The other voice copies.
+      You can spot it now. On the page. In your ears.
+      Tomorrow — how two voices breathe differently at the same time.
+
+practice_this_week:
+  real_piano:
+    - "Open any Bach score you can find. Scan for shapes that repeat across staves. Mark them in pencil if you can."
+    - "Play the subject with one hand. Then the same notes an octave lower with the other. Feel the call and response."
+  virtual_only:
+    - "Replay pages 8-9 — both voices, back to back"
+  estimated_time: "10 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "A grand staff. RH plays C-D-E-F in bar 1. LH plays C-D-E-F in bar 2."
+          prompt: "What is this called?"
+          options: ["Unison", "Imitation", "Chord"]
+          correct: 1
+        - figure: "Two voices. The second voice plays the same melody as the first, two beats later."
+          prompt: "The second voice is ___ the first."
+          options: ["ignoring", "imitating", "harmonizing"]
+          correct: 1
+        - figure: "A Bach Invention fragment — shape in RH, same shape appears in LH one bar later"
+          prompt: "Which part of the piece are you looking at?"
+          options: ["A cadence", "An imitative entry", "A scale"]
+          correct: 1
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "RH plays a melody. LH enters a bar later with the same melody."
+          prompt: "Is the left hand imitating the right?"
+          options: ["Yes", "No"]
+          correct: 0
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play the subject in both voices — RH first (C5 D5 E5 F5 D5 E5 C5), then LH (C4 D4 E4 F4 D4 E4 C4)."
+          accept: "both subjects played back-to-back, same shape"
+
+remediation:
+  id: "182.5"
+  title: "Imitation, spelled out"
+  pages: 7
+  opening_cleffy: >
+    Imitation takes a minute to see on the page.
+    Let's slow down. One voice at a time. Then side-by-side, note by note.
+
+completion:
+  cleffy: >
+    Imitation. Unlocked.
+    Tomorrow — the two hands breathe at different times. Different phrases. Same moment.
+  xp: 17
+  unlocks: 183

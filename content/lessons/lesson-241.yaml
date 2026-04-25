@@ -1,0 +1,262 @@
+# ============================================================
+# LESSON 241 · Moonlight 1 — bars 24-42
+# Tier 6 · Act 49 · Advanced · Moonlight, complete
+# The B section proper. Modulates away from C# minor.
+# New melody material. Triplet engine keeps running in RH.
+# ============================================================
+id: 241
+tier: advanced
+act: 49
+title: "Moonlight 1 — bars 24-42"
+subtitle: "Act 49 · Moonlight, complete"
+goal: "Play the middle section of Moonlight — modulates further, new melody material, triplet engine still running."
+prereqs: [240]
+method_focus: "combine"
+time_estimate_min: 18
+piece_context: "Act 49. You played bars 1-23 in the last act. Now the middle section. The B section proper. The music leaves C-sharp minor and wanders — E major, F-sharp minor, shifting. A new melodic line emerges. The triplet engine in the right hand never stops — it carries the whole piece from start to finish. Nineteen bars today. Simplified, slow, honest."
+metaphor: "returning-home"
+vibe: ["serious", "focused", "quiet"]
+piece:
+  title: "Moonlight Sonata, 1st mvt (bars 24-42)"
+  composer: "Beethoven (1801)"
+  key_center: "modulating — C-sharp minor → E major → F-sharp minor"
+  time_signature: "alla breve"
+  difficulty: "advanced — middle section, simplified, slow tempo"
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy at the piano. A long staff stretches behind him — bars 1-23 lit gold, bars 24-42 dim and waiting. Banner: ACT 49 · BARS 24-42."
+    cleffy: >
+      You finished the first chunk last act. Bars 1 through 23.
+      Today — the middle. Bars 24 through 42.
+      Nineteen new bars. The piece leaves home for a while.
+
+  - id: 2
+    mode: see
+    type: whats_different
+    figure: "Two columns. Left — 'bars 1-23': C-sharp minor, dotted melody, engine. Right — 'bars 24-42': modulates away, new melody, engine keeps going."
+    cleffy: >
+      What changes.
+      The key starts to move. C-sharp minor loosens its grip.
+      A new melodic line appears. Not the opening tune — something that grows out of it.
+      One thing stays — the triplet engine. It never stops. Not once.
+
+  - id: 3
+    mode: hear
+    type: listen_to_section
+    figure: "Play button. Caption: bars 24-42, real recording, slow."
+    audio:
+      A: "Moonlight Sonata, bars 24 through 42, real recording, simplified tempo"
+    cleffy: >
+      Listen. Nineteen bars.
+      Hear the key shift. Hear the new melody enter.
+      Hear the engine — still running under it all.
+
+  - id: 4
+    mode: see
+    type: the_modulation_map
+    figure: "A horizontal map. Bar 24: C# minor fading. Bar 28: E major glow. Bar 32: G# minor. Bar 36: F# minor. Bar 40: heading back toward home."
+    cleffy: >
+      The map.
+      Bar 24 — still in C-sharp minor, but loosening.
+      Bar 28 — E major color brightens.
+      Bar 32 — B minor area. Bar 36 — F-sharp minor.
+      Bar 40 — the music starts looking for home.
+
+  - id: 5
+    mode: see
+    type: the_new_melody
+    figure: "Treble staff. A rising line in the upper voice of bars 28-32. Label: 'the new voice.' It's a long line — not the dotted opening rhythm."
+    cleffy: >
+      The new voice.
+      Not the dotted opening motif. A longer, rising line.
+      Sits on top of the triplets, like the first melody did — but it breathes differently.
+
+  - id: 6
+    mode: play
+    type: engine_alone_bars_24_28
+    figure: "RH only. Bars 24-28 of the triplet engine. Tempo 48. Guides on."
+    cleffy: >
+      Right hand alone. Bars 24 through 28.
+      The engine, as always. Triplet shapes shift with the harmony.
+    interaction:
+      type: song
+      sequence: ["G#3","C#4","E4","G#3","C#4","E4","G#3","C#4","E4","G#3","C#4","E4","G#3","B3","E4","G#3","B3","E4","G#3","B3","E4","G#3","B3","E4","G#3","B3","E4","G#3","B3","E4","G#3","B3","E4","G#3","B3","E4","E4","G#4","B4","E4","G#4","B4","E4","G#4","B4","E4","G#4","B4","E4","G#4","C#5","E4","G#4","C#5","E4","G#4","C#5","E4","G#4","C#5"]
+      guides: true
+      tempo: 48
+
+  - id: 7
+    mode: play
+    type: melody_alone_bars_28_32
+    figure: "RH only. The new melody line, simplified. Bars 28-32. Tempo 48."
+    cleffy: >
+      The new melody. Right hand, alone.
+      Four bars. A rising line. No rush.
+    interaction:
+      type: rhythm
+      sequence: ["B4","A4","G#4","F#4","E4","F#4","G#4","A4","B4","C#5","B4","A4","G#4"]
+      durations: ["quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","half"]
+      tempo: 48
+
+  - id: 8
+    mode: play
+    type: lh_alone_24_32
+    figure: "LH only. Bass line bars 24-32. Moves more than bars 1-23 did."
+    cleffy: >
+      Left hand alone. Bars 24 through 32.
+      More motion than the opening. The bass walks.
+    interaction:
+      type: rhythm
+      sequence: ["C#2","E2","G#2","B2","E2","G#2","B2","E3","G#2","B2","E3","G#3","F#2","A2","C#3","F#3"]
+      durations: ["half","half","half","half","half","half","half","half","half","half","half","half","half","half","half","half"]
+      tempo: 48
+
+  - id: 9
+    mode: play
+    type: hands_together_24_28
+    figure: "Grand staff. Bars 24-28. Engine + LH. Tempo 46. Guides on."
+    cleffy: >
+      Both hands. Bars 24 through 28.
+      Left walks. Right rolls. Nothing fancy yet — just let them run together.
+    interaction:
+      type: song
+      sequence: [["C#2","E2"],"G#3","C#4","E4","G#3","C#4","E4","G#3","C#4","E4","G#3","C#4","E4",["G#2","B2"],"G#3","B3","E4","G#3","B3","E4","G#3","B3","E4","G#3","B3","E4",["E2","G#2"],"G#3","B3","E4","G#3","B3","E4","G#3","B3","E4","G#3","B3","E4",["B2","E3"],"E4","G#4","B4","E4","G#4","B4","E4","G#4","B4","E4","G#4","B4"]
+      guides: true
+      tempo: 46
+
+  - id: 10
+    mode: play
+    type: hands_together_with_melody_28_32
+    figure: "Grand staff. Bars 28-32. Engine + LH + new melody on top. Tempo 44. Guides on."
+    cleffy: >
+      Melody enters. Bars 28 through 32.
+      Top voice rises. Bass walks under. Engine never stops.
+    interaction:
+      type: song
+      sequence: [["E2","G#2","B4"],"E3","G#3","B3","E3","G#3","B3","E3","G#3","B3","E3","G#3","B3",["G#2","B2","A4"],"G#3","B3","E4","G#3","B3","E4","G#3","B3","E4","G#3","B3","E4",["F#2","A2","G#4"],"F#3","A3","C#4","F#3","A3","C#4","F#3","A3","C#4","F#3","A3","C#4",["B2","D#3","F#4"],"F#3","A3","B3","F#3","A3","B3","F#3","A3","B3","F#3","A3","B3"]
+      guides: true
+      tempo: 44
+
+  - id: 11
+    mode: see
+    type: the_climb_bars_33_40
+    figure: "Diagram: bars 33-40 shown as a rising ridge. Caption: 'the tension builds — harmony shifts faster, bass moves more.'"
+    cleffy: >
+      Bars 33 through 40.
+      The tension builds. Harmonies shift faster. Bass moves more.
+      The piece is working its way back toward home.
+
+  - id: 12
+    mode: play
+    type: bars_33_40_guided
+    figure: "Grand staff. Bars 33-40 simplified. Tempo 44. Guides on."
+    cleffy: >
+      Eight bars. Keep the engine steady. Don't rush the tension.
+    interaction:
+      type: song
+      sequence: [["G#2","B2","D#4"],"G#3","B3","D#4","G#3","B3","D#4","G#3","B3","D#4","G#3","B3","D#4",["F#2","A2","C#4"],"F#3","A3","C#4","F#3","A3","C#4","F#3","A3","C#4","F#3","A3","C#4",["E2","G#2","B3"],"G#3","B3","E4","G#3","B3","E4","G#3","B3","E4","G#3","B3","E4",["D#2","F#2","A3"],"F#3","A3","D#4","F#3","A3","D#4","F#3","A3","D#4","F#3","A3","D#4",["C#2","E2","G#3"],"E3","G#3","C#4","E3","G#3","C#4","E3","G#3","C#4","E3","G#3","C#4",["B1","D#2","F#3"],"D#3","F#3","B3","D#3","F#3","B3","D#3","F#3","B3","D#3","F#3","B3",["E2","G#2","B3"],"E3","G#3","B3","E3","G#3","B3","E3","G#3","B3","E3","G#3","B3",["F#2","A2","C#4"],"F#3","A3","C#4","F#3","A3","C#4","F#3","A3","C#4","F#3","A3","C#4"]
+      guides: true
+      tempo: 44
+
+  - id: 13
+    mode: play
+    type: bars_40_42_transition
+    figure: "Grand staff. Bars 40-42. The turn back toward C-sharp minor. Tempo 44."
+    cleffy: >
+      Bars 40 through 42.
+      The turn. The music pivots. C-sharp minor comes back into view.
+      Next act — the main theme returns.
+    interaction:
+      type: song
+      sequence: [["G#2","B2","D#4"],"G#3","B3","D#4","G#3","B3","D#4","G#3","B3","D#4","G#3","B3","D#4",["G#2","B2","C#4"],"G#3","B3","C#4","G#3","B3","C#4","G#3","B3","C#4","G#3","B3","C#4",["C#2","G#2","E4"],"G#3","C#4","E4","G#3","C#4","E4","G#3","C#4","E4","G#3","C#4","E4"]
+      guides: true
+      tempo: 44
+
+  - id: 14
+    mode: play
+    type: full_bars_24_42_slow
+    figure: "Grand staff. All of bars 24-42. No guides. Tempo 42. Label: adagio sostenuto."
+    cleffy: >
+      All nineteen bars. No guides. Very slow.
+      Let it wander. Let it come home.
+    interaction:
+      type: song
+      sequence: [["C#2","E2"],"G#3","C#4","E4","G#3","C#4","E4","G#3","C#4","E4","G#3","C#4","E4",["G#2","B2"],"G#3","B3","E4","G#3","B3","E4","G#3","B3","E4","G#3","B3","E4",["E2","G#2","B4"],"E3","G#3","B3","E3","G#3","B3","E3","G#3","B3","E3","G#3","B3",["G#2","B2","A4"],"G#3","B3","E4","G#3","B3","E4","G#3","B3","E4","G#3","B3","E4",["F#2","A2","G#4"],"F#3","A3","C#4","F#3","A3","C#4","F#3","A3","C#4","F#3","A3","C#4",["B2","D#3","F#4"],"F#3","A3","B3","F#3","A3","B3","F#3","A3","B3","F#3","A3","B3",["G#2","B2","D#4"],"G#3","B3","D#4","G#3","B3","D#4","G#3","B3","D#4","G#3","B3","D#4",["F#2","A2","C#4"],"F#3","A3","C#4","F#3","A3","C#4","F#3","A3","C#4","F#3","A3","C#4",["E2","G#2","B3"],"G#3","B3","E4","G#3","B3","E4","G#3","B3","E4","G#3","B3","E4",["D#2","F#2","A3"],"F#3","A3","D#4","F#3","A3","D#4","F#3","A3","D#4","F#3","A3","D#4",["C#2","E2","G#3"],"E3","G#3","C#4","E3","G#3","C#4","E3","G#3","C#4","E3","G#3","C#4",["B1","D#2","F#3"],"D#3","F#3","B3","D#3","F#3","B3","D#3","F#3","B3","D#3","F#3","B3",["E2","G#2","B3"],"E3","G#3","B3","E3","G#3","B3","E3","G#3","B3","E3","G#3","B3",["F#2","A2","C#4"],"F#3","A3","C#4","F#3","A3","C#4","F#3","A3","C#4","F#3","A3","C#4",["G#2","B2","D#4"],"G#3","B3","D#4","G#3","B3","D#4","G#3","B3","D#4","G#3","B3","D#4",["G#2","B2","C#4"],"G#3","B3","C#4","G#3","B3","C#4","G#3","B3","C#4","G#3","B3","C#4",["C#2","G#2","E4"],"G#3","C#4","E4","G#3","C#4","E4","G#3","C#4","E4","G#3","C#4","E4"]
+      guides: false
+      tempo: 42
+    followup_cleffy: >
+      That. The middle of Moonlight.
+      The piece leaves home. Wanders. Starts finding its way back.
+
+  - id: 15
+    mode: hear
+    type: pre_check
+    figure: "Banner — mastery check."
+    cleffy: >
+      Three quick ones.
+
+  - id: 16
+    mode: see
+    type: wrap
+    figure: "Postcard — bars 1-42 marked gold. Bars 43-69 waiting. Caption: 'closer to home.'"
+    cleffy: >
+      Forty-two bars down. Twenty-seven to go.
+      Tomorrow — the pedal, re-calibrated for the long phrases you just played.
+
+practice_this_week:
+  real_piano:
+    - "Bars 24-42, very slow. Don't push tempo. 42 bpm is plenty."
+    - "Play bars 1-23 then 24-42 back-to-back once a day. Hear where the piece goes."
+    - "Listen to a full recording of Moonlight 1st, focused on bars 24-42. Hear how the engine never stops."
+  virtual_only:
+    - "Replay pages 9, 10, 12, and 14."
+  estimated_time: "15 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "Map of Moonlight 1 showing bars 1-23 and 24-42"
+          prompt: "What happens in bars 24-42?"
+          options: ["Same as bars 1-23 repeated", "The music modulates away from C-sharp minor", "The piece ends"]
+          correct: 1
+        - figure: "RH engine pattern, continuous triplets across bars 24-42"
+          prompt: "What about the triplet engine in this section?"
+          options: ["It stops during the new melody", "It never stops — runs through the whole section", "It plays only in the bass"]
+          correct: 1
+        - figure: "Harmonic map showing C#m → E → G#m → F#m → back toward C#m"
+          prompt: "Where does the piece head by bar 42?"
+          options: ["Further from home", "Back toward C-sharp minor", "To C major"]
+          correct: 1
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "Bars 24-42 of Moonlight, real recording"
+          prompt: "What is true of this section?"
+          options: ["It stays in one key", "It modulates through several keys", "It has no melody"]
+          correct: 1
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play bars 28-32 of the middle section — engine + new melody, at 44 bpm."
+          accept: "RH triplet engine with rising melody on top, LH walking bass, four bars"
+
+remediation:
+  id: "241.5"
+  title: "Moonlight middle, four bars at a time"
+  pages: 9
+  opening_cleffy: >
+    Nineteen bars is a lot.
+    We'll slow to 38 and take it in four-bar chunks. Bars 24-27. Bars 28-31. Bars 32-35. And so on.
+    You don't have to play all nineteen in one run. Not today.
+
+completion:
+  cleffy: >
+    Bars 24 through 42 — in your hands.
+    The middle section. The part that leaves and comes back.
+    Tomorrow — pedal, refined for the long phrases.
+  xp: 20
+  unlocks: 242

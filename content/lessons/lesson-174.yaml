@@ -1,0 +1,250 @@
+# ============================================================
+# LESSON 174 · Moonlight 1 — play-through (slow)
+# Tier 4 · Act 35 · Intermediate
+# All 8 bars, very slow. Last rehearsal before the boss.
+# ============================================================
+id: 174
+tier: intermediate
+act: 35
+title: "Moonlight 1 — play-through (slow)"
+subtitle: "Act 35 · All eight bars"
+goal: "Play all eight bars of Moonlight Sonata's opening — engine, melody, and pedal, together — very slowly."
+prereqs: [170, 171, 172, 173]
+method_focus: "combine"
+time_estimate_min: 16
+piece_context: "Four lessons of pieces: the engine (170), the melody (171), the voicing (172), the pedal (173). Today — all of it, end to end, slow. This is the rehearsal before tomorrow's boss. One clean, slow run of the full eight bars. No hurry. No showing off. Just every piece together, once."
+metaphor: "rehearsal"
+vibe: ["quiet", "focused", "reflective"]
+piece:
+  title: "Moonlight Sonata, 1st mvt — bars 1-8"
+  composer: "Beethoven (1801)"
+  key_center: "C-sharp minor"
+  time_signature: "2/2 (alla breve)"
+  difficulty: "intermediate — all elements combined, simplified, very slow"
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy at a piano. Behind him — four small icons in a row: engine, melody, top voice, pedal. All lit."
+    cleffy: >
+      Four lessons. Four pieces of the puzzle.
+      Today — all eight bars, all together, very slow.
+      Rehearsal before the boss tomorrow.
+
+  - id: 2
+    mode: see
+    type: the_checklist
+    figure: "A four-item checklist. 1) Triplet engine. 2) Melody bars 5-8. 3) Top-voice weight. 4) Pedal change every bar."
+    cleffy: >
+      The four things to hold in mind.
+      One — the engine rolls. Quiet. Even.
+      Two — the melody sits on top in bars 5 through 8.
+      Three — the top note of every triplet matters, even before the melody arrives.
+      Four — the pedal changes at every bar line.
+
+  - id: 3
+    mode: see
+    type: the_full_eight_bars
+    figure: "Grand staff. Full 8 bars, simplified. Bars 1-4: LH C#2-C#3 octave, RH triplet engine C#4-E4-G#4 pattern. Bars 5-8: same plus melody on top — G#4 dotted rhythm."
+    cleffy: >
+      Here it is, all eight bars laid out.
+      Bars 1 to 4 — engine only.
+      Bars 5 to 8 — melody enters. Engine keeps rolling underneath.
+      Key signature — four sharps. C-sharp minor.
+
+  - id: 4
+    mode: hear
+    type: listen_full_eight
+    figure: "Play button. Caption: 'all eight bars, slow — what you're about to play.'"
+    audio:
+      A: "Moonlight bars 1-8 played simplified, slow (~50 bpm), pedaled, melody voiced."
+    cleffy: >
+      Listen once through.
+      Four bars of engine. Four bars of melody. Eight pedal changes.
+      That's your whole piece today.
+
+  - id: 5
+    mode: play
+    type: warmup_engine
+    figure: "Bars 1-2 engine only. RH triplets C#-E-G#. LH low octave held. Tempo 45."
+    cleffy: >
+      Warm up. Bars 1 and 2. Engine only.
+      Left hand low octave. Right hand triplets. Slow.
+    interaction:
+      type: song
+      sequence: [["C#2","C#3"],"C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4"]
+      guides: true
+      tempo: 45
+
+  - id: 6
+    mode: play
+    type: warmup_melody
+    figure: "Melody of bars 5-8, right hand only. Tempo 45."
+    cleffy: >
+      Warm up the melody. Right hand alone.
+      Long-short-short, four bars.
+    interaction:
+      type: rhythm
+      sequence: ["G#4","G#4","G#4","G#4","G#4","A4","A4","A4","G#4","G#4","F#4","E4"]
+      durations: ["dotted_quarter","eighth","quarter","dotted_quarter","eighth","quarter","dotted_quarter","eighth","quarter","dotted_quarter","eighth","quarter"]
+      tempo: 45
+
+  - id: 7
+    mode: see
+    type: the_transition_bar_4_5
+    figure: "Two bars side by side — bar 4 (engine only, E chord) and bar 5 (melody G# enters, A chord underneath). Arrow between: 'melody arrives here.'"
+    cleffy: >
+      The key moment — where bar 4 becomes bar 5.
+      Engine has been rolling for four bars. Now the melody lands.
+      High G-sharp. Long. It sits there while the triplets keep going.
+      That's the moment Moonlight becomes Moonlight.
+
+  - id: 8
+    mode: play
+    type: play_transition
+    figure: "End of bar 4 into bar 5 and 6. Engine continues; melody enters on the G-sharp. Tempo 45."
+    cleffy: >
+      Play across the transition. End of bar 4, into 5, into 6.
+      Keep the engine rolling. Place the melody note on top.
+    interaction:
+      type: song
+      sequence: [["E3","G#3","B3"],"E3","G#3","B3","E3","G#3","B3","E3","G#3","B3","G#4","G#4","G#4","G#4","G#4","A4"]
+      guides: true
+      tempo: 45
+
+  - id: 9
+    mode: see
+    type: the_pedal_path
+    figure: "Eight-bar roadmap. Each bar labelled with its chord: C#m C#m B E A F#m G#7 C#m. Pedal-down symbol at start of each bar, pedal-lift symbol at the end."
+    cleffy: >
+      The pedal path one more time.
+      Eight bars, eight pedal changes. Always at the bar line.
+      Don't overthink it. Foot up, hands play, foot down. Every bar.
+
+  - id: 10
+    mode: play
+    type: first_half_slow
+    figure: "Bars 1-4. Full engine, both hands, pedal. Tempo 45. Guides on."
+    cleffy: >
+      First half. Bars 1 through 4. Engine only.
+      Pedal change at every bar line.
+    interaction:
+      type: song
+      sequence: [["C#2","C#3"],"C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4",["B1","B2"],"B3","D#4","F#4","B3","D#4","F#4","B3","D#4","F#4",["E2","E3"],"E3","G#3","B3","E3","G#3","B3","E3","G#3","B3"]
+      guides: true
+      tempo: 45
+
+  - id: 11
+    mode: play
+    type: second_half_slow
+    figure: "Bars 5-8. Melody on top, simplified engine, pedal changes. Tempo 45. Guides on."
+    cleffy: >
+      Second half. Bars 5 through 8. Melody enters.
+      Top voice clear. Pedal at every bar.
+    interaction:
+      type: song
+      sequence: [["A2","G#4"],"G#4","G#4","G#4","G#4","A4","A4","A4","G#4","G#4","F#4","E4"]
+      guides: true
+      tempo: 45
+
+  - id: 12
+    mode: play
+    type: full_slow_with_guides
+    figure: "All 8 bars. Both hands, simplified engine, melody, pedal. Tempo 45. Guides on."
+    cleffy: >
+      All eight bars. Guides on. Tempo 45.
+      Slow is the whole point today.
+    interaction:
+      type: song
+      sequence: [["C#2","C#3"],"C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4",["B1","B2"],"B3","D#4","F#4","B3","D#4","F#4",["E2","E3"],"E3","G#3","B3","E3","G#3","B3",["A2","G#4"],"G#4","G#4","G#4","G#4","A4","A4","A4","G#4","G#4","F#4","E4"]
+      guides: true
+      tempo: 45
+
+  - id: 13
+    mode: play
+    type: full_slow_no_guides
+    figure: "All 8 bars. No guides. Tempo 45."
+    cleffy: >
+      No guides. You read. You play.
+      If you stumble — slow down more. This is rehearsal.
+    interaction:
+      type: song
+      sequence: [["C#2","C#3"],"C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4",["B1","B2"],"B3","D#4","F#4","B3","D#4","F#4",["E2","E3"],"E3","G#3","B3","E3","G#3","B3",["A2","G#4"],"G#4","G#4","G#4","G#4","A4","A4","A4","G#4","G#4","F#4","E4"]
+      guides: false
+      tempo: 45
+    followup_cleffy: >
+      Eight bars of Moonlight, end to end.
+      Tomorrow — same piece, as the Tier 4 boss.
+
+  - id: 14
+    mode: see
+    type: what_to_do_tonight
+    figure: "Clock icon. A piano icon. A bed icon. Caption: 'play it twice tonight. Sleep on it.'"
+    cleffy: >
+      Tonight — play it twice. No more. No less.
+      Then sleep on it.
+      Tomorrow your hands will know it better than tonight.
+      That's how this works.
+
+  - id: 15
+    mode: hear
+    type: pre_check
+    figure: "Banner — Lesson 174 mastery check."
+    cleffy: >
+      Three quick ones.
+
+practice_this_week:
+  real_piano:
+    - "The full eight bars, slow, once per day. Don't speed up."
+    - "If something falls apart, isolate that bar. Play it five times alone. Then go back to the full run."
+    - "Record yourself once. Listen. You'll hear what your hands can't feel yet."
+  virtual_only:
+    - "Replay pages 12 and 13 — full run with and without guides."
+  estimated_time: "12 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "An eight-bar map. Bars 1-4 engine, bars 5-8 melody + engine."
+          prompt: "Where does the melody enter?"
+          options: ["Bar 1", "Bar 5", "Bar 8"]
+          correct: 1
+        - figure: "The four-item checklist — engine, melody, voicing, pedal"
+          prompt: "How many things are you keeping track of at once?"
+          options: ["Two", "Three", "Four"]
+          correct: 2
+        - figure: "Tempo marking: 45 bpm"
+          prompt: "Is this tempo fast or slow?"
+          options: ["Fast", "Very slow — on purpose"]
+          correct: 1
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "All eight bars played slowly, melody clearly voiced"
+          prompt: "Do you hear a melody above the triplets from bar 5 onward?"
+          options: ["Yes", "No"]
+          correct: 0
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play bars 5-8 melody over the low C-sharp bass — simplified, slow."
+          accept: "Melody G#4 dotted rhythm + LH C# bass held"
+
+remediation:
+  id: "174.5"
+  title: "Full play-through, half-tempo"
+  pages: 9
+  opening_cleffy: >
+    Eight bars, four things at once, is a lot.
+    We'll take it at half-tempo. Two bars at a time. Every part checked before we combine them.
+
+completion:
+  cleffy: >
+    Rehearsal done.
+    Tomorrow is the boss. Tier 4. Fifty lessons.
+    Sleep. I'll see you there.
+  xp: 20
+  unlocks: 175

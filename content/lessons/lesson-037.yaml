@@ -1,0 +1,235 @@
+id: 37
+tier: elementary
+act: 8
+title: "Leap shapes"
+subtitle: "Spot a leap at a glance"
+goal: "Recognize common leaps (4th, 5th, 6th, octave) by their visual shape on the staff."
+prereqs: [36]
+method_focus: "leaps"
+time_estimate_min: 12
+piece_context: null
+metaphor: "gap-size"
+vibe: ["gentle", "playful"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Staff with four leap pairs lined up, sizes increasing from left to right."
+    cleffy: >
+      Yesterday you learned that a leap is three or more spots apart.
+      Today we lock in the common sizes — so when a leap shows up in a real piece,
+      your eye knows which one it is without counting.
+
+  - id: 2
+    mode: see
+    type: four_common_leaps
+    figure: "Four labeled leaps on staff: 4th (C-F), 5th (C-G), 6th (C-A), octave (C-C)."
+    cleffy: >
+      Four leaps you'll see all the time.
+      A 4th — three spots apart. C to F.
+      A 5th — four spots. C to G.
+      A 6th — five spots. C to A.
+      An octave — seven spots. C to the next C up.
+
+  - id: 3
+    mode: see
+    type: gap_visual
+    figure: "Four leap pairs with ghost notes drawn in the gaps — clearly showing the gap size."
+    cleffy: >
+      Your eye can size a leap by how much blank space sits between the notes.
+      Small gap — 4th.
+      Medium gap — 5th or 6th.
+      Full octave — they look FAR apart.
+
+  - id: 4
+    mode: see
+    type: interactive
+    figure: "Staff: C to G (5th)."
+    cleffy: >
+      This leap — small (4th), medium (5th/6th), or octave?
+    interaction:
+      type: choice
+      options: ["Small (4th)", "Medium (5th/6th)", "Octave"]
+      correct: 1
+
+  - id: 5
+    mode: see
+    type: interactive
+    figure: "Staff: C4 to C5 (octave)."
+    cleffy: >
+      This one?
+    interaction:
+      type: choice
+      options: ["Small (4th)", "Medium (5th/6th)", "Octave"]
+      correct: 2
+
+  - id: 6
+    mode: see
+    type: drill
+    figure: "Round counter 1 of 6."
+    cleffy: >
+      Six rounds. Identify the leap size.
+    interaction:
+      type: drill
+      rounds: 6
+      options: ["Small (4th)", "Medium (5th/6th)", "Octave"]
+
+  - id: 7
+    mode: hear
+    type: leap_sounds
+    figure: "Four play buttons, each a different leap size."
+    audio:
+      A: "C-F (4th)"
+      B: "C-G (5th)"
+      C: "C-A (6th)"
+      D: "C-C (octave)"
+    cleffy: >
+      Leaps sound different depending on size.
+      4th has a small, open feeling. 5th sounds strong. 6th is reach-y. Octave sounds like ONE note.
+      You don't need to name them yet by ear — just notice the difference.
+
+  - id: 8
+    mode: hear
+    type: octave_vs_small
+    figure: "Play button. Either an octave or a 4th."
+    cleffy: >
+      Four rounds. Octave, or smaller leap?
+    interaction:
+      type: drill
+      rounds: 4
+      options: ["Octave", "Smaller leap"]
+
+  - id: 9
+    mode: play
+    type: play_4th
+    figure: "Keyboard. C4 and F4 glowing."
+    cleffy: >
+      Play a 4th. C to F.
+    interaction:
+      type: sequence
+      keys: ["C4", "F4"]
+
+  - id: 10
+    mode: play
+    type: play_5th
+    figure: "Keyboard. C4 and G4 glowing."
+    cleffy: >
+      Play a 5th. C to G.
+    interaction:
+      type: sequence
+      keys: ["C4", "G4"]
+
+  - id: 11
+    mode: play
+    type: play_octave
+    figure: "Keyboard. C4 and C5 glowing."
+    cleffy: >
+      Play an octave. Middle C to the next C up. Thumb and pinky stretch.
+    interaction:
+      type: sequence
+      keys: ["C4", "C5"]
+    followup_cleffy: >
+      Octaves are big stretches. If it hurts, don't force it — just tap both keys.
+
+  - id: 12
+    mode: read
+    type: read_various_leaps
+    figure: "Staff with a random leap pair. Keyboard below."
+    cleffy: >
+      Three rounds. Read the leap shape, play any matching leap.
+    interaction:
+      type: shape
+      shape_type: "leap"
+      direction: "up"
+
+  - id: 13
+    mode: read
+    type: four_note_melody_with_leap
+    figure: "Staff with 4 notes: C-D-G-E. Moves: step up, leap up, skip down."
+    cleffy: >
+      Four-note melody with a leap in the middle. Read and play.
+    interaction:
+      type: sequence
+      keys: ["C4", "D4", "G4", "E4"]
+
+  - id: 14
+    mode: hear
+    type: mixed_drill
+    figure: "Mix of leap-size questions."
+    cleffy: >
+      Four rounds.
+    interaction:
+      type: drill
+      rounds: 4
+
+  - id: 15
+    mode: hear
+    type: pre_check
+    figure: "Banner."
+    cleffy: >
+      Four quick ones.
+
+  - id: 16
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 37. Four leaps on a staff with labels: 4th, 5th, 6th, octave."
+    cleffy: >
+      Your eye knows the common leap sizes now.
+      Tomorrow — hearing them. Small leap or big leap, at a glance.
+
+practice_this_week:
+  real_piano:
+    - "RH thumb on Middle C. Stretch pinky to G (5th). Play C-G ten times."
+    - "Stretch pinky further to A (6th). Play C-A ten times."
+    - "Octave stretch: thumb Middle C, pinky on the next C. If it's hard, don't push — but try."
+  virtual_only:
+    - "Replay pages 9-12 (leap-size playing)"
+  estimated_time: "7 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 3
+      questions:
+        - figure: "Staff, C to F (4th)."
+          prompt: "What size leap?"
+          options: ["Small (4th)", "Medium (5th/6th)", "Octave"]
+          correct: 0
+        - figure: "Staff, C to A (6th)."
+          prompt: "What size leap?"
+          options: ["Small (4th)", "Medium (5th/6th)", "Octave"]
+          correct: 1
+        - figure: "Staff, C to next C up (octave)."
+          prompt: "What size leap?"
+          options: ["Small (4th)", "Medium (5th/6th)", "Octave"]
+          correct: 2
+    hear:
+      pass_threshold: 2
+      questions:
+        - audio: "C4 to C5 octave"
+          prompt: "Octave or smaller?"
+          options: ["Octave", "Smaller"]
+          correct: 0
+        - audio: "C4 to F4 (4th)"
+          prompt: "Octave or smaller?"
+          options: ["Octave", "Smaller"]
+          correct: 1
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play a 5th starting from Middle C."
+          accept: "C4 and G4"
+
+remediation:
+  id: "37.5"
+  title: "Leap shapes, slower"
+  pages: 5
+  opening_cleffy: >
+    Leap sizes take time. Let's zoom in and count the gap together on each one.
+
+completion:
+  cleffy: >
+    Four leap shapes, recognized by eye. Sharp.
+  xp: 20
+  unlocks: 38

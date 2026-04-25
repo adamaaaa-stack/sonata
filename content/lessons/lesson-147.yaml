@@ -1,0 +1,215 @@
+# ============================================================
+# LESSON 147 · Arpeggio recognition
+# Tier 4 · Act 30 · Intermediate · Pattern recognition + accompaniment
+# See an arpeggio as one thing.
+# ============================================================
+id: 147
+tier: intermediate
+act: 30
+title: "Arpeggio recognition"
+subtitle: "Act 30 · Pattern recognition"
+goal: "See a rolled triad — C-E-G-C — as one chunk, not four separate notes."
+prereqs: [146]
+method_focus: "see"
+time_estimate_min: 13
+piece_context: "Yesterday — scales as chunks. Today — arpeggios. When you see C-E-G-C, your eyes should read 'C major arpeggio, ascending' — one thing, not four."
+metaphor: "chunks-not-notes"
+vibe: ["focused", "gentle"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy pointing at a staff showing C4 E4 G4 C5 stacked visually like a ladder. Banner: ARPEGGIOS."
+    cleffy: >
+      Arpeggios.
+      Triad. Rolled. One note at a time.
+      See four notes. Read one shape.
+
+  - id: 2
+    mode: see
+    type: concept
+    figure: "Two panels. Left: a C major triad as a block — C-E-G stacked. Right: the same notes rolled out in time — C E G C."
+    cleffy: >
+      Take a triad. Stretch it across time.
+      Block becomes line. That's an arpeggio.
+
+  - id: 3
+    mode: see
+    type: arpeggio_shape
+    figure: "Staff. Four notes: C4 E4 G4 C5. Each arrow between labeled 'skip, skip, skip'. Callout: 'ARPEGGIO = all skips, same chord'."
+    cleffy: >
+      The shape — all skips.
+      No steps. Line to line to line. Or space to space to space.
+      That's how your eye spots one.
+
+  - id: 4
+    mode: see
+    type: scale_vs_arpeggio
+    figure: "Two staves. Top: C D E F G labeled 'scale — steps'. Bottom: C E G C labeled 'arpeggio — skips'."
+    cleffy: >
+      Scale — steps.
+      Arpeggio — skips.
+      Same page, opposite rule.
+
+  - id: 5
+    mode: hear
+    type: hear_arpeggio
+    figure: "Two play buttons. A: C major block chord. B: C major arpeggio — C E G C ascending."
+    audio:
+      A: "C major triad played as a block"
+      B: "C major arpeggio — C E G C played in sequence"
+    cleffy: >
+      Listen. Same chord. Two ways.
+      First — block. Second — arpeggio.
+      Rolled chord. Broken chord. Arpeggio. All the same word.
+
+  - id: 6
+    mode: play
+    type: play_c_arpeggio
+    figure: "Keyboard. C4 E4 G4 C5 lighting in order."
+    cleffy: >
+      Play a C major arpeggio. C, E, G, C.
+      Don't name them. Feel the shape — one upward roll.
+    interaction:
+      type: sequence
+      keys: ["C4","E4","G4","C5"]
+
+  - id: 7
+    mode: play
+    type: descending_c_arpeggio
+    figure: "Keyboard. C5 G4 E4 C4 lighting in order."
+    cleffy: >
+      Now down. C, G, E, C.
+      Same shape. Opposite direction.
+    interaction:
+      type: sequence
+      keys: ["C5","G4","E4","C4"]
+
+  - id: 8
+    mode: see
+    type: other_arpeggios
+    figure: "Three staves. A: F A C F labeled 'F major arpeggio'. B: G B D G labeled 'G major arpeggio'. C: A C E A labeled 'A minor arpeggio'."
+    cleffy: >
+      Arpeggios start anywhere.
+      Root, third, fifth, octave. That's the recipe.
+      The chord's name is the arpeggio's name.
+
+  - id: 9
+    mode: play
+    type: play_f_arpeggio
+    figure: "Keyboard. F3 A3 C4 F4 lighting."
+    cleffy: >
+      F major arpeggio. F, A, C, F.
+    interaction:
+      type: sequence
+      keys: ["F3","A3","C4","F4"]
+
+  - id: 10
+    mode: play
+    type: play_g_arpeggio
+    figure: "Keyboard. G3 B3 D4 G4 lighting."
+    cleffy: >
+      G major arpeggio. G, B, D, G.
+    interaction:
+      type: sequence
+      keys: ["G3","B3","D4","G4"]
+
+  - id: 11
+    mode: see
+    type: spot_in_melody
+    figure: "Staff. A phrase: C E G C — D C B A. First four notes boxed as 'ARPEGGIO'. Last four as 'scale down'."
+    cleffy: >
+      A phrase in the wild.
+      First four — arpeggio. Last four — scale.
+      Two chunks. Not eight notes.
+
+  - id: 12
+    mode: hear
+    type: scale_or_arpeggio_drill
+    figure: "Four rounds. Banner — 'Scale or arpeggio?'"
+    cleffy: >
+      Four rounds. Listen. Scale — steps — or arpeggio — skips?
+    interaction:
+      type: drill
+      rounds: 4
+      options: ["Scale", "Arpeggio"]
+
+  - id: 13
+    mode: play
+    type: up_and_down_c
+    figure: "Staff. C E G C G E C — full up-and-down arpeggio."
+    cleffy: >
+      One arpeggio, up and down.
+      Seven notes. One shape.
+    interaction:
+      type: sequence
+      keys: ["C4","E4","G4","C5","G4","E4","C4"]
+
+  - id: 14
+    mode: hear
+    type: pre_check
+    figure: "Banner."
+    cleffy: >
+      Three quick ones.
+
+  - id: 15
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 147. An arpeggio curve rising across the staff, labeled 'one chunk'."
+    cleffy: >
+      Arpeggios — chunked.
+      Tomorrow — a specific LH pattern every classical player knows. Alberti bass.
+
+practice_this_week:
+  real_piano:
+    - "Play C, F, and G major arpeggios — up and down, slow. Say 'arpeggio' as you play, not each letter."
+    - "Spot an arpeggio in any music you have. The tell — all skips, same chord."
+  virtual_only:
+    - "Replay pages 6, 10, and 13"
+  estimated_time: "10 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "Staff showing C E G C ascending"
+          prompt: "What shape is this?"
+          options: ["A scale", "An arpeggio", "A leap"]
+          correct: 1
+        - figure: "Staff showing F A C F ascending"
+          prompt: "Describe this as one chunk."
+          options: ["F major scale", "F major arpeggio", "F major chord block"]
+          correct: 1
+        - figure: "Two staves — one with stepwise notes, one with all-skip notes"
+          prompt: "Which is the arpeggio?"
+          options: ["The stepwise one", "The all-skip one"]
+          correct: 1
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "A C major arpeggio — C E G C"
+          prompt: "Scale or arpeggio?"
+          options: ["Scale", "Arpeggio"]
+          correct: 1
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play a C major arpeggio — C, E, G, C."
+          accept: "C4 E4 G4 C5 in order"
+
+remediation:
+  id: "147.5"
+  title: "Arpeggio shapes, slower"
+  pages: 7
+  opening_cleffy: >
+    The shape matters more than the names.
+    We'll drill scale-vs-arpeggio eyes until the difference is instant.
+
+completion:
+  cleffy: >
+    Arpeggios — chunked.
+    Tomorrow — Alberti bass. A hand-pattern you've heard a thousand times.
+  xp: 18
+  unlocks: 148

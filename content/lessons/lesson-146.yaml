@@ -1,0 +1,220 @@
+# ============================================================
+# LESSON 146 · Scale recognition
+# Tier 4 · Act 30 · Intermediate · Pattern recognition + accompaniment
+# See a scale as one thing, not ten notes.
+# ============================================================
+id: 146
+tier: intermediate
+act: 30
+title: "Scale recognition"
+subtitle: "Act 30 · Pattern recognition"
+goal: "See a stepwise run as one chunk — 'ascending scale from C' — not five separate notes."
+prereqs: [145, 71, 125]
+method_focus: "see"
+time_estimate_min: 13
+piece_context: "Advanced reading isn't faster note-naming. It's chunking. When your eyes see C-D-E-F-G, they should register one thing — a scale — not five things. Today we train that shift."
+metaphor: "chunks-not-notes"
+vibe: ["focused", "honest"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy pointing at a staff with C D E F G highlighted as a single connected shape. Banner: ACT 30 — PATTERN RECOGNITION."
+    cleffy: >
+      Act 30.
+      New skill — chunking.
+      Stop reading every note. Start reading shapes.
+
+  - id: 2
+    mode: see
+    type: concept
+    figure: "Two panels. Left: five notes with labels C-D-E-F-G called out individually. Right: the same five notes circled as one block labeled 'ascending scale from C'."
+    cleffy: >
+      Left — the slow way. Five notes. Five names.
+      Right — the fast way. One shape. One name.
+      Scale. Starts on C. Goes up five.
+
+  - id: 3
+    mode: see
+    type: what_makes_a_scale
+    figure: "Staff. Five stepwise notes climbing. Arrows between each pair labeled 'step, step, step, step'."
+    cleffy: >
+      A scale run — steps in a row.
+      Line, space, line, space. Or space, line, space, line.
+      Never skips. Never leaps. Always adjacent.
+
+  - id: 4
+    mode: see
+    type: ascending_vs_descending
+    figure: "Two staves side by side. A: C D E F G rising. B: G F E D C falling."
+    cleffy: >
+      Two directions.
+      Ascending — climbing. Descending — falling.
+      Same notes. Opposite shape.
+
+  - id: 5
+    mode: hear
+    type: hear_scales
+    figure: "Two play buttons. A: ascending. B: descending."
+    audio:
+      A: "C major five-finger scale ascending — C D E F G"
+      B: "C major five-finger scale descending — G F E D C"
+    cleffy: >
+      Listen to the shape.
+      Up one sounds like a climb. Down one sounds like a fall.
+      Your ear already knows.
+
+  - id: 6
+    mode: play
+    type: play_ascending
+    figure: "Keyboard. C4 D4 E4 F4 G4 lighting in order."
+    cleffy: >
+      Play an ascending scale run. C, D, E, F, G.
+      Don't name each one. Feel the shape — one move upward.
+    interaction:
+      type: sequence
+      keys: ["C4","D4","E4","F4","G4"]
+
+  - id: 7
+    mode: play
+    type: play_descending
+    figure: "Keyboard. G4 F4 E4 D4 C4 lighting in order."
+    cleffy: >
+      Descending. G, F, E, D, C.
+      One move. One shape. Downward.
+    interaction:
+      type: sequence
+      keys: ["G4","F4","E4","D4","C4"]
+
+  - id: 8
+    mode: see
+    type: spot_the_scale
+    figure: "Staff with a longer melody: C D E F G then a leap to C5 then D5. The first five notes boxed and labeled 'SCALE'."
+    cleffy: >
+      Here's a phrase.
+      First five notes — scale. One chunk.
+      Then a leap. Then two more notes.
+      Read the chunk first. Then the leap. Then the two.
+
+  - id: 9
+    mode: see
+    type: scales_from_other_notes
+    figure: "Three staves. A: D E F# G A. B: G A B C D. C: F G A Bb C. Each labeled as an ascending five-note scale from its starting note."
+    cleffy: >
+      Scales don't only start on C.
+      Any note can start one. Still a scale. Still one chunk.
+      The shape is what you recognize — not the notes.
+
+  - id: 10
+    mode: play
+    type: play_scale_from_G
+    figure: "Keyboard. G4 A4 B4 C5 D5 lighting."
+    cleffy: >
+      Scale from G. Five notes up.
+      G, A, B, C, D.
+    interaction:
+      type: sequence
+      keys: ["G4","A4","B4","C5","D5"]
+
+  - id: 11
+    mode: play
+    type: play_longer_scale
+    figure: "Staff. Eight notes ascending: C D E F G A B C. Labeled 'full scale'."
+    cleffy: >
+      Eight notes. A full scale from C to C.
+      Still one chunk. Still one shape. Just longer.
+    interaction:
+      type: sequence
+      keys: ["C4","D4","E4","F4","G4","A4","B4","C5"]
+
+  - id: 12
+    mode: hear
+    type: scale_or_not_drill
+    figure: "Four rounds. Banner — 'Scale or not?'"
+    cleffy: >
+      Four rounds. You hear a short run.
+      Was it a scale — all steps in a row — or not?
+    interaction:
+      type: drill
+      rounds: 4
+      options: ["Scale", "Not a scale"]
+
+  - id: 13
+    mode: play
+    type: descending_full
+    figure: "Staff. Eight notes descending: C B A G F E D C. Keyboard below."
+    cleffy: >
+      Full descending scale. C down to C.
+      One motion. One shape.
+    interaction:
+      type: sequence
+      keys: ["C5","B4","A4","G4","F4","E4","D4","C4"]
+
+  - id: 14
+    mode: hear
+    type: pre_check
+    figure: "Banner."
+    cleffy: >
+      Three quick ones.
+
+  - id: 15
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 146. Five stepwise notes circled as one shape, labeled 'one chunk'."
+    cleffy: >
+      Scales. Now one thing, not many.
+      Tomorrow — arpeggios. Same skill, different shape.
+
+practice_this_week:
+  real_piano:
+    - "Play a five-note scale up and down from any starting note. Out loud, say 'scale' as you play — not each letter."
+    - "Open any sheet music you have. Find one run of stepwise notes. Circle it in your head as one chunk."
+  virtual_only:
+    - "Replay pages 6, 11, and 13"
+  estimated_time: "10 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "Staff showing five stepwise ascending notes"
+          prompt: "What shape is this?"
+          options: ["An arpeggio", "A scale", "A leap"]
+          correct: 1
+        - figure: "Staff showing C E G — three notes skipping"
+          prompt: "Is this a scale run?"
+          options: ["Yes — all steps", "No — those are skips, not steps"]
+          correct: 1
+        - figure: "Staff showing G A B C D ascending"
+          prompt: "Describe this as one chunk."
+          options: ["Ascending scale from G", "Descending scale from D", "Arpeggio"]
+          correct: 0
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "A five-note ascending scale"
+          prompt: "Scale or not?"
+          options: ["Scale", "Not a scale"]
+          correct: 0
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play an ascending scale from C — C, D, E, F, G."
+          accept: "C4 D4 E4 F4 G4 in order"
+
+remediation:
+  id: "146.5"
+  title: "Scale shapes, slower"
+  pages: 7
+  opening_cleffy: >
+    Chunking is a real shift — from naming to shape-seeing.
+    We'll spend more time on the visual pattern. Just the shape. No names yet.
+
+completion:
+  cleffy: >
+    Scales — chunked.
+    Tomorrow — arpeggios get the same treatment.
+  xp: 18
+  unlocks: 147

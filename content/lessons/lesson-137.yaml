@@ -1,0 +1,235 @@
+# ============================================================
+# LESSON 137 · 3/4 vs 6/8
+# Tier 4 · Act 28 · Intermediate
+# They look alike — but feel different.
+# ============================================================
+id: 137
+tier: intermediate
+act: 28
+title: "3/4 vs 6/8"
+subtitle: "Act 28 · Time signatures & meters"
+goal: "Tell 3/4 from 6/8 by feel — three even pulses vs two rolling pulses — and play a short phrase in each."
+prereqs: [136]
+method_focus: "rhythm"
+time_estimate_min: 13
+piece_context: "Yesterday we met 6/8. Today we set it next to 3/4 — the waltz meter you've known since Tier 1. Six eighth notes fit in both. But the feel is completely different. 3/4 has three equal pulses. 6/8 has two pulses, each split in three. Once you hear it, you'll never unhear it."
+metaphor: "rolling-meter"
+vibe: ["focused", "playful"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy with two hats — left hat says 3/4, right hat says 6/8. Both contain the same six eighth notes."
+    cleffy: >
+      Two meters. Same six eighth notes per bar.
+      Totally different feel.
+      Today we hear the difference.
+
+  - id: 2
+    mode: see
+    type: side_by_side
+    figure: "Two staves. Top: 3/4 bar with six eighths beamed in three pairs (labeled ONE, TWO, THREE). Bottom: 6/8 bar with six eighths beamed in two triplets (labeled ONE, TWO)."
+    cleffy: >
+      Same six notes. Different beams.
+      3/4 — three pairs. Three equal pulses.
+      6/8 — two triples. Two rolling pulses.
+
+  - id: 3
+    mode: see
+    type: the_count
+    figure: "Two count-lines. 3/4: 'ONE-and, TWO-and, THREE-and' — three pulses. 6/8: 'ONE-and-a, TWO-and-a' — two pulses."
+    cleffy: >
+      3/4 — ONE-and, TWO-and, THREE-and. Three big beats.
+      6/8 — ONE-and-a, TWO-and-a. Two big beats.
+      Count out loud. Feel which hand the emphasis falls on.
+
+  - id: 4
+    mode: hear
+    type: hear_3_4
+    figure: "Play button. Label: 3/4 PULSE — three equal beats."
+    audio:
+      A: "Six eighth notes in 3/4, grouped in pairs, three equal pulses — ONE-and TWO-and THREE-and"
+    cleffy: >
+      Listen. 3/4.
+      Three even pulses. Like a waltz.
+
+  - id: 5
+    mode: hear
+    type: hear_6_8
+    figure: "Play button. Label: 6/8 PULSE — two rolling beats."
+    audio:
+      A: "Six eighth notes in 6/8, grouped in triplets, two rolling pulses — ONE-and-a TWO-and-a"
+    cleffy: >
+      Same six notes. 6/8.
+      Two rolling pulses. Like a boat.
+
+  - id: 6
+    mode: hear
+    type: ab_compare
+    figure: "Two play buttons side by side. A = 3/4. B = 6/8."
+    audio:
+      A: "A phrase in 3/4 (three even pulses)"
+      B: "The same six notes in 6/8 (two rolling pulses)"
+    cleffy: >
+      A, then B. Same notes.
+      Listen for the difference — three beats or two.
+
+  - id: 7
+    mode: play
+    type: play_in_3_4
+    figure: "Staff in 3/4. Six eighths on G4, beamed in three pairs. Accent on each pair's first note."
+    cleffy: >
+      Play six eighths in 3/4. Accent the first of each pair.
+      ONE-and, TWO-and, THREE-and.
+    interaction:
+      type: rhythm
+      sequence: ["G4","G4","G4","G4","G4","G4"]
+      durations: ["eighth","eighth","eighth","eighth","eighth","eighth"]
+      tempo: 90
+
+  - id: 8
+    mode: play
+    type: play_in_6_8
+    figure: "Staff in 6/8. Six eighths on G4, beamed in two triplets. Accent on notes 1 and 4."
+    cleffy: >
+      Same six notes. Now in 6/8.
+      Accent the first and the fourth.
+      ONE-and-a, TWO-and-a.
+    interaction:
+      type: rhythm
+      sequence: ["G4","G4","G4","G4","G4","G4"]
+      durations: ["eighth","eighth","eighth","eighth","eighth","eighth"]
+      tempo: 90
+
+  - id: 9
+    mode: see
+    type: famous_examples
+    figure: "Two columns. Left (3/4): 'Happy Birthday', 'Minuet in G', 'Amazing Grace'. Right (6/8): 'Hickory Dickory', 'For He's a Jolly Good Fellow', 'Row Row Row Your Boat'."
+    cleffy: >
+      Pieces you know.
+      3/4 — Happy Birthday, Minuet in G, Amazing Grace.
+      6/8 — Hickory Dickory, Jolly Good Fellow, Row Row Row.
+
+  - id: 10
+    mode: hear
+    type: identify_meter
+    figure: "Four rounds. Each plays a short phrase. Banner — 3/4 or 6/8?"
+    cleffy: >
+      Four rounds. Listen — 3/4 or 6/8?
+    interaction:
+      type: drill
+      rounds: 4
+      options: ["3/4", "6/8"]
+
+  - id: 11
+    mode: play
+    type: waltz_phrase
+    figure: "Staff in 3/4. Waltz-like melody: C5 (quarter), E5 (eighth), G5 (eighth), E5 (quarter). Two-bar phrase."
+    cleffy: >
+      3/4 phrase. Waltz feel. Three-count pulse.
+    interaction:
+      type: rhythm
+      sequence: ["C5","E5","G5","E5"]
+      durations: ["quarter","eighth","eighth","quarter","quarter"]
+      tempo: 90
+
+  - id: 12
+    mode: play
+    type: lilting_phrase
+    figure: "Staff in 6/8. Rolling melody: C5 E5 G5 E5 C5 E5 — one bar."
+    cleffy: >
+      6/8 phrase. Rolling feel. Two-count pulse.
+    interaction:
+      type: rhythm
+      sequence: ["C5","E5","G5","E5","C5","E5"]
+      durations: ["eighth","eighth","eighth","eighth","eighth","eighth"]
+      tempo: 90
+
+  - id: 13
+    mode: play
+    type: back_to_back
+    figure: "Two bars side by side — first 3/4, then 6/8, both using the notes C5 E5 G5. Guides on."
+    cleffy: >
+      Two bars. Same three pitches, different meters.
+      Feel how the body wants to move differently in each.
+    interaction:
+      type: song
+      sequence: ["C5","E5","G5","C5","E5","G5","E5","C5","E5"]
+      guides: true
+      tempo: 90
+    followup_cleffy: >
+      Different meters. Different worlds.
+
+  - id: 14
+    mode: hear
+    type: pre_check
+    figure: "Banner."
+    cleffy: >
+      Three quick ones.
+
+  - id: 15
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 137. Left half shows 3/4 (waltz). Right half shows 6/8 (boat). Cleffy split-screen between them."
+    cleffy: >
+      3/4 — three even pulses.
+      6/8 — two rolling pulses.
+      Tomorrow — cut time. The beat changes again.
+
+practice_this_week:
+  real_piano:
+    - "Play Happy Birthday (3/4) and Row Row Row Your Boat (6/8) back to back. Feel the difference in your body."
+    - "Six eighths on any note — first in 3/4 (accent beats 1, 3, 5), then in 6/8 (accent beats 1, 4). Same notes, different emphasis."
+  virtual_only:
+    - "Replay pages 7, 8, and 13"
+  estimated_time: "10 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "A bar of six eighth notes beamed in two groups of three"
+          prompt: "Which meter?"
+          options: ["3/4", "6/8"]
+          correct: 1
+        - figure: "A bar of six eighth notes beamed in three pairs"
+          prompt: "Which meter?"
+          options: ["3/4", "6/8"]
+          correct: 0
+        - figure: "A count-line: ONE-and-a, TWO-and-a"
+          prompt: "Which meter does this counting fit?"
+          options: ["3/4", "6/8"]
+          correct: 1
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "A phrase with three equal pulses"
+          prompt: "Which meter?"
+          options: ["3/4", "6/8"]
+          correct: 0
+        - audio: "A phrase with two rolling pulses"
+          prompt: "Which meter?"
+          options: ["3/4", "6/8"]
+          correct: 1
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play six eighth notes on G4, accenting the first of each pair (3/4 feel)."
+          accept: "G4 six times with three-pulse accent pattern"
+
+remediation:
+  id: "137.5"
+  title: "3/4 and 6/8 side by side"
+  pages: 7
+  opening_cleffy: >
+    The two meters look the same on paper. The feel is what matters.
+    We'll tap, count, and clap each — slowly — until the difference is obvious.
+
+completion:
+  cleffy: >
+    3/4 and 6/8 — two separate worlds, now.
+    Tomorrow — cut time.
+  xp: 17
+  unlocks: 138

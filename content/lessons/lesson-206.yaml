@@ -1,0 +1,215 @@
+# ============================================================
+# LESSON 206 · Voicing: top-melody
+# Tier 5 · Act 42 · Upper-Intermediate · Voicing
+# Make the right-hand thumb — no, the pinky — sing above the chord.
+# ============================================================
+id: 206
+tier: upper-intermediate
+act: 42
+title: "Voicing: top-melody"
+subtitle: "Act 42 · Voicing"
+goal: "Play a right-hand chord so the top note sings above the others — the most common voicing in all of piano music."
+prereqs: [205, 172]
+method_focus: "combine"
+time_estimate_min: 14
+piece_context: "New act. Voicing — the art of making one note in a chord louder than the others. You met it in Moonlight, bringing out the top of every triplet. Now it becomes its own skill. Five lessons. Top, middle, bottom, drill, Schumann."
+metaphor: "voice-within-chord"
+vibe: ["quiet", "focused"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy in front of a banner — ACT 42 · VOICING. Below, a three-note chord drawn, with the top note glowing gold."
+    cleffy: >
+      New act. Voicing.
+      A chord is three or four notes pressed together.
+      But one of them can sing louder than the rest. That's voicing.
+
+  - id: 2
+    mode: see
+    type: top_is_usually_melody
+    figure: "Staff. A C major chord C4-E4-G4 written as a stack. G4 (top) circled and labelled 'the melody.'"
+    cleffy: >
+      When a pianist plays a chord, the melody is usually the top note.
+      The ear loves the top. It's the brightest voice in the stack.
+      Your job — help it sing.
+
+  - id: 3
+    mode: hear
+    type: flat_vs_voiced
+    figure: "Two play buttons. A: chord with all notes equal. B: same chord, top note firmer."
+    audio:
+      A: "C major chord C4-E4-G4, all three notes equal volume."
+      B: "Same chord, top G4 noticeably louder — a melody appears."
+    cleffy: >
+      Listen to both.
+      First — flat. A block. Just a chord.
+      Second — top note firmer. Suddenly there's a tune hiding in it.
+
+  - id: 4
+    mode: see
+    type: the_hand_trick
+    figure: "Cartoon right hand pressing C-E-G. Arrow tilting the hand weight toward the pinky side. Label: 'lean pinky. Lighten thumb and middle.'"
+    cleffy: >
+      The physical trick — tilt your hand weight toward the pinky side.
+      Finger 5 sinks a little deeper. Fingers 1 and 3 brush the keys.
+      Same chord. Different weight.
+
+  - id: 5
+    mode: play
+    type: play_flat_chord
+    figure: "Keyboard. C4, E4, G4 highlighted. Label: 'all equal.'"
+    cleffy: >
+      Play it flat first. C, E, G together.
+      Three equal notes. A block of sound.
+    interaction:
+      type: sequence
+      keys: [["C4","E4","G4"]]
+
+  - id: 6
+    mode: play
+    type: play_voiced_top
+    figure: "Keyboard. C4, E4, G4 — G4 glowing gold. Label: 'top sings.'"
+    cleffy: >
+      Same chord. Pinky firmer this time.
+      Lean your weight toward the G. Let it ring above the other two.
+    interaction:
+      type: sequence
+      keys: [["C4","E4","G4"]]
+    followup_cleffy: >
+      Hear that G floating on top?
+      Same three keys. The G is singing now.
+
+  - id: 7
+    mode: see
+    type: chord_chain_concept
+    figure: "Four chords in a row on the staff: C-E-G, C-F-A, B-D-G, C-E-G. Top notes circled: G, A, G, G. Arrow labeled 'the melody.'"
+    cleffy: >
+      Watch what happens across four chords.
+      The top notes make a line. G, A, G, G. A tiny tune.
+      The bottom notes are harmony. The top notes are melody.
+
+  - id: 8
+    mode: hear
+    type: hear_the_top_line
+    figure: "Play button — four chords with tops voiced."
+    audio:
+      A: "Four chords — C-E-G, C-F-A, B-D-G, C-E-G — each with top note firmer. G-A-G-G melody is audible."
+    cleffy: >
+      Listen for the top line — G, A, G, G.
+      Not the bottom. Not the middle. The top.
+
+  - id: 9
+    mode: play
+    type: play_chord_chain_voiced
+    figure: "Keyboard. Four chords. Top notes highlighted: G4, A4, G4, G4."
+    cleffy: >
+      Play the four chords. Pinky firmer each time.
+      Let the top notes connect into a melody — G, A, G, G.
+    interaction:
+      type: rhythm
+      sequence: [["C4","E4","G4"], ["C4","F4","A4"], ["B3","D4","G4"], ["C4","E4","G4"]]
+      durations: ["quarter","quarter","quarter","quarter"]
+      tempo: 60
+
+  - id: 10
+    mode: see
+    type: voicing_is_a_choice
+    figure: "Diagram — one chord, three arrows. Each arrow points to a different note, labelled: 'you choose which one sings.'"
+    cleffy: >
+      Voicing is a choice. Usually the top. Sometimes not.
+      The pianist decides which voice the audience hears.
+      Today — top. Tomorrow — middle. Then the bottom.
+
+  - id: 11
+    mode: play
+    type: slower_voiced_hymn
+    figure: "Staff. Four voiced chords at 50 bpm — hymn-like. Labels: 'lean pinky.'"
+    cleffy: >
+      One more, slower. Feel the lean.
+      Pinky sinks. Thumb and middle are quiet helpers.
+    interaction:
+      type: rhythm
+      sequence: [["C4","E4","G4"], ["C4","F4","A4"], ["C4","E4","G4"], ["B3","D4","G4"]]
+      durations: ["half","half","half","half"]
+      tempo: 50
+
+  - id: 12
+    mode: hear
+    type: identify_voicing
+    figure: "Round counter. Four rounds — top voiced or flat?"
+    cleffy: >
+      Four rounds. Did the top sing, or was the chord flat?
+    interaction:
+      type: drill
+      rounds: 4
+      options: ["Top voiced", "Flat"]
+
+  - id: 13
+    mode: hear
+    type: pre_check
+    figure: "Banner — Lesson 206 mastery check."
+    cleffy: >
+      Three quick ones.
+
+  - id: 14
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 206. A three-note chord with the top note glowing."
+    cleffy: >
+      Top voicing. The most common kind.
+      Tomorrow — the voice inside the chord. A hidden melody in the middle.
+
+practice_this_week:
+  real_piano:
+    - "Play any chord you know. First flat. Then lean toward the pinky. Feel your hand tilt."
+    - "Play a hymn — Amazing Grace, Happy Birthday — block chords. Bring out the top. The melody pops."
+  virtual_only:
+    - "Replay pages 5-6 and page 9."
+  estimated_time: "10 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "A three-note chord with the top note circled in gold"
+          prompt: "What is being voiced?"
+          options: ["The top note", "The middle note", "The bottom note"]
+          correct: 0
+        - figure: "A right hand pressing three notes, leaning toward the pinky side"
+          prompt: "Which finger presses firmer for top voicing?"
+          options: ["Thumb (1)", "Middle (3)", "Pinky (5)"]
+          correct: 2
+        - figure: "The word 'voicing' with three chord notes, one highlighted"
+          prompt: "What does voicing mean?"
+          options: ["Singing along with the chord", "Making one note in a chord louder than the others", "Playing chords softly"]
+          correct: 1
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "A chord played flat, then the same chord with top note firmer"
+          prompt: "Which version has a clear melody note?"
+          options: ["The first one", "The second one"]
+          correct: 1
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play C-E-G with the top G singing above the other two."
+          accept: "C4-E4-G4 chord with audible emphasis on G4"
+
+remediation:
+  id: "206.5"
+  title: "Top voicing, one note at a time"
+  pages: 7
+  opening_cleffy: >
+    Voicing is a small movement and a new ear skill. Easy to miss.
+    We'll go flat, then voiced, back and forth. One chord. Until the top sings on its own.
+
+completion:
+  cleffy: >
+    First kind of voicing unlocked. The top.
+    Tomorrow — the voice hiding in the middle.
+  xp: 18
+  unlocks: 207

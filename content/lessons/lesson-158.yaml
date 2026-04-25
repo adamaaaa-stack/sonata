@@ -1,0 +1,254 @@
+# ============================================================
+# LESSON 158 · Pedal hearing
+# Tier 4 · Act 32 · Intermediate
+# Learn to hear when the pedal is on vs off.
+# ============================================================
+id: 158
+tier: intermediate
+act: 32
+title: "Pedal hearing"
+subtitle: "Act 32 · Sustain pedal"
+goal: "Train your ear — tell the difference between a passage played with pedal and one played without."
+prereqs: [157, 156]
+method_focus: "hear"
+time_estimate_min: 12
+piece_context: "The pedal is invisible — no one can see it from the audience. You'll know by sound alone. Today, your ears learn what pedal sounds like."
+metaphor: "the-blending-pedal"
+vibe: ["focused", "quiet"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy with a finger to his ear. Two waveforms behind him — one short and dry, one long and ringing. Banner: PEDAL HEARING."
+    cleffy: >
+      Day three of pedal.
+      No playing today. Ears only.
+      You'll hear pedal on. Pedal off. Learn the difference.
+
+  - id: 2
+    mode: see
+    type: what_to_listen_for
+    figure: "Two sound-wave pictures. Top: short, separated notes — labeled 'DRY.' Bottom: long, overlapping notes — labeled 'PEDALED.'"
+    cleffy: >
+      What to listen for.
+      Pedal off — notes stop when fingers lift. Clean gaps.
+      Pedal on — notes keep ringing. They bleed into each other. Warm, thick, connected.
+
+  - id: 3
+    mode: hear
+    type: same_melody_both_ways_A
+    figure: "Play button. Label: VERSION A — FIRST FIVE NOTES OF HAPPY BIRTHDAY."
+    audio:
+      A: "Happy Birthday opening — G G A G C B — played cleanly with no pedal, each note stopping crisply"
+    cleffy: >
+      Version A. Listen twice.
+
+  - id: 4
+    mode: hear
+    type: same_melody_both_ways_B
+    figure: "Play button. Label: VERSION B — SAME FIVE NOTES."
+    audio:
+      A: "Same Happy Birthday opening — G G A G C B — played with full pedal, all notes ringing together into one smear"
+    cleffy: >
+      Version B. Same five notes. Different pedal.
+
+  - id: 5
+    mode: hear
+    type: identify_A_or_B
+    figure: "Two buttons — A and B. Question: 'Which one had the pedal on?'"
+    audio:
+      A: "Replay of the two versions back to back"
+    cleffy: >
+      Which version had the pedal?
+    interaction:
+      type: drill
+      rounds: 1
+      options: ["Version A (dry)", "Version B (pedaled)"]
+
+  - id: 6
+    mode: see
+    type: the_ring_test
+    figure: "Diagram: a single note's sound envelope. Arrow pointing to the tail. Label: 'This tail tells you.'"
+    cleffy: >
+      The secret is the tail.
+      Every note has a fade. A tail of sound after the attack.
+      Pedal on — long tail. Pedal off — short tail.
+      Train your ear on the tail.
+
+  - id: 7
+    mode: hear
+    type: round_1
+    figure: "Play button. Caption: ROUND 1."
+    audio:
+      A: "A four-note scale fragment — C D E F — played crisply without pedal"
+    cleffy: >
+      Round 1. Pedal on, or off?
+    interaction:
+      type: drill
+      rounds: 1
+      options: ["On", "Off"]
+
+  - id: 8
+    mode: hear
+    type: round_2
+    figure: "Play button. Caption: ROUND 2."
+    audio:
+      A: "A four-note scale fragment — C D E F — played with full pedal, notes blurring together"
+    cleffy: >
+      Round 2.
+    interaction:
+      type: drill
+      rounds: 1
+      options: ["On", "Off"]
+
+  - id: 9
+    mode: hear
+    type: round_3_chord
+    figure: "Play button. Caption: ROUND 3 — chord."
+    audio:
+      A: "A C major chord played and released cleanly — no pedal"
+    cleffy: >
+      Round 3. A chord.
+    interaction:
+      type: drill
+      rounds: 1
+      options: ["On", "Off"]
+
+  - id: 10
+    mode: hear
+    type: round_4_chord_pedaled
+    figure: "Play button. Caption: ROUND 4 — chord."
+    audio:
+      A: "A C major chord played, fingers release immediately, but pedal holds it ringing for several seconds"
+    cleffy: >
+      Round 4.
+    interaction:
+      type: drill
+      rounds: 1
+      options: ["On", "Off"]
+
+  - id: 11
+    mode: hear
+    type: tricky_round
+    figure: "Play button. Caption: ROUND 5 — careful."
+    audio:
+      A: "Slow sustained chord with half-pedal — some ring, but damper partly down; a gentle in-between"
+    cleffy: >
+      Round 5. Trickier. Slower. Listen to the tail.
+    interaction:
+      type: drill
+      rounds: 1
+      options: ["On", "Off"]
+
+  - id: 12
+    mode: see
+    type: real_music_intro
+    figure: "Two little album covers. Left: a Bach Prelude. Right: a Chopin Nocturne. Caption: 'Bach usually — dry. Chopin usually — pedaled.'"
+    cleffy: >
+      In real music — Bach often goes without pedal. Crisp, clean lines.
+      Chopin almost always has pedal. Warmth, blur, color.
+      Different eras, different conventions.
+
+  - id: 13
+    mode: hear
+    type: real_piece_A
+    figure: "Play button. Caption: A FAMOUS PIECE — WHICH ONE HAS PEDAL?"
+    audio:
+      A: "First four bars of Bach Prelude in C, played dry, no pedal, clean arpeggios"
+    cleffy: >
+      A real piece. Pedal or no?
+    interaction:
+      type: drill
+      rounds: 1
+      options: ["On", "Off"]
+
+  - id: 14
+    mode: hear
+    type: real_piece_B
+    figure: "Play button. Caption: A DIFFERENT FAMOUS PIECE."
+    audio:
+      A: "Opening phrase of Chopin Nocturne Op. 9 No. 2, richly pedaled, notes blooming into each other"
+    cleffy: >
+      One more.
+    interaction:
+      type: drill
+      rounds: 1
+      options: ["On", "Off"]
+
+  - id: 15
+    mode: hear
+    type: pre_check
+    figure: "Banner — three listening questions."
+    cleffy: >
+      Three final rounds. Ears ready.
+
+  - id: 16
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 158. Cleffy cupping an ear. Banner: EAR FOR PEDAL · UNLOCKED."
+    cleffy: >
+      You can hear pedal now. On or off, clean or wet.
+      Tomorrow — what happens when pedal goes wrong. Mud. And how to avoid it.
+
+practice_this_week:
+  real_piano:
+    - "Listen to any recording — pop, classical, jazz. Try to guess when the pianist is pedaling and when they aren't."
+    - "Play the same chord two ways: once dry, once pedaled. Close your eyes. Listen to the tail."
+  virtual_only:
+    - "Replay pages 7 through 14. Do each round twice. Your ear gets faster."
+  estimated_time: "10 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "Two sound waveforms — one with short tails, one with long tails"
+          prompt: "Which waveform shows pedal on?"
+          options: ["Short tails", "Long tails"]
+          correct: 1
+        - figure: "Diagram of a note's envelope"
+          prompt: "What part of the sound tells you about pedal?"
+          options: ["The attack", "The tail", "The pitch"]
+          correct: 1
+        - figure: "Two composers"
+          prompt: "Who is more likely to use heavy pedal?"
+          options: ["Bach", "Chopin"]
+          correct: 1
+    hear:
+      pass_threshold: 2
+      questions:
+        - audio: "A chord played dry — clean release"
+          prompt: "Pedal on or off?"
+          options: ["On", "Off"]
+          correct: 1
+        - audio: "A chord played with pedal held — long ring"
+          prompt: "Pedal on or off?"
+          options: ["On", "Off"]
+          correct: 0
+        - audio: "A scale fragment with pedal blurring the notes"
+          prompt: "Pedal on or off?"
+          options: ["On", "Off"]
+          correct: 0
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "No play requirement — this was a listening lesson. Just confirm."
+          accept: "Any input or tap-to-continue"
+
+remediation:
+  id: "158.5"
+  title: "Hearing the tail"
+  pages: 6
+  opening_cleffy: >
+    Pedal on or off — it's all in the tail of the sound.
+    We'll slow way down. Single notes only. Listen to what happens after your finger lifts.
+    That's where the answer lives.
+
+completion:
+  cleffy: >
+    Ears trained. You can tell pedal by sound alone.
+    Tomorrow — the mud. How pedal goes wrong, and how to fix it.
+  xp: 16
+  unlocks: 159

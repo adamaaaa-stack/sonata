@@ -1,0 +1,269 @@
+# ============================================================
+# LESSON 145 · Nocturne Op. 9 No. 2 (phrase)
+# Tier 4 · Act 29 · Intermediate · ACT BOSS 🎯
+# Chopin's first phrase. Eb major. Legato, rubato, singing tone.
+# The moment Tier 4 gets serious about expression.
+# ============================================================
+id: 145
+tier: intermediate
+act: 29
+title: "Nocturne Op. 9 No. 2 (phrase)"
+subtitle: "Act 29 · Chopin's breath"
+goal: "Play the first phrase of Chopin's Nocturne Op. 9 No. 2 — very slowly, legato, with rubato on the singing notes, right hand over a simple waltz-bass left hand."
+prereqs: [141, 142, 143, 144, 130]
+method_focus: "combine"
+time_estimate_min: 16
+piece_context: "Act 29 boss. The moment Tier 4 stops being technique and starts being music. Chopin wrote this Nocturne at 20. It's in E-flat major — three flats — a warm, candle-lit key. Today, one phrase. Right hand sings. Left hand rocks in a gentle oom-pah-pah. Very slow. Very legato. Small rubato on the notes that matter."
+metaphor: "range-of-voices"
+vibe: ["gentle", "reflective", "focused"]
+is_act_boss: true
+piece:
+  title: "Nocturne Op. 9 No. 2 in E-flat major"
+  composer: "Frédéric Chopin (1832)"
+  key_center: "E-flat major"
+  time_signature: "12/8 (felt as slow 4)"
+  difficulty: "intermediate — one phrase only, simplified LH, very slow tempo"
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy at a candlelit piano. A Chopin portrait on the wall. Banner: ACT 29 BOSS — NOCTURNE OP. 9 NO. 2."
+    cleffy: >
+      Act 29 boss.
+      Chopin. 1832. Nocturne Op. 9 No. 2.
+      He was 20 when he wrote this. Still one of the most played pieces in the world.
+
+  - id: 2
+    mode: see
+    type: the_honest_scope
+    figure: "Two boxes. Left: 'what today is NOT' — the whole nocturne, full tempo, ornaments, all of it. Right: 'what today IS' — the first phrase of the melody, very slow, simplified left hand, with legato and rubato."
+    cleffy: >
+      What today IS: the first phrase. Right-hand melody. Simple waltz-like left hand.
+      What today IS: legato. Singing tone. A little rubato.
+      What today IS NOT: the full piece. That takes Tier 5.
+      Today — one perfect phrase.
+
+  - id: 3
+    mode: see
+    type: the_key
+    figure: "Treble and bass staff. Three flats at the start — B-flat, E-flat, A-flat. Banner: E-FLAT MAJOR."
+    cleffy: >
+      E-flat major. Three flats.
+      You already know this key from lesson 127.
+      Warm. Round. The key of sleep and moonlight.
+
+  - id: 4
+    mode: hear
+    type: listen_to_piece
+    figure: "Play button. Caption: Chopin Nocturne Op. 9 No. 2, opening, real recording."
+    audio:
+      A: "Chopin Nocturne Op. 9 No. 2 in E-flat major — opening phrase, slow tempo, a famous recording with legato melody and rocking left hand"
+    cleffy: >
+      Listen.
+      The melody floats. The left hand rocks.
+      Breath in every note. No hurry.
+
+  - id: 5
+    mode: see
+    type: the_melody_notes
+    figure: "Treble staff in E-flat major. Nine notes marked: Bb4, G4, Bb4, Ab4, G4, Ab4, Bb4, C5, Bb4. Slur arched over all of them."
+    cleffy: >
+      The melody. Nine notes.
+      B-flat, G, B-flat — first three, feel the rise.
+      A-flat, G, A-flat — gentle step down, step up.
+      B-flat, C, B-flat — the peak, and home.
+      One big slur. One breath.
+
+  - id: 6
+    mode: play
+    type: melody_notes_even
+    figure: "Keyboard in E-flat major. The nine melody notes highlighted in order: Bb4, G4, Bb4, Ab4, G4, Ab4, Bb4, C5, Bb4."
+    cleffy: >
+      Notes first. Even quarters. No rhythm yet.
+      B-flat, G, B-flat, A-flat, G, A-flat, B-flat, C, B-flat.
+    interaction:
+      type: sequence
+      keys: ["Bb4", "G4", "Bb4", "Ab4", "G4", "Ab4", "Bb4", "C5", "Bb4"]
+
+  - id: 7
+    mode: see
+    type: the_left_hand
+    figure: "Bass staff in E-flat major. A slow waltz pattern — bass note on beat 1, chord on beats 2 and 3. Labels: Eb3 (root), then Bb3-G4 (chord), then Bb3-G4 (chord). Oom-pah-pah."
+    cleffy: >
+      Left hand. Simpler than the real one.
+      Low E-flat on beat one — the oom.
+      Two chords above — pah, pah.
+      Oom, pah, pah. Rocking like a cradle.
+
+  - id: 8
+    mode: play
+    type: play_lh_alone
+    figure: "Keyboard. Eb3, then Bb3-G4 together, twice. Metronome 60."
+    cleffy: >
+      Left hand alone. Slow.
+      Low note. Chord. Chord.
+      Keep the low note soft. The chords softer.
+    interaction:
+      type: rhythm
+      sequence: ["Eb3", ["Bb3", "G4"], ["Bb3", "G4"]]
+      durations: ["quarter", "quarter", "quarter"]
+      tempo: 60
+
+  - id: 9
+    mode: see
+    type: legato_reminder
+    figure: "Two staves. Top: detached notes — each with space between them. Label: DETACHED. Bottom: slurred line — each note overlapping the next. Label: LEGATO."
+    cleffy: >
+      Before we play the melody — legato.
+      Every note connects to the next. No gaps.
+      Stay on the key until the next one presses. Then lift.
+      Chopin is legato almost always.
+
+  - id: 10
+    mode: play
+    type: rh_legato
+    figure: "Keyboard. Same nine melody notes. Slur arch shown. Metronome 60."
+    cleffy: >
+      Right hand only. Legato.
+      Hear each note melt into the next.
+      Very slow. Sixty on the click.
+    interaction:
+      type: rhythm
+      sequence: ["Bb4", "G4", "Bb4", "Ab4", "G4", "Ab4", "Bb4", "C5", "Bb4"]
+      durations: ["quarter", "quarter", "quarter", "quarter", "quarter", "quarter", "quarter", "quarter", "quarter"]
+      tempo: 60
+
+  - id: 11
+    mode: see
+    type: where_to_sing
+    figure: "The nine-note melody with stretch brackets over two notes — the C5 at the top of the phrase, and the final Bb4. Arrows labeled 'SING HERE' and 'LAND HERE'."
+    cleffy: >
+      Rubato. Two places.
+      The C — the peak of the phrase. Let it sing.
+      The final B-flat — come home slowly. Land it.
+      Everywhere else, keep moving.
+
+  - id: 12
+    mode: play
+    type: rh_with_rubato
+    figure: "Keyboard. Nine notes. Stretch brackets over C5 and final Bb4. Metronome 60."
+    cleffy: >
+      Right hand with rubato.
+      Everything flows — but the C lingers.
+      The last B-flat arrives like a sigh.
+    interaction:
+      type: rhythm
+      sequence: ["Bb4", "G4", "Bb4", "Ab4", "G4", "Ab4", "Bb4", "C5", "Bb4"]
+      durations: ["quarter", "quarter", "quarter", "quarter", "quarter", "quarter", "quarter", "half", "half"]
+      tempo: 60
+
+  - id: 13
+    mode: play
+    type: hands_together_slow
+    figure: "Grand staff in E-flat. Right hand: the nine-note melody. Left hand: simplified oom-pah-pah under each three-note group. Metronome 56."
+    cleffy: >
+      Both hands. Very slow — 56.
+      Left hand keeps steady. Right hand floats on top.
+      If the hands drift apart a moment — good. That's rubato working.
+    interaction:
+      type: song
+      sequence: [["Bb4", "Eb3"], ["G4", "Bb3", "G4"], ["Bb4", "Bb3", "G4"], ["Ab4", "Eb3"], ["G4", "Bb3", "G4"], ["Ab4", "Bb3", "G4"], ["Bb4", "Eb3"], ["C5", "Bb3", "G4"], ["Bb4", "Bb3", "G4"]]
+      guides: true
+      tempo: 56
+
+  - id: 14
+    mode: play
+    type: hands_together_expressive
+    figure: "Same grand staff. Guides off. Stretch brackets over the C and the final Bb. Dynamic marking: p at the start."
+    cleffy: >
+      Guides off. Read the page.
+      Piano — soft throughout. Let the C lift out.
+      No rush. This phrase is a sentence. Say it slow.
+    interaction:
+      type: song
+      sequence: [["Bb4", "Eb3"], ["G4", "Bb3", "G4"], ["Bb4", "Bb3", "G4"], ["Ab4", "Eb3"], ["G4", "Bb3", "G4"], ["Ab4", "Bb3", "G4"], ["Bb4", "Eb3"], ["C5", "Bb3", "G4"], ["Bb4", "Bb3", "G4"]]
+      guides: false
+      tempo: 56
+    followup_cleffy: >
+      That. One phrase of Chopin.
+      Breath, legato, rubato — all of it, in your hands.
+
+  - id: 15
+    mode: hear
+    type: pre_check
+    figure: "Banner — Act 29 boss mastery check."
+    cleffy: >
+      Four quick ones. Act boss — take your time.
+
+  - id: 16
+    mode: see
+    type: wrap
+    figure: "Celebration card — ACT 29 COMPLETE 🎯. Cleffy holding a candlestick. A pyramid of acts showing 29/50 complete. A small Chopin portrait tucked in the corner."
+    cleffy: >
+      Act 29. Closed.
+      You just played Chopin.
+      One phrase, simplified, slow — but real Chopin, with legato and rubato and a left hand that rocked like a cradle.
+      Dynamics from pp to ff. Sudden changes. Tempo words. Rubato. All yours now.
+      You are becoming a pianist. That sentence is earned.
+      Next act — scale recognition. Arpeggios. The Alberti bass. A different Chopin waltz ahead.
+
+practice_this_week:
+  real_piano:
+    - "The nine-note melody every day. Right hand only, legato, slow. Say each note out loud as you play it — B-flat, G, B-flat, A-flat, G, A-flat, B-flat, C, B-flat."
+    - "Add the left hand oom-pah-pah. Start at 50 bpm. Build up only when it stays smooth."
+    - "Find a recording of the full Nocturne. Listen once through with your eyes closed. Notice where the pianist stretches time. That's rubato, in the wild."
+  virtual_only:
+    - "Replay pages 10, 13, 14 — right hand alone, then both hands guided, then unguided"
+  estimated_time: "15 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "Key signature with three flats"
+          prompt: "What key is this Nocturne in?"
+          options: ["B-flat major", "E-flat major", "A-flat major"]
+          correct: 1
+        - figure: "Nine-note melody: Bb4 G4 Bb4 Ab4 G4 Ab4 Bb4 C5 Bb4"
+          prompt: "Which note is the peak of the phrase?"
+          options: ["The first B-flat", "The G", "The C"]
+          correct: 2
+        - figure: "A left-hand bass-chord-chord pattern"
+          prompt: "What's this pattern called?"
+          options: ["Oom-pah-pah", "Alberti bass", "Octave"]
+          correct: 0
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "The opening phrase played legato, with rubato on the peak"
+          prompt: "Is this legato or staccato?"
+          options: ["Legato", "Staccato"]
+          correct: 0
+        - audio: "A passage with one stretched note and hurried notes after"
+          prompt: "What is the pianist doing?"
+          options: ["Rubato", "Crescendo", "Subito piano"]
+          correct: 0
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play the nine-note right-hand melody — Bb4, G4, Bb4, Ab4, G4, Ab4, Bb4, C5, Bb4 — legato, at 60 bpm."
+          accept: "All 9 notes correct, connected, at a slow steady tempo"
+
+remediation:
+  id: "145.5"
+  title: "Nocturne, gentler"
+  pages: 11
+  opening_cleffy: >
+    This is the biggest act boss yet. Expression, legato, rubato, hands together — all at once.
+    We'll go back to the right hand alone, very slow. Three notes at a time.
+    Then the left hand alone. Then both. No rush. Chopin waited for you.
+
+completion:
+  cleffy: >
+    Act 29 sealed. You played Chopin.
+    Dynamics, tempo, rubato — all in one phrase.
+    This is the place Tier 4 turned into music. Remember today.
+  xp: 30
+  unlocks: 146

@@ -1,0 +1,253 @@
+# ============================================================
+# LESSON 150 · Chopin Waltz in A minor
+# Tier 4 · Act 30 · Intermediate · ACT BOSS 🎯
+# Waltz in A minor (posthumous, B.150) — simplified.
+# Waltz bass under a melancholy melody.
+# ============================================================
+id: 150
+tier: intermediate
+act: 30
+title: "Chopin Waltz in A minor"
+subtitle: "Act 30 · Pattern recognition + accompaniment"
+goal: "Play a simplified opening of Chopin's A minor Waltz — waltz bass in the LH under a descending melancholy melody in the RH."
+prereqs: [146, 147, 148, 149]
+method_focus: "combine"
+time_estimate_min: 16
+piece_context: "The act boss. Everything this act taught — scales, arpeggios, Alberti, waltz bass — now under one piece. Chopin's posthumous A minor Waltz (B.150) is famously accessible. Melancholy, slow, in 3/4. Simplified heavily — your job today is not to play Chopin as written. Your job is to feel a real waltz under your hands."
+metaphor: "hand-patterns"
+vibe: ["reflective", "honest", "gentle"]
+is_act_boss: true
+piece:
+  title: "Waltz in A minor (posthumous)"
+  composer: "Frédéric Chopin (B.150, c.1843)"
+  key_center: "A minor"
+  time_signature: "3/4"
+  difficulty: "intermediate — opening only, heavily simplified, slow tempo"
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy in an old Parisian salon. Candlelight. A small upright piano. Banner: ACT 30 BOSS — CHOPIN."
+    cleffy: >
+      Act 30 boss.
+      Chopin. Waltz in A minor. Written late in his life.
+      One of the most-played pieces a beginning pianist ever touches.
+
+  - id: 2
+    mode: see
+    type: honest_framing
+    figure: "Two boxes. Left: 'what today IS NOT' — the full waltz, at tempo, with ornaments. Right: 'what today IS' — the opening melody with a simplified waltz bass, slow."
+    cleffy: >
+      Honest up front.
+      You're not playing Chopin's waltz as written. That piece has ornaments, rubato, three sections.
+      You're playing eight bars. Simplified. Slow. Waltz bass underneath.
+      Still — this is Chopin. In your hands.
+
+  - id: 3
+    mode: see
+    type: a_minor
+    figure: "Staff showing A minor key signature (no sharps or flats — same as C major). Note the tonic is A."
+    cleffy: >
+      A minor. Same signature as C major — no sharps, no flats.
+      Different home note. A, not C.
+      That's why it sounds sad and C major doesn't.
+
+  - id: 4
+    mode: hear
+    type: listen_real_piece
+    figure: "Play button. Caption: Chopin, Waltz in A minor, opening phrase — real recording."
+    audio:
+      A: "Chopin Waltz in A minor (B.150) — first 8 bars, real piano recording, moderate tempo"
+    cleffy: >
+      Listen. The real thing.
+      Hear the waltz — oom-pah-pah — underneath?
+      Hear the melody falling? That's why it hurts.
+
+  - id: 5
+    mode: hear
+    type: listen_simplified
+    figure: "Play button. Caption: simplified version — what you'll play."
+    audio:
+      A: "Simplified Chopin A minor Waltz — RH E5 D5 C5 B4 A4 descending, LH waltz bass on A minor, slow tempo"
+    cleffy: >
+      Now the version you'll play. Slower. Stripped down.
+      RH melody — five notes falling. E, D, C, B, A.
+      LH waltz bass — A minor chord, oom-pah-pah.
+
+  - id: 6
+    mode: see
+    type: rh_melody
+    figure: "Treble staff. Five notes descending: E5, D5, C5, B4, A4. Each a half note in a 3/4 bar with a rest — so one note per bar lasting most of the bar."
+    cleffy: >
+      RH first. Five notes. All steps down.
+      E, D, C, B, A.
+      Each note sits on beat 1 and holds.
+
+  - id: 7
+    mode: play
+    type: play_rh_alone
+    figure: "Keyboard. E5 D5 C5 B4 A4 lighting in order. Treble staff above."
+    cleffy: >
+      RH alone. Five notes. Slow.
+      Each one — press, hold, next.
+    interaction:
+      type: sequence
+      keys: ["E5","D5","C5","B4","A4"]
+
+  - id: 8
+    mode: see
+    type: lh_waltz_bass
+    figure: "LH staff in 3/4. Bar 1: A2 (bass), then A3-C4-E4 (chord), then A3-C4-E4 (chord). Label: A MINOR WALTZ BASS."
+    cleffy: >
+      LH. Waltz bass, A minor version.
+      Bass A — low. Then A minor chord — A, C, E — twice.
+      Same oom-pah-pah. Different chord than yesterday.
+
+  - id: 9
+    mode: play
+    type: play_lh_waltz_am
+    figure: "LH staff. Keyboard showing A2, then A3-C4-E4."
+    cleffy: >
+      LH alone. One bar. A minor waltz.
+      Bass. Chord. Chord.
+    interaction:
+      type: rhythm
+      sequence: ["A2",["A3","C4","E4"],["A3","C4","E4"]]
+      durations: ["quarter","quarter","quarter"]
+      tempo: 70
+
+  - id: 10
+    mode: play
+    type: lh_three_bars
+    figure: "LH staff. Three bars of A minor waltz bass. Tempo 75."
+    cleffy: >
+      Three bars. Same chord every bar. Just the waltz.
+      Keep it steady.
+    interaction:
+      type: rhythm
+      sequence: ["A2",["A3","C4","E4"],["A3","C4","E4"],"A2",["A3","C4","E4"],["A3","C4","E4"],"A2",["A3","C4","E4"],["A3","C4","E4"]]
+      durations: ["quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter"]
+      tempo: 75
+
+  - id: 11
+    mode: play
+    type: both_hands_one_bar
+    figure: "Grand staff. Bar 1. RH: E5 held. LH: A2, A3-C4-E4, A3-C4-E4."
+    cleffy: >
+      Both hands. One bar.
+      RH presses E on beat 1 and holds.
+      LH plays the full waltz under it.
+    interaction:
+      type: song
+      sequence: [["E5","A2"],["A3","C4","E4"],["A3","C4","E4"]]
+      guides: true
+      tempo: 65
+
+  - id: 12
+    mode: play
+    type: five_bars_full
+    figure: "Grand staff. Five bars. RH: E D C B A — one note per bar. LH: A minor waltz bass each bar. Tempo 60."
+    cleffy: >
+      Five full bars. The simplified Chopin.
+      RH — a new melody note each bar 1.
+      LH — never stops rolling.
+    interaction:
+      type: song
+      sequence: [["E5","A2"],["A3","C4","E4"],["A3","C4","E4"],["D5","A2"],["A3","C4","E4"],["A3","C4","E4"],["C5","A2"],["A3","C4","E4"],["A3","C4","E4"],["B4","A2"],["A3","C4","E4"],["A3","C4","E4"],["A4","A2"],["A3","C4","E4"],["A3","C4","E4"]]
+      guides: true
+      tempo: 60
+    followup_cleffy: >
+      Chopin. In your hands.
+      Simplified. Slow. Real.
+
+  - id: 13
+    mode: play
+    type: no_guides
+    figure: "Same five bars. Guides off."
+    cleffy: >
+      No highlights. Read the staff.
+      Don't rush. Chopin is slow music.
+    interaction:
+      type: song
+      sequence: [["E5","A2"],["A3","C4","E4"],["A3","C4","E4"],["D5","A2"],["A3","C4","E4"],["A3","C4","E4"],["C5","A2"],["A3","C4","E4"],["A3","C4","E4"],["B4","A2"],["A3","C4","E4"],["A3","C4","E4"],["A4","A2"],["A3","C4","E4"],["A3","C4","E4"]]
+      guides: false
+      tempo: 60
+
+  - id: 14
+    mode: hear
+    type: pre_check
+    figure: "Banner — Act 30 boss mastery check."
+    cleffy: >
+      Four quick ones. Take your time.
+
+  - id: 15
+    mode: see
+    type: wrap
+    figure: "Celebration card — ACT 30 COMPLETE 🎯. Cleffy in a Parisian salon with a copy of the Chopin waltz. Pyramid showing 30/50 acts complete."
+    cleffy: >
+      Act 30. Closed.
+      Scales as chunks. Arpeggios as chunks. Alberti bass. Waltz bass.
+      Then — Chopin. A real piece, simplified, actually under your hands.
+      That's not nothing. That is real music.
+      Next act — hand independence. Two brains, one body.
+
+practice_this_week:
+  real_piano:
+    - "The five-bar Chopin melody every day. RH first, LH second, then both. Slow metronome — 55 to 60."
+    - "Search 'Chopin Waltz in A minor posthumous' online. Listen to any recording. You now understand the shape — RH falls, LH waltzes."
+    - "Once comfortable, try to extend: add bars 6-8 of the original if you can find a simplified score. Optional."
+  virtual_only:
+    - "Replay pages 11, 12, and 13"
+  estimated_time: "15 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "LH staff in 3/4 — A2 bass, then A3-C4-E4 chord twice"
+          prompt: "What pattern is this?"
+          options: ["Alberti bass", "Waltz bass on A minor", "Broken chord on A minor"]
+          correct: 1
+        - figure: "Treble staff showing E5 D5 C5 B4 A4 descending, one note per bar"
+          prompt: "Describe the shape of this melody."
+          options: ["Ascending scale", "Descending scale", "Arpeggio"]
+          correct: 1
+        - figure: "Key signature with no sharps and no flats, tonic noted as A"
+          prompt: "What key is this?"
+          options: ["C major", "A minor", "G major"]
+          correct: 1
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "The simplified A minor waltz — RH descending melody, LH oom-pah-pah"
+          prompt: "What left-hand pattern do you hear?"
+          options: ["Alberti bass", "Waltz bass (oom-pah-pah)", "Blocked chord"]
+          correct: 1
+        - audio: "A major waltz and an A minor waltz, back to back"
+          prompt: "Which one is the minor (sad) one?"
+          options: ["First", "Second"]
+          correct: 1
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play one bar of the simplified Chopin — RH E5 held, LH A2 then A3-C4-E4 chord twice."
+          accept: "RH E5 sustained over LH A2, A3-C4-E4 chord, A3-C4-E4 chord"
+
+remediation:
+  id: "150.5"
+  title: "Chopin, one bar at a time"
+  pages: 11
+  opening_cleffy: >
+    Act boss. Two hands, minor key, real piece — a lot at once.
+    We'll build it one bar at a time. RH alone. LH alone. Then one bar together. Then two. No rush.
+
+completion:
+  cleffy: >
+    Act 30 closed. Chopin — your first.
+    You now see scales and arpeggios as shapes. You have Alberti and waltz bass in your left hand.
+    And you played Chopin. Simplified, slow, real.
+    Next — hand independence. The hands get their own brains.
+  xp: 30
+  unlocks: 151

@@ -1,0 +1,221 @@
+id: 51
+tier: elementary
+act: 11
+title: "Eighth notes"
+subtitle: "Two notes per beat"
+goal: "Recognize and count eighth notes — two per beat, twice as fast as quarters."
+prereqs: [23, 24]
+method_focus: "rhythm"
+time_estimate_min: 10
+piece_context: null
+metaphor: "half-a-beat-each"
+vibe: ["gentle", "playful"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Staff with a row of quarter notes. Below: same row but each quarter split into two eighth notes."
+    cleffy: >
+      Quarter note is one beat. What if you want half a beat?
+      That's an eighth note. Two eighth notes fit in one quarter.
+
+  - id: 2
+    mode: see
+    type: shape
+    figure: "Eighth note drawn — filled oval with stem AND a flag. Then two eighth notes beamed together."
+    cleffy: >
+      Shape: filled oval, stem, and a little flag on top.
+      When two or more eighths are in a row, their flags turn into a beam connecting them.
+
+  - id: 3
+    mode: see
+    type: count_eighth
+    figure: "Bar of 4/4 with eighth notes. Beat count: 1-and-2-and-3-and-4-and."
+    cleffy: >
+      Eighth notes count: 1-and-2-and-3-and-4-and.
+      The number is the quarter-note beat. The 'and' is the eighth in between.
+
+  - id: 4
+    mode: hear
+    type: eighth_pulse
+    figure: "Metronome. Eighth notes alternating with spaces."
+    audio:
+      A: "Metronome at 60 + 8 eighth notes on Middle C"
+    cleffy: >
+      Listen. Two taps per click. That's eighth notes.
+
+  - id: 5
+    mode: see
+    type: identify
+    figure: "Staff with either a quarter or an eighth pair."
+    cleffy: >
+      Which is this?
+    interaction:
+      type: choice
+      options: ["Quarter (1 beat)", "Two eighths (1 beat total, two taps)"]
+      correct: 0
+
+  - id: 6
+    mode: see
+    type: identify_2
+    figure: "Staff with eighth pair (beamed)."
+    cleffy: >
+      And this?
+    interaction:
+      type: choice
+      options: ["Quarter", "Two eighths"]
+      correct: 1
+
+  - id: 7
+    mode: see
+    type: drill
+    figure: "Round counter 1 of 6."
+    cleffy: >
+      Six rounds. Quarter, half, whole, or eighth pair?
+    interaction:
+      type: drill
+      rounds: 6
+      options: ["Quarter", "Half", "Whole", "Two eighths"]
+
+  - id: 8
+    mode: hear
+    type: quarter_vs_eighth
+    figure: "Two play buttons."
+    audio:
+      A: "4 quarter notes"
+      B: "8 eighth notes (same bar time, twice as many notes)"
+    cleffy: >
+      Same length of time. Twice as many notes.
+      Listen to each.
+
+  - id: 9
+    mode: play
+    type: play_eighths
+    figure: "Keyboard. Middle C. Metronome at 60. Eighth notes on C."
+    cleffy: >
+      Tap Middle C on every click AND every "and". Two taps per beat.
+    interaction:
+      type: rhythm
+      sequence: ["C4","C4","C4","C4","C4","C4","C4","C4"]
+      durations: ["eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth"]
+      tempo: 60
+
+  - id: 10
+    mode: play
+    type: mixed_rhythm
+    figure: "Bar: quarter, quarter, two eighths, two eighths."
+    cleffy: >
+      Mix. Two quarters, then four eighths.
+    interaction:
+      type: rhythm
+      sequence: ["C4","C4","C4","C4","C4","C4"]
+      durations: ["quarter","quarter","eighth","eighth","eighth","eighth"]
+      tempo: 60
+
+  - id: 11
+    mode: read
+    type: melody_with_eighths
+    figure: "Staff. C (quarter), D (quarter), E-F-E-D (eighths), C (quarter). One bar in 4/4."
+    cleffy: >
+      Read and play.
+    interaction:
+      type: rhythm
+      sequence: ["C4","D4","E4","F4","E4","D4","C4"]
+      durations: ["quarter","quarter","eighth","eighth","eighth","eighth","quarter"]
+      tempo: 60
+
+  - id: 12
+    mode: hear
+    type: count_pattern
+    figure: "Round counter 1 of 3."
+    cleffy: >
+      Three rounds. A bar plays. How many notes?
+    interaction:
+      type: drill
+      rounds: 3
+      options: ["4", "6", "8"]
+
+  - id: 13
+    mode: play
+    type: eight_eighths
+    figure: "Bar of 8 eighth notes ascending C-D-E-F-G-A-B-C."
+    cleffy: >
+      8 eighth notes, one bar. Scale up from Middle C.
+    interaction:
+      type: rhythm
+      sequence: ["C4","D4","E4","F4","G4","A4","B4","C5"]
+      durations: ["eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth"]
+      tempo: 60
+
+  - id: 14
+    mode: hear
+    type: mixed_drill
+    figure: "Four rounds."
+    cleffy: >
+      Four mixed.
+    interaction:
+      type: drill
+      rounds: 4
+
+  - id: 15
+    mode: hear
+    type: pre_check
+    figure: "Banner."
+    cleffy: >
+      Four quick ones.
+
+  - id: 16
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 51. Beamed eighth notes drawn on a staff."
+    cleffy: >
+      Eighth notes, locked. Rhythm gets richer from here.
+      Tomorrow — rests. Silence in music.
+
+practice_this_week:
+  real_piano:
+    - "Metronome at 60. Tap Middle C on every click. Now add a tap on every 'and' (so two per click)."
+    - "Play C-D-E-F-G-A-B-C as eighth notes in one bar."
+  virtual_only:
+    - "Replay pages 9-11"
+  estimated_time: "5 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "Two eighth notes beamed"
+          prompt: "How many beats do these take together?"
+          options: ["1", "2", "4"]
+          correct: 0
+        - figure: "Single eighth note (with flag)"
+          prompt: "How many beats?"
+          options: ["Half a beat", "1 beat", "2 beats"]
+          correct: 0
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "8 eighth notes in 4/4"
+          prompt: "How many notes total?"
+          options: ["4", "6", "8"]
+          correct: 2
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play four eighth notes on Middle C."
+          accept: "C4 × 4 at eighth duration"
+
+remediation:
+  id: "51.5"
+  title: "Eighth notes, slower"
+  pages: 5
+  opening_cleffy: >
+    Splitting a beat in half takes a minute. Slower metronome, clear count.
+
+completion:
+  cleffy: >
+    Eighth notes, understood. Faster rhythm is now on the table.
+  xp: 20
+  unlocks: 52

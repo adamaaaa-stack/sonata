@@ -1,0 +1,218 @@
+# ============================================================
+# LESSON 122 · Review: fingering
+# Tier 3 · Act 25 · Low-Intermediate · Review
+# All the hand tricks — thumb-under, cross-over, substitution.
+# ============================================================
+id: 122
+tier: low-intermediate
+act: 25
+title: "Review: fingering"
+subtitle: "Act 25 · Review"
+goal: "Refresh every hand trick from Act 17 — why fingering matters, thumb-under, cross-over, finger substitution."
+prereqs: [121, 85, 84, 83, 82, 81, 75]
+method_focus: "play"
+time_estimate_min: 14
+vibe: ["focused", "gentle"]
+metaphor: "choreography"
+piece_context: "Second review lesson. The hand tricks. You've been using these since Act 17 — scales wouldn't work without them."
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy holding up a hand, fingers labelled 1-2-3-4-5. Below: three small icons — thumb-under, cross-over, substitution."
+    cleffy: >
+      Day two of review.
+      Fingering. Choreography for your hand.
+      Three tricks. One more pass.
+
+  - id: 2
+    mode: see
+    type: why_fingering
+    figure: "Two staves side by side. Left: smooth fingering, hand stays in shape. Right: random fingering, hand twisted up."
+    cleffy: >
+      Quick reminder. Fingering is planning which finger plays which note.
+      A good plan — your hand flows. A bad plan — you stop, stretch, panic.
+
+  - id: 3
+    mode: see
+    type: thumb_under_recap
+    figure: "Cartoon right hand — middle finger on E, thumb tucking under to land on F. Arrow showing the motion."
+    cleffy: >
+      Trick one — thumb-under.
+      Middle or ring finger plays a note. Thumb slides under the hand and lands on the next one.
+      That's how scales keep going when you run out of fingers.
+
+  - id: 4
+    mode: play
+    type: play_thumb_under
+    figure: "Keyboard: C major scale C D E F G. Fingering shown: 1 2 3 1 2. Arrow at the thumb-under between E and F."
+    cleffy: >
+      Right hand. Play C D E F G. Fingers one, two, three — thumb under — one, two.
+      Slow. Feel the thumb slide under on the way to F.
+    interaction:
+      type: sequence
+      keys: ["C4","D4","E4","F4","G4"]
+
+  - id: 5
+    mode: see
+    type: cross_over_recap
+    figure: "Cartoon right hand coming down a scale — thumb on F, middle finger crossing OVER the thumb to land on E. Arrow."
+    cleffy: >
+      Trick two — crossing over. The opposite of thumb-under.
+      Going down a scale, the middle or ring finger crosses over the thumb.
+      Same idea, reversed.
+
+  - id: 6
+    mode: play
+    type: play_cross_over
+    figure: "Keyboard: G F E D C descending. Fingering: 2 1 3 2 1 (cross-over at F to E)."
+    cleffy: >
+      Now coming down. G F E D C. Fingers two, one — three crosses over — two, one.
+      Let the middle finger travel.
+    interaction:
+      type: sequence
+      keys: ["G4","F4","E4","D4","C4"]
+
+  - id: 7
+    mode: play
+    type: up_and_down_combo
+    figure: "Full scale up and down. Fingering under each note: 1 2 3 1 2 3 2 1 3 2 1."
+    cleffy: >
+      Up and down, one smooth line.
+      Thumb-under going up. Cross-over coming down.
+    interaction:
+      type: sequence
+      keys: ["C4","D4","E4","F4","G4","F4","E4","D4","C4"]
+
+  - id: 8
+    mode: see
+    type: substitution_recap
+    figure: "Cartoon hand holding down a note with finger 3, then silently swapping to finger 1 on the same key. Two-frame comic."
+    cleffy: >
+      Trick three — finger substitution.
+      Same key, same sound. Swap fingers silently.
+      Why? Free up a finger for what comes next.
+
+  - id: 9
+    mode: play
+    type: play_substitution
+    figure: "Keyboard: C4 glowing. Fingering shown: press with 3, swap to 1, then play D, E with 2, 3."
+    cleffy: >
+      Press C with finger 3. Hold. Slide finger 1 onto the same key. Let 3 lift.
+      Now play D, E. Two, three.
+      The sound didn't break. You just changed hands on the key.
+    interaction:
+      type: sequence
+      keys: ["C4","D4","E4"]
+
+  - id: 10
+    mode: see
+    type: fingering_in_real_music
+    figure: "Excerpt from Minuet in G with fingering numbers written above every note."
+    cleffy: >
+      In real music, good editors write fingerings above the notes.
+      Follow them. They've thought about it more than you have time to.
+
+  - id: 11
+    mode: play
+    type: minuet_snippet
+    figure: "First two bars of Minuet in G: D5 G4 A4 B4 C5 D5 G4 G4. Fingering: 5 1 2 3 4 5 1 5 (matches Lesson 85)."
+    cleffy: >
+      Minuet in G, opening. D, G, A, B, C, D, G, G.
+      Pinky on the high D pickup. Thumb drops to G. Walk up 1-2-3-4-5 to D. Thumb back to G. Pinky for the last G.
+    interaction:
+      type: sequence
+      keys: ["D5","G4","A4","B4","C5","D5","G4","G4"]
+
+  - id: 12
+    mode: hear
+    type: identify_drill
+    figure: "Round counter 1 of 3. Animations of each move."
+    cleffy: >
+      Three rounds. Which trick is this?
+    interaction:
+      type: drill
+      rounds: 3
+      options: ["Thumb-under", "Cross-over", "Substitution"]
+
+  - id: 13
+    mode: play
+    type: scale_with_all_tricks
+    figure: "Staff: one octave C major scale up and down. Fingering numbers underneath."
+    cleffy: >
+      Full octave. Up with thumb-under. Down with cross-over.
+      One breath.
+    interaction:
+      type: sequence
+      keys: ["C4","D4","E4","F4","G4","A4","B4","C5","B4","A4","G4","F4","E4","D4","C4"]
+    followup_cleffy: >
+      That's a scale. Real choreography.
+
+  - id: 14
+    mode: hear
+    type: pre_check
+    figure: "Banner."
+    cleffy: >
+      Three quick ones.
+
+  - id: 15
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 122. A hand with all five fingers spread, each labelled. Three checkmarks next to the three tricks."
+    cleffy: >
+      Three tricks, re-held.
+      Tomorrow — chords and intervals. All the theory so far.
+
+practice_this_week:
+  real_piano:
+    - "One octave C major scale, right hand. Up and down. Slow. Watch the thumb on the way up and the middle finger on the way down."
+    - "Same scale, left hand. Mirror fingering — 5 4 3 2 1 3 2 1."
+  virtual_only:
+    - "Replay pages 4, 6, 7, 13"
+  estimated_time: "8 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "Hand diagram, thumb sliding under middle finger"
+          prompt: "Which trick is this?"
+          options: ["Cross-over", "Thumb-under", "Substitution"]
+          correct: 1
+        - figure: "Scale going down with finger 3 crossing over finger 1"
+          prompt: "Which trick is this?"
+          options: ["Cross-over", "Thumb-under", "Substitution"]
+          correct: 0
+        - figure: "One key held, two fingers taking turns on it"
+          prompt: "Which trick is this?"
+          options: ["Cross-over", "Thumb-under", "Substitution"]
+          correct: 2
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "A smooth ascending scale"
+          prompt: "Did the hand use thumb-under somewhere in this scale?"
+          options: ["Yes", "No"]
+          correct: 0
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play C D E F G right hand with fingers 1 2 3 1 2."
+          accept: "C4 D4 E4 F4 G4 ascending"
+
+remediation:
+  id: "122.5"
+  title: "Fingering, one trick at a time"
+  pages: 6
+  opening_cleffy: >
+    Three tricks in one lesson is a lot.
+    Let's walk them separately — slower, one hand only.
+
+completion:
+  cleffy: >
+    Fingering sharpened.
+    Tomorrow — chords, intervals, all the theory you've picked up.
+  xp: 19
+  unlocks: 123

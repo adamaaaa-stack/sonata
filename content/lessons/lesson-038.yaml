@@ -1,0 +1,224 @@
+id: 38
+tier: elementary
+act: 8
+title: "Small vs big leap"
+subtitle: "Hearing the size"
+goal: "Hear the difference between a small leap (4th/5th) and a big leap (6th/octave)."
+prereqs: [36, 37]
+method_focus: "leaps"
+time_estimate_min: 10
+piece_context: null
+metaphor: "ear-measures-distance"
+vibe: ["gentle", "playful"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Ear icon next to a staircase. A small leap and a big leap both drawn."
+    cleffy: >
+      You can see leap sizes. Today your ear learns to hear them too.
+      Two categories to start: small leap and big leap.
+
+  - id: 2
+    mode: see
+    type: definition
+    figure: "Two leap pairs on staff. A: C-G (5th, small-side). B: C-C5 (octave, big)."
+    cleffy: >
+      Small leap — 4th or 5th. Kind of close.
+      Big leap — 6th, 7th, or octave. Wide open.
+      Two buckets. That's enough for now.
+
+  - id: 3
+    mode: hear
+    type: small_vs_big
+    figure: "Two play buttons."
+    audio:
+      A: "C4 to G4 (5th, small)"
+      B: "C4 to C5 (octave, big)"
+    cleffy: >
+      Listen. Small leap first, big leap second.
+      Big leap has more space — your ear can feel it stretching.
+
+  - id: 4
+    mode: hear
+    type: drill_1
+    figure: "Round counter 1 of 4."
+    cleffy: >
+      Four rounds. Small or big leap?
+    interaction:
+      type: drill
+      rounds: 4
+      options: ["Small", "Big"]
+
+  - id: 5
+    mode: hear
+    type: leap_vs_smaller
+    figure: "Two play buttons."
+    audio:
+      A: "C4 to E4 (skip)"
+      B: "C4 to G4 (leap)"
+    cleffy: >
+      Now harder. One is a skip, one is a leap.
+      Skip is smaller than any leap. Don't let them fool you.
+
+  - id: 6
+    mode: hear
+    type: drill_2
+    figure: "Round counter 1 of 4."
+    cleffy: >
+      Four by ear. Skip or leap?
+    interaction:
+      type: drill
+      rounds: 4
+      options: ["Skip", "Leap"]
+
+  - id: 7
+    mode: hear
+    type: full_range
+    figure: "Round counter 1 of 6. Step, skip, or leap by ear."
+    cleffy: >
+      Now mix it all. Step, skip, or leap?
+    interaction:
+      type: drill
+      rounds: 6
+      options: ["Step", "Skip", "Leap"]
+
+  - id: 8
+    mode: play
+    type: play_small_leap
+    figure: "Keyboard. Middle C and G4 glowing."
+    cleffy: >
+      Play a small leap — C to G. That's a 5th.
+    interaction:
+      type: sequence
+      keys: ["C4", "G4"]
+
+  - id: 9
+    mode: play
+    type: play_big_leap
+    figure: "Keyboard. C4 and A4 glowing."
+    cleffy: >
+      Now a big leap — C to A. That's a 6th.
+    interaction:
+      type: sequence
+      keys: ["C4", "A4"]
+
+  - id: 10
+    mode: play
+    type: big_leap_octave
+    figure: "Keyboard. C4 and C5 glowing."
+    cleffy: >
+      And an octave. Same letter, one floor up.
+    interaction:
+      type: sequence
+      keys: ["C4", "C5"]
+
+  - id: 11
+    mode: read
+    type: leap_direction
+    figure: "Staff with a leap up, then a leap down, labeled."
+    cleffy: >
+      Read each leap. Play a matching leap in the right direction.
+    interaction:
+      type: shape
+      shape_type: "leap"
+      direction: "any"
+
+  - id: 12
+    mode: read
+    type: melody_with_leaps
+    figure: "Staff with 4 notes: C-G-E-D (leap up, skip down, step down)."
+    cleffy: >
+      Four notes. Leap up, then skip down, then step down.
+      Read and play.
+    interaction:
+      type: sequence
+      keys: ["C4", "G4", "E4", "D4"]
+
+  - id: 13
+    mode: hear
+    type: quick_mixed
+    figure: "Round counter 1 of 4."
+    cleffy: >
+      Fast rounds. Step, skip, or leap.
+    interaction:
+      type: drill
+      rounds: 4
+      options: ["Step", "Skip", "Leap"]
+
+  - id: 14
+    mode: hear
+    type: mixed_drill
+    figure: "Mixed four rounds."
+    cleffy: >
+      Four rounds.
+    interaction:
+      type: drill
+      rounds: 4
+
+  - id: 15
+    mode: hear
+    type: pre_check
+    figure: "Banner."
+    cleffy: >
+      Four quick ones.
+
+  - id: 16
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 38. Ear icon with three arrows: small, medium, big."
+    cleffy: >
+      Ear is trained. Small leaps vs big leaps.
+      Tomorrow — which finger lands where when a leap shows up in a piece.
+
+practice_this_week:
+  real_piano:
+    - "RH thumb on Middle C. Play C-G (small leap). Then C-A (medium). Then C-C up (octave big)."
+    - "LH pinky on bass C. Same three leaps moving up."
+  virtual_only:
+    - "Replay pages 5-7 (ear drills for step/skip/leap)"
+  estimated_time: "5 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "Staff: C to G."
+          prompt: "Small leap or big leap?"
+          options: ["Small", "Big"]
+          correct: 0
+        - figure: "Staff: C4 to C5."
+          prompt: "Small leap or big leap?"
+          options: ["Small", "Big"]
+          correct: 1
+    hear:
+      pass_threshold: 2
+      questions:
+        - audio: "C4 to G4 (small leap)"
+          prompt: "Small or big?"
+          options: ["Small", "Big"]
+          correct: 0
+        - audio: "C4 to C5 (octave)"
+          prompt: "Small or big?"
+          options: ["Small", "Big"]
+          correct: 1
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play a big leap from Middle C."
+          accept: "C4 and any note 5+ steps above"
+
+remediation:
+  id: "38.5"
+  title: "Ear training, slower"
+  pages: 5
+  opening_cleffy: >
+    Leap sizes by ear take reps. Let's do more, slower, with replays.
+
+completion:
+  cleffy: >
+    Ears can size leaps now. One last leap lesson tomorrow — fingering.
+  xp: 20
+  unlocks: 39

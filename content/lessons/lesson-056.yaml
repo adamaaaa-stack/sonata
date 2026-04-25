@@ -1,0 +1,214 @@
+id: 56
+tier: elementary
+act: 12
+title: "Loud and soft"
+subtitle: "p and f — your first dynamics"
+goal: "Read and play the two basic dynamic markings: p (piano = soft) and f (forte = loud)."
+prereqs: [55]
+method_focus: "dynamics"
+time_estimate_min: 10
+piece_context: null
+metaphor: "volume-knob"
+vibe: ["gentle", "playful"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Staff with a big 'p' under one note and a big 'f' under another."
+    cleffy: >
+      Notes have a volume. Composers tell you how loud to play.
+      Two markings to start: p and f.
+
+  - id: 2
+    mode: see
+    type: p_means
+    figure: "Staff with 'p' drawn big. Label: PIANO = SOFT."
+    cleffy: >
+      'p' stands for piano. In Italian, piano means SOFT.
+      Yes — the instrument is named after the same word. The piano used to be called pianoforte.
+      When you see 'p' under a note, play it gently.
+
+  - id: 3
+    mode: see
+    type: f_means
+    figure: "Staff with 'f'. Label: FORTE = LOUD."
+    cleffy: >
+      'f' stands for forte. Italian for LOUD.
+      When you see 'f' under a note, play it strong.
+
+  - id: 4
+    mode: see
+    type: interactive
+    figure: "Staff with p."
+    cleffy: >
+      Loud or soft?
+    interaction:
+      type: choice
+      options: ["Loud", "Soft"]
+      correct: 1
+
+  - id: 5
+    mode: see
+    type: interactive_f
+    figure: "Staff with f."
+    cleffy: >
+      This?
+    interaction:
+      type: choice
+      options: ["Loud", "Soft"]
+      correct: 0
+
+  - id: 6
+    mode: see
+    type: drill
+    figure: "Round counter 1 of 4."
+    cleffy: >
+      Four rounds. p or f?
+    interaction:
+      type: drill
+      rounds: 4
+      options: ["p (soft)", "f (loud)"]
+
+  - id: 7
+    mode: hear
+    type: soft_sample
+    figure: "Play button."
+    audio:
+      A: "C played softly"
+    cleffy: >
+      Listen to soft. That's p.
+
+  - id: 8
+    mode: hear
+    type: loud_sample
+    figure: "Play button."
+    audio:
+      A: "C played loudly"
+    cleffy: >
+      Now loud. That's f.
+
+  - id: 9
+    mode: hear
+    type: drill
+    figure: "Round counter 1 of 4."
+    cleffy: >
+      Four rounds. Soft or loud?
+    interaction:
+      type: drill
+      rounds: 4
+      options: ["Soft (p)", "Loud (f)"]
+
+  - id: 10
+    mode: play
+    type: play_soft
+    figure: "Keyboard. Middle C. 'p' marking."
+    cleffy: >
+      Tap Middle C softly. Light touch.
+    interaction:
+      type: tap
+      key: "C4"
+
+  - id: 11
+    mode: play
+    type: play_loud
+    figure: "Keyboard. Middle C. 'f' marking."
+    cleffy: >
+      Now tap Middle C loudly. Stronger touch.
+    interaction:
+      type: tap
+      key: "C4"
+
+  - id: 12
+    mode: play
+    type: alternating
+    figure: "Staff: C (p) then C (f). Alternating. Metronome."
+    cleffy: >
+      Four Cs. Alternate soft, loud, soft, loud.
+    interaction:
+      type: rhythm
+      sequence: ["C4","C4","C4","C4"]
+      durations: ["quarter","quarter","quarter","quarter"]
+      tempo: 60
+
+  - id: 13
+    mode: read
+    type: phrase_with_dynamics
+    figure: "Staff: C-D-E-F with 'p' marking at start."
+    cleffy: >
+      Four-note phrase marked p. Play all four softly.
+    interaction:
+      type: sequence
+      keys: ["C4","D4","E4","F4"]
+
+  - id: 14
+    mode: hear
+    type: mixed
+    figure: "Four rounds."
+    cleffy: >
+      Mixed.
+    interaction:
+      type: drill
+      rounds: 4
+
+  - id: 15
+    mode: hear
+    type: pre_check
+    figure: "Banner."
+    cleffy: >
+      Four quick ones.
+
+  - id: 16
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 56. p and f symbols drawn big with labels SOFT and LOUD."
+    cleffy: >
+      Two dynamic markings. You can read loud and soft now.
+      Tomorrow — the shape of a phrase.
+
+practice_this_week:
+  real_piano:
+    - "Play Middle C softly, then loudly. Feel the difference in your touch."
+    - "Play Ode to Joy once soft, once loud."
+  virtual_only:
+    - "Replay page 12 (alternating soft/loud)"
+  estimated_time: "5 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "p marking"
+          prompt: "Play loud or soft?"
+          options: ["Loud", "Soft"]
+          correct: 1
+        - figure: "f marking"
+          prompt: "Play loud or soft?"
+          options: ["Loud", "Soft"]
+          correct: 0
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "A soft note"
+          prompt: "Soft or loud?"
+          options: ["Soft (p)", "Loud (f)"]
+          correct: 0
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play Middle C softly, then loudly."
+          accept: "C4 then C4 with dynamic change"
+
+remediation:
+  id: "56.5"
+  title: "p vs f, slower"
+  pages: 5
+  opening_cleffy: >
+    Two letters, two volumes. Slow walkthrough.
+
+completion:
+  cleffy: >
+    Loud and soft, on the page and in your hand.
+  xp: 20
+  unlocks: 57

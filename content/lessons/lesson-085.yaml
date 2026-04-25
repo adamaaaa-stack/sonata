@@ -1,0 +1,243 @@
+# ============================================================
+# LESSON 85 · Minuet in G (fingering)
+# Tier 3 · Act 17 · Low-intermediate · ACT BOSS 🎯
+# Same Minuet in G melody from L80 — now with a planned hand.
+# ============================================================
+id: 85
+tier: low-intermediate
+act: 17
+title: "Minuet in G (fingering)"
+subtitle: "Act 17 · The planned hand"
+goal: "Play the Minuet in G opening with every finger planned — using thumb-under and cross-over."
+prereqs: [80, 81, 82, 83, 84]
+method_focus: "combine"
+time_estimate_min: 16
+piece_context: "Act 17's finish line. Same Minuet melody from Act 16 — but this time the hand is choreographed end to end."
+metaphor: "hand-as-choreography"
+vibe: ["focused", "celebratory", "serious"]
+is_act_boss: true
+piece:
+  title: "Minuet in G (opening, fingering focus)"
+  composer: "Bach (attrib. Petzold)"
+  key_center: "G major"
+  time_signature: "3/4"
+  difficulty: "low-intermediate — planned fingering across a six-note range"
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy holding the Minuet in G sheet music. Small pencil marks — finger numbers — floating above every note."
+    cleffy: >
+      End of Act 17.
+      Same piece you learned last week. New job.
+      This time, every finger is planned.
+
+  - id: 2
+    mode: hear
+    type: listen_full
+    figure: "Play button. Minuet in G opening, clean."
+    audio:
+      A: "Minuet in G opening phrase — D5, G4, A4, B4, C5, D5, G4, G4 — played smoothly"
+    cleffy: >
+      Listen. The familiar opening.
+      Same notes. You're going to play them without stumbling over your own hand.
+
+  - id: 3
+    mode: see
+    type: the_phrase
+    figure: "Treble staff. Minuet in G opening: D5 G4 A4 B4 C5 D5 G4 G4. No fingerings yet."
+    cleffy: >
+      Here's the phrase. Eight notes.
+      D, G, A, B, C, D, G, G.
+      D up high — drops down to G — walks up to D — drops back to G twice.
+
+  - id: 4
+    mode: see
+    type: the_range_problem
+    figure: "Staff showing the full range from G4 to D5. Hand diagram showing five fingers can't span both ends naturally."
+    cleffy: >
+      Six-note range. G up to D. That's six white keys.
+      Five fingers. One move needed somewhere.
+
+  - id: 5
+    mode: see
+    type: the_plan
+    figure: "Staff with fingering written above each note: 5-1-2-3-4-5-1-5 (D5=5, G4=1, A4=2, B4=3, C5=4, D5=5, G4=1, G4=5)."
+    cleffy: >
+      The plan. Five, one, two, three, four, five — one — five.
+      Pinky on the high D pickup.
+      Thumb drops to G.
+      Fingers 2, 3, 4, 5 walk up to D.
+      Thumb snaps back to G.
+      Pinky hovers for the last G.
+
+  - id: 6
+    mode: see
+    type: the_drop
+    figure: "Hand diagram. Pinky on D5, then the whole hand shifting so thumb lands on G4. Arrow showing the hop."
+    cleffy: >
+      First move — the drop. Pinky plays high D. Hand hops down so thumb lands on G.
+      It's a leap. Plan the landing before you hop.
+
+  - id: 7
+    mode: play
+    type: play_pickup
+    figure: "Keyboard. D5 and G4 glowing. Fingers 5 and 1."
+    cleffy: >
+      Play just those two. Pinky on D, then thumb on G.
+    interaction:
+      type: sequence
+      keys: ["D5","G4"]
+
+  - id: 8
+    mode: see
+    type: the_walk_up
+    figure: "Keyboard close-up. G4-A4-B4-C5-D5 glowing. Fingers 1-2-3-4-5 labeled. No thumb-under needed — five keys, five fingers."
+    cleffy: >
+      Now the walk up. G to A to B to C to D.
+      Five keys. Five fingers. No thumb-under needed. One finger per note.
+
+  - id: 9
+    mode: play
+    type: play_walk_up
+    figure: "Keyboard. G4 through D5. Fingering 1-2-3-4-5."
+    cleffy: >
+      Play the walk. Thumb on G. 1, 2, 3, 4, 5 up to D.
+    interaction:
+      type: sequence
+      keys: ["G4","A4","B4","C5","D5"]
+
+  - id: 10
+    mode: see
+    type: the_position_shift
+    figure: "Hand diagram. Pinky on D5, then the whole hand hopping back so thumb lands on G4. Arrow highlighting the shift."
+    cleffy: >
+      Now the tricky part. You're on D with your pinky. Next note is G — way back.
+      Position shift. The hand hops to a new spot so the thumb can land on G.
+      Not a thumb-under — a leap that big needs the whole hand to move.
+
+  - id: 11
+    mode: play
+    type: play_position_shift
+    figure: "Keyboard. D5 held by pinky. Hand animating back so thumb lands on G4."
+    cleffy: >
+      Just that move. D with pinky, then hand hops to new position — thumb on G.
+    interaction:
+      type: sequence
+      keys: ["D5","G4"]
+
+  - id: 12
+    mode: play
+    type: full_phrase_slow
+    figure: "Grand staff. Minuet in G opening with every finger labeled. Tempo 60. Guides on."
+    cleffy: >
+      Full phrase, slow, guides on.
+      5-1-2-3-4-5-1-5. Trust the plan.
+    interaction:
+      type: song
+      sequence: ["D5","G4","A4","B4","C5","D5","G4","G4"]
+      guides: true
+      tempo: 60
+
+  - id: 13
+    mode: play
+    type: no_guides
+    figure: "Grand staff. Same phrase. No guides."
+    cleffy: >
+      No guides. You read the fingerings. You play.
+      Stumble? Keep going.
+    interaction:
+      type: song
+      sequence: ["D5","G4","A4","B4","C5","D5","G4","G4"]
+      guides: false
+    followup_cleffy: >
+      That.
+      Same notes as Act 16. Different hand.
+      This hand knows where it's going.
+
+  - id: 14
+    mode: play
+    type: at_tempo
+    figure: "Grand staff. Tempo 100. Minuet tempo."
+    cleffy: >
+      At tempo. 100 bpm. The real Minuet feel.
+      One, two, three. One, two, three.
+    interaction:
+      type: song
+      sequence: ["D5","G4","A4","B4","C5","D5","G4","G4"]
+      guides: false
+      tempo: 100
+
+  - id: 15
+    mode: hear
+    type: pre_check
+    figure: "Banner — Act 17 mastery check."
+    cleffy: >
+      Four quick ones.
+
+  - id: 16
+    mode: see
+    type: wrap
+    figure: "Celebration card — ACT 17 COMPLETE 🎯. Cleffy holding up a hand diagram with every finger numbered. Minuet in G sheet music behind him."
+    cleffy: >
+      Act 17, done.
+      You have three hand tricks now. Thumb-under. Cross-over. Substitution.
+      And one planned piece to prove they work.
+      Next act: chords. Three-note stacks. Major and minor. Broken and blocked.
+      Canon in D is waiting at the end of Act 18.
+
+practice_this_week:
+  real_piano:
+    - "Minuet in G opening with the planned fingering — every day this week."
+    - "Isolate the thumb-under at the end: D with pinky, G with thumb. Ten times a day."
+    - "Write the finger numbers above the notes on paper. Play from your own markings."
+    - "Play the same phrase with the WRONG fingering once. Feel how it stumbles. Reset."
+  virtual_only:
+    - "Replay pages 12-14 (full phrase, guided → no guides → at tempo) three times"
+  estimated_time: "10-15 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "Minuet opening with fingering 5-1-2-3-4-5-1-5"
+          prompt: "What finger plays the first note (D5)?"
+          options: ["Thumb", "Pointer", "Pinky"]
+          correct: 2
+        - figure: "Last two notes of the phrase — D then G"
+          prompt: "What move happens between the D and the G?"
+          options: ["Thumb-under", "Substitution", "Cross-over"]
+          correct: 0
+        - figure: "G-A-B-C-D walk-up"
+          prompt: "Does this segment need a thumb-under?"
+          options: ["Yes", "No — five fingers fit five keys"]
+          correct: 1
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "Smooth Minuet opening"
+          prompt: "Can you hear the thumb-under?"
+          options: ["No — it's smooth", "Yes — big gap"]
+          correct: 0
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play D5, then thumb-under to G4. Just those two notes."
+          accept: "D5 then G4 with smooth pass"
+
+remediation:
+  id: "85.5"
+  title: "Minuet, finger by finger"
+  pages: 10
+  opening_cleffy: >
+    Act boss — bigger piece. Let's rebuild the phrase in three chunks: the drop, the walk, the position shift. Then put them back together.
+
+completion:
+  cleffy: >
+    Act 17, closed. You have a planned hand.
+    Minuet in G — articulation in Act 16, fingering in Act 17. Same piece, two layers deeper.
+    Next up: chords. Three notes at once.
+  xp: 30
+  unlocks: 86

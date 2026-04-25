@@ -1,0 +1,252 @@
+# ============================================================
+# LESSON 237 · Moonlight 1 — bars 1-12 polished
+# Tier 6 · Act 48 · Advanced
+# You learned bars 1-8 in Tier 4. Today — extend to bar 12, and make it beautiful.
+# ============================================================
+id: 237
+tier: advanced
+act: 48
+title: "Moonlight 1 — bars 1-12 polished"
+subtitle: "Act 48 · Polish and extend"
+goal: "Extend the opening by four bars (9-12) and — for the first 8 — stop playing them correctly. Start playing them beautifully."
+prereqs: [175, 236]
+method_focus: "play"
+time_estimate_min: 18
+piece_context: "You've played bars 1-8 of Moonlight since lesson 175. This is not a new-notes lesson for them. It's a polish lesson. Voicing, pedal cleanliness, pianissimo endurance. Bars 9-12 extend the melody line further — the same engine continues, the melody keeps going. Same feel, slightly new notes."
+metaphor: "moonlight-extended"
+vibe: ["quiet", "reflective", "focused"]
+piece:
+  title: "Moonlight Sonata, 1st mvt (bars 1-12)"
+  composer: "Beethoven (1801)"
+  key_center: "C-sharp minor"
+  time_signature: "alla breve (2/2), felt in 4"
+  difficulty: "advanced — bars 1-8 re-polished, bars 9-12 new material, slow tempo"
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy at the piano. Eight bars visible behind him with a gold stamp that says 'known.' Four more bars extending to the right. Banner: bars 1-12 · polish + extend."
+    cleffy: >
+      You already know bars 1 through 8.
+      Sixty lessons ago, you played them for the first time.
+      Today — two jobs.
+      Make those eight bars beautiful. Add four more.
+
+  - id: 2
+    mode: see
+    type: the_two_jobs
+    figure: "Two boxes. Left — 'Bars 1-8: known notes, new goal — beauty.' Right — 'Bars 9-12: new notes, continue the melody line.'"
+    cleffy: >
+      Job one — the eight bars you know.
+      Not 'learn them.' Not even 'review them.' Play them beautifully.
+      Voicing. Pedal. Pianissimo that lasts.
+      Job two — four new bars. Same engine, melody keeps going.
+
+  - id: 3
+    mode: see
+    type: beauty_checklist
+    figure: "Three panels. Panel 1: 'Voicing — top note of RH sings.' Panel 2: 'Pedal — clean change every bar, no mud.' Panel 3: 'Pianissimo — very soft, steady for many bars.'"
+    cleffy: >
+      Three things separate correct from beautiful.
+      Voicing — the melody sings above the engine. Thumb of the right hand, on top.
+      Pedal — clean change every bar. No blur between chords.
+      Pianissimo — quiet, and steady. For a full minute at a time.
+
+  - id: 4
+    mode: hear
+    type: listen_pro_1_8
+    figure: "Play button. Caption: 'bars 1-8 — a great recording. Listen for voicing, pedal, pianissimo.'"
+    audio:
+      A: "Moonlight bars 1-8, real recording, adagio sostenuto — voiced melody, clean pedal, pianissimo"
+    cleffy: >
+      A real recording. Bars 1 through 8.
+      Listen specifically for the melody's top note ringing above the triplets.
+      Listen for how quiet it is.
+
+  - id: 5
+    mode: play
+    type: bars_1_4_pp
+    figure: "Bars 1-4. pp marked. Pedal per bar. Tempo 50."
+    cleffy: >
+      Bars 1 through 4. Engine only. Pianissimo.
+      No melody yet — so every triplet has to stay even and quiet.
+      Tempo 50. Pedal every bar.
+    interaction:
+      type: song
+      sequence: [["C#2","C#3"],"C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4",["C#2","C#3"],"C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4",["B1","B2"],"B3","D#4","F#4","B3","D#4","F#4","B3","D#4","F#4","B3","D#4","F#4",["E2","E3"],"E3","G#3","B3","E3","G#3","B3","E3","G#3","B3","E3","G#3","B3"]
+      guides: false
+      tempo: 50
+
+  - id: 6
+    mode: see
+    type: voicing_zoom
+    figure: "Bars 5-8 RH only. The melody notes (top of each triplet when the dotted rhythm lands) circled in gold. Caption: 'these ring louder than the rest.'"
+    cleffy: >
+      Voicing the melody.
+      When the dotted rhythm lands — G-sharp, then A — that top note sings.
+      Thumb of the right hand, firmer. The triplets underneath, quieter.
+      Not loud. Just — above.
+
+  - id: 7
+    mode: play
+    type: bars_5_8_voiced
+    figure: "Bars 5-8 with melody voicing. Pedal per bar. Tempo 50."
+    cleffy: >
+      Bars 5 through 8. Melody voiced.
+      Let the top note carry. The engine whispers underneath.
+    interaction:
+      type: song
+      sequence: [["A2","A3","G#4"],"A3","C#4","E4","A3","C#4","G#4","A3","C#4","A4",["F#2","F#3","A4"],"F#3","A3","C#4","F#3","A3","A4","F#3","A3","G#4",["G#2","G#3","G#4"],"G#3","B#3","D#4","G#3","B#3","F#4","G#3","B#3","E4",["C#2","C#3","E4"],"C#3","E3","G#3","C#3","E3","G#3","C#3","E3","G#3"]
+      guides: true
+      tempo: 50
+
+  - id: 8
+    mode: see
+    type: bars_9_12_preview
+    figure: "Bars 9-12 shown on grand staff. RH: melody continues — G#4 repeated with dotted rhythm, then stepping up to A4 and B4 territory. LH: octaves on C#, continuing. Caption: 'same engine, melody keeps going.'"
+    cleffy: >
+      Bars 9 through 12. New material — but not very new.
+      Same engine, same key. Melody keeps walking.
+      G-sharp again, then a small rise. A, then B.
+      Long-short-short rhythm. Same feel.
+
+  - id: 9
+    mode: hear
+    type: listen_bars_9_12
+    figure: "Play button. Caption: 'bars 9-12 — real recording.'"
+    audio:
+      A: "Moonlight bars 9-12, real recording, adagio sostenuto — melody continues, pedal changes, pianissimo"
+    cleffy: >
+      Four bars you haven't heard on their own before.
+      Listen how the melody extends without surprising you.
+      A continuation, not a break.
+
+  - id: 10
+    mode: play
+    type: bars_9_12_melody_alone
+    figure: "RH melody only for bars 9-12. Tempo 50."
+    cleffy: >
+      Melody alone first. Right hand.
+      Same long-short-short. Just different pitches.
+    interaction:
+      type: rhythm
+      sequence: ["G#4","G#4","G#4","G#4","A4","A4","B4","B4","A4","G#4"]
+      durations: ["dotted_quarter","eighth","quarter","dotted_quarter","eighth","quarter","dotted_quarter","eighth","quarter","half"]
+      tempo: 50
+
+  - id: 11
+    mode: play
+    type: bars_9_12_full
+    figure: "Bars 9-12 both hands, pedal, melody voiced. Tempo 50. Guides on."
+    cleffy: >
+      Both hands, bars 9 through 12.
+      Pedal at each bar. Melody voiced on top.
+    interaction:
+      type: song
+      sequence: [["C#2","C#3","G#4"],"C#3","E3","G#3","C#3","E3","G#3","C#3","E3","G#4",["C#2","C#3","A4"],"C#3","E3","G#3","C#3","E3","G#3","C#3","E3","B4",["F#2","F#3","B4"],"F#3","A3","C#4","F#3","A3","A4","F#3","A3","G#4",["G#2","G#3","G#4"],"G#3","B#3","D#4","G#3","B#3","D#4","G#3","B#3","D#4"]
+      guides: true
+      tempo: 50
+
+  - id: 12
+    mode: play
+    type: bars_1_12_all
+    figure: "All 12 bars. Guides on. Tempo 48. Pedal at every bar."
+    cleffy: >
+      All twelve. Start to finish.
+      Known eight, new four, all one piece now.
+      Quiet. Voiced. Even.
+    interaction:
+      type: song
+      sequence: [["C#2","C#3"],"C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4",["C#2","C#3"],"C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4",["B1","B2"],"B3","D#4","F#4","B3","D#4","F#4","B3","D#4","F#4",["E2","E3"],"E3","G#3","B3","E3","G#3","B3","E3","G#3","B3",["A2","A3","G#4"],"A3","C#4","E4","A3","C#4","G#4","A3","C#4",["F#2","F#3","A4"],"F#3","A3","C#4","F#3","A3","A4","F#3","A3",["G#2","G#3","G#4"],"G#3","B#3","D#4","G#3","B#3","F#4","G#3","B#3",["C#2","C#3","E4"],"C#3","E3","G#3","C#3","E3","G#3","C#3","E3",["C#2","C#3","G#4"],"C#3","E3","G#3","C#3","E3","G#3","C#3","E3","G#4",["C#2","C#3","A4"],"C#3","E3","G#3","C#3","E3","G#3","C#3","E3","B4",["F#2","F#3","B4"],"F#3","A3","C#4","F#3","A3","A4","F#3","A3","G#4",["G#2","G#3","G#4"],"G#3","B#3","D#4","G#3","B#3","D#4","G#3","B#3","D#4"]
+      guides: true
+      tempo: 48
+
+  - id: 13
+    mode: play
+    type: bars_1_12_no_guides
+    figure: "All 12 bars. No guides. pp. Tempo 48. Caption: 'beauty, not correctness.'"
+    cleffy: >
+      No guides. Once more.
+      Beauty, not correctness. You know the notes.
+      Let it breathe.
+    interaction:
+      type: song
+      sequence: [["C#2","C#3"],"C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4",["C#2","C#3"],"C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4",["B1","B2"],"B3","D#4","F#4","B3","D#4","F#4","B3","D#4","F#4",["E2","E3"],"E3","G#3","B3","E3","G#3","B3","E3","G#3","B3",["A2","A3","G#4"],"A3","C#4","E4","A3","C#4","G#4","A3","C#4",["F#2","F#3","A4"],"F#3","A3","C#4","F#3","A3","A4","F#3","A3",["G#2","G#3","G#4"],"G#3","B#3","D#4","G#3","B#3","F#4","G#3","B#3",["C#2","C#3","E4"],"C#3","E3","G#3","C#3","E3","G#3","C#3","E3",["C#2","C#3","G#4"],"C#3","E3","G#3","C#3","E3","G#3","C#3","E3","G#4",["C#2","C#3","A4"],"C#3","E3","G#3","C#3","E3","G#3","C#3","E3","B4",["F#2","F#3","B4"],"F#3","A3","C#4","F#3","A3","A4","F#3","A3","G#4",["G#2","G#3","G#4"],"G#3","B#3","D#4","G#3","B#3","D#4","G#3","B#3","D#4"]
+      guides: false
+      tempo: 48
+    followup_cleffy: >
+      Twelve bars of Moonlight. Polished.
+      Not the same as six months ago.
+
+  - id: 14
+    mode: hear
+    type: pre_check
+    figure: "Banner."
+    cleffy: >
+      Three quick ones.
+
+  - id: 15
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 237. Twelve bars of Moonlight on a staff, gold stamp on all 12. Cleffy under a moon."
+    cleffy: >
+      Twelve bars.
+      Tomorrow — new ground. Bars 13 through 23.
+      The first modulation. The piece starts to travel.
+
+practice_this_week:
+  real_piano:
+    - "Bars 1-12, once a day. Very quiet. Full pedal cycle at every bar. No rush on tempo."
+    - "One day this week — play bars 1-8 from Tier 4 memory, then bars 9-12 added on. Feel how the extension fits."
+    - "Record yourself playing bars 1-12 once. Listen back — are you voicing the melody? Is the pianissimo real?"
+  virtual_only:
+    - "Replay pages 7, 11, 13 — voicing, new material, full run."
+  estimated_time: "15 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "Bars 1-12 on the grand staff"
+          prompt: "How many of these bars were new to you before today?"
+          options: ["None", "Four", "All twelve"]
+          correct: 1
+        - figure: "Three priorities: voicing, pedal, pianissimo"
+          prompt: "What is voicing?"
+          options: ["Playing softly", "Letting the melody note ring above the accompaniment", "Changing the pedal"]
+          correct: 1
+        - figure: "Dynamic marking pp across the whole passage"
+          prompt: "How loud should bars 1-12 be?"
+          options: ["Moderate", "Very soft", "Loud, then soft"]
+          correct: 1
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "Two versions of bars 5-8 — one with melody voiced, one with everything equal"
+          prompt: "Which sounds right?"
+          options: ["Melody voiced on top", "Everything equal volume"]
+          correct: 0
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play bars 9-12 — RH melody with LH octaves, pedal every bar, at 48 bpm."
+          accept: "Bars 9-12 of Moonlight, both hands, pedaled per bar"
+
+remediation:
+  id: "237.5"
+  title: "Bars 1-12, one section at a time"
+  pages: 9
+  opening_cleffy: >
+    Twelve bars is a big stretch. Even known ones need re-grounding.
+    We'll do bars 1-4, then 5-8, then 9-12 — each alone — before stringing them.
+    Very slow. No rush.
+
+completion:
+  cleffy: >
+    Twelve bars of Moonlight, polished.
+    Tomorrow — new ground. Bars 13 through 23.
+    The piece starts to modulate.
+  xp: 20
+  unlocks: 238

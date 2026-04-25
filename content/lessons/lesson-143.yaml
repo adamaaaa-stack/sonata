@@ -1,0 +1,231 @@
+# ============================================================
+# LESSON 143 · Tempo markings
+# Tier 4 · Act 29 · Intermediate
+# Adagio, moderato, allegro, presto — speed words.
+# ============================================================
+id: 143
+tier: intermediate
+act: 29
+title: "Tempo markings"
+subtitle: "Act 29 · Dynamics & tempo"
+goal: "Read the four most common tempo words and know roughly how fast each one is — adagio, moderato, allegro, presto."
+prereqs: [142]
+method_focus: "tempo"
+time_estimate_min: 13
+piece_context: "Volume has a full range. So does speed. Today — the Italian words composers write at the top of a piece to tell you how fast. Four of them, most common, in order from slow to blazing."
+metaphor: "range-of-voices"
+vibe: ["gentle", "focused"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy pointing to the top-left corner of a staff. The word 'Allegro' floats there in italic serif. Banner: TEMPO."
+    cleffy: >
+      Tempo.
+      The word written above the very first note of a piece.
+      Italian again. Tells you the speed.
+
+  - id: 2
+    mode: see
+    type: the_chart
+    figure: "Four rows stacked. Top to bottom: Presto (≈ 160 bpm, label: very fast), Allegro (≈ 120 bpm, label: fast), Moderato (≈ 90 bpm, label: walking), Adagio (≈ 60 bpm, label: slow). A metronome icon on each row."
+    cleffy: >
+      Four words to know.
+      Adagio — slow, about 60 bpm. The heartbeat.
+      Moderato — walking pace, about 90.
+      Allegro — fast, about 120.
+      Presto — very fast, about 160. Running.
+
+  - id: 3
+    mode: see
+    type: translations
+    figure: "Italian word cards with translations. Adagio = 'at ease'. Moderato = 'moderate'. Allegro = 'cheerful'. Presto = 'quickly'."
+    cleffy: >
+      The Italian tells the story.
+      Adagio — 'at ease'. Not just slow, but relaxed.
+      Moderato — 'moderate'. No rush.
+      Allegro — 'cheerful'. Bright, lively.
+      Presto — 'quickly'. Urgent.
+      Tempo is a mood, not just a number.
+
+  - id: 4
+    mode: hear
+    type: hear_adagio
+    figure: "Play button. Label: ADAGIO — 60 BPM."
+    audio:
+      A: "A simple scale played at 60 bpm — slow, spacious, like a heartbeat"
+    cleffy: >
+      Adagio. Listen.
+      Room between the notes. Space to breathe.
+
+  - id: 5
+    mode: hear
+    type: hear_moderato
+    figure: "Play button. Label: MODERATO — 90 BPM."
+    audio:
+      A: "Same scale played at 90 bpm — walking pace"
+    cleffy: >
+      Moderato. A steady walk.
+      Not slow, not fast. Just moving.
+
+  - id: 6
+    mode: hear
+    type: hear_allegro
+    figure: "Play button. Label: ALLEGRO — 120 BPM."
+    audio:
+      A: "Same scale played at 120 bpm — quick, lively"
+    cleffy: >
+      Allegro. Lively now.
+      This is where most fast music lives.
+
+  - id: 7
+    mode: hear
+    type: hear_presto
+    figure: "Play button. Label: PRESTO — 160 BPM."
+    audio:
+      A: "Same scale played at 160 bpm — very fast"
+    cleffy: >
+      Presto. Running.
+      Hard to play. Harder to keep clean.
+
+  - id: 8
+    mode: play
+    type: play_adagio
+    figure: "Staff: five notes C D E F G. Tempo marking: Adagio. Metronome 60."
+    cleffy: >
+      Five notes. Adagio. Slow.
+      Let each one ring before the next.
+    interaction:
+      type: rhythm
+      sequence: ["C4", "D4", "E4", "F4", "G4"]
+      durations: ["quarter", "quarter", "quarter", "quarter", "quarter"]
+      tempo: 60
+
+  - id: 9
+    mode: play
+    type: play_moderato
+    figure: "Same five notes. Tempo marking: Moderato. Metronome 90."
+    cleffy: >
+      Same five. Moderato now.
+      Walking pace. Steady.
+    interaction:
+      type: rhythm
+      sequence: ["C4", "D4", "E4", "F4", "G4"]
+      durations: ["quarter", "quarter", "quarter", "quarter", "quarter"]
+      tempo: 90
+
+  - id: 10
+    mode: play
+    type: play_allegro
+    figure: "Same five notes. Tempo marking: Allegro. Metronome 120."
+    cleffy: >
+      Allegro. Lively.
+      Don't rush the notes — let the metronome pull you.
+    interaction:
+      type: rhythm
+      sequence: ["C4", "D4", "E4", "F4", "G4"]
+      durations: ["quarter", "quarter", "quarter", "quarter", "quarter"]
+      tempo: 120
+
+  - id: 11
+    mode: see
+    type: the_in_between
+    figure: "A ruler labeled bpm. Markers along it — 60 adagio, 76 andante, 90 moderato, 108 allegretto, 120 allegro, 160 presto. Caption: 'There are more — but these four are the main ones.'"
+    cleffy: >
+      There are more words between these.
+      Andante — walking slowly. Allegretto — a little less than allegro.
+      You'll see them. But the four you already know cover most music.
+
+  - id: 12
+    mode: hear
+    type: guess_the_tempo
+    figure: "Four rounds. Banner — 'Which tempo marking fits?'"
+    cleffy: >
+      Four rounds. Listen and pick.
+    interaction:
+      type: drill
+      rounds: 4
+      options: ["Adagio", "Moderato", "Allegro", "Presto"]
+
+  - id: 13
+    mode: play
+    type: same_notes_three_speeds
+    figure: "Staff with a C-D-E-F-G-F-E-D-C phrase. Three versions stacked: top marked Adagio 60, middle Moderato 90, bottom Allegro 120."
+    cleffy: >
+      Same phrase. Three speeds. Feel the mood change.
+      Same notes, different piece.
+    interaction:
+      type: rhythm
+      sequence: ["C4", "D4", "E4", "F4", "G4", "F4", "E4", "D4", "C4"]
+      durations: ["quarter", "quarter", "quarter", "quarter", "quarter", "quarter", "quarter", "quarter", "quarter"]
+      tempo: 90
+
+  - id: 14
+    mode: hear
+    type: pre_check
+    figure: "Banner."
+    cleffy: >
+      Three quick ones.
+
+  - id: 15
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 143. Four tempo words stacked in italic serif, each with a metronome icon and bpm label."
+    cleffy: >
+      Four speeds known. Adagio to presto.
+      Tomorrow — bending the tempo. Rubato.
+
+practice_this_week:
+  real_piano:
+    - "Set the metronome to 60. Play a scale. Then 90. Then 120. Feel the difference in your hand at each speed."
+    - "Pick any piece you know. Play it moderato. Then try it adagio. Notice how the adagio version asks for more from you — more shape, more care."
+  virtual_only:
+    - "Replay pages 8, 9, 10"
+  estimated_time: "10 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "The word: Allegro"
+          prompt: "Roughly how fast?"
+          options: ["Slow (60)", "Walking (90)", "Fast (120)", "Very fast (160)"]
+          correct: 2
+        - figure: "The word: Adagio"
+          prompt: "Roughly how fast?"
+          options: ["Slow (60)", "Walking (90)", "Fast (120)"]
+          correct: 0
+        - figure: "Four words: adagio, moderato, allegro, presto"
+          prompt: "Which is the fastest?"
+          options: ["Adagio", "Moderato", "Allegro", "Presto"]
+          correct: 3
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "A phrase played at 60 bpm"
+          prompt: "Which tempo marking fits?"
+          options: ["Adagio", "Allegro", "Presto"]
+          correct: 0
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play a five-note scale at Moderato (90 bpm)."
+          accept: "C4 D4 E4 F4 G4 steady at 90 bpm"
+
+remediation:
+  id: "143.5"
+  title: "Tempo words, paired with numbers"
+  pages: 7
+  opening_cleffy: >
+    The Italian gets mixed up at first. Allegro and adagio sound alike.
+    We'll pair each word with a number, drill it, and play it.
+    By the end they'll feel different to your hand.
+
+completion:
+  cleffy: >
+    Four tempos, known.
+    Tomorrow — bending them. Rubato. Stretch, then give it back.
+  xp: 17
+  unlocks: 144

@@ -1,0 +1,233 @@
+# ============================================================
+# LESSON 228 · Ear memory
+# Tier 6 · Act 46 · Advanced · Memorization
+# Hearing the next phrase before you play it.
+# ============================================================
+id: 228
+tier: advanced
+act: 46
+title: "Ear memory"
+subtitle: "Act 46 · Memorization"
+goal: "Use ear memory — hearing the next note internally before your fingers reach it — to hold a piece without the page."
+prereqs: [227]
+method_focus: "hear"
+time_estimate_min: 14
+piece_context: "Second of three memory types. Ear memory is the singer's gift. Before your finger moves, you hear the next note in your head. It's more robust than muscle memory — it survives nerves better — but it has to be built on purpose, by listening closely and by singing what you play."
+metaphor: "three-kinds-of-memory"
+vibe: ["gentle", "focused", "quiet"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy with one hand cupped behind his ear. Banner: EAR MEMORY. A small musical note floats in front of his forehead — before it reaches the keyboard."
+    cleffy: >
+      Ear memory.
+      Hear the next note in your head — before your finger plays it.
+      Like a singer does.
+
+  - id: 2
+    mode: see
+    type: what_it_is
+    figure: "Two panels. Left: 'muscle memory — finger leads.' Right: 'ear memory — ear leads.' Small arrow from ear to finger in the second panel."
+    cleffy: >
+      Muscle memory — the finger goes first, the ear confirms.
+      Ear memory — the ear goes first, the finger follows.
+      Different order. Different safety.
+
+  - id: 3
+    mode: hear
+    type: prove_you_have_it
+    figure: "A play button. Caption: 'Happy Birthday — first five notes.'"
+    audio:
+      A: "The first five notes of Happy Birthday — G G A G C"
+    cleffy: >
+      Listen.
+      You know what note comes next, don't you?
+      Even without a keyboard. You hear it in your head.
+      That's ear memory. You have it for every song you know.
+
+  - id: 4
+    mode: play
+    type: play_by_ear_hb
+    figure: "Keyboard. Happy Birthday opening. No guides the second time through."
+    cleffy: >
+      Play it. Happy Birthday opening.
+      G G A G C B.
+      Let your ear decide — your finger's just obeying.
+    interaction:
+      type: sequence
+      keys: ["G4","G4","A4","G4","C5","B4"]
+
+  - id: 5
+    mode: see
+    type: the_singer_metaphor
+    figure: "A singer standing, mouth open, and a pianist seated. A speech bubble between them: 'before the note comes out, you already know it.'"
+    cleffy: >
+      Singers live in this.
+      Before a singer opens their mouth, the note is already in their head.
+      If it weren't — they'd be flat every time.
+      Your piano fingers can learn the same trick.
+
+  - id: 6
+    mode: see
+    type: how_to_build_it
+    figure: "A checklist. 1. Sing the phrase before you play it. 2. Listen back to recordings often. 3. Play with eyes closed. 4. Play without the music."
+    cleffy: >
+      Four ways to build ear memory.
+      Sing a phrase before playing it — out loud, not just in your head.
+      Listen to the piece a lot. Recordings, real ones.
+      Play with your eyes closed. Let sound lead.
+      Play without the sheet music — from what you hear.
+
+  - id: 7
+    mode: hear
+    type: listen_clair_opening
+    figure: "Play button. Caption: 'Clair de Lune — opening phrase only.'"
+    audio:
+      A: "The opening four bars of Clair de Lune in D major, soft"
+    cleffy: >
+      Listen to this. You played it yesterday.
+      Try to hear the next phrase in your head before the audio stops.
+      If you can — that's ear memory forming.
+
+  - id: 8
+    mode: play
+    type: play_clair_opening_by_ear
+    figure: "Keyboard. Opening bars of Clair de Lune highlighted minimally — only the key chord centers. Caption: 'let your ear lead.'"
+    cleffy: >
+      Play the opening. Three chords.
+      D2 under F#-A. Then G under E. Then F# under D-F#.
+      Hear each one before you press.
+    interaction:
+      type: sequence
+      keys: [["D2","F#4","A4"],["E4","G4"],["D4","F#4"]]
+
+  - id: 9
+    mode: see
+    type: why_its_more_robust
+    figure: "Two pillars side by side. Left: 'muscle — cracks under nerves.' Right: 'ear — holds under nerves.' Below: 'the ear works whether you're calm or scared.'"
+    cleffy: >
+      Here's why ear memory holds up better.
+      Nerves interrupt your fingers. They don't interrupt what you hear.
+      A song you know — you can still hum it while your hands shake.
+      The ear is quieter. More stable.
+
+  - id: 10
+    mode: hear
+    type: odd_mystery_phrase
+    figure: "Play button. Caption: 'a phrase you might not know — listen twice.'"
+    audio:
+      A: "A short five-note phrase in C major — G A B C D, twice"
+    cleffy: >
+      Listen. Twice.
+      Try to hear it a third time — in your head, no audio.
+      Notice how you can 'replay' it without a speaker.
+
+  - id: 11
+    mode: play
+    type: play_the_phrase_heard
+    figure: "Keyboard. Five notes to play — no visual guide. Cue: 'play what you just heard.'"
+    cleffy: >
+      Now play what you heard. Five notes.
+      Guess slowly if you need to.
+      Ear memory built in ten seconds.
+    interaction:
+      type: sequence
+      keys: ["G4","A4","B4","C5","D5"]
+
+  - id: 12
+    mode: see
+    type: sing_first
+    figure: "A small icon — a singing mouth next to a piano. Caption: 'sing the phrase aloud before you play it. Even if you can't sing.'"
+    cleffy: >
+      A trick pianists use — sing before you play.
+      Out loud. Quietly. Nobody's listening.
+      If you can sing it, your ear has it.
+      If your ear has it, your hands can find it.
+
+  - id: 13
+    mode: play
+    type: sing_then_play
+    figure: "Keyboard. Four-note phrase — C5 E5 G5 C6. Caption: 'hum first, then play.'"
+    cleffy: >
+      One more. Hum these four notes first — C, E, G, C.
+      Then play them.
+      Hearing before playing.
+    interaction:
+      type: sequence
+      keys: ["C5","E5","G5","C6"]
+    followup_cleffy: >
+      That. Hands following the ear.
+
+  - id: 14
+    mode: hear
+    type: pre_check
+    figure: "Banner."
+    cleffy: >
+      Three quick ones.
+
+  - id: 15
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 228. An ear icon with gold notes flowing into it. Banner: EAR MEMORY · PILLAR TWO OF THREE."
+    cleffy: >
+      Ear memory. Pillar two.
+      The one that holds when your hands shake.
+      Tomorrow — pillar three. Structural memory. The map of the whole piece.
+
+practice_this_week:
+  real_piano:
+    - "Pick a phrase from a piece you know. Sing it out loud before you play it. Do this every day."
+    - "Listen to a recording of any piece you're learning — twice through, no playing. Just listening."
+    - "Play one short phrase with your eyes closed, trusting what your ear says."
+  virtual_only:
+    - "Replay pages 10 and 11 — hear the mystery phrase and try to play it."
+  estimated_time: "10 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "An ear leading, a hand following"
+          prompt: "What is ear memory?"
+          options: ["Playing loudly so you can hear yourself", "Hearing the next note in your head before your finger plays it", "Memorizing the score visually"]
+          correct: 1
+        - figure: "Two pillars — one cracking, one holding"
+          prompt: "Why does ear memory tend to hold up better under nerves?"
+          options: ["It's louder", "Nerves interrupt the fingers more than they interrupt the inner ear", "It only works on short pieces"]
+          correct: 1
+        - figure: "A small icon of a singing mouth beside a piano"
+          prompt: "What's a good way to build ear memory for a phrase?"
+          options: ["Play it fast many times", "Sing it out loud before you play it", "Read it silently"]
+          correct: 1
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "Happy Birthday — the first five notes only"
+          prompt: "Could you hear the sixth note in your head without it being played?"
+          options: ["Yes — that's ear memory", "No — that's only muscle memory"]
+          correct: 0
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play Happy Birthday's opening by ear — G G A G C B."
+          accept: "G4 G4 A4 G4 C5 B4 played in order"
+
+remediation:
+  id: "228.5"
+  title: "Ear memory, from scratch"
+  pages: 7
+  opening_cleffy: >
+    If hearing-before-playing felt out of reach, that's fine.
+    We'll build it on two notes first. Then three. Then five.
+    You already do this with spoken words — you know the next one before you say it. Same trick.
+
+completion:
+  cleffy: >
+    Ear memory — in your head now.
+    Pillar two. Sing and play this week.
+    Tomorrow — pillar three. Structural memory. The map of the whole.
+  xp: 17
+  unlocks: 229

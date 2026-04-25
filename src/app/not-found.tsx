@@ -1,23 +1,30 @@
 import Link from "next/link";
+import "./app/sonata.css";
 
 export default function NotFound() {
   return (
     <div style={{
-      minHeight: '100vh', background: '#0C0A09', color: '#FAFAF9',
+      minHeight: '100vh', background: 'var(--cream)', color: 'var(--ink)',
       display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
-      fontFamily: "'Outfit', system-ui, sans-serif", padding: 24,
+      fontFamily: 'var(--sans)', padding: 24, textAlign: 'center',
     }}>
-      <div style={{ fontFamily: "'Instrument Serif', Georgia, serif", fontSize: 48, color: '#C8A96E', marginBottom: 8 }}>
-        404
+      <div style={{ fontSize: 60, marginBottom: 10 }}>😵‍💫</div>
+      <div style={{ fontFamily: 'var(--serif)', fontStyle: 'italic', fontSize: 96, fontWeight: 900, color: 'var(--ink)', letterSpacing: '-0.04em', lineHeight: 0.9 }}>
+        4<span style={{ color: 'var(--berry)' }}>0</span>4
       </div>
-      <p style={{ color: '#78716C', fontSize: 15, marginBottom: 24 }}>
+      <p style={{ color: 'var(--ink2)', fontSize: 17, margin: '12px 0 24px', fontFamily: 'var(--serif)', fontStyle: 'italic', fontWeight: 500 }}>
         This page doesn&apos;t exist.
       </p>
       <Link href="/" style={{
-        padding: '12px 28px', background: '#C8A96E', color: '#0C0A09',
-        borderRadius: 10, textDecoration: 'none', fontSize: 14, fontWeight: 500,
+        display: 'inline-flex', alignItems: 'center', gap: 10,
+        padding: '16px 32px',
+        background: 'var(--berry)', color: 'var(--cream)',
+        border: '3px solid var(--ink)', borderRadius: 'var(--r2)',
+        boxShadow: '0 6px 0 var(--berry-deep)',
+        textDecoration: 'none', fontSize: 16, fontWeight: 800,
+        fontFamily: 'var(--sans)', textTransform: 'uppercase', letterSpacing: '0.04em',
       }}>
-        Go home
+        ← Go home
       </Link>
     </div>
   );

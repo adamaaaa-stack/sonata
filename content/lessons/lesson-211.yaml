@@ -1,0 +1,227 @@
+# ============================================================
+# LESSON 211 · Impressionist language
+# Tier 5 · Act 43 · Upper-Intermediate · Impressionism + Arabesque
+# New sounds — whole-tone, pentatonic, deliberate blur.
+# ============================================================
+id: 211
+tier: upper-intermediate
+act: 43
+title: "Impressionist language"
+subtitle: "Act 43 · Impressionism + Arabesque"
+goal: "Hear and play the new sounds of Impressionism — whole-tone and pentatonic scales, no strong tonic, deliberate blur."
+prereqs: [210, 125]
+method_focus: "combine"
+time_estimate_min: 14
+piece_context: "New act, new world. You've played Classical and Romantic — tonic to dominant, sadness to brightness, clear destinations. Debussy threw that out. He wanted paint, not geometry. Today you meet his vocabulary — the whole-tone scale, the pentatonic, and music that refuses to land."
+metaphor: "floating-sound"
+vibe: ["quiet", "reflective", "focused"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy in front of a blurred pastel painting — a lily pad, some water, no sharp edges. Banner: A NEW LANGUAGE."
+    cleffy: >
+      New world.
+      You've played music that goes somewhere. Home, away, home again.
+      Debussy wrote music that floats. No home. Just color.
+
+  - id: 2
+    mode: see
+    type: concept_impressionism
+    figure: "Two panels. Left: a crisp Classical chord progression with arrows I → V → I. Right: a Debussy chord floating in a blue wash, no arrows. Labels: CLASSICAL · IMPRESSIONIST."
+    cleffy: >
+      Classical and Romantic music moves toward a goal.
+      Tonic, dominant, tonic. Home, tension, home.
+      Debussy didn't want a goal. He wanted a feeling.
+      The blur is the point.
+
+  - id: 3
+    mode: see
+    type: whole_tone_intro
+    figure: "Keyboard. Six notes highlighted: C, D, E, F#, G#, A#. Arrow: 'every step is the same size.'"
+    cleffy: >
+      First new sound — the whole-tone scale.
+      Six notes. Every step is a whole step. Same size every time.
+      C, D, E, F-sharp, G-sharp, A-sharp.
+      No half steps. No leading tone. Nothing pulls anywhere.
+
+  - id: 4
+    mode: hear
+    type: listen_whole_tone
+    figure: "Play button. Caption: whole-tone scale, C up to C."
+    audio:
+      A: "Whole-tone scale ascending and descending slowly, with soft pedal"
+    cleffy: >
+      Listen.
+      Hear how it feels like it could stop anywhere?
+      No single note wins. That's the point.
+
+  - id: 5
+    mode: play
+    type: play_whole_tone
+    figure: "Keyboard. Six notes lighting up in order: C4, D4, E4, F#4, G#4, A#4, then C5."
+    cleffy: >
+      Play it.
+      C, D, E, F-sharp, G-sharp, A-sharp, C.
+      Even. No accent. Let each note blur into the next.
+    interaction:
+      type: sequence
+      keys: ["C4", "D4", "E4", "F#4", "G#4", "A#4", "C5"]
+
+  - id: 6
+    mode: see
+    type: pentatonic_intro
+    figure: "Keyboard. Five notes highlighted: C, D, E, G, A. Caption: 'no 4th, no 7th — no tension notes.'"
+    cleffy: >
+      Second new sound — pentatonic.
+      Five notes. C, D, E, G, A.
+      The two notes that create tension — the 4th and the 7th — are missing.
+      Nothing can clash. It all just glows.
+
+  - id: 7
+    mode: hear
+    type: listen_pentatonic
+    figure: "Play button. Caption: a short pentatonic melody over a held low C."
+    audio:
+      A: "A floating pentatonic melody in the right hand over a held low C pedal tone"
+    cleffy: >
+      Listen.
+      Every note sits comfortably on top of the low C.
+      No wrong notes. Just shades.
+
+  - id: 8
+    mode: play
+    type: play_pentatonic
+    figure: "Keyboard. Five notes lighting up: C4, D4, E4, G4, A4, C5."
+    cleffy: >
+      Play the pentatonic. C, D, E, G, A, C.
+      Soft. Unhurried. Feel how peaceful it is.
+    interaction:
+      type: sequence
+      keys: ["C4", "D4", "E4", "G4", "A4", "C5"]
+
+  - id: 9
+    mode: see
+    type: ambiguity
+    figure: "A chord stack: C, E, G, B, D — labelled 'no one note is king.' Arrows floating off it in four directions."
+    cleffy: >
+      Third idea — ambiguity.
+      Debussy stacks chords that could mean two things at once.
+      Is this a C chord with extra color? Or a G chord with a C on the bottom?
+      He doesn't tell you. You just listen.
+
+  - id: 10
+    mode: play
+    type: play_ambiguous_chord
+    figure: "Keyboard. Five notes light up together: C3, E4, G4, B4, D5."
+    cleffy: >
+      Try one. Press all five, softly, together.
+      C, E, G, B, D.
+      Let them ring. That's the Debussy sound.
+    interaction:
+      type: sequence
+      keys: ["C3", "E4", "G4", "B4", "D5"]
+
+  - id: 11
+    mode: hear
+    type: identify_drill
+    figure: "Round counter. Six rounds."
+    cleffy: >
+      Six rounds. Whole-tone or pentatonic?
+    interaction:
+      type: drill
+      rounds: 6
+      options: ["Whole-tone", "Pentatonic"]
+
+  - id: 12
+    mode: play
+    type: float_phrase
+    figure: "Grand staff. RH: a pentatonic line C-E-G-A-E-C. LH: a low C held as a whole note. Dynamic: pp."
+    cleffy: >
+      One little phrase.
+      Left hand holds low C. Right hand walks the pentatonic over it.
+      Very soft. No weight.
+    interaction:
+      type: song
+      sequence: [["C2"], ["C4"], ["E4"], ["G4"], ["A4"], ["E4"], ["C4"]]
+      guides: true
+      tempo: 60
+
+  - id: 13
+    mode: hear
+    type: pre_check
+    figure: "Banner — mastery check."
+    cleffy: >
+      Four quick ones.
+
+  - id: 14
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 211. A watercolor wash of blue and gold with no sharp edges. Two labels floating in it: 'whole-tone' and 'pentatonic.'"
+    cleffy: >
+      New language unlocked.
+      Whole-tone — every step the same.
+      Pentatonic — no tension notes.
+      Ambiguity — no one note in charge.
+      Tomorrow — reading the dense pages Debussy likes to write. Don't panic. Find the shape.
+
+practice_this_week:
+  real_piano:
+    - "Play the whole-tone scale up and down from C, once a day. Slow. No accents."
+    - "Improvise on the black keys — that's a pentatonic scale. Low held note in the left hand, any notes in the right. There are no wrong ones."
+    - "Listen once to Clair de Lune or Arabesque No. 1. Notice the moments where the music doesn't seem to land."
+  virtual_only:
+    - "Replay pages 4, 5, 7, 8, and 12"
+  estimated_time: "10 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "A scale: C, D, E, F#, G#, A#, C"
+          prompt: "Which scale is this?"
+          options: ["Whole-tone", "Pentatonic", "Major"]
+          correct: 0
+        - figure: "A scale: C, D, E, G, A, C"
+          prompt: "Which scale is this?"
+          options: ["Whole-tone", "Pentatonic", "Minor"]
+          correct: 1
+        - figure: "Two composers listed: Mozart and Debussy"
+          prompt: "Which one writes music with a strong sense of 'home' chord and clear resolutions?"
+          options: ["Mozart", "Debussy"]
+          correct: 0
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "A whole-tone scale played slowly"
+          prompt: "Whole-tone or pentatonic?"
+          options: ["Whole-tone", "Pentatonic"]
+          correct: 0
+        - audio: "A floating pentatonic melody"
+          prompt: "Whole-tone or pentatonic?"
+          options: ["Whole-tone", "Pentatonic"]
+          correct: 1
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play the pentatonic scale — C, D, E, G, A, C — softly."
+          accept: "C4 D4 E4 G4 A4 C5 played in order"
+
+remediation:
+  id: "211.5"
+  title: "Impressionist language, one color at a time"
+  pages: 7
+  opening_cleffy: >
+    New sound. Takes a minute to trust it.
+    We'll slow it down — whole-tone first, just hear it. Then pentatonic, just feel it.
+    No rush.
+
+completion:
+  cleffy: >
+    First step into Debussy's world.
+    Whole-tone. Pentatonic. Blur on purpose.
+    Tomorrow — his pages look scary. They're not.
+  xp: 18
+  unlocks: 212

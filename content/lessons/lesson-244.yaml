@@ -1,0 +1,241 @@
+# ============================================================
+# LESSON 244 · Moonlight 1 — bars 61-69 (coda)
+# Tier 6 · Act 49 · Advanced · Moonlight, complete
+# The coda. Quiet descent to silence. C# minor tonic.
+# Very still. Nine bars — the last nine.
+# ============================================================
+id: 244
+tier: advanced
+act: 49
+title: "Moonlight 1 — bars 61-69 (coda)"
+subtitle: "Act 49 · Moonlight, complete"
+goal: "Play the coda — the quiet descent to silence. Nine bars, C-sharp minor tonic, very still."
+prereqs: [243]
+method_focus: "combine"
+time_estimate_min: 16
+piece_context: "Act 49. Sixty bars in your hands. Nine to go. The coda of the Moonlight Sonata first movement. A quiet settling. The piece returns fully to C-sharp minor. No more wandering. The engine slows, the melody fades, and the last chord rings into silence. Nine bars. Very still. After today, you have the whole movement — in fragments. Tomorrow you string them together."
+metaphor: "returning-home"
+vibe: ["quiet", "reflective", "gentle"]
+piece:
+  title: "Moonlight Sonata, 1st mvt (bars 61-69, coda)"
+  composer: "Beethoven (1801)"
+  key_center: "C-sharp minor"
+  time_signature: "alla breve"
+  difficulty: "advanced — coda, very soft, very slow"
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy at the piano. A long map behind him — bars 1-60 gold. Bars 61-69 pulsing faintly. Banner: 'THE LAST NINE BARS.'"
+    cleffy: >
+      Sixty bars done. Nine to go.
+      The coda. The end of the movement.
+      A quiet descent. Then silence.
+
+  - id: 2
+    mode: see
+    type: what_coda_means
+    figure: "Word on screen — CODA. Italian for 'tail.' Below — a visual of a tail curling off the main body of a piece."
+    cleffy: >
+      Coda. Italian for 'tail.'
+      The piece's ending — after the main story is told.
+      Not new material. A settling. A way to close the door.
+
+  - id: 3
+    mode: hear
+    type: listen_coda
+    figure: "Play button. Caption: bars 61-69, real recording, slow."
+    audio:
+      A: "Moonlight Sonata, 1st movement, bars 61-69 — the coda, real recording"
+    cleffy: >
+      Listen. Nine bars.
+      Hear the piece let go. The engine slows. The harmony settles.
+      The last chord just — holds. Then nothing.
+
+  - id: 4
+    mode: see
+    type: the_map_61_69
+    figure: "Timeline — bars 61-69. Bar 61: theme fragment. Bar 63: descending arpeggios. Bar 65: C#m sustained. Bar 67: pianissimo. Bar 69: final chord."
+    cleffy: >
+      The map.
+      Bars 61 and 62 — the last fragment of the theme. A goodbye.
+      Bars 63 and 64 — descending arpeggios. Quieter each moment.
+      Bars 65-67 — C-sharp minor settles in. Pianissimo.
+      Bars 68-69 — the final chord. Sustained. Then gone.
+
+  - id: 5
+    mode: see
+    type: the_dynamic_arc
+    figure: "A curve — p at bar 61, diminuendo through bars 63-65, pp at bar 66, decrescendo to ppp at bar 69."
+    cleffy: >
+      The dynamic arc.
+      Piano at bar 61. Softer through 63, 64, 65.
+      Pianissimo by bar 66. Barely-there by the final chord.
+      The whole coda is fading.
+
+  - id: 6
+    mode: play
+    type: bars_61_62_fragment
+    figure: "Bars 61-62. Last theme fragment. Tempo 44. Guides on."
+    cleffy: >
+      Bars 61 and 62. The last trace of the theme.
+      Gentle. Soft. A goodbye to a friend.
+    interaction:
+      type: song
+      sequence: [["C#2","C#3","G#4"],"C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4","C#4","E4",["C#2","C#3","E4"],"C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4","C#4","E4"]
+      guides: true
+      tempo: 44
+
+  - id: 7
+    mode: play
+    type: bars_63_64_descent
+    figure: "Bars 63-64. Descending arpeggios. Tempo 44. Dynamic: diminuendo."
+    cleffy: >
+      Bars 63 and 64. Arpeggios descend.
+      Each note softer than the last. The piece is letting go.
+    interaction:
+      type: song
+      sequence: [["G#1","G#2"],"E3","G#3","C#4","E3","G#3","C#4","E3","G#3","C#4","E3","G#3",["C#2","C#3"],"E3","G#3","C#4","E3","G#3","C#4","E3","G#3","C#4","E3","G#3"]
+      guides: true
+      tempo: 44
+
+  - id: 8
+    mode: see
+    type: the_stillness
+    figure: "Bar 65-67 on staff. Sustained C-sharp minor chords. Long held notes. pp marking. No melody activity on top."
+    cleffy: >
+      Bars 65 through 67. Stillness.
+      C-sharp minor holds. The engine thins. No melody activity on top.
+      Silence starts to come in around the sound.
+
+  - id: 9
+    mode: play
+    type: bars_65_67_stillness
+    figure: "Bars 65-67. Held chords, sparse engine. Tempo 42. pp. Guides on."
+    cleffy: >
+      Three bars of stillness.
+      Pianissimo. Whisper it.
+    interaction:
+      type: song
+      sequence: [["C#2","C#3","E4"],"C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4","C#4","E4",["C#2","G#2","E4"],"G#3","C#4","E4","G#3","C#4","E4","G#3","C#4","E4","G#3","C#4",["C#2","C#3","E4"],"C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4","C#4","E4"]
+      guides: true
+      tempo: 42
+
+  - id: 10
+    mode: play
+    type: bars_68_69_final
+    figure: "Bars 68-69. Final chord — C-sharp minor. Held whole. Tempo 42. ppp."
+    cleffy: >
+      The final two bars.
+      One last arpeggio. One last chord. Sustain.
+      Then — nothing. Let silence answer.
+    interaction:
+      type: song
+      sequence: [["C#2","C#3"],"C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4","C#4","E4",["C#2","C#3","G#3","C#4","E4"]]
+      guides: true
+      tempo: 42
+
+  - id: 11
+    mode: play
+    type: full_coda_guided
+    figure: "All nine bars 61-69. Guides on. Tempo 42."
+    cleffy: >
+      The whole coda. Nine bars.
+      Guides on. Very slow. Very quiet.
+      Feel it descend.
+    interaction:
+      type: song
+      sequence: [["C#2","C#3","G#4"],"C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4","C#4","E4",["C#2","C#3","E4"],"C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4","C#4","E4",["G#1","G#2"],"E3","G#3","C#4","E3","G#3","C#4","E3","G#3","C#4","E3","G#3",["C#2","C#3"],"E3","G#3","C#4","E3","G#3","C#4","E3","G#3","C#4","E3","G#3",["C#2","C#3","E4"],"C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4","C#4","E4",["C#2","G#2","E4"],"G#3","C#4","E4","G#3","C#4","E4","G#3","C#4","E4","G#3","C#4",["C#2","C#3","E4"],"C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4","C#4","E4",["C#2","C#3"],"C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4","C#4","E4",["C#2","C#3","G#3","C#4","E4"]]
+      guides: true
+      tempo: 42
+
+  - id: 12
+    mode: play
+    type: full_coda_no_guides
+    figure: "All nine bars 61-69. No guides. Tempo 40. ppp marked at the end."
+    cleffy: >
+      Once more. No guides.
+      Let the last chord ring into silence. Don't lift your foot right away.
+      The silence is part of the music.
+    interaction:
+      type: song
+      sequence: [["C#2","C#3","G#4"],"C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4","C#4","E4",["C#2","C#3","E4"],"C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4","C#4","E4",["G#1","G#2"],"E3","G#3","C#4","E3","G#3","C#4","E3","G#3","C#4","E3","G#3",["C#2","C#3"],"E3","G#3","C#4","E3","G#3","C#4","E3","G#3","C#4","E3","G#3",["C#2","C#3","E4"],"C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4","C#4","E4",["C#2","G#2","E4"],"G#3","C#4","E4","G#3","C#4","E4","G#3","C#4","E4","G#3","C#4",["C#2","C#3","E4"],"C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4","C#4","E4",["C#2","C#3"],"C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4","C#4","E4",["C#2","C#3","G#3","C#4","E4"]]
+      guides: false
+      tempo: 40
+    followup_cleffy: >
+      That. The end of the movement.
+      Now you have all sixty-nine bars. In fragments.
+      Tomorrow — you stitch them together.
+
+  - id: 13
+    mode: hear
+    type: pre_check
+    figure: "Banner — mastery check."
+    cleffy: >
+      Three quick ones.
+
+  - id: 14
+    mode: see
+    type: wrap
+    figure: "Postcard — entire Moonlight 1st map lit gold from bar 1 through bar 69. Caption: 'all bars learned. Tomorrow — put them together.'"
+    cleffy: >
+      Every bar of the first movement — known.
+      Tomorrow is the act boss. You play the whole thing, slow, no stopping.
+      Rest tonight.
+
+practice_this_week:
+  real_piano:
+    - "The coda, every day. Very slow. Very quiet. Pianissimo."
+    - "Play bars 60 into 61. Hear how the return flows into the coda — no seam."
+    - "Let the last chord of bar 69 ring. Don't rush to lift the pedal. Count five seconds of silence."
+  virtual_only:
+    - "Replay pages 9, 10, 11, and 12."
+  estimated_time: "12 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "The word CODA with Italian translation 'tail'"
+          prompt: "What is a coda in music?"
+          options: ["The opening of a piece", "The closing section — a settling after the main material", "A loud climax"]
+          correct: 1
+        - figure: "Dynamic arc over bars 61-69 — piano fading to ppp"
+          prompt: "How does the coda's dynamic level change?"
+          options: ["It gets louder", "It fades toward silence", "It stays the same"]
+          correct: 1
+        - figure: "Key signature with four sharps — C-sharp minor"
+          prompt: "What key does the coda settle into?"
+          options: ["C major", "C-sharp minor — the home key", "F-sharp minor"]
+          correct: 1
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "Bars 61-69 of Moonlight — the coda"
+          prompt: "What happens to the music at the end?"
+          options: ["Builds to a loud finish", "Fades to silence", "Changes key"]
+          correct: 1
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play the coda — bars 61 through 69 — at 42 bpm, pianissimo, letting the last chord ring."
+          accept: "Nine bars, quiet, final C-sharp minor chord sustained into silence"
+
+remediation:
+  id: "244.5"
+  title: "Coda, one breath at a time"
+  pages: 7
+  opening_cleffy: >
+    The coda is hard because it's supposed to be simple.
+    Simple is hard. Every note is exposed — pianissimo has no hiding place.
+    We'll slow to 38 and take it three bars at a time.
+
+completion:
+  cleffy: >
+    Coda — done. Every single bar of Moonlight 1st is in your hands.
+    Tomorrow — the act boss. You play the whole thing, slow, no stopping.
+    Rest well.
+  xp: 18
+  unlocks: 245

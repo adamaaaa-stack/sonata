@@ -1,0 +1,230 @@
+# ============================================================
+# LESSON 169 · Dotted rhythms in minor
+# Tier 4 · Act 34 · Intermediate · Minor keys + Moonlight intro
+# The Moonlight melody's dotted rhythm — without the pedal or arpeggios.
+# Long-short-short-long. Da DAA da da DAA.
+# ============================================================
+id: 169
+tier: intermediate
+act: 34
+title: "Dotted rhythms in minor"
+subtitle: "Act 34 · Minor keys + Moonlight intro"
+goal: "Preview the Moonlight melody rhythm — long-short-short-long — in C-sharp minor, without pedal or arpeggios."
+prereqs: [168, 132]
+method_focus: "combine"
+time_estimate_min: 14
+piece_context: "You know the key. You can read in it. Now the rhythm that sits on top. The Moonlight melody is built on one dotted pattern, played again and again. Today — just that rhythm. No pedal. No rolling arpeggios underneath. Strip it down to the bones."
+metaphor: "melody-skeleton"
+vibe: ["focused", "quiet", "reflective"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy with a simple melody on a staff. Banner: THE MOONLIGHT MELODY, STRIPPED."
+    cleffy: >
+      One day away.
+      Today — the melody rhythm. No pedal. No arpeggios. Just the bones.
+
+  - id: 2
+    mode: see
+    type: the_rhythm_shape
+    figure: "Rhythm staff. One bar: dotted eighth, sixteenth, eighth, dotted quarter. Counts labeled: 1-e-a, 2, 3. Label: LONG-short-short-LONG."
+    cleffy: >
+      Listen to the shape first.
+      Long, short, short, long.
+      Da — DAA — da — DAA.
+
+  - id: 3
+    mode: hear
+    type: hear_rhythm_clap
+    figure: "Play button. Label: the rhythm, clapped."
+    audio:
+      A: "Clapping the dotted Moonlight melody rhythm at slow tempo — long, short-short, long, four bars in a row"
+    cleffy: >
+      Listen. Count with it.
+      Same four-beat shape, over and over. That's the whole Moonlight melody engine.
+
+  - id: 4
+    mode: see
+    type: galloping_cousin
+    figure: "Two rhythms side by side. Left — the galloping dotted eighth + sixteenth from L132. Right — the Moonlight long-short-short-long. Arrow between labeled 'same idea, longer tail.'"
+    cleffy: >
+      You met a cousin of this rhythm at Lesson 132 — the galloping one.
+      Moonlight's version is slower. Noble, not racing. Same long-short math though.
+
+  - id: 5
+    mode: play
+    type: tap_rhythm_one_note
+    figure: "Rhythm staff on C#4. Dotted eighth, sixteenth, eighth, dotted quarter. Metronome 50."
+    cleffy: >
+      Tap it out. One note — C-sharp.
+      Count one-and, two, three. Let the long notes breathe.
+    interaction:
+      type: rhythm
+      sequence: ["C#4", "C#4", "C#4", "C#4"]
+      durations: ["dotted_eighth", "sixteenth", "eighth", "dotted_quarter"]
+      tempo: 50
+
+  - id: 6
+    mode: see
+    type: add_the_notes
+    figure: "Staff in C# minor. The same rhythm, now with notes: G#4, G#4, G#4, E4. Top voice of the Moonlight melody."
+    cleffy: >
+      Now the actual notes.
+      Three G-sharps, then an E. Four notes. One dotted figure.
+      That's bar five of Moonlight, melody only.
+
+  - id: 7
+    mode: play
+    type: play_first_figure
+    figure: "Keyboard. G#4 three times, then E4. Rhythm labels above each note."
+    cleffy: >
+      Play it. Three G-sharps, E.
+      Dotted eighth, sixteenth, eighth, dotted quarter.
+    interaction:
+      type: rhythm
+      sequence: ["G#4", "G#4", "G#4", "E4"]
+      durations: ["dotted_eighth", "sixteenth", "eighth", "dotted_quarter"]
+      tempo: 50
+
+  - id: 8
+    mode: see
+    type: next_bar_contour
+    figure: "Staff in C# minor. Second bar: G#4, G#4, G#4, F#4. Same rhythm, final note drops to F-sharp."
+    cleffy: >
+      Bar two. Same rhythm. Last note drops a step.
+      Three G-sharps, then F-sharp.
+
+  - id: 9
+    mode: play
+    type: play_second_figure
+    figure: "Keyboard. G#4 three times, then F#4."
+    cleffy: >
+      Play bar two. Same feel. New landing.
+    interaction:
+      type: rhythm
+      sequence: ["G#4", "G#4", "G#4", "F#4"]
+      durations: ["dotted_eighth", "sixteenth", "eighth", "dotted_quarter"]
+      tempo: 50
+
+  - id: 10
+    mode: play
+    type: two_bars_together
+    figure: "Staff in C# minor. Two bars of melody: first lands on E, second on F#. Metronome 50."
+    cleffy: >
+      Both bars back to back.
+      Land on E. Land on F-sharp. Rest between.
+    interaction:
+      type: rhythm
+      sequence: ["G#4", "G#4", "G#4", "E4", "G#4", "G#4", "G#4", "F#4"]
+      durations: ["dotted_eighth", "sixteenth", "eighth", "dotted_quarter", "dotted_eighth", "sixteenth", "eighth", "dotted_quarter"]
+      tempo: 50
+
+  - id: 11
+    mode: hear
+    type: hear_real_melody_without_texture
+    figure: "Play button. Label: Moonlight melody, bars 5-8, no pedal, no arpeggios."
+    audio:
+      A: "The Moonlight melody top voice alone, bars 5-8, slow tempo, no accompaniment"
+    cleffy: >
+      Listen. Melody alone. No arpeggios rolling underneath.
+      Just the top voice. The song inside the piece.
+
+  - id: 12
+    mode: play
+    type: longer_melody_line
+    figure: "Staff in C# minor. Three bars: lands on E, F#, then G#. Metronome 52."
+    cleffy: >
+      Three bars. Same rhythm each time.
+      Lands on E, F-sharp, G-sharp. Climbing.
+    interaction:
+      type: rhythm
+      sequence: ["G#4", "G#4", "G#4", "E4", "G#4", "G#4", "G#4", "F#4", "G#4", "G#4", "G#4", "G#4"]
+      durations: ["dotted_eighth", "sixteenth", "eighth", "dotted_quarter", "dotted_eighth", "sixteenth", "eighth", "dotted_quarter", "dotted_eighth", "sixteenth", "eighth", "dotted_quarter"]
+      tempo: 52
+
+  - id: 13
+    mode: play
+    type: with_song_feel
+    figure: "Same three-bar melody. Song interaction. No guides. Tempo 54."
+    cleffy: >
+      Once more. Read the page.
+      Let the long notes breathe. No rushing to the next.
+    interaction:
+      type: song
+      sequence: ["G#4", "G#4", "G#4", "E4", "G#4", "G#4", "G#4", "F#4", "G#4", "G#4", "G#4", "G#4"]
+      guides: false
+      tempo: 54
+    followup_cleffy: >
+      That's the Moonlight melody skeleton.
+      Tomorrow we put it over the arpeggios.
+
+  - id: 14
+    mode: hear
+    type: pre_check
+    figure: "Banner."
+    cleffy: >
+      Three quick ones.
+
+  - id: 15
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 169. Melody skeleton on staff, moon rising behind. Text: THE MOONLIGHT BONES."
+    cleffy: >
+      Dotted rhythm. Long-short-short-long.
+      In C-sharp minor. On its own.
+      Tomorrow — the first four bars of the real sonata. All of it, slow.
+
+practice_this_week:
+  real_piano:
+    - "Clap the rhythm first — long, short, short, long — before you ever touch a key. Count out loud."
+    - "Play bar one: three G-sharps, E. Then bar two: three G-sharps, F-sharp. Over and over until the rhythm feels natural."
+  virtual_only:
+    - "Replay pages 5, 7, 9, 10, and 13."
+  estimated_time: "12 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "The Moonlight melody rhythm: dotted eighth, sixteenth, eighth, eighth, dotted quarter"
+          prompt: "What's the overall shape?"
+          options: ["Short-short-long-long-short", "Long-short-short-long", "All even"]
+          correct: 1
+        - figure: "A bar of the Moonlight melody: three G#, one E"
+          prompt: "How many of those notes are G-sharp?"
+          options: ["Two", "Three", "Four"]
+          correct: 1
+        - figure: "Key signature with four sharps"
+          prompt: "What key is this?"
+          options: ["A major", "C-sharp minor", "D minor"]
+          correct: 1
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "The Moonlight melody rhythm clapped"
+          prompt: "Are the notes evenly spaced, or long-short-short-long?"
+          options: ["Even", "Long-short-short-long"]
+          correct: 1
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play bar one: G#4, G#4, G#4, E4 — dotted eighth, sixteenth, eighth, dotted quarter at 50 bpm."
+          accept: "G#4 G#4 G#4 E4 in long-short-short-long rhythm"
+
+remediation:
+  id: "169.5"
+  title: "Moonlight rhythm, even slower"
+  pages: 9
+  opening_cleffy: >
+    Dotted rhythms sound simple until you play them.
+    We'll slow to 40. Clap before play. One bar at a time.
+
+completion:
+  cleffy: >
+    The Moonlight melody rhythm — yours.
+    Tomorrow — the real thing. First four bars of the sonata. Slow.
+  xp: 18
+  unlocks: 170

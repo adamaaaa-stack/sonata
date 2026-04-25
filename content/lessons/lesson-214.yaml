@@ -1,0 +1,245 @@
+# ============================================================
+# LESSON 214 · Hand independence, fast
+# Tier 5 · Act 43 · Upper-Intermediate · Impressionism + Arabesque
+# Different rhythms simultaneously at tempo.
+# ============================================================
+id: 214
+tier: upper-intermediate
+act: 43
+title: "Hand independence, fast"
+subtitle: "Act 43 · Impressionism + Arabesque"
+goal: "Play two different rhythms at once — right hand in triplets, left hand in quarters — smoothly and at tempo."
+prereqs: [213, 154]
+method_focus: "play"
+time_estimate_min: 14
+piece_context: "Arabesque No. 1 has a famous trick — the right hand plays three notes to every left-hand beat. It's called 'two against three' or 'polyrhythm.' Sounds scary. It's not. You stop thinking about matching them up and let each hand run its own clock. Today you build that skill."
+metaphor: "two-clocks"
+vibe: ["focused", "playful"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy with two clocks — one on each hand. Left clock ticks in 4. Right clock ticks in 3. Banner: TWO CLOCKS."
+    cleffy: >
+      Today's trick — two hands, two rhythms, at the same time.
+      Left hand goes one way. Right hand goes another.
+      Two clocks, one brain.
+
+  - id: 2
+    mode: see
+    type: two_against_three
+    figure: "A grid. Top row: three even notes spanning one beat, labelled 'RH triplet — three in one beat.' Bottom row: one note on the beat, labelled 'LH quarter — one on the beat.'"
+    cleffy: >
+      The classic Debussy pattern.
+      Right hand — three notes per beat. A triplet.
+      Left hand — one note per beat. A quarter.
+      Three against one. They only meet at the start.
+
+  - id: 3
+    mode: hear
+    type: listen_polyrhythm
+    figure: "Play button. Caption: a slow two-against-three pattern, RH and LH separated by ear."
+    audio:
+      A: "Right-hand triplets flowing over left-hand quarter notes, slow and even"
+    cleffy: >
+      Listen.
+      Left hand is steady — thump, thump, thump.
+      Right hand rolls three over each thump.
+      They line up only on the downbeat.
+
+  - id: 4
+    mode: play
+    type: rh_triplet_alone
+    figure: "Keyboard. E4, G#4, B4 lighting in sequence. Labeled TRIPLET."
+    cleffy: >
+      Right hand alone first. Three notes, one beat.
+      E, G-sharp, B. Even. No accent on any one.
+    interaction:
+      type: rhythm
+      sequence: ["E4", "G#4", "B4"]
+      durations: ["triplet_eighth", "triplet_eighth", "triplet_eighth"]
+      tempo: 60
+
+  - id: 5
+    mode: play
+    type: rh_triplet_long
+    figure: "Keyboard. Same three notes, lighting for four beats in a row."
+    cleffy: >
+      Four beats of triplets. Twelve notes total.
+      Don't rush. Three-per-beat, steady.
+    interaction:
+      type: rhythm
+      sequence: ["E4", "G#4", "B4", "E4", "G#4", "B4", "E4", "G#4", "B4", "E4", "G#4", "B4"]
+      durations: ["triplet_eighth", "triplet_eighth", "triplet_eighth", "triplet_eighth", "triplet_eighth", "triplet_eighth", "triplet_eighth", "triplet_eighth", "triplet_eighth", "triplet_eighth", "triplet_eighth", "triplet_eighth"]
+      tempo: 60
+
+  - id: 6
+    mode: play
+    type: lh_quarters_alone
+    figure: "Keyboard. E2, B2, E2, B2 lighting on the beat."
+    cleffy: >
+      Left hand alone. Four steady quarters.
+      E, B, E, B. One per beat.
+    interaction:
+      type: rhythm
+      sequence: ["E2", "B2", "E2", "B2"]
+      durations: ["quarter", "quarter", "quarter", "quarter"]
+      tempo: 60
+
+  - id: 7
+    mode: see
+    type: the_line_up
+    figure: "Grid showing four beats. Left column: one LH note per beat. Right column: three RH notes per beat. A vertical line shows them matching only at beat 1, 2, 3, 4 — not between."
+    cleffy: >
+      They meet on every beat.
+      Between the beats, the hands don't line up.
+      Don't try to match them. Let each hand run its own clock.
+
+  - id: 8
+    mode: see
+    type: the_trick
+    figure: "Cleffy pointing at his head. Two thought bubbles — one says 'left on the beat,' the other says 'three in the gap.'"
+    cleffy: >
+      The trick.
+      Set the left hand first. Steady. Your anchor.
+      Then drop three right-hand notes into each gap.
+      Don't count six. Just feel three.
+
+  - id: 9
+    mode: play
+    type: hands_together_slow
+    figure: "Grand staff. One bar, 4 beats. LH: E2, B2, E2, B2. RH: triplets E-G#-B on each beat."
+    cleffy: >
+      Both hands. Very slow — tempo 40.
+      Left hand sets the pulse. Right hand rolls over it.
+      First time is always clunky. That's fine.
+    interaction:
+      type: song
+      sequence: [["E2", "E4"], ["G#4"], ["B4"], ["B2", "E4"], ["G#4"], ["B4"], ["E2", "E4"], ["G#4"], ["B4"], ["B2", "E4"], ["G#4"], ["B4"]]
+      guides: true
+      tempo: 40
+
+  - id: 10
+    mode: play
+    type: hands_together_faster
+    figure: "Same bar. Tempo bumped to 50."
+    cleffy: >
+      Same pattern. A little faster. Tempo 50.
+      Keep the left hand steady. Don't let the right hand drag.
+    interaction:
+      type: song
+      sequence: [["E2", "E4"], ["G#4"], ["B4"], ["B2", "E4"], ["G#4"], ["B4"], ["E2", "E4"], ["G#4"], ["B4"], ["B2", "E4"], ["G#4"], ["B4"]]
+      guides: true
+      tempo: 50
+
+  - id: 11
+    mode: play
+    type: hands_together_tempo
+    figure: "Same bar. Tempo 60. Label: AT TEMPO."
+    cleffy: >
+      Tempo 60. The actual Debussy feel.
+      Let it flow now. Don't fight the two clocks — trust them.
+    interaction:
+      type: song
+      sequence: [["E2", "E4"], ["G#4"], ["B4"], ["B2", "E4"], ["G#4"], ["B4"], ["E2", "E4"], ["G#4"], ["B4"], ["B2", "E4"], ["G#4"], ["B4"]]
+      guides: false
+      tempo: 60
+    followup_cleffy: >
+      Two against three.
+      Your hands just did two different things at the same time, at tempo.
+      Big skill.
+
+  - id: 12
+    mode: see
+    type: where_this_lives
+    figure: "A preview page of Arabesque No. 1 — RH triplets, LH quarters, circled together."
+    cleffy: >
+      This exact pattern lives all over Arabesque No. 1.
+      Tomorrow — you'll see it on the real page.
+      Today you built the engine.
+
+  - id: 13
+    mode: play
+    type: extended_pattern
+    figure: "Grand staff. Two bars of the same pattern — eight RH triplets over eight LH quarters."
+    cleffy: >
+      Two full bars now. Keep it going.
+      Left hand metronome. Right hand flow.
+    interaction:
+      type: song
+      sequence: [["E2", "E4"], ["G#4"], ["B4"], ["B2", "E4"], ["G#4"], ["B4"], ["E2", "E4"], ["G#4"], ["B4"], ["B2", "E4"], ["G#4"], ["B4"], ["E2", "E4"], ["G#4"], ["B4"], ["B2", "E4"], ["G#4"], ["B4"], ["E2", "E4"], ["G#4"], ["B4"], ["B2", "E4"], ["G#4"], ["B4"]]
+      guides: false
+      tempo: 60
+
+  - id: 14
+    mode: hear
+    type: pre_check
+    figure: "Banner — mastery check."
+    cleffy: >
+      Three quick ones.
+
+  - id: 15
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 214. Two clocks side by side, hands working in different directions, both keeping time."
+    cleffy: >
+      Two clocks running. One brain.
+      Tomorrow — the piece this was all for.
+      Arabesque No. 1. Debussy's first love-letter to the piano.
+
+practice_this_week:
+  real_piano:
+    - "Left hand alone, four steady quarters. Once that's automatic, add right-hand triplets."
+    - "Two bars of the pattern, every day. Start at 40 bpm. Only speed up when it's clean."
+    - "Don't count to six. Feel three-on-each. Each hand trusts itself."
+  virtual_only:
+    - "Replay pages 9, 10, and 11 — the speed ladder"
+  estimated_time: "14 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "A grid with 3 notes in the top row and 1 note in the bottom row, per beat"
+          prompt: "What is this rhythm called?"
+          options: ["Two against three", "Dotted rhythm", "Swing"]
+          correct: 0
+        - figure: "RH plays triplets, LH plays quarters. Arrows point to beat 1 and beat 2."
+          prompt: "Where do the hands line up exactly?"
+          options: ["On every note", "Only on the beats", "Never"]
+          correct: 1
+        - figure: "Cleffy thought bubble: 'set the ___ first, then drop three notes into each gap'"
+          prompt: "Which hand sets the pulse?"
+          options: ["Left hand", "Right hand"]
+          correct: 0
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "Right-hand triplets over left-hand quarter notes"
+          prompt: "Which hand has three notes per beat?"
+          options: ["Right hand", "Left hand"]
+          correct: 0
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play one bar — RH triplets E-G#-B on each beat, LH quarters E-B-E-B."
+          accept: "RH triplets over LH quarters for one bar at around 60 bpm"
+
+remediation:
+  id: "214.5"
+  title: "Two clocks, slower"
+  pages: 9
+  opening_cleffy: >
+    Two against three is the one every piano student stumbles on.
+    We'll go really slow — left hand alone, right hand alone, then together at 30 bpm.
+    Trust me. It clicks.
+
+completion:
+  cleffy: >
+    Two clocks, ticking.
+    Tomorrow — Debussy's first love-letter. Arabesque No. 1.
+    Everything this week built toward it.
+  xp: 20
+  unlocks: 215

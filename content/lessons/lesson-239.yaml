@@ -1,0 +1,235 @@
+# ============================================================
+# LESSON 239 · Moonlight 1 — the C# minor color
+# Tier 6 · Act 48 · Advanced
+# The color of the key itself. Why Beethoven chose it.
+# ============================================================
+id: 239
+tier: advanced
+act: 48
+title: "Moonlight 1 — the C-sharp minor color"
+subtitle: "Act 48 · Why this key"
+goal: "Deepen the feel of C-sharp minor — the key Beethoven chose for the most famous slow movement in the piano repertoire."
+prereqs: [238, 167, 168]
+method_focus: "combine"
+time_estimate_min: 16
+piece_context: "A breather lesson between new material and the act boss. Not a lot of new notes today — a lot of listening, feeling, sitting with C-sharp minor. Why did Beethoven call it 'Sonata quasi una Fantasia'? Why this key and not another? Four sharps isn't a random choice. The piece's mood — cold, deep, contemplative — lives in the fingerprint of C-sharp minor itself."
+metaphor: "moonlight-extended"
+vibe: ["quiet", "reflective", "serious"]
+piece:
+  title: "Moonlight Sonata, 1st mvt — color study in C-sharp minor"
+  composer: "Beethoven (1801)"
+  key_center: "C-sharp minor"
+  time_signature: "alla breve (2/2), felt in 4"
+  difficulty: "advanced — color and key study, using material from bars 1-23"
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy next to a paint palette. Four sharps on the palette — F#, C#, G#, D#. Caption: 'the key is a color.'"
+    cleffy: >
+      A breather today. No new bars.
+      Today we sit with the key itself.
+      C-sharp minor. Four sharps. The color Beethoven chose.
+
+  - id: 2
+    mode: see
+    type: sonata_quasi_una_fantasia
+    figure: "An old score page. Title at the top: 'Sonata quasi una Fantasia, Op. 27 No. 2.' Translation below: 'a sonata in the style of a fantasy.'"
+    cleffy: >
+      Beethoven's own title for the piece.
+      Sonata quasi una Fantasia. A sonata in the style of a fantasy.
+      Not a formal sonata. A dream.
+      A fantasy in C-sharp minor.
+
+  - id: 3
+    mode: see
+    type: why_this_key
+    figure: "A chart. Column 1: 'C minor — stormy, tragic.' Column 2: 'A minor — simple, sad.' Column 3: 'C-sharp minor — cold, deep, intimate.' Arrow pointing to C-sharp minor."
+    cleffy: >
+      Keys have colors.
+      C minor — stormy. Pathétique, the Fifth Symphony.
+      A minor — plain, sorrowful. Für Elise.
+      C-sharp minor — colder. Deeper. More private.
+      Beethoven chose it on purpose.
+
+  - id: 4
+    mode: see
+    type: the_four_sharps
+    figure: "Staff with four sharps in the key signature: F#, C#, G#, D#. Each one circled with a small label."
+    cleffy: >
+      Four sharps.
+      F-sharp. C-sharp. G-sharp. D-sharp.
+      You've read this key signature for twenty-plus lessons now.
+      It should feel like home.
+
+  - id: 5
+    mode: play
+    type: c_sharp_minor_scale
+    figure: "C-sharp minor scale — one octave ascending and descending. Fingering labeled. Keyboard highlighting the pattern."
+    cleffy: >
+      The scale itself. One octave up, one octave down.
+      Feel the black-key-heavy shape under your fingers.
+      That's the architecture of Moonlight.
+    interaction:
+      type: sequence
+      keys: ["C#4","D#4","E4","F#4","G#4","A4","B4","C#5","B4","A4","G#4","F#4","E4","D#4","C#4"]
+
+  - id: 6
+    mode: play
+    type: c_sharp_minor_chord
+    figure: "The C-sharp minor triad: C#, E, G#. Played as a chord, then broken."
+    cleffy: >
+      The home chord. C-sharp, E, G-sharp.
+      Same three notes as every triplet in bars 1 through 4.
+      This is the piece's beating heart.
+    interaction:
+      type: sequence
+      keys: ["C#4","E4","G#4"]
+
+  - id: 7
+    mode: hear
+    type: same_melody_different_key
+    figure: "Two play buttons. A: 'Moonlight opening, real key (C-sharp minor).' B: 'Same opening, transposed to C minor — a half step down.'"
+    audio:
+      A: "Moonlight opening 4 bars in original C-sharp minor"
+      B: "Same opening transposed down to C minor — half step lower"
+    cleffy: >
+      The same phrase. Two keys.
+      C-sharp minor — the real one. C minor — half a step down.
+      They are very close. And yet — different.
+      Hear it.
+
+  - id: 8
+    mode: see
+    type: why_it_matters
+    figure: "A quote card. 'Key is not just pitch. Key is character.' Below: 'C-sharp minor is colder than C minor. Moonlight lives there.'"
+    cleffy: >
+      Key is not just pitch. Key is character.
+      C-sharp minor has a particular feel on the piano — black keys under the fingers, certain chord colors that sit a certain way.
+      Beethoven knew.
+      He put Moonlight there because it had to be there.
+
+  - id: 9
+    mode: play
+    type: c_sharp_minor_arpeggio
+    figure: "C-sharp minor arpeggio across two octaves. Root, third, fifth, octave, fifth, third, root. Fingering labeled."
+    cleffy: >
+      The arpeggio. Two octaves.
+      Root, third, fifth, octave — up and down.
+      Every bar of Moonlight's first four bars is built on this.
+    interaction:
+      type: sequence
+      keys: ["C#3","E3","G#3","C#4","E4","G#4","C#5","G#4","E4","C#4","G#3","E3","C#3"]
+
+  - id: 10
+    mode: play
+    type: bars_1_4_with_feel
+    figure: "Bars 1-4. Both hands, pedal. pp. Tempo 48. Caption: 'play the color, not the notes.'"
+    cleffy: >
+      Bars 1 through 4. Play the color, not the notes.
+      You know the notes by now. Let the key speak.
+      Cold. Deep. Still.
+    interaction:
+      type: song
+      sequence: [["C#2","C#3"],"C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4",["C#2","C#3"],"C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4",["B1","B2"],"B3","D#4","F#4","B3","D#4","F#4","B3","D#4","F#4","B3","D#4","F#4",["E2","E3"],"E3","G#3","B3","E3","G#3","B3","E3","G#3","B3","E3","G#3","B3"]
+      guides: false
+      tempo: 48
+
+  - id: 11
+    mode: see
+    type: delicatissimamente
+    figure: "Italian words on the page: 'Si deve suonare tutto questo pezzo delicatissimamente e senza sordino.' Translation below: 'this whole piece should be played most delicately and without dampers (pedal down).'"
+    cleffy: >
+      Beethoven's instruction, the whole piece.
+      'Most delicately, and without dampers.'
+      Senza sordino means pedal down — blur the sound, let it ring.
+      Delicatissimamente means tenderly, carefully, softly.
+      Every bar you play of this piece, remember those two words.
+
+  - id: 12
+    mode: play
+    type: bars_5_8_with_feel
+    figure: "Bars 5-8. Delicatissimamente marked. pp. Tempo 48."
+    cleffy: >
+      Bars 5 through 8. Melody.
+      Most delicately. Pedal down.
+      Let the C-sharp minor color soak into every note.
+    interaction:
+      type: song
+      sequence: [["A2","A3","G#4"],"A3","C#4","E4","A3","C#4","G#4","A3","C#4","A4",["F#2","F#3","A4"],"F#3","A3","C#4","F#3","A3","A4","F#3","A3","G#4",["G#2","G#3","G#4"],"G#3","B#3","D#4","G#3","B#3","F#4","G#3","B#3","E4",["C#2","C#3","E4"],"C#3","E3","G#3","C#3","E3","G#3","C#3","E3","G#3"]
+      guides: false
+      tempo: 48
+    followup_cleffy: >
+      That color — that mood — is yours now.
+      You know what C-sharp minor feels like under your hands.
+
+  - id: 13
+    mode: hear
+    type: pre_check
+    figure: "Banner."
+    cleffy: >
+      Three quick ones.
+
+  - id: 14
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 239. A palette with four sharps painted on it. A low moon above. Caption: 'the color is yours.'"
+    cleffy: >
+      C-sharp minor. Yours now.
+      Tomorrow — act boss. Bars 1 through 23, all the way through.
+      The first big chunk of Moonlight.
+
+practice_this_week:
+  real_piano:
+    - "Play the C-sharp minor scale and arpeggio every day this week. One minute. Hands alone, both directions."
+    - "Pick any minute of Moonlight bars 1-23 and play it focusing ONLY on the key's color — don't worry about tempo or voicing. Just the mood."
+    - "Listen to another piece in C-sharp minor — there aren't many. Rachmaninoff's Prelude Op. 3 No. 2. Bach's WTC Book I Prelude in C-sharp minor. Same key, different mood."
+  virtual_only:
+    - "Replay pages 5, 9, 10, 12 — the key itself, plus bars 1-4 and 5-8 with feel."
+  estimated_time: "12 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "Key signature with four sharps"
+          prompt: "What key is Moonlight in?"
+          options: ["A minor", "C-sharp minor", "F-sharp major"]
+          correct: 1
+        - figure: "Italian subtitle: Sonata quasi una Fantasia"
+          prompt: "What does 'Sonata quasi una Fantasia' mean?"
+          options: ["Very fast sonata", "Sonata in the style of a fantasy", "Short sonata"]
+          correct: 1
+        - figure: "Italian instruction at top: delicatissimamente e senza sordino"
+          prompt: "What does 'senza sordino' mean on a piano?"
+          options: ["Without pedal", "With pedal (dampers off)", "No dynamics"]
+          correct: 1
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "Moonlight opening in C-sharp minor vs the same notes transposed to C minor"
+          prompt: "Which one is the real Moonlight?"
+          options: ["The higher one (C-sharp minor)", "The lower one (C minor)"]
+          correct: 0
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play the C-sharp minor scale, one octave up and down."
+          accept: "C#4 D#4 E4 F#4 G#4 A4 B4 C#5 and back down"
+
+remediation:
+  id: "239.5"
+  title: "C-sharp minor, slower feel"
+  pages: 7
+  opening_cleffy: >
+    Color and key take time to settle. Not a failure to need another pass.
+    We'll sit with the scale, the chord, and bars 1-4 — very slow — until the mood locks in.
+
+completion:
+  cleffy: >
+    C-sharp minor color — yours.
+    Tomorrow — act boss. All twenty-three bars, one pass through.
+  xp: 18
+  unlocks: 240

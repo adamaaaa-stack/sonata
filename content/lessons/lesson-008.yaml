@@ -1,0 +1,246 @@
+# ============================================================
+# LESSON 8 · Octaves
+# Tier 1 · Act 2 · Beginner
+# Central metaphor: TWIN NOTES — SAME LETTER, DIFFERENT FLOOR
+# ============================================================
+id: 8
+tier: beginner
+act: 2
+title: "Octaves"
+subtitle: "Same letter, higher or lower"
+goal: "Understand that every letter repeats up and down the piano — that's an octave."
+prereqs: [4, 6, 7]
+method_focus: "piano-geography"
+time_estimate_min: 10
+piece_context: null
+metaphor: "twin-notes-different-floor"
+vibe: ["gentle", "playful"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Keyboard. Middle C glowing gold. Two arrows point to the Cs on either side — one low, one high."
+    cleffy: >
+      Remember yesterday, when we said every C is still a C?
+      Low C, Middle C, high C — same letter, different parts of the piano.
+      There's a word for that relationship. It's the piano's oldest trick.
+      It's called an octave.
+
+  - id: 2
+    mode: see
+    type: definition
+    figure: "Keyboard zoomed in. Middle C to the next C above it — all 8 white keys between them counted: 1, 2, 3, 4, 5, 6, 7, 8."
+    cleffy: >
+      Octave just means eight.
+      If you start on any note and count eight white keys up — you land on the same letter again.
+      C to the next C. D to the next D. G to the next G.
+      Always eight keys. Always the same letter.
+
+  - id: 3
+    mode: see
+    type: all_cs
+    figure: "Full keyboard. All 7 Cs glow gold. Curved arrows connect each neighboring pair with the label octave."
+    cleffy: >
+      Every C on the piano is an octave away from the next one.
+      The piano has seven Cs. That's six octaves worth of Cs.
+      And the same is true for every other letter.
+
+  - id: 4
+    mode: see
+    type: why_eight
+    figure: "Keyboard zoomed. Student counts the 7 white keys between two Cs (D, E, F, G, A, B) — plus the second C makes 8."
+    cleffy: >
+      Let me show you why it's called eight.
+      Start on C. Then D, E, F, G, A, B — that's seven steps.
+      Then the next C — that's the eighth. Hence octave.
+      Pretty literal name.
+
+  - id: 5
+    mode: see
+    type: any_letter
+    figure: "Keyboard. Two Gs highlighted — Middle G and the G an octave above."
+    cleffy: >
+      It's not just for C. Pick any letter.
+      Here are two Gs, one octave apart.
+      They look different on the keyboard — one is higher, one is lower.
+      But the same letter. Same function.
+
+  - id: 6
+    mode: see
+    type: interactive_spot
+    figure: "Keyboard. One D glowing. Prompt: tap another D, any other one."
+    cleffy: >
+      Here's a D. Tap any OTHER D on the keyboard — doesn't matter which.
+    interaction:
+      type: tap
+      accept: "any D except the highlighted one"
+    corrections:
+      - wrong_label: "tapped_wrong_letter"
+        cleffy: >
+          Look for the same letter. The D right next to you was just a reminder —
+          find another D somewhere else on the piano.
+
+  - id: 7
+    mode: hear
+    type: together
+    figure: "Keyboard. Two Cs flash — one low, one high — and they play at the same time."
+    audio:
+      A: "Two Cs played simultaneously (C3 + C5)"
+    cleffy: >
+      Listen. This is what two Cs sound like when you play them at the same time (two notes together).
+      Notice how it almost sounds like ONE note — just a bigger one.
+      That's the octave's magic. The two notes blend so well, your ear can barely separate them.
+
+  - id: 8
+    mode: hear
+    type: one_then_other
+    figure: "Keyboard. Low C plays, then high C plays right after."
+    audio:
+      A: "C3, pause, C5"
+    cleffy: >
+      Now one at a time.
+      Even played separately — they sound like the same note, just in a different voice.
+
+  - id: 9
+    mode: hear
+    type: contrast
+    figure: "Two play buttons. A: two Cs (octave apart). B: C and D (a step apart)."
+    audio:
+      A: "C4 + C5 together"
+      B: "C4 + D4 together"
+    cleffy: >
+      Two mystery chords.
+      One is two of the same letter, an octave apart.
+      The other is two different letters right next to each other.
+      Which one sounds smoother — A or B?
+    interaction:
+      type: choice
+      options: ["A", "B"]
+      correct: 0
+    corrections:
+      - wrong_label: "general"
+        cleffy: >
+          Listen again. Same-letter pairs blend. Different-letter pairs right next to each other
+          feel a little tense — like they're arguing.
+
+  - id: 10
+    mode: play
+    type: octave_play
+    figure: "Keyboard. Middle C glowing gold. High C (one octave up) also glowing."
+    cleffy: >
+      Play Middle C, then the C right above it. Just tap both, one then the other.
+    interaction:
+      type: sequence
+      keys: ["C4", "C5"]
+    followup_cleffy: >
+      That's an octave — played one at a time. Sounds like the same note stepping up a floor.
+
+  - id: 11
+    mode: play
+    type: octave_different_letter
+    figure: "Keyboard. Two Gs highlighted — Middle G (G4) and G5."
+    cleffy: >
+      Now try it with G. Middle G, then the G right above.
+    interaction:
+      type: sequence
+      keys: ["G4", "G5"]
+    followup_cleffy: >
+      Same move, different letter. Same octave relationship.
+
+  - id: 12
+    mode: play
+    type: free_octave
+    figure: "Full keyboard. No highlights."
+    cleffy: >
+      Your choice. Pick any letter. Play it, then play the same letter an octave up.
+    interaction:
+      type: sequence
+      accept: "two of the same letter, one octave apart"
+
+  - id: 13
+    mode: read
+    type: see_hear_play
+    figure: "Keyboard. Cleffy plays two notes — either an octave or a step. You name it."
+    cleffy: >
+      I play two notes. You tell me — octave (same letter) or step (different letter, right next to each other)?
+    interaction:
+      type: drill
+      rounds: 3
+      options: ["Octave", "Step"]
+
+  - id: 14
+    mode: hear
+    type: drill
+    figure: "Round counter 1 of 4. Mixed questions."
+    cleffy: >
+      Four rounds. Mix of seeing and hearing.
+    interaction:
+      type: drill
+      rounds: 4
+
+  - id: 15
+    mode: hear
+    type: pre_check
+    figure: "Banner."
+    cleffy: >
+      Four quick ones.
+
+  - id: 16
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 8. Two Cs on a keyboard, connected by a loop labeled octave. Cleffy smiling."
+    cleffy: >
+      Same letter. Different floor. That's an octave.
+      Tomorrow we give your fingers numbers, so I can actually tell you which finger to use.
+      The day after, you play your first real song.
+
+# ─── Mastery check ──────────────────────────────────────
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 3
+      questions:
+        - figure: "Keyboard with two keys circled (same letter, one octave apart)."
+          prompt: "Are these the same letter?"
+          options: ["Yes (octave)", "No (different letters)"]
+          correct: 0
+        - figure: "Keyboard with two keys circled (different letters, a step apart)."
+          prompt: "Are these the same letter?"
+          options: ["Yes (octave)", "No (different letters)"]
+          correct: 1
+        - figure: "Keyboard. One E glowing."
+          prompt: "Tap an E an octave above it."
+    hear:
+      pass_threshold: 2
+      questions:
+        - audio: "Two Cs played together"
+          prompt: "Did that sound like one note or two different notes?"
+          options: ["One note (octave)", "Two different notes"]
+          correct: 0
+        - audio: "C and D played together"
+          prompt: "Was that an octave (same letter) or a step (different letter)?"
+          options: ["Octave", "Step"]
+          correct: 1
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play two Ds, one octave apart."
+          accept: "D in two different octaves"
+
+# ─── Remediation ────────────────────────────────────────
+remediation:
+  id: "8.5"
+  title: "Octaves, slower"
+  pages: 5
+  opening_cleffy: >
+    Octaves are subtle — the notes almost hide inside each other.
+    Let's listen a few more times, with both notes on screen together.
+
+# ─── Completion ─────────────────────────────────────────
+completion:
+  cleffy: >
+    Every letter has twins, triplets, quintuplets — all across the piano.
+    That's a big idea. You've got it.
+  xp: 20
+  unlocks: 9

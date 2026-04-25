@@ -1,0 +1,268 @@
+# ============================================================
+# LESSON 180 · Bach Invention No. 1 (bars 1–4)
+# Tier 5 · Act 36 · Upper-Intermediate · ACT BOSS 🎯
+# J.S. Bach — Invention No. 1 in C major, BWV 772.
+# Opening: RH subject C-D-E-F-D-E-C-G. LH echoes one bar later.
+# The SUBJECT + IMITATION concept. Very slow. Simplified fingering.
+# ============================================================
+id: 180
+tier: upper-intermediate
+act: 36
+title: "Bach Invention No. 1 (bars 1–4)"
+subtitle: "Act 36 · Your first counterpoint piece"
+goal: "Play the opening four bars of Bach's Invention No. 1 — the subject in the right hand, imitated one bar later by the left hand."
+prereqs: [176, 177, 178, 179]
+method_focus: "combine"
+time_estimate_min: 16
+piece_context: "Act 36 boss. Your first real counterpoint piece — Bach, Invention No. 1 in C major, written around 1720 as a teaching piece for his son. We're doing only bars 1–4, very slow. This is not a race. It's your introduction to the idea of a subject — a little tune that one hand starts, and the other hand copies a moment later."
+metaphor: "hands-as-singers"
+vibe: ["serious", "focused", "gentle"]
+is_act_boss: true
+piece:
+  title: "Invention No. 1 in C major, BWV 772"
+  composer: "J.S. Bach (~1720)"
+  key_center: "C major"
+  time_signature: "4/4"
+  difficulty: "upper-intermediate — simplified, bars 1–4 only, very slow"
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy holding a small hand-written manuscript. Banner: ACT 36 BOSS — BACH INVENTION No. 1. A quill pen resting beside him."
+    cleffy: >
+      Act 36 boss.
+      Johann Sebastian Bach. Around 1720.
+      He wrote this for his son, to teach counterpoint. Today it teaches you.
+
+  - id: 2
+    mode: see
+    type: honest_framing
+    figure: "Two boxes. Left: 'what this lesson is NOT — the full Invention at tempo.' Right: 'what it IS — bars 1 to 4, very slow, the subject and its echo.'"
+    cleffy: >
+      The honest part first.
+      Today is not the full Invention. That's a month of practice.
+      Today — four bars. Slow. The opening subject and its first echo.
+
+  - id: 3
+    mode: see
+    type: the_subject
+    figure: "Treble staff, bar 1 only. Eight sixteenth-notes: C5 D5 E5 F5 D5 E5 C5 G5. Labelled: THE SUBJECT."
+    cleffy: >
+      The subject.
+      A short musical phrase Bach is going to reuse the whole piece.
+      Eight sixteenth-notes. C D E F D E C G. That's the whole idea of the Invention.
+
+  - id: 4
+    mode: hear
+    type: hear_subject_only
+    figure: "Play button. Caption: the subject, one hand, slow."
+    audio:
+      A: "The eight-note subject: C5 D5 E5 F5 D5 E5 C5 G5, played as even sixteenth-notes, slow"
+    cleffy: >
+      Listen. Eight sixteenth-notes. A rising, turning little tune that leaps up to G at the end.
+      Remember that shape. You'll hear it again in a second — in the left hand.
+
+  - id: 5
+    mode: play
+    type: play_subject_rh
+    figure: "Keyboard. C5 D5 E5 F5 D5 E5 C5 G5 glowing in order."
+    cleffy: >
+      Play the subject. Right hand. Eight notes.
+      C D E F D E C G. Slow and even.
+    interaction:
+      type: sequence
+      keys: ["C5","D5","E5","F5","D5","E5","C5","G5"]
+
+  - id: 6
+    mode: see
+    type: imitation
+    figure: "Grand staff. Bar 1: RH plays the subject. Bar 2: LH plays the same subject, one octave lower, while RH continues above. Arrows: SUBJECT → IMITATION."
+    cleffy: >
+      Now the trick.
+      Bar 2 — the left hand copies. Same eight notes. One octave lower.
+      The right hand keeps going above it.
+      This is called imitation. One hand calls, the other answers.
+
+  - id: 7
+    mode: hear
+    type: hear_imitation
+    figure: "Play button. Caption: bars 1 and 2 — RH starts, LH answers."
+    audio:
+      A: "Bar 1: RH plays subject alone. Bar 2: LH plays same subject an octave lower while RH plays a continuing line above"
+    cleffy: >
+      Hear it.
+      Right hand says it. Left hand answers a bar later.
+      This is the sound of Bach. Of every fugue. Of counterpoint itself.
+
+  - id: 8
+    mode: play
+    type: play_subject_lh
+    figure: "Keyboard. C4 D4 E4 F4 D4 E4 C4 G4 glowing — left hand, one octave lower than the RH subject."
+    cleffy: >
+      Left hand's turn. Same eight notes. One octave down.
+      C D E F D E C G. Middle C and below, ending up on G.
+    interaction:
+      type: sequence
+      keys: ["C4","D4","E4","F4","D4","E4","C4","G4"]
+
+  - id: 9
+    mode: see
+    type: what_rh_does_in_bar_2
+    figure: "Treble staff, bar 2 only. A simple continuation line: G5 E5 G5 C5 — four notes — while the bass plays the subject below."
+    cleffy: >
+      While the left hand copies the subject in bar 2, the right hand keeps moving.
+      A simple continuation — G E G C. Just four notes.
+      Bach wrote more. We're keeping it friendly.
+
+  - id: 10
+    mode: play
+    type: play_rh_continuation
+    figure: "Keyboard. G5 E5 G5 C5 glowing in order."
+    cleffy: >
+      Right hand, bar 2 line. G E G C.
+    interaction:
+      type: sequence
+      keys: ["G5","E5","G5","C5"]
+
+  - id: 11
+    mode: play
+    type: bar_1_alone
+    figure: "Grand staff. Bar 1 only. RH plays the subject; LH is silent."
+    cleffy: >
+      Bar 1 together. Only the right hand plays the subject.
+      Left hand rests. Very slow — quarter note equals 50.
+    interaction:
+      type: rhythm
+      sequence: ["C5","D5","E5","F5","D5","E5","C5","G5"]
+      durations: ["sixteenth","sixteenth","sixteenth","sixteenth","sixteenth","sixteenth","sixteenth","sixteenth"]
+      tempo: 50
+
+  - id: 12
+    mode: play
+    type: bar_2_hands_together
+    figure: "Grand staff. Bar 2 — RH plays continuation (G5 E5 G5 C5 as eighths) while LH plays subject (C4 D4 E4 F4 D4 E4 C4 G4 as sixteenths). Very slow."
+    cleffy: >
+      Bar 2. Both hands now.
+      Left hand plays the eight-note subject. Right hand plays its four continuation notes above.
+      The hands are doing different things. That's counterpoint.
+    interaction:
+      type: rhythm
+      sequence: [["G5","C4"], ["D4"], ["E5","E4"], ["F4"], ["G5","D4"], ["E4"], ["C5","C4"], ["G4"]]
+      durations: ["sixteenth","sixteenth","sixteenth","sixteenth","sixteenth","sixteenth","sixteenth","sixteenth"]
+      tempo: 45
+
+  - id: 13
+    mode: play
+    type: bars_1_and_2
+    figure: "Grand staff. Bars 1 and 2 together. Metronome: 45."
+    cleffy: >
+      Bars 1 and 2 in a row.
+      Right hand starts alone. Left hand enters in bar 2. Right hand keeps going above.
+      Slow. Forty-five.
+    interaction:
+      type: song
+      sequence: ["C5","D5","E5","F5","D5","E5","C5","G5",["G5","C4"], ["D4"], ["E5","E4"], ["F4"], ["G5","D4"], ["E4"], ["C5","C4"], ["G4"]]
+      guides: true
+      tempo: 45
+
+  - id: 14
+    mode: play
+    type: bars_3_and_4
+    figure: "Grand staff. Bars 3-4 simplified — RH: E5 F5 G5 A5 F5 G5 E5 B5 (eight-note subject on E). LH: E4 held underneath. Very short, simplified."
+    cleffy: >
+      Bars 3 and 4. Now the eight-note subject moves up — starting on E instead of C.
+      Right hand: E F G A F G E B. Left hand holds an E underneath.
+      Bach actually did more here. Today, the essentials.
+    interaction:
+      type: rhythm
+      sequence: [["E5","E4"], ["F5"], ["G5"], ["A5"], ["F5"], ["G5"], ["E5"], ["B5"]]
+      durations: ["sixteenth","sixteenth","sixteenth","sixteenth","sixteenth","sixteenth","sixteenth","sixteenth"]
+      tempo: 45
+
+  - id: 15
+    mode: play
+    type: all_four_bars
+    figure: "Grand staff. Bars 1–4 complete, simplified. Metronome 45. Guides on."
+    cleffy: >
+      All four bars. Guides on. Forty-five.
+      This is Bach. Slow, simplified, and real.
+    interaction:
+      type: song
+      sequence: ["C5","D5","E5","F5","D5","E5","C5","G5",["G5","C4"], ["D4"], ["E5","E4"], ["F4"], ["G5","D4"], ["E4"], ["C5","C4"], ["G4"],["E5","E4"], ["F5"], ["G5"], ["A5"], ["F5"], ["G5"], ["E5"], ["B5"]]
+      guides: true
+      tempo: 45
+    followup_cleffy: >
+      That. Four bars of Bach. Two voices. Subject and imitation.
+      Your first counterpoint piece. You did it.
+
+  - id: 16
+    mode: see
+    type: wrap
+    figure: "Celebration card — ACT 36 COMPLETE 🎯. Cleffy standing with a small Bach manuscript. Banner below: SUBJECT. IMITATION. COUNTERPOINT. A pyramid with 36/50 acts complete."
+    cleffy: >
+      Act 36. Closed.
+      Four bars of Bach. The subject said once, then echoed.
+      What you learned this act — counterpoint, equal hands, two-stave reading, counter-melody awareness, subject-and-imitation.
+      Next act — the rest of the Invention. Bars 5 through 12. The subject comes back upside down.
+
+practice_this_week:
+  real_piano:
+    - "Bars 1 and 2 only, every day this week. RH alone, then LH alone, then together — slow metronome. Thirty seconds each, three rounds."
+    - "Search 'Bach Invention No. 1 in C major' on YouTube. Listen once a day. Let your ear start to expect where the subject returns."
+    - "One warm-up exercise: play the eight-note subject in RH, pause a beat, then play it in LH one octave lower. Call and answer. Slow."
+  virtual_only:
+    - "Replay pages 11, 13, and 15 — one-hand bar 1, both-hands bars 1–2, then the full four bars."
+  estimated_time: "15 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "Treble staff with the eight-note shape C D E F D E C G"
+          prompt: "What is a short musical phrase that Bach repeats throughout a piece called?"
+          options: ["A cadence", "A subject", "A pedal point"]
+          correct: 1
+        - figure: "Grand staff. RH plays a phrase in bar 1. LH plays the same phrase, one octave lower, in bar 2."
+          prompt: "What is this technique called?"
+          options: ["Parallel motion", "Imitation", "Transposition"]
+          correct: 1
+        - figure: "Bach Invention No. 1 opening — two voices, no clear melody-plus-accompaniment"
+          prompt: "What kind of texture is this?"
+          options: ["Melody and accompaniment", "Counterpoint", "Solo melody"]
+          correct: 1
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "Bars 1 and 2 — RH plays subject in bar 1, LH plays same subject one octave lower in bar 2"
+          prompt: "What happens in bar 2?"
+          options: ["A new tune starts", "The left hand copies the right hand's subject", "Both hands play chords"]
+          correct: 1
+        - audio: "The eight-note subject alone"
+          prompt: "How many notes are in the subject?"
+          options: ["Five", "Seven", "Eight"]
+          correct: 2
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play the subject: C5 D5 E5 F5 D5 E5 C5 G5 in the right hand, slow and even."
+          accept: "Eight notes in order, RH, even rhythm"
+
+remediation:
+  id: "180.5"
+  title: "Bach, one bar at a time"
+  pages: 11
+  opening_cleffy: >
+    Act boss. Counterpoint is a real shift in how you play.
+    We'll take one bar at a time — subject alone, imitation alone, then the overlap.
+    Forty bpm. No rush.
+
+completion:
+  cleffy: >
+    Act 36 sealed. Your first Bach. Your first counterpoint.
+    You understand subject and imitation now — the engine of every fugue ever written.
+    Next act — bars 5 through 12. The subject inverts. Turns upside down.
+    Everything you learned here carries.
+  xp: 30
+  unlocks: 181

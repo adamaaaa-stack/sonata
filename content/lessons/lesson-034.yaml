@@ -1,0 +1,236 @@
+# ============================================================
+# LESSON 34 · Middle C on both clefs
+# Tier 2 · Act 7 · Elementary
+# Central metaphor: THE BRIDGE BETWEEN TWO STAVES
+# ============================================================
+id: 34
+tier: elementary
+act: 7
+title: "Middle C, on both clefs"
+subtitle: "The bridge between the two staves"
+goal: "See Middle C written two different ways — below treble, above bass — and recognize it's the same note."
+prereqs: [14, 29, 33]
+method_focus: "notation"
+time_estimate_min: 10
+piece_context: null
+metaphor: "bridge-between-staves"
+vibe: ["gentle", "playful"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Grand staff. In the gap between the two staves, Middle C glows gold, sitting on its own little ledger line."
+    cleffy: >
+      Here's a cool thing about the grand staff.
+      One note lives in the middle — between both staves.
+      It's the same note whether you read it from above or below.
+      It's the bridge. You already know it — Middle C.
+
+  - id: 2
+    mode: see
+    type: two_ways_to_write
+    figure: "Split screen. Left: treble staff alone with Middle C (ledger line BELOW staff). Right: bass staff alone with Middle C (ledger line ABOVE staff). Both arrows point to the same piano key — C4."
+    cleffy: >
+      Middle C can be written two ways.
+      On the treble staff — below the five lines, on its own little ledger line.
+      On the bass staff — above the five lines, on its own little ledger line.
+      Same note. Same piano key. Just written from two different directions.
+
+  - id: 3
+    mode: see
+    type: why
+    figure: "Grand staff with Middle C shared between the two staves — one ledger line halfway between both."
+    cleffy: >
+      Why two ways?
+      Because sometimes the right hand plays Middle C (reads it from above).
+      Sometimes the left hand plays it (reads it from below).
+      Whoever plays it just reads it from their own staff. Same key either way.
+
+  - id: 4
+    mode: see
+    type: treble_middle_c
+    figure: "Treble staff with Middle C highlighted below the staff on a ledger line."
+    cleffy: >
+      From the treble staff, Middle C hangs just below.
+      You already know this one — we met it in Lesson 14.
+
+  - id: 5
+    mode: see
+    type: bass_middle_c
+    figure: "Bass staff with Middle C highlighted just above the staff on a ledger line."
+    cleffy: >
+      From the bass staff, Middle C sits just above.
+      Mirror image. Same distance from the staff. Just on the other side.
+
+  - id: 6
+    mode: see
+    type: interactive_treble
+    figure: "Treble staff with a note on its ledger line below the staff."
+    cleffy: >
+      Is this Middle C?
+    interaction:
+      type: choice
+      options: ["Yes", "No"]
+      correct: 0
+
+  - id: 7
+    mode: see
+    type: interactive_bass
+    figure: "Bass staff with a note on its ledger line above the staff."
+    cleffy: >
+      And this?
+    interaction:
+      type: choice
+      options: ["Yes (Middle C on bass)", "No"]
+      correct: 0
+
+  - id: 8
+    mode: see
+    type: interactive_distractor
+    figure: "Bass staff with a note on line 5 (the top line) — close to Middle C but not quite."
+    cleffy: >
+      Trick question. This one?
+    interaction:
+      type: choice
+      options: ["Yes (Middle C)", "No (something else)"]
+      correct: 1
+    corrections:
+      - wrong_label: "picked_yes"
+        cleffy: >
+          Close. This note is ON the top line of the bass staff — not ABOVE it.
+          Middle C hangs above the staff on its own ledger line.
+
+  - id: 9
+    mode: hear
+    type: middle_c_same
+    figure: "Two play buttons side by side."
+    audio:
+      A: "Middle C (from treble staff reading)"
+      B: "Middle C (from bass staff reading)"
+    cleffy: >
+      Both of these are Middle C.
+      Same sound. It has to be — it's the same key on the piano.
+      Written two ways, played one way.
+
+  - id: 10
+    mode: play
+    type: play_middle_c_rh
+    figure: "Treble staff with Middle C. Keyboard with Middle C glowing gold. RH thumb labeled."
+    cleffy: >
+      Right-hand thumb on Middle C. Play it.
+    interaction:
+      type: tap
+      key: "C4"
+
+  - id: 11
+    mode: play
+    type: play_middle_c_lh
+    figure: "Bass staff with Middle C. Keyboard with Middle C glowing gold. LH thumb labeled."
+    cleffy: >
+      Now play the SAME note with your LEFT hand thumb.
+      It's one key over from your LH five-finger position (if you're on C3-G3, it's one past your thumb).
+    interaction:
+      type: tap
+      key: "C4"
+    followup_cleffy: >
+      Same key. Different hand. Same Middle C.
+
+  - id: 12
+    mode: read
+    type: see_hear_play_treble
+    figure: "Treble staff with Middle C. Keyboard below."
+    cleffy: >
+      Round 1. Middle C from the treble staff. Play with RH.
+    interaction:
+      type: see_hear_play
+      target_key: "C4"
+
+  - id: 13
+    mode: read
+    type: see_hear_play_bass
+    figure: "Bass staff with Middle C. Keyboard below."
+    cleffy: >
+      Round 2. Middle C from the bass staff. Play with... whichever hand feels right. Either works.
+    interaction:
+      type: see_hear_play
+      target_key: "C4"
+
+  - id: 14
+    mode: hear
+    type: drill_mixed
+    figure: "Mix of treble/bass Middle C questions."
+    cleffy: >
+      Four rounds.
+    interaction:
+      type: drill
+      rounds: 4
+
+  - id: 15
+    mode: hear
+    type: pre_check
+    figure: "Banner."
+    cleffy: >
+      Four quick ones.
+
+  - id: 16
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 34. Grand staff with Middle C glowing gold between the two staves, an arrow showing it's the same note read from either direction."
+    cleffy: >
+      One note. Two ways to write it. That's the bridge between the two staves.
+      Tomorrow — your first two-hand piece. We play.
+
+# ─── Practice this week ────────────────────────────────
+practice_this_week:
+  real_piano:
+    - "Play Middle C with your right-hand thumb. Five times."
+    - "Play Middle C with your left-hand thumb. Five times."
+    - "Alternate: RH Middle C, LH Middle C, RH Middle C. Same note, swap hands."
+  virtual_only:
+    - "Replay pages 10-13 (play Middle C from both clefs)"
+  estimated_time: "5 min/day"
+
+# ─── Mastery check ──────────────────────────────────────
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "Treble staff, Middle C below the staff on a ledger line."
+          prompt: "Is this Middle C?"
+          options: ["Yes", "No"]
+          correct: 0
+        - figure: "Bass staff, Middle C above the staff on a ledger line."
+          prompt: "Is this Middle C?"
+          options: ["Yes", "No"]
+          correct: 0
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "Middle C"
+          prompt: "Is this Middle C?"
+          options: ["Yes", "No"]
+          correct: 0
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play Middle C with either hand."
+          accept: "C4"
+
+# ─── Remediation ────────────────────────────────────────
+remediation:
+  id: "34.5"
+  title: "Middle C, both sides"
+  pages: 5
+  opening_cleffy: >
+    Two ways to write the same note takes a minute. Let's see it zoomed in, both sides,
+    and connect the shape to the sound.
+
+# ─── Completion ─────────────────────────────────────────
+completion:
+  cleffy: >
+    One bridge note. Both staves now talk to each other.
+    Tomorrow you play Merrily We Roll Along. Two hands. A song.
+  xp: 20
+  unlocks: 35

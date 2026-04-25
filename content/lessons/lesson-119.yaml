@@ -1,0 +1,223 @@
+# ============================================================
+# LESSON 119 · Phrase-shaped dynamics
+# Tier 3 · Act 24 · Low-Intermediate · Phrasing
+# p → mf → p across a phrase. The dynamic arc.
+# ============================================================
+id: 119
+tier: low-intermediate
+act: 24
+title: "Phrase-shaped dynamics"
+subtitle: "Act 24 · Soft · louder · soft"
+goal: "Shape a phrase with dynamics — start soft, peak in the middle, soften at the end."
+prereqs: [118, 117, 60, 75]
+method_focus: "play"
+time_estimate_min: 13
+piece_context: "You know phrases. You know dynamics. Put them together — p, mf, p, across one sentence of music. This is how real pianists play."
+metaphor: "music-breathes"
+vibe: ["focused", "gentle"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Staff with a phrase. Above it — a big gentle arch drawn: p rising to mf, falling back to p."
+    cleffy: >
+      You know phrases. You know dynamics.
+      Today — you put them together.
+
+  - id: 2
+    mode: see
+    type: the_arc
+    figure: "A 7-note phrase with markings written in: p at the start, mf at the peak note, p again at the end. Arch drawn over."
+    cleffy: >
+      The rule for most phrases.
+      Start soft. Grow through the middle. Peak on the main note. Soften to the end.
+      p — mf — p.
+
+  - id: 3
+    mode: see
+    type: why_this_shape
+    figure: "Side-by-side. Left: flat phrase, all mf. Right: same notes shaped p-mf-p. Cleffy pointing at the right one with a small smile."
+    cleffy: >
+      A flat phrase sounds like typing.
+      A shaped phrase sounds like someone talking.
+      Same notes. Different story.
+
+  - id: 4
+    mode: hear
+    type: listen_flat_vs_shaped
+    figure: "Two play buttons — FLAT and SHAPED."
+    audio:
+      A: "Ode to Joy first phrase, played mf the whole way, flat"
+      B: "Same phrase — starts p, builds to mf at the peak (G), softens to p at D"
+    cleffy: >
+      Listen. Flat first. Then shaped.
+      Same phrase. Feels completely different.
+
+  - id: 5
+    mode: see
+    type: finding_the_peak
+    figure: "Ode to Joy first phrase — E E F G G F E D. The high G circled and labeled PEAK."
+    cleffy: >
+      Where's the peak?
+      Usually the highest note. Or the one just after the middle.
+      In Ode to Joy, phrase one — the G. That's where the sentence wants the weight.
+
+  - id: 6
+    mode: play
+    type: play_ode_shaped
+    figure: "Keyboard. Ode to Joy phrase one. Arch drawn: p at E, grows, mf at G, softens, p at D."
+    cleffy: >
+      Play Ode to Joy, phrase one. Shape it.
+      Start soft on E. Grow into the rise. A little fuller on G. Softer coming down to D.
+      E E F G G F E D.
+    interaction:
+      type: sequence
+      keys: ["E4","E4","F4","G4","G4","F4","E4","D4"]
+
+  - id: 7
+    mode: see
+    type: dynamic_markings
+    figure: "Staff with explicit dynamic markings written under the notes: p · < (crescendo hairpin) · mf · > (diminuendo hairpin) · p."
+    cleffy: >
+      Sometimes composers write it out.
+      p — crescendo hairpin — mf — diminuendo hairpin — p.
+      That shape has a name. You're looking at it.
+
+  - id: 8
+    mode: hear
+    type: drill_shape_or_flat
+    figure: "Round counter 1 of 3."
+    cleffy: >
+      Three rounds. Shaped or flat?
+    interaction:
+      type: drill
+      rounds: 3
+      options: ["Shaped", "Flat"]
+
+  - id: 9
+    mode: play
+    type: play_mary_shaped
+    figure: "Keyboard. Mary Had a Little Lamb first phrase. Peak marked on the high E. Arch drawn over."
+    cleffy: >
+      Mary Had a Little Lamb, first phrase. Shape it.
+      E D C D E E E. Start soft. A little more on the top notes. Land soft.
+    interaction:
+      type: sequence
+      keys: ["E4","D4","C4","D4","E4","E4","E4"]
+
+  - id: 10
+    mode: see
+    type: not_overdone
+    figure: "Two phrases. Left: subtle arch (correct). Right: dramatic swoop from pp to ff (too much). X through the right one."
+    cleffy: >
+      Don't overdo it.
+      A small arch is enough. p to mf and back. Not pp to ff.
+      Too big, and it sounds like a cartoon.
+
+  - id: 11
+    mode: play
+    type: play_twinkle_shaped
+    figure: "Keyboard. Twinkle first phrase C C G G A A G. Peak on A. Arch drawn."
+    cleffy: >
+      Twinkle, first phrase.
+      C C G G A A G. Peak on the A. Gentle arch.
+    interaction:
+      type: sequence
+      keys: ["C4","C4","G4","G4","A4","A4","G4"]
+
+  - id: 12
+    mode: hear
+    type: listen_for_peak
+    figure: "Three clips, each with a peak in a different spot."
+    audio:
+      A: "A phrase peaking at its highest note, mid-phrase"
+      B: "A phrase peaking near the start"
+      C: "A phrase peaking near the end"
+    cleffy: >
+      Three phrases. Where's the peak?
+    interaction:
+      type: drill
+      rounds: 3
+      options: ["Near the start", "In the middle", "Near the end"]
+
+  - id: 13
+    mode: play
+    type: play_ode_both_phrases_shaped
+    figure: "Keyboard. Ode to Joy, both phrases. Each with its own arch — p, mf, p. Tiny breath between."
+    cleffy: >
+      Both phrases of Ode to Joy. Each gets its own arch.
+      Question phrase — shape it. Breath. Answer phrase — shape it, land softer on C.
+    interaction:
+      type: sequence
+      keys: ["E4","E4","F4","G4","G4","F4","E4","D4","E4","E4","F4","G4","G4","F4","E4","D4","C4"]
+    followup_cleffy: >
+      Two sentences. Each one breathing on its own.
+
+  - id: 14
+    mode: hear
+    type: pre_check
+    figure: "Banner."
+    cleffy: >
+      Three quick ones.
+
+  - id: 15
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 119. A gentle dynamic arch over a phrase — p · mf · p."
+    cleffy: >
+      Phrase-shaped dynamics. Soft in. Full in the middle. Soft out.
+      Tomorrow — the act boss. Beethoven. A real phrase.
+
+practice_this_week:
+  real_piano:
+    - "Play Ode to Joy with p-mf-p shape on every phrase. Keep it small and honest."
+    - "Pick any tune you know. Find the peak note of each phrase. Play it just a little fuller."
+  virtual_only:
+    - "Replay page 4 and page 6 — feel the flat vs shaped difference in your fingers."
+  estimated_time: "10 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "A phrase with a dynamic arch drawn above — p rising to mf, back to p."
+          prompt: "What is this dynamic shape called on most phrases?"
+          options: ["An arch — p to mf and back", "Staccato", "All loud"]
+          correct: 0
+        - figure: "A phrase with several notes. The highest note is circled."
+          prompt: "Where does a phrase usually peak?"
+          options: ["On or near the highest note", "On the first note", "On the last note"]
+          correct: 0
+        - figure: "A hairpin < followed by mf followed by >."
+          prompt: "What does this series of markings tell you?"
+          options: ["Grow to mf, then soften", "Stay at mf", "Suddenly loud"]
+          correct: 0
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "A phrase with a gentle arch — starts p, grows, softens"
+          prompt: "Is this phrase flat or shaped?"
+          options: ["Flat", "Shaped"]
+          correct: 1
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play Ode to Joy's first phrase with a gentle arch — soft to louder to soft."
+          accept: "E4 E4 F4 G4 G4 F4 E4 D4 with volume rising to the G and softening toward D"
+
+remediation:
+  id: "119.5"
+  title: "Shaping a phrase, slower"
+  pages: 7
+  opening_cleffy: >
+    Shape is small. It's about feel, not force.
+    We'll take one short phrase and build the arch, note by note.
+
+completion:
+  cleffy: >
+    A phrase can breathe now. And it can rise and settle.
+    Tomorrow — act boss. Beethoven's Bagatelle. Real music, real phrasing.
+  xp: 19
+  unlocks: 120

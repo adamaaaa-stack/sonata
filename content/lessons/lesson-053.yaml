@@ -1,0 +1,220 @@
+id: 53
+tier: elementary
+act: 11
+title: "Dotted notes"
+subtitle: "A dot adds half the note's value again"
+goal: "Read and count dotted quarter and dotted half notes."
+prereqs: [23, 51]
+method_focus: "rhythm"
+time_estimate_min: 10
+piece_context: null
+metaphor: "dot-is-half-extra"
+vibe: ["gentle", "playful"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Staff. A half note next to it, plus a little dot. Label: half note PLUS half."
+    cleffy: >
+      Notice the little dot next to a note? That changes how long it lasts.
+      A dot adds half the note's value to itself.
+
+  - id: 2
+    mode: see
+    type: dotted_half
+    figure: "Dotted half note drawn. 2 + 1 = 3 beats."
+    cleffy: >
+      Dotted half note. Half = 2 beats. Dot adds half of 2, which is 1.
+      Total: 3 beats.
+
+  - id: 3
+    mode: see
+    type: dotted_quarter
+    figure: "Dotted quarter note drawn. 1 + 0.5 = 1.5 beats."
+    cleffy: >
+      Dotted quarter. Quarter = 1 beat. Dot adds half of 1 (which is half).
+      Total: 1.5 beats. A quarter-and-an-eighth combined.
+
+  - id: 4
+    mode: see
+    type: identify
+    figure: "Dotted half note on staff."
+    cleffy: >
+      How many beats?
+    interaction:
+      type: choice
+      options: ["2", "3", "4"]
+      correct: 1
+
+  - id: 5
+    mode: see
+    type: identify_2
+    figure: "Dotted quarter."
+    cleffy: >
+      This?
+    interaction:
+      type: choice
+      options: ["1", "1.5", "2"]
+      correct: 1
+
+  - id: 6
+    mode: see
+    type: drill
+    figure: "Round counter 1 of 4."
+    cleffy: >
+      Four rounds. How many beats?
+    interaction:
+      type: drill
+      rounds: 4
+      options: ["1", "1.5", "2", "3", "4"]
+
+  - id: 7
+    mode: hear
+    type: dotted_half_sound
+    figure: "Metronome. Bar: dotted half, quarter, in 4/4."
+    audio:
+      A: "Dotted half held for 3 clicks, then quarter on beat 4"
+    cleffy: >
+      Listen. First note holds through 3 clicks. Then one more beat.
+
+  - id: 8
+    mode: hear
+    type: dotted_quarter_sound
+    figure: "Metronome. Bar: dotted quarter, eighth, half."
+    audio:
+      A: "Dotted quarter (1.5 beats) + eighth + half"
+    cleffy: >
+      Dotted quarter then eighth — very common pattern. 1.5 + 0.5 = 2 beats total.
+
+  - id: 9
+    mode: play
+    type: play_dotted_half
+    figure: "Bar: C dotted half, D quarter."
+    cleffy: >
+      Play: Middle C held for 3 beats, then D on beat 4.
+    interaction:
+      type: rhythm
+      sequence: ["C4","D4"]
+      durations: ["dotted_half","quarter"]
+      tempo: 60
+
+  - id: 10
+    mode: play
+    type: play_dotted_quarter_eighth
+    figure: "Bar: dotted quarter + eighth pair patterns."
+    cleffy: >
+      Dotted quarter + eighth. Holds 1.5 beats, then a quick note.
+    interaction:
+      type: rhythm
+      sequence: ["C4","D4","E4","F4"]
+      durations: ["dotted_quarter","eighth","dotted_quarter","eighth"]
+      tempo: 60
+
+  - id: 11
+    mode: read
+    type: melody_with_dots
+    figure: "Staff: D dotted half, E quarter, then C half, rest half."
+    cleffy: >
+      Two-bar melody with a dotted half. Read and play.
+    interaction:
+      type: rhythm
+      sequence: ["D4","E4","C4","rest"]
+      durations: ["dotted_half","quarter","half","half"]
+      tempo: 60
+
+  - id: 12
+    mode: hear
+    type: mixed_dots
+    figure: "Round counter 1 of 4."
+    cleffy: >
+      Four rounds. Which duration?
+    interaction:
+      type: drill
+      rounds: 4
+      options: ["Half", "Dotted half", "Whole"]
+
+  - id: 13
+    mode: play
+    type: in_happy_birthday
+    figure: "First bar of Happy Birthday — with dotted eighth + sixteenth pattern. Just dotted quarter for now."
+    cleffy: >
+      Happy Birthday starts with a dotted note. You've played it before.
+      G (dotted quarter) — G (eighth) — A (quarter) — G (quarter) — C (quarter) — B (half).
+    interaction:
+      type: rhythm
+      sequence: ["G4","G4","A4","G4","C5","B4"]
+      durations: ["dotted_quarter","eighth","quarter","quarter","quarter","half"]
+      tempo: 60
+
+  - id: 14
+    mode: hear
+    type: mixed_drill
+    figure: "Four rounds."
+    cleffy: >
+      Mixed.
+    interaction:
+      type: drill
+      rounds: 4
+
+  - id: 15
+    mode: hear
+    type: pre_check
+    figure: "Banner."
+    cleffy: >
+      Four quick ones.
+
+  - id: 16
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 53. Dotted half drawn, with labels 2 + 1 = 3 beats."
+    cleffy: >
+      Dot = half again. Easy math, great shortcut.
+      Tomorrow — ties and slurs. They look alike but aren't.
+
+practice_this_week:
+  real_piano:
+    - "Play Middle C as a dotted half note. Hold for three clicks."
+    - "Try the Happy Birthday opening with dotted quarter + eighth."
+  virtual_only:
+    - "Replay pages 9-11"
+  estimated_time: "5 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "Dotted half note"
+          prompt: "How many beats?"
+          options: ["2", "3", "4"]
+          correct: 1
+        - figure: "Dotted quarter"
+          prompt: "How many beats?"
+          options: ["1", "1.5", "2"]
+          correct: 1
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "Dotted half held 3 clicks"
+          prompt: "How long?"
+          options: ["2 beats", "3 beats", "4 beats"]
+          correct: 1
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play Middle C as a dotted half. Hold through 3 clicks."
+          accept: "C4 dotted half"
+
+remediation:
+  id: "53.5"
+  title: "Dotted notes, slower"
+  pages: 5
+  opening_cleffy: >
+    Dot math is a rep thing. Slower examples.
+
+completion:
+  cleffy: >
+    Dotted notes, understood. Rhythm is almost a full vocabulary now.
+  xp: 20
+  unlocks: 54

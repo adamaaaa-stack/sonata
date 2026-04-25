@@ -1,0 +1,237 @@
+# ============================================================
+# LESSON 224 · Clair de Lune: playing through
+# Tier 5 · Act 45 · Upper-Intermediate · Clair de Lune full (4/5)
+# A-B-climax-A', slow. Full shape. One breath.
+# ============================================================
+id: 224
+tier: upper-intermediate
+act: 45
+title: "Clair de Lune: playing through"
+subtitle: "Act 45 · Clair de Lune full"
+goal: "Play Clair de Lune all the way through — A, B, climax, A' — slowly. The whole shape, once."
+prereqs: [125, 200, 220, 221, 222, 223]
+method_focus: "combine"
+time_estimate_min: 18
+piece_context: "Day four. You have the pieces. A. B. Climax. Today you stitch them into one shape. Slow. No stopping. Full piece. Not for mastery yet — just so you've played the whole thing, once, in order. Tomorrow is the boss."
+metaphor: "debussy-summit"
+vibe: ["focused", "quiet", "reflective"]
+piece:
+  title: "Clair de Lune (play-through — simplified)"
+  composer: "Debussy"
+  key_center: "D major (simplified from D-flat)"
+  time_signature: "3/4 (simplified from 9/8)"
+  difficulty: "upper-intermediate — full A-B-climax-A' structure, slow, no stopping"
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy near the top of the Debussy mountain, one peak left. Banner: LESSON 224. Piece map — all four sections gold."
+    cleffy: >
+      Day four. You have every piece.
+      A section. B section. Climax.
+      Today — all of it. Front to back. Slow.
+
+  - id: 2
+    mode: see
+    type: the_full_map
+    figure: "Piece map. Five blocks: A (opening 12 bars), B (middle 8 bars), CLIMAX (5 bars), A' (return 8 bars). Each block a different soft color. Arrows between."
+    cleffy: >
+      The full map.
+      A — twelve bars. Opening and its return.
+      B — eight bars. Rolling middle.
+      Climax — five bars. The peak.
+      A' — eight bars. Opening again, quieter, ending the piece.
+      Thirty-three bars. One shape.
+
+  - id: 3
+    mode: hear
+    type: listen_full
+    figure: "Play button. Caption: 'full piece — simplified version, reference.'"
+    audio:
+      A: "Full Clair de Lune simplified — A section drifts, B rolls, climax blooms, A' recedes, ends on a low D fading out."
+    cleffy: >
+      Listen. The whole thing.
+      Notice the shape. Quiet. Moving. Loud. Quiet again.
+      That's the arc.
+
+  - id: 4
+    mode: see
+    type: transitions
+    figure: "Three arrows between the blocks. Arrow 1: A → B labeled 'LH starts rolling.' Arrow 2: B → climax labeled 'crescendo.' Arrow 3: climax → A' labeled 'diminuendo back to pp.'"
+    cleffy: >
+      The three transitions.
+      A to B — left hand starts rolling. Texture changes.
+      B to climax — crescendo builds under the roll.
+      Climax to A' — diminuendo melts back. Opening returns.
+      Cleffy trick — breathe at each transition. A tiny pause. Not a stop.
+
+  - id: 5
+    mode: play
+    type: play_a
+    figure: "Grand staff. A section, twelve bars. Tempo 42. Guides on."
+    cleffy: >
+      A section. Twelve bars. Same as two days ago.
+      Opening, second phrase, return.
+    interaction:
+      type: song
+      sequence: [["D2","F#4","A4"],["E4","G4"],["D4","F#4"],["F#4","A4"],["A1","E4","G4"],["D4","F#4"],["D2","C#4","E4"],["D4","F#4"],["D2","F#4","A4"],["E4","G4"],["D4","F#4"],["F#4","A4"]]
+      guides: true
+      tempo: 42
+
+  - id: 6
+    mode: play
+    type: play_b
+    figure: "Grand staff. B section, four bars shown — RH small 2-3 note shapes per bar with LH rolling underneath. Tempo 46."
+    cleffy: >
+      B section. Rolling middle.
+      Left hand water. Right hand singing.
+    interaction:
+      type: song
+      sequence: [["F#4","D3"],"F#3","A3",["A4","F#3"],"A3","D4",["E4","D3"],"F#3","A3",["D4","F#3"],"A3","D4",["F#4","D3"],"F#3",["G4","A3"],"F#3",["F#4","A3"],"D4",["A4","D3"],"F#3","A3",["G4","F#3"],"A3","D4"]
+      guides: true
+      tempo: 46
+
+  - id: 7
+    mode: play
+    type: play_climax
+    figure: "Grand staff. Full five-bar climax. Tempo 46."
+    cleffy: >
+      Climax. Five bars.
+      Approach. Peak. Release.
+    interaction:
+      type: song
+      sequence: [["F#4","D3"],"F#3",["G4","A3"],"F#3",["A4","A3"],"D4",["A4","D3"],"F#3",["B4","A3"],"F#3","B4","D5",["D2","A2","D4","F#4","A4","D5"],["D5","D3"],"A4","F#4","D4",["D4","D2"],"A3","F#3","D3"]
+      guides: true
+      tempo: 46
+
+  - id: 8
+    mode: see
+    type: the_a_prime
+    figure: "Grand staff. Eight bars. Opening four bars of A, then a quiet tag — LH D2, RH F#4-A4 one last time, then D4 alone fading. Dynamic: ppp throughout, with a final ritardando marking."
+    cleffy: >
+      A' — the return.
+      The opening, one more time. Even softer than last time.
+      Then a little tag — one last F-sharp-A chord, and a final D.
+      The piece ends on D. Home note. Exhale.
+
+  - id: 9
+    mode: play
+    type: play_a_prime
+    figure: "Grand staff. Eight bars of A'. Tempo 40. Dynamic ppp. Final ritardando."
+    cleffy: >
+      A prime. Barely-audible. Slow down at the very end.
+      Last D — let it fade to nothing.
+    interaction:
+      type: song
+      sequence: [["D2","F#4","A4"],["E4","G4"],["D4","F#4"],["F#4","A4"],["D2","E4","G4"],["D4","F#4"],["F#4","A4"],["D3","D4"]]
+      guides: true
+      tempo: 40
+
+  - id: 10
+    mode: play
+    type: full_playthrough
+    figure: "Grand staff. All thirty-three bars. Tempo 42. Guides on. Full dynamic arc marked."
+    cleffy: >
+      Full piece. Top to bottom. No stopping.
+      Slow tempo. Guides on.
+      Just get through it once, front to back.
+    interaction:
+      type: song
+      sequence: [["D2","F#4","A4"],["E4","G4"],["D4","F#4"],["F#4","A4"],["A1","E4","G4"],["D4","F#4"],["D2","C#4","E4"],["D4","F#4"],["D2","F#4","A4"],["E4","G4"],["D4","F#4"],["F#4","A4"],["F#4","D3"],"F#3","A3","F#3","A3","D4",["E4","D3"],"F#3","A3","F#3","A3","D4",["F#4","D3"],"F#3","A3","F#3","A3","D4",["A4","D3"],"F#3","A3","F#3","B4","D5",["D2","A2","D4","F#4","A4","D5"],["D5","D3"],"A4","F#4","D4",["D4","D2"],"A3","F#3","D3",["D2","F#4","A4"],["E4","G4"],["D4","F#4"],["F#4","A4"],["D2","E4","G4"],["D4","F#4"],["F#4","A4"],["D3","D4"]]
+      guides: true
+      tempo: 42
+    followup_cleffy: >
+      You played Clair de Lune. All of it.
+      First time through, ever.
+
+  - id: 11
+    mode: see
+    type: what_tomorrow_is
+    figure: "Cleffy pointing up at the last peak. Caption: 'tomorrow — the boss.'"
+    cleffy: >
+      Today was the first play-through. Rough is fine.
+      Tomorrow — the tier boss. Same piece, no guides, with shape.
+      Tier 5 ends on Clair de Lune. Complete.
+
+  - id: 12
+    mode: play
+    type: one_more_slow
+    figure: "Grand staff. Full piece. Tempo 40. No guides. Dynamics marked."
+    cleffy: >
+      One more time. Guides off. Your reading.
+      Still slow. Still quiet except the climax.
+    interaction:
+      type: song
+      sequence: [["D2","F#4","A4"],["E4","G4"],["D4","F#4"],["F#4","A4"],["A1","E4","G4"],["D4","F#4"],["D2","C#4","E4"],["D4","F#4"],["D2","F#4","A4"],["E4","G4"],["D4","F#4"],["F#4","A4"],["F#4","D3"],"F#3","A3","F#3","A3","D4",["E4","D3"],"F#3","A3","F#3","A3","D4",["F#4","D3"],"F#3","A3","F#3","A3","D4",["A4","D3"],"F#3","A3","F#3","B4","D5",["D2","A2","D4","F#4","A4","D5"],["D5","D3"],"A4","F#4","D4",["D4","D2"],"A3","F#3","D3",["D2","F#4","A4"],["E4","G4"],["D4","F#4"],["F#4","A4"],["D2","E4","G4"],["D4","F#4"],["F#4","A4"],["D3","D4"]]
+      guides: false
+      tempo: 40
+
+  - id: 13
+    mode: hear
+    type: pre_check
+    figure: "Banner — Lesson 224 mastery check."
+    cleffy: >
+      Three quick ones.
+
+  - id: 14
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 224. Cleffy on the mountain, one peak to go. Caption: 'PLAY-THROUGH.'"
+    cleffy: >
+      First play-through — done.
+      Tomorrow — the tier boss.
+      Sleep on it. The piece is in your fingers now.
+
+practice_this_week:
+  real_piano:
+    - "Play-through once, slow, every day. Don't stop if you stumble — find the next bar."
+    - "Breathe at the transitions. Tiny pauses. Not stops."
+  virtual_only:
+    - "Replay page 10 or 12 — full run with or without guides."
+  estimated_time: "15 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "Piece map with blocks A, B, CLIMAX, A'"
+          prompt: "What is the shape of Clair de Lune?"
+          options: ["One long section", "A, B, climax, A' (return)", "Just two sections"]
+          correct: 1
+        - figure: "Transition diagram: A → B arrow labeled 'LH starts rolling.'"
+          prompt: "What changes when B begins?"
+          options: ["RH plays thirds", "LH starts rolling broken chords", "Piece gets faster"]
+          correct: 1
+        - figure: "A tempo marking of 40"
+          prompt: "Today's tempo is..."
+          options: ["Fast", "Medium", "Slow"]
+          correct: 2
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "Full piece quietly — one loud peak then back to quiet"
+          prompt: "How does the piece end?"
+          options: ["Loud", "Soft", "Silence"]
+          correct: 1
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play the A section opening — D2 under F#4-A4 third."
+          accept: "D2 held, F#4 and A4 softly on top"
+
+remediation:
+  id: "224.5"
+  title: "Play-through, section by section"
+  pages: 9
+  opening_cleffy: >
+    Play-throughs are a skill in themselves.
+    A alone. B alone. Climax alone. A' alone. Then A-B. Then A-B-climax. Then everything.
+
+completion:
+  cleffy: >
+    You played the whole thing. Once.
+    Tomorrow — the tier boss. Fifth summit. Clair de Lune, complete.
+  xp: 20
+  unlocks: 225

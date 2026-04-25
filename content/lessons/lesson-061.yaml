@@ -1,0 +1,212 @@
+id: 61
+tier: elementary
+act: 13
+title: "Sharps"
+subtitle: "One semitone higher"
+goal: "Read the sharp symbol and play the black key just above a white key."
+prereqs: [3]
+method_focus: "accidentals"
+time_estimate_min: 10
+piece_context: null
+metaphor: "raise-it"
+vibe: ["gentle", "playful"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Staff with a note followed by a sharp symbol (#). Black key glowing on keyboard."
+    cleffy: >
+      New symbol. The sharp. #.
+      It turns a white-key note into the black key just above it.
+      That's it. One rule.
+
+  - id: 2
+    mode: see
+    type: definition
+    figure: "Staff: F then F-sharp. Keyboard: white F and the black key just above (F#) glowing."
+    cleffy: >
+      When you see F#, you play the black key right above F.
+      Same row. Just one little shift to the right (higher).
+
+  - id: 3
+    mode: see
+    type: on_keyboard
+    figure: "Full keyboard. Each white key with a black key above it highlighted, showing: C# is above C, D# is above D, F# is above F, G# is above G, A# is above A."
+    cleffy: >
+      Every white key that has a black key above it can be sharpened.
+      C-D-F-G-A all have sharps.
+      E and B don't have a black key right above — their sharps land on the next white key. We'll get to that later.
+
+  - id: 4
+    mode: see
+    type: sharp_symbol
+    figure: "Close-up of the sharp symbol — like a tic-tac-toe grid."
+    cleffy: >
+      The symbol — two horizontal lines, two vertical lines. Kinda looks like #.
+      Sits just before the note it modifies.
+
+  - id: 5
+    mode: see
+    type: interactive_identify
+    figure: "Staff with F#."
+    cleffy: >
+      Which note is marked?
+    interaction:
+      type: choice
+      options: ["F", "F-sharp", "G"]
+      correct: 1
+
+  - id: 6
+    mode: hear
+    type: f_vs_fsharp
+    figure: "Play buttons."
+    audio:
+      A: "F4"
+      B: "F#4"
+    cleffy: >
+      F. Then F-sharp. Higher by a semitone.
+      Barely different — but your ear will pick it up with practice.
+
+  - id: 7
+    mode: play
+    type: play_f_sharp
+    figure: "Keyboard. F# glowing (black key above F4)."
+    cleffy: >
+      Play F-sharp. The black key right above F.
+    interaction:
+      type: tap
+      key: "F#4"
+
+  - id: 8
+    mode: play
+    type: play_c_sharp
+    figure: "Keyboard. C# glowing (black key above C4)."
+    cleffy: >
+      Now C-sharp.
+    interaction:
+      type: tap
+      key: "C#4"
+
+  - id: 9
+    mode: see
+    type: sharps_in_sequence
+    figure: "Staff: F, F#, G (three notes). Step up via a sharp."
+    cleffy: >
+      A sharp is part of a step.
+      F to F# — tiny step. F# to G — another tiny step.
+      F to G is two of those tiny steps. That's why F-F-sharp-G works.
+
+  - id: 10
+    mode: play
+    type: play_three_chromatic
+    figure: "Keyboard. F, F#, G labeled."
+    cleffy: >
+      Play F, F-sharp, G. Three close notes.
+    interaction:
+      type: sequence
+      keys: ["F4","F#4","G4"]
+
+  - id: 11
+    mode: read
+    type: read_with_sharp
+    figure: "Staff: C, C#, D. Keyboard below."
+    cleffy: >
+      Read and play. C, C-sharp, D.
+    interaction:
+      type: sequence
+      keys: ["C4","C#4","D4"]
+
+  - id: 12
+    mode: hear
+    type: ear_drill
+    figure: "Four rounds."
+    cleffy: >
+      Four by ear. Was that a sharp or a plain white key?
+    interaction:
+      type: drill
+      rounds: 4
+      options: ["Sharp (black key)", "Natural (white key)"]
+
+  - id: 13
+    mode: see
+    type: which_sharp
+    figure: "Staff with a sharp note. Keyboard with multiple black keys — which one is it?"
+    cleffy: >
+      Four rounds. Match the sharp on the staff to the right black key.
+    interaction:
+      type: drill
+      rounds: 4
+      options: ["C#", "D#", "F#", "G#", "A#"]
+
+  - id: 14
+    mode: hear
+    type: mixed
+    figure: "Four rounds."
+    cleffy: >
+      Mixed.
+    interaction:
+      type: drill
+      rounds: 4
+
+  - id: 15
+    mode: hear
+    type: pre_check
+    figure: "Banner."
+    cleffy: >
+      Four quick ones.
+
+  - id: 16
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 61. # symbol drawn big. Keyboard with black keys above C, D, F, G, A labeled as their sharp versions."
+    cleffy: >
+      Sharps: raise it by a tiny step.
+      Tomorrow — flats. Lower it instead.
+
+practice_this_week:
+  real_piano:
+    - "Play F, F#, G slowly. Then C, C#, D. Then G, G#, A."
+    - "Notice how the black key sits right between two white keys."
+  virtual_only:
+    - "Replay pages 10-11"
+  estimated_time: "5 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "Staff with F# marked"
+          prompt: "Which note?"
+          options: ["F", "F-sharp", "G"]
+          correct: 1
+        - figure: "Keyboard. Black key between C and D."
+          prompt: "What's this note called?"
+          options: ["C-sharp", "D-flat", "B-sharp"]
+          correct: 0
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "C# played"
+          prompt: "Sharp (black key) or natural (white)?"
+          options: ["Sharp", "Natural"]
+          correct: 0
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play F-sharp."
+          accept: "F#4"
+
+remediation:
+  id: "61.5"
+  title: "Sharps, slower"
+  pages: 5
+  opening_cleffy: >
+    One little shift right. Slow pass.
+
+completion:
+  cleffy: >
+    Sharps, in. Black keys now have names.
+  xp: 20
+  unlocks: 62

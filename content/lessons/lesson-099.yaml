@@ -1,0 +1,232 @@
+# ============================================================
+# LESSON 99 · Broken accompaniment
+# Tier 3 · Act 20 · Low-Intermediate · Chords & accompaniment
+# Same chord, rolled instead of held.
+# ============================================================
+id: 99
+tier: low-intermediate
+act: 20
+title: "Broken accompaniment"
+subtitle: "Act 20 · Chords & accompaniment"
+goal: "Play the same triads as quarter-note patterns — chord notes one at a time."
+prereqs: [98, 97, 96, 75]
+method_focus: "play"
+time_estimate_min: 13
+piece_context: "Yesterday the chord was a block. Today it rolls — one note at a time. Same chord, completely different feel."
+metaphor: "harmony-under-melody"
+vibe: ["gentle", "focused"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Two LH staves side by side. Left: I chord as whole-note block. Right: I chord as four quarter notes C-E-G-E."
+    cleffy: >
+      Same chord. Two ways.
+      Yesterday — block. Whole thing at once.
+      Today — broken. One note at a time.
+
+  - id: 2
+    mode: see
+    type: concept
+    figure: "LH staff. Four quarter notes: C E G E. Beat numbers 1 2 3 4 above."
+    cleffy: >
+      Broken chord — the same three notes, one per beat.
+      Pattern for I: C on beat 1. E on beat 2. G on beat 3. E on beat 4.
+      Still the I chord. Just stretched across the bar.
+
+  - id: 3
+    mode: hear
+    type: blocked_vs_broken
+    figure: "Two play buttons. A: blocked I. B: broken I (C-E-G-E)."
+    audio:
+      A: "I chord played as a block, held four beats"
+      B: "I chord as four quarter notes — C, E, G, E"
+    cleffy: >
+      Same notes. Different feel.
+      Block — heavy, anchored.
+      Broken — moving, rolling.
+
+  - id: 4
+    mode: play
+    type: broken_I
+    figure: "Keyboard, LH. C3-E3-G3 lighting in order, then E3."
+    cleffy: >
+      Play broken I. C, E, G, E. Four quarter notes. LH.
+      Pinky, middle, thumb, middle.
+    interaction:
+      type: rhythm
+      sequence: ["C3","E3","G3","E3"]
+      durations: ["quarter","quarter","quarter","quarter"]
+      tempo: 60
+
+  - id: 5
+    mode: play
+    type: broken_IV
+    figure: "Keyboard, LH. F3-A3-C4 in order, then A3."
+    cleffy: >
+      Broken IV. F, A, C, A. Same pattern, new chord.
+    interaction:
+      type: rhythm
+      sequence: ["F3","A3","C4","A3"]
+      durations: ["quarter","quarter","quarter","quarter"]
+      tempo: 60
+
+  - id: 6
+    mode: play
+    type: broken_V
+    figure: "Keyboard, LH. G3-B3-D4 in order, then B3."
+    cleffy: >
+      Broken V. G, B, D, B.
+    interaction:
+      type: rhythm
+      sequence: ["G3","B3","D4","B3"]
+      durations: ["quarter","quarter","quarter","quarter"]
+      tempo: 60
+
+  - id: 7
+    mode: play
+    type: four_chord_broken
+    figure: "Four bars, LH only. I - IV - V - I, each rolled as root-3rd-5th-3rd."
+    cleffy: >
+      All four bars. I, IV, V, I. Broken. Left hand only.
+      New chord on every beat 1.
+    interaction:
+      type: rhythm
+      sequence: ["C3","E3","G3","E3","F3","A3","C4","A3","G3","B3","D4","B3","C3","E3","G3","E3"]
+      durations: ["quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter"]
+      tempo: 70
+
+  - id: 8
+    mode: see
+    type: add_rh_melody
+    figure: "Grand staff. RH: whole-note C. LH: broken I pattern (C-E-G-E)."
+    cleffy: >
+      RH holds one note — C. Whole bar.
+      LH rolls the chord underneath. Let the LH rock.
+
+  - id: 9
+    mode: play
+    type: simple_both_hands
+    figure: "Grand staff. RH whole-note C. LH broken I. Tempo 60."
+    cleffy: >
+      Both hands. RH holds C. LH rolls C-E-G-E.
+      Feel the hands doing different things.
+    interaction:
+      type: song
+      sequence: [["C4","C3"],"E3","G3","E3"]
+      guides: true
+      tempo: 60
+
+  - id: 10
+    mode: play
+    type: rh_melody_lh_broken
+    figure: "Grand staff. Bar 1: RH C-D-E-C, LH broken I. Bar 2: RH F-E-D-C, LH broken IV."
+    cleffy: >
+      Real thing. RH walks a melody. LH rolls a different chord each bar.
+      Slow.
+    interaction:
+      type: song
+      sequence: [["C4","C3"],["D4","E3"],["E4","G3"],["C4","E3"],["F4","F3"],["E4","A3"],["D4","C4"],["C4","A3"]]
+      guides: true
+      tempo: 55
+
+  - id: 11
+    mode: play
+    type: four_bars_full
+    figure: "Grand staff. I - IV - V - I. RH melody, LH broken chords."
+    cleffy: >
+      Four bars. I, IV, V, I. LH broken under.
+      Don't rush. Let the chord tones ring.
+    interaction:
+      type: song
+      sequence: [["C4","C3"],["D4","E3"],["E4","G3"],["C4","E3"],["F4","F3"],["E4","A3"],["D4","C4"],["C4","A3"],["G4","G3"],["F4","B3"],["E4","D4"],["D4","B3"],["C4","C3"],["D4","E3"],["E4","G3"],["C4","E3"]]
+      guides: true
+      tempo: 55
+    followup_cleffy: >
+      Hear that lift? That's motion in the left hand.
+      Block sits. Broken breathes.
+
+  - id: 12
+    mode: play
+    type: no_guides
+    figure: "Same four bars. No glow."
+    cleffy: >
+      Again. No highlights.
+    interaction:
+      type: song
+      sequence: [["C4","C3"],["D4","E3"],["E4","G3"],["C4","E3"],["F4","F3"],["E4","A3"],["D4","C4"],["C4","A3"],["G4","G3"],["F4","B3"],["E4","D4"],["D4","B3"],["C4","C3"],["D4","E3"],["E4","G3"],["C4","E3"]]
+      guides: false
+      tempo: 55
+
+  - id: 13
+    mode: hear
+    type: block_or_broken_drill
+    figure: "Round counter 1 of 4."
+    cleffy: >
+      Four rounds. Blocked or broken?
+    interaction:
+      type: drill
+      rounds: 4
+      options: ["Blocked", "Broken"]
+
+  - id: 14
+    mode: hear
+    type: pre_check
+    figure: "Banner."
+    cleffy: >
+      Three quick ones.
+
+  - id: 15
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 99. A broken chord rolling out left-to-right on the bass staff, melody floating on top."
+    cleffy: >
+      Broken accompaniment. Chord split across the beats.
+      Tomorrow — your first piece gets harmonized. Happy Birthday. Full sound.
+
+practice_this_week:
+  real_piano:
+    - "Play the I-IV-V-I broken progression, LH only, every day. Four quarters per chord. Steady."
+    - "Try it as a root-3rd-5th-3rd pattern in any key you know — C, F, or G works best."
+    - "When steady, sing any tune you like over it. Feel how the LH carries the chord while the voice floats."
+  virtual_only:
+    - "Replay pages 9 and 11"
+  estimated_time: "10 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 1
+      questions:
+        - figure: "LH staff with four quarter notes: C E G E"
+          prompt: "What kind of accompaniment is this?"
+          options: ["Blocked", "Broken", "Single bass note"]
+          correct: 1
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "A broken chord — four quarter notes, C E G E"
+          prompt: "Blocked or broken?"
+          options: ["Blocked", "Broken"]
+          correct: 1
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play the I chord broken in the left hand — C, E, G, E as four quarter notes."
+          accept: "C3 E3 G3 E3 in order as quarters"
+
+remediation:
+  id: "99.5"
+  title: "Broken chords, slower"
+  pages: 7
+  opening_cleffy: >
+    Rolling the chord feels different from grabbing it.
+    We'll go slow — one beat at a time, one chord at a time.
+
+completion:
+  cleffy: >
+    Broken in your hands.
+    Tomorrow — act boss. Happy Birthday with full harmony.
+  xp: 18
+  unlocks: 100

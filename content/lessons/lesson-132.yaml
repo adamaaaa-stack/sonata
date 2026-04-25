@@ -1,0 +1,213 @@
+# ============================================================
+# LESSON 132 · Dotted eighth + 16th
+# Tier 4 · Act 27 · Intermediate · Advanced rhythm
+# The galloping rhythm. Long-short, long-short.
+# ============================================================
+id: 132
+tier: intermediate
+act: 27
+title: "Dotted eighth + 16th"
+subtitle: "Act 27 · The galloping rhythm"
+goal: "Read and play the dotted-eighth-plus-sixteenth pattern — long-short, long-short."
+prereqs: [131, 53, 125]
+method_focus: "rhythm"
+time_estimate_min: 12
+piece_context: "A rhythm you've heard a thousand times. Marches. Ragtime. 'We Will Rock You.' Same shape — a long note, a short note, glued together. That's the gallop."
+metaphor: "faster-smaller-pieces"
+vibe: ["playful", "focused"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy tapping foot — long-short, long-short. A horse-galloping graphic behind. Title: THE GALLOP."
+    cleffy: >
+      New rhythm today.
+      Long-short, long-short. The galloping rhythm.
+      A march. A horse. A rock anthem. You know this one.
+
+  - id: 2
+    mode: see
+    type: shape
+    figure: "Staff. A dotted eighth note beamed to a single sixteenth. The beam has two bars on the sixteenth side, one on the dotted side. Label: dotted 8th + 16th = one beat."
+    cleffy: >
+      On the page: a dotted eighth beamed to a sixteenth.
+      The dot on the eighth adds half its value. Together they fill one beat.
+      Fat note, tiny note. Long-short.
+
+  - id: 3
+    mode: see
+    type: the_math
+    figure: "Beat split into four sixteenths. The first three are bracketed (dotted eighth = 3 sixteenths). The last one alone (sixteenth). Label: 3 + 1 = 4."
+    cleffy: >
+      The math. Split the beat into four sixteenths.
+      Dotted eighth takes the first three. The sixteenth takes the last one.
+      Three quarters of the beat, then a flick.
+
+  - id: 4
+    mode: see
+    type: the_count
+    figure: "Bar showing 'one — — a, two — — a, three — — a, four — — a.' The long note covers 1, e, and. The short note lands on 'a.'"
+    cleffy: >
+      Count it: one — AND a, two — AND a.
+      Hold through 1, e, and. Then the sixteenth pops on "a."
+      Long-short, long-short.
+
+  - id: 5
+    mode: hear
+    type: listen_gallop
+    figure: "Metronome at 60. Below: a bar of four dotted-eighth + sixteenth pairs on Middle C."
+    audio:
+      A: "Metronome at 60 + four dotted-eighth + sixteenth pairs on C4"
+    cleffy: >
+      Listen. Long, short. Long, short.
+      Feel the bounce. That's the gallop.
+
+  - id: 6
+    mode: hear
+    type: compare_to_even
+    figure: "Two play buttons. A: straight eighths. B: dotted eighth + sixteenth pairs."
+    audio:
+      A: "8 even eighth notes on C, tempo 60"
+      B: "4 dotted eighth + sixteenth pairs on C, tempo 60"
+    cleffy: >
+      Two patterns. Same tempo. Same number of beats.
+      First — even eighths. Walking.
+      Second — dotted-eighth and sixteenth. Galloping.
+
+  - id: 7
+    mode: play
+    type: play_one_pair
+    figure: "Staff. One beat. Dotted eighth + sixteenth on Middle C. Counts: 1 — AND a."
+    cleffy: >
+      Just one pair. Middle C.
+      Long note. Tiny quick note right before the next beat.
+    interaction:
+      type: rhythm
+      sequence: ["C4","C4"]
+      durations: ["dotted_eighth","sixteenth"]
+      tempo: 55
+
+  - id: 8
+    mode: play
+    type: play_four_pairs
+    figure: "Bar of 4/4. Four dotted-eighth + sixteenth pairs, all on C. Slow tempo."
+    cleffy: >
+      Four pairs in a row. One full bar.
+      Long-short, long-short, long-short, long-short.
+    interaction:
+      type: rhythm
+      sequence: ["C4","C4","C4","C4","C4","C4","C4","C4"]
+      durations: ["dotted_eighth","sixteenth","dotted_eighth","sixteenth","dotted_eighth","sixteenth","dotted_eighth","sixteenth"]
+      tempo: 55
+
+  - id: 9
+    mode: see
+    type: where_you_hear_it
+    figure: "Three icons — marching boots, horse, sheet music for 'The Entertainer.' Caption: where the gallop lives."
+    cleffy: >
+      Where you hear this rhythm:
+      Military marches. Folk songs. Ragtime — all over Scott Joplin.
+      Once you know the feel, you'll spot it everywhere.
+
+  - id: 10
+    mode: play
+    type: melody_with_gallop
+    figure: "Staff. Two-bar melody. Gallop pairs on C and E, then a half note on G to close."
+    cleffy: >
+      Two bars. Gallop on C, gallop on E, gallop on G, gallop on G, then land.
+      Long-short through the whole bar.
+    interaction:
+      type: rhythm
+      sequence: ["C4","C4","E4","E4","G4","G4","G4","G4","G4"]
+      durations: ["dotted_eighth","sixteenth","dotted_eighth","sixteenth","dotted_eighth","sixteenth","dotted_eighth","sixteenth","whole"]
+      tempo: 55
+
+  - id: 11
+    mode: hear
+    type: gallop_or_not
+    figure: "Round counter 1 of 4. A bar plays each round."
+    cleffy: >
+      Four rounds. Even eighths or galloping dotted-sixteenth?
+    interaction:
+      type: drill
+      rounds: 4
+      options: ["Even eighths", "Galloping (dotted eighth + sixteenth)"]
+
+  - id: 12
+    mode: play
+    type: gallop_scale
+    figure: "Staff. C major scale up, each two-note step played as gallop. C-D E-F G-A B-C."
+    cleffy: >
+      Gallop up the scale. Each pair — long-short.
+      Slow. Precision over speed.
+    interaction:
+      type: rhythm
+      sequence: ["C4","D4","E4","F4","G4","A4","B4","C5"]
+      durations: ["dotted_eighth","sixteenth","dotted_eighth","sixteenth","dotted_eighth","sixteenth","dotted_eighth","sixteenth"]
+      tempo: 55
+
+  - id: 13
+    mode: hear
+    type: pre_check
+    figure: "Banner."
+    cleffy: >
+      Four quick ones.
+
+  - id: 14
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 132. A horse silhouette galloping across a staff. The rhythm notation underneath."
+    cleffy: >
+      Dotted eighth plus sixteenth. The gallop.
+      Long-short. Long-short.
+      Tomorrow — triplets. Three notes in the time of two.
+
+practice_this_week:
+  real_piano:
+    - "Metronome at 55. Play Middle C as dotted-eighth + sixteenth pairs. Say 'long-short' out loud."
+    - "Find any song you know that has this rhythm. Sing along. Feel where the 'short' note lands."
+  virtual_only:
+    - "Replay pages 7, 8, 12"
+  estimated_time: "8 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "A dotted eighth note beamed to a single sixteenth"
+          prompt: "How many beats does this pair take?"
+          options: ["Half a beat", "One beat", "Two beats"]
+          correct: 1
+        - figure: "Bar of four gallop pairs"
+          prompt: "How would you describe this rhythm?"
+          options: ["Even", "Long-short, long-short", "Slow and held"]
+          correct: 1
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "Four dotted-eighth + sixteenth pairs on C4"
+          prompt: "Even eighths or galloping?"
+          options: ["Even", "Galloping"]
+          correct: 1
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play two gallop pairs on Middle C — long-short, long-short."
+          accept: "C4 × 4 with dotted eighth + sixteenth durations"
+
+remediation:
+  id: "132.5"
+  title: "Gallop, much slower"
+  pages: 7
+  opening_cleffy: >
+    This rhythm feels weird the first time. Even with a metronome.
+    We'll drop to 40 bpm and clap it before we touch a key.
+
+completion:
+  cleffy: >
+    The gallop is yours. You'll spot it in pieces for the rest of your life.
+    Tomorrow — triplets. A different kind of three.
+  xp: 18
+  unlocks: 133

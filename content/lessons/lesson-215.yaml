@@ -1,0 +1,279 @@
+# ============================================================
+# LESSON 215 · Arabesque No. 1 (A section) — ACT BOSS 🎯
+# Tier 5 · Act 43 · Upper-Intermediate · Impressionism + Arabesque
+# Debussy's first love-letter to the piano.
+# ============================================================
+id: 215
+tier: upper-intermediate
+act: 43
+title: "Arabesque No. 1 (A section)"
+subtitle: "Act 43 · Impressionism + Arabesque"
+goal: "Read and play the opening A section of Debussy's Arabesque No. 1 in E major — simplified — with the floating, unhurried feel the piece asks for."
+prereqs: [211, 212, 213, 214]
+method_focus: "combine"
+time_estimate_min: 18
+piece_context: "Debussy wrote the two Arabesques when he was twenty-six. Arabesque No. 1 in E major is his first real Impressionist voice on the piano — the flowing line, the triplet rolls, the refusal to rush. The opening is a descent: right hand rolling down from a high E, left hand placing chords underneath. Today you play that opening. Slowly. The whole point is to float."
+metaphor: "floating-sound"
+vibe: ["quiet", "reflective", "triumphant"]
+is_act_boss: true
+piece:
+  title: "Arabesque No. 1 (A section — opening, simplified)"
+  composer: "Debussy"
+  key_center: "E major"
+  time_signature: "4/4 (simplified from 4/4)"
+  difficulty: "upper-intermediate — triplet descents over rolled chords, soft throughout"
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy holding a faded score — 'Deux Arabesques · Claude Debussy · 1888.' Act 43 boss banner. Four small thumbnails at the bottom: whole-tone, dense page, arabesque texture, two clocks."
+    cleffy: >
+      Act 43 boss.
+      Arabesque No. 1. Debussy, age twenty-six.
+      Everything this week was for this.
+
+  - id: 2
+    mode: see
+    type: piece_intro
+    figure: "A watercolor of a garden. Caption: 'Arabesque No. 1 in E major — 1888.' Small text: 'two sharps, simplified.'"
+    cleffy: >
+      Debussy wrote this before Clair de Lune.
+      It's his first time sounding like himself.
+      Flowing. Soft. No hurry to get anywhere.
+
+  - id: 3
+    mode: see
+    type: the_opening_shape
+    figure: "Grand staff. RH: a slow triplet descent starting high — E5, B4, G#4 — repeating down. LH: a rolled chord E2-B2-E3-G#3. Tempo 60. Dynamic pp."
+    cleffy: >
+      We're teaching Arabesque's accompaniment texture today — the rolling triplet figure that runs underneath the melody.
+      Right hand — triplets falling from the top. E, B, G-sharp. Then lower.
+      Left hand — a rolled chord. The same four notes you practiced yesterday.
+      Tempo 60. Soft all the way.
+
+  - id: 4
+    mode: hear
+    type: listen_opening
+    figure: "Play button. A still frame of a dawn sky."
+    audio:
+      A: "Opening bars of Arabesque No. 1, slow, soft, pedaled"
+    cleffy: >
+      Listen.
+      Right hand rolls down, then down again, then drifts.
+      Left hand holds the ground but never grabs it.
+      Nothing is in a hurry.
+
+  - id: 5
+    mode: see
+    type: two_sharps_reminder
+    figure: "Key signature with F# and C#. Caption: 'E major key signature — but we add G# and D# as we go.'"
+    cleffy: >
+      Key note.
+      E major — two sharps, F-sharp and C-sharp.
+      But Debussy colors the melody with more — G-sharp shows up, D-sharp too.
+      Don't panic at the sharps. They're just the notes of the tune.
+
+  - id: 6
+    mode: play
+    type: rh_first_triplet
+    figure: "Keyboard. E5, B4, G#4 lighting in order."
+    cleffy: >
+      Right hand. First triplet — E, B, G-sharp.
+      Starting high. Rolling down.
+    interaction:
+      type: rhythm
+      sequence: ["E5", "B4", "G#4"]
+      durations: ["triplet_eighth", "triplet_eighth", "triplet_eighth"]
+      tempo: 60
+
+  - id: 7
+    mode: play
+    type: rh_two_triplets
+    figure: "Keyboard. Two triplets in a row — E5-B4-G#4, then B4-G#4-E4."
+    cleffy: >
+      Two triplets. Coming down.
+      E, B, G-sharp. Then B, G-sharp, E.
+      Like water falling down two ledges.
+    interaction:
+      type: rhythm
+      sequence: ["E5", "B4", "G#4", "B4", "G#4", "E4"]
+      durations: ["triplet_eighth", "triplet_eighth", "triplet_eighth", "triplet_eighth", "triplet_eighth", "triplet_eighth"]
+      tempo: 60
+
+  - id: 8
+    mode: play
+    type: lh_rolled_chord
+    figure: "Keyboard. E2, B2, E3, G#3 lighting up in order, not together."
+    cleffy: >
+      Left hand. The chord, rolled.
+      E, B, E, G-sharp. Same cushion you played yesterday.
+      Soft. Even.
+    interaction:
+      type: sequence
+      keys: ["E2", "B2", "E3", "G#3"]
+
+  - id: 9
+    mode: play
+    type: hands_together_first_bar
+    figure: "Grand staff. One bar. RH: triplet E-B-G# then B-G#-E. LH: the rolled chord E-B-E-G# underneath."
+    cleffy: >
+      Both hands. Tempo 50. Very slow.
+      Left hand rolls the chord. Right hand drops two triplets on top.
+      Don't match them up. Let each hand run.
+    interaction:
+      type: song
+      sequence: [["E2", "E5"], ["B2", "B4"], ["E3", "G#4"], ["G#3", "B4"], ["G#4"], ["E4"]]
+      guides: true
+      tempo: 50
+
+  - id: 10
+    mode: see
+    type: the_full_a_section
+    figure: "Grand staff. Four bars of simplified A section. Bar 1: E5-B4-G#4 / B4-G#4-E4 descent over the rolled chord. Bar 2: G#4-E4-B3 / E4-B3-G#3 continues down. Bar 3: the line floats back up E4-G#4-B4 / G#4-B4-E5. Bar 4: a held chord on E, pp. Tempo 60."
+    cleffy: >
+      Four bars. The whole A section, simplified.
+      Bars 1-2 — the descent. All the way down.
+      Bar 3 — the line floats back up to where it started.
+      Bar 4 — rest on an E chord. Let it ring.
+
+  - id: 11
+    mode: play
+    type: play_rh_full
+    figure: "Right hand only. All four bars of the RH triplet line."
+    cleffy: >
+      Right hand only. The whole line.
+      Down. Down. Back up. Rest.
+      Slow as you need.
+    interaction:
+      type: rhythm
+      sequence: ["E5", "B4", "G#4", "B4", "G#4", "E4", "G#4", "E4", "B3", "E4", "B3", "G#3", "E4", "G#4", "B4", "G#4", "B4", "E5", "E5"]
+      durations: ["triplet_eighth", "triplet_eighth", "triplet_eighth", "triplet_eighth", "triplet_eighth", "triplet_eighth", "triplet_eighth", "triplet_eighth", "triplet_eighth", "triplet_eighth", "triplet_eighth", "triplet_eighth", "triplet_eighth", "triplet_eighth", "triplet_eighth", "triplet_eighth", "triplet_eighth", "triplet_eighth", "quarter"]
+      tempo: 60
+
+  - id: 12
+    mode: play
+    type: play_lh_full
+    figure: "Left hand only. Four bars. A rolled chord at the start of each bar, then held."
+    cleffy: >
+      Left hand only. Four rolled chords, one per bar.
+      E, B, E, G-sharp. Same cushion, again and again.
+      Let each one ring.
+    interaction:
+      type: rhythm
+      sequence: ["E2", "B2", "E3", "G#3", "E2", "B2", "E3", "G#3", "E2", "B2", "E3", "G#3", "E2", "B2", "E3", "G#3"]
+      durations: ["eighth", "eighth", "eighth", "eighth", "eighth", "eighth", "eighth", "eighth", "eighth", "eighth", "eighth", "eighth", "eighth", "eighth", "eighth", "eighth"]
+      tempo: 60
+
+  - id: 13
+    mode: play
+    type: hands_together_full_slow
+    figure: "Grand staff. Full four bars. Tempo 50. Dynamic pp. Guides on."
+    cleffy: >
+      Both hands. Tempo 50. Guides on.
+      The whole A section.
+      Float. Don't press.
+    interaction:
+      type: song
+      sequence: [["E2", "E5"], ["B2", "B4"], ["E3", "G#4"], ["G#3", "B4"], ["G#4"], ["E4"], ["E2", "G#4"], ["B2", "E4"], ["E3", "B3"], ["G#3", "E4"], ["B3"], ["G#3"], ["E2", "E4"], ["B2", "G#4"], ["E3", "B4"], ["G#3", "G#4"], ["B4"], ["E5"], ["E2", "E5", "G#4", "B4"]]
+      guides: true
+      tempo: 50
+
+  - id: 14
+    mode: play
+    type: hands_together_at_tempo
+    figure: "Grand staff. Full four bars. Tempo 60. Guides off. Dynamic pp."
+    cleffy: >
+      Tempo 60 now. Guides off.
+      This is the real feel.
+      Float. Don't ground. Let it blur a little.
+    interaction:
+      type: song
+      sequence: [["E2", "E5"], ["B2", "B4"], ["E3", "G#4"], ["G#3", "B4"], ["G#4"], ["E4"], ["E2", "G#4"], ["B2", "E4"], ["E3", "B3"], ["G#3", "E4"], ["B3"], ["G#3"], ["E2", "E4"], ["B2", "G#4"], ["E3", "B4"], ["G#3", "G#4"], ["B4"], ["E5"], ["E2", "E5", "G#4", "B4"]]
+      guides: false
+      tempo: 60
+    followup_cleffy: >
+      That.
+      That was Debussy's first love-letter to the piano.
+      Four bars of the real thing, in your hands.
+
+  - id: 15
+    mode: hear
+    type: pre_check
+    figure: "Banner — Act 43 boss mastery check."
+    cleffy: >
+      Four quick ones. Act boss — take your time.
+
+  - id: 16
+    mode: see
+    type: wrap
+    figure: "Celebration card — ACT 43 COMPLETE 🎯. Cleffy under a watercolor sky. Behind him: a music stand with the Arabesque score open. A pyramid showing 43/50 acts lit."
+    cleffy: >
+      Act 43. Sealed.
+      You speak Impressionism now.
+      Whole-tone and pentatonic. Dense pages as three shapes. Arabesque texture. Two rhythms at once.
+      And the opening of Debussy's Arabesque No. 1 — floating, not grounded.
+      Next act — Romantic phrase shape. Long lines. Long breaths. Grieg.
+
+practice_this_week:
+  real_piano:
+    - "The A section of Arabesque No. 1, once a day. Very slow. Very soft. Don't rush it to speed — the piece doesn't want to be fast."
+    - "Play it for someone. Turn the lights down. Tell them it's Debussy — his first Impressionist piece."
+    - "When the two-against-three feels wobbly, drop back to hands separately for one day. That's not failure — that's how pianists practice."
+  virtual_only:
+    - "Replay pages 13 and 14 until the full four bars feels comfortable"
+  estimated_time: "15 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "The title 'Arabesque No. 1' with composer 'Debussy' and year '1888'"
+          prompt: "What key is this simplified version in?"
+          options: ["C major", "E major", "D-flat major"]
+          correct: 1
+        - figure: "RH plays triplets, LH plays a rolled chord, marked pp"
+          prompt: "How should this be played?"
+          options: ["Very soft and flowing", "Loud and marching", "Fast and bouncy"]
+          correct: 0
+        - figure: "A triplet on beat 1: E, B, G#"
+          prompt: "How many notes does the right hand play per beat here?"
+          options: ["Two", "Three", "Four"]
+          correct: 1
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "The opening of Arabesque No. 1"
+          prompt: "Is this music grounded and marching, or floating and unhurried?"
+          options: ["Grounded and marching", "Floating and unhurried"]
+          correct: 1
+        - audio: "A two-against-three pattern — RH triplets over LH quarters"
+          prompt: "Which hand has three notes per beat?"
+          options: ["Right hand", "Left hand"]
+          correct: 0
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play the first right-hand triplet of the piece — E, B, G-sharp, starting high."
+          accept: "E5 B4 G#4 played as a triplet"
+        - prompt: "Play the left-hand rolled chord — E2, B2, E3, G-sharp 3, smooth and even."
+          accept: "E2 B2 E3 G#3 played in order"
+
+remediation:
+  id: "215.5"
+  title: "Arabesque, one layer at a time"
+  pages: 11
+  opening_cleffy: >
+    Act boss — expected to stretch you.
+    We'll rebuild it slowly. Left hand alone for a page. Right hand alone for a page. Then one bar at a time, together.
+    You'll land it. The piece itself doesn't want you to rush.
+
+completion:
+  cleffy: >
+    Act 43 sealed.
+    Impressionism — no longer a foreign language.
+    The opening of Arabesque No. 1 — yours.
+    Next — Romantic phrase shape. Long lines. The art of a musical breath.
+  xp: 30
+  unlocks: 216

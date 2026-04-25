@@ -1,0 +1,220 @@
+# ============================================================
+# LESSON 134 · Rhythm puzzles
+# Tier 4 · Act 27 · Intermediate · Advanced rhythm
+# Clap before you play. No pitch reading — all rhythm.
+# ============================================================
+id: 134
+tier: intermediate
+act: 27
+title: "Rhythm puzzles"
+subtitle: "Act 27 · Clap before you play"
+goal: "Read a rhythm, clap it, then play it on one pitch. Rhythm as its own skill."
+prereqs: [133, 132, 131]
+method_focus: "rhythm"
+time_estimate_min: 12
+piece_context: "The secret of professional sight-readers — they never read pitch and rhythm at the same time. First, the rhythm. Clap it. Count it. Only then add notes. Today you build that habit."
+metaphor: "rhythm-as-puzzle"
+vibe: ["focused", "playful"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy tapping one hand on the other. A rhythm staff above with no pitches, just durations. Title: CLAP FIRST."
+    cleffy: >
+      A trick pianists use forever. Clap the rhythm before you play it.
+      No pitch. No keys. Just the beat.
+      Once the rhythm is in your body, the notes come easy.
+
+  - id: 2
+    mode: see
+    type: why_clap
+    figure: "Split screen. Left: student staring at notes, frozen. Right: student clapping, loose and calm."
+    cleffy: >
+      Why clap first?
+      Your brain can only do one new thing at a time.
+      If the rhythm is solved, pitch is half the problem.
+
+  - id: 3
+    mode: see
+    type: rhythm_only_staff
+    figure: "A one-line staff (just a single line) with quarters, eighths, a triplet, and a sixteenth run. No pitch letters."
+    cleffy: >
+      A rhythm-only staff. One line. No pitch.
+      Only durations and beats.
+      This is how you isolate rhythm.
+
+  - id: 4
+    mode: hear
+    type: listen_puzzle_1
+    figure: "Rhythm: quarter, quarter, two eighths, quarter. One bar. Plays as claps."
+    audio:
+      A: "Clap sounds: clap, clap, clap-clap, clap. Tempo 60."
+    cleffy: >
+      Listen. Four beats. Count along.
+      One, two, three-and, four.
+
+  - id: 5
+    mode: play
+    type: play_puzzle_1
+    figure: "Rhythm-only staff. Quarter, quarter, two eighths, quarter. All played on Middle C."
+    cleffy: >
+      Same rhythm. On one pitch. Middle C.
+      Clap it first if you need. Then play.
+    interaction:
+      type: rhythm
+      sequence: ["C4","C4","C4","C4","C4"]
+      durations: ["quarter","quarter","eighth","eighth","quarter"]
+      tempo: 60
+
+  - id: 6
+    mode: see
+    type: puzzle_2_preview
+    figure: "Staff: dotted quarter, eighth, two eighths, quarter. Counts written: 1-and-a 2, 3-and 4."
+    cleffy: >
+      Puzzle 2. Dotted quarter, eighth, two eighths, quarter.
+      Look at the counts. Figure out where each note lands.
+
+  - id: 7
+    mode: play
+    type: play_puzzle_2
+    figure: "Same staff as previous. On Middle C."
+    cleffy: >
+      Play it. Middle C all the way through.
+      Focus on the durations, not the pitch.
+    interaction:
+      type: rhythm
+      sequence: ["C4","C4","C4","C4","C4"]
+      durations: ["dotted_quarter","eighth","eighth","eighth","quarter"]
+      tempo: 60
+
+  - id: 8
+    mode: hear
+    type: listen_puzzle_3
+    figure: "Rhythm staff: quarter, four sixteenths, two eighths, quarter. Plays as claps."
+    audio:
+      A: "Clap sounds: clap, clap-clap-clap-clap, clap-clap, clap. Tempo 55."
+    cleffy: >
+      Listen. Sixteenths in the second beat. Count one, two-e-and-a, three-and, four.
+
+  - id: 9
+    mode: play
+    type: play_puzzle_3
+    figure: "Same staff. All on Middle C. Metronome at 55."
+    cleffy: >
+      Your turn. Middle C. Stay steady through the sixteenths.
+    interaction:
+      type: rhythm
+      sequence: ["C4","C4","C4","C4","C4","C4","C4","C4"]
+      durations: ["quarter","sixteenth","sixteenth","sixteenth","sixteenth","eighth","eighth","quarter"]
+      tempo: 55
+
+  - id: 10
+    mode: see
+    type: puzzle_4_triplets
+    figure: "Staff: quarter, triplet, quarter, triplet. Counts: 1, 2-trip-let, 3, 4-trip-let."
+    cleffy: >
+      Puzzle 4 — triplets.
+      Quarter, triplet, quarter, triplet.
+      Read the "3" above the groups.
+
+  - id: 11
+    mode: play
+    type: play_puzzle_4
+    figure: "Staff as shown. Middle C. Metronome at 55."
+    cleffy: >
+      Play it. Quarter — triplet — quarter — triplet. One bar.
+    interaction:
+      type: rhythm
+      sequence: ["C4","C4","C4","C4","C4","C4","C4","C4"]
+      durations: ["quarter","triplet_eighth","triplet_eighth","triplet_eighth","quarter","triplet_eighth","triplet_eighth","triplet_eighth"]
+      tempo: 55
+
+  - id: 12
+    mode: play
+    type: play_puzzle_5_gallop
+    figure: "Staff: two gallop pairs, two eighths, quarter. On Middle C."
+    cleffy: >
+      Puzzle 5. Galloping start, then even eighths, then a quarter.
+      Long-short, long-short, one-and, two.
+    interaction:
+      type: rhythm
+      sequence: ["C4","C4","C4","C4","C4","C4","C4"]
+      durations: ["dotted_eighth","sixteenth","dotted_eighth","sixteenth","eighth","eighth","quarter"]
+      tempo: 55
+
+  - id: 13
+    mode: hear
+    type: which_rhythm_drill
+    figure: "Round counter 1 of 4. Three rhythm staves shown per round. One plays as claps."
+    cleffy: >
+      Four rounds. Which rhythm did you hear?
+    interaction:
+      type: drill
+      rounds: 4
+      options: ["Rhythm A", "Rhythm B", "Rhythm C"]
+
+  - id: 14
+    mode: hear
+    type: pre_check
+    figure: "Banner."
+    cleffy: >
+      Four quick ones. Rhythm only.
+
+  - id: 15
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 134. Two hands mid-clap. Caption: clap first, play second."
+    cleffy: >
+      Rhythm puzzles, solved.
+      Clap first. Play second. Every time.
+      Tomorrow — an act boss. Scott Joplin. The Entertainer. Syncopation.
+
+practice_this_week:
+  real_piano:
+    - "Pick any piece you know. Before you play it — clap through one line. Just rhythm."
+    - "Make up four beats of rhythm on paper. Clap it. Then play it on one note."
+  virtual_only:
+    - "Replay pages 5, 7, 11"
+  estimated_time: "10 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "A rhythm: quarter, two eighths, quarter, quarter"
+          prompt: "How many notes total?"
+          options: ["4", "5", "6"]
+          correct: 1
+        - figure: "A rhythm with a triplet group and three quarters"
+          prompt: "How many notes total?"
+          options: ["5", "6", "7"]
+          correct: 1
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "Claps: clap, clap-clap, clap, clap. Tempo 60."
+          prompt: "Did beat 2 split into two eighths?"
+          options: ["Yes", "No"]
+          correct: 0
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play on Middle C: quarter, quarter, two eighths, quarter. One bar at 60 bpm."
+          accept: "C4 × 5 with durations quarter, quarter, eighth, eighth, quarter"
+
+remediation:
+  id: "134.5"
+  title: "Clap, then play"
+  pages: 7
+  opening_cleffy: >
+    Clapping a rhythm before playing it is a habit. Worth building slowly.
+    We'll clap every puzzle twice, then play. No shortcuts.
+
+completion:
+  cleffy: >
+    Rhythm is its own skill now. Clap first. Always.
+    Tomorrow — the act boss. Scott Joplin. Syncopation. You'll feel something new.
+  xp: 18
+  unlocks: 135

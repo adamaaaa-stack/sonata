@@ -1,0 +1,214 @@
+id: 69
+tier: elementary
+act: 14
+title: "Reading in G and F"
+subtitle: "Same shapes, new colors"
+goal: "Read and play melodies fluently in C, G, and F major — recognizing the key signature at a glance."
+prereqs: [66, 67, 68]
+method_focus: "keys"
+time_estimate_min: 10
+piece_context: null
+metaphor: "same-song-different-color"
+vibe: ["gentle", "playful"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Three staves stacked: one in C, one in G, one in F. Same melody shape on all three."
+    cleffy: >
+      Same melody. Three keys. The shape doesn't change. Just the colors of a few notes.
+
+  - id: 2
+    mode: see
+    type: key_at_a_glance
+    figure: "Three staves with clear key signatures: blank (C), one sharp (G), one flat (F)."
+    cleffy: >
+      First thing to read — the key signature.
+      No sharps/flats: C major.
+      One sharp (on the F line): G major.
+      One flat (on the B line): F major.
+
+  - id: 3
+    mode: see
+    type: interactive
+    figure: "Staff with one sharp."
+    cleffy: >
+      Which key?
+    interaction:
+      type: choice
+      options: ["C major", "G major", "F major"]
+      correct: 1
+
+  - id: 4
+    mode: see
+    type: interactive
+    figure: "Staff with one flat."
+    cleffy: >
+      This?
+    interaction:
+      type: choice
+      options: ["C major", "G major", "F major"]
+      correct: 2
+
+  - id: 5
+    mode: see
+    type: interactive
+    figure: "Staff with no sharps or flats."
+    cleffy: >
+      And this?
+    interaction:
+      type: choice
+      options: ["C major", "G major", "F major"]
+      correct: 0
+
+  - id: 6
+    mode: see
+    type: same_shape
+    figure: "Three staves with the melody C-D-E-D-C in C, G-A-B-A-G in G, F-G-A-G-F in F."
+    cleffy: >
+      Same shape. Step up step up, step down step down.
+      Starts on different notes — C, G, or F.
+      Sonata method in action: you read shape, not specific pitches.
+
+  - id: 7
+    mode: play
+    type: play_in_c
+    figure: "Melody in C. C D E D C."
+    cleffy: >
+      Play it in C.
+    interaction:
+      type: sequence
+      keys: ["C4","D4","E4","D4","C4"]
+
+  - id: 8
+    mode: play
+    type: play_in_g
+    figure: "Same melody in G. G A B A G."
+    cleffy: >
+      Now in G.
+    interaction:
+      type: sequence
+      keys: ["G4","A4","B4","A4","G4"]
+
+  - id: 9
+    mode: play
+    type: play_in_f
+    figure: "Same melody in F. F G A G F."
+    cleffy: >
+      And in F.
+    interaction:
+      type: sequence
+      keys: ["F4","G4","A4","G4","F4"]
+
+  - id: 10
+    mode: see
+    type: when_sharp_comes_up_g
+    figure: "Melody in G major that uses F# somewhere. G F# E D C."
+    cleffy: >
+      Sometimes G-major melodies have F in them. Then the sharp matters.
+      Play G F-sharp E D C.
+
+  - id: 11
+    mode: play
+    type: play_with_f_sharp
+    figure: "Keyboard. G F# E D C."
+    cleffy: >
+      Play it. Watch the F.
+    interaction:
+      type: sequence
+      keys: ["G4","F#4","E4","D4","C4"]
+
+  - id: 12
+    mode: play
+    type: play_with_b_flat
+    figure: "Melody in F major that uses B♭. F A Bb A F."
+    cleffy: >
+      F-major melody with B-flat. F A B-flat A F.
+    interaction:
+      type: sequence
+      keys: ["F4","A4","Bb4","A4","F4"]
+
+  - id: 13
+    mode: hear
+    type: key_drill
+    figure: "Four rounds."
+    cleffy: >
+      Four by ear. Which key?
+    interaction:
+      type: drill
+      rounds: 4
+      options: ["C major", "G major", "F major"]
+
+  - id: 14
+    mode: read
+    type: mixed_key_melodies
+    figure: "Three staves, each a different key, each a short melody."
+    cleffy: >
+      Three short melodies, each in a different key. Read and play each one.
+    interaction:
+      type: drill
+      rounds: 3
+
+  - id: 15
+    mode: hear
+    type: pre_check
+    figure: "Banner."
+    cleffy: >
+      Four quick ones.
+
+  - id: 16
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 69. Three staves stacked with C, G, F major key signatures side by side."
+    cleffy: >
+      Three keys, fluent. Tomorrow — Amazing Grace. Your first piece with a real key signature.
+
+practice_this_week:
+  real_piano:
+    - "Play C-D-E-D-C in C major."
+    - "Same shape in G major: G-A-B-A-G."
+    - "Same in F: F-G-A-G-F."
+    - "Notice — shape stays the same, starting note changes, and one note is sometimes black."
+  virtual_only:
+    - "Replay pages 7-9"
+  estimated_time: "7 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "Staff with one sharp on F line"
+          prompt: "Which key?"
+          options: ["C", "G", "F"]
+          correct: 1
+        - figure: "Staff with one flat on B line"
+          prompt: "Which key?"
+          options: ["C", "G", "F"]
+          correct: 2
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "G major phrase"
+          prompt: "Which key?"
+          options: ["C", "G", "F"]
+          correct: 1
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play the first 3 notes of the F major scale."
+          accept: "F4 G4 A4"
+
+remediation:
+  id: "69.5"
+  title: "Three keys, slower"
+  pages: 5
+  opening_cleffy: >
+    Quick recognize, then play. Slower examples.
+
+completion:
+  cleffy: >
+    Three keys fluid. Ready for Amazing Grace.
+  xp: 20
+  unlocks: 70

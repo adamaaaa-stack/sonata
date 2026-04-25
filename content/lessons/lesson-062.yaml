@@ -1,0 +1,211 @@
+id: 62
+tier: elementary
+act: 13
+title: "Flats"
+subtitle: "One semitone lower"
+goal: "Read the flat symbol and play the black key just below a white key."
+prereqs: [61]
+method_focus: "accidentals"
+time_estimate_min: 10
+piece_context: null
+metaphor: "lower-it"
+vibe: ["gentle", "playful"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Staff with B♭ (B-flat)."
+    cleffy: >
+      Flats. Same idea as sharps, opposite direction.
+      Flat symbol lowers a note by a tiny step — to the black key just below.
+
+  - id: 2
+    mode: see
+    type: definition
+    figure: "Staff: B then B♭. Keyboard: B white key and black key just below it."
+    cleffy: >
+      B-flat means play the black key right below B.
+      Remember sharp raised? Flat lowers.
+
+  - id: 3
+    mode: see
+    type: all_flats
+    figure: "Keyboard. Black keys below white keys labeled: B♭, A♭, G♭, E♭, D♭."
+    cleffy: >
+      Every white key that has a black key below it has a flat version.
+      B, A, G, E, D all have flats.
+
+  - id: 4
+    mode: see
+    type: same_black_keys
+    figure: "Keyboard. Black key between A and B labeled TWO ways: A# above, B♭ below."
+    cleffy: >
+      Something tricky: the same black key can be called two names.
+      A-sharp and B-flat are the same key. Just called different things depending on context.
+      Don't stress. We'll learn when to use which later.
+
+  - id: 5
+    mode: see
+    type: flat_symbol
+    figure: "Close-up. Flat symbol looks like a lowercase b."
+    cleffy: >
+      The symbol looks like a b. That's the flat.
+      Sits just before the note.
+
+  - id: 6
+    mode: see
+    type: interactive
+    figure: "Staff with B♭."
+    cleffy: >
+      Which note?
+    interaction:
+      type: choice
+      options: ["B", "B-flat", "C"]
+      correct: 1
+
+  - id: 7
+    mode: hear
+    type: b_vs_bflat
+    figure: "Play buttons."
+    audio:
+      A: "B4"
+      B: "B♭4"
+    cleffy: >
+      B. Then B-flat. B-flat is lower by a tiny step.
+
+  - id: 8
+    mode: play
+    type: play_bflat
+    figure: "Keyboard. Black key below B glowing."
+    cleffy: >
+      Play B-flat.
+    interaction:
+      type: tap
+      key: "Bb4"
+
+  - id: 9
+    mode: play
+    type: play_eflat
+    figure: "Keyboard. E♭ glowing (black key below E)."
+    cleffy: >
+      E-flat.
+    interaction:
+      type: tap
+      key: "Eb4"
+
+  - id: 10
+    mode: play
+    type: b_bflat_a
+    figure: "Keyboard. B, B♭, A descending."
+    cleffy: >
+      Step down using a flat. B, B-flat, A.
+    interaction:
+      type: sequence
+      keys: ["B4","Bb4","A4"]
+
+  - id: 11
+    mode: read
+    type: read_flat
+    figure: "Staff: B, B♭, A."
+    cleffy: >
+      Read and play.
+    interaction:
+      type: sequence
+      keys: ["B4","Bb4","A4"]
+
+  - id: 12
+    mode: hear
+    type: sharp_or_flat
+    figure: "Round counter 1 of 4."
+    cleffy: >
+      Four rounds. Sharp (raised) or flat (lowered)?
+      Both are black keys — but the CONTEXT matters.
+      Here, just tell me if it went up or down from the last note.
+    interaction:
+      type: drill
+      rounds: 4
+      options: ["Went up (sharp)", "Went down (flat)"]
+
+  - id: 13
+    mode: see
+    type: mixed_drill
+    figure: "Staff with sharps and flats mixed."
+    cleffy: >
+      Four rounds. Is this a sharp or a flat?
+    interaction:
+      type: drill
+      rounds: 4
+      options: ["Sharp", "Flat"]
+
+  - id: 14
+    mode: hear
+    type: mixed
+    figure: "Four rounds."
+    cleffy: >
+      Mixed.
+    interaction:
+      type: drill
+      rounds: 4
+
+  - id: 15
+    mode: hear
+    type: pre_check
+    figure: "Banner."
+    cleffy: >
+      Four quick ones.
+
+  - id: 16
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 62. Flat symbol drawn, keyboard with flats labeled."
+    cleffy: >
+      Flats: lower by a tiny step.
+      Tomorrow — the natural sign. For when you want to UNdo a sharp or flat.
+
+practice_this_week:
+  real_piano:
+    - "Play B, B-flat, A. Then E, E-flat, D."
+    - "Notice how the flat takes you to a black key just below the white key."
+  virtual_only:
+    - "Replay pages 10-11"
+  estimated_time: "5 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "Staff with B♭"
+          prompt: "Which note?"
+          options: ["B", "B-flat", "A"]
+          correct: 1
+        - figure: "Keyboard with the black key just below E highlighted."
+          prompt: "E-flat is which black key?"
+          options: ["Just below E", "Just above E", "No black key"]
+          correct: 0
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "B♭"
+          prompt: "Is this B or B-flat?"
+          options: ["B", "B-flat"]
+          correct: 1
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play B-flat."
+          accept: "Bb4"
+
+remediation:
+  id: "62.5"
+  title: "Flats, slower"
+  pages: 5
+  opening_cleffy: >
+    One step down to the black key. Slow walk.
+
+completion:
+  cleffy: >
+    Flats, in. Black keys have two names each — both work.
+  xp: 20
+  unlocks: 63

@@ -1,0 +1,263 @@
+# ============================================================
+# LESSON 3 · The black-key map
+# Tier 1 · Act 1 · Beginner
+# Central metaphor: THE BLACK KEYS ARE LANDMARKS ON THE STAIRS
+# ============================================================
+id: 3
+tier: beginner
+act: 1
+title: "The black-key map"
+subtitle: "2-groups, 3-groups, forever"
+goal: "Recognize groups of 2 and 3 black keys across the keyboard."
+prereqs: [2]
+method_focus: "piano-geography"
+time_estimate_min: 10
+piece_context: null
+metaphor: "landmarks-on-stairs"
+vibe: ["gentle", "playful"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy at the piano, pointing at the black keys."
+    cleffy: >
+      Back so soon. Good.
+      Today I'm going to show you something I wish someone had told me
+      the first time I looked at a piano.
+      The black keys are a map.
+
+  - id: 2
+    mode: see
+    type: definition
+    figure: "Zoom on the middle of the keyboard. Black keys gently pulse — groups of 2 highlighted coral, groups of 3 highlighted sky."
+    cleffy: >
+      Look at the black keys. They're not random.
+      They come in little groups. Count them.
+      Two. Then three. Then two. Then three.
+      Forever. All the way up, all the way down.
+      2-group, 3-group, 2-group, 3-group. That's the map.
+
+  - id: 3
+    mode: see
+    type: pattern_scroll
+    figure: "Keyboard scrolls slowly left to right. 2-groups flash coral, 3-groups flash sky as they pass."
+    cleffy: >
+      Watch it scroll.
+      Low end of the piano, all the way up to the high end.
+      The pattern doesn't care where you are. 2, 3, 2, 3, 2, 3.
+      Your piano has eighty-eight keys. Same pattern the whole way.
+      Once you see it, you can't un-see it.
+
+  - id: 4
+    mode: see
+    type: interactive_spot
+    figure: "Keyboard with 6 black-key groups visible. Tap prompt."
+    cleffy: >
+      Your turn. Tap any group of 2 black keys. Any one.
+    interaction:
+      type: tap
+      accept: "any 2-group"
+    corrections:
+      - wrong_label: "tapped_3group"
+        cleffy: >
+          That's three. Count them — one, two, three.
+          We want the shorter kind.
+      - wrong_label: "tapped_white"
+        cleffy: >
+          Black keys only for this one. The short ones that sit above.
+
+  - id: 5
+    mode: see
+    type: interactive_spot
+    figure: "Same keyboard. Tap any group of 3."
+    cleffy: >
+      Now a group of 3.
+    interaction:
+      type: tap
+      accept: "any 3-group"
+    corrections:
+      - wrong_label: "tapped_2group"
+        cleffy: >
+          That's the short one. Look for three black keys in a row.
+
+  - id: 6
+    mode: hear
+    type: demo
+    figure: "Two playback cards. A: two keys lit. B: three keys lit."
+    audio:
+      A: "Group of 2 played as chord (C#-D#)"
+      B: "Group of 3 played as chord (F#-G#-A#)"
+    cleffy: >
+      They sound different, too.
+      The 2-group has a sweeter sound. The 3-group is a little bit darker.
+      You don't need to memorize why. Just notice you can hear a difference.
+
+  - id: 7
+    mode: hear
+    type: contrast
+    figure: "Two mystery play buttons. Prompt: which one had three keys?"
+    cleffy: >
+      Here. Listen to both. Tell me which one had three keys in it.
+    interaction:
+      type: choice
+      options: ["A", "B"]
+      correct: 1
+    corrections:
+      - wrong_label: "general"
+        cleffy: >
+          Hear that extra one in the middle? When it's fuller,
+          there are more keys stacked. That's the 3-group.
+
+  - id: 8
+    mode: hear
+    type: drill
+    figure: "Round counter 1 of 4. Play button. Answers: 2-group, 3-group."
+    cleffy: >
+      Four rounds. 2-group or 3-group?
+    interaction:
+      type: drill
+      rounds: 4
+      question: "2-group or 3-group?"
+      options: ["2-group", "3-group"]
+
+  - id: 9
+    mode: play
+    type: guided
+    figure: "Virtual keyboard with one 2-group glowing gold."
+    cleffy: >
+      Your turn. Tap both of those black keys.
+      Top one first, then the bottom.
+    interaction:
+      type: sequence
+      accept: "2-group top then bottom"
+    followup_cleffy: >
+      You just played a 2-group.
+      Try it the other way now — bottom, then top.
+
+  - id: 10
+    mode: play
+    type: guided
+    figure: "Keyboard with one 3-group glowing gold."
+    cleffy: >
+      Now the 3-group. Bottom to top — one, two, three.
+    interaction:
+      type: sequence
+      accept: "3-group ascending"
+
+  - id: 11
+    mode: play
+    type: free
+    figure: "Full keyboard, no highlights."
+    cleffy: >
+      Real test. Tap any 2-group, anywhere on the keyboard.
+      High, low, middle. Your pick.
+    interaction:
+      type: tap
+      accept: "any 2-group across all octaves"
+
+  - id: 12
+    mode: play
+    type: free
+    figure: "Same keyboard."
+    cleffy: >
+      Now any 3-group.
+    interaction:
+      type: tap
+      accept: "any 3-group across all octaves"
+    followup_cleffy: >
+      You can do this anywhere on the piano now.
+      Low, high, middle — the pattern is the same.
+
+  - id: 13
+    mode: read
+    type: see_hear_play
+    figure: "A card shows either a 2 or a 3. Keyboard below."
+    cleffy: >
+      I'll show you a number. You play that kind of group — anywhere you like.
+    interaction:
+      type: echo
+      rounds: 4
+
+  - id: 14
+    mode: hear
+    type: drill
+    figure: "Round counter 1 of 4. Mix of SEE and HEAR questions."
+    cleffy: >
+      Last warm-up. Mix of looking and listening.
+    interaction:
+      type: drill
+      rounds: 4
+      mixed: true
+      question_pool:
+        - { mode: "see", prompt: "Is this a 2-group or a 3-group?", options: ["2-group", "3-group"] }
+        - { mode: "hear", prompt: "Was that a 2-group or a 3-group?", options: ["2-group", "3-group"] }
+        - { mode: "see", prompt: "Tap any 2-group.", type: "tap", accept: "any 2-group" }
+        - { mode: "see", prompt: "Tap any 3-group.", type: "tap", accept: "any 3-group" }
+
+  - id: 15
+    mode: hear
+    type: pre_check
+    figure: "Banner — quick check before the real one."
+    cleffy: >
+      Four quick ones. Not the test yet — just seeing how it lands.
+
+  - id: 16
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 3, the black-key map. Cleffy pointing at a 2-group with a little flag that says HERE."
+    cleffy: >
+      You found the map.
+      Tomorrow you use it. There's a white key that lives right next to every 2-group.
+      It's called C. It's the most important note on the piano.
+      See you then.
+
+# ─── Mastery check ──────────────────────────────────────
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 3
+      questions:
+        - figure: "Keyboard image with a black-key group circled."
+          prompt: "Is this a 2-group or a 3-group?"
+          options: ["2-group", "3-group"]
+          correct: 0
+        - figure: "Keyboard image with a 3-group circled."
+          prompt: "Is this a 2-group or a 3-group?"
+          options: ["2-group", "3-group"]
+          correct: 1
+        - figure: "Full keyboard."
+          prompt: "Tap any 3-group."
+    hear:
+      pass_threshold: 2
+      questions:
+        - audio: "A 2-group played as chord"
+          prompt: "Was that a 2-group or a 3-group?"
+          options: ["2-group", "3-group"]
+          correct: 0
+        - audio: "A 3-group played as chord"
+          prompt: "What about this one?"
+          options: ["2-group", "3-group"]
+          correct: 1
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play any 2-group."
+          accept: "any 2-group on keyboard"
+
+# ─── Remediation ────────────────────────────────────────
+remediation:
+  id: "3.5"
+  title: "The map, once more"
+  pages: 5
+  opening_cleffy: >
+    Hey, the pattern takes a minute to see. That's normal.
+    Let me show you again, slower — and we'll count them together.
+
+# ─── Completion ─────────────────────────────────────────
+completion:
+  cleffy: >
+    Three lessons in. You have ears, you have a keyboard, and now you have a map.
+    Tomorrow we use it to find our first note.
+  xp: 20
+  unlocks: 4

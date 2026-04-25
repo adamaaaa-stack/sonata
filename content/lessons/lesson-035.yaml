@@ -1,0 +1,238 @@
+# ============================================================
+# LESSON 35 · Merrily We Roll Along
+# Tier 2 · Act 7 · Elementary · ACT BOSS 🎯
+# First two-hand piece. Simple LH anchor under a familiar RH melody.
+# ============================================================
+id: 35
+tier: elementary
+act: 7
+title: "Merrily We Roll Along"
+subtitle: "Act 7 · Your first two-hand piece"
+goal: "Read and play a real piece using both hands together, with a simple LH and a familiar RH melody."
+prereqs: [20, 25, 30, 31, 32, 33, 34]
+method_focus: "combine"
+time_estimate_min: 14
+piece_context: "You've played with both hands separately. Today they work together for the first time on a real song."
+metaphor: "first-duet-with-yourself"
+vibe: ["gentle", "playful", "celebratory"]
+is_act_boss: true
+piece:
+  title: "Merrily We Roll Along"
+  notes_rh: "E D C D E E E | D D D | E G G | E D C D E E E E D D E D C"
+  notes_lh: "C (whole, held through all bars)"
+  key_center: "C major"
+  time_signature: "4/4"
+  difficulty: "elementary — RH melody + LH anchor"
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy holding sheet music that says Merrily We Roll Along. He hands a copy to the student."
+    cleffy: >
+      You made it to Act 7's finish line.
+      Today you play a piece with both hands.
+      Real song. Two staves. Both of you.
+      Merrily We Roll Along. Ready?
+
+  - id: 2
+    mode: hear
+    type: listen_to_piece
+    figure: "Big play button. Sheet music preview of Merrily We Roll Along."
+    audio:
+      A: "Merrily We Roll Along performed cleanly, both hands"
+    cleffy: >
+      Listen first. This is the whole song.
+      Most of it is the melody you know. There's also a quiet LH note holding underneath.
+
+  - id: 3
+    mode: see
+    type: rh_overview
+    figure: "Treble staff with the RH melody of Merrily We Roll Along written out. All steps and a few skips."
+    cleffy: >
+      Right hand first. It's all steps and one skip.
+      Mostly stepping around C, D, E. One spot has a skip up to G.
+      You already know every move in this melody.
+
+  - id: 4
+    mode: see
+    type: lh_overview
+    figure: "Bass staff with a whole note on bass C. Held through every bar. Very simple."
+    cleffy: >
+      Left hand is stupidly simple.
+      One note. Bass C. Held the whole song.
+      Your LH pinky sits on bass C and stays there. That's it. No moving.
+
+  - id: 5
+    mode: play
+    type: rh_first_phrase
+    figure: "Treble staff with first phrase: E-D-C-D-E-E-E. Keyboard below, RH position."
+    cleffy: >
+      Play the first phrase with just your right hand.
+      E, D, C, D, E, E, E. Follow the dots.
+      Fingers 3, 2, 1, 2, 3, 3, 3.
+    interaction:
+      type: sequence
+      keys: ["E4", "D4", "C4", "D4", "E4", "E4", "E4"]
+
+  - id: 6
+    mode: play
+    type: rh_second_phrase
+    figure: "Treble staff: D-D-D, then E-G-G."
+    cleffy: >
+      Second phrase. D three times, then E, then a skip up to G, then G again.
+      Fingers 2-2-2, 3-5-5.
+    interaction:
+      type: sequence
+      keys: ["D4", "D4", "D4", "E4", "G4", "G4"]
+
+  - id: 7
+    mode: play
+    type: rh_last_phrase
+    figure: "Treble staff: E-D-C-D-E-E-E-E-D-D-E-D-C."
+    cleffy: >
+      Last phrase. Longer. All steps. Similar to phrase 1 but longer tail.
+      You can do this without thinking too hard.
+    interaction:
+      type: sequence
+      keys: ["E4", "D4", "C4", "D4", "E4", "E4", "E4", "E4", "D4", "D4", "E4", "D4", "C4"]
+
+  - id: 8
+    mode: play
+    type: lh_whole_song
+    figure: "Bass staff with one whole note on bass C. Metronome at 60 bpm."
+    cleffy: >
+      Now the left hand. Pinky on bass C. Press it. Hold it.
+      That's... the whole left-hand part of the song. One note.
+    interaction:
+      type: rhythm
+      sequence: ["C3"]
+      durations: ["whole"]
+      tempo: 60
+
+  - id: 9
+    mode: play
+    type: two_hand_starter
+    figure: "Grand staff. Just two notes — RH Middle C, LH bass C. Both quarter notes. Metronome at 50 bpm."
+    cleffy: >
+      Before the whole song — two-hand warm-up.
+      Play Middle C with your RH and bass C with your LH at the same time. Once.
+      Then again. Same time both hands.
+    interaction:
+      type: rhythm
+      sequence: [["C4", "C3"], ["C4", "C3"]]
+      durations: ["quarter", "quarter"]
+      tempo: 50
+
+  - id: 10
+    mode: play
+    type: full_song_guided
+    figure: "Grand staff with full Merrily We Roll Along. Training wheels ON — each RH note glows when it's time. LH bass C stays lit the whole time."
+    cleffy: >
+      Full song, slow, with guides. Your LH pinky just holds bass C for the whole piece.
+      Your RH plays the melody. Don't rush.
+    interaction:
+      type: song
+      sequence: [["E4","C3"],"D4","C4","D4","E4","E4","E4","D4","D4","D4","E4","G4","G4","E4","D4","C4","D4","E4","E4","E4","E4","D4","D4","E4","D4","C4"]
+      guides: true
+      tempo: 55
+
+  - id: 11
+    mode: play
+    type: full_song_no_guides
+    figure: "Grand staff with the whole piece. No key glowing. Just the grand staff and you."
+    cleffy: >
+      Again. No highlights. You read, you play, both hands.
+      Stumble? Keep going.
+    interaction:
+      type: song
+      sequence: [["E4","C3"],"D4","C4","D4","E4","E4","E4","D4","D4","D4","E4","G4","G4","E4","D4","C4","D4","E4","E4","E4","E4","D4","D4","E4","D4","C4"]
+      guides: false
+    followup_cleffy: >
+      That.
+      That was two hands, reading a grand staff, playing a song.
+      Big moment.
+
+  - id: 12
+    mode: play
+    type: at_tempo
+    figure: "Same grand staff. Metronome at 80 bpm."
+    cleffy: >
+      One more time, up to proper tempo. 80 bpm.
+      Don't stop if you mess up. Just keep going.
+    interaction:
+      type: song
+      sequence: [["E4","C3"],"D4","C4","D4","E4","E4","E4","D4","D4","D4","E4","G4","G4","E4","D4","C4","D4","E4","E4","E4","E4","D4","D4","E4","D4","C4"]
+      guides: false
+      tempo: 80
+
+  - id: 13
+    mode: hear
+    type: pre_check
+    figure: "Banner — last check before Act 7 ends."
+    cleffy: >
+      Three quick ones.
+
+  - id: 14
+    mode: see
+    type: wrap
+    figure: "Celebration card — ACT 7 COMPLETE. A trophy engraved with 7/10 acts. Cleffy holding up the sheet music with both hands."
+    cleffy: >
+      Act 7 is done. You played a real piece with both hands.
+      Even if it felt shaky — that's normal. First two-hand song is always the scrappy one.
+      Tier 1's Happy Birthday is still the bigger milestone — but this was the one where both hands finally worked together.
+      Next up — leaps, the third and last member of the method. Then more reading. Then Mary Had a Little Lamb.
+
+# ─── Practice this week ────────────────────────────────
+practice_this_week:
+  real_piano:
+    - "Play Merrily We Roll Along hands separately every day this week. RH one day. LH another. Then both."
+    - "When you try hands together, start REALLY slow. Half speed. Then build up."
+    - "LH is just bass C held. Once you trust your LH to just stay there, the piece gets way easier."
+  virtual_only:
+    - "Replay pages 10-11 (guided + no-guides runs) three times this week"
+  estimated_time: "10-15 min/day"
+
+# ─── Mastery check ──────────────────────────────────────
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "Grand staff for Merrily. RH first phrase highlighted."
+          prompt: "Is the RH mostly stepping, skipping, or jumping big?"
+          options: ["Stepping", "Skipping", "Big jumps"]
+          correct: 0
+        - figure: "Grand staff for Merrily. LH lower staff highlighted — a single whole note."
+          prompt: "How many different notes does the LH play in the whole piece?"
+          options: ["1", "3", "7"]
+          correct: 0
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "First phrase of Merrily We Roll Along"
+          prompt: "Does the melody mostly move in steps?"
+          options: ["Yes", "No"]
+          correct: 0
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play Middle C with your right hand and bass C with your left hand at the same time."
+          accept: "C4 and C3 simultaneously"
+
+# ─── Remediation ────────────────────────────────────────
+remediation:
+  id: "35.5"
+  title: "Merrily, bar by bar"
+  pages: 8
+  opening_cleffy: >
+    Two-hand debut. Totally fine if it took a few tries.
+    We're going to break it into four bars, each one practiced hands-separately, then together, really slow.
+
+# ─── Completion ─────────────────────────────────────────
+completion:
+  cleffy: >
+    Act 7, closed. First two-hand piece, done.
+    Tomorrow: leaps. The last of step/skip/leap.
+  xp: 30
+  unlocks: 36

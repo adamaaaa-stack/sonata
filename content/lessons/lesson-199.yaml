@@ -1,0 +1,250 @@
+# ============================================================
+# LESSON 199 · Pedaling by ear
+# Tier 5 · Act 40 · Upper-Intermediate
+# Change pedal with the harmony. Listen for mud.
+# ============================================================
+id: 199
+tier: upper-intermediate
+act: 40
+title: "Pedaling by ear"
+subtitle: "Act 40 · Listen for the mud"
+goal: "Change the sustain pedal the moment the harmony changes — cued by your ear catching 'mud,' not by a printed symbol."
+prereqs: [198, 158, 159]
+method_focus: "hear"
+time_estimate_min: 15
+piece_context: "Acts 32 gave you the basics of pedal. You know heel-down, toe-down, and the pedal-with-each-chord rule (157). You know what mud sounds like (159). Today you stop reading pedal marks and start hearing when to change. The cue comes from the sound itself — the moment it blooms fuzzy, you lift, and the next chord clears it. Essential for the Nocturne tomorrow, where the pedal changes can be printed, or not."
+metaphor: "singing-at-the-piano"
+vibe: ["focused", "quiet", "reflective"]
+piece:
+  title: "Nocturne Op. 9 No. 2 in E-flat major (pedaling study)"
+  composer: "Frédéric Chopin (1832)"
+  key_center: "E-flat major"
+  time_signature: "12/8 (felt as slow 4)"
+  difficulty: "upper-intermediate — left-hand pattern with pedal cued by ear"
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy with one hand cupped by his ear, the other foot on a pedal. Banner: PEDAL BY EAR."
+    cleffy: >
+      Lesson 157 told you to change pedal when the harmony changes.
+      Today's the ear part.
+      You won't read the pedal marks. You'll hear them.
+
+  - id: 2
+    mode: see
+    type: the_signal
+    figure: "A sound-wave picture. Clean at the left. Around the middle it gets 'fuzzy' — many overlapping frequencies. Arrow labeled 'mud — this is the signal.' Then a pedal change. The sound clears again."
+    cleffy: >
+      The signal is mud.
+      Two different chords held at the same time through one pedal — they smear.
+      Mud is the ear's alarm bell.
+      When you hear it, you lift.
+
+  - id: 3
+    mode: hear
+    type: clean_vs_muddy
+    figure: "Two play buttons side by side. Left: CLEAN. Right: MUDDY."
+    audio:
+      A: "Two chords played, the pedal changed cleanly between them"
+      B: "The same two chords, the pedal held through both — a muddy blur"
+    cleffy: >
+      Two examples.
+      First — the pedal changes. Each chord rings clean.
+      Second — the pedal holds. Two chords stack. Mud.
+      Hear the difference before you play anything.
+
+  - id: 4
+    mode: see
+    type: when_to_change
+    figure: "A timeline. Chord lands on beat 1. Just after, the pedal lifts and presses again. A tiny gap labeled 'overlap — barely.' The harmonic symbol changes above each chord."
+    cleffy: >
+      The rule.
+      The old chord ends. The new chord lands.
+      Right after the new chord, your foot lifts and presses.
+      Tiny overlap. The new chord catches. The old one dies.
+
+  - id: 5
+    mode: hear
+    type: listen_change
+    figure: "Play button. Four chords, each with a pedal change right after. Caption: 'listen for the lift.'"
+    audio:
+      A: "Four chords — I, V, vi, IV in E-flat. Pedal lifted and re-pressed right after each new chord. Clean throughout."
+    cleffy: >
+      Four chords. Four changes.
+      Right after each new chord, the pedal flicks.
+      No mud.
+
+  - id: 6
+    mode: play
+    type: play_foot_drill
+    figure: "Keyboard. Just a Bb3 chord repeating twice. Below it, a pedal icon. Arrow: 'press, lift right after the chord, press again.'"
+    cleffy: >
+      Foot drill. Only the right hand.
+      Play the chord. Press pedal. Play it again. Lift and re-press right after.
+      Listen for clean.
+    interaction:
+      type: rhythm
+      sequence: [["Eb4", "G4", "Bb4"], ["Eb4", "G4", "Bb4"]]
+      durations: ["half", "half"]
+      tempo: 60
+
+  - id: 7
+    mode: see
+    type: mud_gets_louder
+    figure: "A stack of chords, each new one piled on. Each new one makes the 'mud' bar wider. Arrow: 'the longer you wait, the louder the mud.'"
+    cleffy: >
+      One more thing.
+      The longer you wait to change pedal, the louder the mud gets.
+      Change as soon as the new chord lands. Not a second later.
+
+  - id: 8
+    mode: play
+    type: change_on_time
+    figure: "Keyboard. Four-chord progression in E-flat: Eb-G-Bb, Bb-D-F, C-Eb-G, Ab-C-Eb. Pedal changes right after each chord."
+    cleffy: >
+      Four chords, RH.
+      Change pedal right after each.
+      If you hear any blur — that's your signal to lift sooner next time.
+    interaction:
+      type: rhythm
+      sequence: [["Eb4", "G4", "Bb4"], ["Bb3", "D4", "F4"], ["C4", "Eb4", "G4"], ["Ab3", "C4", "Eb4"]]
+      durations: ["half", "half", "half", "half"]
+      tempo: 60
+
+  - id: 9
+    mode: see
+    type: lh_with_pedal
+    figure: "Grand staff. LH pattern from yesterday — Eb2, then Bb3-G4 chord. Pedal symbol under. Arrow: 'one pedal per bar — change when the bass changes.'"
+    cleffy: >
+      Back to yesterday's pattern.
+      One pedal per bar.
+      Press down when the bass lands. Lift and re-press when the new bass lands.
+
+  - id: 10
+    mode: play
+    type: lh_with_pedal_play
+    figure: "Keyboard. Yesterday's two-bar pattern. LH only. Pedal changes at the start of bar 2. Metronome 58."
+    cleffy: >
+      Left hand only. Pedal on.
+      Bar 1 — pedal down under E-flat bass.
+      Bar 2 — as the B-flat bass lands, flick the pedal.
+      Listen.
+    interaction:
+      type: rhythm
+      sequence: ["Eb2", ["Bb3", "G4"], ["Bb3", "G4"], "Bb2", ["Ab3", "F4"], ["Ab3", "F4"]]
+      durations: ["quarter", "quarter", "quarter", "quarter", "quarter", "quarter"]
+      tempo: 58
+    followup_cleffy: >
+      Did the bar change feel clean? Or did it blur?
+      If it blurred — flick sooner. Right on the new bass.
+
+  - id: 11
+    mode: see
+    type: the_ear_rule
+    figure: "A banner: 'YOUR EAR IS THE CONDUCTOR.' Below: three small rules. 'Mud = change.' 'Clean = wait.' 'When in doubt, less pedal.'"
+    cleffy: >
+      One rule from now on.
+      Your ear is the boss. Not the printed page. Not the metronome.
+      Mud — change. Clean — wait. When in doubt, less pedal, not more.
+
+  - id: 12
+    mode: hear
+    type: spot_the_mud
+    figure: "Round counter. Five rounds. Banner: 'was that muddy or clean?'"
+    cleffy: >
+      Five rounds. Clean or muddy?
+      Trust your ear.
+    interaction:
+      type: drill
+      rounds: 5
+      options: ["Clean", "Muddy"]
+
+  - id: 13
+    mode: play
+    type: final_pass_with_pedal
+    figure: "Keyboard. Two bars of the Nocturne LH pattern. Pedal flicks on every bar change. No guides. Dynamic p. Metronome 56."
+    cleffy: >
+      Final pass. LH and pedal together.
+      Soft. Clean. Each bar its own chord.
+    interaction:
+      type: rhythm
+      sequence: ["Eb2", ["Bb3", "G4"], ["Bb3", "G4"], "Bb2", ["Ab3", "F4"], ["Ab3", "F4"]]
+      durations: ["quarter", "quarter", "quarter", "quarter", "quarter", "quarter"]
+      tempo: 56
+
+  - id: 14
+    mode: hear
+    type: pre_check
+    figure: "Banner — Lesson 199 mastery check."
+    cleffy: >
+      Three quick ones.
+
+  - id: 15
+    mode: see
+    type: wrap
+    figure: "Cleffy with headphones on, one foot hovering over the sustain pedal."
+    cleffy: >
+      Ear in charge.
+      Mud — flick. Clean — hold.
+      Tomorrow — the whole Nocturne. Everything you've built this act, in one piece.
+
+practice_this_week:
+  real_piano:
+    - "Play any four-chord progression you know. Pedal each one. Stop the second you hear blur. Flick and start again."
+    - "Record yourself playing two bars of the Nocturne bass with pedal. Listen back. Can you hear the bar change? If it smears, you waited too long."
+    - "Some pianists pedal less than the score says. Some pedal more. Your ear is the tiebreaker."
+  virtual_only:
+    - "Replay pages 8, 10, 12, 13 — change on time, LH with pedal, mud-spot drill, final pass."
+  estimated_time: "12 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "A sound-wave picture with a fuzzy blur labeled 'mud'"
+          prompt: "What does mud mean at the piano?"
+          options: ["The pedal is off", "Two chords are sounding through one pedal", "The hands are apart"]
+          correct: 1
+        - figure: "A timeline showing a chord landing, then the pedal flicking right after"
+          prompt: "When do you change pedal?"
+          options: ["Before the new chord", "Right after the new chord lands", "Halfway between chords"]
+          correct: 1
+        - figure: "A banner reading 'your ear is the conductor'"
+          prompt: "What decides when to change pedal?"
+          options: ["The printed pedal mark only", "Your ear catching mud", "The metronome"]
+          correct: 1
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "Two chords played with a clean pedal change between them"
+          prompt: "Is this clean or muddy?"
+          options: ["Clean", "Muddy"]
+          correct: 0
+        - audio: "Two chords played through one held pedal — a smear"
+          prompt: "Is this clean or muddy?"
+          options: ["Clean", "Muddy"]
+          correct: 1
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play two bars of the Nocturne LH pattern with the pedal — flicking when the bass changes."
+          accept: "The two-bar pattern played left hand only with a clean pedal change on the second bar's bass"
+
+remediation:
+  id: "199.5"
+  title: "Pedal, one flick at a time"
+  pages: 6
+  opening_cleffy: >
+    Foot timing takes a minute to lock in.
+    We'll drop the left hand and just work the foot — chord, lift, press, chord. Tiny drill. Then add the hand back.
+
+completion:
+  cleffy: >
+    Pedal, by ear.
+    Mud — flick. Clean — hold.
+    Tomorrow — the whole Nocturne.
+  xp: 18
+  unlocks: 200

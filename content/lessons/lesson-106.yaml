@@ -1,0 +1,212 @@
+# ============================================================
+# LESSON 106 · Interval names (2nd–5th)
+# Tier 3 · Act 22 · Low-Intermediate · Intervals
+# The step/skip/leap you know now get number names.
+# ============================================================
+id: 106
+tier: low-intermediate
+act: 22
+title: "Interval names (2nd–5th)"
+subtitle: "Act 22 · Intervals"
+goal: "Give number names to the moves you already know — step is a 2nd, skip is a 3rd, plus 4ths and 5ths."
+prereqs: [105, 89, 75]
+method_focus: "see"
+time_estimate_min: 12
+piece_context: "New act. You've been playing steps, skips, and leaps since Tier 1. Now they get proper names — the grown-up vocabulary for distance between notes."
+metaphor: "distance-between-notes"
+vibe: ["gentle", "focused"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy pointing at a staff with two notes — a C and an E — with a ruler-like bracket labelled '3rd' between them. Title: INTERVALS."
+    cleffy: >
+      New act. Intervals.
+      Every move between two notes has a size — and a name.
+      You've been playing them for a hundred lessons. Today you learn what they're called.
+
+  - id: 2
+    mode: see
+    type: concept_counting
+    figure: "Staff with C and D side by side. Bracket labelled '2nd'. Arrow showing count: 1 (C), 2 (D)."
+    cleffy: >
+      Here's the rule. Count both notes, including where you start.
+      C to D — start on C, that's 1. D is 2. A 2nd.
+      Every interval is counted this way. Include the first note.
+
+  - id: 3
+    mode: see
+    type: second_is_step
+    figure: "Staff showing C to D. Below: 'STEP = 2ND'. A callout: 'The smallest move.'"
+    cleffy: >
+      A 2nd is a step. Line to next space, or space to next line.
+      You've known this move since lesson 16.
+      Today it just got a number.
+
+  - id: 4
+    mode: see
+    type: third_is_skip
+    figure: "Staff showing C to E. Bracket labelled '3rd'. Count: 1 (C), 2 (D), 3 (E)."
+    cleffy: >
+      A 3rd is a skip. Line to next line, or space to next space.
+      C, D, E — count all three. A 3rd.
+      Same move you've been calling a skip.
+
+  - id: 5
+    mode: hear
+    type: listen_2_3
+    figure: "Two play buttons. A: 2nd (C-D). B: 3rd (C-E)."
+    audio:
+      A: "C and D played one after the other, then together"
+      B: "C and E played one after the other, then together"
+    cleffy: >
+      Listen. First — a 2nd. Small. Close.
+      Second — a 3rd. A little more open.
+
+  - id: 6
+    mode: play
+    type: play_2nd
+    figure: "Keyboard. C4 and D4 glowing. Label: '2nd'."
+    cleffy: >
+      Play a 2nd. C to D.
+    interaction:
+      type: sequence
+      keys: ["C4","D4"]
+
+  - id: 7
+    mode: play
+    type: play_3rd
+    figure: "Keyboard. C4 and E4 glowing. Label: '3rd'."
+    cleffy: >
+      Play a 3rd. C to E. Skip over the D.
+    interaction:
+      type: sequence
+      keys: ["C4","E4"]
+
+  - id: 8
+    mode: see
+    type: fourth
+    figure: "Staff showing C to F. Count: 1 (C), 2 (D), 3 (E), 4 (F). Bracket labelled '4th'."
+    cleffy: >
+      A 4th. C to F. Count all four.
+      Bigger than a skip. Small leap.
+      On the staff — line to space two spots away, or space to line two spots away.
+
+  - id: 9
+    mode: see
+    type: fifth
+    figure: "Staff showing C to G. Count: 1-2-3-4-5. Bracket labelled '5th'."
+    cleffy: >
+      A 5th. C to G. Count five.
+      Line to line with one line between, or space to space with one space between.
+      Important one — you've been playing 5ths in every chord.
+
+  - id: 10
+    mode: play
+    type: play_4th
+    figure: "Keyboard. C4 and F4 glowing."
+    cleffy: >
+      Play a 4th. C to F.
+    interaction:
+      type: sequence
+      keys: ["C4","F4"]
+
+  - id: 11
+    mode: play
+    type: play_5th
+    figure: "Keyboard. C4 and G4 glowing."
+    cleffy: >
+      Play a 5th. C to G.
+      Outer notes of a C chord. Familiar distance.
+    interaction:
+      type: sequence
+      keys: ["C4","G4"]
+
+  - id: 12
+    mode: see
+    type: recap_table
+    figure: "Table: 2nd=step, 3rd=skip, 4th=small leap, 5th=leap. Staff examples beside each."
+    cleffy: >
+      Four names so far.
+      2nd — step. 3rd — skip. 4th — small leap. 5th — leap.
+      Old moves, new labels.
+
+  - id: 13
+    mode: play
+    type: ladder
+    figure: "Staff showing C, then C-D (2nd), C-E (3rd), C-F (4th), C-G (5th). Keyboard below."
+    cleffy: >
+      Climb the ladder. Each time return to C, then reach one note farther.
+      C-D. C-E. C-F. C-G. Play all four pairs.
+    interaction:
+      type: sequence
+      keys: ["C4","D4","C4","E4","C4","F4","C4","G4"]
+
+  - id: 14
+    mode: hear
+    type: pre_check
+    figure: "Banner."
+    cleffy: >
+      Three quick ones.
+
+  - id: 15
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 106. A ruler with four marks: 2nd, 3rd, 4th, 5th."
+    cleffy: >
+      Four intervals named.
+      Tomorrow — the bigger ones. 6th, 7th, octave.
+
+practice_this_week:
+  real_piano:
+    - "Pick any white key. Play a 2nd, 3rd, 4th, and 5th above it. Say the name as you play."
+    - "Play the C chord (C-E-G). Notice: C to E is a 3rd, E to G is a 3rd, C to G is a 5th. Chords are stacks of intervals."
+  virtual_only:
+    - "Replay pages 6, 7, 10, 11"
+  estimated_time: "8 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "Staff with C and E"
+          prompt: "What interval is this?"
+          options: ["2nd", "3rd", "5th"]
+          correct: 1
+        - figure: "Staff with C and G"
+          prompt: "What interval is this?"
+          options: ["3rd", "4th", "5th"]
+          correct: 2
+        - figure: "Staff with C and D"
+          prompt: "A step is also called a..."
+          options: ["2nd", "3rd", "4th"]
+          correct: 0
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "C and G played together — a 5th"
+          prompt: "Is this a small interval or an open one?"
+          options: ["Small (2nd)", "Open (5th)"]
+          correct: 1
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play a 3rd above C. (C to E.)"
+          accept: "C4 and E4"
+
+remediation:
+  id: "106.5"
+  title: "Intervals by counting, slower"
+  pages: 6
+  opening_cleffy: >
+    Numbers on moves you already know.
+    Let's slow it down — count every note, including the first.
+
+completion:
+  cleffy: >
+    Four intervals in the pocket. 2nd, 3rd, 4th, 5th.
+    Tomorrow — the reach-farther ones.
+  xp: 18
+  unlocks: 107

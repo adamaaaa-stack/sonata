@@ -1,0 +1,220 @@
+id: 46
+tier: elementary
+act: 10
+title: "Bass lines, derived from F"
+subtitle: "G, B, D, F, A — counted from bass F"
+goal: "Name every line of the bass staff by counting from bass F."
+prereqs: [27, 40, 41]
+method_focus: "notation"
+time_estimate_min: 12
+piece_context: null
+metaphor: "count-from-anchor"
+vibe: ["gentle", "serious"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Bass staff. Bass F labeled (line 4). Question marks on other lines."
+    cleffy: >
+      Bass staff, line names. Same method as the treble side.
+      Count from bass F. No mnemonics.
+
+  - id: 2
+    mode: see
+    type: from_f_down
+    figure: "Bass staff. Line 4 (F) labeled. Arrows step down: D (line 3), B (line 2), G (line 1)."
+    cleffy: >
+      Bass F is line 4. From there, skip down.
+      D (line 3). B (line 2). G (line 1).
+      Each line is a skip from the next.
+
+  - id: 3
+    mode: see
+    type: line_5
+    figure: "Bass staff with line 5 highlighted. A, a skip above F."
+    cleffy: >
+      Line 5, above F, skip up — A.
+      All five bass lines: G, B, D, F, A, bottom to top.
+
+  - id: 4
+    mode: see
+    type: all_five
+    figure: "Bass staff with all lines labeled G B D F A bottom to top."
+    cleffy: >
+      G, B, D, F, A — the five lines of the bass staff.
+      Same idea as treble lines (E G B D F), just shifted.
+
+  - id: 5
+    mode: see
+    type: interactive_line_1
+    figure: "Bass staff, note on line 1 (G)."
+    cleffy: >
+      Which letter?
+    interaction:
+      type: choice
+      options: ["G", "B", "D", "F", "A"]
+      correct: 0
+
+  - id: 6
+    mode: see
+    type: interactive_line_3
+    figure: "Bass staff, note on line 3 (D)."
+    cleffy: >
+      This?
+    interaction:
+      type: choice
+      options: ["G", "B", "D", "F", "A"]
+      correct: 2
+
+  - id: 7
+    mode: see
+    type: interactive_line_5
+    figure: "Bass staff, note on line 5 (A)."
+    cleffy: >
+      Top line?
+    interaction:
+      type: choice
+      options: ["G", "B", "D", "F", "A"]
+      correct: 4
+
+  - id: 8
+    mode: see
+    type: drill
+    figure: "Round counter 1 of 6."
+    cleffy: >
+      Six rounds. Name the line.
+    interaction:
+      type: drill
+      rounds: 6
+      options: ["G", "B", "D", "F", "A"]
+
+  - id: 9
+    mode: hear
+    type: hear_bass_lines
+    figure: "Bass staff notes with audio."
+    audio:
+      A: "G2 (line 1)"
+      B: "B2 (line 2)"
+      C: "D3 (line 3)"
+      D: "F3 (line 4, bass F)"
+      E: "A3 (line 5)"
+    cleffy: >
+      Five bass line notes, low to high. G, B, D, F, A.
+
+  - id: 10
+    mode: play
+    type: play_g
+    figure: "Keyboard. G2 glowing. LH pinky reach (or whichever finger)."
+    cleffy: >
+      Play G2 — the lowest line of the bass staff.
+      Left hand, any finger.
+    interaction:
+      type: tap
+      key: "G2"
+
+  - id: 11
+    mode: play
+    type: play_bass_f
+    figure: "Keyboard. F3 glowing."
+    cleffy: >
+      Play bass F. You know this one — line 4.
+    interaction:
+      type: tap
+      key: "F3"
+
+  - id: 12
+    mode: read
+    type: see_hear_play
+    figure: "Bass staff with a line note. Keyboard."
+    cleffy: >
+      Three rounds. See, hear, play.
+    interaction:
+      type: see_hear_play
+      rounds: 3
+
+  - id: 13
+    mode: hear
+    type: mixed_drill
+    figure: "Mixed bass line questions."
+    cleffy: >
+      Four rounds.
+    interaction:
+      type: drill
+      rounds: 4
+
+  - id: 14
+    mode: hear
+    type: quick_drill
+    figure: "Round counter 1 of 4."
+    cleffy: >
+      Four more. Quick.
+    interaction:
+      type: drill
+      rounds: 4
+      options: ["G", "B", "D", "F", "A"]
+
+  - id: 15
+    mode: hear
+    type: pre_check
+    figure: "Banner."
+    cleffy: >
+      Four quick ones.
+
+  - id: 16
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 46. Bass staff with all lines labeled G B D F A."
+    cleffy: >
+      Five bass lines named. Tomorrow the spaces.
+
+practice_this_week:
+  real_piano:
+    - "Label a bass staff on paper: lines G B D F A bottom to top."
+    - "Play each bass line note: G2, B2, D3, F3, A3."
+  virtual_only:
+    - "Replay page 8 (naming drill)"
+  estimated_time: "5 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 3
+      questions:
+        - figure: "Bass staff line 1 (G)"
+          prompt: "Which letter?"
+          options: ["G", "B", "D"]
+          correct: 0
+        - figure: "Bass staff line 4 (F)"
+          prompt: "Which letter?"
+          options: ["D", "F", "A"]
+          correct: 1
+        - figure: "Bass staff line 5 (A)"
+          prompt: "Which letter?"
+          options: ["F", "A", "C"]
+          correct: 1
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "F3 (bass F)"
+          prompt: "Which bass line note?"
+          options: ["G", "B", "D", "F", "A"]
+          correct: 3
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play D (line 3 on the bass staff)."
+          accept: "D3"
+
+remediation:
+  id: "46.5"
+  title: "Bass lines, slower"
+  pages: 5
+  opening_cleffy: >
+    G B D F A, walked from bass F, slower.
+
+completion:
+  cleffy: >
+    Bass lines, named. Spaces tomorrow.
+  xp: 20
+  unlocks: 47

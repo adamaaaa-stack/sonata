@@ -1,0 +1,212 @@
+# ============================================================
+# LESSON 104 · Independence drill
+# Tier 3 · Act 21 · Low-Intermediate
+# Same pattern as L103, progressive tempo — slow → moderate → fast.
+# ============================================================
+id: 104
+tier: low-intermediate
+act: 21
+title: "Independence drill"
+subtitle: "Act 21 · Slow, moderate, fast"
+goal: "Drill yesterday's two-hand pattern at three tempos."
+prereqs: [103, 102, 75]
+method_focus: "play"
+time_estimate_min: 13
+piece_context: "Yesterday you got the pattern. Today you get fluent."
+metaphor: "both-hands-one-mind"
+vibe: ["focused", "serious"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Three dials on a dashboard — SLOW (50), MODERATE (70), FAST (90). Metronome ticking."
+    cleffy: >
+      Same pattern. Three speeds.
+      Slow to get it right. Moderate to get it steady. Fast to get it real.
+
+  - id: 2
+    mode: see
+    type: today_is_drill
+    figure: "Flashcard — 'Drill days are for locking in. No new ideas. Just reps.'"
+    cleffy: >
+      Today isn't a new skill.
+      Today is reps. That's how coordination settles in.
+
+  - id: 3
+    mode: see
+    type: the_pattern
+    figure: "Grand staff. Four-bar C-F-G-C progression. LH bass on 1, 3. RH chord on 2, 4."
+    cleffy: >
+      Yesterday's pattern. C. F. G. C.
+      LH bass note on one and three. RH chord on two and four.
+
+  - id: 4
+    mode: play
+    type: warm_up_one_bar
+    figure: "One bar of C. Tempo 50."
+    cleffy: >
+      Warm up. One bar. C chord only. 50 bpm.
+    interaction:
+      type: rhythm
+      sequence: ["C3", ["C4","E4","G4"], "C3", ["C4","E4","G4"]]
+      durations: ["quarter","quarter","quarter","quarter"]
+      tempo: 50
+
+  - id: 5
+    mode: play
+    type: slow_round
+    figure: "Four bars. Tempo dial on SLOW. 50 bpm."
+    cleffy: >
+      Slow round. 50 bpm. Full four bars.
+      Don't rush. Precision first.
+    interaction:
+      type: rhythm
+      sequence: ["C3", ["C4","E4","G4"], "C3", ["C4","E4","G4"], "F2", ["C4","F4","A4"], "F2", ["C4","F4","A4"], "G2", ["B3","D4","G4"], "G2", ["B3","D4","G4"], "C3", ["C4","E4","G4"], "C3", ["C4","E4","G4"]]
+      durations: ["quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter"]
+      tempo: 50
+
+  - id: 6
+    mode: see
+    type: check_in
+    figure: "Cleffy, eyes closed, listening."
+    cleffy: >
+      Quick check.
+      Were the beats even? Were both hands landing on the click?
+      If yes — move on. If no — do slow again.
+
+  - id: 7
+    mode: play
+    type: moderate_round
+    figure: "Four bars. Tempo dial on MODERATE. 70 bpm."
+    cleffy: >
+      Moderate. 70 bpm. Faster than yesterday ever felt.
+    interaction:
+      type: rhythm
+      sequence: ["C3", ["C4","E4","G4"], "C3", ["C4","E4","G4"], "F2", ["C4","F4","A4"], "F2", ["C4","F4","A4"], "G2", ["B3","D4","G4"], "G2", ["B3","D4","G4"], "C3", ["C4","E4","G4"], "C3", ["C4","E4","G4"]]
+      durations: ["quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter"]
+      tempo: 70
+
+  - id: 8
+    mode: see
+    type: what_fast_feels_like
+    figure: "Cleffy pointing to a dial spinning faster. Caption: 'Fast makes you trust your hands.'"
+    cleffy: >
+      Fast tempo does a thing slow tempo can't.
+      It stops letting your brain micromanage.
+      Your hands start doing the work.
+
+  - id: 9
+    mode: play
+    type: fast_round
+    figure: "Four bars. Tempo dial on FAST. 90 bpm."
+    cleffy: >
+      Fast. 90 bpm. Trust your hands.
+    interaction:
+      type: rhythm
+      sequence: ["C3", ["C4","E4","G4"], "C3", ["C4","E4","G4"], "F2", ["C4","F4","A4"], "F2", ["C4","F4","A4"], "G2", ["B3","D4","G4"], "G2", ["B3","D4","G4"], "C3", ["C4","E4","G4"], "C3", ["C4","E4","G4"]]
+      durations: ["quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter"]
+      tempo: 90
+
+  - id: 10
+    mode: see
+    type: stumbles_are_normal
+    figure: "Graph showing accuracy dipping slightly at the fast tempo, then coming back."
+    cleffy: >
+      Stumbled at 90? Normal.
+      Fast always gets sloppy before it gets clean.
+      Go back to slow for a round, then try fast again.
+
+  - id: 11
+    mode: play
+    type: slow_again
+    figure: "Four bars. 50 bpm again."
+    cleffy: >
+      Back to slow. Clean up whatever got sloppy.
+    interaction:
+      type: rhythm
+      sequence: ["C3", ["C4","E4","G4"], "C3", ["C4","E4","G4"], "F2", ["C4","F4","A4"], "F2", ["C4","F4","A4"], "G2", ["B3","D4","G4"], "G2", ["B3","D4","G4"], "C3", ["C4","E4","G4"], "C3", ["C4","E4","G4"]]
+      durations: ["quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter"]
+      tempo: 50
+
+  - id: 12
+    mode: play
+    type: fast_final
+    figure: "Four bars. 90 bpm. Final fast run."
+    cleffy: >
+      One more at 90. Last time.
+    interaction:
+      type: rhythm
+      sequence: ["C3", ["C4","E4","G4"], "C3", ["C4","E4","G4"], "F2", ["C4","F4","A4"], "F2", ["C4","F4","A4"], "G2", ["B3","D4","G4"], "G2", ["B3","D4","G4"], "C3", ["C4","E4","G4"], "C3", ["C4","E4","G4"]]
+      durations: ["quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter"]
+      tempo: 90
+    followup_cleffy: >
+      Cleaner. Fingers know the pattern now.
+
+  - id: 13
+    mode: see
+    type: drill_rule
+    figure: "Flashcard — 'The slow → fast → slow cycle is how every pianist gets faster.'"
+    cleffy: >
+      This cycle works for anything on piano.
+      Slow until clean. Speed up. Sloppy. Slow again. Speed up cleaner.
+      Every hard piece gets learned this way.
+
+  - id: 14
+    mode: hear
+    type: pre_check
+    figure: "Banner."
+    cleffy: >
+      Three quick ones.
+
+  - id: 15
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 104. Three dials on a dashboard, all spinning at different speeds."
+    cleffy: >
+      Slow, moderate, fast.
+      Tomorrow — Act 21 boss. Twinkle Twinkle with full harmony.
+
+practice_this_week:
+  real_piano:
+    - "The four-bar pattern at three tempos. Slow, moderate, fast, back to slow. Every day."
+    - "If 90 feels impossible — try 80 first. Build up one week at a time."
+  virtual_only:
+    - "Replay pages 5, 7, 9 — one round of each tempo"
+  estimated_time: "10 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 1
+      questions:
+        - figure: "Three dials — slow, moderate, fast"
+          prompt: "Which order should you drill a pattern?"
+          options: ["Slow first, then faster", "Fast first, then slower", "Fast only"]
+          correct: 0
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "Same pattern at 50 bpm, then 90 bpm"
+          prompt: "Is the pattern the same in both clips?"
+          options: ["Yes", "No"]
+          correct: 0
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play one bar of the pattern at 70 bpm."
+          accept: "LH C3 and RH C-E-G chord alternating, moderate tempo"
+
+remediation:
+  id: "104.5"
+  title: "Just the slow tempo"
+  pages: 7
+  opening_cleffy: >
+    If fast broke it — that's the drill doing its job. Let's go back to 50 bpm and make slow feel effortless first.
+
+completion:
+  cleffy: >
+    Three tempos. Same pattern. Your hands faster than they were yesterday.
+    Tomorrow — Act 21 boss. Twinkle Twinkle with both hands.
+  xp: 18
+  unlocks: 105

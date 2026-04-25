@@ -1,0 +1,195 @@
+id: 70
+tier: elementary
+act: 14
+title: "Amazing Grace"
+subtitle: "Act 14 · A piece in F major"
+goal: "Read and play Amazing Grace in F major, understanding how the key signature governs the piece."
+prereqs: [66, 68, 69]
+method_focus: "combine"
+time_estimate_min: 14
+piece_context: "First piece in an F-major key signature. The melody happens to be pentatonic — no B's at all — but the key signature still rules the whole piece."
+metaphor: "classic-hymn"
+vibe: ["gentle", "celebratory"]
+is_act_boss: true
+piece:
+  title: "Amazing Grace"
+  key_center: "F major (melody is pentatonic — no B's appear)"
+  time_signature: "3/4"
+  difficulty: "elementary — F major, steps + some leaps"
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Sheet music with Amazing Grace title. F major key signature (B♭) visible."
+    cleffy: >
+      Amazing Grace. Act 14 boss piece.
+      First piece in an F-major key signature — the flat on B is baked in.
+
+  - id: 2
+    mode: hear
+    type: listen
+    figure: "Play button."
+    audio:
+      A: "Amazing Grace played fully"
+    cleffy: >
+      Listen. In 3/4. Gentle tune.
+      Fun fact — this melody never plays a B at all. But the key signature still tells us: if one showed up, it'd be flat.
+
+  - id: 3
+    mode: see
+    type: phrase_1
+    figure: "Phrase 1: C F A F A G F D (a-maz-ing grace how sweet the sound)."
+    cleffy: >
+      Phrase 1. C F A F A G F D.
+      Pickup C. Leap to F. Up to A. Step-step home toward D.
+
+  - id: 4
+    mode: play
+    type: play_phrase_1
+    figure: "Keyboard. F major position."
+    cleffy: >
+      Play phrase 1. Slow.
+    interaction:
+      type: sequence
+      keys: ["C4","F4","A4","F4","A4","G4","F4","D4"]
+
+  - id: 5
+    mode: see
+    type: phrase_2
+    figure: "Phrase 2: C F A G F (that saved a wretch)."
+    cleffy: >
+      Phrase 2. C F A G F.
+      Same shape, lands on F this time. Still no B — this tune is pentatonic.
+
+  - id: 6
+    mode: play
+    type: play_phrase_2
+    figure: "Keyboard. Phrase 2."
+    cleffy: >
+      Play phrase 2.
+    interaction:
+      type: sequence
+      keys: ["C4","F4","A4","G4","F4"]
+
+  - id: 7
+    mode: see
+    type: phrase_3
+    figure: "Phrase 3: A C5 A F (I once was lost). Notice: no B anywhere — yet the key signature still governs."
+    cleffy: >
+      Phrase 3. A C A F.
+      Leap up to high C, float down.
+      The key signature says B's are flat — but this melody doesn't use B. The signature tells you what would happen if it did.
+
+  - id: 8
+    mode: play
+    type: play_phrase_3
+    figure: "Keyboard. Phrase 3."
+    cleffy: >
+      Play. All white keys here — but we're still in F major.
+    interaction:
+      type: sequence
+      keys: ["A4","C5","A4","F4"]
+
+  - id: 9
+    mode: see
+    type: phrase_4_resolution
+    figure: "Phrase 4 continued: G F D F A G F (but now I see). Resolves to F."
+    cleffy: >
+      Final phrase. G F D F A G F.
+      Comes home to F. Gentle landing.
+
+  - id: 10
+    mode: play
+    type: play_phrase_4
+    figure: "Keyboard."
+    cleffy: >
+      Play phrase 4.
+    interaction:
+      type: sequence
+      keys: ["G4","F4","D4","F4","A4","G4","F4"]
+
+  - id: 11
+    mode: play
+    type: full_guided
+    figure: "Full Amazing Grace. Key signature B♭. Guides on."
+    cleffy: >
+      Full song, slow, with guides.
+    interaction:
+      type: song
+      sequence: ["C4","F4","A4","F4","A4","G4","F4","D4","C4","F4","A4","G4","F4","A4","C5","A4","F4","G4","F4","D4","F4","A4","G4","F4"]
+      guides: true
+      tempo: 70
+
+  - id: 12
+    mode: play
+    type: full_no_guides
+    figure: "Same, no guides."
+    cleffy: >
+      No guides. Read and play.
+    interaction:
+      type: song
+      sequence: ["C4","F4","A4","F4","A4","G4","F4","D4","C4","F4","A4","G4","F4","A4","C5","A4","F4","G4","F4","D4","F4","A4","G4","F4"]
+      guides: false
+
+  - id: 13
+    mode: hear
+    type: pre_check
+    figure: "Banner — Act 14 boss."
+    cleffy: >
+      Three quick ones.
+
+  - id: 14
+    mode: see
+    type: wrap
+    figure: "Celebration — ACT 14 COMPLETE. Trophy 14/15."
+    cleffy: >
+      Act 14 done. Four lessons left in Tier 2.
+      Next — patterns. Scales, shapes, sequences. Then Für Elise.
+
+practice_this_week:
+  real_piano:
+    - "Play Amazing Grace from the page daily. Watch the key signature even though no B's appear — it still sets the tonal home."
+    - "Add phrase shape. Each line arches slightly."
+  virtual_only:
+    - "Replay page 11"
+  estimated_time: "10-12 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "Amazing Grace sheet, B♭ key signature"
+          prompt: "Which note would be flat if it appeared in this piece?"
+          options: ["B", "F", "A"]
+          correct: 0
+        - figure: "Time signature 3/4"
+          prompt: "How many beats per bar?"
+          options: ["2", "3", "4"]
+          correct: 1
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "Amazing Grace phrase 3"
+          prompt: "Does this melody use any B's?"
+          options: ["Yes", "No"]
+          correct: 1
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play the first three notes of Amazing Grace."
+          accept: "C4 F4 A4"
+
+remediation:
+  id: "70.5"
+  title: "Amazing Grace, phrase by phrase"
+  pages: 7
+  opening_cleffy: >
+    Four phrases. Slow. All in F major — the key signature rules even when no B's show up.
+
+completion:
+  cleffy: >
+    Act 14 sealed. Amazing Grace, played. F major without a single B — the key signature still counts.
+  xp: 30
+  unlocks: 71

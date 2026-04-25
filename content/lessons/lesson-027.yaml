@@ -1,0 +1,236 @@
+# ============================================================
+# LESSON 27 · Finding bass F
+# Tier 2 · Act 6 · Elementary
+# Central metaphor: THE TWO DOTS POINT AT F
+# ============================================================
+id: 27
+tier: elementary
+act: 6
+title: "Finding bass F"
+subtitle: "The two dots are pointing at F"
+goal: "Identify bass F on the staff and play it on the piano."
+prereqs: [6, 26]
+method_focus: "notation"
+time_estimate_min: 10
+piece_context: null
+metaphor: "dots-point-at-F"
+vibe: ["gentle", "playful"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Bass clef close-up. The two dots pulsing around one line."
+    cleffy: >
+      You saw the dots yesterday. Today we name the line they're pointing at.
+      It's one you already know — from Lesson 6.
+      That line is F.
+
+  - id: 2
+    mode: see
+    type: definition
+    figure: "Bass clef on staff. Line 4 (counting from bottom) highlighted blue. The two dots flank it. Label: F."
+    cleffy: >
+      The line between the two dots of the bass clef is F.
+      Specifically, the F just below Middle C — bass F.
+      Not the same F as Middle F (which lives on the treble staff).
+      A different F, one octave lower.
+
+  - id: 3
+    mode: see
+    type: two_fs_on_piano
+    figure: "Keyboard. Middle F4 glowing blue. F3 (one octave below) glowing blue too. Arrow between them labeled ONE OCTAVE."
+    cleffy: >
+      Remember octaves? Same letter, different floor.
+      Middle F lives in the middle of the piano.
+      Bass F lives one octave lower, on the left side.
+      They're both F. The bass staff just points at the lower one.
+
+  - id: 4
+    mode: see
+    type: why_dots
+    figure: "Bass clef with two dots drawn in red, clearly hugging line 4. Below: text 'the dots POINT at F.'"
+    cleffy: >
+      Memory trick: the dots are pointing at F.
+      One dot just above the F line. One dot just below. Both pointing IN.
+      If you can remember that, you'll never lose bass F.
+
+  - id: 5
+    mode: see
+    type: interactive
+    figure: "Bass staff with a note on line 4 (bass F)."
+    cleffy: >
+      Is this note on the F line?
+    interaction:
+      type: choice
+      options: ["Yes", "No"]
+      correct: 0
+
+  - id: 6
+    mode: see
+    type: interactive
+    figure: "Bass staff with a note in space 3 (one space above F)."
+    cleffy: >
+      And this one?
+    interaction:
+      type: choice
+      options: ["On the F line", "Not on the F line"]
+      correct: 1
+    corrections:
+      - wrong_label: "general"
+        cleffy: >
+          Look — this note is sitting in a space above the F line, not on it.
+          The F line is the one between the two dots.
+
+  - id: 7
+    mode: hear
+    type: f_sound
+    figure: "Keyboard with F3 glowing. Bass staff with note on F line."
+    audio:
+      A: "F3 held"
+    cleffy: >
+      That's the sound of bass F. Deep. Full.
+      Memorize this tone. It'll be your anchor on the bass staff.
+
+  - id: 8
+    mode: hear
+    type: f_or_not
+    figure: "Play button."
+    audio:
+      A: "Random — either F3 or a neighbor"
+    cleffy: >
+      Four rounds. Is that bass F?
+    interaction:
+      type: drill
+      rounds: 4
+      options: ["Yes (bass F)", "No"]
+
+  - id: 9
+    mode: play
+    type: find_bass_f
+    figure: "Keyboard. F3 glowing. Reminder: the white key just before a 3-group on the left half."
+    cleffy: >
+      Play bass F. Same trick as before — right before a 3-group.
+      Just lower on the piano than Middle F.
+    interaction:
+      type: tap
+      accept: "F3"
+
+  - id: 10
+    mode: play
+    type: find_any_f
+    figure: "Full keyboard, no highlights."
+    cleffy: >
+      Now play ANY F, but on the LEFT side of the piano.
+      Both F3 and F2 count. You pick.
+    interaction:
+      type: tap
+      accept: "any F in lowest 3 octaves"
+
+  - id: 11
+    mode: see
+    type: two_anchors_now
+    figure: "Two staves stacked. Treble with Middle C highlighted gold. Bass with bass F highlighted blue."
+    cleffy: >
+      You now have two anchors.
+      Middle C — the flag in the middle, for the treble staff.
+      Bass F — the flag on the bass staff, between the two dots.
+      Every other note, on either staff, gets measured from these two.
+
+  - id: 12
+    mode: read
+    type: see_hear_play
+    figure: "Bass staff with note on F line. Keyboard below."
+    cleffy: >
+      See bass F on the staff. Listen. Play it on the piano.
+    interaction:
+      type: see_hear_play
+      target_key: "F3"
+
+  - id: 13
+    mode: read
+    type: repeat_loop
+    figure: "Same again."
+    cleffy: >
+      One more time. Lock in the link.
+    interaction:
+      type: see_hear_play
+      target_key: "F3"
+
+  - id: 14
+    mode: hear
+    type: drill_mixed
+    figure: "Mix of F vs other."
+    cleffy: >
+      Four rounds. Mix.
+    interaction:
+      type: drill
+      rounds: 4
+
+  - id: 15
+    mode: hear
+    type: pre_check
+    figure: "Banner."
+    cleffy: >
+      Four quick ones.
+
+  - id: 16
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 27. Bass clef with a little blue flag planted on the F line."
+    cleffy: >
+      Two anchors: Middle C on the treble staff, bass F on the bass staff.
+      Tomorrow your left hand gets fingers. After that, we add a second landmark and get to work.
+
+# ─── Practice this week ────────────────────────────────
+practice_this_week:
+  real_piano:
+    - "Left hand, thumb on bass F. Play it five times, slow."
+    - "Move your thumb to other Fs on the left side of the piano. Play each one a few times. Notice how they all sound like F, just different depths."
+  virtual_only:
+    - "Replay pages 9-10 (play bass F) a couple times"
+  estimated_time: "5 min/day"
+
+# ─── Mastery check ──────────────────────────────────────
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "Bass clef with note on line 4 (F)."
+          prompt: "Is this bass F?"
+          options: ["Yes", "No"]
+          correct: 0
+        - figure: "Bass clef with note on line 2 (not F)."
+          prompt: "Is this bass F?"
+          options: ["Yes", "No"]
+          correct: 1
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "Bass F (F3)"
+          prompt: "Is that bass F?"
+          options: ["Yes", "No"]
+          correct: 0
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play bass F on the piano."
+          accept: "F3"
+
+# ─── Remediation ────────────────────────────────────────
+remediation:
+  id: "27.5"
+  title: "Bass F, once more"
+  pages: 5
+  opening_cleffy: >
+    Bass F is the anchor for half the music you'll ever read.
+    Let's nail it down — slower, with the two dots clearly pointing.
+
+# ─── Completion ─────────────────────────────────────────
+completion:
+  cleffy: >
+    Two landmarks, two anchors. Now both staves make sense.
+    Left hand's turn tomorrow.
+  xp: 20
+  unlocks: 28

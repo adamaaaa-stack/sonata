@@ -1,0 +1,225 @@
+# ============================================================
+# LESSON 208 · Voicing: LH melody
+# Tier 5 · Act 42 · Upper-Intermediate · Voicing
+# The left hand takes the tune. The right hand accompanies.
+# ============================================================
+id: 208
+tier: upper-intermediate
+act: 42
+title: "Voicing: LH melody"
+subtitle: "Act 42 · Voicing"
+goal: "Play a left-hand bass melody while the right hand keeps a quieter chord accompaniment — roles reversed."
+prereqs: [207, 206]
+method_focus: "combine"
+time_estimate_min: 14
+piece_context: "Top voicing — one hand. Middle voicing — one hand. Today — both hands. The left hand carries the melody. The right hand holds soft chords above. Role reversal. This is how Liszt and Rachmaninoff wrote some of their richest passages."
+metaphor: "voice-within-chord"
+vibe: ["serious", "focused", "reflective"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy with two hands drawn — left hand glowing gold, right hand softer. Banner: LEFT HAND TAKES THE TUNE."
+    cleffy: >
+      Two voicings so far — top and middle. Both in the right hand.
+      Today the tune moves down.
+      Left hand sings. Right hand accompanies.
+
+  - id: 2
+    mode: see
+    type: role_swap
+    figure: "Two panels. Panel 1: 'USUAL — RH melody, LH chords.' Panel 2: 'TODAY — LH melody, RH chords.'"
+    cleffy: >
+      The usual — right hand melody, left hand chords.
+      Today — the opposite.
+      Low voice sings. High voice supports.
+
+  - id: 3
+    mode: hear
+    type: lh_melody_example
+    figure: "Play button. 'Left hand melody, right hand chords.'"
+    audio:
+      A: "A simple four-note bass melody C3-D3-E3-F3 with soft right-hand chords C4-E4-G4 held above."
+    cleffy: >
+      Listen.
+      Bass is loud. Chords above are soft.
+      The low voice is the one telling the story.
+
+  - id: 4
+    mode: see
+    type: bass_melody_shown
+    figure: "Grand staff. LH: C3-D3-E3-F3 quarter notes, circled in gold. RH: a held C-E-G chord above. Label: 'LH melody, RH support.'"
+    cleffy: >
+      Here's the score.
+      Left hand plays the line — C, D, E, F. The melody.
+      Right hand holds a chord on top. Soft. Quiet. Support.
+
+  - id: 5
+    mode: play
+    type: lh_alone_melody
+    figure: "Keyboard. C3, D3, E3, F3 highlighted. LH only."
+    cleffy: >
+      Left hand alone first. C, D, E, F.
+      Firm. This is the melody. Let it sing.
+    interaction:
+      type: sequence
+      keys: ["C3","D3","E3","F3"]
+
+  - id: 6
+    mode: play
+    type: rh_alone_soft_chord
+    figure: "Keyboard. C4, E4, G4 highlighted. Label: 'brush — not press.'"
+    cleffy: >
+      Right hand alone. Press C-E-G once. Softly.
+      Barely there. Think 'brush the keys,' not 'press.'
+    interaction:
+      type: sequence
+      keys: [["C4","E4","G4"]]
+
+  - id: 7
+    mode: see
+    type: the_balance
+    figure: "Scale diagram. LH side weighted down — 'loud melody.' RH side floats up — 'quiet chords.'"
+    cleffy: >
+      The balance — left heavier, right lighter.
+      Your arms will want to do the opposite. Right hand usually leads.
+      Fight that. Low voice wins today.
+
+  - id: 8
+    mode: play
+    type: both_hands_together
+    figure: "Grand staff. LH melody C3-D3-E3-F3, RH holds C-E-G chord. Keyboard below."
+    cleffy: >
+      Both hands now. Left hand walks — C, D, E, F.
+      Right hand holds the chord. Gentle.
+    interaction:
+      type: rhythm
+      sequence: [["C3","C4","E4","G4"], "D3", "E3", "F3"]
+      durations: ["quarter","quarter","quarter","quarter"]
+      tempo: 55
+
+  - id: 9
+    mode: hear
+    type: balance_check
+    figure: "Two play buttons. A: RH too loud (bad). B: LH louder (good)."
+    audio:
+      A: "Same passage, but right-hand chord is too loud — it covers the bass melody."
+      B: "Same passage, bass clearly louder — the melody is audible."
+    cleffy: >
+      Two versions.
+      First — right hand too loud. The tune drowns.
+      Second — left hand louder. The tune lives.
+
+  - id: 10
+    mode: see
+    type: rolling_chord_variation
+    figure: "Grand staff. LH: longer bass melody C3-D3-E3-G3-F3-E3. RH: C-E-G chord held for each. Label: 'longer line.'"
+    cleffy: >
+      Longer bass melody now. Six notes.
+      C, D, E, G, F, E. A little arc.
+      Right hand keeps the same chord overhead.
+
+  - id: 11
+    mode: play
+    type: longer_lh_melody
+    figure: "Grand staff. Six-note LH melody, RH chord above."
+    cleffy: >
+      Play it. Left hand sings the arc. Right hand holds.
+      Lean into the bass. Brush the top.
+    interaction:
+      type: rhythm
+      sequence: [["C3","C4","E4","G4"], "D3", "E3", "G3", "F3", "E3"]
+      durations: ["quarter","quarter","quarter","quarter","quarter","quarter"]
+      tempo: 55
+    followup_cleffy: >
+      The bass was the melody.
+      The chord floated above like mist.
+
+  - id: 12
+    mode: hear
+    type: which_hand_sings
+    figure: "Round counter. Four rounds. 'Which hand has the melody?'"
+    cleffy: >
+      Four rounds. Left hand melody, or right hand melody?
+    interaction:
+      type: drill
+      rounds: 4
+      options: ["Left hand melody", "Right hand melody"]
+
+  - id: 13
+    mode: see
+    type: the_three_voicings
+    figure: "Three cards. 1: top note gold (RH). 2: middle note gold (RH). 3: bass line gold (LH). Banner: 'three voicings — three tomorrow in one drill.'"
+    cleffy: >
+      Three voicings now.
+      Top. Middle. Bottom.
+      Tomorrow — all three in one chord. Your choice each round.
+
+  - id: 14
+    mode: hear
+    type: pre_check
+    figure: "Banner — Lesson 208 mastery check."
+    cleffy: >
+      Three quick ones.
+
+  - id: 15
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 208. Grand staff with LH line glowing gold, RH chord soft above."
+    cleffy: >
+      Left hand can lead now.
+      Tomorrow — same chord, three voicings in a row. Your hand has to re-tilt every time.
+
+practice_this_week:
+  real_piano:
+    - "Play any LH melody you know. Hold a C-E-G chord in the right hand while you do it. Keep the right hand quiet."
+    - "Take a piece you know — swap the roles. RH holds chords, LH plays the top line from memory. Weird, useful practice."
+  virtual_only:
+    - "Replay pages 8 and 11."
+  estimated_time: "10 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "Grand staff with LH quarter notes circled in gold, RH holding a chord"
+          prompt: "Which hand has the melody?"
+          options: ["Right hand", "Left hand", "Both equally"]
+          correct: 1
+        - figure: "Balance diagram — LH weighted heavy, RH light"
+          prompt: "When the left hand sings, how should the right hand play?"
+          options: ["Louder than the left", "Softer than the left", "Same as the left"]
+          correct: 1
+        - figure: "Three cards: top voicing, middle voicing, bottom voicing"
+          prompt: "How many voicings have you met so far?"
+          options: ["Two", "Three", "Four"]
+          correct: 1
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "A passage where the left hand melody is clearly louder than the right hand chord"
+          prompt: "Which hand has the melody?"
+          options: ["Right hand", "Left hand"]
+          correct: 1
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play C3-D3-E3-F3 in the left hand while holding C-E-G in the right. Bass louder."
+          accept: "LH C3 D3 E3 F3 firm, RH C4 E4 G4 chord softer"
+
+remediation:
+  id: "208.5"
+  title: "Left hand melody, one note at a time"
+  pages: 8
+  opening_cleffy: >
+    Role reversal is strange at first. Most pieces put the tune up top.
+    We'll go slow. LH alone. RH alone. Together. Quiet on top, loud on bottom. You'll get it.
+
+completion:
+  cleffy: >
+    Three voicings in your hands now.
+    Tomorrow — the drill. Same chord, different voice each round.
+  xp: 18
+  unlocks: 209

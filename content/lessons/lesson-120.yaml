@@ -1,0 +1,250 @@
+# ============================================================
+# LESSON 120 · Beethoven Bagatelle
+# Tier 3 · Act 24 · Low-Intermediate · ACT BOSS 🎯
+# First real phrase shaping on a real Beethoven phrase.
+# Simplified 8-bar opening of Bagatelle in G — student's first
+# Beethoven since Für Elise. Focus: phrasing, not new notes.
+# ============================================================
+id: 120
+tier: low-intermediate
+act: 24
+title: "Beethoven Bagatelle"
+subtitle: "Act 24 · First real phrase shaping"
+goal: "Play an 8-bar Beethoven Bagatelle phrase with breath, shape, and call-and-answer — everything from Act 24, together."
+prereqs: [116, 117, 118, 119]
+method_focus: "combine"
+time_estimate_min: 16
+piece_context: "Act 24 ends here. Everything you learned — phrases, question-and-answer, breath marks, dynamic arcs — lands on one real Beethoven phrase. Simplified. 8 bars. G major. Your second Beethoven piece since Für Elise."
+metaphor: "music-breathes"
+vibe: ["focused", "celebratory", "reflective"]
+is_act_boss: true
+piece:
+  title: "Bagatelle (simplified, after Beethoven Op. 119)"
+  composer: "Beethoven"
+  key_center: "G major"
+  time_signature: "3/4"
+  difficulty: "low-intermediate — 8 bars, stepwise with one leap, phrase-shaping focus"
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy at the piano with a small portrait of Beethoven on the wall. Banner: ACT 24 BOSS — FIRST REAL PHRASING."
+    cleffy: >
+      Act 24 boss.
+      Beethoven. Bagatelle. A small piece — that's what bagatelle means.
+      Short. Simple. Full of shape.
+
+  - id: 2
+    mode: see
+    type: what_is_a_bagatelle
+    figure: "Three small music icons: Für Elise, Moonlight, Bagatelle Op. 119. A bagatelle is highlighted with label: A TRIFLE. A LITTLE GEM."
+    cleffy: >
+      Bagatelle means "trifle." Little gem.
+      Beethoven wrote a lot of them. Short pieces. Packed with feeling.
+      We're taking one — simplified — eight bars. G major.
+
+  - id: 3
+    mode: hear
+    type: listen_to_phrase
+    figure: "Big play button. The 8-bar phrase plays with full shape."
+    audio:
+      A: "Eight bars, G major, 3/4 — first phrase hangs on D (question), second phrase lands on G (answer). Gentle arch on each."
+    cleffy: >
+      Listen. Whole thing.
+      Two phrases. First one hangs. Second one lands.
+      And both of them breathe.
+
+  - id: 4
+    mode: see
+    type: the_piece_on_staff
+    figure: "Treble staff. 8 bars in 3/4, G major key signature (F sharp). Melody: G A B | B A G | G A B | D (held) :: B A G | G F sharp E | D E F sharp | G (held). Breath mark between bars 4 and 5."
+    cleffy: >
+      Here it is.
+      Eight bars. Two phrases of four. Breath mark between them.
+      F is sharp — G major. You've done this.
+
+  - id: 5
+    mode: see
+    type: map_the_phrases
+    figure: "Same staff — phrase 1 labeled QUESTION (ends on D), phrase 2 labeled ANSWER (ends on G). Peaks circled: B in phrase 1, B in phrase 2."
+    cleffy: >
+      First phrase — question. Rises to B, hangs on D.
+      Second phrase — answer. Comes back down. Lands on G. Home.
+      Peaks in the middle of each phrase. That's where the weight goes.
+
+  - id: 6
+    mode: play
+    type: play_question_phrase
+    figure: "Keyboard. First phrase glowing: G4 A4 B4 B4 A4 G4 G4 A4 B4 D5. Arch drawn above."
+    cleffy: >
+      First phrase only. The question.
+      G A B, B A G, G A B, D.
+      Gentle arch. Peak is the B in the middle.
+    interaction:
+      type: sequence
+      keys: ["G4","A4","B4","B4","A4","G4","G4","A4","B4","D5"]
+
+  - id: 7
+    mode: play
+    type: play_answer_phrase
+    figure: "Keyboard. Second phrase glowing: B4 A4 G4 G4 F#4 E4 D4 E4 F#4 G4. Arch drawn."
+    cleffy: >
+      Second phrase. The answer.
+      B A G, G F sharp E, D E F sharp, G.
+      Same shape. Lands on G. Home.
+    interaction:
+      type: sequence
+      keys: ["B4","A4","G4","G4","F#4","E4","D4","E4","F#4","G4"]
+
+  - id: 8
+    mode: see
+    type: where_to_breathe
+    figure: "Staff with a breath mark drawn clearly between bar 4 and bar 5. Arrow pointing at it."
+    cleffy: >
+      The breath. Right between the two phrases.
+      After the D. Before the B.
+      Tiny lift. Let the question hang for a second before the answer comes.
+
+  - id: 9
+    mode: see
+    type: dynamic_plan
+    figure: "Both phrases on staff. Dynamics written in: p at bar 1, crescendo hairpin to mf at bar 2 peak, diminuendo back to p at bar 4. Breath. p at bar 5, mf at peak, p on final G."
+    cleffy: >
+      Plan for dynamics.
+      Each phrase does p — mf — p. Small arch. Not dramatic.
+      The answer ends softest — on the home G. Let it settle.
+
+  - id: 10
+    mode: play
+    type: play_both_phrases_slow
+    figure: "Keyboard. Full 8-bar phrase. Tempo 60. Breath mark between. Guides on."
+    cleffy: >
+      Both phrases. Slow. 60 bpm.
+      Question — breath — answer. Shape each one.
+    interaction:
+      type: rhythm
+      sequence: ["G4","A4","B4","B4","A4","G4","G4","A4","B4","D5","B4","A4","G4","G4","F#4","E4","D4","E4","F#4","G4"]
+      durations: ["quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","half","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","half"]
+      tempo: 60
+
+  - id: 11
+    mode: play
+    type: play_with_shaping
+    figure: "Same piece. Tempo 60. Dynamics marked. Focus on the arch."
+    cleffy: >
+      Same notes. Now — shape them.
+      Soft at the start. A little fuller on the peaks. Softest on the final G.
+      Don't rush the breath. Let it land.
+    interaction:
+      type: rhythm
+      sequence: ["G4","A4","B4","B4","A4","G4","G4","A4","B4","D5","B4","A4","G4","G4","F#4","E4","D4","E4","F#4","G4"]
+      durations: ["quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","half","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","half"]
+      tempo: 60
+
+  - id: 12
+    mode: play
+    type: at_tempo
+    figure: "Keyboard. Same piece. Tempo 80. Full phrasing."
+    cleffy: >
+      Up a little. 80 bpm.
+      Everything at once. Question. Breath. Answer. Arches. Land soft.
+    interaction:
+      type: rhythm
+      sequence: ["G4","A4","B4","B4","A4","G4","G4","A4","B4","D5","B4","A4","G4","G4","F#4","E4","D4","E4","F#4","G4"]
+      durations: ["quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","half","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","half"]
+      tempo: 80
+    followup_cleffy: >
+      That.
+      That was phrasing. Real phrasing. On a real Beethoven.
+
+  - id: 13
+    mode: play
+    type: final_performance
+    figure: "Keyboard. No guides. No markings. Just the staff. Tempo 80."
+    cleffy: >
+      Last time. No guides. Read it. Shape it.
+      Stumble? Keep going. Phrases don't stop for mistakes.
+    interaction:
+      type: rhythm
+      sequence: ["G4","A4","B4","B4","A4","G4","G4","A4","B4","D5","B4","A4","G4","G4","F#4","E4","D4","E4","F#4","G4"]
+      durations: ["quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","half","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","half"]
+      tempo: 80
+    followup_cleffy: >
+      Beethoven. Eight bars. Two phrases. Fully shaped.
+
+  - id: 14
+    mode: hear
+    type: pre_check
+    figure: "Banner — Act 24 boss mastery check."
+    cleffy: >
+      Four quick ones. Act boss — take your time.
+
+  - id: 15
+    mode: see
+    type: wrap
+    figure: "Celebration card — ACT 24 COMPLETE 🎯. Cleffy holding a tiny sheet labeled BAGATELLE. A pyramid: 24/50 acts closed."
+    cleffy: >
+      Act 24. Closed.
+      You played Beethoven with phrasing. Question. Answer. Breath. Arc.
+      A week ago notes were just notes in a line. Now you're speaking in sentences.
+      Next act — review. All of Tier 3, one last look. Then the tier boss — Clair de Lune.
+
+practice_this_week:
+  real_piano:
+    - "Play the 8-bar Bagatelle every day. Start at 60 bpm. Build up to 80 by week's end."
+    - "Try it without any shaping — all flat. Then shape it. Feel the difference your hands make."
+    - "If someone's in the room — play it for them. It's Beethoven. That counts."
+  virtual_only:
+    - "Replay pages 11-13 — shaped, then at tempo, then no guides."
+  estimated_time: "15 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "Staff with two 4-bar phrases and a breath mark between them."
+          prompt: "What does the small comma between bars 4 and 5 tell you?"
+          options: ["Take a tiny lift — breath mark", "Play staccato", "End of the piece"]
+          correct: 0
+        - figure: "First phrase ends on D. Second phrase ends on G."
+          prompt: "Which phrase is the answer — the one that lands on home?"
+          options: ["First phrase (ends on D)", "Second phrase (ends on G)", "Neither"]
+          correct: 1
+        - figure: "A dynamic arch written above a phrase — p to mf to p."
+          prompt: "What's the shape of each phrase?"
+          options: ["Soft in, fuller in the middle, soft out", "All loud", "All soft"]
+          correct: 0
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "Both phrases of the Bagatelle, fully shaped, with breath"
+          prompt: "Does the second phrase land on home?"
+          options: ["Yes", "No"]
+          correct: 0
+        - audio: "One phrase played flat, then same phrase played with an arch"
+          prompt: "Which version has a dynamic arc?"
+          options: ["The second one", "The first one"]
+          correct: 0
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play the first phrase of the Bagatelle — G A B, B A G, G A B, D — with a gentle arch."
+          accept: "G4 A4 B4 B4 A4 G4 G4 A4 B4 D5 with volume shaping around the peak"
+
+remediation:
+  id: "120.5"
+  title: "The Bagatelle, one phrase at a time"
+  pages: 11
+  opening_cleffy: >
+    Act boss. Supposed to be a real test.
+    We'll take it apart — phrase by phrase. Notes first. Breath next. Shape last. Slow.
+
+completion:
+  cleffy: >
+    Act 24 sealed. You played Beethoven with phrasing.
+    That's not a small thing. That's how pianists play.
+    Next act — the Tier 3 review. Everything we built. Then the tier boss.
+  xp: 30
+  unlocks: 121

@@ -1,0 +1,202 @@
+id: 73
+tier: elementary
+act: 15
+title: "Sequences"
+subtitle: "Same shape, moved"
+goal: "Recognize a sequence — a musical pattern repeated at a different pitch — and play it."
+prereqs: [40, 72]
+method_focus: "patterns"
+time_estimate_min: 10
+piece_context: null
+metaphor: "copy-paste-moved"
+vibe: ["gentle", "serious"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Staff with two tiny melodies. Second one is identical to the first but starts a step higher. Both highlighted."
+    cleffy: >
+      Look at this. Same shape. Played twice.
+      Second time, it starts a step higher.
+      That's a sequence.
+
+  - id: 2
+    mode: see
+    type: definition
+    figure: "Staff: 3-note pattern (C-D-E), then same pattern starting on D (D-E-F)."
+    cleffy: >
+      A sequence is when you take a short pattern — usually 3 to 5 notes —
+      and repeat it at a different pitch.
+
+  - id: 3
+    mode: see
+    type: step_sequence
+    figure: "C-D-E, then D-E-F, then E-F-G. Three repeats, each starting a step higher."
+    cleffy: >
+      Three times. Each starts a step higher.
+      That's a step sequence — very common in classical music.
+
+  - id: 4
+    mode: see
+    type: skip_sequence
+    figure: "C-E-G, then D-F-A, then E-G-B. Skip sequence."
+    cleffy: >
+      Or the pattern itself could be skips. Same idea.
+
+  - id: 5
+    mode: see
+    type: why_sequences
+    figure: "A long melody that's really just a 3-note sequence repeated several times."
+    cleffy: >
+      Composers love sequences. They sound satisfying AND they're cheap to write.
+      And for you — once you recognize one, you read faster. Same shape, just new starting note.
+
+  - id: 6
+    mode: see
+    type: spot_sequence
+    figure: "Staff with a sequence (C-D-E, D-E-F, E-F-G) written in full."
+    cleffy: >
+      Is this a sequence?
+    interaction:
+      type: choice
+      options: ["Yes", "No"]
+      correct: 0
+
+  - id: 7
+    mode: see
+    type: spot_non_sequence
+    figure: "Staff with a random melody that ISN'T a sequence."
+    cleffy: >
+      And this?
+    interaction:
+      type: choice
+      options: ["Yes, sequence", "No, not a sequence"]
+      correct: 1
+
+  - id: 8
+    mode: hear
+    type: sequence_sound
+    figure: "Play button."
+    audio:
+      A: "Step sequence (C-D-E / D-E-F / E-F-G)"
+    cleffy: >
+      Listen to a step sequence. The pattern repeats, walking upward.
+
+  - id: 9
+    mode: play
+    type: play_step_sequence
+    figure: "Keyboard. Three repeats."
+    cleffy: >
+      Play it. C-D-E, D-E-F, E-F-G.
+    interaction:
+      type: sequence
+      keys: ["C4","D4","E4","D4","E4","F4","E4","F4","G4"]
+
+  - id: 10
+    mode: play
+    type: skip_sequence
+    figure: "Keyboard. C-E-G, D-F-A, E-G-B."
+    cleffy: >
+      Skip sequence. C-E-G, then D-F-A, then E-G-B.
+    interaction:
+      type: sequence
+      keys: ["C4","E4","G4","D4","F4","A4","E4","G4","B4"]
+
+  - id: 11
+    mode: play
+    type: descending_sequence
+    figure: "Keyboard. Sequence going DOWN. E-D-C, D-C-B, C-B-A."
+    cleffy: >
+      Descending sequence. Same shape, each repeat a step lower.
+    interaction:
+      type: sequence
+      keys: ["E4","D4","C4","D4","C4","B3","C4","B3","A3"]
+
+  - id: 12
+    mode: hear
+    type: sequence_or_not
+    figure: "Round counter 1 of 4."
+    cleffy: >
+      Four by ear. Is it a sequence?
+    interaction:
+      type: drill
+      rounds: 4
+      options: ["Yes (sequence)", "No"]
+
+  - id: 13
+    mode: see
+    type: pachelbel_preview
+    figure: "Canon in D opening pattern — a sequence."
+    cleffy: >
+      Canon in D, Pachelbel — the famous wedding piece — is mostly sequences.
+      You'll play a simplified version in Tier 3.
+
+  - id: 14
+    mode: hear
+    type: mixed
+    figure: "Four rounds."
+    cleffy: >
+      Mixed.
+    interaction:
+      type: drill
+      rounds: 4
+
+  - id: 15
+    mode: hear
+    type: pre_check
+    figure: "Banner."
+    cleffy: >
+      Four quick ones.
+
+  - id: 16
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 73. Short pattern repeated at three pitches."
+    cleffy: >
+      Sequences. When you see them, reading gets faster.
+      Tomorrow — cadences. How phrases end.
+
+practice_this_week:
+  real_piano:
+    - "Play a step sequence: C-D-E, D-E-F, E-F-G."
+    - "Play a skip sequence: C-E-G, D-F-A, E-G-B."
+    - "Make up your own 3-note pattern. Play it 3 times, each starting a step higher."
+  virtual_only:
+    - "Replay pages 9-11"
+  estimated_time: "7 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 1
+      questions:
+        - figure: "Sequence of 3-note patterns"
+          prompt: "Is this a sequence?"
+          options: ["Yes", "No"]
+          correct: 0
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "Step sequence"
+          prompt: "Is this a sequence?"
+          options: ["Yes", "No"]
+          correct: 0
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play a step sequence starting on C. (Pattern: 3 ascending notes, repeated a step up.)"
+          accept: "CDE DEF EFG"
+
+remediation:
+  id: "73.5"
+  title: "Sequences, slower"
+  pages: 5
+  opening_cleffy: >
+    Repeat patterns. Slow.
+
+completion:
+  cleffy: >
+    Sequences recognized. Pattern-reading opens up.
+  xp: 20
+  unlocks: 74

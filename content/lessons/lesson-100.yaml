@@ -1,0 +1,279 @@
+# ============================================================
+# LESSON 100 · Happy Birthday harmonized — ACT BOSS 🎯
+# Tier 3 · Act 20 · Low-Intermediate · Chords & accompaniment
+# Your old piece, now with full harmony. Tier 1's Happy Birthday,
+# revisited with LH chords under it. Big moment.
+# ============================================================
+id: 100
+tier: low-intermediate
+act: 20
+title: "Happy Birthday harmonized"
+subtitle: "Act 20 · The return"
+goal: "Play Happy Birthday — the tune you learned 75 lessons ago — with full left-hand harmony underneath."
+prereqs: [25, 96, 97, 98, 99]
+method_focus: "combine"
+time_estimate_min: 18
+piece_context: "Lesson 25 was your first real song — Happy Birthday, right hand only, in C. Today you play it again. But now the left hand holds I, IV, and V underneath. Same tune. Full sound. This is what the whole act was for."
+metaphor: "harmony-under-melody"
+vibe: ["gentle", "celebratory", "reflective"]
+is_act_boss: true
+piece:
+  title: "Happy Birthday to You (harmonized)"
+  composer: "Patty Hill & Mildred Hill"
+  key_center: "C major (simplified for intermediate)"
+  time_signature: "3/4"
+  difficulty: "low-intermediate — familiar RH melody with LH blocked triads"
+  full_sequence: "RH: G G A G C B | G G A G D C | G G G(high) E C B A | F F E C D C. LH: I | I | IV I | V7 I."
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy at a piano with a birthday cake on top. Sheet music labeled LESSON 25 on one side, LESSON 100 on the other. Arrow between them."
+    cleffy: >
+      Lesson 25. You played Happy Birthday for the first time. Right hand only.
+      Lesson 100. Today.
+      Same song. Left hand joins now. Full harmony.
+      Seventy-five lessons ago. Listen to what's different.
+
+  - id: 2
+    mode: hear
+    type: then_and_now
+    figure: "Two play buttons side by side. A: Lesson 25 version (RH only). B: today's version (RH + LH chords)."
+    audio:
+      A: "Happy Birthday, right hand melody alone"
+      B: "Happy Birthday with LH blocked I, IV, V chords underneath"
+    cleffy: >
+      Same tune. Both times.
+      First — just the melody. Thin.
+      Second — chords underneath. Full. Like a real piano piece.
+
+  - id: 3
+    mode: see
+    type: recall_melody
+    figure: "RH staff showing full Happy Birthday melody. All four lines."
+    cleffy: >
+      The melody. You know this.
+      G, G, A, G, C, B. Line 1.
+      G, G, A, G, D, C. Line 2.
+      G, G, high G, E, C, B, A. Line 3 — remember, the third G leaps up an octave.
+      F, F, E, C, D, C. Line 4.
+
+  - id: 4
+    mode: see
+    type: chord_plan
+    figure: "Four phrases with chord symbols above each. Phrase 1: I. Phrase 2: I. Phrase 3: IV then I. Phrase 4: V then I."
+    cleffy: >
+      The chord plan — simplified for us.
+      Phrase 1 — I. Phrase 2 — I. Phrase 3 — IV, then I. Phrase 4 — V, then I.
+      Six chords total. I, I, IV, I, V, I. Lands home.
+
+  - id: 5
+    mode: see
+    type: chord_shapes_reminder
+    figure: "LH keyboard showing three chord grabs: I (C3-E3-G3), IV (F3-A3-C4), V (G3-B3-D4)."
+    cleffy: >
+      Quick reminder — your three chord shapes.
+      I: C, E, G. IV: F, A, C. V: G, B, D.
+      Pinky always on the root. Middle on the third. Thumb on the fifth.
+
+  - id: 6
+    mode: play
+    type: lh_chord_sequence
+    figure: "LH staff. Six blocked chords in order: I, I, IV, I, V, I."
+    cleffy: >
+      Left hand only. The six chords, as whole-note blocks.
+      Slow. Clean grabs.
+    interaction:
+      type: rhythm
+      sequence: [["C3","E3","G3"],["C3","E3","G3"],["F3","A3","C4"],["C3","E3","G3"],["G3","B3","D4"],["C3","E3","G3"]]
+      durations: ["whole","whole","whole","whole","whole","whole"]
+      tempo: 60
+
+  - id: 7
+    mode: play
+    type: rh_melody_refresher
+    figure: "Treble staff with full melody. Keyboard below."
+    cleffy: >
+      Right hand only. The full melody. You know it.
+      Don't rush.
+    interaction:
+      type: sequence
+      keys: ["G4","G4","A4","G4","C5","B4","G4","G4","A4","G4","D5","C5","G4","G4","G5","E5","C5","B4","A4","F4","F4","E4","C4","D4","C4"]
+
+  - id: 8
+    mode: play
+    type: phrase_1_together
+    figure: "Grand staff. Phrase 1 RH: G G A G C B. LH: I block held."
+    cleffy: >
+      Phrase 1. Both hands.
+      LH grabs I on beat 1 and holds. RH plays the melody above.
+    interaction:
+      type: song
+      sequence: [["G4","C3","E3","G3"],"G4","A4","G4","C5","B4"]
+      guides: true
+      tempo: 55
+
+  - id: 9
+    mode: play
+    type: phrase_2_together
+    figure: "Grand staff. Phrase 2 RH: G G A G D C. LH: I block held."
+    cleffy: >
+      Phrase 2. LH still on I. RH: G, G, A, G, D, C.
+    interaction:
+      type: song
+      sequence: [["G4","C3","E3","G3"],"G4","A4","G4","D5","C5"]
+      guides: true
+      tempo: 55
+
+  - id: 10
+    mode: play
+    type: phrase_3_together
+    figure: "Grand staff. Phrase 3 RH: G G G(high) E C B A. The third G leaps up an octave. LH: IV then I."
+    cleffy: >
+      Phrase 3. Longer. And the famous one — the third G jumps up a whole octave. High G.
+      LH changes mid-phrase too. Start on IV for G, G, high G, E. Switch to I for C, B, A.
+      Feel the octave leap in the RH and the LH move underneath.
+    interaction:
+      type: song
+      sequence: [["G4","F3","A3","C4"],"G4","G5","E5",["C5","C3","E3","G3"],"B4","A4"]
+      guides: true
+      tempo: 55
+
+  - id: 11
+    mode: play
+    type: phrase_4_together
+    figure: "Grand staff. Phrase 4 RH: F F E C D C. LH: V7 then I."
+    cleffy: >
+      Phrase 4. Closing. LH plays V7, then lands on I.
+      V7 is our V chord with an F added on top — G, B, D, F — so it fits under the melody's F and pulls harder toward home.
+      V7 under F, F, E. I under C, D, C.
+      Ends home. Full stop.
+    interaction:
+      type: song
+      sequence: [["F4","F3","G3","B3","D4"],"F4","E4",["C4","C3","E3","G3"],"D4","C4"]
+      guides: true
+      tempo: 55
+
+  - id: 12
+    mode: play
+    type: full_song_guided
+    figure: "Grand staff. Full Happy Birthday. LH I I IV-I V-I. Training wheels on."
+    cleffy: >
+      The whole thing. All four phrases. Six chord changes. Guides on.
+      Slow. Breathe. If the LH is late — slow down. Let the chord arrive under the melody, not after it.
+    interaction:
+      type: song
+      sequence: [["G4","C3","E3","G3"],"G4","A4","G4","C5","B4",["G4","C3","E3","G3"],"G4","A4","G4","D5","C5",["G4","F3","A3","C4"],"G4","G5","E5",["C5","C3","E3","G3"],"B4","A4",["F4","F3","G3","B3","D4"],"F4","E4",["C4","C3","E3","G3"],"D4","C4"]
+      guides: true
+      tempo: 55
+
+  - id: 13
+    mode: play
+    type: full_song_no_guides
+    figure: "Grand staff. Full piece. No glowing keys. Just the music."
+    cleffy: >
+      No highlights now. You read, you play. Both hands.
+      Stumble? Keep going.
+    interaction:
+      type: song
+      sequence: [["G4","C3","E3","G3"],"G4","A4","G4","C5","B4",["G4","C3","E3","G3"],"G4","A4","G4","D5","C5",["G4","F3","A3","C4"],"G4","G5","E5",["C5","C3","E3","G3"],"B4","A4",["F4","F3","G3","B3","D4"],"F4","E4",["C4","C3","E3","G3"],"D4","C4"]
+      guides: false
+    followup_cleffy: >
+      That.
+      Lesson 25 — thin little melody on the right hand.
+      Lesson 100 — same tune, full sound, both hands carrying harmony.
+      You hear the difference. Big difference.
+
+  - id: 14
+    mode: play
+    type: broken_version
+    figure: "Grand staff. Same piece. LH now broken instead of blocked — root-3rd-5th rolled through each bar."
+    cleffy: >
+      Bonus version. Same chords — broken this time.
+      LH rolls each chord as quarters. RH melody, same as always.
+      Rocking, rolling feel. Try it.
+    interaction:
+      type: song
+      sequence: [["G4","C3"],"G4",["A4","E3"],"G4",["C5","G3"],"B4",["G4","C3"],"G4",["A4","E3"],"G4",["D5","G3"],"C5",["G4","F3"],"G4",["G5","A3"],["E5","C4"],["C5","C3"],"B4",["A4","E3"],["F4","G3"],"F4",["E4","B3"],["C4","C3"],"D4",["C4","E3"]]
+      guides: true
+      tempo: 55
+
+  - id: 15
+    mode: hear
+    type: pre_check
+    figure: "Banner — ACT 20 BOSS mastery check."
+    cleffy: >
+      Four quick ones before the act closes.
+
+  - id: 16
+    mode: see
+    type: wrap
+    figure: "Celebration card — ACT 20 COMPLETE 🎯. Cleffy holding Happy Birthday sheet music with chord symbols above it. A gold 100 in the corner."
+    cleffy: >
+      Act 20 — done. Lesson 100 — done.
+      Quick look at what you did in this act. I, IV, V. Primary chords.
+      Where chords change inside a song. Blocked accompaniment. Broken accompaniment.
+      And today — Happy Birthday, the piece you earned on lesson 25, now harmonized with full left-hand chords.
+      You're halfway through Tier 3. Clair de Lune is twenty-five lessons away.
+      Next act — inversions, chord changes that actually glide, and Twinkle harmonized. More full sound.
+
+practice_this_week:
+  real_piano:
+    - "Play harmonized Happy Birthday every day this week. Blocked chords first. Slow."
+    - "When blocked feels easy — try the broken version. Same chords, rolled."
+    - "Play it for someone. Tell them you couldn't do this ninety-nine lessons ago."
+    - "Go back and play the Lesson 25 version (RH only). Feel how thin it sounds. That's how much you've grown."
+  virtual_only:
+    - "Replay pages 12-13 three times this week"
+  estimated_time: "12-15 min/day — enjoy it"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "Chord symbols for Happy Birthday: I I IV-I V-I"
+          prompt: "Which chord ends the piece?"
+          options: ["I", "IV", "V"]
+          correct: 0
+        - figure: "LH staff showing the IV chord"
+          prompt: "What are the three notes of the IV chord in C major?"
+          options: ["C, E, G", "F, A, C", "G, B, D"]
+          correct: 1
+        - figure: "Phrase 3 of Happy Birthday with chord symbols IV then I"
+          prompt: "Does the LH change chord during phrase 3?"
+          options: ["Yes", "No"]
+          correct: 0
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "Happy Birthday played with full LH harmony"
+          prompt: "Is the LH playing one note, or full chords?"
+          options: ["One note", "Full chords"]
+          correct: 1
+        - audio: "Last chord of the piece — C-E-G held"
+          prompt: "Which chord resolves the piece?"
+          options: ["I (C)", "IV (F)", "V (G)"]
+          correct: 0
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play the final bar of harmonized Happy Birthday — RH D-C, LH I chord held."
+          accept: "D4-C4 in RH with C3-E3-G3 held in LH"
+
+remediation:
+  id: "100.5"
+  title: "Happy Birthday harmonized, phrase by phrase"
+  pages: 10
+  opening_cleffy: >
+    Act boss. Two hands doing genuinely different things — that's real work.
+    We'll break it down phrase by phrase. LH alone first, then RH, then glue them together. Slow.
+
+completion:
+  cleffy: >
+    Lesson 100.
+    Your first piece, played back to you with both hands and full harmony.
+    You're halfway through Tier 3. Keep going.
+  xp: 30
+  unlocks: 101

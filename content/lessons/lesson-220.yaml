@@ -1,0 +1,262 @@
+# ============================================================
+# LESSON 220 · Grieg Arietta
+# Tier 5 · Act 44 · Upper-Intermediate · ACT BOSS 🎯
+# Tiny piece, huge expression. Arietta Op. 12 No. 1.
+# ============================================================
+id: 220
+tier: upper-intermediate
+act: 44
+title: "Grieg Arietta"
+subtitle: "Act 44 · Tiny piece, huge expression"
+goal: "Play the opening of Grieg's Arietta Op. 12 No. 1 — simple melody, gentle LH pattern, big expressive breath across a small space."
+prereqs: [215, 216, 217, 218, 219]
+method_focus: "combine"
+time_estimate_min: 16
+piece_context: "Act 44 boss. Grieg's Arietta — first piece in his Lyric Pieces, Op. 12. Only 19 bars in the original, simplified here to 8-12. Slow (Poco Andante e sostenuto, around 60 bpm). E♭ major. The whole act has been about expression on a long line — now you prove you can do it in a tiny room. Not a big flashy piece. A small room full of feeling."
+metaphor: "big-expression-tiny-piece"
+vibe: ["gentle", "reflective", "quiet"]
+is_act_boss: true
+
+piece:
+  title: "Arietta, Op. 12 No. 1"
+  composer: "Edvard Grieg (1867)"
+  key_center: "E♭ major"
+  time_signature: "3/4"
+  difficulty: "upper-intermediate — slow tempo, simple melody over gentle left-hand waltz-like pattern, huge expressive demands"
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy holding a small gold-framed portrait of Grieg. The sheet of the Arietta visible — short piece, only 19 bars. Banner: ACT 44 BOSS — GRIEG'S ARIETTA."
+    cleffy: >
+      Act 44 boss.
+      Grieg. Arietta. Nineteen bars.
+      Tiny piece. Huge feeling.
+
+  - id: 2
+    mode: see
+    type: meet_grieg
+    figure: "A Norwegian landscape — fjord, pine trees. Grieg at a small upright piano. 'First piece of Lyric Pieces, 1867.'"
+    cleffy: >
+      Edvard Grieg. Norwegian.
+      The Arietta is the first piece in his Lyric Pieces — a set of small, honest miniatures.
+      Written at home, not for a concert hall.
+
+  - id: 3
+    mode: see
+    type: the_marking
+    figure: "Top of the Arietta score. Marking: 'Poco Andante e sostenuto. ♩ = 60.' Key signature: three flats (E♭ major)."
+    cleffy: >
+      Look at the top.
+      Poco Andante e sostenuto. A little walking, sustained.
+      60 beats per minute. Slow. Three flats — E-flat major.
+
+  - id: 4
+    mode: hear
+    type: listen_whole_piece
+    figure: "A play button. Duration: ~2 minutes. The full Arietta playing."
+    audio:
+      A: "The complete Arietta, played simply and expressively, about 2 minutes long"
+    cleffy: >
+      Listen all the way through.
+      Short. Gentle. Deeper than it looks.
+
+  - id: 5
+    mode: see
+    type: the_texture
+    figure: "First two bars of the Arietta. RH: gentle singing melody starting on a high Bb4. LH: a broken-chord pattern climbing — Eb3, Bb3, Eb4, G4, Bb4."
+    cleffy: >
+      The texture.
+      Right hand sings the melody. One line.
+      Left hand — a broken chord climbing under the melody. Eb low, then Bb, Eb, G, Bb up.
+
+  - id: 6
+    mode: play
+    type: play_lh_alone
+    figure: "Keyboard. LH broken-chord pattern: Eb3, Bb3, Eb4, G4, Bb4 — climbing across each bar. Tempo 60."
+    cleffy: >
+      Left hand first. A broken chord climbing.
+      Eb low, then up — Bb, Eb, G, Bb.
+      Five notes rolling up across the bar. Smooth.
+    interaction:
+      type: rhythm
+      sequence: ["Eb3","Bb3","Eb4","G4","Bb4","Eb3","Bb3","Eb4","G4","Bb4","Eb3","Bb3","Eb4","G4","Bb4","Eb3","Bb3","Eb4","G4","Bb4"]
+      durations: ["eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth"]
+      tempo: 60
+
+  - id: 7
+    mode: play
+    type: play_rh_alone
+    figure: "Keyboard. RH melody, first 4 bars: Bb4 (long), Ab4, G4, F4, Eb4, long F4, Bb4."
+    cleffy: >
+      Right hand alone.
+      The opening melody. Starts high on Bb. Walks down. Lands on F.
+      Simple. Sing it.
+    interaction:
+      type: rhythm
+      sequence: ["Bb4","Ab4","G4","F4","Eb4","F4","G4","Bb4"]
+      durations: ["half","quarter","quarter","quarter","quarter","half","quarter","half"]
+      tempo: 60
+
+  - id: 8
+    mode: see
+    type: the_arc
+    figure: "8 bars of the Arietta. Arch drawn above: p at bar 1, gentle cresc. through bars 3-4, mp peak at bar 5, dim. back to p at bar 8."
+    cleffy: >
+      The shape.
+      Start soft. Grow a little through the middle. Peak — not loud, just fuller — at the midpoint.
+      Soften home.
+      The whole arc lives in p and mp. Nothing louder.
+
+  - id: 9
+    mode: play
+    type: play_hands_together_first_4
+    figure: "Keyboard. First 4 bars, both hands. Tempo 60. Guides on."
+    cleffy: >
+      Both hands. First four bars.
+      LH keeps the gentle pulse. RH floats on top.
+      Very slow. Very quiet.
+    interaction:
+      type: song
+      sequence: [["Eb3","Bb4"],["Bb3"],["Eb4"],["Eb3","Ab4"],["Bb3","G4"],["Eb4","F4"],["Eb3","Eb4"],["Bb3","F4"],["Eb4","G4"]]
+      guides: true
+      tempo: 60
+
+  - id: 10
+    mode: see
+    type: tiny_rubato_moments
+    figure: "Bars 3-5 of the melody. Tiny arrow: gentle push into the peak. Tiny arrow: gentle pull on the peak note. Almost invisible."
+    cleffy: >
+      The rubato you learned — use it here.
+      A tiny push into the peak bar. A tiny stretch on the peak note itself.
+      Invisible to anyone not listening closely. That's the point.
+
+  - id: 11
+    mode: play
+    type: play_whole_opening
+    figure: "Keyboard. All 8 simplified bars. Full arc drawn. LH pattern continuous."
+    cleffy: >
+      The whole opening. Eight bars.
+      LH — gentle, steady, quiet. Don't overplay the pattern.
+      RH — sings. Breathes. Has the small push and pull at the peak.
+    interaction:
+      type: song
+      sequence: [["Eb3","Bb4"],["Bb3"],["Eb4"],["Eb3","Ab4"],["Bb3","G4"],["Eb4","F4"],["Eb3","Eb4"],["Bb3","F4"],["Eb4","G4"],["Eb3","Bb4"],["Bb3","Ab4"],["Eb4","G4"],["Eb3","F4"],["Bb3"],["Eb4","Eb4"]]
+      guides: true
+      tempo: 60
+    followup_cleffy: >
+      Tiny piece. Whole room of feeling.
+
+  - id: 12
+    mode: see
+    type: the_secret_of_small
+    figure: "Two side-by-side drawings. Left: a concert hall, empty. Right: a small wood-paneled room with one person at a piano. A lit candle. Caption: 'Grieg's room. Not a hall.'"
+    cleffy: >
+      The secret of small pieces.
+      Don't play them for a hall.
+      Play them for one person sitting next to you. That's the voice Grieg wrote in.
+
+  - id: 13
+    mode: play
+    type: play_final_at_tempo
+    figure: "Keyboard. Same 8 bars. No guides this time. Tempo 60. Long arc shown."
+    cleffy: >
+      Last time. Eight bars. No guides.
+      Quiet. Sustained. One long breath across the whole piece.
+      Not loud. Just felt.
+    interaction:
+      type: song
+      sequence: [["Eb3","Bb4"],["Bb3"],["Eb4"],["Eb3","Ab4"],["Bb3","G4"],["Eb4","F4"],["Eb3","Eb4"],["Bb3","F4"],["Eb4","G4"],["Eb3","Bb4"],["Bb3","Ab4"],["Eb4","G4"],["Eb3","F4"],["Bb3"],["Eb4","Eb4"]]
+      guides: false
+      tempo: 60
+    followup_cleffy: >
+      That's Grieg. That's the Arietta.
+
+  - id: 14
+    mode: hear
+    type: pre_check
+    figure: "Banner — Act 44 boss mastery check."
+    cleffy: >
+      Three quick ones. Take your time.
+
+  - id: 15
+    mode: see
+    type: wrap
+    figure: "Celebration card — ACT 44 COMPLETE 🎯. Cleffy and a small framed portrait of Grieg. A pyramid of acts showing 44/50 lit. Next preview: CLAIR DE LUNE coming."
+    cleffy: >
+      Act 44. Closed.
+      Long lines. Dynamic arcs. Push-pull rubato. Three kinds of memory. Grieg.
+      A whole act about expression — on a long phrase, in a tiny piece. Both at once.
+      Next act — Clair de Lune. Full piece, section by section. Tier 5 boss coming up soon.
+
+practice_this_week:
+  real_piano:
+    - "Play the 8-bar Arietta opening every day for a week. Once slow, once slower."
+    - "Find the peak note. Circle it in pencil. Every play-through, lean toward it and stretch on it."
+    - "After practicing, try playing only the RH melody — without LH. See if you can still shape the line."
+    - "Record yourself once. Listen back. Too loud? Too flat? Adjust tomorrow."
+  virtual_only:
+    - "Replay pages 6, 7, 9, and 13 — LH alone, RH alone, first four together, then the whole thing."
+  estimated_time: "14 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "The Arietta score top: 'Poco Andante e sostenuto. ♩ = 60.'"
+          prompt: "What does this tempo marking tell you?"
+          options: ["Fast and loud", "A little walking, sustained — around 60 bpm", "Not specified"]
+          correct: 1
+        - figure: "The LH pattern of the Arietta — a broken chord climbing Eb3, Bb3, Eb4, G4, Bb4."
+          prompt: "What kind of texture is this?"
+          options: ["A broken-chord accompaniment — climbing arpeggio", "A trill", "A scale"]
+          correct: 0
+        - figure: "The Arietta's 8-bar arc — p at start, mp at peak, p at end."
+          prompt: "How loud does the Arietta get?"
+          options: ["ff — very loud", "mp at most — gentle throughout", "Changes randomly"]
+          correct: 1
+    hear:
+      pass_threshold: 2
+      questions:
+        - audio: "The first 4 bars of the Arietta melody, played with a small push to the peak and stretch on the peak note"
+          prompt: "What's happening at the peak note?"
+          options: ["A sudden fortissimo", "A gentle rubato — push and slight stretch", "A fast trill"]
+          correct: 1
+        - audio: "The Arietta LH broken-chord pattern alone — Eb3 Bb3 Eb4 G4 Bb4 climbing — four times"
+          prompt: "Describe the LH pattern."
+          options: ["A fast scale", "A broken chord climbing under the melody", "Staccato jumps"]
+          correct: 1
+        - audio: "A performance of the Arietta opening played gently, around mp"
+          prompt: "How would you describe the overall dynamic?"
+          options: ["Loud and dramatic", "Quiet and intimate", "Changing constantly"]
+          correct: 1
+    play:
+      pass_threshold: 2
+      questions:
+        - prompt: "Play the LH broken-chord pattern — Eb3, Bb3, Eb4, G4, Bb4 — four times in a row at 60 bpm."
+          accept: "Eb3 Bb3 Eb4 G4 Bb4 repeated four times, smooth climbing arpeggio"
+        - prompt: "Play the RH opening — Bb4 Ab4 G4 F4 Eb4 F4 G4 Bb4 — slowly, singing."
+          accept: "Those eight notes played in order, slowly, with sustained tone"
+        - prompt: "Play the first four bars hands together at 60 bpm, gently."
+          accept: "First four bars of the Arietta with LH pattern and RH melody together, quiet and slow"
+
+remediation:
+  id: "220.5"
+  title: "Arietta, one hand at a time"
+  pages: 11
+  opening_cleffy: >
+    Act boss — and hands together is the hardest part.
+    We'll do LH alone for three pages. RH alone for three. Then stitch. No rush.
+    Expression comes after the notes are comfortable.
+
+completion:
+  cleffy: >
+    Act 44 sealed.
+    Long lines. Dynamic arcs. Push-pull. Memory. Grieg.
+    You played a piece that's about breath, not fireworks.
+    That's a pianist's skill — the one most people never learn.
+    Next act — Debussy. Clair de Lune, full piece, section by section.
+  xp: 30
+  unlocks: 221

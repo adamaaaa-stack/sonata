@@ -1,0 +1,229 @@
+# ============================================================
+# LESSON 201 · Pedal: half-pedal
+# Tier 5 · Act 41 · Upper-Intermediate · Advanced pedal technique
+# Not just on/off — partial depression.
+# ============================================================
+id: 201
+tier: upper-intermediate
+act: 41
+title: "Pedal: half-pedal"
+subtitle: "Act 41 · Advanced pedal technique"
+goal: "Press the sustain pedal partway — letting some sound through without a full blur."
+prereqs: [200, 156, 157]
+method_focus: "play"
+time_estimate_min: 14
+piece_context: "Act 41 begins. For 45 lessons the pedal has been a switch — on or off. Now it becomes a dial. Half-pedal is the first step into pedal as color, not just sustain."
+metaphor: "pedal-as-color"
+vibe: ["focused", "quiet"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy at a grand piano, right foot on the pedal, eyes half-closed. Banner: ACT 41 — ADVANCED PEDAL. Below: 'PEDAL AS COLOR.'"
+    cleffy: >
+      New act. Same foot. Everything changes.
+      The pedal is not a switch. It's a dial.
+      Four lessons to learn the gradient.
+
+  - id: 2
+    mode: see
+    type: the_dial
+    figure: "A vertical slider labeled PEDAL. Three stops: UP (no sustain), HALF (partial), DOWN (full). A dot sits at HALF."
+    cleffy: >
+      Up. Half. Down. Three positions — and everything in between.
+      Today — half.
+      Pedal pressed partway. Dampers hover just above the strings.
+
+  - id: 3
+    mode: see
+    type: what_happens_inside
+    figure: "Cross-section of the piano. Dampers in three states — fully seated on strings (up), barely touching (half), lifted clear (down). Half state highlighted."
+    cleffy: >
+      At half-pedal the dampers aren't seated. Not lifted either.
+      They brush the strings. Some sound bleeds through, some gets absorbed.
+      You get ring — but not the full bloom of a down pedal.
+
+  - id: 4
+    mode: hear
+    type: three_positions
+    figure: "Three play buttons in a row: UP, HALF, DOWN. Each plays the same chord."
+    audio:
+      A: "C major chord, no pedal — dies quickly"
+      B: "Same chord, half-pedal — rings briefly, softer tail"
+      C: "Same chord, full pedal — blooms fully for several seconds"
+    cleffy: >
+      Same chord. Three pedal depths.
+      Up — dies fast. Down — blooms long.
+      Half — in between. A short, soft ring.
+
+  - id: 5
+    mode: see
+    type: when_to_half
+    figure: "Three musical scenarios shown as small icons. 1: fast passage labeled 'too much full pedal = mud.' 2: quiet melody labeled 'full pedal = too heavy.' 3: transition labeled 'fading out.'"
+    cleffy: >
+      When to reach for half.
+      Fast passages where full pedal turns into mush.
+      Quiet places where a full bloom feels too thick.
+      Any transition where you want the sound to thin, not stop.
+
+  - id: 6
+    mode: see
+    type: foot_how
+    figure: "Close-up of a right foot on the pedal. Three depth marks on the side: 0%, 50%, 100%. The toe is sitting at the 50% mark."
+    cleffy: >
+      Feel your foot find the middle.
+      Heel on the floor. Toe presses — but only partway.
+      You'll feel a resistance point before the pedal bottoms out. That's your landmark.
+
+  - id: 7
+    mode: play
+    type: feel_the_middle
+    figure: "Keyboard. C4 glowing. Pedal meter on the side with a dot at HALF."
+    cleffy: >
+      Play C. Let it ring a second.
+      Half-pedal. Feel the toe stop before the bottom.
+      Listen — the note fades faster than a full pedal, slower than none.
+    interaction:
+      type: sequence
+      keys: ["C4"]
+
+  - id: 8
+    mode: hear
+    type: listen_half_chord
+    figure: "Play button. Label: 'CHORD WITH HALF-PEDAL — 3 SECONDS TAIL.'"
+    audio:
+      A: "C major chord on half-pedal. Rings about three seconds, tail softer and thinner than full pedal."
+    cleffy: >
+      That's the color. Shorter tail. Less bloom.
+      A whisper of sustain, not a hall.
+
+  - id: 9
+    mode: play
+    type: chord_half
+    figure: "Keyboard. C major triad. Pedal meter at HALF."
+    cleffy: >
+      Play C, E, G together.
+      Half-pedal down as you strike. Hold the depth.
+      Let the chord fade on its own.
+    interaction:
+      type: sequence
+      keys: ["C4", "E4", "G4"]
+
+  - id: 10
+    mode: see
+    type: full_vs_half
+    figure: "Side-by-side staves. Top: a fast scale run with FULL PEDAL — wavy lines showing blur. Bottom: same run with HALF PEDAL — cleaner lines, still some ring."
+    cleffy: >
+      Same passage. Two depths.
+      Full — the notes smear into each other.
+      Half — the notes stay legible, but they still glow.
+
+  - id: 11
+    mode: play
+    type: scale_half
+    figure: "Keyboard. Five-finger scale C to G. Pedal meter at HALF."
+    cleffy: >
+      Play C, D, E, F, G. Keep half-pedal the whole time.
+      Listen — the notes ring a little, but you can still hear each one.
+    interaction:
+      type: rhythm
+      sequence: ["C4", "D4", "E4", "F4", "G4"]
+      durations: ["quarter", "quarter", "quarter", "quarter", "quarter"]
+      tempo: 80
+
+  - id: 12
+    mode: play
+    type: compare_depths
+    figure: "Keyboard. Scale twice — first with FULL pedal indicator, second with HALF pedal indicator."
+    cleffy: >
+      Same scale, twice. First — full pedal. Listen to the blur.
+      Then — half pedal. Hear the difference.
+    interaction:
+      type: rhythm
+      sequence: ["C4", "D4", "E4", "F4", "G4", "C4", "D4", "E4", "F4", "G4"]
+      durations: ["quarter", "quarter", "quarter", "quarter", "quarter", "quarter", "quarter", "quarter", "quarter", "quarter"]
+      tempo: 80
+    followup_cleffy: >
+      Two different rooms. Same five notes.
+
+  - id: 13
+    mode: play
+    type: soft_melody_half
+    figure: "Keyboard. A quiet four-note line: E4 G4 A4 G4. Half-pedal active."
+    cleffy: >
+      A quiet phrase, half-pedal throughout.
+      Light touch. Shallow foot. Let the sound breathe just a little.
+    interaction:
+      type: rhythm
+      sequence: ["E4", "G4", "A4", "G4"]
+      durations: ["quarter", "quarter", "quarter", "half"]
+      tempo: 70
+
+  - id: 14
+    mode: hear
+    type: pre_check
+    figure: "Banner — three quick questions."
+    cleffy: >
+      Three quick ones.
+
+  - id: 15
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 201. A dial at the 50% mark with gentle light spilling out. Banner: HALF-PEDAL."
+    cleffy: >
+      Half-pedal. Partway down. Some ring, not the full bloom.
+      Tomorrow — fast releases. Flutter pedal.
+
+practice_this_week:
+  real_piano:
+    - "Find the resistance point on your pedal. Press ten times to the middle only. Feel where it stops short of the bottom."
+    - "Play any piece you know with pedal. Try a quiet section at half-depth. Listen for the thinner tail."
+  virtual_only:
+    - "Replay pages 7, 9, and 12 — feel the three depths."
+  estimated_time: "10 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "A pedal meter with the dot between UP and DOWN"
+          prompt: "What is this position called?"
+          options: ["Full pedal", "Half-pedal", "No pedal"]
+          correct: 1
+        - figure: "A cross-section of piano dampers hovering just above the strings"
+          prompt: "What depth is the pedal at?"
+          options: ["Fully up — dampers seated", "Halfway — dampers brushing strings", "Fully down — dampers lifted clear"]
+          correct: 1
+        - figure: "A fast scale with wavy blur lines"
+          prompt: "Which pedal depth would clean this up without killing the ring?"
+          options: ["Full pedal", "Half-pedal", "No pedal at all"]
+          correct: 1
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "A chord with half-pedal — short tail"
+          prompt: "Which depth is this?"
+          options: ["No pedal", "Half-pedal", "Full pedal"]
+          correct: 1
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play C, D, E, F, G with half-pedal held throughout. Notes should ring slightly but stay legible."
+          accept: "C4 D4 E4 F4 G4 played with partial sustain — some ring, no full blur"
+
+remediation:
+  id: "201.5"
+  title: "Half-pedal, slower"
+  pages: 6
+  opening_cleffy: >
+    Half-pedal is a feel, not a measurement.
+    We'll find the resistance point first. Foot only, no notes. Ten times. Then one note. Then a chord.
+
+completion:
+  cleffy: >
+    First dial position found. The pedal has depth now.
+    Tomorrow — flutter. Fast partial releases.
+  xp: 18
+  unlocks: 202

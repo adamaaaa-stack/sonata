@@ -1,0 +1,227 @@
+# ============================================================
+# LESSON 247 · Recovery mid-performance
+# Tier 6 · Act 50 · Advanced
+# When you stumble, don't stop — find the beat.
+# ============================================================
+id: 247
+tier: advanced
+act: 50
+title: "Recovery mid-performance"
+subtitle: "Act 50 · The final act"
+goal: "When you stumble, don't stop. Find the nearest bar-line, land there, and continue. Recovery is a skill."
+prereqs: [246]
+method_focus: "combine"
+time_estimate_min: 14
+piece_context: "Yesterday — nerves. Today — the stumble. Every live performance has them. What separates a pianist from a person who's learning piano is not fewer mistakes. It's what happens in the two seconds after one."
+metaphor: "nearest-bar-line"
+vibe: ["honest", "focused", "gentle"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "A single musical bar with a wrong note circled. An arrow points past the circle, forward. Caption: 'keep going.'"
+    cleffy: >
+      You are going to miss notes in performances.
+      Not maybe. Going to.
+      Today — what you do in the two seconds after.
+
+  - id: 2
+    mode: see
+    type: the_wrong_instinct
+    figure: "Cleffy at the piano, hands frozen, eyes wide. A wrong note in the air. Time stopped. Caption: 'do NOT do this.'"
+    cleffy: >
+      The wrong instinct.
+      Stop. Apologize. Start the phrase over. Look at the audience.
+      All of that kills the piece harder than the wrong note did.
+      Wrong notes happen. Stopping is what makes a mistake a disaster.
+
+  - id: 3
+    mode: see
+    type: the_right_instinct
+    figure: "A staff with a wrong note in bar 2. An arrow skips forward to bar 3's downbeat — a target circle on the first beat of bar 3. Caption: 'find the next downbeat. Land there.'"
+    cleffy: >
+      The right instinct.
+      Wrong note? Don't fix it. Don't rewind.
+      Find the next bar-line in your head. Land on the first beat of that bar.
+      Keep the pulse. Keep going.
+
+  - id: 4
+    mode: see
+    type: why_pulse_matters
+    figure: "A metronome ticking steady. Above it, two jagged lines — one stops (bad), one continues (good). Caption: 'the pulse is the piece.'"
+    cleffy: >
+      Why? Because the pulse IS the piece.
+      An audience feels a missed note for a second.
+      They feel a broken pulse for the rest of the piece.
+      A wrong note under a steady beat sounds like a choice.
+      The same note under a broken beat sounds like a crash.
+
+  - id: 5
+    mode: hear
+    type: listen_recovery
+    figure: "Two versions of the same phrase. 'Broken' vs 'Kept.'"
+    audio:
+      A: "Moonlight bars 5-6 — one version with a wrong note in bar 5 that stops and restarts; one with the same wrong note, kept under a steady pulse."
+    cleffy: >
+      Listen. Same wrong note, two recoveries.
+      The first stops. The second rides the beat.
+      Hear which one sounds like music.
+
+  - id: 6
+    mode: see
+    type: the_three_targets
+    figure: "A staff with three circled landing spots — next beat, next bar-line, next section. Labels: 'small slip', 'medium', 'train wreck.'"
+    cleffy: >
+      Three landing targets, in order.
+      Small slip — catch the next beat. Half a second.
+      Medium slip — catch the next bar-line. One second.
+      Train wreck — catch the next phrase, or next section. Two seconds.
+      The farther the slip, the farther you jump ahead. Always forward. Never back.
+
+  - id: 7
+    mode: see
+    type: how_to_find_the_bar
+    figure: "A mental map of Moonlight — eight bars numbered. A pianist's ear 'hearing ahead' — a glow around bar 3 while bar 2 is being played."
+    cleffy: >
+      How do you find the next bar-line in real time?
+      You already know the piece. Your ear is ahead of your hands.
+      When a note slips — let the hands stop fighting. The ear knows where the next downbeat is.
+      Land on it.
+
+  - id: 8
+    mode: play
+    type: practice_stumble_1
+    figure: "Moonlight bars 1-4. Tempo 50. Guides on."
+    cleffy: >
+      We're going to practice stumbling on purpose.
+      Play bars 1 through 4. Somewhere in bar 2, hit a wrong note deliberately.
+      Don't stop. Land on the first beat of bar 3 on time.
+    interaction:
+      type: song
+      sequence: [["C#2","C#3"],"C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4",["C#2","C#3"],"C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4",["B1","B2"],"B3","D#4","F#4","B3","D#4","F#4","B3","D#4","F#4",["E2","E3"],"E3","G#3","B3","E3","G#3","B3","E3","G#3","B3"]
+      guides: true
+      tempo: 50
+
+  - id: 9
+    mode: see
+    type: the_face
+    figure: "Cleffy's face — calm, a little amused. A speech bubble: 'stay in the piece. Your face tells the audience what happened.'"
+    cleffy: >
+      One more thing.
+      Your face tells the audience whether a note was wrong.
+      Wince, grimace, groan — now they know.
+      Stay inside the piece. Small nod. Breath. Forward.
+      Most wrong notes go unnoticed unless you announce them.
+
+  - id: 10
+    mode: play
+    type: recovery_run_full
+    figure: "Moonlight bars 1-8. No guides. Tempo 48."
+    cleffy: >
+      Full eight bars. No guides.
+      If something slips — next downbeat. No face.
+    interaction:
+      type: song
+      sequence: [["C#2","C#3"],"C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4",["C#2","C#3"],"C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4",["B1","B2"],"B3","D#4","F#4","B3","D#4","F#4","B3","D#4","F#4",["E2","E3"],"E3","G#3","B3","E3","G#3","B3","E3","G#3","B3",["A2","A3","G#4"],"A3","C#4","E4","A3","C#4","G#4","A3","C#4",["F#2","F#3","A4"],"F#3","A3","C#4","F#3","A3","A4","F#3","A3",["G#2","G#3","G#4"],"G#3","B#3","D#4","G#3","B#3","F#4","G#3","B#3",["C#2","C#3","E4"],"C#3","E3","G#3","C#3","E3","G#3","C#3","E3"]
+      guides: false
+      tempo: 48
+    followup_cleffy: >
+      Even if that one went clean — you know the skill now.
+      The skill isn't not slipping.
+      The skill is landing on the next downbeat when you do.
+
+  - id: 11
+    mode: see
+    type: the_secret
+    figure: "A row of famous live recordings — Horowitz, Rubinstein, Argerich, Gould. Below each: 'listen carefully — the occasional miss is there.'"
+    cleffy: >
+      A secret about recordings.
+      Even Gould, Argerich, Horowitz — listen to live recordings carefully and you'll hear the occasional miss.
+      You usually don't notice because the pulse never broke.
+      A wrong note under a living pulse disappears.
+      This is literally how the great ones work.
+
+  - id: 12
+    mode: see
+    type: the_aphorism
+    figure: "A handwritten card. 'The mistake is not the mistake. Stopping is the mistake.'"
+    cleffy: >
+      Write this down if you want.
+      The mistake is not the mistake.
+      Stopping is the mistake.
+
+  - id: 13
+    mode: hear
+    type: pre_check
+    figure: "Banner — mastery check."
+    cleffy: >
+      Three quick ones.
+
+  - id: 14
+    mode: see
+    type: wrap
+    figure: "A staff with a smudge in one bar and a clean line of music continuing through it. Caption: 'forward.'"
+    cleffy: >
+      Recovery is a skill. You have it now.
+      Tomorrow — full Moonlight at near-real tempo.
+      Day after — dress rehearsal.
+      Then graduation.
+      Four lessons.
+
+practice_this_week:
+  real_piano:
+    - "Full Moonlight once a day. If you slip — do NOT stop. Find the next downbeat."
+    - "Practice slipping on purpose. In one run, hit a deliberate wrong note. Recover. Keep going. Teach your hands the skill."
+    - "Listen to a live Horowitz or Rubinstein recording. Count the wrong notes you can hear. You'll find some."
+  virtual_only:
+    - "Replay pages 8 and 10 — the stumble drills."
+  estimated_time: "12 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "A slipped note mid-phrase with an arrow pointing forward to the next bar-line"
+          prompt: "When you stumble, where do you aim?"
+          options: ["Back to the start of the bar", "Forward to the next downbeat", "Stop and restart the phrase"]
+          correct: 1
+        - figure: "Two waveforms — one with a break, one smooth through a slip"
+          prompt: "What do audiences feel most?"
+          options: ["The wrong note", "The broken pulse", "Both equally"]
+          correct: 1
+        - figure: "Cleffy wincing vs Cleffy calm"
+          prompt: "How do you handle a wrong note's face?"
+          options: ["Wince so the audience knows it was an accident", "Keep your face in the piece", "Stop and apologize"]
+          correct: 1
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "Two versions of a phrase with the same wrong note — one stops, one keeps going"
+          prompt: "Which sounds more musical?"
+          options: ["The one that stopped", "The one that kept going"]
+          correct: 1
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play bars 1-4 of Moonlight. Hit a deliberate wrong note somewhere. Land on the next downbeat on time."
+          accept: "Full phrase with pulse maintained across a deliberate slip"
+
+remediation:
+  id: "247.5"
+  title: "Stumbling on purpose"
+  pages: 6
+  opening_cleffy: >
+    Recovery is a muscle. Let's train it slowly.
+    One wrong note, one recovery. Then two. Then a whole phrase full of controlled slips.
+    You'll feel the pulse hold even when your hands don't.
+
+completion:
+  cleffy: >
+    Three lessons to graduation.
+    You have the ritual for nerves.
+    You have the skill for stumbles.
+    Tomorrow — full Moonlight at near-real tempo. All sixty-nine bars. Adagio sostenuto.
+  xp: 21
+  unlocks: 248

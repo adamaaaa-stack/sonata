@@ -1,0 +1,220 @@
+# ============================================================
+# LESSON 88 · Broken chords
+# Tier 3 · Act 18 · Low-Intermediate
+# Same notes, rolled one at a time.
+# ============================================================
+id: 88
+tier: low-intermediate
+act: 18
+title: "Broken chords"
+subtitle: "Act 18 · Chords"
+goal: "Play the notes of a triad one at a time instead of all at once — a broken chord."
+prereqs: [87, 86, 75]
+method_focus: "play"
+time_estimate_min: 13
+piece_context: "Chords don't have to stack. You can also roll the notes out one at a time. Same notes, different feel."
+metaphor: "rolled-not-stacked"
+vibe: ["gentle", "playful"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Staff on the left — C-E-G stacked as a block chord. Arrow to the right — C, E, G written as three separate quarter notes."
+    cleffy: >
+      Same three notes. Played one at a time instead of all together.
+      That's a broken chord.
+      Some people call it an arpeggio.
+
+  - id: 2
+    mode: hear
+    type: hear_block_vs_broken
+    figure: "Two play buttons — BLOCK and BROKEN."
+    audio:
+      A: "C major triad played as a block"
+      B: "C major triad rolled — C, E, G one at a time"
+    cleffy: >
+      First: block. All together.
+      Second: broken. Rolled.
+      Same chord. Different feel — broken sounds open, like water.
+
+  - id: 3
+    mode: see
+    type: written_broken
+    figure: "Staff with C, E, G written as three quarter notes in sequence. Bracket over them reads C TRIAD."
+    cleffy: >
+      On the page, a broken chord is just three notes in a row.
+      But the shape is still C-E-G — skip, skip.
+      Your eye will start to see the chord inside the melody.
+
+  - id: 4
+    mode: play
+    type: play_c_broken
+    figure: "Keyboard. C4, E4, G4 light up one at a time."
+    cleffy: >
+      Roll a C chord. Thumb on C, middle on E, pinky on G.
+      One finger at a time. Don't hold the keys.
+    interaction:
+      type: sequence
+      keys: ["C4","E4","G4"]
+
+  - id: 5
+    mode: play
+    type: play_c_broken_updown
+    figure: "Keyboard. C-E-G-E-C — up and back down."
+    cleffy: >
+      Up and back. C, E, G, E, C.
+      Same fingers — 1, 3, 5, 3, 1.
+    interaction:
+      type: sequence
+      keys: ["C4","E4","G4","E4","C4"]
+
+  - id: 6
+    mode: see
+    type: g_broken_f_broken
+    figure: "Two staves. Left: G-B-D broken. Right: F-A-C broken."
+    cleffy: >
+      Two more chords rolled.
+      G broken — G, B, D. F broken — F, A, C.
+      Same 1-3-5 hand shape. New starting note.
+
+  - id: 7
+    mode: play
+    type: play_g_broken
+    figure: "Keyboard. G4-B4-D5 rolled."
+    cleffy: >
+      G broken. G, B, D.
+    interaction:
+      type: sequence
+      keys: ["G4","B4","D5"]
+
+  - id: 8
+    mode: play
+    type: play_f_broken
+    figure: "Keyboard. F4-A4-C5 rolled."
+    cleffy: >
+      F broken. F, A, C.
+    interaction:
+      type: sequence
+      keys: ["F4","A4","C5"]
+
+  - id: 9
+    mode: play
+    type: three_in_a_row
+    figure: "Keyboard. C, G, F chords rolled one after another."
+    cleffy: >
+      All three, rolled back to back. C, then G, then F.
+      Nine notes total. Slow.
+    interaction:
+      type: sequence
+      keys: ["C4","E4","G4","G4","B4","D5","F4","A4","C5"]
+
+  - id: 10
+    mode: play
+    type: with_rhythm
+    figure: "Staff showing C-E-G as three quarter notes. Metronome at 80 bpm."
+    cleffy: >
+      Now with a metronome. Each note on a beat.
+      1, 2, 3. C, E, G. Don't rush.
+    interaction:
+      type: rhythm
+      sequence: ["C4","E4","G4"]
+      durations: ["quarter","quarter","quarter"]
+      tempo: 80
+
+  - id: 11
+    mode: see
+    type: in_real_music
+    figure: "Excerpt of a simple piece (Canon-style accompaniment) showing broken chords in the LH as three separate notes per bar."
+    cleffy: >
+      This is how a lot of music sounds.
+      One hand holds the melody. The other rolls chords underneath.
+      You'll hear it everywhere once you know what to listen for.
+
+  - id: 12
+    mode: play
+    type: broken_at_tempo
+    figure: "Keyboard. C broken, G broken, F broken — at tempo."
+    cleffy: >
+      One more pass. Smooth.
+    interaction:
+      type: rhythm
+      sequence: ["C4","E4","G4","G4","B4","D5","F4","A4","C5"]
+      durations: ["quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter"]
+      tempo: 90
+    followup_cleffy: >
+      That's nine notes, three chords, one hand.
+
+  - id: 13
+    mode: hear
+    type: block_or_broken_drill
+    figure: "Round counter 1 of 4."
+    cleffy: >
+      Four rounds. Block or broken?
+    interaction:
+      type: drill
+      rounds: 4
+      options: ["Block (all at once)", "Broken (rolled)"]
+
+  - id: 14
+    mode: hear
+    type: pre_check
+    figure: "Banner."
+    cleffy: >
+      Three quick ones.
+
+  - id: 15
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 88. A triad snowman next to a line of three dots — same notes, two ways."
+    cleffy: >
+      Broken chords. Same notes, rolled.
+      Tomorrow — same chord, different stacking order. Inversions.
+
+practice_this_week:
+  real_piano:
+    - "Roll C, G, F chords up and back every day. 1-3-5-3-1, each root."
+    - "Listen to any pop song. Hear the rolled chords in the background? Now you know what that is."
+  virtual_only:
+    - "Replay pages 5, 9, 10 until the roll feels smooth."
+  estimated_time: "5-10 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "Staff with C, E, G as three separate quarter notes."
+          prompt: "What's this called when a chord's notes are written one at a time?"
+          options: ["Broken chord", "Block chord", "Scale"]
+          correct: 0
+        - figure: "Keyboard with C-E-G highlighted in order."
+          prompt: "Which fingers play a rolled C chord in the right hand?"
+          options: ["1, 2, 3", "1, 3, 5", "2, 3, 4"]
+          correct: 1
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "C triad rolled — C, E, G one at a time"
+          prompt: "Is this a block chord or a broken chord?"
+          options: ["Block", "Broken"]
+          correct: 1
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Roll a C chord — play C, E, G one at a time, in order."
+          accept: "C4 then E4 then G4 in sequence"
+
+remediation:
+  id: "88.5"
+  title: "Broken chords, slower"
+  pages: 6
+  opening_cleffy: >
+    Rolling three notes cleanly takes a few tries. Let's slow it way down — one note per second, metronome on.
+
+completion:
+  cleffy: >
+    Block and broken. Two ways to play one chord.
+    Tomorrow — same chord, different order of notes.
+  xp: 18
+  unlocks: 89

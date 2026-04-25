@@ -1,0 +1,216 @@
+# ============================================================
+# LESSON 181 · Invention: bars 5–12
+# Tier 5 · Act 37 · Upper-Intermediate
+# The subject returns — in new keys, sometimes upside down.
+# ============================================================
+id: 181
+tier: upper-intermediate
+act: 37
+title: "Invention: bars 5–12"
+subtitle: "Act 37 · Bach Invention deeper"
+goal: "Follow the subject of Bach's Invention No. 1 as it moves through new keys and appears inverted in bars 5 through 12."
+prereqs: [180, 179, 178, 177, 176]
+method_focus: "see"
+time_estimate_min: 15
+piece_context: "You met the subject in bars 1 through 4. Now Bach does what Bach does — he moves the subject through keys, flips it upside down, hands it between the voices. Today, just the shapes. Simplified. Slow."
+metaphor: "imitation"
+vibe: ["focused", "quiet", "honest"]
+piece:
+  title: "Invention No. 1 in C Major, BWV 772"
+  composer: "J.S. Bach (c. 1723)"
+  key_center: "C major"
+  time_signature: "4/4"
+  difficulty: "upper-intermediate — melodic shapes only, bars 5–12, simplified"
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy at a harpsichord. Pages of Bach spread out. Banner: BARS 5–12."
+    cleffy: >
+      Bars five through twelve.
+      The subject is back. But different.
+      Same melody — new key. Sometimes upside down.
+
+  - id: 2
+    mode: see
+    type: concept_inversion
+    figure: "Two staves. Top — the original subject going up (C-D-E-F-D-E-C). Bottom — the same shape flipped (C-B-A-G-B-A-C). An arrow between them labeled INVERSION."
+    cleffy: >
+      Inversion. The subject, upside down.
+      Every step up becomes a step down. Every leap flips direction.
+      Same shape. Mirror image.
+
+  - id: 3
+    mode: hear
+    type: listen_original
+    figure: "Play button. Caption: the original subject from bars 1–2."
+    audio:
+      A: "The Invention No. 1 subject — C D E F D E C played cleanly, moderate tempo"
+    cleffy: >
+      First — remember the subject.
+      Eight notes. Stepping up, dipping back, stepping up again.
+
+  - id: 4
+    mode: hear
+    type: listen_inverted
+    figure: "Play button. Caption: the subject inverted."
+    audio:
+      A: "The Invention subject inverted — C B A G B A C played cleanly, moderate tempo"
+    cleffy: >
+      Same subject. Inverted.
+      Everything that went up now goes down.
+      Bach does this in bar 7. Sneaky.
+
+  - id: 5
+    mode: see
+    type: map_of_bars
+    figure: "Eight boxes labeled bars 5, 6, 7, 8, 9, 10, 11, 12. Small captions — bar 5: subject in G. Bar 7: inverted. Bar 11: subject in D minor."
+    cleffy: >
+      A map of the next eight bars.
+      Bar five — subject in G. Bar seven — inverted. Bar eleven — minor.
+      You don't have to play all that. You have to hear where it moves.
+
+  - id: 6
+    mode: see
+    type: bar_5_shape
+    figure: "Treble staff. Bar 5 simplified: G4, A4, B4, C5, A4, B4, G4. Caption: subject, now in G."
+    cleffy: >
+      Bar five. The subject — but starting on G instead of C.
+      Same shape. New home.
+
+  - id: 7
+    mode: play
+    type: play_bar_5
+    figure: "Keyboard. G4 A4 B4 C5 A4 B4 G4 glowing in order."
+    cleffy: >
+      Play it. G, A, B, C, A, B, G.
+      Slow. Feel how it's the same shape you know — just moved.
+    interaction:
+      type: sequence
+      keys: ["G4","A4","B4","C5","A4","B4","G4"]
+
+  - id: 8
+    mode: see
+    type: bar_7_inverted
+    figure: "Treble staff. Bar 7 inverted shape: C5, B4, A4, G4, B4, A4, C5. Caption: subject, upside down."
+    cleffy: >
+      Bar seven. The subject — inverted.
+      Now it steps down where it used to step up.
+      Your ear will recognize it and be surprised.
+
+  - id: 9
+    mode: play
+    type: play_inverted
+    figure: "Keyboard. C5 B4 A4 G4 B4 A4 C5 glowing."
+    cleffy: >
+      Play the inversion. C, B, A, G, B, A, C.
+      Same shape, flipped.
+    interaction:
+      type: sequence
+      keys: ["C5","B4","A4","G4","B4","A4","C5"]
+
+  - id: 10
+    mode: see
+    type: bar_11_minor
+    figure: "Treble staff. Bar 11 in D minor: D4, E4, F4, G4, E4, F4, D4. Caption: subject, in D minor."
+    cleffy: >
+      Bar eleven. Subject in D minor.
+      Same shape. Sadder key.
+
+  - id: 11
+    mode: play
+    type: play_minor
+    figure: "Keyboard. D4 E4 F4 G4 E4 F4 D4 glowing."
+    cleffy: >
+      Play it. D, E, F, G, E, F, D.
+      Hear the shift — the F turns the whole thing minor.
+    interaction:
+      type: sequence
+      keys: ["D4","E4","F4","G4","E4","F4","D4"]
+
+  - id: 12
+    mode: play
+    type: all_three_back_to_back
+    figure: "Staff with three phrases: bar 5 shape, bar 7 inverted, bar 11 minor. Tempo 60."
+    cleffy: >
+      All three, one after the other. Hear the journey.
+      G — flipped — minor.
+    interaction:
+      type: rhythm
+      sequence: ["G4","A4","B4","C5","A4","B4","G4","C5","B4","A4","G4","B4","A4","C5","D4","E4","F4","G4","E4","F4","D4"]
+      durations: ["eighth","eighth","eighth","eighth","eighth","eighth","quarter","eighth","eighth","eighth","eighth","eighth","eighth","quarter","eighth","eighth","eighth","eighth","eighth","eighth","quarter"]
+      tempo: 60
+    followup_cleffy: >
+      That was eight bars of Bach — in shape.
+      The subject, travelling.
+
+  - id: 13
+    mode: hear
+    type: pre_check
+    figure: "Banner. Three quick checks."
+    cleffy: >
+      Three quick ones.
+
+  - id: 14
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 181. A small map with three dots: G, inverted, D minor. Arrows connecting them."
+    cleffy: >
+      Bars five through twelve. Mapped.
+      The subject moves. The subject flips. The subject finds a minor key.
+      Tomorrow — how to spot imitation when the hands copy each other.
+
+practice_this_week:
+  real_piano:
+    - "Play the bar 5 shape (G A B C A B G) every day. Then the inversion (C B A G B A C). Then the minor version (D E F G E F D)."
+    - "Listen to a recording of Bach Invention No. 1. Try to hear bar 7 — the moment the subject flips upside down."
+  virtual_only:
+    - "Replay pages 6-11 — feel the three versions of the subject"
+  estimated_time: "10 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "Two phrases. One stepping up. One stepping down — same shape flipped."
+          prompt: "What's the relationship between these two phrases?"
+          options: ["Transposition", "Inversion", "Repetition"]
+          correct: 1
+        - figure: "The Invention subject starting on G instead of C"
+          prompt: "What has happened to the subject?"
+          options: ["It's been inverted", "It's been moved to a new key", "It's been shortened"]
+          correct: 1
+        - figure: "Bar 11 of Bach Invention No. 1 — subject on D with an F natural"
+          prompt: "Why does this passage sound minor?"
+          options: ["It's slower", "It's in a minor key — D minor", "It's played softer"]
+          correct: 1
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "The subject played normally, then inverted"
+          prompt: "Which version is the inversion?"
+          options: ["First", "Second"]
+          correct: 1
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play the inverted subject — C5, B4, A4, G4, B4, A4, C5."
+          accept: "C5 B4 A4 G4 B4 A4 C5 played in order"
+
+remediation:
+  id: "181.5"
+  title: "Bars 5–12, one shape at a time"
+  pages: 7
+  opening_cleffy: >
+    Inversion is a big concept the first time.
+    Let's take each version of the subject on its own. G first. Then flipped. Then minor.
+    One at a time.
+
+completion:
+  cleffy: >
+    Bars five through twelve. The subject in three disguises.
+    Tomorrow — spotting imitation. Watching the hands copy each other.
+  xp: 18
+  unlocks: 182

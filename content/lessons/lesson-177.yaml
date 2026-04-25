@@ -1,0 +1,204 @@
+# ============================================================
+# LESSON 177 · Equal-weight hands
+# Tier 5 · Act 36 · Upper-Intermediate
+# The LH isn't the accompanist anymore — it's a second voice.
+# ============================================================
+id: 177
+tier: upper-intermediate
+act: 36
+title: "Equal-weight hands"
+subtitle: "Act 36 · Counterpoint intro"
+goal: "Play both hands at equal volume — no hand hiding, no hand shouting."
+prereqs: [176]
+method_focus: "play"
+time_estimate_min: 13
+piece_context: "Yesterday you met counterpoint. Today the physical part — teaching the hands to share the stage. The left hand has been the accompanist for 176 lessons. It has to unlearn that."
+metaphor: "hands-as-singers"
+vibe: ["honest", "focused"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy holding a balance scale. Left pan and right pan perfectly level. Banner: EQUAL WEIGHT."
+    cleffy: >
+      New day. Old habit to break.
+      Your left hand has spent 176 lessons being the helper.
+      Today it stops helping and starts singing.
+
+  - id: 2
+    mode: see
+    type: old_vs_new
+    figure: "Two bar graphs side by side. Left graph: RH 80%, LH 20% — labelled 'old way: melody + accompaniment.' Right graph: RH 50%, LH 50% — labelled 'counterpoint: equal voices.'"
+    cleffy: >
+      Before — right hand loud, left hand quiet. That was right for melody plus chords.
+      Now — both hands the same volume. Because both are melodies.
+
+  - id: 3
+    mode: hear
+    type: hear_imbalanced
+    figure: "Play button. Caption: same Bach phrase, but RH too loud."
+    audio:
+      A: "Bach two-voice phrase played with the right hand clearly louder than the left"
+    cleffy: >
+      Listen. Right hand wins.
+      The left voice is mumbled. You can't follow the second tune.
+      This is the old habit, and it ruins counterpoint.
+
+  - id: 4
+    mode: hear
+    type: hear_balanced
+    figure: "Play button. Caption: same phrase, balanced."
+    audio:
+      A: "The same Bach phrase with both voices at equal volume"
+    cleffy: >
+      Same phrase. Hands matched.
+      Now both tunes are clear. Both are singing.
+
+  - id: 5
+    mode: see
+    type: the_feel
+    figure: "Cartoon hand sitting with even, relaxed weight across all five fingers — no finger collapsed, no finger over-pressing. Arrow: EVEN WEIGHT."
+    cleffy: >
+      How to do it — the left hand presses as firmly as the right.
+      Not softer. Not afraid. Same push, same sound.
+
+  - id: 6
+    mode: play
+    type: lh_solo_confident
+    figure: "Bass staff: C3 E3 G3 E3 C3. Keyboard below."
+    cleffy: >
+      Left hand alone. Five notes. Play them firmly.
+      C, E, G, E, C. Like each note is important.
+    interaction:
+      type: sequence
+      keys: ["C3","E3","G3","E3","C3"]
+
+  - id: 7
+    mode: play
+    type: rh_solo_gentle
+    figure: "Treble staff: C5 E5 G5 E5 C5. Keyboard below."
+    cleffy: >
+      Right hand alone. Same shape, higher. Don't pound it.
+      Match the volume you just gave the left.
+    interaction:
+      type: sequence
+      keys: ["C5","E5","G5","E5","C5"]
+
+  - id: 8
+    mode: see
+    type: alternating
+    figure: "Grand staff. Alternating notes — RH C5, LH C3, RH E5, LH E3, RH G5, LH G3. Arrows showing trade-off."
+    cleffy: >
+      A trade-off exercise. Hands take turns.
+      Every note the same volume — even when hands switch.
+
+  - id: 9
+    mode: play
+    type: trade_off
+    figure: "Keyboard with the alternating notes glowing one at a time."
+    cleffy: >
+      Trade off. RH C, LH C, RH E, LH E, RH G, LH G.
+      Listen — can you hear any difference between the hands? The goal: no.
+    interaction:
+      type: sequence
+      keys: ["C5","C3","E5","E3","G5","G3"]
+
+  - id: 10
+    mode: play
+    type: hands_together_block
+    figure: "Grand staff. Both hands play C — RH C5, LH C3 — as a single block, three times."
+    cleffy: >
+      Both hands at once. Same note, two octaves apart. Three times.
+      Press them perfectly together. Same volume. Listen for ONE sound, not two.
+    interaction:
+      type: sequence
+      keys: [["C5","C3"], ["C5","C3"], ["C5","C3"]]
+
+  - id: 11
+    mode: hear
+    type: balance_check
+    figure: "Four rounds. Banner: 'Which hand is louder?'"
+    cleffy: >
+      Four rounds. Listen to a two-voice phrase. Is it balanced — or is one hand too loud?
+    interaction:
+      type: drill
+      rounds: 4
+      options: ["Balanced", "Right hand too loud", "Left hand too loud"]
+
+  - id: 12
+    mode: play
+    type: parallel_phrase
+    figure: "Grand staff. Both hands play the same five-note shape in parallel, two octaves apart."
+    cleffy: >
+      Both hands, same shape, same volume. Parallel.
+      C, D, E, D, C — in both hands. Matched.
+    interaction:
+      type: sequence
+      keys: [["C5","C3"], ["D5","D3"], ["E5","E3"], ["D5","D3"], ["C5","C3"]]
+    followup_cleffy: >
+      That. Two hands. One volume. Neither hiding.
+
+  - id: 13
+    mode: hear
+    type: pre_check
+    figure: "Banner."
+    cleffy: >
+      Three quick ones.
+
+  - id: 14
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 177. Scale tipped perfectly level. Banner: EQUAL WEIGHT."
+    cleffy: >
+      Hands matched. Old habit on notice.
+      Tomorrow — the eyes. Reading two staves at once.
+
+practice_this_week:
+  real_piano:
+    - "Play any five-note scale with both hands, two octaves apart. Listen. If the right is louder, soften it. If the left is weaker, press more. Keep matching until they sound like one sound."
+    - "Record yourself playing a two-hand phrase on your phone. Listen back. You'll hear which hand you favor — most people favor the right."
+  virtual_only:
+    - "Replay pages 6, 7, and 10 — alone, alone, together."
+  estimated_time: "10 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "Two bar graphs — one showing RH 80% LH 20%, the other RH 50% LH 50%"
+          prompt: "Which balance is right for counterpoint?"
+          options: ["RH 80%, LH 20%", "RH 50%, LH 50%"]
+          correct: 1
+        - figure: "Cartoon of a balanced piano hand"
+          prompt: "In counterpoint, the left hand is…"
+          options: ["Softer, as the accompanist", "The same volume as the right hand", "Always louder"]
+          correct: 1
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "A two-voice phrase with the right hand much louder than the left"
+          prompt: "Is this balanced?"
+          options: ["Yes", "No — the right hand dominates"]
+          correct: 1
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play C5 and C3 together, three times, matched volume."
+          accept: "Both notes pressed simultaneously three times, no audible hand difference"
+
+remediation:
+  id: "177.5"
+  title: "Matching hands, slower"
+  pages: 7
+  opening_cleffy: >
+    The left hand has spent a long time holding back. It needs permission to push.
+    We'll do it one hand at a time, then together, very slowly.
+
+completion:
+  cleffy: >
+    Equal weight. Two singers, matched.
+    Tomorrow — your eyes take on two staves at once.
+  xp: 16
+  unlocks: 178

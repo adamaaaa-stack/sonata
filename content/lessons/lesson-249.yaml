@@ -1,0 +1,284 @@
+# ============================================================
+# LESSON 249 · Dress rehearsal
+# Tier 6 · Act 50 · Advanced
+# One take, no stopping, recorded.
+# ============================================================
+id: 249
+tier: advanced
+act: 50
+title: "Dress rehearsal"
+subtitle: "Act 50 · The final act"
+goal: "One take of full Moonlight, recorded, no stopping. Listen back. Adjust. One lesson away from graduation."
+prereqs: [248, 231]
+method_focus: "combine"
+time_estimate_min: 20
+piece_context: "The day before graduation. One recorded take, no stopping, from bar 1 to bar 69. Then listen. Then one more. This is what every pianist does the day before a concert. Not practicing. Running. You're on stage in your head already."
+metaphor: "dress-rehearsal"
+vibe: ["serious", "focused", "honest"]
+
+piece:
+  title: "Moonlight Sonata, 1st movement (full, dress rehearsal)"
+  composer: "Beethoven"
+  key_center: "C-sharp minor"
+  time_signature: "alla breve"
+  difficulty: "advanced — full movement, one take, recorded"
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy at the piano. A phone propped against a book, camera pointing at the hands. A small red REC dot."
+    cleffy: >
+      Tomorrow is graduation.
+      Today is dress rehearsal.
+      One take. Recorded. No stopping.
+
+  - id: 2
+    mode: see
+    type: what_a_dress_is
+    figure: "Three panels. Panel 1: 'rehearsal' — stop and fix. Panel 2: 'dress rehearsal' — play it through as if it's the real thing. Panel 3: 'performance' — the real thing, tomorrow."
+    cleffy: >
+      What a dress rehearsal is.
+      Not practice. You already did the practice.
+      It's a run-through under real conditions. Full focus. Full tempo. No stops.
+      This is what pianists do the day before concerts. Every professional you've heard of.
+
+  - id: 3
+    mode: see
+    type: why_record
+    figure: "A pair of headphones. An ear icon next to them. Caption: 'you hear what you could not hear live.'"
+    cleffy: >
+      Why record.
+      Live, you don't hear yourself the way the audience does.
+      Too close. Too adrenal. Too busy playing.
+      Play it. Walk away. Come back and listen as a stranger.
+      The recording tells you what to fix in your last twenty-four hours.
+
+  - id: 4
+    mode: see
+    type: the_rules
+    figure: "A card with four rules. 1. One take. 2. No stopping. 3. Recording on. 4. Listen back after."
+    cleffy: >
+      Rules for the dress.
+      One — one take. Not three, not five. One.
+      Two — no stopping. Slip? Forward. You trained this.
+      Three — recording on. Phone, laptop, whatever.
+      Four — listen back. Once through. Quietly.
+
+  - id: 5
+    mode: see
+    type: mental_prep
+    figure: "Four quick steps. Warm hands. Three breaths. Hear bar one in your head. Press record. Then play."
+    cleffy: >
+      Mental prep.
+      The ritual you know.
+      Warm hands. Three breaths. Hear bar one.
+      Then press record. Then play.
+      Record button is part of the ritual today.
+
+  - id: 6
+    mode: see
+    type: one_last_map
+    figure: "Piece map — A (bars 1-23), B (24-42), A' (43-69). Dynamic arc. Tempo 58. All labeled."
+    cleffy: >
+      One last glance at the map.
+      A — quiet arrival. B — shift in light. A' — return and fade.
+      Tempo 58. pp. Pedal per bar.
+      That's the piece. You know it.
+
+  - id: 7
+    mode: play
+    type: quick_warmup_opening
+    figure: "Bars 1-4 at tempo 58. Guides off."
+    cleffy: >
+      Quick warmup. Bars 1 through 4.
+      Just to settle the fingers.
+    interaction:
+      type: song
+      sequence: [["C#2","C#3"],"C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4",["C#2","C#3"],"C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4",["B1","B2"],"B3","D#4","F#4","B3","D#4","F#4","B3","D#4","F#4",["E2","E3"],"E3","G#3","B3","E3","G#3","B3","E3","G#3","B3"]
+      guides: false
+      tempo: 58
+
+  - id: 8
+    mode: see
+    type: press_record
+    figure: "A phone screen. A red record button, glowing. Caption: 'now.'"
+    cleffy: >
+      Phone out. Set it up. Camera on the hands is fine. Audio only is fine.
+      Press record.
+      Don't watch the screen. Look at the keys.
+
+  - id: 9
+    mode: see
+    type: the_breath
+    figure: "Cleffy at the piano, eyes closed. Three numbered breath counts in the air."
+    cleffy: >
+      Three breaths.
+      In four. Hold four. Out six.
+      Three times.
+
+  - id: 10
+    mode: play
+    type: THE_TAKE
+    figure: "Full Moonlight score. All sixty-nine bars. No guides. No markings. Tempo 58. Red REC dot glowing in the corner."
+    cleffy: >
+      This is the take.
+      Sixty-nine bars. No stopping. If you slip — forward.
+      Play it.
+    interaction:
+      type: song
+      sequence: [["C#2","C#3"],"C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4",["C#2","C#3"],"C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4",["B1","B2"],"B3","D#4","F#4","B3","D#4","F#4","B3","D#4","F#4",["E2","G#2"],"E3","G#3","B3","E3","G#3","B3","E3","G#3","B3",["A2","A3","G#4"],"A3","C#4","E4","A3","C#4","G#4","A3","C#4",["F#2","F#3","A4"],"F#3","A3","C#4","F#3","A3","A4","F#3","A3",["G#2","G#3","G#4"],"G#3","B#3","D#4","G#3","B#3","F#4","G#3","B#3",["C#2","C#3","E4"],"C#3","E3","G#3","C#3","E3","G#3","C#3","E3",["C#2","E2"],"G#3","C#4","E4","G#3","C#4","E4","G#3","C#4","E4",["G#2","B2"],"G#3","B3","E4","G#3","B3","E4","G#3","B3","E4",["E2","G#2","B4"],"E3","G#3","B3","E3","G#3","B3","E3","G#3","B3",["G#2","B2","A4"],"G#3","B3","E4","G#3","B3","E4","G#3","B3","E4",["F#2","A2","G#4"],"F#3","A3","C#4","F#3","A3","C#4","F#3","A3","C#4",["B2","D#3","F#4"],"F#3","A3","B3","F#3","A3","B3","F#3","A3","B3",["G#2","B2","D#4"],"G#3","B3","D#4","G#3","B3","D#4","G#3","B3","D#4",["F#2","A2","C#4"],"F#3","A3","C#4","F#3","A3","C#4","F#3","A3","C#4",["E2","G#2","B3"],"G#3","B3","E4","G#3","B3","E4","G#3","B3","E4",["D#2","F#2","A3"],"F#3","A3","D#4","F#3","A3","D#4","F#3","A3","D#4",["C#2","C#3","G#4"],"C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4",["C#2","C#3","G#4"],"C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4",["B1","B2","G#4"],"B3","D#4","F#4","B3","D#4","A4","B3","D#4","G#4",["B1","B2","A4"],"B3","D#4","F#4","B3","D#4","A4","B3","D#4","G#4",["A2","A3","G#4"],"A3","C#4","E4","A3","C#4","G#4","A3","C#4",["F#2","F#3","A4"],"F#3","A3","C#4","F#3","A3","A4","F#3","A3",["G#2","G#3","G#4"],"G#3","B#3","D#4","G#3","B#3","F#4","G#3","B#3",["C#2","C#3","E4"],"C#3","E3","G#3","C#3","E3","G#3","C#3","E3",["F#2","F#3","C#5"],"F#3","A3","C#4","F#3","A3","C#4","F#3","A3",["B2","D#3","B4"],"D#3","F#3","B3","D#3","F#3","B3","D#3","F#3",["E2","G#2","A4"],"E3","G#3","B3","E3","G#3","B3","E3","G#3",["A2","C#3","G#4"],"C#3","E3","A3","C#3","E3","A3","C#3","E3",["D#2","F#2","F#4"],"F#2","A2","D#3","F#2","A2","D#3","F#2","A2",["G#2","B2","E4"],"B2","D#3","G#3","B2","D#3","G#3","B2","D#3",["C#2","G#2","C#4"],"G#2","C#3","E3","G#2","C#3","E3","G#2","C#3",["F#2","A2","C#4"],"A2","C#3","F#3","A2","C#3","F#3","A2","C#3",["G#2","B2","D#4"],"B2","D#3","G#3","B2","D#3","G#3","B2","D#3",["C#2","E2","G#3"],"E2","G#2","C#3","E2","G#2","C#3","E2","G#2",["C#2","C#3","G#4"],"C#4","E4","G#4","C#4","E4","G#4","C#4","E4",["C#2","C#3","E4"],"C#4","E4","G#4","C#4","E4","G#4","C#4","E4",["G#1","G#2"],"E3","G#3","C#4","E3","G#3","C#4","E3","G#3",["C#2","C#3"],"E3","G#3","C#4","E3","G#3","C#4","E3","G#3",["C#2","C#3","E4"],"C#4","E4","G#4","C#4","E4","G#4","C#4","E4",["C#2","G#2","E4"],"G#3","C#4","E4","G#3","C#4","E4","G#3","C#4",["C#2","C#3","E4"],"C#4","E4","G#4","C#4","E4","G#4","C#4","E4",["C#2","C#3"],"C#4","E4","G#4","C#4","E4","G#4","C#4","E4",["C#2","C#3","G#3","C#4","E4"]]
+      guides: false
+      tempo: 58
+    followup_cleffy: >
+      Stop the recording.
+      That was the take. Whatever it was, it's done.
+      Walk away for five minutes. Seriously. Stand up. Water. Breath.
+
+  - id: 11
+    mode: see
+    type: come_back
+    figure: "A cup of tea. A closed door. A small clock showing five minutes later."
+    cleffy: >
+      Five minutes later.
+      Sit back down. Phone in your hand.
+      Play the recording.
+
+  - id: 12
+    mode: hear
+    type: listen_back
+    figure: "Headphones. Audio playback scrubber showing a three-minute file."
+    audio:
+      A: "The student's own recording, played back (simulated for the platform — a high-quality reference Moonlight recording at 58, full three minutes)."
+    cleffy: >
+      Listen. Whole thing. Don't wince. Don't judge.
+      Three questions only.
+      Did the tempo hold?
+      Did the pulse break anywhere?
+      Did it sound like music?
+
+  - id: 13
+    mode: see
+    type: the_debrief
+    figure: "A notepad. Three columns — 'held up', 'needs one fix', 'let go.'"
+    cleffy: >
+      The debrief.
+      Whatever went well — that's locked in. Don't touch it.
+      One thing that needs fixing — pick ONE. Not three. One.
+      Everything else — let go. Tomorrow is graduation, not a perfection test.
+
+  - id: 14
+    mode: play
+    type: one_fix_pass
+    figure: "A highlighted phrase from the trickiest section — likely bars 24-32 (modulation). Tempo 58."
+    cleffy: >
+      Pick your one fix. Play just that section once.
+      Slow down slightly if it needs it. Just one clean pass.
+      Then leave it.
+    interaction:
+      type: song
+      sequence: [["G#2","G#3","G#4"],"G#3","B#3","D#4","G#3","B#3","F#4","G#3","B#3","E4",["C#2","C#3","E4"],"C#3","E3","G#3","C#3","E3","D#4","C#3","E3","C#4",["F#2","F#3","D#4"],"F#3","A3","C#4","F#3","A3","D#4","F#3","A3","C#4",["B1","B2","D#4"],"B2","D#3","F#3","B2","D#3","B3","B2","D#3","D#4"]
+      guides: false
+      tempo: 54
+
+  - id: 15
+    mode: play
+    type: second_take_optional
+    figure: "Red REC dot again. Caption: 'one more, if you want.'"
+    cleffy: >
+      If you want. Record one more take.
+      Not to beat the first one. To prove to yourself you can.
+      Or — stop here. The dress is done.
+    interaction:
+      type: song
+      sequence: [["C#2","C#3"],"C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4",["C#2","C#3"],"C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4",["B1","B2"],"B3","D#4","F#4","B3","D#4","F#4","B3","D#4","F#4",["E2","G#2"],"E3","G#3","B3","E3","G#3","B3","E3","G#3","B3",["A2","A3","G#4"],"A3","C#4","E4","A3","C#4","G#4","A3","C#4",["F#2","F#3","A4"],"F#3","A3","C#4","F#3","A3","A4","F#3","A3",["G#2","G#3","G#4"],"G#3","B#3","D#4","G#3","B#3","F#4","G#3","B#3",["C#2","C#3","E4"],"C#3","E3","G#3","C#3","E3","G#3","C#3","E3",["C#2","E2"],"G#3","C#4","E4","G#3","C#4","E4","G#3","C#4","E4",["G#2","B2"],"G#3","B3","E4","G#3","B3","E4","G#3","B3","E4",["E2","G#2","B4"],"E3","G#3","B3","E3","G#3","B3","E3","G#3","B3",["G#2","B2","A4"],"G#3","B3","E4","G#3","B3","E4","G#3","B3","E4",["F#2","A2","G#4"],"F#3","A3","C#4","F#3","A3","C#4","F#3","A3","C#4",["B2","D#3","F#4"],"F#3","A3","B3","F#3","A3","B3","F#3","A3","B3",["G#2","B2","D#4"],"G#3","B3","D#4","G#3","B3","D#4","G#3","B3","D#4",["F#2","A2","C#4"],"F#3","A3","C#4","F#3","A3","C#4","F#3","A3","C#4",["E2","G#2","B3"],"G#3","B3","E4","G#3","B3","E4","G#3","B3","E4",["D#2","F#2","A3"],"F#3","A3","D#4","F#3","A3","D#4","F#3","A3","D#4",["C#2","C#3","G#4"],"C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4",["C#2","C#3","G#4"],"C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4",["B1","B2","G#4"],"B3","D#4","F#4","B3","D#4","A4","B3","D#4","G#4",["B1","B2","A4"],"B3","D#4","F#4","B3","D#4","A4","B3","D#4","G#4",["A2","A3","G#4"],"A3","C#4","E4","A3","C#4","G#4","A3","C#4",["F#2","F#3","A4"],"F#3","A3","C#4","F#3","A3","A4","F#3","A3",["G#2","G#3","G#4"],"G#3","B#3","D#4","G#3","B#3","F#4","G#3","B#3",["C#2","C#3","E4"],"C#3","E3","G#3","C#3","E3","G#3","C#3","E3",["F#2","F#3","C#5"],"F#3","A3","C#4","F#3","A3","C#4","F#3","A3",["B2","D#3","B4"],"D#3","F#3","B3","D#3","F#3","B3","D#3","F#3",["E2","G#2","A4"],"E3","G#3","B3","E3","G#3","B3","E3","G#3",["A2","C#3","G#4"],"C#3","E3","A3","C#3","E3","A3","C#3","E3",["D#2","F#2","F#4"],"F#2","A2","D#3","F#2","A2","D#3","F#2","A2",["G#2","B2","E4"],"B2","D#3","G#3","B2","D#3","G#3","B2","D#3",["C#2","G#2","C#4"],"G#2","C#3","E3","G#2","C#3","E3","G#2","C#3",["F#2","A2","C#4"],"A2","C#3","F#3","A2","C#3","F#3","A2","C#3",["G#2","B2","D#4"],"B2","D#3","G#3","B2","D#3","G#3","B2","D#3",["C#2","E2","G#3"],"E2","G#2","C#3","E2","G#2","C#3","E2","G#2",["C#2","C#3","G#4"],"C#4","E4","G#4","C#4","E4","G#4","C#4","E4",["C#2","C#3","E4"],"C#4","E4","G#4","C#4","E4","G#4","C#4","E4",["G#1","G#2"],"E3","G#3","C#4","E3","G#3","C#4","E3","G#3",["C#2","C#3"],"E3","G#3","C#4","E3","G#3","C#4","E3","G#3",["C#2","C#3","E4"],"C#4","E4","G#4","C#4","E4","G#4","C#4","E4",["C#2","G#2","E4"],"G#3","C#4","E4","G#3","C#4","E4","G#3","C#4",["C#2","C#3","E4"],"C#4","E4","G#4","C#4","E4","G#4","C#4","E4",["C#2","C#3"],"C#4","E4","G#4","C#4","E4","G#4","C#4","E4",["C#2","C#3","G#3","C#4","E4"]]
+      guides: false
+      tempo: 58
+
+  - id: 16
+    mode: hear
+    type: pre_check
+    figure: "Banner — mastery check. The last one before graduation."
+    cleffy: >
+      Three quick ones. The last check before the big day.
+
+  - id: 17
+    mode: see
+    type: sleep_on_it
+    figure: "A window. A moon rising. A piano in shadow. Caption: 'let it settle.'"
+    cleffy: >
+      One more piece of advice.
+      Don't practice more tonight.
+      The piece is in your hands. Your fingers know it.
+      More hours tonight won't help. Sleep helps.
+      Your brain consolidates the piece overnight. That's real. That's documented.
+      Rest is practice now.
+
+  - id: 18
+    mode: see
+    type: wrap
+    figure: "Cleffy holding the closed score of Moonlight. A trophy outline in the background, dim. Caption: 'tomorrow.'"
+    cleffy: >
+      Dress rehearsal. Done.
+      You recorded yourself playing Moonlight Sonata, first movement, at tempo, no stopping.
+      Tomorrow — graduation.
+      Two hundred and forty-nine lessons behind you.
+      One to go.
+
+practice_this_week:
+  real_piano:
+    - "Tonight — don't practice. Really. Rest the hands. Rest the brain."
+    - "Tomorrow, before graduation — one warmup run at slow tempo. No more. Save the energy."
+    - "If tomorrow is the day — wear something you like. Light the room the way you want it. Make it real."
+  virtual_only:
+    - "Do not replay pages 10 or 15. The piece is done cooking. Let it rest."
+  estimated_time: "20 min today. 0 min tonight. 10 min tomorrow."
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "A record button next to a pair of headphones"
+          prompt: "Why record the dress rehearsal?"
+          options: ["To prove it was good", "To hear yourself as an outsider would", "To post online"]
+          correct: 1
+        - figure: "A rulebook — one take, no stopping, record, listen"
+          prompt: "What's rule number two?"
+          options: ["One take", "No stopping", "Listen back"]
+          correct: 1
+        - figure: "Three columns — held up, needs one fix, let go"
+          prompt: "After the take, how many things do you fix?"
+          options: ["All of them", "One", "None"]
+          correct: 1
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "A recording played back after a performance"
+          prompt: "What's the debrief question that matters most?"
+          options: ["Were there any wrong notes?", "Did it sound like music?", "Was it perfect?"]
+          correct: 1
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Run the full Moonlight once, recorded if possible, no stopping."
+          accept: "All 69 bars, one take, pulse held"
+
+remediation:
+  id: "249.5"
+  title: "Dress rehearsal, redone"
+  pages: 6
+  opening_cleffy: >
+    If the first take fell apart — that's information. No judgment.
+    Let's slow it down. Run section A alone, recorded. Then B. Then A'. Then stitch them together with no breaks.
+    Graduation is tomorrow. Your piece is ready. Your head will catch up.
+
+completion:
+  cleffy: >
+    Dress rehearsal — done.
+    Tomorrow is lesson 250.
+    Tomorrow is graduation.
+    Sleep well. Wake up ready.
+    I'll see you there.
+  xp: 22
+  unlocks: 250

@@ -1,0 +1,251 @@
+# ============================================================
+# LESSON 22 · Steps + skips, mixed
+# Tier 1 · Act 5 · Beginner
+# Central metaphor: READING SHAPE AT SPEED
+# ============================================================
+id: 22
+tier: beginner
+act: 5
+title: "Steps and skips, together"
+subtitle: "The first real reading"
+goal: "Read a short melody made of steps AND skips without pausing to think."
+prereqs: [16, 17, 18, 19, 20, 21]
+method_focus: "intervals"
+time_estimate_min: 12
+piece_context: "Every song is some blend of steps and skips. Today we mix them — and start reading the way a real musician reads."
+metaphor: "two-moves-blended"
+vibe: ["gentle", "playful", "serious"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Staff. A small melody — up step, up skip, down step, down step. Arrows above each pair labeling the move."
+    cleffy: >
+      You know steps. You know skips.
+      Music uses both, mixed together, all the time.
+      Today we read melodies that have both — at speed.
+
+  - id: 2
+    mode: see
+    type: mixed_example
+    figure: "Staff with 5 notes: C-D-F-E-D. Each move labeled underneath: step, skip, step, step."
+    cleffy: >
+      Here's a 5-note melody.
+      First note C. Then D — that's a step up.
+      Then F — a skip up. Hopped over E.
+      Then E — step down. Then D — step down.
+      Every pair has a name. Your job is to SEE the shape instantly.
+
+  - id: 3
+    mode: see
+    type: shape_label_drill
+    figure: "Staff with a pair. Student clicks step or skip. 4 rounds cycling through different pairs."
+    cleffy: >
+      Four rounds, just pairs. Step or skip?
+    interaction:
+      type: drill
+      rounds: 4
+      options: ["Step", "Skip"]
+      time_limit: 2
+
+  - id: 4
+    mode: see
+    type: three_note_melody
+    figure: "Staff with three notes: line 1, space 1, line 2. Move 1 = step, move 2 = step."
+    cleffy: >
+      Three-note melody. Both moves are steps.
+      See the shape? Line → space → line. Two steps up in a row.
+    interaction:
+      type: choice
+      options: ["Step-step", "Step-skip", "Skip-step", "Skip-skip"]
+      correct: 0
+
+  - id: 5
+    mode: see
+    type: three_note_melody_mixed
+    figure: "Staff with three notes: line 1, line 2, space 2. Move 1 = skip, move 2 = step."
+    cleffy: >
+      Different shape. Two moves — what are they?
+    interaction:
+      type: choice
+      options: ["Step-step", "Step-skip", "Skip-step", "Skip-skip"]
+      correct: 2
+
+  - id: 6
+    mode: see
+    type: label_all
+    figure: "Staff with a 4-note melody. Student clicks each pair's label in sequence."
+    cleffy: >
+      Four notes, three moves. Tell me each one in order.
+    interaction:
+      type: labels
+      count: 3
+
+  - id: 7
+    mode: hear
+    type: mixed_ear
+    figure: "Play button."
+    audio:
+      A: "A 4-note melody: step-skip-step"
+    cleffy: >
+      Close your eyes. Listen. That's step, then skip, then step.
+      See if you can hear each one.
+      We'll do this a lot — hearing intervals is half the skill.
+
+  - id: 8
+    mode: hear
+    type: ear_drill
+    figure: "Round counter 1 of 4. Each round: hear a short melody, identify one move."
+    cleffy: >
+      Four rounds. I'll play two notes. Step or skip?
+    interaction:
+      type: drill
+      rounds: 4
+      options: ["Step", "Skip"]
+
+  - id: 9
+    mode: play
+    type: play_mixed
+    figure: "Keyboard. Prompt: play step, skip, step, starting from Middle C."
+    cleffy: >
+      Your turn. Step up, skip up, step up.
+      Start on Middle C. Step to D. Skip to F. Step to G.
+      C → D → F → G.
+    interaction:
+      type: sequence
+      keys: ["C4", "D4", "F4", "G4"]
+    followup_cleffy: >
+      Four notes. Three moves. Two steps, one skip, all going up.
+
+  - id: 10
+    mode: play
+    type: play_mixed_down
+    figure: "Keyboard. Reverse the sequence: G → F → D → C."
+    cleffy: >
+      Now come back down. G → F → D → C.
+      Step down, skip down, step down.
+    interaction:
+      type: sequence
+      keys: ["G4", "F4", "D4", "C4"]
+
+  - id: 11
+    mode: read
+    type: read_short_melody
+    figure: "Staff with 4 notes: C, D, F, E. Moves are: step up, skip up, step down."
+    cleffy: >
+      Read the shape on the staff. Moves: step up, skip up, step down.
+      Play it, starting on Middle C.
+    interaction:
+      type: sequence
+      keys: ["C4", "D4", "F4", "E4"]
+
+  - id: 12
+    mode: read
+    type: different_starting_note
+    figure: "Same staff melody. Starting note NOT specified — pick your own."
+    cleffy: >
+      Now play the same SHAPE, but start on any note.
+      Step up, skip up, step down — just follow the shape, not the specific keys.
+    interaction:
+      type: shape
+      shape: ["step_up", "skip_up", "step_down"]
+    followup_cleffy: >
+      Shape-based reading. That's the Sonata method in motion.
+      You just transposed a melody without knowing the word transpose.
+
+  - id: 13
+    mode: read
+    type: melody_drill
+    figure: "Round counter 1 of 3. Each round: a new 4-note melody. Read, play."
+    cleffy: >
+      Three rounds. Different melodies each time. Read and play.
+    interaction:
+      type: drill
+      rounds: 3
+
+  - id: 14
+    mode: hear
+    type: drill
+    figure: "Mix of see / hear / play prompts."
+    cleffy: >
+      Last warm-up. Four rounds.
+    interaction:
+      type: drill
+      rounds: 4
+
+  - id: 15
+    mode: hear
+    type: pre_check
+    figure: "Banner."
+    cleffy: >
+      Four quick ones.
+
+  - id: 16
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 22. Staff with a little 5-note melody drawn, each move labeled S (step) or K (skip)."
+    cleffy: >
+      Real reading. Shape at a time, not note by note.
+      Tomorrow — rhythm. How long each note lasts.
+      After that — bars. Then Happy Birthday, and Tier 1 is done.
+
+# ─── Practice this week ────────────────────────────────
+practice_this_week:
+  real_piano:
+    - "Right hand in five-finger position C-D-E-F-G. Play C-E-D-F-E. Step? Skip? Try naming each move out loud."
+    - "Make up your own 4-note melody using only steps and skips. Play it three times."
+  virtual_only:
+    - "Replay pages 11-13 (the shape-based reading drills)"
+  estimated_time: "7 min/day"
+
+# ─── Mastery check ──────────────────────────────────────
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 3
+      questions:
+        - figure: "Staff pair — step up"
+          prompt: "Which move?"
+          options: ["Step", "Skip"]
+          correct: 0
+        - figure: "Staff pair — skip up"
+          prompt: "Which move?"
+          options: ["Step", "Skip"]
+          correct: 1
+        - figure: "Staff 3-note melody: line, space, line"
+          prompt: "What are the two moves?"
+          options: ["Step-step", "Step-skip", "Skip-step", "Skip-skip"]
+          correct: 0
+    hear:
+      pass_threshold: 2
+      questions:
+        - audio: "Step up"
+          prompt: "Step or skip?"
+          options: ["Step", "Skip"]
+          correct: 0
+        - audio: "Skip down"
+          prompt: "Step or skip?"
+          options: ["Step", "Skip"]
+          correct: 1
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play step up, skip up, step up — starting from Middle C."
+          accept: "C4 D4 F4 G4"
+
+# ─── Remediation ────────────────────────────────────────
+remediation:
+  id: "22.5"
+  title: "Steps and skips, slower"
+  pages: 5
+  opening_cleffy: >
+    Mixing the two shapes is where it gets harder. Extra reps, each pair labeled slowly.
+
+# ─── Completion ─────────────────────────────────────────
+completion:
+  cleffy: >
+    You just read a melody the way real pianists read — shape by shape.
+    Three lessons left in Tier 1.
+  xp: 20
+  unlocks: 23

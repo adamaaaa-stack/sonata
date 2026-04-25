@@ -1,0 +1,232 @@
+# ============================================================
+# LESSON 236 · Moonlight 1 — full overview
+# Tier 6 · Act 48 · Advanced
+# Hear the whole movement once. Map its three sections.
+# ============================================================
+id: 236
+tier: advanced
+act: 48
+title: "Moonlight 1 — full overview"
+subtitle: "Act 48 · The road to graduation"
+goal: "Hear the whole first movement of the Moonlight Sonata. Map its three sections so you know where you are going."
+prereqs: [235, 175]
+method_focus: "hear"
+time_estimate_min: 16
+piece_context: "Act 48 opens the final climb. You've known the first 8 bars of Moonlight since the Tier 4 boss at lesson 175. Time to go past that. But before you play another note of it — see the whole piece. Hear it end to end. Understand its shape. A map before a journey. The full movement is 69 bars in three sections: A (1-15), B (16-42), A' (43-69). Today is the listen-and-look day. No new notes yet."
+metaphor: "three-sections-one-piece"
+vibe: ["quiet", "reflective", "serious"]
+piece:
+  title: "Piano Sonata No. 14 in C-sharp minor, Op. 27 No. 2 (Moonlight), 1st mvt"
+  composer: "Ludwig van Beethoven (1801)"
+  key_center: "C-sharp minor"
+  time_signature: "alla breve (2/2), felt in 4"
+  difficulty: "advanced — graduation-track overview, no playing today"
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy in front of a long scroll unrolled across the floor. Three panels painted on it — A, B, A'. A low moon above. Banner: ACT 48 — THE LAST CLIMB."
+    cleffy: >
+      Act 48.
+      The road to graduation runs through one piece.
+      Moonlight Sonata. First movement. All of it.
+
+  - id: 2
+    mode: see
+    type: honest_framing
+    figure: "Two boxes. Left — 'what you already have': bars 1-8 from Tier 4. Right — 'what's left': 61 more bars."
+    cleffy: >
+      The honest part.
+      You've known the first eight bars since lesson 175.
+      You've held them in your hands for a while.
+      Now — time to go past that.
+      Sixty-one more bars to meet.
+
+  - id: 3
+    mode: see
+    type: today_is_not
+    figure: "Two boxes. Left — 'today is NOT': learning new notes, playing, practicing fingering. Right — 'today IS': listening, mapping, understanding shape."
+    cleffy: >
+      Today you don't play a note.
+      Today you listen.
+      Today you look at a map of the whole piece.
+      Notes come tomorrow.
+
+  - id: 4
+    mode: see
+    type: the_three_sections
+    figure: "A long horizontal bar divided into three sections. Section A: bars 1-15, labeled 'the statement.' Section B: bars 16-42, labeled 'the middle — modulation and development.' Section A': bars 43-69, labeled 'the return — theme comes back.' A low moon above the whole thing."
+    cleffy: >
+      Three sections in this movement.
+      A — bars 1 through 15. The opening. The statement. What you know.
+      B — bars 16 through 42. The middle. It travels. Modulates. Stretches.
+      A-prime — bars 43 through 69. The return. The theme comes home.
+      Statement. Journey. Return.
+
+  - id: 5
+    mode: hear
+    type: listen_whole_first_time
+    figure: "A play button, large. Caption: 'Full 1st movement — approximately 5 minutes. Adagio sostenuto, real recording.' A waveform underneath showing the three sections marked A, B, A'."
+    audio:
+      A: "Moonlight Sonata 1st movement, complete, real recording — approximately 5 minutes, adagio sostenuto, full dynamic range"
+    cleffy: >
+      Here it is. The whole thing. End to end.
+      About five minutes.
+      Don't analyze. Don't count bars. Just listen.
+      Close your eyes if you want.
+
+  - id: 6
+    mode: see
+    type: what_you_heard
+    figure: "A quiet room. Cleffy waiting. Text: 'sit with it.'"
+    cleffy: >
+      Sit with that for a moment.
+      That's the piece you're going to play.
+      The whole of it — already, in your ear.
+
+  - id: 7
+    mode: see
+    type: section_a_detail
+    figure: "Bars 1-15 shown on a timeline. Labels under it: 'bars 1-4: engine alone,' 'bars 5-8: melody enters,' 'bars 9-12: melody continues,' 'bars 13-15: first turn.' A small photo of moonlight on water."
+    cleffy: >
+      Section A, up close.
+      Bars 1 to 4 — engine only. The rolling triplets. The deep octaves. No melody yet.
+      Bars 5 to 8 — the melody enters. G-sharp. Long-short-short. You know this.
+      Bars 9 to 12 — the melody continues. Same feel, new notes.
+      Bars 13 to 15 — the first small turn. A shift is coming.
+
+  - id: 8
+    mode: hear
+    type: listen_section_a
+    figure: "A play button. Caption: 'Section A only, bars 1-15.'"
+    audio:
+      A: "Moonlight 1st movement, bars 1-15, real recording, adagio sostenuto"
+    cleffy: >
+      Section A only. Bars 1 to 15.
+      Listen for the moment the melody enters.
+      Listen for the quiet turn near the end.
+
+  - id: 9
+    mode: see
+    type: section_b_detail
+    figure: "Bars 16-42 on a timeline. Text: 'the middle.' Subtext: 'travels to new keys. Still C-sharp minor, touches E major and B major. The piece opens out.'"
+    cleffy: >
+      Section B. The middle. The longest.
+      Bars 16 to 42 — the music travels.
+      Still grounded in C-sharp minor, but touches other colors.
+      E major. B major. Brief light in the dark.
+      This is where Beethoven opens the window.
+
+  - id: 10
+    mode: hear
+    type: listen_section_b
+    figure: "A play button. Caption: 'Section B only, bars 16-42.'"
+    audio:
+      A: "Moonlight 1st movement, bars 16-42, real recording — the middle section, adagio sostenuto"
+    cleffy: >
+      The middle. Listen without trying to name anything.
+      Hear when it feels dark. Hear when it feels briefly lighter.
+      That's the modulation at work.
+
+  - id: 11
+    mode: see
+    type: section_a_prime_detail
+    figure: "Bars 43-69 on a timeline. Text: 'the return.' Subtext: 'theme comes back. Ends quietly. A long fade into silence.'"
+    cleffy: >
+      Section A-prime. The return.
+      Bars 43 to 69 — the opening theme comes back.
+      Familiar. But after section B, it feels different somehow.
+      The piece ends quietly. A long fade.
+      The moon setting.
+
+  - id: 12
+    mode: hear
+    type: listen_section_a_prime
+    figure: "A play button. Caption: 'Section A-prime only, bars 43-69.'"
+    audio:
+      A: "Moonlight 1st movement, bars 43-69, real recording — the return and final coda, adagio sostenuto"
+    cleffy: >
+      Section A-prime. The return and the ending.
+      Listen for the moment the theme comes home.
+      Listen for how quietly it closes.
+
+  - id: 13
+    mode: see
+    type: your_road
+    figure: "A map of the next 14 lessons. 237 — bars 1-12. 238 — bars 13-23. 239 — C-sharp minor color. 240 — bars 1-23 boss. 241-244 — middle and return. 245 — all bars slow. 246-250 — polish, nerves, graduation. Each lesson a small milestone on the road."
+    cleffy: >
+      Your road from here.
+      Tomorrow — bars 1 through 12. Extend what you already know.
+      Then 13 to 23. New material.
+      Then the middle. Then the return. Then the full piece.
+      Then graduation.
+      The map is clear. Walk it one bar at a time.
+
+  - id: 14
+    mode: hear
+    type: pre_check
+    figure: "Banner."
+    cleffy: >
+      Three quick ones about what you just heard.
+
+  - id: 15
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 236. A scroll with three sections marked A, B, A'. Cleffy looking out a moonlit window. Caption: 'you've heard the whole thing now.'"
+    cleffy: >
+      The whole piece. In your ear.
+      Three sections. Statement, journey, return.
+      Tomorrow — back to the keys. Bars 1 through 12. Already halfway known.
+
+practice_this_week:
+  real_piano:
+    - "Listen to the full first movement once a day. Any recording — pick a favorite. Five minutes."
+    - "Can you hum the opening melody from bar 5 without the recording? Try it in the car, in the shower. Get it rooted."
+  virtual_only:
+    - "Replay pages 5, 8, 10, 12 — the four listening passes. Let the shape of the piece settle in."
+  estimated_time: "10 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "The three-section map of Moonlight 1st mvt"
+          prompt: "How many main sections does the first movement have?"
+          options: ["Two", "Three", "Four"]
+          correct: 1
+        - figure: "Section labels A, B, A' on the timeline"
+          prompt: "What is section A-prime?"
+          options: ["The middle", "The return of the opening theme", "A brand-new tune"]
+          correct: 1
+        - figure: "Bar count: 69 total"
+          prompt: "How long is the first movement?"
+          options: ["8 bars", "23 bars", "69 bars"]
+          correct: 2
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "Short clip from bars 5-8 (opening theme) vs a clip from bars 20-25 (middle section)"
+          prompt: "Which clip is from the opening section A?"
+          options: ["First", "Second"]
+          correct: 0
+    play:
+      pass_threshold: 0
+      questions: []
+
+remediation:
+  id: "236.5"
+  title: "Moonlight overview, slower listen"
+  pages: 7
+  opening_cleffy: >
+    First pass at the whole piece. A lot to take in.
+    Listen again — section by section, with space between each. No hurry.
+
+completion:
+  cleffy: >
+    The map is yours. Three sections. Sixty-nine bars.
+    You've seen where you're going.
+    Tomorrow — back to the piano. Bars 1 through 12. Beautiful.
+  xp: 20
+  unlocks: 237

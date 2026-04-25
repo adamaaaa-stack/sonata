@@ -1,0 +1,216 @@
+id: 93
+tier: low-intermediate
+act: 19
+title: "Recovering gracefully"
+subtitle: "Act 19 · Sight-reading"
+goal: "Stumbles happen — keep the beat."
+prereqs: [92, 91, 75]
+method_focus: "play"
+time_estimate_min: 12
+piece_context: "Real sight-reading includes mistakes. The skill isn't avoiding them — it's not falling apart when they happen."
+metaphor: "eyes-as-scouts"
+vibe: ["honest", "gentle"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy with a small bandage on his finger. Behind him, a metronome ticking steadily."
+    cleffy: >
+      You will trip over notes. Everyone does.
+      Today — what matters is the next beat, not the one you missed.
+
+  - id: 2
+    mode: see
+    type: the_real_mistake
+    figure: "Two staffs side by side. A: wrong note, player keeps going. B: wrong note, player stops and tries again."
+    cleffy: >
+      Wrong note — not a big deal.
+      Stopping to fix it — bigger deal.
+      The beat is the thing that has to survive.
+
+  - id: 3
+    mode: hear
+    type: contrast_stumbles
+    figure: "Two play buttons."
+    audio:
+      A: "Player hits wrong note, stops, restarts a bar"
+      B: "Player hits wrong note, keeps flowing. Listener barely notices."
+    cleffy: >
+      First — heard the stumble loud and clear. Because of the STOP.
+      Second — maybe you heard a wrong note. Maybe not. Because the beat kept going.
+
+  - id: 4
+    mode: see
+    type: skip_and_land
+    figure: "Four bars. Note 3 has a red X on it. A dotted arrow skips from note 2 straight to note 4."
+    cleffy: >
+      When you miss a note, skip it.
+      Don't re-play. Don't go back.
+      Land on the NEXT right note, on the next right beat.
+
+  - id: 5
+    mode: play
+    type: deliberate_skip
+    figure: "Keyboard. 5-note line. Note 3 grayed out — you deliberately skip it."
+    cleffy: >
+      Practice the skill. Play notes 1, 2, then skip note 3, land on note 4, then 5. On beat, no pause.
+    interaction:
+      type: rhythm
+      sequence: ["C4","D4","F4","G4"]
+      durations: ["quarter","quarter","quarter","quarter"]
+      tempo: 70
+
+  - id: 6
+    mode: see
+    type: find_landmarks
+    figure: "Staff with circles around downbeats of each bar — the strong beat."
+    cleffy: >
+      If you lose your place badly — aim for a landmark.
+      The next downbeat. The start of the next bar. A chord you recognize.
+      Reset there.
+
+  - id: 7
+    mode: play
+    type: lost_and_found
+    figure: "Eight bars. A red X on a bar you're told to 'miss.' Next downbeat glows green."
+    cleffy: >
+      Play 8 bars. When you hit bar 4 — pretend you lost your place.
+      Eyes to the next downbeat (bar 5). Land there. On beat.
+    interaction:
+      type: rhythm
+      sequence: ["C4","E4","G4","E4","D4","F4","A4","F4","E4","G4","C5","G4","F4","A4","D5","A4"]
+      durations: ["quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter"]
+      tempo: 60
+
+  - id: 8
+    mode: see
+    type: steady_beat
+    figure: "Metronome with a heart inside. Label: THIS IS THE PULSE."
+    cleffy: >
+      The beat is a heartbeat. Don't stop it.
+      Wrong notes heal. A broken beat sounds like broken music.
+
+  - id: 9
+    mode: play
+    type: metronome_on
+    figure: "12 bars, easy melody. Metronome ticking loud. Instructions: DO NOT STOP."
+    cleffy: >
+      Metronome on. Play through. If you mess up — let it happen.
+      Your job is to arrive at the next beat, on time, with SOMETHING.
+    interaction:
+      type: rhythm
+      sequence: ["G4","A4","B4","C5","B4","A4","G4","F4","E4","F4","G4","A4","G4","F4","E4","D4","C4","D4","E4","F4","G4","F4","E4","D4"]
+      durations: ["quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","half","half"]
+      tempo: 65
+
+  - id: 10
+    mode: see
+    type: three_recoveries
+    figure: "Three panels. 1: 'skip it' (wrong note, keep going). 2: 'approximate' (wrong but close). 3: 'land at next bar'."
+    cleffy: >
+      Three moves when you trip.
+      One — skip. Two — play close to right, keep going. Three — land at the next downbeat.
+      All three beat stopping.
+
+  - id: 11
+    mode: play
+    type: grand_staff_flow
+    figure: "Grand staff. 8 bars. Simple both-hands passage."
+    cleffy: >
+      Both hands. Something will go wrong. That's the point.
+      Feel what it's like to keep playing through it.
+    interaction:
+      type: rhythm
+      sequence: [["C4","C3"],["D4","C3"],["E4","C3"],["F4","C3"],["G4","G2"],["F4","G2"],["E4","G2"],["D4","G2"],["E4","C3"],["F4","C3"],["G4","C3"],["A4","C3"],["G4","G2"],["F4","G2"],["E4","G2"],["C4","C3"]]
+      durations: ["quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","half","half"]
+      tempo: 60
+    followup_cleffy: >
+      Beat survived. That's the win.
+
+  - id: 12
+    mode: see
+    type: honest_talk
+    figure: "Cleffy sitting down, elbows on knees."
+    cleffy: >
+      Real talk.
+      Stopping to fix a wrong note is a comfort habit.
+      It feels safer. It isn't. It trains you to break.
+
+  - id: 13
+    mode: play
+    type: one_take
+    figure: "12 bars. No retry button visible. Banner: ONE TAKE."
+    cleffy: >
+      One take. Whatever happens, happens.
+      Keep the pulse. Eyes ahead. Recover on the fly.
+    interaction:
+      type: rhythm
+      sequence: ["C4","E4","G4","C5","G4","E4","C4","E4","D4","F4","A4","D5","A4","F4","D4","F4","E4","G4","C5","E5","C5","G4","E4","C4"]
+      durations: ["quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","half","half"]
+      tempo: 55
+
+  - id: 14
+    mode: hear
+    type: pre_check
+    figure: "Banner."
+    cleffy: >
+      Three quick ones.
+
+  - id: 15
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 93. A wobbly line that keeps going."
+    cleffy: >
+      Trips are part of reading.
+      Keep the beat. That's the whole art of recovery.
+      Tomorrow — rhythm by itself.
+
+practice_this_week:
+  real_piano:
+    - "Pick any piece you haven't fully learned. Play it through ONCE with a metronome. No stopping."
+    - "Every time you catch yourself wanting to restart a bar — don't. Keep going."
+  virtual_only:
+    - "Replay pages 7, 9, 13"
+  estimated_time: "10 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "Staff with a missed note — arrow to next downbeat."
+          prompt: "What's the best recovery move?"
+          options: ["Stop and replay the bar", "Land on the next downbeat", "Start the piece over"]
+          correct: 1
+        - figure: "Two recordings shown as waveforms. One with a long silence mid-piece. One steady."
+          prompt: "Which is better recovery?"
+          options: ["The one that stops", "The steady one"]
+          correct: 1
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "A performance with one wrong note but steady beat"
+          prompt: "Did the beat survive?"
+          options: ["Yes", "No"]
+          correct: 0
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play 8 bars with a metronome. If you miss a note, don't stop. Keep the beat."
+          accept: "8 bars played without stopping, beat held"
+
+remediation:
+  id: "93.5"
+  title: "Just the beat"
+  pages: 6
+  opening_cleffy: >
+    The stopping habit is deep. Let's isolate it.
+    Metronome on. Slower tempo. One rule — don't stop, even once.
+
+completion:
+  cleffy: >
+    Graceful recovery. Muscle learned.
+    Tomorrow — just rhythm, no notes.
+  xp: 18
+  unlocks: 94

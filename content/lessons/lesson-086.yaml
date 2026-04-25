@@ -1,0 +1,200 @@
+# ============================================================
+# LESSON 86 · Triads
+# Tier 3 · Act 18 · Low-Intermediate
+# Three notes stacked: root, third, fifth.
+# ============================================================
+id: 86
+tier: low-intermediate
+act: 18
+title: "Triads"
+subtitle: "Act 18 · Chords"
+goal: "See and play a triad — three notes stacked as root, third, fifth."
+prereqs: [75, 85]
+method_focus: "see"
+time_estimate_min: 13
+piece_context: "Single notes made melodies. Three notes at once makes harmony. Act 18 opens with the basic building block of chords — the triad."
+metaphor: "stacked-notes"
+vibe: ["gentle", "focused"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Staff with three notes stacked on top of each other — C, E, G. Label: ONE SOUND, THREE NOTES."
+    cleffy: >
+      New thing today.
+      Three notes. Played at the same time.
+      That's a chord. The simplest kind is a triad.
+
+  - id: 2
+    mode: see
+    type: concept
+    figure: "Staff showing C on line, E on line, G on line. All three notes drawn as one tower. Labels: ROOT, THIRD, FIFTH."
+    cleffy: >
+      A triad is three notes stacked.
+      The bottom note is the root. The middle is a third above it. The top is a fifth above.
+      Root, third, fifth. Always.
+
+  - id: 3
+    mode: see
+    type: line_line_line
+    figure: "Keyboard showing C-E-G highlighted. Three white keys, each skipping one. Label: LINE, SKIP, LINE, SKIP, LINE."
+    cleffy: >
+      On the staff, a triad sits on three lines in a row. Or three spaces in a row.
+      Line-line-line. Space-space-space.
+      On the keyboard — skip a note, skip a note.
+
+  - id: 4
+    mode: hear
+    type: hear_chord
+    figure: "Play button. C-E-G chord pictured on the staff."
+    audio:
+      A: "C major triad played as one block"
+    cleffy: >
+      Listen. Three notes, one sound.
+      C, E, G together. That's a C triad.
+
+  - id: 5
+    mode: play
+    type: play_c_triad
+    figure: "Keyboard. C4, E4, G4 glowing. RH fingers 1, 3, 5."
+    cleffy: >
+      Play C, E, G at the same time. Thumb, middle, pinky.
+      Press all three down together.
+    interaction:
+      type: sequence
+      keys: [["C4","E4","G4"]]
+    followup_cleffy: >
+      That's your first chord.
+
+  - id: 6
+    mode: see
+    type: named_for_root
+    figure: "Staff with C-E-G. Label: C TRIAD. Arrow points to the root C."
+    cleffy: >
+      A triad is named after its root.
+      C on the bottom — C triad. G on the bottom — G triad.
+      The root is the name.
+
+  - id: 7
+    mode: see
+    type: g_triad
+    figure: "Staff showing G-B-D stacked. Keyboard below shows G4, B4, D5 highlighted."
+    cleffy: >
+      G triad. Root G. Skip up to B. Skip up to D.
+      G, B, D. Line-line-line.
+
+  - id: 8
+    mode: play
+    type: play_g_triad
+    figure: "Keyboard. G4, B4, D5 glowing."
+    cleffy: >
+      Play G, B, D together. Same hand shape as C — just moved up.
+    interaction:
+      type: sequence
+      keys: [["G4","B4","D5"]]
+
+  - id: 9
+    mode: see
+    type: d_triad
+    figure: "Staff showing D-F#-A. F# labeled as black key. Label: D TRIAD."
+    cleffy: >
+      D triad. Root D. Third up is F-sharp. Fifth up is A.
+      The F has a sharp. Black key between F and G.
+
+  - id: 10
+    mode: play
+    type: play_d_triad
+    figure: "Keyboard. D4, F#4, A4 glowing. F# shown as a black key."
+    cleffy: >
+      Play D, F-sharp, A. Thumb on D, middle on the black key, pinky on A.
+    interaction:
+      type: sequence
+      keys: [["D4","F#4","A4"]]
+
+  - id: 11
+    mode: play
+    type: three_triads
+    figure: "Keyboard. C triad, then G triad, then D triad — played in sequence."
+    cleffy: >
+      All three, one after the other.
+      C triad. G triad. D triad.
+      Same shape, three homes.
+    interaction:
+      type: sequence
+      keys: [["C4","E4","G4"],["G4","B4","D5"],["D4","F#4","A4"]]
+
+  - id: 12
+    mode: see
+    type: triad_on_staff
+    figure: "Three triads drawn side by side on the treble staff: C-E-G, G-B-D, D-F#-A."
+    cleffy: >
+      On the staff, triads look like snowmen. Three notes stacked.
+      Read the bottom note to name the chord.
+
+  - id: 13
+    mode: hear
+    type: pre_check
+    figure: "Banner."
+    cleffy: >
+      Three quick ones.
+
+  - id: 14
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 86. Three snowman-chords drawn on a staff."
+    cleffy: >
+      Triads. Root, third, fifth.
+      Tomorrow — same shape, but two flavors. Bright and sad.
+
+practice_this_week:
+  real_piano:
+    - "Play C-E-G, G-B-D, D-F#-A every morning. Same hand shape, different starting notes."
+    - "Find the triad on any white-key root. Skip a note, skip a note. That's a triad."
+  virtual_only:
+    - "Replay pages 5, 8, 10 until the shape feels automatic."
+  estimated_time: "5 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "Staff with C-E-G stacked."
+          prompt: "What's the root of this triad?"
+          options: ["C", "E", "G"]
+          correct: 0
+        - figure: "Staff with G-B-D stacked."
+          prompt: "What do we call three notes stacked like this?"
+          options: ["Triad", "Scale", "Leap"]
+          correct: 0
+        - figure: "Keyboard with three white keys highlighted: D, F, A."
+          prompt: "Are these three notes all on lines (or all on spaces) when written on a staff?"
+          options: ["Yes — skip a note, skip a note", "No — they're next to each other"]
+          correct: 0
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "C major triad played as a block"
+          prompt: "How many notes sounded at once?"
+          options: ["One", "Two", "Three"]
+          correct: 2
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play a C triad with your right hand — C, E, G together."
+          accept: "C4, E4, G4 sounded simultaneously"
+
+remediation:
+  id: "86.5"
+  title: "Triads, one at a time"
+  pages: 7
+  opening_cleffy: >
+    Three notes at once is a jump. Let's build a triad note by note — root, add a third, add a fifth.
+
+completion:
+  cleffy: >
+    First chord is yours.
+    Tomorrow — major vs minor.
+  xp: 18
+  unlocks: 87

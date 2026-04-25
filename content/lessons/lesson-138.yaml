@@ -1,0 +1,231 @@
+# ============================================================
+# LESSON 138 · Cut time
+# Tier 4 · Act 28 · Intermediate
+# 2/2 — the half note gets the beat, everything moves faster.
+# ============================================================
+id: 138
+tier: intermediate
+act: 28
+title: "Cut time"
+subtitle: "Act 28 · Time signatures & meters"
+goal: "Read cut time (2/2) — the half note as beat — and feel why music labeled this way moves in two, not four."
+prereqs: [137, 136]
+method_focus: "rhythm"
+time_estimate_min: 13
+piece_context: "Two meters down this act. Now a third — cut time. The 'C' with a line through it. 2/2. The half note gets the beat. Same notes as 4/4 on the page, but counted in two big pulses instead of four small ones. Marches, fast classical pieces, fiddle tunes — they live here."
+metaphor: "rolling-meter"
+vibe: ["focused", "playful"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "A big C-with-a-slash (the cut time symbol) floating next to a staff. Cleffy holding scissors up to a 4/4 time signature."
+    cleffy: >
+      Cut time.
+      The symbol — a C with a line through it. Sometimes written 2/2.
+      Same notes as 4/4, counted in half. Watch.
+
+  - id: 2
+    mode: see
+    type: two_over_two
+    figure: "Staff with 2/2 time signature. Callouts: '2 = two beats per bar'. '2 = the half note gets the beat'."
+    cleffy: >
+      Top number — two. Two beats per bar.
+      Bottom number — two. The half note gets the beat.
+      Not the quarter. The half.
+
+  - id: 3
+    mode: see
+    type: cut_time_symbol
+    figure: "Side by side. Left: the C-with-a-slash. Right: 2/2. Label: 'same thing'."
+    cleffy: >
+      Two ways to write it.
+      A C with a slash — the old symbol.
+      Or 2/2 — the modern way.
+      Same meter either way.
+
+  - id: 4
+    mode: see
+    type: four_four_vs_cut
+    figure: "Two bars. Top — 4/4 with four quarter notes, counted 1-2-3-4. Bottom — 2/2 with the same four quarter notes, counted 1-and-2-and."
+    cleffy: >
+      Here's the shift.
+      4/4 — four quarters, four beats. ONE-two-three-four.
+      2/2 — four quarters, two beats. ONE-and, TWO-and.
+      Same notes. Half the counts. Everything feels faster.
+
+  - id: 5
+    mode: hear
+    type: hear_cut
+    figure: "Play button. Label: CUT TIME — two big beats."
+    audio:
+      A: "Four quarter notes in cut time at a brisk tempo — felt as ONE-and TWO-and"
+    cleffy: >
+      Listen. Two big pulses.
+      Not four little ones. Two.
+
+  - id: 6
+    mode: hear
+    type: same_phrase_two_ways
+    figure: "Two play buttons. A = phrase in 4/4. B = same phrase in cut time."
+    audio:
+      A: "A simple march phrase felt as 4/4 — four counts per bar"
+      B: "Same phrase felt as cut time — two counts per bar, faster pulse"
+    cleffy: >
+      A — four beats per bar. Comfortable.
+      B — same notes, two beats per bar. Brisker. More drive.
+
+  - id: 7
+    mode: see
+    type: why_use_it
+    figure: "Three examples: a military march, a fast classical allegro, a fiddle tune. All labeled 'cut time'."
+    cleffy: >
+      When do you see cut time?
+      Marches. Fast classical. Fiddle tunes.
+      Anytime the music moves too fast to count four beats a bar.
+
+  - id: 8
+    mode: play
+    type: play_in_cut
+    figure: "Staff with cut time signature. Melody: C5, C5, G4, G4 — four quarter notes, one bar."
+    cleffy: >
+      Four quarters. One bar of cut time.
+      Count in two — ONE-and, TWO-and. Play brisk.
+    interaction:
+      type: rhythm
+      sequence: ["C5","C5","G4","G4"]
+      durations: ["quarter","quarter","quarter","quarter"]
+      tempo: 120
+
+  - id: 9
+    mode: see
+    type: halves_are_the_beat
+    figure: "One bar of cut time with two half notes. Labeled 'ONE' and 'TWO' under each."
+    cleffy: >
+      Now the half note is king.
+      Two halves — one per beat.
+      The simplest bar of cut time.
+
+  - id: 10
+    mode: play
+    type: play_halves
+    figure: "Staff in cut time. Two half notes: C5, G4."
+    cleffy: >
+      Two halves. One beat each. Brisk tempo.
+    interaction:
+      type: rhythm
+      sequence: ["C5","G4"]
+      durations: ["half","half"]
+      tempo: 120
+
+  - id: 11
+    mode: play
+    type: march_pattern
+    figure: "Two bars of cut time. Bar 1: four quarters (C5 E5 G5 E5). Bar 2: two halves (C5 G4)."
+    cleffy: >
+      March pattern. Two bars.
+      Quick steps, then long steps.
+      Feel the two big beats ticking underneath.
+    interaction:
+      type: rhythm
+      sequence: ["C5","E5","G5","E5","C5","G4"]
+      durations: ["quarter","quarter","quarter","quarter","half","half"]
+      tempo: 120
+
+  - id: 12
+    mode: play
+    type: with_eighths
+    figure: "Cut time bar: quarter, two eighths, quarter, quarter. Notes: C5, D5, E5, F5, E5."
+    cleffy: >
+      Eighths inside cut time fly by.
+      Each eighth is half a beat-and-a-half — barely a blink.
+      Just play clean.
+    interaction:
+      type: rhythm
+      sequence: ["C5","D5","E5","F5","E5"]
+      durations: ["quarter","eighth","eighth","quarter","quarter"]
+      tempo: 120
+
+  - id: 13
+    mode: play
+    type: full_phrase
+    figure: "Two bars in cut time with a simple melodic phrase. Guides on."
+    cleffy: >
+      Full phrase. With guides.
+      Brisk — but keep the two big pulses steady.
+    interaction:
+      type: song
+      sequence: ["C5","E5","G5","E5","C5","D5","E5","C5"]
+      guides: true
+      tempo: 120
+    followup_cleffy: >
+      Cut time. Half notes drive. Everything moves.
+
+  - id: 14
+    mode: hear
+    type: pre_check
+    figure: "Banner."
+    cleffy: >
+      Three quick ones.
+
+  - id: 15
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 138. A C-with-slash next to 2/2 next to a marching Cleffy."
+    cleffy: >
+      Cut time. Half = beat. Two pulses per bar.
+      Tomorrow — sixteenths at speed.
+
+practice_this_week:
+  real_piano:
+    - "Play four quarter notes on Middle C. Count them once as 4/4 (four beats), then as cut time (two beats). Feel the shift."
+    - "Find any march — online, from memory, anything. Listen and count in two, not four."
+  virtual_only:
+    - "Replay pages 8, 11, and 13"
+  estimated_time: "10 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "A C with a vertical line through it at the start of a staff"
+          prompt: "What meter is this?"
+          options: ["4/4", "3/4", "Cut time (2/2)"]
+          correct: 2
+        - figure: "A 2/2 time signature"
+          prompt: "Which note gets the beat?"
+          options: ["Quarter note", "Half note", "Eighth note"]
+          correct: 1
+        - figure: "A bar of cut time with four quarter notes"
+          prompt: "How many big beats does this bar have?"
+          options: ["Two", "Four", "Eight"]
+          correct: 0
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "A phrase in cut time at brisk tempo"
+          prompt: "How many big pulses per bar?"
+          options: ["Two", "Four"]
+          correct: 0
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play two half notes in cut time at 120 bpm — one beat each."
+          accept: "C5 G4 as half notes at 120 bpm"
+
+remediation:
+  id: "138.5"
+  title: "Cut time, eased in"
+  pages: 7
+  opening_cleffy: >
+    Cut time reframes what a beat is. That's a real shift.
+    We'll start at half speed, count in two, then bring the tempo up.
+
+completion:
+  cleffy: >
+    Cut time — half note drives the pulse. Two big beats.
+    Tomorrow — sixteenths at speed.
+  xp: 17
+  unlocks: 139

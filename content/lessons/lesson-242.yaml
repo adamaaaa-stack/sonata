@@ -1,0 +1,243 @@
+# ============================================================
+# LESSON 242 · Pedal in Moonlight, refined
+# Tier 6 · Act 49 · Advanced · Moonlight, complete
+# Re-calibrate pedal for long phrases. Flutter technique
+# applied to the long harmonic stretches of the B section.
+# ============================================================
+id: 242
+tier: advanced
+act: 49
+title: "Pedal in Moonlight, refined"
+subtitle: "Act 49 · Moonlight, complete"
+goal: "Re-calibrate the pedal for Moonlight's long phrases — flutter and half-pedal where full release would break the spell."
+prereqs: [241, 201, 202]
+method_focus: "play"
+time_estimate_min: 17
+piece_context: "Act 49. You have nineteen new bars of Moonlight in your hands. Time to go back to the pedal. A basic one-per-bar change worked for the opening. The middle section asks for more. Some phrases need to ring longer than one bar without turning to mud. That's where half-pedal and flutter come in — techniques you drilled at lessons 201 and 202. Today they land in a specific piece."
+metaphor: "returning-home"
+vibe: ["focused", "quiet", "serious"]
+piece:
+  title: "Moonlight Sonata, 1st mvt — pedal application"
+  composer: "Beethoven (1801)"
+  key_center: "C-sharp minor"
+  time_signature: "alla breve"
+  difficulty: "advanced — pedal technique applied to long phrases"
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy sitting at the piano, foot resting on the sustain pedal. Caption: 'the foot matters.'"
+    cleffy: >
+      The foot matters.
+      You learned pedal basics forever ago. One pedal change per bar. Clean.
+      Today — the part nobody tells you. Some phrases need more than that.
+
+  - id: 2
+    mode: see
+    type: the_problem
+    figure: "Two score excerpts side by side. Left: full-pedal-change at every bar — labeled 'works for bars 1-23.' Right: bars 28-32 with a long melodic line — labeled 'gets choppy if you do the same thing.'"
+    cleffy: >
+      The problem.
+      For the opening — one pedal change per bar, clean, works fine.
+      For the long melodic line in bars 28-32 — full releases chop the melody into pieces.
+      You need a way to clear the bass without killing the top.
+
+  - id: 3
+    mode: see
+    type: three_tools
+    figure: "Three boxes. Box 1 — FULL CHANGE (in-out, clean). Box 2 — HALF PEDAL (partial lift, dampers skim the strings). Box 3 — FLUTTER (fast partial releases)."
+    cleffy: >
+      Three tools. You've met all three — lessons 201 and 202.
+      Full change — the usual one, for simple harmonies.
+      Half pedal — partial lift. Dampers touch but don't stop.
+      Flutter — fast partial releases. Clears mud without breaking the line.
+
+  - id: 4
+    mode: hear
+    type: listen_difference
+    figure: "Two play buttons. A: bars 28-32 with full pedal changes per bar. B: bars 28-32 with half-pedal flutter."
+    audio:
+      A: "Moonlight bars 28-32, played with full pedal changes each bar — melody gets chopped"
+      B: "Moonlight bars 28-32, played with half-pedal flutter technique — long melodic line survives"
+    cleffy: >
+      Listen. Same bars. Two pedal strategies.
+      A — full changes. Hear the choppy gaps in the melody?
+      B — flutter. The line stays whole. Bass still clears.
+
+  - id: 5
+    mode: see
+    type: half_pedal_refresher
+    figure: "Diagram of the pedal mechanism. Foot halfway down. Dampers touching strings but not pressing hard. Caption: 'pedal at 40%.'"
+    cleffy: >
+      Half pedal, refresher.
+      Your foot goes only partway down — about forty percent.
+      Dampers skim the strings. High notes die fast. Low notes linger.
+      That's what you want for Moonlight's bass — deep, slow fade.
+
+  - id: 6
+    mode: play
+    type: half_pedal_practice
+    figure: "Keyboard. Single low C#2. Play. Hold half-pedal. Play C#3 on top. Listen for the fade pattern."
+    cleffy: >
+      Try it. Low C-sharp. Press half-pedal.
+      Then add C-sharp up an octave. Listen — the low one fades slow, the higher one fades faster.
+    interaction:
+      type: sequence
+      keys: ["C#2","C#3"]
+
+  - id: 7
+    mode: see
+    type: flutter_refresher
+    figure: "Foot motion diagram — small bounces at the ankle. Caption: 'small, fast partial releases. Not stomps.'"
+    cleffy: >
+      Flutter, refresher.
+      Not big stomps. Small bounces at the ankle.
+      Two, three, four partial releases per bar — clears the mud without breaking the line.
+
+  - id: 8
+    mode: play
+    type: flutter_over_engine
+    figure: "Bars 28-32 engine. Metronome 44. Foot markings — small flutter bounces on beats 2 and 4 of each bar."
+    cleffy: >
+      Engine only. Bars 28 through 32.
+      Flutter the pedal on beats 2 and 4. Small bounces. Keep the triplets running.
+    interaction:
+      type: song
+      sequence: [["E2","G#2"],"E3","G#3","B3","E3","G#3","B3","E3","G#3","B3","E3","G#3","B3",["G#2","B2"],"G#3","B3","E4","G#3","B3","E4","G#3","B3","E4","G#3","B3","E4",["F#2","A2"],"F#3","A3","C#4","F#3","A3","C#4","F#3","A3","C#4","F#3","A3","C#4",["B2","D#3"],"F#3","A3","B3","F#3","A3","B3","F#3","A3","B3","F#3","A3","B3",["E2","G#2"],"E3","G#3","B3","E3","G#3","B3","E3","G#3","B3","E3","G#3","B3"]
+      guides: true
+      tempo: 44
+
+  - id: 9
+    mode: see
+    type: pedal_map_bars_1_23
+    figure: "Bars 1-23 with pedal markings — full change at each bar line. Bars 5-8 melody entry marked with small flutter hints."
+    cleffy: >
+      Bars 1 through 23. Your pedal map.
+      Full change at every bar — that's the opening.
+      Once the melody enters at bar 5 — small flutter between bars to keep the line alive.
+
+  - id: 10
+    mode: see
+    type: pedal_map_bars_24_42
+    figure: "Bars 24-42 with refined pedal markings — half pedal on long-phrase bars, full change on cadence bars, flutter marked across bars 28-32 and 36-40."
+    cleffy: >
+      Bars 24 through 42. More varied.
+      Bars where harmony holds — half pedal, let the bass ring.
+      Bars with long melodic line — flutter, keep the top clean.
+      Bars where key changes — full clean pedal change.
+
+  - id: 11
+    mode: play
+    type: bars_5_8_with_refined_pedal
+    figure: "Bars 5-8 with melody. Pedal markings — full change per bar PLUS small flutter to protect the melody line. Tempo 46."
+    cleffy: >
+      Back to bars 5-8. Where the melody first enters.
+      Full pedal change at each bar. Tiny flutter between.
+      Listen for the melody surviving intact.
+    interaction:
+      type: song
+      sequence: [["A2","A3","G#4"],"A3","C#4","E4","A3","C#4","G#4","A3","C#4","A4",["F#2","F#3","A4"],"F#3","A3","C#4","F#3","A3","A4","F#3","A3","G#4",["G#2","G#3","G#4"],"G#3","B#3","D#4","G#3","B#3","F#4","G#3","B#3","E4",["C#2","C#3","E4"],"C#3","E3","G#3","C#3","E3","G#3","C#3","E3","G#3"]
+      guides: true
+      tempo: 46
+
+  - id: 12
+    mode: play
+    type: bars_28_32_with_flutter
+    figure: "Bars 28-32. Melody + engine + LH. Pedal: flutter pattern marked underneath. Tempo 44."
+    cleffy: >
+      Bars 28 through 32. The long melodic line.
+      Flutter the pedal — two or three small bounces per bar.
+      Keep the melody continuous.
+    interaction:
+      type: song
+      sequence: [["E2","G#2","B4"],"E3","G#3","B3","E3","G#3","B3","E3","G#3","B3","E3","G#3","B3",["G#2","B2","A4"],"G#3","B3","E4","G#3","B3","E4","G#3","B3","E4","G#3","B3","E4",["F#2","A2","G#4"],"F#3","A3","C#4","F#3","A3","C#4","F#3","A3","C#4","F#3","A3","C#4",["B2","D#3","F#4"],"F#3","A3","B3","F#3","A3","B3","F#3","A3","B3","F#3","A3","B3"]
+      guides: true
+      tempo: 44
+
+  - id: 13
+    mode: play
+    type: long_run_20_32
+    figure: "Bars 20-32. The transition from opening into middle. Refined pedal throughout. Tempo 42. Guides on."
+    cleffy: >
+      Twelve bars. From the end of the opening into the middle.
+      Pedal shifts with the music. Full changes into cadences. Flutter over long lines.
+      Let it breathe.
+    interaction:
+      type: song
+      sequence: [["B1","B2","F#4"],"B3","D#4","F#4","B3","D#4","F#4","B3","D#4","F#4","B3","D#4","F#4",["E2","G#2","G#4"],"E3","G#3","B3","E3","G#3","B3","E3","G#3","B3","E3","G#3","B3",["A2","C#3","A4"],"A3","C#4","E4","A3","C#4","E4","A3","C#4","E4","A3","C#4","E4",["C#2","E2","G#3"],"E3","G#3","C#4","E3","G#3","C#4","E3","G#3","C#4","E3","G#3","C#4",["C#2","E2"],"G#3","C#4","E4","G#3","C#4","E4","G#3","C#4","E4","G#3","C#4","E4",["G#2","B2"],"G#3","B3","E4","G#3","B3","E4","G#3","B3","E4","G#3","B3","E4",["E2","G#2","B4"],"E3","G#3","B3","E3","G#3","B3","E3","G#3","B3","E3","G#3","B3",["G#2","B2","A4"],"G#3","B3","E4","G#3","B3","E4","G#3","B3","E4","G#3","B3","E4",["F#2","A2","G#4"],"F#3","A3","C#4","F#3","A3","C#4","F#3","A3","C#4","F#3","A3","C#4"]
+      guides: true
+      tempo: 42
+    followup_cleffy: >
+      Twelve bars. Pedal breathing with the music.
+      This is the pedal Beethoven asked for — senza sordino, refined.
+
+  - id: 14
+    mode: hear
+    type: pre_check
+    figure: "Banner — pedal mastery check."
+    cleffy: >
+      Three quick ones.
+
+  - id: 15
+    mode: see
+    type: wrap
+    figure: "Postcard — three pedal icons: full change, half pedal, flutter. All three lit. Caption: 'the foot speaks too.'"
+    cleffy: >
+      Three pedal tools. All three — in your Moonlight.
+      Tomorrow — the main theme returns. Bars 43 through 60. The feeling of coming home.
+
+practice_this_week:
+  real_piano:
+    - "Play bars 28-32 with flutter pedal, five times a day. Small bounces. Don't stomp."
+    - "Try bars 1-4 with half pedal instead of full change. Listen — which sounds more like Beethoven?"
+    - "Find a favorite recording of Moonlight. Listen for the pianist's pedal work. You'll hear it now."
+  virtual_only:
+    - "Replay pages 8, 11, 12, and 13."
+  estimated_time: "15 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "Three labeled pedal techniques: full change, half pedal, flutter"
+          prompt: "Which pedal technique keeps a melodic line whole while clearing the bass?"
+          options: ["Full change every bar", "Flutter — small partial releases", "No pedal at all"]
+          correct: 1
+        - figure: "Score excerpt with long melodic line in bars 28-32"
+          prompt: "Why does full-pedal-change-per-bar not work here?"
+          options: ["It's too loud", "It chops the long melody into pieces", "It's too quiet"]
+          correct: 1
+        - figure: "Pedal markings across bars 1-23 vs 24-42"
+          prompt: "How does the pedal change across these sections?"
+          options: ["Same throughout", "Opening uses simple full changes; middle uses flutter and half-pedal", "No pedal in the middle"]
+          correct: 1
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "Two versions of bars 28-32 — one with chopped full changes, one with flutter"
+          prompt: "Which keeps the melody continuous?"
+          options: ["The full-change version", "The flutter version"]
+          correct: 1
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play bars 28-32 of Moonlight with flutter pedal at 44 bpm — long melodic line intact."
+          accept: "Bars 28-32 with melody on top, pedal fluttered to keep line whole"
+
+remediation:
+  id: "242.5"
+  title: "Pedal, one tool at a time"
+  pages: 7
+  opening_cleffy: >
+    Pedal is physical. You have to feel it, not read it.
+    We'll go slower — one technique at a time. Half pedal. Then flutter. Then how they mix.
+    Your foot will figure it out.
+
+completion:
+  cleffy: >
+    Pedal, refined. Not on/off. Not one-per-bar. Breathing with the music.
+    Tomorrow — bars 43 through 60. The main theme returns.
+  xp: 18
+  unlocks: 243

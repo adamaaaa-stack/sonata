@@ -1,0 +1,238 @@
+# ============================================================
+# LESSON 148 · Alberti bass
+# Tier 4 · Act 30 · Intermediate · Pattern recognition + accompaniment
+# The classical left-hand rolling pattern: bass-top-middle-top.
+# ============================================================
+id: 148
+tier: intermediate
+act: 30
+title: "Alberti bass"
+subtitle: "Act 30 · Accompaniment patterns"
+goal: "Play the Alberti pattern — bass, top, middle, top — in the left hand, under a still right hand."
+prereqs: [147, 99]
+method_focus: "play"
+time_estimate_min: 14
+piece_context: "Mozart wrote pages of it. Haydn, Clementi, every classical sonata has some. The Alberti bass is a specific rolling pattern — not root-third-fifth-third, but lowest-highest-middle-highest. Once your hand knows it, entire pieces unlock."
+metaphor: "hand-patterns"
+vibe: ["gentle", "focused"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy at a small grand piano. LH glowing with a repeating rolling motion. Banner: ALBERTI BASS."
+    cleffy: >
+      Mozart. Haydn. Early Beethoven.
+      They all used the same left-hand pattern.
+      Alberti bass. Named after the guy who wrote a lot of it.
+
+  - id: 2
+    mode: see
+    type: concept
+    figure: "Staff. LH playing the I chord as four quarters: C E G E. Next to it — C3, G3, E3, G3 (Alberti order)."
+    cleffy: >
+      Broken chord, you know. Root-third-fifth-third. C E G E.
+      Alberti is different. Bass, top, middle, top.
+      C, G, E, G.
+
+  - id: 3
+    mode: see
+    type: pattern_map
+    figure: "LH staff. Arrows labeled: 1 — lowest (bass). 2 — highest (top). 3 — middle. 4 — highest (top). Repeated."
+    cleffy: >
+      The hand move — down, up, middle, up.
+      Pinky, thumb, middle, thumb.
+      Four beats. Four fingers. One shape.
+
+  - id: 4
+    mode: hear
+    type: hear_alberti
+    figure: "Play button. Label: Alberti bass, I chord, two bars."
+    audio:
+      A: "Alberti bass pattern on C major — C3 G3 E3 G3, repeating for two bars"
+    cleffy: >
+      Listen. That rolling, rocking feel.
+      Every classical pianist knows this sound.
+      It's the engine under thousands of tunes.
+
+  - id: 5
+    mode: play
+    type: play_alberti_slow
+    figure: "Keyboard, LH. C3 G3 E3 G3 highlighted in order. Finger numbers: 5, 1, 3, 1."
+    cleffy: >
+      LH alone. Slow. C, G, E, G.
+      Pinky, thumb, middle, thumb.
+    interaction:
+      type: rhythm
+      sequence: ["C3","G3","E3","G3"]
+      durations: ["quarter","quarter","quarter","quarter"]
+      tempo: 60
+
+  - id: 6
+    mode: play
+    type: alberti_two_bars
+    figure: "LH staff. Alberti on I, two full bars. Tempo 65."
+    cleffy: >
+      Two bars. Same pattern both times.
+      Let the hand find the groove.
+    interaction:
+      type: rhythm
+      sequence: ["C3","G3","E3","G3","C3","G3","E3","G3"]
+      durations: ["quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter"]
+      tempo: 65
+
+  - id: 7
+    mode: play
+    type: alberti_on_IV
+    figure: "Keyboard, LH. F3 C4 A3 C4. Finger numbers: 5, 1, 3, 1."
+    cleffy: >
+      Now on IV. Same pattern, new chord.
+      F, C, A, C. Bass, top, middle, top.
+    interaction:
+      type: rhythm
+      sequence: ["F3","C4","A3","C4"]
+      durations: ["quarter","quarter","quarter","quarter"]
+      tempo: 60
+
+  - id: 8
+    mode: play
+    type: alberti_on_V
+    figure: "Keyboard, LH. G3 D4 B3 D4."
+    cleffy: >
+      V. G, D, B, D.
+    interaction:
+      type: rhythm
+      sequence: ["G3","D4","B3","D4"]
+      durations: ["quarter","quarter","quarter","quarter"]
+      tempo: 60
+
+  - id: 9
+    mode: play
+    type: full_chord_loop
+    figure: "LH staff. Four bars — I, IV, V, I. Each an Alberti pattern. Tempo 65."
+    cleffy: >
+      All four bars. I, IV, V, I. LH only. Alberti every bar.
+      New chord on every beat 1.
+    interaction:
+      type: rhythm
+      sequence: ["C3","G3","E3","G3","F3","C4","A3","C4","G3","D4","B3","D4","C3","G3","E3","G3"]
+      durations: ["quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter"]
+      tempo: 65
+
+  - id: 10
+    mode: see
+    type: add_rh
+    figure: "Grand staff. RH: whole note C. LH: one bar of Alberti on I."
+    cleffy: >
+      Add the right hand.
+      RH holds one long note. LH keeps rolling underneath.
+      Two hands doing completely different things.
+
+  - id: 11
+    mode: play
+    type: rh_hold_lh_alberti
+    figure: "Grand staff. RH whole C5. LH Alberti on I. Tempo 60."
+    cleffy: >
+      RH presses C and holds.
+      LH rolls. C, G, E, G.
+    interaction:
+      type: song
+      sequence: [["C5","C3"],"G3","E3","G3"]
+      guides: true
+      tempo: 60
+
+  - id: 12
+    mode: play
+    type: simple_melody_alberti
+    figure: "Grand staff. RH: C D E C across one bar. LH: Alberti I. Two bars total."
+    cleffy: >
+      RH gets a tiny melody. C, D, E, C.
+      LH keeps rolling. Don't let it stop.
+    interaction:
+      type: song
+      sequence: [["C5","C3"],["D5","G3"],["E5","E3"],["C5","G3"]]
+      guides: true
+      tempo: 55
+    followup_cleffy: >
+      That sound. That's Mozart's left hand. Three hundred years of it.
+
+  - id: 13
+    mode: play
+    type: two_bars_no_guides
+    figure: "Same two-bar phrase. Guides off."
+    cleffy: >
+      Same bar. No highlights.
+      Trust the pattern.
+    interaction:
+      type: song
+      sequence: [["C5","C3"],["D5","G3"],["E5","E3"],["C5","G3"]]
+      guides: false
+      tempo: 55
+
+  - id: 14
+    mode: hear
+    type: pre_check
+    figure: "Banner."
+    cleffy: >
+      Three quick ones.
+
+  - id: 15
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 148. Four arrows showing the Alberti shape: down, up, middle, up."
+    cleffy: >
+      Alberti in your left hand. Bass, top, middle, top.
+      Tomorrow — a different pattern. Three beats. Oom-pah-pah.
+
+practice_this_week:
+  real_piano:
+    - "LH Alberti on I, IV, V, I. Slow. Every day. Let the pattern become automatic."
+    - "Pick any melody you know in C. Play it RH while LH rolls Alberti underneath. Twinkle works."
+  virtual_only:
+    - "Replay pages 6, 9, and 12"
+  estimated_time: "10 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "LH staff with four quarter notes: C3 G3 E3 G3"
+          prompt: "What pattern is this?"
+          options: ["Broken chord (root-third-fifth-third)", "Alberti bass (bass-top-middle-top)", "Blocked chord"]
+          correct: 1
+        - figure: "LH staff with four quarter notes: F3 C4 A3 C4"
+          prompt: "Which chord is this Alberti pattern on?"
+          options: ["I (C major)", "IV (F major)", "V (G major)"]
+          correct: 1
+        - figure: "Two LH staves — one broken (C E G E), one Alberti (C G E G)"
+          prompt: "Which is Alberti?"
+          options: ["The first one", "The second one"]
+          correct: 1
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "Alberti bass rolling on C major — C3 G3 E3 G3"
+          prompt: "Is this Alberti bass?"
+          options: ["Yes", "No"]
+          correct: 0
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play one bar of Alberti bass on I — C, G, E, G — as four quarter notes."
+          accept: "C3 G3 E3 G3 in order"
+
+remediation:
+  id: "148.5"
+  title: "Alberti, one finger at a time"
+  pages: 8
+  opening_cleffy: >
+    Four-finger pattern is a lot to ask all at once.
+    We'll do pinky-thumb first. Then add middle. Then the full loop.
+
+completion:
+  cleffy: >
+    Alberti bass — a pattern your hand now owns.
+    Tomorrow — oom-pah-pah. The waltz.
+  xp: 18
+  unlocks: 149

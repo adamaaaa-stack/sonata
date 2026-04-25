@@ -1,0 +1,234 @@
+# ============================================================
+# LESSON 162 · Triplet shapes
+# Tier 4 · Act 33 · Intermediate · Triplets deeper
+# Rising, falling, rocking.
+# ============================================================
+id: 162
+tier: intermediate
+act: 33
+title: "Triplet shapes"
+subtitle: "Act 33 · Triplets deeper"
+goal: "Play triplets in three shapes — rising (C-E-G), falling (G-E-C), and rocking (C-E-C)."
+prereqs: [161]
+method_focus: "play"
+time_estimate_min: 13
+piece_context: "A triplet is a container. What notes go inside it? Three common shapes. Up. Down. Back-and-forth. Learn the shapes and you can spot a triplet at a glance, not count one note at a time."
+metaphor: "three-in-two"
+vibe: ["focused", "playful"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy with three arrows — one pointing up, one down, one curving. Banner: THREE SHAPES."
+    cleffy: >
+      Yesterday — triplets even.
+      Today — what the three notes actually do.
+      Three shapes. Three patterns. Almost every triplet is one of them.
+
+  - id: 2
+    mode: see
+    type: rising_shape
+    figure: "Staff. Triplet: C4 E4 G4. Arrow up. Label: RISING."
+    cleffy: >
+      Rising. C, E, G.
+      Skip, skip. Up the C chord.
+      The most famous shape — it's the Moonlight opening.
+
+  - id: 3
+    mode: see
+    type: falling_shape
+    figure: "Staff. Triplet: G4 E4 C4. Arrow down. Label: FALLING."
+    cleffy: >
+      Falling. G, E, C.
+      Same notes, reversed. Skip, skip, down.
+      The mirror of rising.
+
+  - id: 4
+    mode: see
+    type: rocking_shape
+    figure: "Staff. Triplet: C4 E4 C4. Curved arrow — up then back down. Label: ROCKING."
+    cleffy: >
+      Rocking. C, E, C.
+      Up, then back. Goes nowhere, feels like a pulse.
+      Common in folk tunes and slow accompaniments.
+
+  - id: 5
+    mode: hear
+    type: hear_three_shapes
+    figure: "Three play buttons. A: rising. B: falling. C: rocking. Each plays one bar of triplets."
+    audio:
+      A: "Four rising triplets C-E-G on C4 E4 G4 at 60 bpm"
+      B: "Four falling triplets G-E-C on G4 E4 C4 at 60 bpm"
+      C: "Four rocking triplets C-E-C on C4 E4 C4 at 60 bpm"
+    cleffy: >
+      Listen to each. Rising climbs. Falling drops. Rocking stays.
+      Same three notes — different order, different feel.
+
+  - id: 6
+    mode: play
+    type: play_rising
+    figure: "Keyboard. C4, E4, G4 highlighted. Metronome 55."
+    cleffy: >
+      Rising first. C, E, G.
+      Fingers 1, 3, 5 — thumb, middle, pinky.
+    interaction:
+      type: rhythm
+      sequence: ["C4","E4","G4","C4","E4","G4","C4","E4","G4","C4","E4","G4"]
+      durations: ["triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth"]
+      tempo: 55
+
+  - id: 7
+    mode: play
+    type: play_falling
+    figure: "Keyboard. G4, E4, C4 highlighted. Metronome 55."
+    cleffy: >
+      Falling. G, E, C.
+      Fingers 5, 3, 1 — pinky, middle, thumb.
+    interaction:
+      type: rhythm
+      sequence: ["G4","E4","C4","G4","E4","C4","G4","E4","C4","G4","E4","C4"]
+      durations: ["triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth"]
+      tempo: 55
+
+  - id: 8
+    mode: play
+    type: play_rocking
+    figure: "Keyboard. C4 and E4 only. Rocking motion. Metronome 55."
+    cleffy: >
+      Rocking. C, E, C.
+      Two fingers only — 1 and 3. Thumb comes back.
+    interaction:
+      type: rhythm
+      sequence: ["C4","E4","C4","C4","E4","C4","C4","E4","C4","C4","E4","C4"]
+      durations: ["triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth"]
+      tempo: 55
+
+  - id: 9
+    mode: see
+    type: spotting_shape
+    figure: "Three triplets on staff. Student has to label each one — rising, falling, or rocking."
+    cleffy: >
+      See the shape without counting each note.
+      Notes going up the page — rising. Going down — falling.
+      Up then back — rocking.
+
+  - id: 10
+    mode: hear
+    type: which_shape
+    figure: "Drill banner. Four rounds — each plays one triplet shape."
+    cleffy: >
+      Four rounds. Which shape do you hear?
+    interaction:
+      type: drill
+      rounds: 4
+      options: ["Rising", "Falling", "Rocking"]
+
+  - id: 11
+    mode: play
+    type: mix_rising_falling
+    figure: "Bar: rising, rising, falling, falling."
+    cleffy: >
+      Two rising, two falling.
+      Climb twice. Drop twice. Same notes.
+    interaction:
+      type: rhythm
+      sequence: ["C4","E4","G4","C4","E4","G4","G4","E4","C4","G4","E4","C4"]
+      durations: ["triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth"]
+      tempo: 55
+
+  - id: 12
+    mode: play
+    type: mix_all_three
+    figure: "Bar: rising, rocking, falling, rocking."
+    cleffy: >
+      All three shapes. Rising, rocking, falling, rocking.
+      Different shape each beat.
+    interaction:
+      type: rhythm
+      sequence: ["C4","E4","G4","C4","E4","C4","G4","E4","C4","C4","E4","C4"]
+      durations: ["triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth"]
+      tempo: 55
+    followup_cleffy: >
+      Three shapes, one bar. That's real triplet vocabulary now.
+
+  - id: 13
+    mode: play
+    type: rising_tempo_up
+    figure: "Rising triplets on C-E-G. Metronome 65."
+    cleffy: >
+      One more rising. A little faster — 65.
+      This is the shape you'll live inside for the next few lessons.
+    interaction:
+      type: rhythm
+      sequence: ["C4","E4","G4","C4","E4","G4","C4","E4","G4","C4","E4","G4"]
+      durations: ["triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth"]
+      tempo: 65
+
+  - id: 14
+    mode: hear
+    type: pre_check
+    figure: "Banner."
+    cleffy: >
+      Three quick ones.
+
+  - id: 15
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 162. Three arrows: up, down, curving. Banner: THREE SHAPES KNOWN."
+    cleffy: >
+      Rising, falling, rocking.
+      Tomorrow — the rising one gets a name. The three-note arpeggio.
+
+practice_this_week:
+  real_piano:
+    - "Play C-E-G rising triplets, four in a row, metronome 60. Fingers 1-3-5."
+    - "Try the same three shapes starting on G instead of C. G-B-D rising, D-B-G falling, G-B-G rocking."
+  virtual_only:
+    - "Replay pages 6, 11, 12"
+  estimated_time: "10 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "A triplet: C4 E4 G4"
+          prompt: "Which shape is this?"
+          options: ["Rising", "Falling", "Rocking"]
+          correct: 0
+        - figure: "A triplet: G4 E4 C4"
+          prompt: "Which shape is this?"
+          options: ["Rising", "Falling", "Rocking"]
+          correct: 1
+        - figure: "A triplet: C4 E4 C4"
+          prompt: "Which shape is this?"
+          options: ["Rising", "Falling", "Rocking"]
+          correct: 2
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "A rising triplet C-E-G"
+          prompt: "Rising, falling, or rocking?"
+          options: ["Rising", "Falling", "Rocking"]
+          correct: 0
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play a rising triplet: C4, E4, G4."
+          accept: "C4 E4 G4 as a triplet group"
+
+remediation:
+  id: "162.5"
+  title: "Shapes, one at a time"
+  pages: 7
+  opening_cleffy: >
+    Three shapes is a lot for one sitting.
+    We'll isolate each — four bars of rising, then four of falling, then rocking.
+
+completion:
+  cleffy: >
+    Three triplet shapes. You know them by sight and by sound.
+    Tomorrow — the rising one becomes the arpeggio.
+  xp: 17
+  unlocks: 163

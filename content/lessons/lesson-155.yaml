@@ -1,0 +1,265 @@
+# ============================================================
+# LESSON 155 · Für Elise (full)
+# Tier 4 · Act 31 · Intermediate · ACT BOSS 🎯
+# All three sections — A, B, and C. The full famous piece, simplified.
+# Student has known the A theme since Lesson 75.
+# ============================================================
+id: 155
+tier: intermediate
+act: 31
+title: "Für Elise (full)"
+subtitle: "Act 31 · Your first full Beethoven"
+goal: "Play the full A-B-A-C-A structure of Für Elise — the opening theme you've known for 80 lessons, plus the B and C sections that surround it."
+prereqs: [75, 151, 152, 153, 154]
+method_focus: "combine"
+time_estimate_min: 18
+piece_context: "Lesson 75 taught you the opening theme. That was Tier 2 boss. For 80 lessons you've carried those notes in your hands — E, D-sharp, E, D-sharp, E. Today: the rest of the piece. The major-key middle (the B section — brighter, hopeful) and the turbulent chromatic middle (the C section — stormy, then it resolves). A-B-A-C-A. Your first full Beethoven piece."
+metaphor: "returning-home"
+vibe: ["serious", "celebratory", "reflective"]
+is_act_boss: true
+piece:
+  title: "Für Elise (full)"
+  composer: "Beethoven (1810)"
+  key_center: "A minor (with F-major B section, A-minor C section)"
+  time_signature: "3/8"
+  difficulty: "intermediate — full A-B-A-C-A structure, simplified, single-hand melody focus"
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy holding a yellowed Für Elise score. Behind him — a pyramid of 155 lessons. The page-1 theme from Lesson 75 highlighted in gold."
+    cleffy: >
+      Eighty lessons ago, you learned five notes.
+      E, D-sharp, E, D-sharp, E.
+      You've carried them this whole time. Today — the rest of the piece.
+
+  - id: 2
+    mode: see
+    type: the_whole_shape
+    figure: "Diagram. Five boxes in a row: A | B | A | C | A. Labels underneath: 'opening theme' / 'bright middle (F major)' / 'theme returns' / 'stormy middle' / 'theme returns — last time'."
+    cleffy: >
+      The whole shape. Five sections.
+      A — the theme you already know.
+      B — a brighter middle. F major. Hopeful.
+      A again — theme returns.
+      C — a stormy middle. Chromatic, unsettled.
+      A again — theme comes home one last time.
+      A-B-A-C-A. This is called rondo form.
+
+  - id: 3
+    mode: hear
+    type: listen_full
+    figure: "Play button. Caption: Für Elise, complete, recording."
+    audio:
+      A: "Für Elise, complete — A theme, B section, A return, C section, A final return. At reference tempo."
+    cleffy: >
+      Listen all the way through.
+      Notice where the theme comes back. Notice what's in between.
+      Three returns of A. Two detours in between.
+
+  - id: 4
+    mode: see
+    type: the_a_theme_reminder
+    figure: "Staff. The opening theme from Lesson 75: E5 D#5 E5 D#5 E5 B4 D5 C5 A4."
+    cleffy: >
+      The A theme. Your old friend.
+      E, D-sharp, E, D-sharp, E, B, D, C, A.
+      Played up an octave today — E5, D#5 — because the piece will roam higher.
+
+  - id: 5
+    mode: play
+    type: a_theme_play
+    figure: "Keyboard. E5, D#5, E5, D#5, E5, B4, D5, C5, A4."
+    cleffy: >
+      Play it. Familiar territory.
+    interaction:
+      type: sequence
+      keys: ["E5","D#5","E5","D#5","E5","B4","D5","C5","A4"]
+
+  - id: 6
+    mode: see
+    type: b_section_intro
+    figure: "Staff. B section melody simplified: C5 G4 F5 E5 D5 C5 B4. Key signature showing one flat (F major). Label: 'brighter — the sun comes out.'"
+    cleffy: >
+      B section. F major. One flat.
+      Seven notes: C, G, F, E, D, C, B.
+      It climbs up, then walks down. Brighter feel. The sun comes out for a moment.
+
+  - id: 7
+    mode: hear
+    type: b_listen
+    figure: "Play button. Caption: B section, simplified, slow."
+    audio:
+      A: "B section melody played simply: C5, G4, F5, E5, D5, C5, B4 — warm, moderate."
+    cleffy: >
+      Listen to it.
+      Warmer than the A theme. No shadow in it.
+      This is Beethoven letting the piece breathe before it darkens again.
+
+  - id: 8
+    mode: play
+    type: b_section_play
+    figure: "Keyboard. C5, G4, F5, E5, D5, C5, B4 lit in order."
+    cleffy: >
+      Play the B melody. Seven notes. Slow.
+    interaction:
+      type: sequence
+      keys: ["C5","G4","F5","E5","D5","C5","B4"]
+
+  - id: 9
+    mode: see
+    type: transition_b_to_a
+    figure: "Staff showing the final two notes of B (C5, B4) leading straight into the opening of A (E5, D#5). An arrow connecting them."
+    cleffy: >
+      Transition. B lands on B-natural. Then the A theme starts again on E.
+      Small lift of the hand. Breath. Then the old theme returns.
+
+  - id: 10
+    mode: play
+    type: b_into_a
+    figure: "Keyboard. The B ending + A opening. C5, B4, [breath], E5, D#5, E5."
+    cleffy: >
+      Play them stitched. End of B, into start of A.
+    interaction:
+      type: sequence
+      keys: ["C5","B4","E5","D#5","E5","D#5","E5"]
+
+  - id: 11
+    mode: see
+    type: c_section_intro
+    figure: "Staff. C section simplified — a short chromatic passage: A4 B4 C5 D5 E5 F5 E5 D5. Label: 'the storm — notes moving by half steps.'"
+    cleffy: >
+      C section. The stormy one.
+      Chromatic — meaning it moves by half steps. Tense. Unsettled.
+      Simplified here to eight notes: A, B, C, D, E, F, E, D.
+
+  - id: 12
+    mode: play
+    type: c_section_play
+    figure: "Keyboard. A4, B4, C5, D5, E5, F5, E5, D5."
+    cleffy: >
+      Play the C melody. Slow. Let it feel tense.
+    interaction:
+      type: sequence
+      keys: ["A4","B4","C5","D5","E5","F5","E5","D5"]
+
+  - id: 13
+    mode: see
+    type: the_whole_structure
+    figure: "A roadmap across the page: A (9 notes) → B (7 notes) → A (9 notes) → C (8 notes) → A (9 notes). Arrows linking them. A total count at the bottom."
+    cleffy: >
+      The whole path today.
+      A, then B, back to A, then C, home to A.
+      Forty-two notes, walked end to end.
+
+  - id: 14
+    mode: play
+    type: full_structure_slow
+    figure: "Full A-B-A-C-A roadmap. Guides on. Tempo 60."
+    cleffy: >
+      All five sections. Guides on. 60 bpm.
+      Go slowly. Breathe between sections.
+    interaction:
+      type: song
+      sequence: ["E5","D#5","E5","D#5","E5","B4","D5","C5","A4","C5","G4","F5","E5","D5","C5","B4","E5","D#5","E5","D#5","E5","B4","D5","C5","A4","A4","B4","C5","D5","E5","F5","E5","D5","E5","D#5","E5","D#5","E5","B4","D5","C5","A4"]
+      guides: true
+      tempo: 60
+
+  - id: 15
+    mode: play
+    type: full_no_guides
+    figure: "Full structure. No guides. Tempo 60."
+    cleffy: >
+      No guides. You read. You play.
+      Take the time you need.
+    interaction:
+      type: song
+      sequence: ["E5","D#5","E5","D#5","E5","B4","D5","C5","A4","C5","G4","F5","E5","D5","C5","B4","E5","D#5","E5","D#5","E5","B4","D5","C5","A4","A4","B4","C5","D5","E5","F5","E5","D5","E5","D#5","E5","D#5","E5","B4","D5","C5","A4"]
+      guides: false
+      tempo: 60
+    followup_cleffy: >
+      That.
+      The full Für Elise, yours now.
+
+  - id: 16
+    mode: hear
+    type: pre_check
+    figure: "Banner — Act 31 boss mastery check."
+    cleffy: >
+      Four quick ones. Act boss — take your time.
+
+  - id: 17
+    mode: see
+    type: wrap
+    figure: "Celebration card — ACT 31 COMPLETE 🎯. Cleffy holding the full Für Elise score. A gold banner: 'FIRST FULL BEETHOVEN.' The old Lesson 75 theme drawn fading into today's full structure."
+    cleffy: >
+      Act 31. Closed.
+      Eighty lessons ago, five notes. Today, a full Beethoven piece.
+      A, B, A, C, A. You walked the whole rondo.
+      You have your first complete Beethoven. That's a real thing to own.
+      Next act — the sustain pedal. The foot joins the hands.
+
+practice_this_week:
+  real_piano:
+    - "Für Elise full structure once a day. Slow first. Whole week at 60 bpm, no faster."
+    - "Play just the B section three times, then just the C section three times. The old A theme is fine — the new sections need the reps."
+    - "Play it for one person this week. Tell them it's all of Für Elise, not just the part everybody knows."
+  virtual_only:
+    - "Replay pages 14 and 15 — full structure with and without guides."
+  estimated_time: "15 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 3
+      questions:
+        - figure: "A-B-A-C-A structure diagram"
+          prompt: "How many times does the A theme return?"
+          options: ["Once", "Twice", "Three times total"]
+          correct: 2
+        - figure: "B section — bright, one flat"
+          prompt: "What key is the B section in?"
+          options: ["A minor", "F major", "D minor"]
+          correct: 1
+        - figure: "C section — chromatic line"
+          prompt: "What does 'chromatic' mean?"
+          options: ["Moving by half steps", "Moving by big leaps", "Staying on one note"]
+          correct: 0
+        - figure: "The full piece walked in five sections"
+          prompt: "What form is A-B-A-C-A called?"
+          options: ["Sonata form", "Rondo form", "Binary form"]
+          correct: 1
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "A section, then B section, then A again"
+          prompt: "Do you hear the theme come back?"
+          options: ["Yes", "No"]
+          correct: 0
+        - audio: "B section (F major) vs C section (chromatic)"
+          prompt: "Which one sounds brighter?"
+          options: ["The B section", "The C section"]
+          correct: 0
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play the B section melody: C5, G4, F5, E5, D5, C5, B4."
+          accept: "C5 G4 F5 E5 D5 C5 B4 in sequence"
+
+remediation:
+  id: "155.5"
+  title: "Für Elise, one section at a time"
+  pages: 11
+  opening_cleffy: >
+    Act boss. A full piece in one lesson is a lot.
+    We'll take each section on its own — A alone, B alone, C alone — and only stitch them once each feels solid.
+
+completion:
+  cleffy: >
+    Act 31 sealed. You have Für Elise — the whole thing.
+    Not just the part everyone knows. The bright middle, the stormy middle, and all three returns of the theme.
+    Your first complete Beethoven piece. A real one.
+    Tomorrow — the sustain pedal. The sound of piano opens up.
+  xp: 30
+  unlocks: 156

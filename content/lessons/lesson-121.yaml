@@ -1,0 +1,217 @@
+# ============================================================
+# LESSON 121 · Review: articulation
+# Tier 3 · Act 25 · Low-Intermediate · Review
+# All the ways to touch a key — one more pass.
+# ============================================================
+id: 121
+tier: low-intermediate
+act: 25
+title: "Review: articulation"
+subtitle: "Act 25 · Review"
+goal: "Refresh every way you've learned to touch a key — legato, staccato, slurs, accents, tenuto, marcato."
+prereqs: [120, 80, 79, 78, 77, 76, 75]
+method_focus: "combine"
+time_estimate_min: 14
+piece_context: "Last act before the Tier 3 boss. Four review lessons in a row. Today — the touch family. All of it, one more time."
+metaphor: "touch-family"
+vibe: ["focused", "gentle"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy in front of a shelf labelled TOUCH FAMILY — six icons lined up: ribbon, bouncing ball, curved slur, accent wedge, tenuto line, marcato hat."
+    cleffy: >
+      Review week.
+      Four lessons. Then the Tier 3 boss.
+      Today — every way you've learned to touch a key.
+
+  - id: 2
+    mode: see
+    type: the_six
+    figure: "A grid of six cards. Legato, staccato, slur, accent, tenuto, marcato. Each with its symbol and a one-word label."
+    cleffy: >
+      Six members.
+      Legato — smooth. Staccato — short. Slur — connect these.
+      Accent — louder. Tenuto — held. Marcato — firmly marked.
+      You know them all. We're just lining them up again.
+
+  - id: 3
+    mode: hear
+    type: listen_legato_staccato
+    figure: "Two play buttons. A: legato line. B: staccato line."
+    audio:
+      A: "C D E F G played smooth and connected"
+      B: "C D E F G played short and bouncy"
+    cleffy: >
+      First — legato. Second — staccato.
+      Smooth ribbon, then bouncing ball. Same notes.
+
+  - id: 4
+    mode: play
+    type: play_legato_refresh
+    figure: "Staff: five quarter notes under a big slur. Keyboard below — C to G glowing."
+    cleffy: >
+      Play it legato. C D E F G.
+      Stay down on each note until the next finger presses.
+    interaction:
+      type: sequence
+      keys: ["C4","D4","E4","F4","G4"]
+
+  - id: 5
+    mode: play
+    type: play_staccato_refresh
+    figure: "Staff: five quarter notes with dots above. Keyboard below."
+    cleffy: >
+      Same notes. Staccato. Touch, release. Touch, release.
+      Pop each one off.
+    interaction:
+      type: sequence
+      keys: ["C4","D4","E4","F4","G4"]
+
+  - id: 6
+    mode: see
+    type: slur_recap
+    figure: "Staff: a three-note slur over D E F. Arrow pointing to the curve: 'connect these'."
+    cleffy: >
+      A slur tells you: connect these notes.
+      The curve hugs the group that goes together. Legato, as a mark on the page.
+
+  - id: 7
+    mode: play
+    type: play_slur
+    figure: "Staff: D E F under a slur, then a small gap, then G A under another slur. Keyboard."
+    cleffy: >
+      Two slurred groups. D E F, breathe, G A.
+      Smooth inside each group. Tiny lift between.
+    interaction:
+      type: sequence
+      keys: ["D4","E4","F4","G4","A4"]
+
+  - id: 8
+    mode: see
+    type: accent_recap
+    figure: "Staff: four quarter notes. The third has a wedge accent above it. Callout: 'one note louder'."
+    cleffy: >
+      Accent — the wedge mark. One note louder than the rest.
+      The others stay their normal volume. Just this one steps forward.
+
+  - id: 9
+    mode: play
+    type: play_accent
+    figure: "Staff: C D E F, E marked with an accent. Keyboard below."
+    cleffy: >
+      Play C, D, E, F. Push harder on the E. Four even notes — one stands out.
+    interaction:
+      type: sequence
+      keys: ["C4","D4","E4","F4"]
+
+  - id: 10
+    mode: see
+    type: tenuto_marcato_recap
+    figure: "Two cards. Left: tenuto — short line above a note, label 'held full length'. Right: marcato — hat symbol above a note, label 'firmly marked'."
+    cleffy: >
+      Tenuto — the little line. Hold the note its full length. Weight, not volume.
+      Marcato — the small hat. Firmer than an accent. A spoken word with force.
+
+  - id: 11
+    mode: play
+    type: play_tenuto_run
+    figure: "Staff: four quarter notes, each with a tenuto line above. Keyboard."
+    cleffy: >
+      Tenuto run. G A B C. Lean into each note. Hold its full length.
+    interaction:
+      type: sequence
+      keys: ["G4","A4","B4","C5"]
+
+  - id: 12
+    mode: hear
+    type: identify_drill
+    figure: "Round counter 1 of 4."
+    cleffy: >
+      Four rounds. Which touch is this?
+    interaction:
+      type: drill
+      rounds: 4
+      options: ["Legato", "Staccato", "Accent", "Tenuto"]
+
+  - id: 13
+    mode: play
+    type: mixed_phrase
+    figure: "Staff: three legato notes, then three staccato, then one accent. Eight notes total."
+    cleffy: >
+      Everything at once. Three legato. Three staccato. Two notes, the second accented.
+      Smooth, smooth, smooth — pop, pop, pop — normal, LOUD.
+    interaction:
+      type: sequence
+      keys: ["C4","D4","E4","F4","G4","A4","B4","C5"]
+    followup_cleffy: >
+      One phrase. Three touches. That's craft.
+
+  - id: 14
+    mode: hear
+    type: pre_check
+    figure: "Banner."
+    cleffy: >
+      Three quick ones.
+
+  - id: 15
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 121. The shelf of six touch icons, each checked off."
+    cleffy: >
+      Touch family — reviewed.
+      Tomorrow — the hand tricks. Fingering.
+
+practice_this_week:
+  real_piano:
+    - "Play any scale you know. Once legato, once staccato. Once with every other note accented."
+    - "Open any piece. Find one slur, one staccato dot, one accent. Play that bar three times."
+  virtual_only:
+    - "Replay pages 4, 5, 11, 13"
+  estimated_time: "8 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "Staff with a curved line over four notes"
+          prompt: "What does this mark tell you?"
+          options: ["Play these short", "Connect these notes", "Play the last one loudest"]
+          correct: 1
+        - figure: "Staff with a dot above a quarter note"
+          prompt: "How is this note played?"
+          options: ["Smooth", "Short and detached", "Held longer"]
+          correct: 1
+        - figure: "Staff with a wedge above one note"
+          prompt: "What is this mark?"
+          options: ["Tenuto", "Accent", "Slur"]
+          correct: 1
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "Four notes played smooth and connected"
+          prompt: "Which touch?"
+          options: ["Legato", "Staccato"]
+          correct: 0
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play C D E F staccato — short, bouncy."
+          accept: "C4 D4 E4 F4 played detached"
+
+remediation:
+  id: "121.5"
+  title: "Touch family, one at a time"
+  pages: 6
+  opening_cleffy: >
+    Six members is a lot at once.
+    Let's walk through each one slow — one touch, one example, one try.
+
+completion:
+  cleffy: >
+    Every touch in your hands now.
+    Tomorrow — fingering. All the hand tricks.
+  xp: 18
+  unlocks: 122

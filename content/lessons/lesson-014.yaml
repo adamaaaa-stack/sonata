@@ -1,0 +1,241 @@
+# ============================================================
+# LESSON 14 · Middle C
+# Tier 1 · Act 3 · Beginner
+# Central metaphor: THE ANCHOR — EVERYTHING ELSE IS MEASURED FROM HERE
+# ============================================================
+id: 14
+tier: beginner
+act: 3
+title: "Middle C"
+subtitle: "The one anchor that unlocks everything"
+goal: "Recognize Middle C on the staff — and know it's the same Middle C you've been playing."
+prereqs: [4, 11, 12, 13]
+method_focus: "notation"
+time_estimate_min: 10
+piece_context: "This is the most important note in the course. Every other note gets named by how far it is from Middle C."
+metaphor: "anchor-note"
+vibe: ["gentle", "playful", "serious"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "A staff with a small note hanging just below the bottom line, attached by a tiny extra line. Cleffy points at it with a proud smile."
+    cleffy: >
+      Everything in this course — every note name, every piece you'll ever play —
+      starts with this one.
+      This is Middle C. Our anchor.
+      Learn this one, and the rest fall into place.
+
+  - id: 2
+    mode: see
+    type: where_on_staff
+    figure: "Treble-clef staff. Middle C drawn just below the bottom line, sitting on its own little short line (the ledger line)."
+    cleffy: >
+      Middle C lives just below the treble staff.
+      See that tiny little line cutting through it? That's a ledger line —
+      a stretch of the staff for notes that don't fit on the main five lines.
+      Middle C hangs below the staff, on its own.
+
+  - id: 3
+    mode: see
+    type: why_middle
+    figure: "Two staves — treble on top, bass on bottom. Middle C sits BETWEEN them, shared by both."
+    cleffy: >
+      It's called Middle C for a reason. It sits in the middle of the two staves.
+      You see it under the treble clef staff — just below the bottom line.
+      Or above the bass clef staff — just above its top line.
+      Same note. Written two ways, depending on which clef you're reading.
+      For now — we only care about treble. So — just below the treble staff.
+
+  - id: 4
+    mode: see
+    type: piano_link
+    figure: "Staff with Middle C on top. Keyboard below with Middle C (C4) glowing gold. An arrow connects them."
+    cleffy: >
+      Here's the link that matters. This note on the staff —
+      is THAT key on the piano.
+      The same Middle C you've been tapping since Lesson 4.
+      Nothing new on the piano. Just a new way to WRITE the note we already know.
+
+  - id: 5
+    mode: hear
+    type: sound
+    figure: "Staff with Middle C. Keyboard with Middle C glowing. Big play button."
+    audio:
+      A: "Middle C (C4) held"
+    cleffy: >
+      That's Middle C. You've heard it before.
+      Now, when you see this exact shape on the page — a note below the staff with a small line through it —
+      you'll hear that sound in your head.
+      Eye sees it. Ear hears it. Finger plays it.
+
+  - id: 6
+    mode: see
+    type: interactive_spot
+    figure: "Staff with Middle C drawn."
+    cleffy: >
+      Point to Middle C.
+    interaction:
+      type: tap
+      accept: "Middle C on the staff"
+
+  - id: 7
+    mode: see
+    type: interactive_distractor
+    figure: "Staff with three notes: one on the bottom line (E), one in space 1 (F), one below staff on ledger line (Middle C)."
+    cleffy: >
+      Which one is Middle C?
+    interaction:
+      type: choice
+      options: ["A", "B", "C"]
+      correct: 2
+    corrections:
+      - wrong_label: "picked_bottom_line"
+        cleffy: >
+          Close — but that one's sitting on the very bottom line of the staff.
+          Middle C is below the staff, on its own little line.
+
+  - id: 8
+    mode: play
+    type: play_middle_c
+    figure: "Staff with Middle C. Keyboard shown. Middle C on the piano glows gold."
+    cleffy: >
+      See the note. Find Middle C on the piano. Play it.
+    interaction:
+      type: tap
+      key: "C4"
+    followup_cleffy: >
+      That's the whole loop. Written C — played C. You just read your first real note.
+
+  - id: 9
+    mode: see
+    type: see_and_recognize
+    figure: "Three staves shown one at a time. On each, a note is drawn. Sometimes it's Middle C, sometimes it's a different note nearby."
+    cleffy: >
+      Three rounds. Each time, a single note on a staff. Is it Middle C, yes or no?
+    interaction:
+      type: drill
+      rounds: 3
+      options: ["Yes (Middle C)", "No"]
+
+  - id: 10
+    mode: hear
+    type: sound_check
+    figure: "Play button."
+    audio:
+      A: "Middle C held"
+      B: "D4 held (a step above)"
+    cleffy: >
+      Two notes. Which one was Middle C?
+    interaction:
+      type: choice
+      options: ["A", "B"]
+      correct: 0
+    corrections:
+      - wrong_label: "general"
+        cleffy: >
+          Middle C has a specific sound. Listen to it a few more times — you'll memorize it.
+
+  - id: 11
+    mode: read
+    type: see_hear_play
+    figure: "Staff with Middle C. Student sees, hears it, plays it."
+    cleffy: >
+      Full loop. See Middle C. Listen to it. Play it.
+    interaction:
+      type: see_hear_play
+      target_key: "C4"
+
+  - id: 12
+    mode: read
+    type: repeat_loop
+    figure: "Same staff again."
+    cleffy: >
+      One more time. Getting the muscle memory.
+    interaction:
+      type: see_hear_play
+      target_key: "C4"
+
+  - id: 13
+    mode: see
+    type: preview_next
+    figure: "Staff with Middle C and, next to it, D (the note in the space right above the ledger line)."
+    cleffy: >
+      Quick preview. Right above Middle C — in the space just below the bottom line of the staff —
+      is the next white key. That's D.
+      D is a step up from Middle C.
+      Middle C on a line, D in the space right above. Line to space. That's a step.
+      We'll officially meet D and the rest in a couple lessons. Just plant the seed.
+
+  - id: 14
+    mode: hear
+    type: drill
+    figure: "Mix of staff reading and listening."
+    cleffy: >
+      Four rounds. Mix it all up.
+    interaction:
+      type: drill
+      rounds: 4
+
+  - id: 15
+    mode: hear
+    type: pre_check
+    figure: "Banner."
+    cleffy: >
+      Four quick ones.
+
+  - id: 16
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 14. Middle C on a staff with a little gold flag planted on it. Cleffy saluting."
+    cleffy: >
+      One anchor note. One link between the page and the piano.
+      Tomorrow you prove it — see Middle C, hear it, play it, over and over, fast.
+      That's the end of Act 3.
+      After that, we finally use the Sonata method. For real.
+
+# ─── Mastery check ──────────────────────────────────────
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "Staff with Middle C."
+          prompt: "Is this Middle C?"
+          options: ["Yes", "No"]
+          correct: 0
+        - figure: "Staff with note on bottom line (E)."
+          prompt: "Is this Middle C?"
+          options: ["Yes", "No"]
+          correct: 1
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "Middle C held"
+          prompt: "Is this Middle C?"
+          options: ["Yes", "No"]
+          correct: 0
+    play:
+      pass_threshold: 1
+      questions:
+        - figure: "Staff with Middle C drawn."
+          prompt: "Play the note shown."
+          accept: "C4"
+
+# ─── Remediation ────────────────────────────────────────
+remediation:
+  id: "14.5"
+  title: "Middle C, locked in"
+  pages: 5
+  opening_cleffy: >
+    Middle C is THE anchor for everything. Worth taking an extra minute on.
+    Let's go through it one more time — see, hear, play, see, hear, play.
+
+# ─── Completion ─────────────────────────────────────────
+completion:
+  cleffy: >
+    The anchor is in. Every future note gets measured from this one.
+    That's how the Sonata method works.
+  xp: 20
+  unlocks: 15

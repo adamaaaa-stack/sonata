@@ -602,23 +602,24 @@ html.native .sonata-page-enter { animation: none; }
   animation: goldGlow 2.8s ease-in-out infinite;
 }
 
-/* ABCJS SVG dark theme overrides */
-.abcjs-note, .abcjs-note_selected { fill: #FAFAF9; stroke: #FAFAF9; }
-.abcjs-staff { stroke: #FAFAF9; }
-.abcjs-beam { fill: #FAFAF9; stroke: #FAFAF9; }
-.abcjs-stem { stroke: #FAFAF9; }
-.abcjs-ledger { stroke: #FAFAF9; }
-.abcjs-bar { stroke: #FAFAF9; fill: #FAFAF9; }
-.abcjs-brace { fill: #FAFAF9; stroke: #FAFAF9; }
-.abcjs-clef { fill: #FAFAF9; }
-.abcjs-key-signature { fill: #FAFAF9; }
-.abcjs-time-signature { fill: #FAFAF9; }
-.abcjs-rest { fill: #FAFAF9; }
-.abcjs-flag { fill: #FAFAF9; }
-.abcjs-accidental { fill: #FAFAF9; }
-.abcjs-dot { fill: #FAFAF9; }
-.abcjs-dynamics { fill: #FAFAF9; }
-.abcjs-decoration { fill: #FAFAF9; stroke: #FAFAF9; }
+/* ABCJS SVG — v2 ink theme (chunky cream pages) */
+.abcjs-note, .abcjs-note_selected { fill: var(--ink); stroke: var(--ink); }
+.abcjs-staff { stroke: var(--ink); }
+.abcjs-beam { fill: var(--ink); stroke: var(--ink); }
+.abcjs-stem { stroke: var(--ink); }
+.abcjs-ledger { stroke: var(--ink); }
+.abcjs-bar { stroke: var(--ink); fill: var(--ink); }
+.abcjs-brace { fill: var(--ink); stroke: var(--ink); }
+.abcjs-clef { fill: var(--ink); }
+.abcjs-key-signature { fill: var(--ink); }
+.abcjs-time-signature { fill: var(--ink); }
+.abcjs-rest { fill: var(--ink); }
+.abcjs-flag { fill: var(--ink); }
+.abcjs-accidental { fill: var(--ink); }
+.abcjs-dot { fill: var(--ink); }
+.abcjs-dynamics { fill: var(--ink); }
+.abcjs-decoration { fill: var(--ink); stroke: var(--ink); }
+.sonata-notation text { fill: var(--ink); }
 
 /* TTS playing animation */
 .speak-playing { animation: speakPulse 1.5s ease-in-out infinite; }

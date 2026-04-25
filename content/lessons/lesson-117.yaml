@@ -1,0 +1,222 @@
+# ============================================================
+# LESSON 117 · Question-and-answer phrases
+# Tier 3 · Act 24 · Low-Intermediate · Phrasing
+# Call and response. Phrase 1 asks. Phrase 2 answers.
+# ============================================================
+id: 117
+tier: low-intermediate
+act: 24
+title: "Question-and-answer phrases"
+subtitle: "Act 24 · Call and response"
+goal: "Hear how one phrase asks a question and the next one answers."
+prereqs: [116]
+method_focus: "hear"
+time_estimate_min: 12
+piece_context: "Phrases often come in pairs. The first one hangs. The second one resolves. Ode to Joy is built from this."
+metaphor: "phrase-as-sentence"
+vibe: ["gentle", "playful"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Two speech bubbles facing each other. One with a question mark. One with a period."
+    cleffy: >
+      Phrases travel in pairs.
+      First one asks. Second one answers.
+      Call and response.
+
+  - id: 2
+    mode: see
+    type: question_comparison
+    figure: "Two spoken sentences stacked: 'How are you?' (question) and 'I am fine.' (answer). Arrows between them."
+    cleffy: >
+      Two sentences. First one goes up at the end — a question.
+      Second one comes down — an answer.
+      Music does this too. Almost exactly this.
+
+  - id: 3
+    mode: hear
+    type: listen_question_answer
+    figure: "Two play buttons labeled QUESTION and ANSWER."
+    audio:
+      A: "A short phrase ending on an unresolved note — sounds like a question"
+      B: "A short phrase ending on the home note — sounds like an answer"
+    cleffy: >
+      Listen. First one ends on a note that hangs in the air.
+      Second one ends on the home note. Lands. Done.
+      Question. Answer.
+
+  - id: 4
+    mode: see
+    type: ode_to_joy_pairs
+    figure: "Treble staff — first two phrases of Ode to Joy written out, labeled QUESTION and ANSWER. Ends of each phrase circled."
+    cleffy: >
+      Ode to Joy. You know this one.
+      Phrase one — E E F G G F E D. Ends on D. Hangs. Question.
+      Phrase two — E E F G G F E D C. Ends on C. Home. Answer.
+
+  - id: 5
+    mode: hear
+    type: listen_ode
+    figure: "Play button. First two phrases of Ode to Joy."
+    audio:
+      A: "Ode to Joy opening — two phrases. First ends on D (hanging). Second ends on C (home)."
+    cleffy: >
+      Same notes almost. Only the last note changes.
+      But it changes everything. The second phrase answers the first.
+
+  - id: 6
+    mode: play
+    type: play_question
+    figure: "Keyboard. E4 E4 F4 G4 G4 F4 E4 D4 glowing. Label: QUESTION."
+    cleffy: >
+      Play the question. Ode to Joy, phrase one.
+      E, E, F, G, G, F, E, D. Ends on D — not home.
+    interaction:
+      type: sequence
+      keys: ["E4","E4","F4","G4","G4","F4","E4","D4"]
+
+  - id: 7
+    mode: play
+    type: play_answer
+    figure: "Keyboard. E4 E4 F4 G4 G4 F4 E4 D4 C4 glowing. Label: ANSWER."
+    cleffy: >
+      Now the answer. Same until the end — then one more note.
+      E, E, F, G, G, F, E, D, C. Lands on C. Home.
+    interaction:
+      type: sequence
+      keys: ["E4","E4","F4","G4","G4","F4","E4","D4","C4"]
+
+  - id: 8
+    mode: see
+    type: why_it_works
+    figure: "Two arrows. First arrow ends mid-air with a question mark. Second arrow lands on a target marked HOME."
+    cleffy: >
+      Why does it work?
+      The first phrase ends on a note that isn't the home note. Your ear wants more.
+      The second phrase gives it. Lands on home. Ear is satisfied.
+
+  - id: 9
+    mode: hear
+    type: hear_which_is_which
+    figure: "Two short clips labeled A and B."
+    audio:
+      A: "A four-bar phrase ending on the dominant (hangs)"
+      B: "A four-bar phrase ending on the tonic (lands)"
+    cleffy: >
+      Which one hangs? Which one lands?
+    interaction:
+      type: drill
+      rounds: 3
+      options: ["Hangs (question)", "Lands (answer)"]
+
+  - id: 10
+    mode: play
+    type: play_both_pairs
+    figure: "Keyboard. Full question-and-answer pair of Ode to Joy."
+    cleffy: >
+      Play both. Question. Tiny breath. Answer.
+      E E F G G F E D — breathe — E E F G G F E D C.
+    interaction:
+      type: sequence
+      keys: ["E4","E4","F4","G4","G4","F4","E4","D4","E4","E4","F4","G4","G4","F4","E4","D4","C4"]
+
+  - id: 11
+    mode: see
+    type: other_songs
+    figure: "Three song titles with Q and A arrows: Twinkle Twinkle · Mary Had a Little Lamb · Happy Birthday. Each shows a question phrase and an answer phrase."
+    cleffy: >
+      It's everywhere. Twinkle does it. Mary does it. Happy Birthday does it.
+      Once you hear it, you can't unhear it.
+
+  - id: 12
+    mode: play
+    type: play_twinkle_pair
+    figure: "Keyboard. Twinkle's first pair of phrases."
+    cleffy: >
+      Twinkle Twinkle, two phrases.
+      C C G G A A G — that's the question. Ends on G — hangs.
+      F F E E D D C — answer. Ends on C. Home.
+    interaction:
+      type: sequence
+      keys: ["C4","C4","G4","G4","A4","A4","G4","F4","F4","E4","E4","D4","D4","C4"]
+
+  - id: 13
+    mode: hear
+    type: mixed_drill
+    figure: "Round counter."
+    cleffy: >
+      Four rounds. Is this a question phrase or an answer phrase?
+    interaction:
+      type: drill
+      rounds: 4
+      options: ["Question", "Answer"]
+
+  - id: 14
+    mode: hear
+    type: pre_check
+    figure: "Banner."
+    cleffy: >
+      Three quick ones.
+
+  - id: 15
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 117. Two phrases — one with '?' above it, one with '.' above it."
+    cleffy: >
+      Phrases talk. One asks. One answers.
+      Tomorrow — the little mark that tells you where to breathe.
+
+practice_this_week:
+  real_piano:
+    - "Play Ode to Joy's first two phrases. Feel how phrase one hangs and phrase two lands."
+    - "Hum any tune you know. Notice: almost every phrase has a partner."
+  virtual_only:
+    - "Replay pages 6 and 7 — question, then answer."
+  estimated_time: "8 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "Two phrases. First ends on D (not home). Second ends on C (home)."
+          prompt: "Which phrase is the question?"
+          options: ["The first one", "The second one", "Neither"]
+          correct: 0
+        - figure: "A phrase ending on the home note."
+          prompt: "A phrase that ends on the home note usually sounds like..."
+          options: ["A question", "An answer", "A silence"]
+          correct: 1
+        - figure: "Ode to Joy opening two phrases."
+          prompt: "How are these two phrases related?"
+          options: ["Call and response", "Identical", "Opposite keys"]
+          correct: 0
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "A phrase that ends on a hanging note"
+          prompt: "Question or answer?"
+          options: ["Question", "Answer"]
+          correct: 0
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play the question phrase of Ode to Joy — E E F G G F E D."
+          accept: "E4 E4 F4 G4 G4 F4 E4 D4"
+
+remediation:
+  id: "117.5"
+  title: "Question and answer, slower"
+  pages: 6
+  opening_cleffy: >
+    Call and response. A pattern you'll hear forever.
+    Let's isolate it — one phrase at a time, very slow.
+
+completion:
+  cleffy: >
+    Two phrases, two jobs. Ask and answer.
+    Tomorrow — breath marks. The little comma above the staff.
+  xp: 18
+  unlocks: 118

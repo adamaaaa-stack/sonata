@@ -1,0 +1,265 @@
+# ============================================================
+# LESSON 210 · Schumann Träumerei
+# Tier 5 · Act 42 · Upper-Intermediate · ACT BOSS 🎯
+# Inner-voice masterclass.
+# ============================================================
+id: 210
+tier: upper-intermediate
+act: 42
+title: "Schumann Träumerei"
+subtitle: "Act 42 · Voicing"
+goal: "Play the opening four bars of Schumann's Träumerei (simplified), bringing out the hidden melody inside the chords."
+prereqs: [205, 206, 207, 208, 209]
+method_focus: "combine"
+time_estimate_min: 16
+piece_context: "Act 42 boss. Träumerei — 'Dreaming' — is the seventh piece in Schumann's Kinderszenen, and one of the most beloved miniatures ever written. Its secret: the melody is not always on top. It lives inside the chord. Sometimes the top note. Sometimes tucked in the middle. That's what makes it so hard, and so tender. Today you play the first four bars."
+metaphor: "hidden-melody"
+vibe: ["quiet", "reflective", "triumphant"]
+is_act_boss: true
+
+piece:
+  title: "Träumerei (from Kinderszenen, Op. 15 No. 7)"
+  composer: "Robert Schumann"
+  key_center: "F major"
+  time_signature: "4/4"
+  difficulty: "upper-intermediate — opening bars simplified, voicing is the real challenge"
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy in front of an old German songbook, cover reading KINDERSZENEN. A dream-cloud rising off the page. Banner: ACT 42 BOSS — TRÄUMEREI."
+    cleffy: >
+      Act 42 boss.
+      Träumerei. It means 'Dreaming.'
+      Schumann wrote it in 1838. It's a page long. It's been played by every pianist who ever lived.
+
+  - id: 2
+    mode: see
+    type: why_it_matters
+    figure: "A photo-style sketch of Schumann, plus the famous opening upbeat of Träumerei on the staff — C4 rising to F4 and the chord."
+    cleffy: >
+      Why this piece?
+      Because the melody is hiding.
+      Sometimes on top. Sometimes inside. Your job — find it and bring it out.
+
+  - id: 3
+    mode: hear
+    type: hear_the_opening
+    figure: "Play button. 'Träumerei — opening four bars, professional recording.'"
+    audio:
+      A: "Opening four bars of Träumerei, slow tempo around 66 bpm, melody clearly voiced above the warm chordal texture in F major."
+    cleffy: >
+      Listen once.
+      Don't follow the notes. Just — float.
+      Hear how the melody drifts. How the chords warm underneath.
+
+  - id: 4
+    mode: see
+    type: the_melody_alone
+    figure: "Staff. The melody line alone: C4 (upbeat) — F4 — A4 — C5 — F4 — D5. Label: 'the melody. Just this. Everything else supports.'"
+    cleffy: >
+      Here's the melody — the thing you have to voice.
+      Upbeat C. Then F on the downbeat. Up to A. Up to C. Drop to F. Reach to D.
+      Six notes. That's the tune. Everything else is soft chord.
+
+  - id: 5
+    mode: play
+    type: melody_alone_rh
+    figure: "Keyboard. Melody notes highlighted. Right hand. Tempo 66."
+    cleffy: >
+      Right hand alone. The melody.
+      C, F, A, C, F, D. Slow. Sing it.
+    interaction:
+      type: rhythm
+      sequence: ["C4", "F4", "A4", "C5", "F4", "D5"]
+      durations: ["quarter", "half", "quarter", "quarter", "half", "whole"]
+      tempo: 66
+
+  - id: 6
+    mode: see
+    type: the_chord_bed
+    figure: "Grand staff. LH F3-A3-C4 quarter chords. Label: 'the bed — warm, soft, under the melody.'"
+    cleffy: >
+      Underneath, left hand lays a bed.
+      F, A, C — an F major chord, low.
+      Soft. Warm. The melody sits on top of it.
+
+  - id: 7
+    mode: play
+    type: lh_bed_alone
+    figure: "Keyboard. F3, A3, C4 in the LH. Soft label."
+    cleffy: >
+      Left hand alone. The bed.
+      F-A-C chord. Quiet. Think blanket, not block.
+    interaction:
+      type: sequence
+      keys: [["F3","A3","C4"]]
+
+  - id: 8
+    mode: hear
+    type: voiced_vs_flat
+    figure: "Two play buttons. A: flat — melody buried. B: voiced — melody clear."
+    audio:
+      A: "The opening phrase played with every note equal volume — the melody is hard to hear."
+      B: "Same phrase with melody notes voiced firmer — the tune emerges."
+    cleffy: >
+      Two versions.
+      First — flat. The chord swallows the tune. You hear mush.
+      Second — melody voiced. The tune rises. The dream starts.
+
+  - id: 9
+    mode: play
+    type: first_bar_both_hands
+    figure: "Grand staff. Bar 1. RH melody C(upbeat)-F-A. LH F-A-C chord held. Keyboard below."
+    cleffy: >
+      Bar one. Both hands.
+      Right hand sings — C upbeat into F, then A. Left hand holds the chord beneath.
+      Lean into the melody. Brush the bed.
+    interaction:
+      type: rhythm
+      sequence: ["C4", ["F4","F3","A3","C4"], "A4"]
+      durations: ["quarter", "half", "quarter"]
+      tempo: 60
+
+  - id: 10
+    mode: see
+    type: the_inner_voice_moment
+    figure: "Staff. Bar 2 of Träumerei. An inner voice (A3) circled inside the chord, with an arrow. Label: 'here — the melody goes INSIDE.'"
+    cleffy: >
+      Now the secret.
+      In bar two, the melody dips into the middle of the chord.
+      Same tune. Same piece. Different voicing. Middle voice wakes up.
+
+  - id: 11
+    mode: play
+    type: voicing_the_inner_moment
+    figure: "Keyboard. A chord with the inner note highlighted. Label: 'inner voice — firmer.'"
+    cleffy: >
+      Practice the inner voicing. C-E-A chord, middle E firmer.
+      Finger 3 sinks. Thumb and pinky brush.
+      This is Träumerei's trick.
+    interaction:
+      type: sequence
+      keys: [["C4","E4","A4"]]
+
+  - id: 12
+    mode: play
+    type: four_bars_simplified
+    figure: "Grand staff. Bars 1-4 simplified. Melody highlighted throughout. Tempo 66."
+    cleffy: >
+      Four bars. Simplified.
+      Right hand has the tune. Left hand holds the warmth.
+      Slow. Think of the title — dreaming.
+    interaction:
+      type: song
+      sequence: ["C4", ["F4","F3","A3","C4"], "A4", "C5", ["F4","F3","A3","C4"], "D5", "C5", ["A4","F3","A3","C4"], "F4", ["F4","F3","A3","C4"]]
+      guides: true
+      tempo: 66
+    followup_cleffy: >
+      First four bars of Träumerei.
+      A piece every pianist plays at some point in their life. You just did.
+
+  - id: 13
+    mode: hear
+    type: listen_to_pros
+    figure: "Play button. 'Horowitz playing Träumerei, 1987.'"
+    audio:
+      A: "A professional recording of the full opening phrase of Träumerei, around 60 bpm, with expressive voicing and rubato."
+    cleffy: >
+      Listen again. Now that you've played it.
+      Hear what a master does with the voicings. Notes the same as yours.
+      The melody never gets lost. No matter where it hides.
+
+  - id: 14
+    mode: hear
+    type: pre_check
+    figure: "Banner — Act 42 boss mastery check."
+    cleffy: >
+      Four quick ones. Act boss — take your time.
+
+  - id: 15
+    mode: see
+    type: wrap
+    figure: "Celebration card — ACT 42 COMPLETE 🎯. A small music book labelled KINDERSZENEN, a tiny dream-cloud rising. Pyramid of acts showing 42/50 lit."
+    cleffy: >
+      Act 42. Closed.
+      Voicing — top, middle, bottom. Schumann's Träumerei, opening bars, in your hands.
+      The melody isn't always on top. You know that now.
+      That. That was a Schumann piece. Big moment.
+
+  - id: 16
+    mode: see
+    type: whats_next
+    figure: "A door cracking open. Behind it — a blur of whole-tone scales and a watercolor sketch of Debussy. Banner: 'Next — Impressionism.'"
+    cleffy: >
+      Next act — Debussy's language.
+      Whole-tone. Pentatonic. Ambiguity. New colors after centuries of tonality.
+      Arabesque waits. See you in 211.
+
+practice_this_week:
+  real_piano:
+    - "Play the four-bar opening of Träumerei once a day. Slow. Around 60 bpm. The melody must sing every time."
+    - "Isolate bar 2 — the bar with the inner voicing. Play it twenty times. Until finger 3 sinks automatically."
+    - "Listen to two different recordings of Träumerei this week — Horowitz, Argerich, anyone. Hear how they voice differently."
+  virtual_only:
+    - "Replay pages 9, 11, and 12 — bar 1, the inner voicing, and the full four-bar run."
+  estimated_time: "15 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "Schumann's Kinderszenen cover with Träumerei circled"
+          prompt: "Who wrote Träumerei?"
+          options: ["Chopin", "Schumann", "Brahms"]
+          correct: 1
+        - figure: "The F major key signature — one flat, B-flat"
+          prompt: "What key is Träumerei in?"
+          options: ["C major", "F major", "G major"]
+          correct: 1
+        - figure: "A staff showing the melody diving from the top voice into an inner voice"
+          prompt: "What makes Träumerei especially tricky to voice?"
+          options: ["It has many sharps", "The melody moves into inner voices — not always on top", "It is very fast"]
+          correct: 1
+    hear:
+      pass_threshold: 2
+      questions:
+        - audio: "The opening phrase with melody clearly voiced"
+          prompt: "Is the melody being voiced?"
+          options: ["Yes, it sings clearly", "No, everything is flat"]
+          correct: 0
+        - audio: "Same phrase with melody buried in the texture"
+          prompt: "Can you hear the melody clearly?"
+          options: ["Yes", "No — the chord drowns it"]
+          correct: 1
+        - audio: "Träumerei opening — tempo around 66 bpm"
+          prompt: "What is the tempo feel?"
+          options: ["Fast and bright", "Slow and dreamy", "Dancing and lively"]
+          correct: 1
+    play:
+      pass_threshold: 2
+      questions:
+        - prompt: "Play the opening melody alone, right hand: C, F, A, C, F, D."
+          accept: "C4 F4 A4 C5 F4 D5 played in order with appropriate rhythm"
+        - prompt: "Play bar 1 with both hands — RH C upbeat into F-A, LH F-A-C chord beneath."
+          accept: "LH F3-A3-C4 chord held while RH plays C4 upbeat into F4, A4 with melody voiced"
+        - prompt: "Play an inner-voiced chord — C-E-A with the middle E firmer."
+          accept: "C4-E4-A4 chord with audible emphasis on E4"
+
+remediation:
+  id: "210.5"
+  title: "Träumerei, hand by hand"
+  pages: 11
+  opening_cleffy: >
+    Act boss — expected to stretch. Träumerei asks you to voice while reading a Romantic texture.
+    We'll break it down. Melody alone. Bed alone. One bar at a time. You'll land it — this piece is worth every minute.
+
+completion:
+  cleffy: >
+    Act 42 sealed. Schumann in your hands.
+    The melody isn't always on top. The piano has three voices — high, middle, low — and any of them can carry the tune.
+    Next act — Debussy. Impressionism. Whole new language of sound.
+  xp: 30
+  unlocks: 211

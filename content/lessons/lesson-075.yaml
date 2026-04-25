@@ -1,0 +1,269 @@
+id: 75
+tier: elementary
+act: 15
+title: "Für Elise (theme)"
+subtitle: "Tier 2 · The finish line"
+goal: "Read and play the opening theme of Für Elise — the end-of-Tier-2 piece."
+prereqs: [25, 35, 40, 45, 55, 60, 61, 65, 70]
+method_focus: "combine"
+time_estimate_min: 18
+piece_context: "Beethoven's Für Elise. One of the most recognized piano pieces in history. You play its opening theme. Tier 2 complete."
+metaphor: "first-summit"
+vibe: ["gentle", "serious", "celebratory"]
+is_tier_boss: true
+piece:
+  title: "Für Elise (opening theme)"
+  composer: "Beethoven"
+  key_center: "A minor"
+  time_signature: "3/8"
+  difficulty: "elementary — mostly steps, one sharp, famous tune"
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy at the top of a pyramid (Tier 2 complete). The famous Für Elise opening shown on a staff."
+    cleffy: >
+      End of Tier 2. Fifty lessons in.
+      Today you play Für Elise. Most people never learn it. You will.
+
+  - id: 2
+    mode: see
+    type: piece_overview
+    figure: "Full opening theme of Für Elise written on staff. Just the first 8-16 bars."
+    cleffy: >
+      Here's the opening. Probably the most recognized piano melody ever written.
+      Mostly steps. One specific pattern — E, D-sharp, E, D-sharp, E... — repeats.
+
+  - id: 3
+    mode: hear
+    type: listen
+    figure: "Play button."
+    audio:
+      A: "Für Elise theme, RH only, played cleanly"
+    cleffy: >
+      Listen. You've heard this before. Now you play it.
+
+  - id: 4
+    mode: see
+    type: the_pattern
+    figure: "Staff showing the signature E, D#, E, D#, E pattern."
+    cleffy: >
+      The core move. E. D-sharp. E. D-sharp. E.
+      That's the pattern that makes Für Elise Für Elise.
+      D-sharp is the black key just below E. Step down, step up.
+
+  - id: 5
+    mode: play
+    type: play_core_pattern
+    figure: "Keyboard. E4 and D#4 glowing."
+    cleffy: >
+      Play it. E, D-sharp, E, D-sharp, E. Middle finger, pointer, middle, pointer, middle.
+    interaction:
+      type: sequence
+      keys: ["E4","D#4","E4","D#4","E4"]
+
+  - id: 6
+    mode: see
+    type: phrase_1
+    figure: "Full first phrase: E D# E D# E B D C A."
+    cleffy: >
+      First phrase. E D# E D# E B D C A.
+      After the E-D# pattern, the notes descend: B, D, C, A. Lands on A.
+
+  - id: 7
+    mode: play
+    type: phrase_1_play
+    figure: "Keyboard. Full phrase."
+    cleffy: >
+      Play phrase 1. Slow.
+    interaction:
+      type: sequence
+      keys: ["E4","D#4","E4","D#4","E4","B3","D4","C4","A3"]
+
+  - id: 8
+    mode: see
+    type: phrase_2
+    figure: "Phrase 2: C E A B (with a small LH accompaniment pattern, simplified to single notes for now)."
+    cleffy: >
+      Phrase 2. C E A B.
+      Going back up from A to B.
+
+  - id: 9
+    mode: play
+    type: phrase_2_play
+    figure: "Keyboard. Phrase 2."
+    cleffy: >
+      Play phrase 2.
+    interaction:
+      type: sequence
+      keys: ["C4","E4","A4","B4"]
+
+  - id: 10
+    mode: see
+    type: phrase_3_repeat
+    figure: "Phrase 3: E D# E D# E B D C A (same as phrase 1)."
+    cleffy: >
+      Phrase 3 is identical to phrase 1. Für Elise loves returning to its core move.
+
+  - id: 11
+    mode: play
+    type: phrase_3_play
+    figure: "Keyboard."
+    cleffy: >
+      Same as phrase 1. Play it.
+    interaction:
+      type: sequence
+      keys: ["E4","D#4","E4","D#4","E4","B3","D4","C4","A3"]
+
+  - id: 12
+    mode: see
+    type: phrase_4_closing
+    figure: "Phrase 4: C E A (short resolution)."
+    cleffy: >
+      Phrase 4 closes the theme. C, E, A. Lands on A — home note of A minor.
+
+  - id: 13
+    mode: play
+    type: phrase_4_play
+    figure: "Keyboard."
+    cleffy: >
+      Play phrase 4.
+    interaction:
+      type: sequence
+      keys: ["C4","E4","A4"]
+
+  - id: 14
+    mode: play
+    type: full_slow_guided
+    figure: "Full Für Elise theme. Guides on. Tempo 60."
+    cleffy: >
+      Full theme, slow, with guides.
+    interaction:
+      type: song
+      sequence: ["E4","D#4","E4","D#4","E4","B3","D4","C4","A3","C4","E4","A4","B4","E4","D#4","E4","D#4","E4","B3","D4","C4","A3","C4","E4","A4"]
+      guides: true
+      tempo: 60
+
+  - id: 15
+    mode: play
+    type: full_no_guides
+    figure: "No guides."
+    cleffy: >
+      No guides. You read, you play.
+    interaction:
+      type: song
+      sequence: ["E4","D#4","E4","D#4","E4","B3","D4","C4","A3","C4","E4","A4","B4","E4","D#4","E4","D#4","E4","B3","D4","C4","A3","C4","E4","A4"]
+      guides: false
+    followup_cleffy: >
+      That.
+      You just played Für Elise.
+      Fifty lessons ago, you didn't know what a staff was.
+
+  - id: 16
+    mode: play
+    type: at_tempo
+    figure: "Tempo 80."
+    cleffy: >
+      At tempo. 80 bpm.
+    interaction:
+      type: song
+      sequence: ["E4","D#4","E4","D#4","E4","B3","D4","C4","A3","C4","E4","A4","B4","E4","D#4","E4","D#4","E4","B3","D4","C4","A3","C4","E4","A4"]
+      guides: false
+      tempo: 80
+
+  - id: 17
+    mode: hear
+    type: pre_check
+    figure: "Banner — Tier 2 boss mastery check."
+    cleffy: >
+      Five quick ones. Tier boss is a bigger test — take your time.
+
+  - id: 18
+    mode: see
+    type: reflection
+    figure: "A pyramid showing Tier 1 (gold) and Tier 2 (gold). Cleffy at the top of Tier 2."
+    cleffy: >
+      Look back.
+      Tier 1: you learned to read one staff, play one hand.
+      Tier 2: both clefs. Both hands. Full method — step, skip, leap. Dynamics. Accidentals. Three keys. Real pieces.
+      Seven pieces in your hands now: Hot Cross Buns, Happy Birthday, Merrily We Roll Along, Mary Had a Little Lamb, Ode to Joy, Jingle Bells, Amazing Grace — and now the opening of Für Elise.
+
+  - id: 19
+    mode: see
+    type: whats_next
+    figure: "Pyramid preview with Tier 3 highlighted. Minuet in G, Clair de Lune mentioned."
+    cleffy: >
+      Tier 3 is articulation (how you touch keys), fingering, chords, and sight-reading.
+      Pieces: Minuet in G, Canon in D, Gymnopédie, Clair de Lune opening.
+      You don't have to do Tier 3 today. Take a break. You earned it.
+
+  - id: 20
+    mode: see
+    type: wrap
+    figure: "Celebration — TIER 2 COMPLETE 👑. Big golden trophy. Cleffy holding Für Elise sheet music."
+    cleffy: >
+      Tier 2. Complete.
+      You play piano. You read sheet music. You use a method most adult self-teachers never learn.
+      That's real.
+      Next tier opens when you're ready. I'll be here.
+
+practice_this_week:
+  real_piano:
+    - "Für Elise once a day. Slow at first. Build up to tempo."
+    - "Play it for someone in your life. Tell them it's Beethoven."
+    - "If you have time — revisit Hot Cross Buns and Happy Birthday. Notice how easy they feel now."
+  virtual_only:
+    - "Replay pages 14-16 until the theme feels automatic"
+  estimated_time: "15 min/day this week — celebrate"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 3
+      questions:
+        - figure: "Core pattern E-D#-E"
+          prompt: "What's the move between E and D#?"
+          options: ["Step down", "Step up", "Skip"]
+          correct: 0
+        - figure: "Für Elise phrase 1 ending on A"
+          prompt: "Does the phrase end on home note?"
+          options: ["Yes (A is home in A minor)", "No"]
+          correct: 0
+        - figure: "D# on keyboard"
+          prompt: "D-sharp is the black key..."
+          options: ["Above D", "Below D"]
+          correct: 0
+    hear:
+      pass_threshold: 2
+      questions:
+        - audio: "Für Elise opening"
+          prompt: "Do you recognize this tune?"
+          options: ["Yes", "No"]
+          correct: 0
+        - audio: "Core E-D#-E pattern"
+          prompt: "Does this move include a black key?"
+          options: ["Yes", "No"]
+          correct: 0
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play the first 5 notes of Für Elise: E, D#, E, D#, E."
+          accept: "E4 D#4 E4 D#4 E4"
+
+remediation:
+  id: "75.5"
+  title: "Für Elise, phrase by phrase"
+  pages: 10
+  opening_cleffy: >
+    Tier boss — big one. Let's break the theme into four phrases and rebuild very slowly.
+
+completion:
+  cleffy: >
+    Tier 2, sealed.
+    You play piano. Real piano. Real pieces. Real reading.
+    Fifty lessons of work.
+    Take a breath. Then Tier 3 whenever you're ready.
+  xp: 100
+  unlocks: 76
+  tier_complete: 2

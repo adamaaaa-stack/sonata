@@ -1,0 +1,237 @@
+# ============================================================
+# LESSON 186 · Scales: all white-key keys
+# Tier 5 · Act 38 · Upper-Intermediate · All-keys scales & arpeggios
+# Seven majors starting from white keys: C, G, D, A, E, F, Bb.
+# ============================================================
+id: 186
+tier: upper-intermediate
+act: 38
+title: "Scales: all white-key keys"
+subtitle: "Act 38 · All-keys scales & arpeggios"
+goal: "Play the major scale in seven keys that start on white notes — C, G, D, A, E, F, and B-flat — one octave, right hand."
+prereqs: [185, 71, 125, 111, 126, 127]
+method_focus: "play"
+time_estimate_min: 16
+piece_context: "Act 38 opens the all-keys act. Twelve doors. Seven of them start on white keys, five on black. Today — the seven white-starting doors. You already have C, G, D, A, F, Bb from earlier acts. E is the new one. Tomorrow handles the black-key starts."
+metaphor: "all-twelve-doors"
+vibe: ["focused", "serious"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy in front of a hallway with twelve doors. Seven are open and glowing; five are still dark. Banner: ACT 38 · ALL TWELVE DOORS."
+    cleffy: >
+      New act. Seven lessons from Moonlight prep.
+      Twelve major keys. You've met most of them.
+      Today — the seven that start on a white key.
+
+  - id: 2
+    mode: see
+    type: the_seven_keys
+    figure: "A ring of seven labeled doors: C, G, D, A, E, F, Bb. Sharp and flat counts below each (0, 1#, 2#, 3#, 4#, 1b, 2b)."
+    cleffy: >
+      Seven white-starting keys.
+      C — zero accidentals.
+      G — one sharp. D — two. A — three. E — four.
+      F — one flat. B-flat — two flats.
+
+  - id: 3
+    mode: see
+    type: scale_formula
+    figure: "A keyboard with the whole-whole-half-whole-whole-whole-half pattern marked between eight notes. Banner: EVERY MAJOR SCALE IS THIS SHAPE."
+    cleffy: >
+      One formula, every key.
+      Whole, whole, half. Whole, whole, whole, half.
+      The shape never changes. Only the starting door changes.
+
+  - id: 4
+    mode: see
+    type: fingering_rule
+    figure: "Right hand on C major scale. Thumb-under marked between 3 and 4. Fingering 1-2-3-1-2-3-4-5 labeled across eight notes."
+    cleffy: >
+      Standard right-hand fingering — one, two, three, thumb-under, one, two, three, four, five.
+      For six of these seven keys it works the same way.
+      B-flat is the odd one — we'll note it when we get there.
+
+  - id: 5
+    mode: play
+    type: play_c_major
+    figure: "Keyboard. C major scale C4 to C5. Fingering labeled."
+    cleffy: >
+      Key one. C major. All white.
+      One, two, three, thumb-under, one, two, three, four, five.
+    interaction:
+      type: sequence
+      keys: ["C4","D4","E4","F4","G4","A4","B4","C5"]
+
+  - id: 6
+    mode: play
+    type: play_g_major
+    figure: "Keyboard. G major scale G3 to G4. F-sharp highlighted."
+    cleffy: >
+      Key two. G major. One sharp — F becomes F-sharp.
+      Same fingering.
+    interaction:
+      type: sequence
+      keys: ["G3","A3","B3","C4","D4","E4","F#4","G4"]
+
+  - id: 7
+    mode: play
+    type: play_d_major
+    figure: "Keyboard. D major scale D4 to D5. F-sharp and C-sharp highlighted."
+    cleffy: >
+      D major. Two sharps — F-sharp, C-sharp.
+      The third finger and the thumb-under land on black keys. That's fine.
+    interaction:
+      type: sequence
+      keys: ["D4","E4","F#4","G4","A4","B4","C#5","D5"]
+
+  - id: 8
+    mode: play
+    type: play_a_major
+    figure: "Keyboard. A major scale A3 to A4. F-sharp, C-sharp, G-sharp highlighted."
+    cleffy: >
+      A major. Three sharps — F, C, G.
+      Stay calm. The fingering is identical to C.
+    interaction:
+      type: sequence
+      keys: ["A3","B3","C#4","D4","E4","F#4","G#4","A4"]
+
+  - id: 9
+    mode: play
+    type: play_e_major
+    figure: "Keyboard. E major scale E4 to E5. F-sharp, G-sharp, C-sharp, D-sharp highlighted."
+    cleffy: >
+      E major. Four sharps — F, C, G, D.
+      New key for you. Four black keys in the scale. Same fingering rule still holds.
+    interaction:
+      type: sequence
+      keys: ["E4","F#4","G#4","A4","B4","C#5","D#5","E5"]
+
+  - id: 10
+    mode: play
+    type: play_f_major
+    figure: "Keyboard. F major scale F4 to F5. B-flat highlighted."
+    cleffy: >
+      F major. One flat — B becomes B-flat.
+      Same fingering.
+    interaction:
+      type: sequence
+      keys: ["F4","G4","A4","Bb4","C5","D5","E5","F5"]
+
+  - id: 11
+    mode: see
+    type: bb_fingering_note
+    figure: "Right hand over B-flat. Fingering labeled: 4-1-2-3-1-2-3-4. Caption: B-flat starts on finger 4, not 1."
+    cleffy: >
+      One odd fingering. B-flat major.
+      Start on finger four, not thumb.
+      Makes the thumb-under land on C, a white key. Cleaner.
+
+  - id: 12
+    mode: play
+    type: play_bb_major
+    figure: "Keyboard. Bb major scale Bb3 to Bb4. B-flat and E-flat highlighted."
+    cleffy: >
+      B-flat major. Two flats — B-flat, E-flat.
+      Start on finger four.
+    interaction:
+      type: sequence
+      keys: ["Bb3","C4","D4","Eb4","F4","G4","A4","Bb4"]
+
+  - id: 13
+    mode: hear
+    type: name_the_key_drill
+    figure: "Drill banner. Five rounds — one scale played per round."
+    cleffy: >
+      Five rounds. Which scale is this?
+    interaction:
+      type: drill
+      rounds: 5
+      options: ["C", "G", "D", "A", "E", "F", "Bb"]
+
+  - id: 14
+    mode: play
+    type: chain_c_g_d
+    figure: "Keyboard. Three scales back to back — C, then G, then D. Each one octave."
+    cleffy: >
+      Three keys in a row. C, G, D. No stopping between.
+      The home note of each becomes the jumping-off point.
+    interaction:
+      type: sequence
+      keys: ["C4","D4","E4","F4","G4","A4","B4","C5","G3","A3","B3","C4","D4","E4","F#4","G4","D4","E4","F#4","G4","A4","B4","C#5","D5"]
+
+  - id: 15
+    mode: hear
+    type: pre_check
+    figure: "Banner."
+    cleffy: >
+      Three quick ones.
+
+  - id: 16
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 186. Seven doors now glowing. Five still dark. Caption: seven down, five to go."
+    cleffy: >
+      Seven doors open.
+      Tomorrow — the five that start on black keys. Different fingering story.
+
+practice_this_week:
+  real_piano:
+    - "One scale a day, rotating through all seven — C, G, D, A, E, F, B-flat. One octave up and down."
+    - "Once the notes feel steady, add a metronome at 60. Let the fingers find the fingering without looking."
+    - "B-flat is the outlier — start on finger four. Give it an extra pass."
+  virtual_only:
+    - "Replay pages 5-12 — one scale at a time"
+  estimated_time: "15 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "Whole-whole-half-whole-whole-whole-half pattern"
+          prompt: "How many half-steps are in every major scale?"
+          options: ["One", "Two", "Three"]
+          correct: 1
+        - figure: "B-flat major scale on staff"
+          prompt: "Which finger starts the B-flat major scale in the right hand?"
+          options: ["Thumb (1)", "Middle (3)", "Ring (4)"]
+          correct: 2
+        - figure: "E major key signature"
+          prompt: "How many sharps does E major have?"
+          options: ["Two", "Three", "Four"]
+          correct: 2
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "A G major scale ascending"
+          prompt: "Which key is this?"
+          options: ["C", "G", "D"]
+          correct: 1
+        - audio: "An E major scale ascending"
+          prompt: "How many sharps did you hear?"
+          options: ["Two", "Three", "Four"]
+          correct: 2
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play the G major scale, one octave, right hand."
+          accept: "G3 A3 B3 C4 D4 E4 F#4 G4"
+
+remediation:
+  id: "186.5"
+  title: "White-key scales, one at a time"
+  pages: 8
+  opening_cleffy: >
+    Seven keys is a stack. Let's slow down.
+    One scale per page. Fingering first, speed never.
+    By the end of this remediation, all seven will feel like the same shape.
+
+completion:
+  cleffy: >
+    Seven doors open. Five to go.
+    Tomorrow — the black-key starts. E-flat, A-flat, D-flat, G-flat.
+  xp: 18
+  unlocks: 187

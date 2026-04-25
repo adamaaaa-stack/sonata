@@ -1,0 +1,221 @@
+# ============================================================
+# LESSON 124 · Review: phrasing
+# Tier 3 · Act 25 · Low-Intermediate · Review
+# All the expression so far — phrases, dynamics, breath marks, shape.
+# ============================================================
+id: 124
+tier: low-intermediate
+act: 25
+title: "Review: phrasing"
+subtitle: "Act 25 · Review"
+goal: "Refresh every expression tool — phrase shape, question-and-answer, breath marks, phrase-shaped dynamics."
+prereqs: [123, 120, 119, 118, 117, 116, 60, 75]
+method_focus: "combine"
+time_estimate_min: 14
+vibe: ["gentle", "reflective"]
+metaphor: "musical-sentences"
+piece_context: "Last review. Tomorrow — Tier 3 boss. Today we walk over phrasing one more time, because expression is what makes music sound like music."
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy with a speech bubble — a wavy arc rising and falling. Below, a staff with the same arc drawn over a phrase."
+    cleffy: >
+      Last review.
+      Phrasing. Musical sentences.
+      Tomorrow is the boss — today we breathe.
+
+  - id: 2
+    mode: see
+    type: phrase_recap
+    figure: "Staff: an 8-note phrase. Curved arc drawn above — rising to the middle, falling to the end."
+    cleffy: >
+      A phrase is a musical sentence.
+      It starts. It peaks somewhere in the middle. It ends.
+      The arc you see — that's the shape.
+
+  - id: 3
+    mode: hear
+    type: listen_phrase
+    figure: "Play button. A single 8-note phrase with natural shaping."
+    audio:
+      A: "An eight-note phrase: softer start, louder middle, softer ending"
+    cleffy: >
+      Listen. Hear the rise and fall? That's a phrase breathing.
+
+  - id: 4
+    mode: play
+    type: play_shaped_phrase
+    figure: "Staff: C D E F G F E D. Dynamic arc marked — p at start, growing to mp in middle, back to p at end."
+    cleffy: >
+      Play this phrase. Start soft. Grow to the middle. Soften at the end.
+      C D E F G F E D. Ride the curve.
+    interaction:
+      type: sequence
+      keys: ["C4","D4","E4","F4","G4","F4","E4","D4"]
+
+  - id: 5
+    mode: see
+    type: question_answer_recap
+    figure: "Staff: two short phrases. The first ends on an unstable note (with a question mark). The second resolves (with a period)."
+    cleffy: >
+      Question and answer. Two phrases talking.
+      First phrase ends up in the air — a question.
+      Second phrase comes back and lands — an answer.
+
+  - id: 6
+    mode: hear
+    type: listen_q_and_a
+    figure: "Two play buttons. A: question phrase (ends on G). B: answer phrase (ends on C)."
+    audio:
+      A: "Short phrase ending unresolved on G"
+      B: "Short phrase ending resolved on C"
+    cleffy: >
+      First phrase — hanging. Second phrase — home.
+      You feel the difference, not just hear it.
+
+  - id: 7
+    mode: play
+    type: play_q_and_a
+    figure: "Staff: bar 1 'C E G' ending on G. Bar 2 'G E C' ending on C. Keyboard."
+    cleffy: >
+      Play the question. C E G. Leave it in the air.
+      Then the answer. G E C. Land.
+    interaction:
+      type: sequence
+      keys: ["C4","E4","G4","G4","E4","C4"]
+
+  - id: 8
+    mode: see
+    type: breath_marks_recap
+    figure: "Staff with a small comma mark between two phrases. Callout: 'breathe here'."
+    cleffy: >
+      Breath mark — the little comma above the staff.
+      Tiny pause. Lift the hand. A singer would take a breath here.
+      Piano doesn't need air. The pause is the breath.
+
+  - id: 9
+    mode: play
+    type: play_with_breath
+    figure: "Staff: four-note phrase, breath mark, four-note phrase. Keyboard."
+    cleffy: >
+      Play both halves. Lift after the fourth note. Tiny silence. Then continue.
+      C D E F — lift — G A B C.
+    interaction:
+      type: sequence
+      keys: ["C4","D4","E4","F4","G4","A4","B4","C5"]
+
+  - id: 10
+    mode: see
+    type: phrase_dynamics_recap
+    figure: "Staff: one long phrase with hairpin crescendo toward the middle and hairpin diminuendo at the end."
+    cleffy: >
+      Phrase-shaped dynamics.
+      Soft at the start. Grow toward the peak. Soften to the end.
+      The music doesn't stay one volume. It breathes.
+
+  - id: 11
+    mode: play
+    type: bagatelle_snippet
+    figure: "Short Beethoven-style phrase — simple melody shaped with a dynamic arc. Keyboard below."
+    cleffy: >
+      Phrase from the Bagatelle. Play it with shape.
+      Quiet start. Push through the middle. Release at the end.
+    interaction:
+      type: sequence
+      keys: ["G4","A4","B4","C5","D5","C5","B4","A4","G4"]
+
+  - id: 12
+    mode: hear
+    type: shape_quiz
+    figure: "Round counter 1 of 3. Two phrases per round — one shaped, one flat."
+    cleffy: >
+      Three rounds. Which one has shape?
+    interaction:
+      type: drill
+      rounds: 3
+      options: ["The first one", "The second one"]
+
+  - id: 13
+    mode: play
+    type: full_phrased_line
+    figure: "Staff: longer 12-note line with breath mark in the middle, dynamic arc over each half."
+    cleffy: >
+      All at once. Two phrases, one breath between.
+      Shape each half. Breathe in the gap.
+    interaction:
+      type: sequence
+      keys: ["C4","D4","E4","F4","G4","F4","E4","G4","A4","B4","C5","B4"]
+    followup_cleffy: >
+      That's music, not just notes.
+
+  - id: 14
+    mode: hear
+    type: pre_check
+    figure: "Banner."
+    cleffy: >
+      Three quick ones. Last review check.
+
+  - id: 15
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 124. An arc over a staff. Small text: 'Tier 3 boss tomorrow.'"
+    cleffy: >
+      Phrasing — re-held.
+      Four reviews, done.
+      Tomorrow — Tier 3 boss. Clair de Lune. You're ready.
+
+practice_this_week:
+  real_piano:
+    - "Any piece you know. Play one phrase with a clear shape — soft-loud-soft. Then play it flat. Hear the difference."
+    - "Pick a favorite melody. Mark where you would breathe. Play it with those breaths."
+  virtual_only:
+    - "Replay pages 4, 7, 9, 11, 13"
+  estimated_time: "8 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "A staff with a rising-falling arc drawn above a phrase"
+          prompt: "What does the arc tell you?"
+          options: ["Play all notes the same volume", "Start soft, grow, soften again", "Play staccato"]
+          correct: 1
+        - figure: "A small comma above a staff between two groups of notes"
+          prompt: "What is this mark?"
+          options: ["Staccato", "Breath mark", "Accent"]
+          correct: 1
+        - figure: "Two phrases — first ends on G, second ends on C"
+          prompt: "Which phrase sounds finished?"
+          options: ["The first one", "The second one"]
+          correct: 1
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "A phrase played with clear rise-fall dynamics"
+          prompt: "Did this phrase have a clear shape?"
+          options: ["Yes", "No"]
+          correct: 0
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play C D E F G F E D — with a gentle rise and fall in volume."
+          accept: "Full phrase with visible shaping attempt"
+
+remediation:
+  id: "124.5"
+  title: "Phrasing, one idea at a time"
+  pages: 6
+  opening_cleffy: >
+    Four expression ideas in one lesson — too many to hold at once.
+    Let's walk through one at a time. Shape. Breath. Q-and-A. Dynamic arc.
+
+completion:
+  cleffy: >
+    Every review — done.
+    Tomorrow — fifty lessons of Tier 3 collapse into one piece.
+    Clair de Lune. Opening only. Get some sleep.
+  xp: 20
+  unlocks: 125

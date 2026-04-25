@@ -1,0 +1,206 @@
+# ============================================================
+# LESSON 111 · D major (2 sharps)
+# Tier 3 · Act 23 · Low-Intermediate · New keys + transposition
+# Two sharps — F# and C#.
+# ============================================================
+id: 111
+tier: low-intermediate
+act: 23
+title: "D major"
+subtitle: "Act 23 · Two sharps — F# and C#"
+goal: "Read and play in D major — two sharps, F-sharp and C-sharp."
+prereqs: [110, 67, 75]
+method_focus: "keys"
+time_estimate_min: 13
+piece_context: "Act 23 opens. You know G major (1 sharp) and F major (1 flat). Now we add a second accidental. D major is next up the sharp ladder."
+metaphor: "new-keys-new-colors"
+vibe: ["gentle", "focused"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Treble staff with D major key signature — F# on top line, C# in third space. Title: D MAJOR."
+    cleffy: >
+      New key. Two sharps.
+      F-sharp and C-sharp. Every time.
+      Same shapes you already read — new colors.
+
+  - id: 2
+    mode: see
+    type: where_the_sharps_sit
+    figure: "Close-up of the D major key signature. Arrow pointing to F# on line 5 and C# in space 3."
+    cleffy: >
+      The two sharps sit in order. F-sharp first — top line.
+      Then C-sharp — third space.
+      Any F, any octave — sharp. Any C, any octave — sharp.
+
+  - id: 3
+    mode: see
+    type: the_scale
+    figure: "Staff with D major scale spelled out: D E F# G A B C# D. Key signature at the left."
+    cleffy: >
+      D major scale. D E F-sharp G A B C-sharp D.
+      Two black keys in there. Both the sharps the key signature warned you about.
+
+  - id: 4
+    mode: play
+    type: d_five_finger
+    figure: "Keyboard. D E F# G A glowing (D position). Key signature F# C#."
+    cleffy: >
+      D position — D E F-sharp G A.
+      F is the only black key in the first five. Go slow.
+    interaction:
+      type: sequence
+      keys: ["D4","E4","F#4","G4","A4"]
+
+  - id: 5
+    mode: play
+    type: full_scale
+    figure: "Keyboard. Full D major scale highlighted."
+    cleffy: >
+      Full D major scale. D to D, eight notes.
+      Watch the F and the C — both sharp.
+    interaction:
+      type: sequence
+      keys: ["D4","E4","F#4","G4","A4","B4","C#5","D5"]
+
+  - id: 6
+    mode: hear
+    type: d_major_sound
+    figure: "Play button."
+    audio:
+      A: "D major scale ascending"
+    cleffy: >
+      D major. Bright. A little warmer than G.
+      Listen — two black keys slide by.
+
+  - id: 7
+    mode: see
+    type: melody_in_d
+    figure: "Staff in D major. Melody: D F# A F# D. Mostly skips."
+    cleffy: >
+      Short melody in D. D F-sharp A F-sharp D.
+      The F has no symbol next to it — key signature already said it's sharp.
+
+  - id: 8
+    mode: play
+    type: play_melody_d
+    figure: "Keyboard. D F# A F# D."
+    cleffy: >
+      Play it.
+    interaction:
+      type: sequence
+      keys: ["D4","F#4","A4","F#4","D4"]
+
+  - id: 9
+    mode: see
+    type: melody_with_c_sharp
+    figure: "Staff in D major. Melody: D E F# G A B C# D. Key signature at left."
+    cleffy: >
+      Now a melody that uses both sharps.
+      D E F-sharp G A B C-sharp D. Same shape as the scale — because it is.
+
+  - id: 10
+    mode: play
+    type: play_with_both_sharps
+    figure: "Keyboard. Full scale phrase."
+    cleffy: >
+      Play it. Two black keys — F and C.
+    interaction:
+      type: sequence
+      keys: ["D4","E4","F#4","G4","A4","B4","C#5","D5"]
+
+  - id: 11
+    mode: see
+    type: drill_read
+    figure: "Staff in D major. Various notes — some F's, some C's, some naturals."
+    cleffy: >
+      Four rounds. In D major — sharp or natural?
+    interaction:
+      type: drill
+      rounds: 4
+      options: ["Natural", "Sharp"]
+
+  - id: 12
+    mode: play
+    type: real_phrase
+    figure: "Staff in D. Melody: D A F# A D C# D. Key sig at left."
+    cleffy: >
+      Real phrase. 7 notes. Both sharps show up.
+    interaction:
+      type: sequence
+      keys: ["D4","A4","F#4","A4","D4","C#4","D4"]
+
+  - id: 13
+    mode: see
+    type: three_sharp_keys
+    figure: "Table: C major (0), G major (1 sharp: F#), D major (2 sharps: F#, C#)."
+    cleffy: >
+      Three keys you know now.
+      C — none. G — one. D — two.
+      Each step up adds one sharp.
+
+  - id: 14
+    mode: hear
+    type: pre_check
+    figure: "Banner."
+    cleffy: >
+      Four quick ones.
+
+  - id: 15
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 111. D major key signature, two sharps highlighted."
+    cleffy: >
+      D major is yours. Two sharps, handled.
+      Tomorrow — the other side. B-flat major. Two flats.
+
+practice_this_week:
+  real_piano:
+    - "Play the full D major scale, both hands, slow. Every F and every C is sharp."
+    - "Play a phrase: D A F# A D C# D. Feel how the black keys fall under your fingers."
+  virtual_only:
+    - "Replay pages 5 and 10"
+  estimated_time: "10 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "D major key signature"
+          prompt: "Which two notes are sharp in D major?"
+          options: ["F and C", "F and G", "B and E", "C and G"]
+          correct: 0
+        - figure: "Staff in D major with a note in the third space (C)"
+          prompt: "What do you play?"
+          options: ["C-natural", "C-sharp"]
+          correct: 1
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "D major scale"
+          prompt: "How many black keys do you hear?"
+          options: ["None", "One", "Two"]
+          correct: 2
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play the first 5 notes of D major: D-E-F#-G-A."
+          accept: "D4 E4 F#4 G4 A4"
+
+remediation:
+  id: "111.5"
+  title: "D major, slower"
+  pages: 6
+  opening_cleffy: >
+    Two sharps is one more than last time.
+    Slow walk — F-sharp first, then C-sharp, then both together.
+
+completion:
+  cleffy: >
+    D major, locked in.
+    Tomorrow — two flats. B-flat major.
+  xp: 18
+  unlocks: 112

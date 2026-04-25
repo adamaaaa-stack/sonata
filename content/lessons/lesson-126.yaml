@@ -1,0 +1,214 @@
+# ============================================================
+# LESSON 126 · A major (3 sharps)
+# Tier 4 · Act 26 · Intermediate · Start of Tier 4
+# F#, C#, G# — the three-sharp key.
+# ============================================================
+id: 126
+tier: intermediate
+act: 26
+title: "A major (3 sharps)"
+subtitle: "Act 26 · More keys"
+goal: "Read and play a simple phrase in A major — F-sharp, C-sharp, G-sharp, every time."
+prereqs: [125, 111, 75]
+method_focus: "keys"
+time_estimate_min: 13
+piece_context: "Tier 4 opens. You just finished Clair de Lune. Now — more keys. A major adds one more sharp to what you know."
+metaphor: "map-of-all-keys"
+vibe: ["gentle", "focused"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy holding a treble staff with three sharps stacked at the start. Banner: TIER 4. A MAJOR."
+    cleffy: >
+      Welcome to Tier 4.
+      You finished Clair de Lune. That was Tier 3.
+      Now — more keys. More color. Today, A major.
+
+  - id: 2
+    mode: see
+    type: three_sharps
+    figure: "Treble staff showing the key signature for A major — F# on top line, C# on third space, G# on space above the staff."
+    cleffy: >
+      Three sharps. F, C, G.
+      Every F is F-sharp. Every C is C-sharp. Every G is G-sharp.
+      Say it out loud once — F, C, G.
+
+  - id: 3
+    mode: see
+    type: a_major_scale_on_staff
+    figure: "Treble staff with the A major scale written out: A B C# D E F# G# A. Key signature at the front."
+    cleffy: >
+      The scale. A B C D E F G A — but three of those notes are sharp.
+      C, F, and G. Same three every time.
+
+  - id: 4
+    mode: hear
+    type: hear_a_major
+    figure: "Play button. Label: A MAJOR SCALE."
+    audio:
+      A: "A major scale ascending, slow and clean"
+    cleffy: >
+      Listen. Bright. Warm. Open.
+      A is a singer's key — lots of songs live here.
+
+  - id: 5
+    mode: play
+    type: five_finger_a
+    figure: "Keyboard. A B C# D E highlighted. Key signature showing 3 sharps."
+    cleffy: >
+      A position — five fingers. A, B, C-sharp, D, E.
+      C-sharp is the black key right after C. Keep that one in mind.
+    interaction:
+      type: sequence
+      keys: ["A4","B4","C#5","D5","E5"]
+
+  - id: 6
+    mode: play
+    type: full_scale_a
+    figure: "Keyboard. Full A major scale highlighted: A B C# D E F# G# A."
+    cleffy: >
+      Full scale. A B C-sharp D E F-sharp G-sharp A.
+      Three black keys inside the climb. Slow.
+    interaction:
+      type: sequence
+      keys: ["A4","B4","C#5","D5","E5","F#5","G#5","A5"]
+
+  - id: 7
+    mode: see
+    type: reading_rule
+    figure: "Staff in A major with a plain F note (no symbol in front of it) circled. Arrow to keyboard: F# key lit."
+    cleffy: >
+      Here's the rule.
+      No symbol on the F — still play F-sharp.
+      The key signature already said so. It doesn't repeat itself.
+
+  - id: 8
+    mode: play
+    type: play_with_fsharp
+    figure: "Keyboard. A B C# D E F# — played in order."
+    cleffy: >
+      Play up to F-sharp. A, B, C-sharp, D, E, F-sharp.
+    interaction:
+      type: sequence
+      keys: ["A4","B4","C#5","D5","E5","F#5"]
+
+  - id: 9
+    mode: see
+    type: short_melody_in_a
+    figure: "Staff in A major. Melody: A C# E A — simple arpeggio-like shape. No accidentals written."
+    cleffy: >
+      Short melody. A, C-sharp, E, A.
+      Both C and E on the page — but the C is sharp because the key said so.
+
+  - id: 10
+    mode: play
+    type: play_melody_a
+    figure: "Keyboard. A C# E A."
+    cleffy: >
+      Play it. A, C-sharp, E, A. Four notes.
+    interaction:
+      type: sequence
+      keys: ["A4","C#5","E5","A5"]
+
+  - id: 11
+    mode: play
+    type: longer_phrase_a
+    figure: "Staff in A major. Melody: A B C# D E D C# B A."
+    cleffy: >
+      Nine notes. Up the scale, then back.
+      Watch the C on the way up and the C on the way down — both sharp.
+    interaction:
+      type: sequence
+      keys: ["A4","B4","C#5","D5","E5","D5","C#5","B4","A4"]
+
+  - id: 12
+    mode: hear
+    type: sharp_drill
+    figure: "Four rounds. Banner — 'In A major, what do you play?'"
+    cleffy: >
+      Four rounds. In A major — natural or sharp?
+    interaction:
+      type: drill
+      rounds: 4
+      options: ["Natural", "Sharp"]
+
+  - id: 13
+    mode: play
+    type: full_scale_again
+    figure: "Keyboard with full A major scale."
+    cleffy: >
+      One more full scale. All eight notes.
+      Remember — F, C, G are sharp.
+    interaction:
+      type: sequence
+      keys: ["A4","B4","C#5","D5","E5","F#5","G#5","A5"]
+
+  - id: 14
+    mode: hear
+    type: pre_check
+    figure: "Banner."
+    cleffy: >
+      Three quick ones.
+
+  - id: 15
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 126. A major key signature with F#, C#, G# glowing. Banner: TIER 4 · KEY 1."
+    cleffy: >
+      A major. Three sharps. F, C, G.
+      Tomorrow — the flat side. E-flat major.
+
+practice_this_week:
+  real_piano:
+    - "Play the full A major scale, slow. Say each sharp out loud as you hit it — F-sharp, C-sharp, G-sharp."
+    - "Pick any melody you know in C. Try it starting on A instead. Let the three sharps happen."
+  virtual_only:
+    - "Replay pages 6, 11, and 13"
+  estimated_time: "10 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "A major key signature"
+          prompt: "How many sharps in A major?"
+          options: ["One", "Two", "Three", "Four"]
+          correct: 2
+        - figure: "A major key signature"
+          prompt: "Which three notes are sharp?"
+          options: ["F, C, G", "B, E, A", "F, B, E"]
+          correct: 0
+        - figure: "Staff in A major with a plain C note"
+          prompt: "What do you play?"
+          options: ["C-natural", "C-sharp"]
+          correct: 1
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "A major scale ascending"
+          prompt: "Is this a major-sounding scale?"
+          options: ["Yes", "No"]
+          correct: 0
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play the first five notes of A major: A B C# D E."
+          accept: "A4 B4 C#5 D5 E5"
+
+remediation:
+  id: "126.5"
+  title: "A major, one sharp at a time"
+  pages: 7
+  opening_cleffy: >
+    Three sharps is a jump from two.
+    We'll take them one at a time. F-sharp first. Then C-sharp. Then G-sharp.
+
+completion:
+  cleffy: >
+    A major — three sharps, known.
+    Tomorrow — three flats. E-flat major.
+  xp: 18
+  unlocks: 127

@@ -1,0 +1,241 @@
+# ============================================================
+# LESSON 151 · Hand independence
+# Tier 4 · Act 31 · Intermediate
+# RH plays 4 quarter notes while LH plays 2 half notes.
+# Two brains, one body.
+# ============================================================
+id: 151
+tier: intermediate
+act: 31
+title: "Hand independence"
+subtitle: "Act 31 · Two brains, one body"
+goal: "Play the right hand and left hand in rhythmically different patterns — RH quarters over LH halves."
+prereqs: [150, 103, 104]
+method_focus: "play"
+time_estimate_min: 14
+piece_context: "You've done two-hand coordination where the hands trade beats. Now the next layer — hands playing at different speeds, in different rhythms, at the same time. The default of almost all piano music."
+metaphor: "two-hands-two-minds"
+vibe: ["focused", "honest"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy with two thought bubbles — one for each hand. Both bubbles have different notes inside."
+    cleffy: >
+      Two hands. Two minds.
+      Your left is counting in halves. Your right is counting in quarters.
+      Same bar. Different jobs.
+
+  - id: 2
+    mode: see
+    type: the_idea
+    figure: "Grand staff, 4/4. LH: two half notes (C3, C3). RH: four quarter notes (G4, G4, G4, G4). Beats numbered underneath."
+    cleffy: >
+      The picture.
+      Left hand — two half notes. One on beat 1. One on beat 3.
+      Right hand — four quarter notes. One on every beat.
+      LH is slow. RH is twice as fast.
+
+  - id: 3
+    mode: hear
+    type: listen
+    figure: "Play button. Metronome at 60."
+    audio:
+      A: "LH plays half notes C3 on beats 1 and 3. RH plays quarter notes G4 on beats 1, 2, 3, 4. Both together, slow."
+    cleffy: >
+      Listen.
+      The low note holds. The high note keeps going.
+      Each time RH presses, LH is either starting or still holding.
+
+  - id: 4
+    mode: play
+    type: rh_alone
+    figure: "Keyboard. G4 lit. Metronome 60."
+    cleffy: >
+      Right hand first. Four quarter notes on G. Steady pulse.
+    interaction:
+      type: rhythm
+      sequence: ["G4","G4","G4","G4"]
+      durations: ["quarter","quarter","quarter","quarter"]
+      tempo: 60
+
+  - id: 5
+    mode: play
+    type: lh_alone
+    figure: "Keyboard. C3 lit. Metronome 60."
+    cleffy: >
+      Left hand alone. Two half notes on C. Press, hold for two beats. Press again.
+    interaction:
+      type: rhythm
+      sequence: ["C3","C3"]
+      durations: ["half","half"]
+      tempo: 60
+
+  - id: 6
+    mode: see
+    type: how_they_fit
+    figure: "Grand staff. Dotted vertical lines between beats. RH quarters lined up with 1, 2, 3, 4. LH half notes anchored on 1 and 3. Arrows showing LH holds through 2 and 4."
+    cleffy: >
+      Here's how they fit.
+      Beat 1 — both hands press together.
+      Beat 2 — RH presses. LH is still holding.
+      Beat 3 — both press together again.
+      Beat 4 — RH presses. LH is still holding.
+      Together, apart, together, apart.
+
+  - id: 7
+    mode: play
+    type: both_slow
+    figure: "Grand staff. RH G4 quarters, LH C3 halves. Metronome 50."
+    cleffy: >
+      Both hands. 50 bpm — very slow.
+      Count out loud. One, two, three, four.
+    interaction:
+      type: rhythm
+      sequence: [["C3","G4"], "G4", ["C3","G4"], "G4"]
+      durations: ["quarter","quarter","quarter","quarter"]
+      tempo: 50
+
+  - id: 8
+    mode: play
+    type: both_again
+    figure: "Same staff. Metronome 50."
+    cleffy: >
+      Again. Cleaner.
+      LH note should ring through two RH presses.
+    interaction:
+      type: rhythm
+      sequence: [["C3","G4"], "G4", ["C3","G4"], "G4"]
+      durations: ["quarter","quarter","quarter","quarter"]
+      tempo: 50
+    followup_cleffy: >
+      Two speeds, at once.
+
+  - id: 9
+    mode: see
+    type: why_its_hard
+    figure: "Two gears turning at different speeds, meshing. Cleffy watching."
+    cleffy: >
+      Why this is hard.
+      Your brain wants both hands to press together every time.
+      Independence means one hand keeps its own clock while the other keeps its own.
+      It comes from slow practice. Not from trying harder.
+
+  - id: 10
+    mode: play
+    type: change_notes
+    figure: "Grand staff. Two bars. Bar 1: LH C3, RH G4 quarters. Bar 2: LH G2, RH D4 quarters. Tempo 55."
+    cleffy: >
+      Two bars. Same rhythm. New notes in bar 2.
+      LH moves to G. RH moves to D.
+      Rhythm doesn't change.
+    interaction:
+      type: rhythm
+      sequence: [["C3","G4"], "G4", ["C3","G4"], "G4", ["G2","D4"], "D4", ["G2","D4"], "D4"]
+      durations: ["quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter"]
+      tempo: 55
+
+  - id: 11
+    mode: play
+    type: four_bars
+    figure: "Grand staff. Four bars — C, F, G, C progression. RH quarters on the root. LH halves on the root."
+    cleffy: >
+      Four bars. The hands keep their speeds. The notes change.
+      C. F. G. C.
+    interaction:
+      type: rhythm
+      sequence: [["C3","C4"], "C4", ["C3","C4"], "C4", ["F2","F4"], "F4", ["F2","F4"], "F4", ["G2","G4"], "G4", ["G2","G4"], "G4", ["C3","C4"], "C4", ["C3","C4"], "C4"]
+      durations: ["quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter"]
+      tempo: 55
+
+  - id: 12
+    mode: see
+    type: everywhere
+    figure: "A score snippet — Alberti-ish left hand under a slower right-hand melody. Label: 'the default sound of classical piano.'"
+    cleffy: >
+      This idea — hands at different speeds — is the default of classical music.
+      One hand moves. The other holds or moves less.
+      You will meet this pattern in every piece from here on.
+
+  - id: 13
+    mode: play
+    type: final
+    figure: "Four bars again. Tempo 60."
+    cleffy: >
+      Once more. 60 bpm.
+    interaction:
+      type: rhythm
+      sequence: [["C3","C4"], "C4", ["C3","C4"], "C4", ["F2","F4"], "F4", ["F2","F4"], "F4", ["G2","G4"], "G4", ["G2","G4"], "G4", ["C3","C4"], "C4", ["C3","C4"], "C4"]
+      durations: ["quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter"]
+      tempo: 60
+
+  - id: 14
+    mode: hear
+    type: pre_check
+    figure: "Banner."
+    cleffy: >
+      Three quick ones.
+
+  - id: 15
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 151. Two gears turning at different speeds. Banner: HAND INDEPENDENCE — DAY 1."
+    cleffy: >
+      Two brains, one body. Day one.
+      Tomorrow — LH holds a chord while RH plays a melody.
+      The sound of most piano music you've ever heard.
+
+practice_this_week:
+  real_piano:
+    - "The four-bar pattern every day. 50 bpm, no faster, until the hands feel settled."
+    - "Count out loud. One, two, three, four. The voice keeps the clock."
+    - "If one hand drags — stop and play it alone for ten seconds, then try both again."
+  virtual_only:
+    - "Replay pages 7-8 until the slow version feels steady."
+  estimated_time: "10 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "Grand staff — LH half notes, RH quarter notes"
+          prompt: "How many RH notes for every LH note?"
+          options: ["One", "Two", "Four"]
+          correct: 1
+        - figure: "Beats 1, 2, 3, 4 numbered under a bar"
+          prompt: "On which beats do both hands press together?"
+          options: ["1 and 3", "2 and 4", "Every beat"]
+          correct: 0
+        - figure: "Two gears turning at different speeds"
+          prompt: "What is hand independence?"
+          options: ["Each hand keeping its own clock", "Both hands locked together", "One hand silent"]
+          correct: 0
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "RH quarters over LH halves at 60 bpm"
+          prompt: "Are the two hands moving at the same speed?"
+          options: ["Yes", "No — different speeds"]
+          correct: 1
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play one bar — LH C3 half notes, RH G4 quarter notes, both together."
+          accept: "LH halves on beats 1 and 3, RH quarters on beats 1-2-3-4"
+
+remediation:
+  id: "151.5"
+  title: "Hands apart, then together, very slow"
+  pages: 8
+  opening_cleffy: >
+    Independence is a wall. Expected.
+    We'll play each hand alone at 40 bpm, then glue them together one beat at a time.
+
+completion:
+  cleffy: >
+    Hands at different speeds. That was today.
+    Tomorrow — LH holds a chord, RH plays a melody above it.
+  xp: 18
+  unlocks: 152

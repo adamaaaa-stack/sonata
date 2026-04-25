@@ -1,0 +1,351 @@
+# ============================================================
+# LESSON 225 · Clair de Lune (full) — TIER 5 BOSS 👑
+# Tier 5 · Act 45 · Upper-Intermediate · TIER BOSS
+# 20 pages. Fifth summit. Second-to-last tier.
+# ============================================================
+id: 225
+tier: upper-intermediate
+act: 45
+title: "Clair de Lune (full)"
+subtitle: "Tier 5 · The fifth summit"
+goal: "Play Clair de Lune — complete, A-B-climax-A' — with shape, voicing, and dynamic arc. End of Tier 5."
+prereqs: [125, 200, 205, 210, 215, 220, 221, 222, 223, 224]
+method_focus: "combine"
+time_estimate_min: 25
+piece_context: "Debussy's Clair de Lune. One hundred years ago, a French composer in his twenties sat at a piano and wrote moonlight into keys. Tonight, you play it. Complete. Simplified, yes — D major, shorter than the original seventy-two bars — but the whole arc. Opening. Flowing middle. One bloom. A quiet return. Fifty lessons of Tier 5 in your hands. Two hundred twenty-five lessons behind you. Twenty-five to graduation."
+metaphor: "fifth-summit"
+vibe: ["quiet", "reflective", "triumphant", "celebratory"]
+is_tier_boss: true
+piece:
+  title: "Clair de Lune (full — simplified)"
+  composer: "Debussy (1890, published 1905)"
+  key_center: "D major (simplified from D-flat)"
+  time_signature: "3/4 (simplified from 9/8)"
+  difficulty: "upper-intermediate — A-B-climax-A' full form, voicing, dynamic arc pp→f→pp, pedal throughout"
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy at the top of a fifth pyramid. Behind him — Tiers 1, 2, 3, 4, 5 marked in gold. A full moon. Caption: 'fifth summit.'"
+    cleffy: >
+      Fifth summit.
+      Tier 1 — Happy Birthday.
+      Tier 2 — Für Elise theme.
+      Tier 3 — Clair de Lune opening.
+      Tier 4 — Moonlight Sonata, first eight bars.
+      Today — Clair de Lune. Complete.
+
+  - id: 2
+    mode: see
+    type: piece_intro
+    figure: "A pale blue-grey still. 'Clair de Lune — Claude Debussy. Third movement of Suite bergamasque, 1890.' Below: a line of French — 'au clair de lune, mon ami Pierrot.'"
+    cleffy: >
+      Clair de Lune. 'Moonlight.'
+      Debussy wrote it in 1890. He was twenty-eight.
+      Named after a poem by Paul Verlaine about a masked ball under the moon.
+      It sat in a drawer for fifteen years before he published it.
+      Now it's one of the most recognized pieces on earth.
+
+  - id: 3
+    mode: see
+    type: the_name
+    figure: "A handwritten-style French line: 'votre âme est un paysage choisi…' Translation below: 'your soul is a chosen landscape…'"
+    cleffy: >
+      The Verlaine poem starts — 'your soul is a chosen landscape.'
+      Debussy tried to put that into music.
+      Not a story. A feeling. Quiet. Almost sad. Almost happy. Unsure.
+      That ambiguity is the piece.
+
+  - id: 4
+    mode: hear
+    type: listen_full
+    figure: "Play button. Caption: 'the whole piece — simplified. One take.'"
+    audio:
+      A: "Full simplified Clair de Lune — A section whispered, B rolling, climax bloom, A' fading to silence. Three minutes."
+    cleffy: >
+      Listen. The whole thing. Three minutes.
+      The piece you're about to play.
+      Don't analyze. Just be inside it.
+
+  - id: 5
+    mode: see
+    type: the_map
+    figure: "Piece map. A (12 bars, pp), B (8 bars, pp), CLIMAX (5 bars, pp→f→pp), A' (8 bars, ppp, ending in ritardando). Dynamic arc drawn over the top."
+    cleffy: >
+      The map you already know.
+      A — drift. B — flow. Climax — bloom. A' — fade.
+      One arc. Soft to loud to softer than you started.
+
+  - id: 6
+    mode: see
+    type: what_you_bring
+    figure: "Four panels, each checked off. Panel 1: 'pedal as color' (Act 41). Panel 2: 'voicing' (Act 42). Panel 3: 'rolling textures' (Arabesque, Act 43). Panel 4: 'dynamic arc' (Act 44)."
+    cleffy: >
+      What Tier 5 gave you.
+      Pedal as color, not just sustain.
+      Voicing — one note sings above the others.
+      Rolling textures — Arabesque, now Clair de Lune.
+      Dynamic arcs that last longer than a phrase.
+      All of it. Today. One piece.
+
+  - id: 7
+    mode: play
+    type: warmup_a_opening
+    figure: "Grand staff. A section opening four bars. Tempo 42. Guides on. pp."
+    cleffy: >
+      Warm up. A section opening.
+      Soft as you can.
+    interaction:
+      type: song
+      sequence: [["D2","F#4","A4"],["E4","G4"],["D4","F#4"],["F#4","A4"]]
+      guides: true
+      tempo: 42
+
+  - id: 8
+    mode: play
+    type: warmup_b_roll
+    figure: "Grand staff. B section, two bars. Tempo 46."
+    cleffy: >
+      Warm up B. Two bars of the roll.
+      Right hand firmer. Left hand softer.
+    interaction:
+      type: song
+      sequence: [["F#4","D3"],"F#3","A3","F#3","A3","D4",["E4","D3"],"F#3","A3","F#3","A3","D4"]
+      guides: true
+      tempo: 46
+
+  - id: 9
+    mode: play
+    type: warmup_climax
+    figure: "Grand staff. Peak chord isolated. LH D2-A2, RH D4-F#4-A4-D5. f."
+    cleffy: >
+      Warm up the peak chord. Full, warm, not harsh.
+      One press.
+    interaction:
+      type: sequence
+      keys: [["D2","A2","D4","F#4","A4","D5"]]
+
+  - id: 10
+    mode: play
+    type: full_with_guides
+    figure: "Grand staff. All thirty-three bars. Tempo 42. Guides on. Full dynamic arc marked."
+    cleffy: >
+      Full piece. Guides on. Tempo 42.
+      Last rehearsal before the real run.
+    interaction:
+      type: song
+      sequence: [["D2","F#4","A4"],["E4","G4"],["D4","F#4"],["F#4","A4"],["A1","E4","G4"],["D4","F#4"],["D2","C#4","E4"],["D4","F#4"],["D2","F#4","A4"],["E4","G4"],["D4","F#4"],["F#4","A4"],["F#4","D3"],"F#3","A3","F#3","A3","D4",["E4","D3"],"F#3","A3","F#3","A3","D4",["F#4","D3"],"F#3","A3","F#3","A3","D4",["A4","D3"],"F#3","A3","F#3","B4","D5",["D2","A2","D4","F#4","A4","D5"],["D5","D3"],"A4","F#4","D4",["D4","D2"],"A3","F#3","D3",["D2","F#4","A4"],["E4","G4"],["D4","F#4"],["F#4","A4"],["D2","E4","G4"],["D4","F#4"],["F#4","A4"],["D3","D4"]]
+      guides: true
+      tempo: 42
+
+  - id: 11
+    mode: play
+    type: full_no_guides
+    figure: "Grand staff. Full piece. No guides. Tempo 42. Dynamic arc marked pp → f → ppp."
+    cleffy: >
+      No guides. You read, you play.
+      Slow. Quiet. The piece itself is unhurried.
+      Bloom only at the climax.
+    interaction:
+      type: song
+      sequence: [["D2","F#4","A4"],["E4","G4"],["D4","F#4"],["F#4","A4"],["A1","E4","G4"],["D4","F#4"],["D2","C#4","E4"],["D4","F#4"],["D2","F#4","A4"],["E4","G4"],["D4","F#4"],["F#4","A4"],["F#4","D3"],"F#3","A3","F#3","A3","D4",["E4","D3"],"F#3","A3","F#3","A3","D4",["F#4","D3"],"F#3","A3","F#3","A3","D4",["A4","D3"],"F#3","A3","F#3","B4","D5",["D2","A2","D4","F#4","A4","D5"],["D5","D3"],"A4","F#4","D4",["D4","D2"],"A3","F#3","D3",["D2","F#4","A4"],["E4","G4"],["D4","F#4"],["F#4","A4"],["D2","E4","G4"],["D4","F#4"],["F#4","A4"],["D3","D4"]]
+      guides: false
+      tempo: 42
+    followup_cleffy: >
+      That.
+      Clair de Lune. Complete.
+      Most adult self-teachers never, ever play this whole piece.
+
+  - id: 12
+    mode: play
+    type: with_shape
+    figure: "Grand staff. Same run. Dynamic arc and voicing glyphs marked throughout — RH melody voiced in B, peak chord f, final ritardando. Tempo 42."
+    cleffy: >
+      One more time. With breath. With shape.
+      A — drift. Every note quieter than you think it needs to be.
+      B — the top line sings. The roll supports.
+      Climax — grow, bloom, release.
+      A' — softer than anything in the piece. Ritardando on the last bar. Let the final D hang.
+      This is what Debussy wrote. As close as we can get to it.
+    interaction:
+      type: song
+      sequence: [["D2","F#4","A4"],["E4","G4"],["D4","F#4"],["F#4","A4"],["A1","E4","G4"],["D4","F#4"],["D2","C#4","E4"],["D4","F#4"],["D2","F#4","A4"],["E4","G4"],["D4","F#4"],["F#4","A4"],["F#4","D3"],"F#3","A3","F#3","A3","D4",["E4","D3"],"F#3","A3","F#3","A3","D4",["F#4","D3"],"F#3","A3","F#3","A3","D4",["A4","D3"],"F#3","A3","F#3","B4","D5",["D2","A2","D4","F#4","A4","D5"],["D5","D3"],"A4","F#4","D4",["D4","D2"],"A3","F#3","D3",["D2","F#4","A4"],["E4","G4"],["D4","F#4"],["F#4","A4"],["D2","E4","G4"],["D4","F#4"],["F#4","A4"],["D3","D4"]]
+      guides: false
+      tempo: 42
+    followup_cleffy: >
+      A real piece. Played with craft, not just right notes.
+      This is a pianist's work now.
+
+  - id: 13
+    mode: hear
+    type: pre_check
+    figure: "Banner — Tier 5 boss mastery check."
+    cleffy: >
+      Five quick ones. Tier boss — take your time.
+
+  - id: 14
+    mode: see
+    type: what_debussy_wrote
+    figure: "Two staves side by side. Left: today's simplified D major version. Right: the real Clair de Lune — D-flat major, 9/8, denser texture, seventy-two bars. Arrow between: 'someday.'"
+    cleffy: >
+      One honest note.
+      What you played today is simplified. D major instead of D-flat. Thirty-three bars instead of seventy-two.
+      The real piece is harder. 9/8 time. Denser chords. Wider stretches.
+      But the shape is the same. The feeling is the same.
+      And the fingers that played today — can grow into that one.
+
+  - id: 15
+    mode: see
+    type: reflection
+    figure: "A pyramid showing Tiers 1-5 all gold. Cleffy at the top. Seven piece icons at his feet — Bach Invention, Nocturne (full), Chopin E minor Prelude, Schumann Träumerei, Arabesque, Grieg Arietta, Clair de Lune."
+    cleffy: >
+      Look back at Tier 5.
+      Fifty lessons ago, Tier 4 ended on Moonlight's first eight bars.
+      Tier 5 was expression. Rubato. Voicing. Color. Making music breathe.
+      Seven pieces passed through your hands.
+      Bach's Invention No. 1 — your first counterpoint.
+      Chopin's Nocturne — the full piece, not just one phrase.
+      Chopin's E minor Prelude — pedal as color.
+      Schumann's Träumerei — a hidden voice in the middle.
+      Debussy's Arabesque — two rhythms at once.
+      Grieg's Arietta — a tiny piece with a huge heart.
+      And now — Clair de Lune, complete.
+      Two hundred twenty-five lessons. Five tiers behind you.
+
+  - id: 16
+    mode: see
+    type: whats_next
+    figure: "Pyramid preview with Tier 6 highlighted. No piece thumbnails on the left side — just the Moonlight Sonata score. Caption: 'one piece. All the polish.' A small road-sign: '25 LESSONS LEFT.'"
+    cleffy: >
+      Tier 6 — Performance and Polish.
+      Twenty-five lessons left. No new pieces.
+      Just making everything you've learned beautiful — and building toward Moonlight, first movement, complete.
+      Memorization. Recording yourself. Performance nerves. Recovering when your hands shake. Playing softly for three full minutes.
+      You have fourteen pieces in your hands. Tier 6 asks — can you play one of them for someone, without stopping, from memory?
+      Graduation is Moonlight 1st movement. Every bar. The piece you've been circling since lesson 170.
+      You don't have to start tomorrow. Rest first. You've earned it.
+
+  - id: 17
+    mode: see
+    type: almost_home
+    figure: "A long roadmap. 250 lessons. A marker at lesson 225. Only 25 lessons left before a small gold trophy at 250. Caption: 'almost home.'"
+    cleffy: >
+      One more thing.
+      You're ninety percent of the way.
+      Two hundred twenty-five lessons down. Twenty-five to go.
+      The graduation piece is Moonlight — you've already played its opening.
+      The road from here is short, and it goes somewhere real.
+
+  - id: 18
+    mode: see
+    type: debussy_senza
+    figure: "Cleffy at a piano under a round window, a full moon framed inside it. Sheet music open: Clair de Lune. Caption: 'atmosphere.'"
+    cleffy: >
+      One last piece of Debussy's spirit.
+      He said — 'music is the space between the notes.'
+      Not the notes themselves. The space.
+      Silence. Breath. The pedal fading.
+      Remember that next time you sit down with this piece.
+      It's not about hitting every key. It's about what you leave around them.
+
+  - id: 19
+    mode: see
+    type: your_hands
+    figure: "Cleffy's hand and a student's hand holding a sheet of Clair de Lune between them. A moon above."
+    cleffy: >
+      Your hands played Clair de Lune tonight.
+      Your hands. A hundred and fifty lessons after you started reading the grand staff.
+      A hundred and twenty-five after Für Elise.
+      A hundred after the Tier 3 opening of this very piece.
+      They're real pianist's hands now. Not a student's.
+      Tier 5 — sealed.
+
+  - id: 20
+    mode: see
+    type: wrap
+    figure: "Celebration card — TIER 5 COMPLETE 👑. A big golden trophy. Cleffy under a full moon, holding the Clair de Lune score. Small text: '25 lessons to graduation.'"
+    cleffy: >
+      Tier 5. Complete.
+      You play real classical pieces, the way real pianists play them — with breath, with color, with shape.
+      Fourteen pieces in your hands now.
+      Rest tonight. The moon's full.
+      Tier 6 opens when you're ready. Twenty-five lessons. Graduation.
+      I'll be here.
+
+practice_this_week:
+  real_piano:
+    - "Clair de Lune full, once a day, slow. No rush to bring the tempo up — the piece itself is slow."
+    - "Play it for someone. One person. Turn the lights low. Don't announce it — let them guess."
+    - "Revisit one piece from each tier — Happy Birthday, Für Elise, Clair de Lune opening, Moonlight first eight, Grieg Arietta. Notice how small the early ones feel."
+    - "Listen to a real recording of Clair de Lune, in the original D-flat. You just played a simplified version of a seventy-two-bar piece."
+  virtual_only:
+    - "Replay pages 11 and 12 — full run with and without shape."
+  estimated_time: "20 min/day this week — celebrate"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 3
+      questions:
+        - figure: "A piece map with A, B, CLIMAX, A' blocks and a pp-f-pp arc over the top"
+          prompt: "What is the dynamic shape of Clair de Lune?"
+          options: ["Loud the whole way", "Quiet-loud-quiet arc", "Gets louder and louder"]
+          correct: 1
+        - figure: "Two key signatures side by side — 5 flats (D-flat major) and 2 sharps (D major)"
+          prompt: "Which key did Debussy actually write Clair de Lune in?"
+          options: ["D major (what we played)", "D-flat major (original)", "C major"]
+          correct: 1
+        - figure: "A bar of B section — RH long note, LH rolling arpeggio"
+          prompt: "In the B section, which hand carries the melody?"
+          options: ["Right hand (top, long notes)", "Left hand (rolling arpeggio)", "Both equally"]
+          correct: 0
+        - figure: "Dynamic marking: ppp"
+          prompt: "Where in Clair de Lune does ppp appear?"
+          options: ["At the climax", "At the very end, A'", "Throughout the piece"]
+          correct: 1
+        - figure: "A pedal icon with color gradient — half, full, flutter, syncopated"
+          prompt: "Clair de Lune asks for…"
+          options: ["No pedal", "Pedal as color — changing with the harmony", "Full pedal held from start to end"]
+          correct: 1
+    hear:
+      pass_threshold: 2
+      questions:
+        - audio: "Full Clair de Lune simplified — three-minute excerpt"
+          prompt: "Do you recognize this piece?"
+          options: ["Yes — Clair de Lune", "No"]
+          correct: 0
+        - audio: "Two versions — one hammered loudly throughout, one with restrained dynamics peaking once"
+          prompt: "Which is the correct shape for Clair de Lune?"
+          options: ["Hammered throughout", "Restrained with one bloom"]
+          correct: 1
+        - audio: "B section with RH melody voiced and LH roll underneath"
+          prompt: "Is the melody on top or bottom?"
+          options: ["Top (right hand)", "Bottom (left hand)"]
+          correct: 0
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play the first bar of Clair de Lune — D2 under F#4-A4, soft."
+          accept: "D2 held, F#4 and A4 together pp"
+
+remediation:
+  id: "225.5"
+  title: "Clair de Lune, section by section"
+  pages: 12
+  opening_cleffy: >
+    Tier boss. The biggest run of the tier.
+    We'll take it apart again. A alone — polished. B alone — polished. Climax — just the arc. A' — just the fade. Then stitched, slowly, no guides the last time.
+    The piece is slow. The learning can be slow too.
+
+completion:
+  cleffy: >
+    Tier 5. Sealed.
+    You play with color now. Voicing. Pedal. Arc. Restraint. All of it.
+    Fourteen pieces in your hands.
+    Two hundred twenty-five lessons. Twenty-five to go.
+    Rest tonight. The moon's up. Tier 6 whenever you're ready.
+    One last tier. The real finish line.
+  xp: 100
+  unlocks: 226
+  tier_complete: 5

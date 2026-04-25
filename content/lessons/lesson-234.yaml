@@ -1,0 +1,233 @@
+# ============================================================
+# LESSON 234 · Silent rehearsal
+# Tier 6 · Act 47 · Advanced · Recording & dynamics at scale
+# Play the piece in your head. No keys. Every note.
+# ============================================================
+id: 234
+tier: advanced
+act: 47
+title: "Silent rehearsal"
+subtitle: "Act 47 · The piece in your head"
+goal: "Play your piece from start to finish — in your imagination, with no piano — every note, every finger, every dynamic."
+prereqs: [233, 228]
+method_focus: "hear"
+time_estimate_min: 14
+piece_context: "Professional pianists do it on the train. On a plane. In a green room before a concert. Silent rehearsal — running the piece entirely in the mind. It deepens memory. It catches the gaps. It preps you for performance without adding finger fatigue."
+metaphor: "piece-in-your-head"
+vibe: ["quiet", "focused", "reflective"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy sitting in a chair, no piano in sight, eyes half-closed. Tiny musical notes drawn around his head. Caption: THE PIECE IN YOUR HEAD."
+    cleffy: >
+      A new kind of practice.
+      No piano. No fingers. No sound.
+      Just the piece — running through your mind, start to finish.
+
+  - id: 2
+    mode: see
+    type: who_does_this
+    figure: "Three figures. A pianist on a train with sheet music on their lap, eyes closed. A concert pianist in a green room before walking on. A student on a park bench with a score and a blank look. Caption: 'every working pianist does this.'"
+    cleffy: >
+      Every working pianist does this.
+      On trains. On planes. Backstage.
+      Even when there's no keyboard around — the practice continues.
+      Today you learn how.
+
+  - id: 3
+    mode: see
+    type: three_layers
+    figure: "Three stacked layers, transparent. Top: HEAR — a little ear icon, the note sounding in the mind. Middle: FEEL — a cartoon hand, the finger pressing. Bottom: SEE — a small staff with the note drawn."
+    cleffy: >
+      Three layers to silent rehearsal.
+      Hear the note sound in your mind.
+      Feel the finger pressing it.
+      See the note on the staff.
+      All three, for every note. That's the skill.
+
+  - id: 4
+    mode: hear
+    type: prime_the_sound
+    figure: "Play button. Caption: 'a four-note phrase — C E G C. Listen once.'"
+    audio:
+      A: "Four notes — C4, E4, G4, C5 — played clearly, moderate tempo"
+    cleffy: >
+      Listen once. Four notes. C, E, G, C.
+      Now — eyes closed. Play them again in your head.
+      Same pitches. Same timing. No sound in the room.
+
+  - id: 5
+    mode: see
+    type: hear_in_your_head
+    figure: "A cartoon ear with an equal-sign — real sound and imagined sound drawn the same way. Caption: 'your inner ear is as real as your outer ear.'"
+    cleffy: >
+      Your inner ear is as real as your outer ear.
+      You've been hearing tunes in your head your whole life — a song you love, a jingle, a voice.
+      That's the exact skill.
+      Apply it to the piece you're learning.
+
+  - id: 6
+    mode: play
+    type: play_then_imagine
+    figure: "Keyboard. Four-note phrase C-E-G-C glowing. Banner: PLAY IT. THEN IMAGINE IT."
+    cleffy: >
+      Play the four notes.
+      Then — hands off. Hear them again in your head.
+      Twice on the piano. Twice in your mind.
+    interaction:
+      type: sequence
+      keys: ["C4","E4","G4","C5"]
+
+  - id: 7
+    mode: see
+    type: feel_the_finger
+    figure: "A single hand with finger 3 drawn pressing a key, caption 'feel the press without moving.' An invisible finger-shape drawn hovering above the key."
+    cleffy: >
+      Second layer — feel the finger press.
+      Imagine finger 3 lowering. Imagine the key giving way. Imagine the return.
+      Your muscles know this. Firing them without movement strengthens memory.
+
+  - id: 8
+    mode: play
+    type: feel_through_a_phrase
+    figure: "Keyboard. Eight-note phrase glowing. Caption: PLAY IT — then DO IT AGAIN WITHOUT PLAYING."
+    cleffy: >
+      Eight notes. Play them once.
+      Then — hands on lap. Imagine each finger press. Same order. Same timing.
+    interaction:
+      type: sequence
+      keys: ["C4","D4","E4","F4","G4","F4","E4","D4"]
+
+  - id: 9
+    mode: see
+    type: see_the_staff
+    figure: "A staff with notes drawn. Caption: 'read the page in your mind.' Below — the same staff but faded, representing a remembered image."
+    cleffy: >
+      Third layer — see the staff in your mind.
+      The notes on their lines. The ledger lines. The curve of a slur.
+      If you can picture the page, you can keep your place without it in front of you.
+
+  - id: 10
+    mode: see
+    type: the_gap_finder
+    figure: "A flowing line of music. A dark blank spot in the middle. Caption: 'silent rehearsal finds the gaps.' Arrow pointing to the blank: 'you go fuzzy here.'"
+    cleffy: >
+      Here's why this matters.
+      When you silent-rehearse and hit a spot where you go fuzzy — that's a gap in your memory.
+      On the piano, your fingers carry you through.
+      In your head, there's nothing to carry.
+      The gap gets exposed. Now you know what to practice.
+
+  - id: 11
+    mode: hear
+    type: gap_demo
+    figure: "Play button. Caption: 'a phrase, then the same phrase with a blank in the middle.'"
+    audio:
+      A: "A phrase — G4-E4-F4-D4-C4-A4-B4-G4 — played cleanly"
+      B: "The same phrase but the middle two notes are blank silence, representing a memory gap"
+    cleffy: >
+      First — the phrase played.
+      Second — the same phrase, but with a blank where the middle went fuzzy.
+      In silent rehearsal, that blank is loud. It tells you where to work.
+
+  - id: 12
+    mode: see
+    type: how_to_do_it
+    figure: "Numbered steps. 1: Sit comfortably. 2: Close eyes or soft-focus. 3: Start at bar 1. 4: Hear each note. 5: Feel each finger. 6: Don't rush. 7: If you stumble — note the spot, then carry on."
+    cleffy: >
+      How to actually do it.
+      Sit. Close your eyes or soft-focus.
+      Start at bar 1. Go slowly.
+      Hear each note. Feel each finger.
+      If you stumble — remember the spot. Carry on.
+
+  - id: 13
+    mode: play
+    type: final_play_then_silent
+    figure: "Grand staff. A twelve-note phrase — simple melody with block chords. Caption: 'play once. Then silent-rehearse it twice.'"
+    cleffy: >
+      Last one. Twelve notes.
+      Play it once. Then hands on lap — run it twice in your head.
+      Hear. Feel. See.
+    interaction:
+      type: song
+      sequence: [["C4","C3"],"E4","G4","C5","B4","A4",["G4","G3"],"F4","E4","D4",["C4","C3"],"C4"]
+      guides: true
+      tempo: 50
+    followup_cleffy: >
+      Now — eyes closed. Run that same phrase in your mind. Twice.
+      Hear each pitch. Feel each finger. No hurry.
+
+  - id: 14
+    mode: hear
+    type: pre_check
+    figure: "Banner — mastery check."
+    cleffy: >
+      Three quick ones.
+
+  - id: 15
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 234. A figure in a chair, eyes closed, a piano drawn lightly in the air above their head like a dream-cloud. Caption: 'the practice that never stops.'"
+    cleffy: >
+      Silent rehearsal. The practice that fits anywhere.
+      Your piece is now something you can run without a piano in the room.
+      Tomorrow — the act boss. The piece. One person. One take.
+
+practice_this_week:
+  real_piano:
+    - "Play your memorized piece once on the piano. Then immediately — sit back, hands off — run it in your head, start to finish."
+    - "Do it again away from the piano. On a train. In bed. On a walk. Note where the fuzzy spots are."
+    - "Take one fuzzy spot back to the keyboard. Practice just that. Go back to silent rehearsal. Check the gap."
+  virtual_only:
+    - "Replay pages 6, 8, and 13 — play once, then close your eyes and run it in your head."
+  estimated_time: "10 min at the piano + 5 min away from it"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "Three stacked icons — ear, hand, eye"
+          prompt: "What are the three layers of silent rehearsal?"
+          options: ["Hear the note, feel the finger, see the staff", "Touch, taste, smell", "Speed, volume, tempo"]
+          correct: 0
+        - figure: "A line of music with a dark blank spot in the middle"
+          prompt: "What does a blank spot during silent rehearsal tell you?"
+          options: ["The piece is done", "There's a gap in your memory to work on", "Your ear is tired"]
+          correct: 1
+        - figure: "A pianist sitting in a chair with closed eyes, piano nowhere in sight"
+          prompt: "Silent rehearsal requires…"
+          options: ["A piano", "Sheet music in front of you", "Nothing — just your mind"]
+          correct: 2
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "A clean phrase, then the same phrase with missing middle notes"
+          prompt: "In the second version, what represents a memory gap?"
+          options: ["The fast notes", "The silent middle", "The last note"]
+          correct: 1
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play the twelve-note phrase, then silent-rehearse it once. On the check — play the phrase."
+          accept: "The twelve-note phrase played cleanly after a moment of silent mental rehearsal"
+
+remediation:
+  id: "234.5"
+  title: "Silent rehearsal, simpler"
+  pages: 6
+  opening_cleffy: >
+    New kind of practice. Feels strange at first — you sit there doing nothing visible.
+    We'll start with one note. Then two. Then four.
+    The point is to notice that you CAN hear the piece without the piano. You already can.
+
+completion:
+  cleffy: >
+    Silent rehearsal. The practice that travels with you.
+    Gaps exposed. Memory deepened. No fingers tired.
+    Tomorrow — act boss. You play for someone.
+  xp: 18
+  unlocks: 235

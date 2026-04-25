@@ -1,0 +1,230 @@
+# ============================================================
+# LESSON 142 · Subito changes
+# Tier 4 · Act 29 · Intermediate
+# Sudden piano, sudden forte. No ramp. Weather changes.
+# ============================================================
+id: 142
+tier: intermediate
+act: 29
+title: "Subito changes"
+subtitle: "Act 29 · Dynamics & tempo"
+goal: "Read and play subito markings — sudden piano and sudden forte — where the dynamic drops or leaps without warning."
+prereqs: [141]
+method_focus: "dynamics"
+time_estimate_min: 12
+piece_context: "Yesterday — the six-voice range. Today — how composers surprise you. A loud phrase, then suddenly soft. No ramp, no warning. The weather changes mid-sentence."
+metaphor: "sudden-weather"
+vibe: ["focused", "playful"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy under a split sky — sunny on the left, storm cloud on the right, a sharp line between them. Banner: SUBITO."
+    cleffy: >
+      Subito.
+      Italian for 'sudden'.
+      A weather change in the music — no warning.
+
+  - id: 2
+    mode: see
+    type: the_marking
+    figure: "Two markings on a staff. Left: 'sub. p'. Right: 'sub. f'. Arrows point to the note they apply to."
+    cleffy: >
+      Two markings.
+      sub. p — suddenly soft.
+      sub. f — suddenly loud.
+      Sometimes written just 'subito p' or 'subito f' in full.
+
+  - id: 3
+    mode: see
+    type: not_a_crescendo
+    figure: "Two staves stacked. Top: a crescendo hairpin growing into f — labeled 'GRADUAL'. Bottom: a row of f notes, then a bar line, then sub. p — labeled 'SUDDEN'. Big arrow highlighting the instant drop."
+    cleffy: >
+      The key word is sudden.
+      A crescendo grows slowly. Subito doesn't grow. It snaps.
+      One note loud. Next note soft. Right at the bar line.
+
+  - id: 4
+    mode: hear
+    type: hear_subito_p
+    figure: "Play button. Four loud notes, then four soft notes, no gradual change. Label: FOUR LOUD. SUB. P. FOUR SOFT."
+    audio:
+      A: "Four forte notes on middle C, then four piano notes — abrupt volume drop, no ramp"
+    cleffy: >
+      Listen. Four loud. Then — drop.
+      That's subito piano. The surprise is the point.
+
+  - id: 5
+    mode: hear
+    type: hear_subito_f
+    figure: "Play button. Four soft notes, then four loud notes, abrupt rise. Label: FOUR SOFT. SUB. F. FOUR LOUD."
+    audio:
+      A: "Four piano notes on middle C, then four forte notes — abrupt volume rise, no ramp"
+    cleffy: >
+      Now the other direction.
+      Four soft. Then — bang.
+      Subito forte. A shout out of a whisper.
+
+  - id: 6
+    mode: play
+    type: build_then_drop
+    figure: "Staff: eight notes. First four marked f. Bar line. Sub. p under note five. Notes five through eight marked p."
+    cleffy: >
+      Four loud, four soft. No ramp.
+      The drop happens at the bar line.
+      Land softly the moment you cross.
+    interaction:
+      type: sequence
+      keys: ["C4", "D4", "E4", "F4", "G4", "F4", "E4", "D4"]
+
+  - id: 7
+    mode: see
+    type: why_composers_do_this
+    figure: "Cleffy holding a Beethoven-style score. Arrow pointing to a sub. p marking in the middle of a passage. Caption: 'It wakes the listener up.'"
+    cleffy: >
+      Why do composers do this?
+      Expectation.
+      A crescendo tells you what's coming. Subito doesn't.
+      It wakes the listener up.
+
+  - id: 8
+    mode: play
+    type: whisper_then_shout
+    figure: "Staff: six notes. First three marked pp. Bar line. Sub. f under note four. Notes four through six marked ff."
+    cleffy: >
+      Three whispers. Then thunder.
+      Let the pp really be quiet — that makes the ff bigger.
+    interaction:
+      type: sequence
+      keys: ["E4", "F4", "G4", "C5", "B4", "A4"]
+
+  - id: 9
+    mode: hear
+    type: gradual_or_subito
+    figure: "Four rounds. Banner — 'Gradual change or subito?'"
+    cleffy: >
+      Four rounds.
+      Listen — is the change gradual, or sudden?
+    interaction:
+      type: drill
+      rounds: 4
+      options: ["Gradual (crescendo / diminuendo)", "Sudden (subito)"]
+
+  - id: 10
+    mode: see
+    type: the_subtle_trick
+    figure: "Staff showing a crescendo hairpin into a bar line. Past the bar line — sub. p. Arrow: 'CRESCENDO, THEN SNAP.'"
+    cleffy: >
+      Here's the trickiest version.
+      A crescendo — getting louder.
+      Then just when you expect the payoff — sub. p.
+      Loud climb, soft landing. Heartbreaking.
+
+  - id: 11
+    mode: play
+    type: cresc_then_sub_p
+    figure: "Staff: seven notes. First five rise from p, crescendo hairpin under them. Bar line. Sub. p under note six. Last two notes marked pp."
+    cleffy: >
+      Five-note climb. Getting louder.
+      Bar line. Soft.
+      Pull the sound way back, fast.
+    interaction:
+      type: sequence
+      keys: ["C4", "D4", "E4", "F4", "G4", "A4", "G4"]
+
+  - id: 12
+    mode: play
+    type: alternating_subitos
+    figure: "Staff: eight notes. Markings alternate by bar: f, bar, sub. p, bar, sub. f, bar, sub. p. Weather keeps changing."
+    cleffy: >
+      The weather keeps flipping.
+      Two loud. Two soft. Two loud. Two soft.
+      Snap into each one — no easing in.
+    interaction:
+      type: sequence
+      keys: ["C4", "D4", "E4", "F4", "G4", "A4", "G4", "F4"]
+    followup_cleffy: >
+      That's control. Loud and soft, on command.
+
+  - id: 13
+    mode: hear
+    type: identify_the_drop
+    figure: "Four rounds. Audio plays subito p or subito f. Banner: 'Subito piano or subito forte?'"
+    cleffy: >
+      Four rounds.
+      Which direction did the weather flip?
+    interaction:
+      type: drill
+      rounds: 4
+      options: ["Sub. p (suddenly soft)", "Sub. f (suddenly loud)"]
+
+  - id: 14
+    mode: hear
+    type: pre_check
+    figure: "Banner."
+    cleffy: >
+      Three quick ones.
+
+  - id: 15
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 142. A cloud on one side, a sunbeam on the other, lightning bolt between them. Label: SUBITO."
+    cleffy: >
+      Sudden soft. Sudden loud.
+      The weather in music.
+      Tomorrow — speed. Tempo words.
+
+practice_this_week:
+  real_piano:
+    - "Take any piece you know. Pick a spot. Play the bar before loud, then the next bar suddenly soft. Notice how different the phrase feels."
+    - "Practice the control itself — play a scale at f, then at the top snap to pp on the way down. Make the drop clean."
+  virtual_only:
+    - "Replay pages 6, 11, 12"
+  estimated_time: "10 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "Marking: sub. p"
+          prompt: "What does this mean?"
+          options: ["Gradually get softer", "Suddenly soft", "Stay at the same volume"]
+          correct: 1
+        - figure: "A crescendo hairpin next to a sub. p marking"
+          prompt: "What happens at the sub. p?"
+          options: ["The music keeps getting louder", "The music snaps to soft", "Nothing changes"]
+          correct: 1
+        - figure: "Italian word: subito"
+          prompt: "What does subito mean?"
+          options: ["Smooth", "Sudden", "Slow"]
+          correct: 1
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "Loud notes followed by an abrupt drop to soft"
+          prompt: "Gradual or subito?"
+          options: ["Gradual", "Subito"]
+          correct: 1
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play four loud notes, then drop suddenly to four soft notes."
+          accept: "8 notes with a clear sudden volume drop between notes 4 and 5"
+
+remediation:
+  id: "142.5"
+  title: "Subito, slower"
+  pages: 7
+  opening_cleffy: >
+    Sudden is hard — your hand wants to ease into the change.
+    We'll practice the snap on a single note first. Loud. Stop. Soft.
+    Then build up to phrases.
+
+completion:
+  cleffy: >
+    Subito — known. You can surprise a listener.
+    Tomorrow — speed words. Adagio. Allegro.
+  xp: 17
+  unlocks: 143

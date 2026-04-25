@@ -1,0 +1,220 @@
+id: 41
+tier: elementary
+act: 9
+title: "Treble lines, derived from C"
+subtitle: "E, G, B, D, F — counted from Middle C"
+goal: "Name every line of the treble staff by counting from Middle C — no mnemonics."
+prereqs: [14, 40]
+method_focus: "notation"
+time_estimate_min: 12
+piece_context: null
+metaphor: "count-from-anchor"
+vibe: ["gentle", "playful", "serious"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Treble staff with Middle C labeled below, and question marks on each line."
+    cleffy: >
+      Time for names. Real ones, derived from what you know.
+      The Sonata method doesn't use FACE or Every Good Boy.
+      We count from the anchor. Middle C.
+
+  - id: 2
+    mode: see
+    type: middle_c_start
+    figure: "Treble staff. Middle C glowing on its ledger line below the staff."
+    cleffy: >
+      Start here. Middle C.
+      From Middle C, count up.
+
+  - id: 3
+    mode: see
+    type: count_up_to_e
+    figure: "Middle C → D (space just below staff) → E (bottom line of staff). Each labeled."
+    cleffy: >
+      Step up from C lands on D. Step up from D lands on E.
+      E is the bottom line of the treble staff. First line.
+
+  - id: 4
+    mode: see
+    type: all_five_lines
+    figure: "Treble staff with all five lines labeled: E, G, B, D, F from bottom to top."
+    cleffy: >
+      From E, keep skipping.
+      E → G → B → D → F. Five lines, top to bottom: F, D, B, G, E.
+      Every line is a skip from the last.
+
+  - id: 5
+    mode: see
+    type: why_skips
+    figure: "Staff with line 1 and line 2 highlighted. Ghost note between them (in space 1)."
+    cleffy: >
+      Why skips? Because line to line is a skip — the odd rule.
+      So lines go E, G, B, D, F by skipping up from E each time.
+
+  - id: 6
+    mode: see
+    type: interactive_line_1
+    figure: "Treble staff. Note on bottom line (E)."
+    cleffy: >
+      Which letter?
+    interaction:
+      type: choice
+      options: ["D", "E", "F", "G"]
+      correct: 1
+
+  - id: 7
+    mode: see
+    type: interactive_line_3
+    figure: "Treble staff. Note on line 3 (middle line, B)."
+    cleffy: >
+      And this one?
+    interaction:
+      type: choice
+      options: ["G", "A", "B", "C"]
+      correct: 2
+
+  - id: 8
+    mode: see
+    type: interactive_line_5
+    figure: "Treble staff. Note on line 5 (top line, F)."
+    cleffy: >
+      Top line — what letter?
+    interaction:
+      type: choice
+      options: ["E", "F", "G", "A"]
+      correct: 1
+
+  - id: 9
+    mode: see
+    type: drill
+    figure: "Round counter 1 of 6. Each round: a note on a treble line."
+    cleffy: >
+      Six rounds. Name the line. Use the five letters: E, G, B, D, F.
+    interaction:
+      type: drill
+      rounds: 6
+      options: ["E", "G", "B", "D", "F"]
+
+  - id: 10
+    mode: hear
+    type: hear_line_notes
+    figure: "Treble staff with notes. Each plays its audio."
+    audio:
+      A: "E4"
+      B: "G4"
+      C: "B4"
+      D: "D5"
+      E: "F5"
+    cleffy: >
+      Listen to each line note. E. G. B. D. F.
+      Your ear is starting to link pitch to staff position.
+
+  - id: 11
+    mode: play
+    type: play_each_line
+    figure: "Keyboard. E4 glowing. Label on staff line 1."
+    cleffy: >
+      Play E on the piano. It's a step up from D, which is a step up from Middle C.
+    interaction:
+      type: tap
+      key: "E4"
+
+  - id: 12
+    mode: play
+    type: play_g_line
+    figure: "Keyboard. G4 glowing."
+    cleffy: >
+      Now G. The line right above E, with one line between.
+    interaction:
+      type: tap
+      key: "G4"
+
+  - id: 13
+    mode: read
+    type: see_hear_play
+    figure: "Staff with a line note. Keyboard below."
+    cleffy: >
+      Three rounds. See a line note. Play it. Name it.
+    interaction:
+      type: see_hear_play
+      rounds: 3
+
+  - id: 14
+    mode: hear
+    type: mixed_drill
+    figure: "Mix of name and play questions."
+    cleffy: >
+      Four rounds.
+    interaction:
+      type: drill
+      rounds: 4
+
+  - id: 15
+    mode: hear
+    type: pre_check
+    figure: "Banner."
+    cleffy: >
+      Five quick ones.
+
+  - id: 16
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 41. Treble staff with all 5 lines labeled E, G, B, D, F. Cleffy pointing at them in order."
+    cleffy: >
+      Five line names. Derived from Middle C, not memorized with tricks.
+      Tomorrow — the spaces.
+
+practice_this_week:
+  real_piano:
+    - "On a real staff (or drawing one), label each line E, G, B, D, F."
+    - "Quiz yourself: I say a line number (1-5), you say the letter. Time yourself."
+    - "Play each line note on the piano, going up. E, G, B, D, F."
+  virtual_only:
+    - "Replay pages 9-11 (the naming drills)"
+  estimated_time: "7 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 3
+      questions:
+        - figure: "Treble staff, note on line 1 (E)."
+          prompt: "Which letter?"
+          options: ["D", "E", "F", "G"]
+          correct: 1
+        - figure: "Treble staff, note on line 3 (B)."
+          prompt: "Which letter?"
+          options: ["A", "B", "C", "D"]
+          correct: 1
+        - figure: "Treble staff, note on line 5 (F)."
+          prompt: "Which letter?"
+          options: ["E", "F", "G", "A"]
+          correct: 1
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "G4 (line 2)"
+          prompt: "Which line note?"
+          options: ["E", "G", "B", "D", "F"]
+          correct: 1
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play B (line 3 on the treble staff)."
+          accept: "B4"
+
+remediation:
+  id: "41.5"
+  title: "Treble lines, slower"
+  pages: 6
+  opening_cleffy: >
+    Five names is a lot. Let's walk them from Middle C upward, one line at a time, slower.
+
+completion:
+  cleffy: >
+    Treble lines, named by the method. No mnemonics needed.
+  xp: 20
+  unlocks: 42

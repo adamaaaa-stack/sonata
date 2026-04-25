@@ -1,0 +1,245 @@
+# ============================================================
+# LESSON 115 · Minuet in D 🎯
+# Tier 3 · Act 23 · Low-Intermediate · ACT BOSS
+# The Minuet from L80/L85, transposed to D major.
+# Same shape, new home — the whole act lands here.
+# ============================================================
+id: 115
+tier: low-intermediate
+act: 23
+title: "Minuet in D"
+subtitle: "Act 23 · The same Minuet in a new home"
+goal: "Take the Minuet you already know in G and play it in D major."
+prereqs: [80, 85, 111, 114]
+method_focus: "combine"
+time_estimate_min: 18
+piece_context: "Act 23 boss. Two new keys, relative minors, transposition — all of it lands on one real piece. Petzold's Minuet. You played it in G. Now you play it in D."
+metaphor: "same-shape-new-home"
+vibe: ["focused", "celebratory"]
+is_act_boss: true
+piece:
+  title: "Minuet in D (transposed from Minuet in G)"
+  composer: "Petzold (attrib. Bach)"
+  key_center: "D major"
+  time_signature: "3/4"
+  difficulty: "low-intermediate — same shape as Minuet in G, new key"
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy holding two copies of the same sheet music — one labeled G MAJOR, one labeled D MAJOR. Act 23 boss banner."
+    cleffy: >
+      Act 23 boss.
+      The Minuet you know, in a new key.
+      Everything from this act — two-sharp reading, transposition — all lands here.
+
+  - id: 2
+    mode: hear
+    type: listen_to_both
+    figure: "Two play buttons. A: Minuet in G. B: Minuet in D."
+    audio:
+      A: "Opening of Minuet in G — D G A B C D G G"
+      B: "Opening of Minuet in D — A D E F# G A D D"
+    cleffy: >
+      Same piece. Twice.
+      First — old home. G major. Second — new home. D major.
+      Same shape. Your ear says it's the same tune.
+
+  - id: 3
+    mode: see
+    type: old_version
+    figure: "Staff in G major. Minuet opening: D5 G4 A4 B4 C5 D5 | G4 G4. Key sig F#."
+    cleffy: >
+      The Minuet in G. First two bars.
+      D G A B C D. Then G G.
+      You learned this one in Act 16.
+
+  - id: 4
+    mode: see
+    type: new_version
+    figure: "Staff in D major. Same shape transposed: A5 D5 E5 F#5 G5 A5 | D5 D5. Key sig F# C#."
+    cleffy: >
+      Same piece. New home.
+      A D E F-sharp G A. Then D D.
+      The shape is identical. Every note moved up the same distance.
+
+  - id: 5
+    mode: see
+    type: the_shift
+    figure: "Two staves side by side. Lines connecting each note in G to its twin in D. All shifted up by a fifth."
+    cleffy: >
+      Every note moved up five steps.
+      D became A. G became D. B became F-sharp.
+      The distance between each pair of notes — unchanged.
+
+  - id: 6
+    mode: see
+    type: key_sig_reminder
+    figure: "D major key signature with F# and C# highlighted."
+    cleffy: >
+      D major — two sharps. F-sharp, C-sharp.
+      Watch the F when it comes up. And watch for C — it's sharp too, even though this phrase doesn't hit it yet.
+
+  - id: 7
+    mode: play
+    type: first_bar_rh
+    figure: "Treble staff in D. First bar: A D E F# G A."
+    cleffy: >
+      Right hand. First bar only.
+      A D E F-sharp G A.
+    interaction:
+      type: sequence
+      keys: ["A4","D5","E5","F#5","G5","A5"]
+
+  - id: 8
+    mode: play
+    type: second_bar_rh
+    figure: "Treble staff in D. Second bar: D D (two quarter notes)."
+    cleffy: >
+      Second bar — lands home. D D.
+    interaction:
+      type: sequence
+      keys: ["D5","D5"]
+
+  - id: 9
+    mode: play
+    type: both_bars_rh
+    figure: "Treble staff. Bars 1-2 together."
+    cleffy: >
+      Both bars. Right hand only. Slow.
+    interaction:
+      type: rhythm
+      sequence: ["A4","D5","E5","F#5","G5","A5","D5","D5"]
+      durations: ["quarter","eighth","eighth","eighth","eighth","quarter","quarter","quarter"]
+      tempo: 60
+
+  - id: 10
+    mode: play
+    type: lh_simple
+    figure: "Bass staff in D. LH: D3 half-note, then A3 quarter-note, then D3 for bar 2."
+    cleffy: >
+      Left hand. Root note of each bar.
+      Bar 1 — D. Bar 2 — D again. Simple anchor.
+    interaction:
+      type: rhythm
+      sequence: ["D3","A3","D3"]
+      durations: ["half","quarter","half"]
+      tempo: 60
+
+  - id: 11
+    mode: play
+    type: both_hands_slow
+    figure: "Grand staff in D. Both bars. Guides on. Tempo 55."
+    cleffy: >
+      Both hands. Slow. 55 bpm.
+      Right hand sings. Left hand holds.
+    interaction:
+      type: song
+      sequence: [["A4","D3"],"D5","E5","F#5",["G5","A3"],"A5",["D5","D3"],"D5"]
+      guides: true
+      tempo: 55
+
+  - id: 12
+    mode: play
+    type: both_hands_no_guides
+    figure: "Grand staff in D. Same two bars. No guides."
+    cleffy: >
+      No guides now. Read it. Play it.
+      Remember — every F is sharp.
+    interaction:
+      type: song
+      sequence: [["A4","D3"],"D5","E5","F#5",["G5","A3"],"A5",["D5","D3"],"D5"]
+      guides: false
+      tempo: 55
+    followup_cleffy: >
+      That.
+      Same Minuet. New key. Two hands.
+
+  - id: 13
+    mode: play
+    type: at_tempo
+    figure: "Grand staff in D. Bars 1-2. Tempo 75."
+    cleffy: >
+      Up to tempo. 75 bpm. Don't stop for stumbles.
+    interaction:
+      type: song
+      sequence: [["A4","D3"],"D5","E5","F#5",["G5","A3"],"A5",["D5","D3"],"D5"]
+      guides: false
+      tempo: 75
+
+  - id: 14
+    mode: hear
+    type: pre_check
+    figure: "Banner — Act 23 boss mastery check."
+    cleffy: >
+      Four quick ones. Act boss — take your time.
+
+  - id: 15
+    mode: see
+    type: wrap
+    figure: "Celebration card — ACT 23 COMPLETE 🎯. Cleffy holding Minuet sheets in G and D. A pyramid showing 23/50 acts complete."
+    cleffy: >
+      Act 23. Closed.
+      Two new keys — D and B-flat. Twin minors. Transposition. And a real piece moved to a new home.
+      Three months ago, key signatures were a mystery. Now you're reading them and moving tunes between them.
+      Next act — phrasing. What makes a musical sentence feel like a sentence.
+
+practice_this_week:
+  real_piano:
+    - "Play the two bars of Minuet in D every day. Aim for 80 bpm by end of week."
+    - "For fun — play the same two bars in G (the old key) right after. Your hands will notice how close they are."
+    - "Challenge: try the same transposition on another tune you know. Twinkle in G. Ode to Joy in D."
+  virtual_only:
+    - "Replay pages 11-13"
+  estimated_time: "15 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "First two bars of Minuet in D major"
+          prompt: "Which key signature is this piece in?"
+          options: ["G major (1 sharp)", "D major (2 sharps)", "F major (1 flat)"]
+          correct: 1
+        - figure: "Note on the top line of the treble staff in D major"
+          prompt: "What do you play?"
+          options: ["F-natural", "F-sharp"]
+          correct: 1
+        - figure: "Side-by-side: Minuet in G vs Minuet in D"
+          prompt: "What changed between the two versions?"
+          options: ["The shape of the tune", "The key and the starting notes", "The rhythm"]
+          correct: 1
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "Opening of Minuet in D"
+          prompt: "Is this the same tune as Minuet in G?"
+          options: ["Yes — same tune, new key", "No — different tune"]
+          correct: 0
+        - audio: "Final note of the phrase — D"
+          prompt: "Does the phrase end on the home note?"
+          options: ["Yes", "No"]
+          correct: 0
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play the first bar of Minuet in D: A D E F# G A."
+          accept: "A4 D5 E5 F#5 G5 A5"
+
+remediation:
+  id: "115.5"
+  title: "Minuet in D, hands separate first"
+  pages: 10
+  opening_cleffy: >
+    Act boss. Real test.
+    We'll rebuild it — RH alone in the new key, then LH, then bar by bar together. No rush.
+
+completion:
+  cleffy: >
+    Act 23 sealed. A real piece, moved to a real new key.
+    Every piece you know from now on — you can move it too. That's a pianist's skill.
+    Tomorrow — phrasing. How music breathes.
+  xp: 30
+  unlocks: 116

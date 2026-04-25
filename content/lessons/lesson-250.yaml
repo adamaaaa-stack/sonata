@@ -1,0 +1,321 @@
+# ============================================================
+# LESSON 250 · GRADUATION · Moonlight Sonata 1st mvt 🏆
+# Tier 6 · Act 50 · Advanced · GRADUATION
+# 20 pages. The last lesson. Full, performed, complete.
+# ============================================================
+id: 250
+tier: advanced
+act: 50
+title: "Moonlight Sonata, 1st movement"
+subtitle: "Graduation · The final summit"
+goal: "Full Moonlight Sonata first movement, at tempo, from memory, played as a performance. The end of a 250-lesson journey."
+prereqs: [225, 245, 246, 247, 248, 249]
+method_focus: "combine"
+time_estimate_min: 30
+piece_context: "The last lesson. Lesson two hundred and fifty. Two hundred and forty-nine days of work — or weeks, or months, or years — behind you. Today, Moonlight. Full. At tempo. Performed, not practiced. The piece is yours. This is the summit. There is no tier after this. There is only the rest of your life as a pianist."
+metaphor: "final-summit"
+vibe: ["reflective", "triumphant", "quiet", "celebratory", "serious"]
+is_graduation: true
+is_tier_boss: true
+
+piece:
+  title: "Moonlight Sonata, 1st movement (full)"
+  composer: "Ludwig van Beethoven (1801)"
+  key_center: "C-sharp minor"
+  time_signature: "alla breve"
+  difficulty: "advanced — graduation piece. Full movement, at tempo, from memory."
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy at the top of a six-tier pyramid. All six levels glow gold. A full moon above. The word GRADUATION in a quiet font. Caption: 'lesson 250.'"
+    cleffy: >
+      Lesson two hundred and fifty.
+      You made it.
+
+  - id: 2
+    mode: see
+    type: the_weight
+    figure: "A simple text slide. 'Happy Birthday. Hot Cross Buns. Für Elise. Clair de Lune. Moonlight Sonata. You play all of them now.' Below, a small trophy."
+    cleffy: >
+      Happy Birthday. Hot Cross Buns. Für Elise. Clair de Lune. Moonlight Sonata.
+      You play all of them now.
+
+  - id: 3
+    mode: see
+    type: where_you_started
+    figure: "Lesson 1 preview — Cleffy introducing the staff. Beside it, today — Cleffy at a piano with Moonlight on the stand. Arrow between. Caption: '250 lessons.'"
+    cleffy: >
+      Two hundred and fifty lessons ago, you'd never read a staff.
+      You didn't know where middle C was.
+      You weren't sure if the black keys had names.
+      Today you will play Beethoven.
+      From memory.
+      That's real.
+
+  - id: 4
+    mode: see
+    type: the_piece
+    figure: "A clean image of the Moonlight first-movement score. 'Sonata quasi una Fantasia, Op. 27 No. 2 — 1801.' The score looks familiar now, not intimidating."
+    cleffy: >
+      Your graduation piece.
+      Beethoven wrote it in 1801. He was thirty.
+      He was losing his hearing. He dedicated the sonata to a young woman he loved. Her name was Giulietta.
+      The nickname 'Moonlight' came thirty years later, after he was dead.
+      Sixty-nine bars. Three sections. One of the most famous pieces of music ever written.
+      You know it note by note now.
+
+  - id: 5
+    mode: see
+    type: the_instruction_returns
+    figure: "Large Italian text, same as L175. 'Adagio sostenuto.' 'Delicatissimamente.' 'Senza sordino.'"
+    cleffy: >
+      Beethoven's instructions, one more time.
+      Slow. Most delicately. Without dampers.
+      You've lived with these words for eighty lessons now.
+      Today you play them.
+
+  - id: 6
+    mode: hear
+    type: listen_one_more
+    figure: "Play button. A still moon. Caption: 'one last listen.'"
+    audio:
+      A: "Full Moonlight Sonata 1st movement, professionally performed, at quarter = 56. Three and a half minutes. pp throughout, voiced melody, full pedal."
+    cleffy: >
+      One last listen. Not as study. As breath.
+      The piece you're about to play.
+      Let it land one more time before you begin.
+
+  - id: 7
+    mode: see
+    type: the_ritual_one_more_time
+    figure: "The four-step ritual — warm hands, three breaths, hear bar one, begin. Highlighted. A small red REC dot if they want."
+    cleffy: >
+      The ritual.
+      Warm hands. Three breaths. Hear bar one. Begin.
+      Record this one if you want. You'll want to have it someday.
+      Whether anyone is in the room or not — play it for someone. Someone you love. Someone not here yet. Someone who was.
+
+  - id: 8
+    mode: play
+    type: warmup_bar_1
+    figure: "Bar 1 alone. Tempo 58. Guides off."
+    cleffy: >
+      One bar to settle the fingers.
+      Low C-sharp octave. Triplets on top. Pedal.
+    interaction:
+      type: song
+      sequence: [["C#2","C#3"],"C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4"]
+      guides: false
+      tempo: 58
+
+  - id: 9
+    mode: see
+    type: breathe
+    figure: "Cleffy's eyes closed. Three breaths, counted in the air. A low moon through a window."
+    cleffy: >
+      Breathe.
+      In four. Hold four. Out six.
+      Three times. No rush.
+
+  - id: 10
+    mode: play
+    type: THE_GRADUATION_PERFORMANCE
+    figure: "Full Moonlight score. Sixty-nine bars. No guides. No markings. Tempo 58. A quiet candle in the corner of the frame. A small caption — 'the piece.' Nothing else."
+    cleffy: >
+      Play it.
+    interaction:
+      type: song
+      sequence: [["C#2","C#3"],"C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4",["C#2","C#3"],"C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4",["B1","B2"],"B3","D#4","F#4","B3","D#4","F#4","B3","D#4","F#4",["E2","G#2"],"E3","G#3","B3","E3","G#3","B3","E3","G#3","B3",["A2","A3","G#4"],"A3","C#4","E4","A3","C#4","G#4","A3","C#4",["F#2","F#3","A4"],"F#3","A3","C#4","F#3","A3","A4","F#3","A3",["G#2","G#3","G#4"],"G#3","B#3","D#4","G#3","B#3","F#4","G#3","B#3",["C#2","C#3","E4"],"C#3","E3","G#3","C#3","E3","G#3","C#3","E3",["C#2","E2"],"G#3","C#4","E4","G#3","C#4","E4","G#3","C#4","E4",["G#2","B2"],"G#3","B3","E4","G#3","B3","E4","G#3","B3","E4",["E2","G#2","B4"],"E3","G#3","B3","E3","G#3","B3","E3","G#3","B3",["G#2","B2","A4"],"G#3","B3","E4","G#3","B3","E4","G#3","B3","E4",["F#2","A2","G#4"],"F#3","A3","C#4","F#3","A3","C#4","F#3","A3","C#4",["B2","D#3","F#4"],"F#3","A3","B3","F#3","A3","B3","F#3","A3","B3",["G#2","B2","D#4"],"G#3","B3","D#4","G#3","B3","D#4","G#3","B3","D#4",["F#2","A2","C#4"],"F#3","A3","C#4","F#3","A3","C#4","F#3","A3","C#4",["E2","G#2","B3"],"G#3","B3","E4","G#3","B3","E4","G#3","B3","E4",["D#2","F#2","A3"],"F#3","A3","D#4","F#3","A3","D#4","F#3","A3","D#4",["C#2","C#3","G#4"],"C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4",["C#2","C#3","G#4"],"C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4",["B1","B2","G#4"],"B3","D#4","F#4","B3","D#4","A4","B3","D#4","G#4",["B1","B2","A4"],"B3","D#4","F#4","B3","D#4","A4","B3","D#4","G#4",["A2","A3","G#4"],"A3","C#4","E4","A3","C#4","G#4","A3","C#4",["F#2","F#3","A4"],"F#3","A3","C#4","F#3","A3","A4","F#3","A3",["G#2","G#3","G#4"],"G#3","B#3","D#4","G#3","B#3","F#4","G#3","B#3",["C#2","C#3","E4"],"C#3","E3","G#3","C#3","E3","G#3","C#3","E3",["F#2","F#3","C#5"],"F#3","A3","C#4","F#3","A3","C#4","F#3","A3",["B2","D#3","B4"],"D#3","F#3","B3","D#3","F#3","B3","D#3","F#3",["E2","G#2","A4"],"E3","G#3","B3","E3","G#3","B3","E3","G#3",["A2","C#3","G#4"],"C#3","E3","A3","C#3","E3","A3","C#3","E3",["D#2","F#2","F#4"],"F#2","A2","D#3","F#2","A2","D#3","F#2","A2",["G#2","B2","E4"],"B2","D#3","G#3","B2","D#3","G#3","B2","D#3",["C#2","G#2","C#4"],"G#2","C#3","E3","G#2","C#3","E3","G#2","C#3",["F#2","A2","C#4"],"A2","C#3","F#3","A2","C#3","F#3","A2","C#3",["G#2","B2","D#4"],"B2","D#3","G#3","B2","D#3","G#3","B2","D#3",["C#2","E2","G#3"],"E2","G#2","C#3","E2","G#2","C#3","E2","G#2",["C#2","C#3","G#4"],"C#4","E4","G#4","C#4","E4","G#4","C#4","E4",["C#2","C#3","E4"],"C#4","E4","G#4","C#4","E4","G#4","C#4","E4",["G#1","G#2"],"E3","G#3","C#4","E3","G#3","C#4","E3","G#3",["C#2","C#3"],"E3","G#3","C#4","E3","G#3","C#4","E3","G#3",["C#2","C#3","E4"],"C#4","E4","G#4","C#4","E4","G#4","C#4","E4",["C#2","G#2","E4"],"G#3","C#4","E4","G#3","C#4","E4","G#3","C#4",["C#2","C#3","E4"],"C#4","E4","G#4","C#4","E4","G#4","C#4","E4",["C#2","C#3"],"C#4","E4","G#4","C#4","E4","G#4","C#4","E4",["C#2","C#3","G#3","C#4","E4"]]
+      guides: false
+      tempo: 58
+    followup_cleffy: >
+      That.
+      That was Moonlight Sonata. First movement. Full. At tempo. By you.
+      Lift your hands slowly. Let the pedal hold the last chord. Let it fade.
+      Then breathe.
+
+  - id: 11
+    mode: see
+    type: stay_here
+    figure: "An empty piano, pedal still down. The last chord fading on a sound-wave graphic. Caption: 'don't move yet.'"
+    cleffy: >
+      Stay here for a moment.
+      Don't stand up. Don't check your phone.
+      You just played Beethoven's Moonlight Sonata, first movement, from start to finish.
+      That is worth a minute of silence.
+
+  - id: 12
+    mode: see
+    type: reflection_tier_1
+    figure: "A small animated thumbnail — the Happy Birthday staff, the first thing they ever played from a page. Lesson 25 marker."
+    cleffy: >
+      Look back.
+      Tier 1 — Happy Birthday.
+      Twenty-five lessons in, you played a song off a page for the first time.
+      You learned to read music. That alone changed something.
+
+  - id: 13
+    mode: see
+    type: reflection_tier_2
+    figure: "Thumbnail — Für Elise theme on the grand staff. Lesson 75 marker."
+    cleffy: >
+      Tier 2 — Für Elise theme.
+      The left hand joined in. Both clefs. Both hands.
+      You played Beethoven for the first time, even though you didn't call it that yet.
+
+  - id: 14
+    mode: see
+    type: reflection_tier_3
+    figure: "Thumbnail — Clair de Lune opening bars. Lesson 125 marker."
+    cleffy: >
+      Tier 3 — Clair de Lune opening.
+      Articulation. Chords. Fingering. Color.
+      Halfway through now. You had a craftsman's hands.
+
+  - id: 15
+    mode: see
+    type: reflection_tier_4
+    figure: "Thumbnail — Moonlight, first eight bars. Lesson 175 marker."
+    cleffy: >
+      Tier 4 — Moonlight, first eight bars.
+      Real classical pieces. Bach. Chopin. Beethoven.
+      Real Romanticism.
+      You were becoming a pianist.
+
+  - id: 16
+    mode: see
+    type: reflection_tier_5
+    figure: "Two thumbnails — full Nocturne (Chopin) and full Clair de Lune. Lesson 225 marker."
+    cleffy: >
+      Tier 5 — Clair de Lune, full. Nocturne, full.
+      Expression. Voicing. Rubato. The things that make music sound alive.
+      You didn't just play pieces. You played them the way pianists play them.
+
+  - id: 17
+    mode: see
+    type: reflection_tier_6
+    figure: "The whole Moonlight score open, with a trophy on top. Lesson 250 marker. Six tiers stacked gold on the side."
+    cleffy: >
+      Tier 6 — this.
+      The whole Moonlight. Memorized. Performed.
+      Two dozen named pieces in your hands.
+      All six tiers behind you.
+      Two hundred and fifty lessons.
+      A real pianist.
+
+  - id: 18
+    mode: see
+    type: whats_next_life_after
+    figure: "The Sonata logo fading to grey. A horizon line, sunrise. A small open piano in the distance. Caption: 'life after Sonata.'"
+    cleffy: >
+      What's next.
+      This is the part I've been waiting to say.
+      You don't need this app anymore.
+      You are a pianist.
+      Go find pieces. Search for sheet music of songs you love. Ask a teacher for a recommendation. Pick something a little too hard and work on it for a month. That's how pianists grow now.
+      Play for people. Your partner. Your parents. Your kids. A friend over dinner. One audience of one.
+      Keep going. Not on Sonata. On piano.
+      The best pianists never stop being students. Whatever this becomes for you — hobby, love, habit, escape — stay curious. Stay slow when you need to. Stay honest when you slip.
+      You know how now.
+
+  - id: 19
+    mode: see
+    type: last_thing_cleffy
+    figure: "Cleffy, warm smile, holding the Moonlight score. A small cap-and-tassel on the piano. One candle lit. Caption: 'thank you.'"
+    cleffy: >
+      One last thing from me.
+      I've been with you for two hundred and fifty lessons.
+      Watching your hands get better. Watching your ear open up. Watching you start to hear music the way pianists hear it.
+      I'm proud of you.
+      That's not a filler line. I mean it.
+      You showed up. You kept showing up. A lot of people start this road. You finished it.
+      The piano is yours now. Go use it.
+
+  - id: 20
+    mode: see
+    type: wrap
+    figure: "A single gold trophy, small and clean. Below it — the words 'TIER 6 COMPLETE · GRADUATION · LESSON 250.' Behind — a full moon, a quiet piano, a candle, Cleffy sitting off to the side, hat tipped. In the corner: '250 / 250.'"
+    cleffy: >
+      Two hundred and fifty lessons ago, you'd never read a staff.
+      Today you played Beethoven. From memory. That's real.
+      Tier 6 — sealed.
+      Graduation — yours.
+      The moon's up.
+      Go play.
+
+practice_this_week:
+  real_piano:
+    - "Play Moonlight for someone this week. Anyone. A person, not a camera. One person in the room is the performance."
+    - "Revisit one piece from every tier — Happy Birthday, Für Elise, Clair de Lune opening, Moonlight first eight, Clair de Lune full. Play them back to back. Feel the distance."
+    - "Pick your next piece. Not from Sonata. From the real world. Whatever you've always wanted to play. Start tomorrow."
+    - "Record yourself playing Moonlight, one more time, for your own archive. You'll want it in a year."
+  virtual_only:
+    - "Replay page 10 — the graduation performance. Once a week if you want. Less often if you don't."
+  estimated_time: "as much as you want, as long as you want"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 3
+      questions:
+        - figure: "A six-tier pyramid, all gold"
+          prompt: "How many tiers have you completed?"
+          options: ["Five", "Six", "All of them"]
+          correct: 2
+        - figure: "A Moonlight score. All 69 bars. Key of C-sharp minor. Adagio sostenuto."
+          prompt: "What's the tempo marking for Moonlight's first movement?"
+          options: ["Allegro vivace", "Adagio sostenuto", "Andante"]
+          correct: 1
+        - figure: "Section map — A (1-23), B (24-42), A' (43-69)"
+          prompt: "How many bars in the full movement?"
+          options: ["42", "58", "69"]
+          correct: 2
+        - figure: "A handwritten card — 'delicatissimamente'"
+          prompt: "What did Beethoven ask for?"
+          options: ["As loud as possible", "Most delicately", "In strict time"]
+          correct: 1
+        - figure: "A dedication page — Op. 27 No. 2, dedicated to..."
+          prompt: "Who is Moonlight dedicated to?"
+          options: ["Beethoven's teacher", "Giulietta Guicciardi", "Napoleon"]
+          correct: 1
+    hear:
+      pass_threshold: 2
+      questions:
+        - audio: "Full Moonlight opening bars — a real recording"
+          prompt: "Do you recognize this piece?"
+          options: ["Yes — Moonlight Sonata", "No"]
+          correct: 0
+        - audio: "Two versions — one at 58 with pedal, one at 80 without"
+          prompt: "Which sounds like Beethoven wrote it?"
+          options: ["Slow and pedaled", "Fast and dry"]
+          correct: 0
+        - audio: "The final three bars, fading into silence"
+          prompt: "How does the movement end?"
+          options: ["Loudly", "Mid-phrase", "Fading to near-silence"]
+          correct: 2
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play the full Moonlight Sonata, first movement. All 69 bars. At tempo. No stopping."
+          accept: "Full movement, tempo ~58, pulse held, voicing present, pedal per bar"
+
+remediation:
+  id: "250.5"
+  title: "Graduation, one more run"
+  pages: 12
+  opening_cleffy: >
+    If it didn't land today, that's all right.
+    Let's take a breath. Run section A one more time. Then B. Then A'. Then stitch them.
+    There's no deadline on graduation. The piece waits. I wait.
+    Come back when the run feels like music, not a test.
+
+completion:
+  cleffy: >
+    Two hundred and fifty lessons ago, you'd never read a staff.
+    Today you played Beethoven. From memory. That's real.
+    You are a pianist.
+    Go play.
+  xp: 250
+  tier_complete: 6

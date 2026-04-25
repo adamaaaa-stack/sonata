@@ -1,0 +1,236 @@
+# ============================================================
+# LESSON 196 · Nocturne: melody as speech
+# Tier 5 · Act 40 · Upper-Intermediate
+# Chopin's lines are sentences. Inflection, pauses, pickups.
+# ============================================================
+id: 196
+tier: upper-intermediate
+act: 40
+title: "Nocturne: melody as speech"
+subtitle: "Act 40 · Singing at the piano"
+goal: "Read a short Nocturne phrase the way you'd read a sentence out loud — with pickup-notes, inflection, and a pause at the comma."
+prereqs: [145, 195]
+method_focus: "combine"
+time_estimate_min: 14
+piece_context: "Act 40 begins. Four lessons to prepare you for the full Nocturne at 200. Today, the idea that holds it all together — Chopin writes sentences. Pickup-notes like a breath before speaking. A rise in the middle like stress on a word. A small pause at the comma. A settle at the period. The right hand sings the way a voice speaks."
+metaphor: "melody-as-speech"
+vibe: ["gentle", "reflective", "quiet"]
+piece:
+  title: "Nocturne Op. 9 No. 2 in E-flat major (Nocturne-style phrase)"
+  composer: "Frédéric Chopin (1832)"
+  key_center: "E-flat major"
+  time_signature: "12/8 (felt as slow 4)"
+  difficulty: "upper-intermediate — four-bar phrase, melody only, focus on shaping"
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy reading a handwritten sentence out loud from a sheet of paper. Banner: ACT 40 — THE NOCTURNE."
+    cleffy: >
+      Act 40.
+      Four lessons, and you play the whole Nocturne.
+      Today — the idea that ties it all together.
+      Chopin writes sentences. Read them out loud.
+
+  - id: 2
+    mode: see
+    type: the_metaphor
+    figure: "A spoken sentence written out: 'Before I speak, I breathe, then I rise, then I settle.' Each phrase bracketed and labelled pickup / stress / comma / period."
+    cleffy: >
+      Think of a line you'd say out loud.
+      A tiny breath before the first word — that's a pickup-note.
+      A small rise in the middle — that's the stress.
+      A pause at the comma. A settle at the period.
+      Chopin does all four.
+
+  - id: 3
+    mode: hear
+    type: listen_melody
+    figure: "Play button. Caption: Nocturne Op. 9 No. 2 — a Nocturne-style phrase, right hand only, slowly."
+    audio:
+      A: "A four-bar Nocturne phrase in E-flat major — a pickup, a gentle rise to a peak note, a small pause, then a settle on the tonic. Played legato, very slow."
+    cleffy: >
+      Listen to a phrase in the Chopin manner.
+      A pickup. A rise. A pause. A settle.
+      Let your ear mark each one.
+
+  - id: 4
+    mode: see
+    type: the_pickup
+    figure: "Treble staff in E-flat. A tiny F4 eighth note at the end of bar 1, leading into Bb4 in bar 2. Arrow and label: PICKUP."
+    cleffy: >
+      Pickup-note. F — the last breath before the sentence.
+      Small. Light. Not on a strong beat.
+      It sets up the B-flat that follows.
+
+  - id: 5
+    mode: play
+    type: play_pickup
+    figure: "Keyboard. F4 dim, Bb4 bright. Metronome 60."
+    cleffy: >
+      Play the pickup and the first real note.
+      F — soft, almost a whisper. B-flat — lands.
+      Finger 2, then finger 4.
+    interaction:
+      type: sequence
+      keys: ["F4", "Bb4"]
+
+  - id: 6
+    mode: see
+    type: the_full_sentence
+    figure: "Treble staff in E-flat. A seven-note phrase: F4 pickup, Bb4, D5, Eb5 (peak, stress), D5, C5, Bb4 (landing). Slur arching over all. Small breath mark after the Eb5."
+    cleffy: >
+      The full sentence. Seven notes.
+      F, B-flat, D, E-flat — up to the top, that's the stress.
+      Breath mark. Small pause.
+      D, C, B-flat — the settle.
+      One slur. One idea.
+
+  - id: 7
+    mode: play
+    type: play_notes_even
+    figure: "Keyboard. Seven melody notes highlighted in order."
+    cleffy: >
+      Notes only. No shape yet. Even quarters.
+      F, B-flat, D, E-flat, D, C, B-flat.
+    interaction:
+      type: sequence
+      keys: ["F4", "Bb4", "D5", "Eb5", "D5", "C5", "Bb4"]
+
+  - id: 8
+    mode: see
+    type: inflection
+    figure: "The same seven-note melody. A dynamic hairpin rising up to Eb5, then falling back. Arrows: 'stress here', 'breathe here', 'land here'."
+    cleffy: >
+      Now the inflection.
+      Rise into the E-flat. That's your loudest note.
+      Breathe after. A beat of space.
+      Fall home to B-flat. That's your period.
+
+  - id: 9
+    mode: play
+    type: play_with_shape
+    figure: "Keyboard. Same seven notes with a hairpin overlay. Longer hold on Eb5 and on final Bb4. Metronome 56."
+    cleffy: >
+      With shape. Say the sentence.
+      F breathes in. B-flat steps in. D climbs. E-flat sings.
+      Small pause. Then D, C, B-flat — settle.
+    interaction:
+      type: rhythm
+      sequence: ["F4", "Bb4", "D5", "Eb5", "D5", "C5", "Bb4"]
+      durations: ["eighth", "quarter", "quarter", "half", "quarter", "quarter", "half"]
+      tempo: 56
+
+  - id: 10
+    mode: see
+    type: read_aloud_cue
+    figure: "Banner: 'SAY IT OUT LOUD.' A cartoon speech bubble next to the staff."
+    cleffy: >
+      One trick.
+      Before you play it, say the notes out loud.
+      'F — B-flat — D — E-flat — D — C — B-flat.'
+      Say it the way you want to play it. Then let your hands copy your voice.
+
+  - id: 11
+    mode: play
+    type: sing_then_play
+    figure: "Keyboard. The same seven notes, with the shape markings underneath. Metronome 56."
+    cleffy: >
+      Say it, then play it. Same shape both times.
+      Your hand follows your voice.
+    interaction:
+      type: rhythm
+      sequence: ["F4", "Bb4", "D5", "Eb5", "D5", "C5", "Bb4"]
+      durations: ["eighth", "quarter", "quarter", "half", "quarter", "quarter", "half"]
+      tempo: 56
+    followup_cleffy: >
+      That.
+      A phrase spoken, not just played.
+
+  - id: 12
+    mode: play
+    type: play_expressive
+    figure: "Same melody. Guides off. Small p dynamic marking, hairpin to the peak, breath mark after. Metronome 54."
+    cleffy: >
+      Now alone. No guides.
+      Soft. Sing the E-flat. Sigh on the B-flat.
+    interaction:
+      type: rhythm
+      sequence: ["F4", "Bb4", "D5", "Eb5", "D5", "C5", "Bb4"]
+      durations: ["eighth", "quarter", "quarter", "half", "quarter", "quarter", "half"]
+      tempo: 54
+
+  - id: 13
+    mode: hear
+    type: pre_check
+    figure: "Banner — Lesson 196 mastery check."
+    cleffy: >
+      Three quick ones.
+
+  - id: 14
+    mode: see
+    type: wrap
+    figure: "Cleffy closing a book titled 'Chopin — the Nocturnes.' A moon outside the window."
+    cleffy: >
+      Chopin writes sentences.
+      Pickup, stress, breath, settle.
+      Tomorrow — the stretched and returned time that makes those sentences feel alive. Rubato, for real.
+
+practice_this_week:
+  real_piano:
+    - "Say the seven notes out loud — F, B-flat, D, E-flat, D, C, B-flat — then play them. Match the voice and the hand."
+    - "Play the phrase once a day, slow, with the rise to E-flat and the settle on B-flat."
+    - "Find any melody you know. Pick one phrase. Ask: where's the pickup, the stress, the comma, the period? Chopin didn't invent this — every tune has it."
+  virtual_only:
+    - "Replay pages 9, 11, 12 — the three shaped passes of the phrase."
+  estimated_time: "10 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "Seven-note phrase with the E-flat at the top"
+          prompt: "Which note is the 'stress' of this sentence?"
+          options: ["The first B-flat", "The E-flat at the top", "The final B-flat"]
+          correct: 1
+        - figure: "An eighth-note F at the end of a bar, leading into a long B-flat on beat 1 of the next bar"
+          prompt: "What do we call that little F?"
+          options: ["A pickup-note", "A grace note", "A trill"]
+          correct: 0
+        - figure: "A breath mark between two notes"
+          prompt: "What does a breath mark ask you to do?"
+          options: ["Play louder", "Leave a tiny pause", "Pedal down"]
+          correct: 1
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "The phrase played with a clear rise to the E-flat and a settle on the final B-flat"
+          prompt: "Which note is loudest?"
+          options: ["The first note", "The highest note", "The last note"]
+          correct: 1
+        - audio: "The phrase played with a pause after the peak"
+          prompt: "What is the pianist doing at the pause?"
+          options: ["Making a breath", "Changing hands", "Adding a trill"]
+          correct: 0
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play the seven-note phrase — F, B-flat, D, E-flat, D, C, B-flat — with a rise to the E-flat and a settle on the B-flat."
+          accept: "All seven notes correct, legato, with an audible peak on Eb5 and a slower final Bb4"
+
+remediation:
+  id: "196.5"
+  title: "The phrase, even slower"
+  pages: 6
+  opening_cleffy: >
+    New idea — melody as a spoken sentence. Takes a minute to click.
+    Let's split it. Pickup. Rise. Settle. One piece at a time, very slow.
+
+completion:
+  cleffy: >
+    One phrase, spoken.
+    Tomorrow — rubato. The time inside the sentence.
+  xp: 18
+  unlocks: 197

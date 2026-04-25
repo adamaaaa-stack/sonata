@@ -1,0 +1,230 @@
+# ============================================================
+# LESSON 212 · Reading dense textures
+# Tier 5 · Act 43 · Upper-Intermediate · Impressionism + Arabesque
+# Don't panic. Find the shape.
+# ============================================================
+id: 212
+tier: upper-intermediate
+act: 43
+title: "Reading dense textures"
+subtitle: "Act 43 · Impressionism + Arabesque"
+goal: "Turn a dense, scary-looking page into a handful of simple shapes — scales, arpeggios, chords — instead of reading every note."
+prereqs: [211]
+method_focus: "see"
+time_estimate_min: 13
+piece_context: "Debussy pages look like a blizzard. Fifty notes in a bar, six ledger lines, accidentals everywhere. The trick is this — pianists don't read those notes. They read the shape. Today you learn to do the same."
+metaphor: "impressionist-blur"
+vibe: ["focused", "honest"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy holding up an open Debussy score — pages crammed with black ink. His expression: calm, not panicked. Banner: DON'T PANIC."
+    cleffy: >
+      Here's a Debussy page.
+      A lot of ink. A lot of notes.
+      Your first instinct — read every one. That's the wrong instinct.
+
+  - id: 2
+    mode: see
+    type: the_shape_idea
+    figure: "Left panel: a twelve-note run on the staff, each note labeled individually. Right panel: the same run with one big arrow over it labelled 'C major scale, up an octave.'"
+    cleffy: >
+      Real pianists don't read twelve notes. They read one shape.
+      That shape is a C major scale going up.
+      One thought instead of twelve.
+
+  - id: 3
+    mode: see
+    type: three_shapes
+    figure: "Three panels. 1: 'SCALE — stepwise, one direction.' 2: 'ARPEGGIO — skipping in a chord pattern.' 3: 'CHORD BLOCK — stacked notes, played together.'"
+    cleffy: >
+      Three shapes show up again and again.
+      Scale — stepwise, one direction.
+      Arpeggio — a chord broken out, one note at a time.
+      Chord block — notes stacked, played together.
+      Most pages are some mix of these three.
+
+  - id: 4
+    mode: see
+    type: spot_the_scale
+    figure: "A busy-looking RH line on the treble staff — eight sixteenth notes going up by step from C to C. Highlight box drawn around it: 'SCALE.'"
+    cleffy: >
+      See it?
+      Eight notes. Each one a step above the last.
+      That's a scale — one thing, not eight.
+
+  - id: 5
+    mode: play
+    type: play_scale_chunk
+    figure: "Keyboard. C4 through C5 lighting up in order."
+    cleffy: >
+      Play it as one shape. C major scale, one octave.
+      Don't think in notes. Think 'scale up.'
+    interaction:
+      type: sequence
+      keys: ["C4", "D4", "E4", "F4", "G4", "A4", "B4", "C5"]
+
+  - id: 6
+    mode: see
+    type: spot_the_arpeggio
+    figure: "Staff: C4-E4-G4-C5, rolled as sixteenth notes. Highlight box: 'ARPEGGIO.'"
+    cleffy: >
+      Same trick, different shape.
+      Four notes, skipping in threes. That's a C major chord rolled out.
+      One thought — 'C arpeggio up.'
+
+  - id: 7
+    mode: play
+    type: play_arpeggio_chunk
+    figure: "Keyboard. C4, E4, G4, C5 lighting up in order."
+    cleffy: >
+      Play the arpeggio. C, E, G, C.
+      One shape.
+    interaction:
+      type: sequence
+      keys: ["C4", "E4", "G4", "C5"]
+
+  - id: 8
+    mode: see
+    type: spot_the_chord
+    figure: "Staff: a stack of four notes — C, E, G, B — with a quarter note stem. Highlight box: 'CHORD.'"
+    cleffy: >
+      Third shape — a chord block.
+      Four notes. Played together.
+      One thought — 'C chord with a B on top.'
+
+  - id: 9
+    mode: play
+    type: play_chord_block
+    figure: "Keyboard. C4, E4, G4, B4 lighting up together."
+    cleffy: >
+      Press all four at once. C, E, G, B.
+      Soft. Feel the color.
+    interaction:
+      type: sequence
+      keys: ["C4", "E4", "G4", "B4"]
+
+  - id: 10
+    mode: see
+    type: busy_page_decoded
+    figure: "A messy-looking Debussy-style excerpt. Overlaid with three coloured boxes: blue box 'scale', green box 'arpeggio', gold box 'chord.' Caption: 'same page, three chunks.'"
+    cleffy: >
+      Look.
+      The whole scary bar is three chunks.
+      Scale up. Arpeggio up. Chord at the end.
+      Your eye reads three things — not thirty.
+
+  - id: 11
+    mode: play
+    type: play_the_decoded_bar
+    figure: "Keyboard. The full sequence plays out in three visual groups."
+    cleffy: >
+      Play the whole bar.
+      First — scale C up to C.
+      Then — C arpeggio up.
+      Then — the chord.
+      Three chunks, one breath.
+    interaction:
+      type: sequence
+      keys: ["C4", "D4", "E4", "F4", "G4", "A4", "B4", "C5", "C4", "E4", "G4", "C5", "C4", "E4", "G4", "B4"]
+    followup_cleffy: >
+      Sixteen notes.
+      Three thoughts.
+      That's how pianists read dense pages.
+
+  - id: 12
+    mode: see
+    type: the_debussy_application
+    figure: "A short Debussy-style excerpt, two bars. Boxes drawn: 'pentatonic run', 'held chord', 'arpeggio down.'"
+    cleffy: >
+      Same trick works on Debussy.
+      Big page, small number of shapes.
+      A pentatonic run. A held chord. An arpeggio coming down.
+      Three thoughts. That's the whole bar.
+
+  - id: 13
+    mode: play
+    type: play_debussy_style
+    figure: "Grand staff, Debussy-style. RH: a slow descending pentatonic run. LH: a held low C then an arpeggio down C-G-E-C. Marked pp."
+    cleffy: >
+      Play it.
+      Right hand — pentatonic coming down. Left hand — held C, then a slow arpeggio down.
+      Two hands, a few shapes.
+    interaction:
+      type: song
+      sequence: [["C2"], ["A4"], ["G4"], ["E4"], ["D4"], ["C4"], ["C3"], ["G2"], ["E2"], ["C2"]]
+      guides: true
+      tempo: 60
+
+  - id: 14
+    mode: hear
+    type: pre_check
+    figure: "Banner — mastery check."
+    cleffy: >
+      Three quick ones.
+
+  - id: 15
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 212. A Debussy page with three big friendly boxes drawn on it — scale, arpeggio, chord."
+    cleffy: >
+      Density is a disguise.
+      Underneath — a few shapes. Scale. Arpeggio. Chord.
+      Tomorrow — the signature Debussy texture. Flowing right hand, rolling left.
+
+practice_this_week:
+  real_piano:
+    - "Open any piece you're working on. Circle every scale chunk, every arpeggio, every chord. See how little is left."
+    - "Play the C scale, then a C arpeggio, then a C chord — back to back. Every day. Eye sees one shape, hand plays it."
+  virtual_only:
+    - "Replay pages 10, 11, and 13"
+  estimated_time: "10 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "Eight notes on the staff moving up by step: C, D, E, F, G, A, B, C"
+          prompt: "What shape is this?"
+          options: ["Scale", "Arpeggio", "Chord"]
+          correct: 0
+        - figure: "Four notes on the staff: C, E, G, C — each one skipping"
+          prompt: "What shape is this?"
+          options: ["Scale", "Arpeggio", "Chord"]
+          correct: 1
+        - figure: "A stack of three notes played together: C, E, G"
+          prompt: "What shape is this?"
+          options: ["Scale", "Arpeggio", "Chord"]
+          correct: 2
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "A C major scale played up and down"
+          prompt: "Scale, arpeggio, or chord?"
+          options: ["Scale", "Arpeggio", "Chord"]
+          correct: 0
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play a C major arpeggio — C, E, G, C."
+          accept: "C4 E4 G4 C5 played in order"
+
+remediation:
+  id: "212.5"
+  title: "Finding shapes, slower"
+  pages: 7
+  opening_cleffy: >
+    Dense pages feel like a wall at first. Normal.
+    We'll break it down — one shape at a time, in isolation.
+    You'll see the trick.
+
+completion:
+  cleffy: >
+    Dense pages decoded.
+    Scale. Arpeggio. Chord. Three shapes. Most music is some mix.
+    Tomorrow — arabesque. Flowing lines over rolling waves.
+  xp: 16
+  unlocks: 213

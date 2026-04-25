@@ -1,0 +1,220 @@
+# ============================================================
+# LESSON 116 · What is a phrase?
+# Tier 3 · Act 24 · Low-Intermediate · Phrasing
+# The opening of the phrasing act. A phrase is a musical sentence.
+# ============================================================
+id: 116
+tier: low-intermediate
+act: 24
+title: "What is a phrase?"
+subtitle: "Act 24 · Phrasing"
+goal: "Hear and see a phrase as a musical sentence — it starts, peaks, and ends."
+prereqs: [115, 57, 75]
+method_focus: "hear"
+time_estimate_min: 12
+piece_context: "Act 24 opens. You can read notes, shape dynamics, play in new keys. Now — how music groups itself. A phrase is where music takes a breath."
+metaphor: "phrase-as-sentence"
+vibe: ["gentle", "reflective"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy at the piano. A speech bubble with three dots • peak • three dots. Banner: ACT 24 — PHRASING."
+    cleffy: >
+      New act.
+      Music isn't just a line of notes. It groups itself — into phrases.
+      A phrase is a musical sentence.
+
+  - id: 2
+    mode: see
+    type: sentence_shape
+    figure: "A spoken sentence underlined: 'Mary had a little lamb.' Small arch drawn above the word 'little' as the peak."
+    cleffy: >
+      A sentence has shape. It starts. It has a main word. It ends.
+      "Mary had a LITTLE lamb." Little is the peak.
+      Music works the same way.
+
+  - id: 3
+    mode: see
+    type: phrase_on_staff
+    figure: "Treble staff — Mary Had a Little Lamb first phrase: E D C D E E E. A slur arches above the whole group."
+    cleffy: >
+      Here's a musical sentence. Mary Had a Little Lamb, first phrase.
+      E, D, C, D, E, E, E.
+      The curve above the notes says these belong together. One phrase.
+
+  - id: 4
+    mode: hear
+    type: listen_phrase
+    figure: "Play button. Waveform of the phrase with a slight arch drawn over it."
+    audio:
+      A: "Mary Had a Little Lamb first phrase, played with a gentle arch — starts quiet, peaks in the middle, softens at the end"
+    cleffy: >
+      Listen. Hear the shape?
+      It begins. It rises. It lands.
+      That's a phrase.
+
+  - id: 5
+    mode: see
+    type: three_parts
+    figure: "Same phrase on the staff — now labeled: START (E D C) · PEAK (D E E) · END (E). Three colored brackets."
+    cleffy: >
+      Three parts to a phrase.
+      Start — where it sets out.
+      Peak — the most important note, usually near the middle or just after.
+      End — where it settles.
+
+  - id: 6
+    mode: hear
+    type: listen_twinkle
+    figure: "Play button. Twinkle Twinkle first phrase."
+    audio:
+      A: "Twinkle Twinkle first phrase — C C G G A A G"
+    cleffy: >
+      Another one. Twinkle Twinkle, first phrase.
+      Same idea. Starts on C. Climbs to A. Lands on G.
+      Beginning. Peak. End.
+
+  - id: 7
+    mode: play
+    type: play_mary_phrase
+    figure: "Keyboard. E4 D4 C4 D4 E4 E4 E4 glowing in order. Slur drawn above."
+    cleffy: >
+      Play Mary Had a Little Lamb's first phrase.
+      E, D, C, D, E, E, E. One sentence. No stopping inside it.
+    interaction:
+      type: sequence
+      keys: ["E4","D4","C4","D4","E4","E4","E4"]
+
+  - id: 8
+    mode: see
+    type: where_phrases_end
+    figure: "A melody written out with two phrases shown. A small gap — and a tiny breath mark — between them."
+    cleffy: >
+      Phrases end. Then a new one begins.
+      Between two phrases — a tiny breath. A small space.
+      That's how music breathes.
+
+  - id: 9
+    mode: hear
+    type: two_phrases
+    figure: "Play button. Two full phrases of Mary Had a Little Lamb, with a clear breath between them."
+    audio:
+      A: "Two phrases of Mary Had a Little Lamb — the first ends, a breath, then the second begins"
+    cleffy: >
+      Two phrases, back to back.
+      Hear the tiny space between them? That's the end of sentence one, start of sentence two.
+
+  - id: 10
+    mode: play
+    type: play_twinkle_phrase
+    figure: "Keyboard. C4 C4 G4 G4 A4 A4 G4 glowing. Slur above."
+    cleffy: >
+      Now Twinkle's first phrase.
+      C, C, G, G, A, A, G. Start. Climb. Land.
+    interaction:
+      type: sequence
+      keys: ["C4","C4","G4","G4","A4","A4","G4"]
+
+  - id: 11
+    mode: see
+    type: slur_as_phrase
+    figure: "Staff. A long curved line over six notes. Label: SLUR / PHRASE MARK."
+    cleffy: >
+      That curve above the notes — the slur — often marks a phrase.
+      It says: these notes go together. Don't chop them apart.
+
+  - id: 12
+    mode: hear
+    type: identify_phrases
+    figure: "Round counter 1 of 3. Short melodies — some one phrase, some two."
+    cleffy: >
+      Three rounds. One phrase or two?
+    interaction:
+      type: drill
+      rounds: 3
+      options: ["One phrase", "Two phrases"]
+
+  - id: 13
+    mode: play
+    type: play_both_phrases
+    figure: "Keyboard. Mary Had a Little Lamb — both phrases. Slight pause between them."
+    cleffy: >
+      Both phrases of Mary Had a Little Lamb.
+      E D C D E E E. Tiny breath. D D D. E G G.
+      Two sentences. Not one long line.
+    interaction:
+      type: sequence
+      keys: ["E4","D4","C4","D4","E4","E4","E4","D4","D4","D4","E4","G4","G4"]
+    followup_cleffy: >
+      Two phrases. One song.
+
+  - id: 14
+    mode: hear
+    type: pre_check
+    figure: "Banner."
+    cleffy: >
+      Three quick ones.
+
+  - id: 15
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 116. A long sentence with a curve above it, ending in a period."
+    cleffy: >
+      A phrase is a musical sentence. Start. Peak. End.
+      Tomorrow — phrases that ask, and phrases that answer.
+
+practice_this_week:
+  real_piano:
+    - "Play any tune you know. Notice where the phrases end — the natural stopping points."
+    - "Sing the melody. Where do you breathe? That's where the phrase ends."
+  virtual_only:
+    - "Replay pages 4 and 6 — listen for the arch."
+  estimated_time: "8 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "Staff with a curved slur over seven notes."
+          prompt: "What does the curved line above the notes usually mean?"
+          options: ["One phrase — play them together", "Play them all staccato", "Play them all loud"]
+          correct: 0
+        - figure: "Diagram: START → PEAK → END."
+          prompt: "A musical phrase has three parts. Which of these is NOT one of them?"
+          options: ["Start", "Peak", "Pause"]
+          correct: 2
+        - figure: "Two short phrases separated by a small gap."
+          prompt: "What is the small gap between two phrases?"
+          options: ["A tiny breath", "A mistake", "A rest for four beats"]
+          correct: 0
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "Mary Had a Little Lamb first phrase"
+          prompt: "How many phrases did you hear?"
+          options: ["One", "Two"]
+          correct: 0
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play the first phrase of Mary Had a Little Lamb — E D C D E E E."
+          accept: "E4 D4 C4 D4 E4 E4 E4 played as one phrase"
+
+remediation:
+  id: "116.5"
+  title: "Phrases, one at a time"
+  pages: 6
+  opening_cleffy: >
+    Phrases are a feel thing. Sentences for the ear.
+    We'll slow it down and listen to one at a time.
+
+completion:
+  cleffy: >
+    Act 24 is open.
+    Music speaks in sentences now. You'll hear them everywhere.
+    Tomorrow — call and response. Phrases that talk to each other.
+  xp: 18
+  unlocks: 117

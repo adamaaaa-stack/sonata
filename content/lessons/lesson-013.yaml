@@ -1,0 +1,238 @@
+# ============================================================
+# LESSON 13 · Lines and spaces (no names)
+# Tier 1 · Act 3 · Beginner
+# Central metaphor: SHAPE BEFORE NAMES
+# ============================================================
+id: 13
+tier: beginner
+act: 3
+title: "Lines and spaces"
+subtitle: "Shape first, names later"
+goal: "Tell at a glance whether a note is on a line or in a space — without naming it yet."
+prereqs: [11, 12]
+method_focus: "notation"
+time_estimate_min: 10
+piece_context: null
+metaphor: "line-or-pocket"
+vibe: ["gentle", "playful"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy holding two signs — one says LINE, the other says SPACE."
+    cleffy: >
+      You've been waiting for me to tell you the names of all the notes.
+      I'm going to make you wait one more lesson.
+      Trust me on this.
+      Today we lock in something more important than names —
+      knowing at a glance if a note is on a line or in a space.
+
+  - id: 2
+    mode: see
+    type: why_shape
+    figure: "Two notes side by side on a staff. One on a line — the line cuts through the middle of the note. One in a space — the note sits between two lines, untouched."
+    cleffy: >
+      Here's the thing. If you jump straight to names — FACE, EGBDF, all that —
+      you end up counting every note from scratch. That's slow. That's how people get stuck.
+      But if you can GLANCE at a note and instantly know if it's on a line or a space,
+      you read way faster. Shape first. Names second.
+      The Sonata method is built on this.
+
+  - id: 3
+    mode: see
+    type: line_note
+    figure: "Zoomed in. A note on a line — clearly a line going through the middle of the oval."
+    cleffy: >
+      Line notes have a line cutting through them. Right through the middle.
+      Like a skewer.
+
+  - id: 4
+    mode: see
+    type: space_note
+    figure: "Zoomed in. A note in a space — sitting like a tooth between two lines, not touching either."
+    cleffy: >
+      Space notes sit between two lines. Nothing cuts through them.
+      They're in the gap — like a tooth in a gum.
+      Weird image but now you won't forget.
+
+  - id: 5
+    mode: see
+    type: interactive
+    figure: "Staff with a single note in space 3."
+    cleffy: >
+      Line or space?
+    interaction:
+      type: choice
+      options: ["Line", "Space"]
+      correct: 1
+
+  - id: 6
+    mode: see
+    type: interactive
+    figure: "Staff with a single note on line 4."
+    cleffy: >
+      This one?
+    interaction:
+      type: choice
+      options: ["Line", "Space"]
+      correct: 0
+
+  - id: 7
+    mode: see
+    type: drill
+    figure: "Round counter 1 of 6. Single note on staff each time."
+    cleffy: >
+      Six rounds. Quick — line or space?
+    interaction:
+      type: drill
+      rounds: 6
+      options: ["Line", "Space"]
+
+  - id: 8
+    mode: see
+    type: count_position
+    figure: "Staff with a note on line 2."
+    cleffy: >
+      Now a harder one. If it IS a line, which line? Counting from the bottom.
+    interaction:
+      type: choice
+      options: ["Line 1", "Line 2", "Line 3", "Line 4", "Line 5"]
+      correct: 1
+    corrections:
+      - wrong_label: "off_by_one"
+        cleffy: >
+          Count from the bottom line up. Bottom is 1.
+
+  - id: 9
+    mode: see
+    type: count_position_space
+    figure: "Staff with a note in space 3."
+    cleffy: >
+      Which space is that note in?
+    interaction:
+      type: choice
+      options: ["Space 1", "Space 2", "Space 3", "Space 4"]
+      correct: 2
+
+  - id: 10
+    mode: hear
+    type: glance_drill
+    figure: "Round counter 1 of 6. Each round: a note flashes on the staff for just 2 seconds. You pick."
+    cleffy: >
+      Speed round. A note will appear for a moment. Line or space — quick.
+      We're training your eyes to see it instantly.
+    interaction:
+      type: drill
+      rounds: 6
+      time_limit: 2
+
+  - id: 11
+    mode: see
+    type: two_notes
+    figure: "Two notes on the staff — one higher, one lower. Sometimes same type (line+line), sometimes different (line+space)."
+    cleffy: >
+      Now two notes. Are they the same type, or different?
+      Both lines, both spaces — same. One of each — different.
+    interaction:
+      type: drill
+      rounds: 4
+      options: ["Same", "Different"]
+
+  - id: 12
+    mode: see
+    type: sonata_preview
+    figure: "Two notes — both on lines, one line apart. Label: line → line."
+    cleffy: >
+      Here's a preview of something you'll see a lot.
+      Line to the next line. Both on lines. That shape is a skip — remember skips?
+      Line to next line, or space to next space. That's the odd rule.
+
+  - id: 13
+    mode: see
+    type: sonata_preview_2
+    figure: "Two notes — line, then next space up. Label: line → space."
+    cleffy: >
+      And this one — line to space. Space to line.
+      That's a step. The even rule.
+      We'll lock that in next week when we start Act 4.
+      For now, just notice the shape exists.
+
+  - id: 14
+    mode: hear
+    type: drill
+    figure: "Mix of line/space, count, and same/different questions."
+    cleffy: >
+      Last warm-up. Four rounds.
+    interaction:
+      type: drill
+      rounds: 4
+
+  - id: 15
+    mode: hear
+    type: pre_check
+    figure: "Banner."
+    cleffy: >
+      Four quick ones.
+
+  - id: 16
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 13. A staff with two notes, one on a line (labeled line) and one in a space (labeled space). Cleffy giving a thumbs up."
+    cleffy: >
+      Line or space. At a glance.
+      Tomorrow we give notes names. Just one first — Middle C.
+      If you know one note and you know shapes, you can find every other note.
+      That's the whole method. You're almost reading music.
+
+# ─── Mastery check ──────────────────────────────────────
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 4
+      questions:
+        - figure: "Staff, note on line."
+          prompt: "Line or space?"
+          options: ["Line", "Space"]
+          correct: 0
+        - figure: "Staff, note in space."
+          prompt: "Line or space?"
+          options: ["Line", "Space"]
+          correct: 1
+        - figure: "Staff, two line-notes one line apart."
+          prompt: "Are both notes the same type?"
+          options: ["Same", "Different"]
+          correct: 0
+        - figure: "Staff, one line-note and one space-note."
+          prompt: "Are both notes the same type?"
+          options: ["Same", "Different"]
+          correct: 1
+    hear:
+      pass_threshold: 1
+      questions:
+        - prompt: "Looking at a staff (shown), which note is higher?"
+          options: ["A", "B"]
+          correct: 0
+    play:
+      pass_threshold: 1
+      questions:
+        - figure: "Staff with a note high up."
+          prompt: "Tap a high key on the piano to match this note."
+          accept: "any key in right half of keyboard"
+
+# ─── Remediation ────────────────────────────────────────
+remediation:
+  id: "13.5"
+  title: "Lines and spaces, slower"
+  pages: 5
+  opening_cleffy: >
+    Shape recognition is muscle memory. Normal to take a few passes.
+    Let's go through it with bigger zoomed-in notes so the difference is obvious.
+
+# ─── Completion ─────────────────────────────────────────
+completion:
+  cleffy: >
+    Shape before names. That's the Sonata method in one sentence.
+    You just locked it in.
+  xp: 20
+  unlocks: 14

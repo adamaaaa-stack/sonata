@@ -1,0 +1,209 @@
+# ============================================================
+# LESSON 77 · Slurs
+# Tier 3 · Act 16 · Low-Intermediate · Articulation
+# The curved line that says "connect these notes."
+# ============================================================
+id: 77
+tier: low-intermediate
+act: 16
+title: "Slurs"
+subtitle: "Act 16 · Articulation"
+goal: "Read a slur on the staff and play the notes underneath it smoothly connected."
+prereqs: [76, 75]
+method_focus: "see"
+time_estimate_min: 11
+piece_context: "Yesterday you played legato. Today you meet the symbol that asks for it."
+metaphor: "touch-family"
+vibe: ["gentle", "focused"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy pointing at a curved line arching over three notes on a staff."
+    cleffy: >
+      That curved line is a slur.
+      It means — connect these notes. Play them legato.
+
+  - id: 2
+    mode: see
+    type: what_slur_is
+    figure: "Staff with five notes. A curved line arches from the first to the last. Label: SLUR."
+    cleffy: >
+      A slur starts on one note and ends on another.
+      Every note under the arc is played smoothly, as one group.
+      One breath. No gaps.
+
+  - id: 3
+    mode: see
+    type: slur_vs_no_slur
+    figure: "Two staves side by side. Left: four notes, no slur. Right: same four notes, with a slur."
+    cleffy: >
+      Same notes, two ways.
+      No slur — play how you like. With a slur — connect them. Smooth.
+
+  - id: 4
+    mode: hear
+    type: listen_slur
+    figure: "Two play buttons. A: slurred. B: not slurred."
+    audio:
+      A: "C D E F G played connected (slurred)"
+      B: "C D E F G played with tiny gaps between each note"
+    cleffy: >
+      First — slurred. Smooth line. One gesture.
+      Second — detached. Five little gestures.
+
+  - id: 5
+    mode: play
+    type: first_slur
+    figure: "Staff with three notes and a slur above them. Keyboard below: C4 D4 E4."
+    cleffy: >
+      Play C, D, E — under one slur. Smooth.
+      Finger 1 stays down until 2 presses. Finger 2 stays until 3. One breath.
+    interaction:
+      type: sequence
+      keys: ["C4","D4","E4"]
+
+  - id: 6
+    mode: see
+    type: slur_shape
+    figure: "Staff with a slur that arches high. Arrow showing it can curve up or down."
+    cleffy: >
+      Slurs live above or below the notes. Same meaning either way.
+      Above for lower notes. Below for higher ones. Just what fits.
+
+  - id: 7
+    mode: play
+    type: longer_slur
+    figure: "Staff with a six-note slur over F G A B C D."
+    cleffy: >
+      Six-note slur. Every note connected. Don't breathe between them.
+    interaction:
+      type: sequence
+      keys: ["F4","G4","A4","B4","C5","D5"]
+
+  - id: 8
+    mode: see
+    type: two_slurs
+    figure: "Staff with two separate slurs — one over notes 1-3, another over notes 4-6. Small gap between."
+    cleffy: >
+      Two slurs next to each other. Two groups.
+      Smooth inside each group. Tiny lift between them.
+      That lift is where the phrase breathes.
+
+  - id: 9
+    mode: play
+    type: two_slurs_play
+    figure: "Staff with two three-note slurs. Keyboard below."
+    cleffy: >
+      Play the first group smooth. Lift. Play the second group smooth.
+    interaction:
+      type: sequence
+      keys: ["C4","D4","E4","F4","G4","A4"]
+
+  - id: 10
+    mode: see
+    type: slur_not_tie
+    figure: "Two staves side by side. Left: slur over C-D-E (three different notes). Right: tie between two Cs (same note)."
+    cleffy: >
+      Remember ties from Act 11? Ties and slurs look alike.
+      Tie — same note, held longer. Slur — different notes, connected smooth.
+      The notes tell you which.
+
+  - id: 11
+    mode: hear
+    type: spot_slur_drill
+    figure: "Round counter 1 of 4."
+    cleffy: >
+      Four rounds. Slurred or separated?
+    interaction:
+      type: drill
+      rounds: 4
+      options: ["Slurred (smooth)", "Separated"]
+
+  - id: 12
+    mode: play
+    type: slur_in_melody
+    figure: "Staff with a short melody. First four notes slurred, last note separate."
+    cleffy: >
+      Melody with a slur. Four notes smooth, one note on its own.
+    interaction:
+      type: sequence
+      keys: ["G4","A4","B4","C5","G4"]
+
+  - id: 13
+    mode: play
+    type: at_tempo
+    figure: "Same melody, tempo 80."
+    cleffy: >
+      One more time, at tempo. Keep the slur smooth.
+    interaction:
+      type: rhythm
+      sequence: ["G4","A4","B4","C5","G4"]
+      durations: ["quarter","quarter","quarter","quarter","half"]
+      tempo: 80
+    followup_cleffy: >
+      The slur is where the music breathes.
+
+  - id: 14
+    mode: hear
+    type: pre_check
+    figure: "Banner."
+    cleffy: >
+      Three quick ones.
+
+  - id: 15
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 77. A curved line arching over three notes, like a little bridge."
+    cleffy: >
+      Slur means connect. Tomorrow — the mark that says play THIS note louder.
+
+practice_this_week:
+  real_piano:
+    - "Play a C-D-E-F-G scale, all slurred. Then play it with two slurs (C-D-E, F-G). Hear the lift."
+    - "Find a piece of music around the house. Count the slurs. Notice where the music breathes."
+  virtual_only:
+    - "Replay pages 5, 7, and 12"
+  estimated_time: "7 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "Curved line arching over four different notes"
+          prompt: "What does this mark mean?"
+          options: ["Play smoothly connected", "Play short", "Play loud"]
+          correct: 0
+        - figure: "Two separate slurs over six notes"
+          prompt: "How many smooth groups?"
+          options: ["One", "Two", "Six"]
+          correct: 1
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "Five notes played connected"
+          prompt: "Are these notes slurred?"
+          options: ["Yes", "No"]
+          correct: 0
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play C, D, E, F under a slur. Keep them smooth."
+          accept: "C4 D4 E4 F4 connected"
+
+remediation:
+  id: "77.5"
+  title: "Slurs, phrase by phrase"
+  pages: 6
+  opening_cleffy: >
+    Slurs take a minute to feel natural.
+    We'll do three-note slurs, then longer, until the connection is reliable.
+
+completion:
+  cleffy: >
+    Slurs read. Slurs played.
+    Tomorrow — one note louder than the rest. Accent marks.
+  xp: 17
+  unlocks: 78

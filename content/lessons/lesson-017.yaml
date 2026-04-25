@@ -1,0 +1,259 @@
+# ============================================================
+# LESSON 17 · The even rule
+# Tier 1 · Act 4 · Beginner
+# Central metaphor: STEPS ALWAYS SWITCH KINDS
+# NOTE: This only teaches the EVEN half of odd/even. The odd half
+# lives in L21 where skips are introduced. Do not try to teach both here.
+# ============================================================
+id: 17
+tier: beginner
+act: 4
+title: "The even rule"
+subtitle: "Steps always switch kinds"
+goal: "Recognize a step by shape alone — if the kind switched (line↔space), it's a step."
+prereqs: [16]
+method_focus: "odd-even"
+time_estimate_min: 12
+piece_context: null
+metaphor: "switch-kinds"
+vibe: ["gentle", "playful", "serious"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy holding a sign: ONE TRICK TO READ FAST."
+    cleffy: >
+      Yesterday you met steps.
+      Today I give you the trick that lets you spot a step at a glance —
+      no counting, no thinking. Just look.
+      It's called the even rule. This is half of the Sonata method's main pattern.
+
+  - id: 2
+    mode: see
+    type: the_rule
+    figure: "Staff with three examples of steps — line to space, space to line, line to space. Each one, an arrow points out that the KIND changes."
+    cleffy: >
+      Here's the rule. If it's a step, the kind always switches.
+      Line becomes space. Or space becomes line.
+      Every single time. No exceptions.
+
+  - id: 3
+    mode: see
+    type: why_it_works
+    figure: "A staff with every line labeled 'line' and every space labeled 'space', alternating. An arrow shows: line-space-line-space-line, etc."
+    cleffy: >
+      Think about how a staff is built.
+      Line, space, line, space, line, space, line, space, line.
+      They alternate. So the closest neighbor to a line is always a space.
+      And the closest neighbor to a space is always a line.
+      Moving one stair — a step — always lands you on the opposite kind. That's all the rule is.
+
+  - id: 4
+    mode: see
+    type: apply_the_rule
+    figure: "Three pairs of notes shown. Student applies the even rule: did the kind switch?"
+    cleffy: >
+      Let's use it. For each pair — did the kind switch?
+      If yes — it's a step.
+      If no — it's NOT a step. Something bigger.
+
+  - id: 5
+    mode: see
+    type: interactive
+    figure: "Staff with a pair: line 2 to space 2 above."
+    cleffy: >
+      Kinds switched — line to space. Step?
+    interaction:
+      type: choice
+      options: ["Yes (step)", "No (not a step)"]
+      correct: 0
+
+  - id: 6
+    mode: see
+    type: interactive
+    figure: "Staff with a pair: line 1 to line 2. Both lines."
+    cleffy: >
+      Both lines. Did the kind switch?
+    interaction:
+      type: choice
+      options: ["Yes (step)", "No (not a step)"]
+      correct: 1
+    corrections:
+      - wrong_label: "picked_step"
+        cleffy: >
+          Look again. Both notes are on lines.
+          Line → line means the kind did NOT switch. So — not a step.
+          Something bigger.
+
+  - id: 7
+    mode: see
+    type: interactive
+    figure: "Staff with pair: space 3 → line 3 below."
+    cleffy: >
+      And this one?
+    interaction:
+      type: choice
+      options: ["Step", "Not a step"]
+      correct: 0
+
+  - id: 8
+    mode: see
+    type: drill
+    figure: "Round counter 1 of 8. Each round: a pair of notes. Student applies the even rule."
+    cleffy: >
+      Eight rounds. Apply the rule — did the kind switch?
+    interaction:
+      type: drill
+      rounds: 8
+      options: ["Step", "Not a step"]
+      time_limit: 2
+
+  - id: 9
+    mode: see
+    type: speed_up
+    figure: "Same kind of drill, faster. Round counter 1 of 6."
+    cleffy: >
+      Six more, even quicker. Trust your eye.
+    interaction:
+      type: drill
+      rounds: 6
+      options: ["Step", "Not a step"]
+      time_limit: 1
+
+  - id: 10
+    mode: hear
+    type: step_sound
+    figure: "Two playback cards. A: a step (C-D). B: a bigger move (C-E)."
+    audio:
+      A: "C4 to D4"
+      B: "C4 to E4"
+    cleffy: >
+      Listen. Step — tiny, smooth, barely a gap.
+      Bigger move — you hear air between them.
+      The rule holds by ear too: steps feel close. Bigger moves feel wider.
+
+  - id: 11
+    mode: hear
+    type: ear_drill
+    figure: "Round counter 1 of 4."
+    cleffy: >
+      Four by ear. Step, or bigger?
+    interaction:
+      type: drill
+      rounds: 4
+      options: ["Step", "Bigger"]
+
+  - id: 12
+    mode: play
+    type: play_steps_up
+    figure: "Keyboard. Right hand in five-finger position C-D-E-F-G. Each adjacent pair highlighted."
+    cleffy: >
+      Put your right hand on C D E F G. Play them in order — all steps, all switching kinds
+      if you were reading them on a staff.
+    interaction:
+      type: sequence
+      keys: ["C4", "D4", "E4", "F4", "G4"]
+    followup_cleffy: >
+      Every pair you just played was a step.
+      On a staff, they'd alternate line-space-line-space-line. The even rule in action.
+
+  - id: 13
+    mode: read
+    type: read_steps
+    figure: "Staff with four notes: line 1, space 1, line 2, space 2. All step-neighbors."
+    cleffy: >
+      Four notes, all steps up — kind switches every time.
+      Read the shape. Play four steps up on the piano, any starting note.
+    interaction:
+      type: sequence
+      count: 4
+      direction: "up"
+
+  - id: 14
+    mode: hear
+    type: drill
+    figure: "Mix of see / hear / play step recognition."
+    cleffy: >
+      Four rounds. Mixed.
+    interaction:
+      type: drill
+      rounds: 4
+
+  - id: 15
+    mode: hear
+    type: pre_check
+    figure: "Banner."
+    cleffy: >
+      Four quick ones.
+
+  - id: 16
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 17. A staff with a step-up pair highlighted and a label: kinds switched — step."
+    cleffy: >
+      Step = kinds switch. That's the whole rule for today.
+      There's another rule — for when kinds stay the same — and we meet it when we meet skips.
+      For now, your eye already knows what a step looks like. That's a big deal.
+
+# ─── Practice this week ────────────────────────────────
+practice_this_week:
+  real_piano:
+    - "Right hand, five-finger position starting on Middle C. Play C-D-E-F-G, then reverse. Ten times."
+    - "Start on G instead — G-A-B-C-D. All steps, new starting point."
+    - "Try just two notes at a time — step up, step down. Focus on the feel of the tiny move."
+  virtual_only:
+    - "Replay pages 8–9 (the speed drills) two or three times. Aim for instant recognition."
+  estimated_time: "5 min/day"
+
+# ─── Mastery check ──────────────────────────────────────
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 3
+      questions:
+        - figure: "Line → next space"
+          prompt: "Step, or not a step?"
+          options: ["Step", "Not a step"]
+          correct: 0
+        - figure: "Line → next line"
+          prompt: "Step, or not a step?"
+          options: ["Step", "Not a step"]
+          correct: 1
+        - figure: "Space → next line"
+          prompt: "Step, or not a step?"
+          options: ["Step", "Not a step"]
+          correct: 0
+    hear:
+      pass_threshold: 2
+      questions:
+        - audio: "C4 to D4 (step)"
+          prompt: "Step or bigger?"
+          options: ["Step", "Bigger"]
+          correct: 0
+        - audio: "C4 to F4 (bigger)"
+          prompt: "Step or bigger?"
+          options: ["Step", "Bigger"]
+          correct: 1
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play four steps in a row, going up."
+          accept: "4 adjacent white keys ascending"
+
+# ─── Remediation ────────────────────────────────────────
+remediation:
+  id: "17.5"
+  title: "The even rule, slower"
+  pages: 5
+  opening_cleffy: >
+    The switch-kinds thing takes a minute. Let's walk through a bunch of examples
+    side by side — same kind and different kind — until your eye sees it fast.
+
+# ─── Completion ─────────────────────────────────────────
+completion:
+  cleffy: >
+    Even rule: locked. Your eye reads steps by shape now.
+    That's half the Sonata method.
+  xp: 20
+  unlocks: 18

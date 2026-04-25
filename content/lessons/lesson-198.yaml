@@ -1,0 +1,247 @@
+# ============================================================
+# LESSON 198 · Left hand as guitar
+# Tier 5 · Act 40 · Upper-Intermediate
+# Widely-spaced chord shapes. Bass Eb2, then Bb3-G4 up top.
+# ============================================================
+id: 198
+tier: upper-intermediate
+act: 40
+title: "Left hand as guitar"
+subtitle: "Act 40 · Wide-reach accompaniment"
+goal: "Play Chopin's wide left-hand pattern — a low bass note, then a stretched chord an octave-plus higher — as one calm, guitar-like gesture."
+prereqs: [197, 148, 149]
+method_focus: "combine"
+time_estimate_min: 15
+piece_context: "Act 40 continues. You know Alberti bass (148) and waltz bass (149). Chopin uses a third kind — wider than either. A single low bass note, then a two-or-three-note chord a tenth or more above it. The hand jumps, then rolls gently. Like a guitarist hitting the bass string with the thumb, then strumming up. This lesson teaches the pattern in isolation so tomorrow's pedal lesson — and Sunday's full piece — can sit on top of it."
+metaphor: "singing-at-the-piano"
+vibe: ["focused", "gentle", "quiet"]
+piece:
+  title: "Nocturne Op. 9 No. 2 in E-flat major (LH pattern)"
+  composer: "Frédéric Chopin (1832)"
+  key_center: "E-flat major"
+  time_signature: "12/8 (felt as slow 4)"
+  difficulty: "upper-intermediate — left-hand-only drill, wide reach"
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy with a classical guitar slung over one shoulder and his left hand at the piano. Banner: LH AS GUITAR."
+    cleffy: >
+      Think of a guitar for a minute.
+      Thumb hits the low string. Fingers strum the chord above.
+      Boom — strum.
+      Chopin's left hand, exactly.
+
+  - id: 2
+    mode: see
+    type: three_bass_styles
+    figure: "Three boxes. Left: Alberti bass — four close notes, labeled 'Act 30'. Middle: waltz bass — boom-chord-chord, labeled 'Act 30'. Right: Chopin bass — low note far below, chord far above, labeled 'TODAY'."
+    cleffy: >
+      You've met two left-hand styles.
+      Alberti — four close notes rolled. Classical.
+      Waltz — boom-chord-chord. Chopin used that at 145.
+      Today, a third. Wider than both.
+
+  - id: 3
+    mode: see
+    type: the_shape
+    figure: "Bass staff. Low Eb2 at the bottom as a dotted quarter. Then, an octave-and-a-third above, a stacked chord Bb3 and G4 as a dotted quarter. Arrow labeled 'a tenth — 10 notes apart'. Second arrow: 'the gap is the feature'."
+    cleffy: >
+      Here's the shape.
+      Low E-flat 2 — way down in the bass.
+      Then a chord — B-flat 3 with G 4 on top — way up.
+      The gap between them is ten notes. A tenth.
+      The space is part of the sound.
+
+  - id: 4
+    mode: hear
+    type: listen
+    figure: "Play button. Caption: the Nocturne LH pattern alone, two bars, slow."
+    audio:
+      A: "A low Eb2 followed by the Bb3-G4 chord, then Bb3-G4 again, twice — slow, with a pedaled, ringing bass."
+    cleffy: >
+      Listen. Low note. Chord. Chord.
+      Notice the ring of the bass under the chords.
+      That's the guitar sound.
+
+  - id: 5
+    mode: play
+    type: bass_only
+    figure: "Keyboard. Only Eb2 glowing in the lowest octave. Finger 5."
+    cleffy: >
+      Start with the bass. E-flat 2.
+      Finger 5 — your pinky. Deep. Slow.
+    interaction:
+      type: sequence
+      keys: ["Eb2"]
+
+  - id: 6
+    mode: play
+    type: chord_only
+    figure: "Keyboard. Bb3 and G4 glowing together. Fingers 2 and 1."
+    cleffy: >
+      Now the chord. B-flat 3, G 4 — together.
+      Thumb on G. Finger 2 on B-flat.
+      Light. A strum.
+    interaction:
+      type: sequence
+      keys: ["Bb3", "G4"]
+
+  - id: 7
+    mode: see
+    type: the_reach
+    figure: "A left hand drawn with a ruler. Pinky on Eb2, thumb on Bb3. Measurement: 'a tenth, about 16 inches.'"
+    cleffy: >
+      That's a reach. Pinky to thumb.
+      You don't grab them both at once. You bounce between them.
+      Pinky first — then hand lifts — then thumb and two lay the chord.
+
+  - id: 8
+    mode: play
+    type: bass_then_chord
+    figure: "Keyboard. Eb2 glows, then Bb3-G4 glow. Arrow shows the hand traveling up."
+    cleffy: >
+      Bass, then chord. Separate moves.
+      Low note — lift — land the chord on top.
+      Don't rush the trip.
+    interaction:
+      type: rhythm
+      sequence: ["Eb2", ["Bb3", "G4"]]
+      durations: ["quarter", "quarter"]
+      tempo: 60
+
+  - id: 9
+    mode: see
+    type: the_full_pattern
+    figure: "Bass staff. Eb2 on beat 1, then Bb3-G4 chord twice above — on beats 2 and 3. One bar labeled: 'bass, chord, chord.'"
+    cleffy: >
+      The full bar.
+      Bass once. Chord twice.
+      Bass, chord, chord. Three beats.
+
+  - id: 10
+    mode: play
+    type: bass_chord_chord
+    figure: "Keyboard. Eb2 glows, then Bb3-G4, then Bb3-G4 again. Metronome 60."
+    cleffy: >
+      One bar. Slow.
+      Pinky deep. Then light up. Chord. Chord.
+    interaction:
+      type: rhythm
+      sequence: ["Eb2", ["Bb3", "G4"], ["Bb3", "G4"]]
+      durations: ["quarter", "quarter", "quarter"]
+      tempo: 60
+
+  - id: 11
+    mode: see
+    type: two_bars
+    figure: "Bass staff. Two bars of the pattern. First bar Eb2 + Bb3-G4 chord. Second bar Bb2 + Ab3-F4 chord. Labels under each bar: 'I chord' and 'V chord'."
+    cleffy: >
+      Two bars now.
+      First bar sits on E-flat. Your home chord.
+      Second bar shifts — bass on B-flat, chord changes to A-flat and F.
+      Home, then away.
+
+  - id: 12
+    mode: play
+    type: two_bars_play
+    figure: "Keyboard. Two bars of the pattern, alternating I and V. Metronome 58."
+    cleffy: >
+      Two bars. Home, then away.
+    interaction:
+      type: rhythm
+      sequence: ["Eb2", ["Bb3", "G4"], ["Bb3", "G4"], "Bb2", ["Ab3", "F4"], ["Ab3", "F4"]]
+      durations: ["quarter", "quarter", "quarter", "quarter", "quarter", "quarter"]
+      tempo: 58
+    followup_cleffy: >
+      That.
+      Two chords of guitar-bass. Chopin's left hand, in your hand.
+
+  - id: 13
+    mode: play
+    type: soft_and_steady
+    figure: "Keyboard. Same two bars. Dynamic: p. No guides. Metronome 56."
+    cleffy: >
+      Soft. Even.
+      The left hand is a cradle. It rocks. It doesn't shout.
+    interaction:
+      type: rhythm
+      sequence: ["Eb2", ["Bb3", "G4"], ["Bb3", "G4"], "Bb2", ["Ab3", "F4"], ["Ab3", "F4"]]
+      durations: ["quarter", "quarter", "quarter", "quarter", "quarter", "quarter"]
+      tempo: 56
+
+  - id: 14
+    mode: hear
+    type: pre_check
+    figure: "Banner — Lesson 198 mastery check."
+    cleffy: >
+      Three quick ones.
+
+  - id: 15
+    mode: see
+    type: wrap
+    figure: "Cleffy's left hand resting on the low E-flat key. A small guitar icon tucked beside it."
+    cleffy: >
+      Wide-reach bass. Guitar style.
+      Pinky down. Strum up. Rock.
+      Tomorrow — the pedal joins in. You listen for mud, you change when it blooms.
+
+practice_this_week:
+  real_piano:
+    - "Left hand alone. Two bars, bass-chord-chord, home and away. Very slow. Metronome at 56. Every day."
+    - "Feel the hand lift between the bass and the chord. Don't grab them at once. Let the pinky pay the deep note first, then travel up."
+    - "If the reach is hard, skip the G4 at the top — just play Bb3 alone. You can add the G back later."
+  virtual_only:
+    - "Replay pages 10, 12, 13 — the pattern, the two bars, the soft pass."
+  estimated_time: "12 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "A bass-clef bar with a low Eb2 on beat 1 and a Bb3-G4 chord on beats 2 and 3"
+          prompt: "What is the pattern called?"
+          options: ["Alberti bass", "Waltz bass / wide guitar bass", "Octave bass"]
+          correct: 1
+        - figure: "A low note and a chord with a large gap between them, arrow labeled '10 notes'"
+          prompt: "What interval separates the bass from the chord?"
+          options: ["A 3rd", "An octave", "A 10th"]
+          correct: 2
+        - figure: "A hand reaching from pinky on Eb2 up to thumb on Bb3"
+          prompt: "How do you play the pattern?"
+          options: ["Grab both together", "Pinky first, then lift, then lay the chord", "Rock side to side"]
+          correct: 1
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "A Chopin-style wide bass pattern with a ringing low note under a chord"
+          prompt: "What does the left hand do first?"
+          options: ["Plays the chord", "Plays the low bass note", "Plays both at once"]
+          correct: 1
+        - audio: "Alberti bass compared to the wide Chopin pattern"
+          prompt: "Which one has a wider reach?"
+          options: ["The Alberti bass", "The Chopin wide pattern"]
+          correct: 1
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play one bar of the pattern — Eb2, then Bb3-G4, then Bb3-G4 — slowly, left hand only."
+          accept: "Eb2 followed by two Bb3-G4 chords, steady, left hand only"
+
+remediation:
+  id: "198.5"
+  title: "The reach, slower"
+  pages: 6
+  opening_cleffy: >
+    Big stretch. New shape for the hand.
+    We'll drop the top note, shrink the bar, and rebuild. Pinky alone. Then thumb alone. Then one bar, slow.
+
+completion:
+  cleffy: >
+    Left hand, guitar style.
+    Pinky deep. Strum up. Rock.
+    Tomorrow — the pedal. Listen for mud.
+  xp: 18
+  unlocks: 199

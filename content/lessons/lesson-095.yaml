@@ -1,0 +1,243 @@
+id: 95
+tier: low-intermediate
+act: 19
+title: "Gymnopédie No. 1"
+subtitle: "Act 19 · First Satie"
+goal: "Slow and spacious — first Satie piece."
+prereqs: [90, 91, 92, 93, 94]
+method_focus: "combine"
+time_estimate_min: 16
+piece_context: "Erik Satie's Gymnopédie No. 1. 1888. Slow, spare, dreamlike. The piece that invented ambient music. You play the opening phrase."
+metaphor: "eyes-as-scouts"
+vibe: ["quiet", "reflective", "gentle"]
+is_act_boss: true
+piece:
+  title: "Gymnopédie No. 1 (opening)"
+  composer: "Erik Satie"
+  key_center: "D major (simplified)"
+  time_signature: "3/4"
+  difficulty: "low-intermediate — very slow, legato, LH waltz pattern, RH simple melody"
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy sitting at a piano in soft light. Sheet music labeled GYMNOPÉDIE NO. 1 in front of him."
+    cleffy: >
+      Erik Satie. Paris. 1888.
+      He wrote three pieces called Gymnopédies. This is the first.
+      Slow. Spacious. Sad, but gentle about it.
+
+  - id: 2
+    mode: hear
+    type: listen
+    figure: "Big play button. Sheet music preview."
+    audio:
+      A: "Gymnopédie No. 1 opening, played with full pedal, very slow"
+    cleffy: >
+      Listen. Nothing is in a hurry. Every note gets its space.
+      This isn't a piece you conquer. It's one you settle into.
+
+  - id: 3
+    mode: see
+    type: the_texture
+    figure: "Grand staff. LH shown as three notes per bar (low D2, high A3, middle D3). RH shown as a slow melody above."
+    cleffy: >
+      Two parts.
+      Left hand — a slow waltz. Deep low D, then jump up to A, then settle back down to a middle D. Three beats.
+      Right hand — a long, singing melody on top.
+      (A simplified version — the real Satie LH is a bass note and a chord, but we're using single notes so you can hear each voice clearly.)
+
+  - id: 4
+    mode: see
+    type: lh_waltz
+    figure: "Bass staff. Bar showing D2 (beat 1), A3 (beat 2), D3 (beat 3). Labeled LOW-HIGH-MIDDLE."
+    cleffy: >
+      Left hand, one bar at a time.
+      Beat 1 — low D. Way down the keyboard.
+      Beat 2 — A, a big jump up. The highest of the three.
+      Beat 3 — D, just a step below that A. Middle-range.
+      Low. High. Middle.
+
+  - id: 5
+    mode: play
+    type: lh_waltz_play
+    figure: "Keyboard. D2, A3, D3 highlighted in order. Tempo 66."
+    cleffy: >
+      Play it slow. D2, A3, D3. Low-high-middle. Let each note ring.
+    interaction:
+      type: rhythm
+      sequence: ["D2","A3","D3","D2","A3","D3"]
+      durations: ["quarter","quarter","quarter","quarter","quarter","quarter"]
+      tempo: 66
+
+  - id: 6
+    mode: see
+    type: legato_idea
+    figure: "Two notes with a slur above them. Label: HOLD THE FIRST UNTIL THE SECOND PRESSES."
+    cleffy: >
+      Legato. Smooth. No gaps.
+      Hold each note until the next one starts. Every note connects to the one before.
+      Satie needs this.
+
+  - id: 7
+    mode: play
+    type: lh_legato
+    figure: "Bass staff, 4 bars of waltz bass. Metronome at 60."
+    cleffy: >
+      LH only. Four bars. Legato. Each note held until the next presses.
+    interaction:
+      type: rhythm
+      sequence: ["D2","A3","D3","D2","A3","D3","D2","A3","D3","D2","A3","D3"]
+      durations: ["quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter"]
+      tempo: 60
+
+  - id: 8
+    mode: see
+    type: rh_melody
+    figure: "Treble staff. Simple melody: F#4 (held), A4 (held), G4, F#4, E4 — long notes."
+    cleffy: >
+      Right hand. Simple. Starts on F-sharp above Middle C.
+      F-sharp is the black key between F and G.
+      Then up to A. Then down slowly: G, F-sharp, E.
+      Long notes. Space between.
+
+  - id: 9
+    mode: play
+    type: rh_melody_play
+    figure: "Keyboard. F#4, A4, G4, F#4, E4 highlighted in sequence. Each half or whole note."
+    cleffy: >
+      RH only. Five notes. Very slow. Let them breathe.
+    interaction:
+      type: rhythm
+      sequence: ["F#4","A4","G4","F#4","E4"]
+      durations: ["half","half","half","half","whole"]
+      tempo: 60
+
+  - id: 10
+    mode: see
+    type: space_between
+    figure: "Staff with a note and a huge gap before the next. Label: LET IT RING."
+    cleffy: >
+      Satie's secret — the silence between notes.
+      Don't rush to the next one. Let the last one fade a beat.
+      Space is part of the music.
+
+  - id: 11
+    mode: play
+    type: rh_slower
+    figure: "Same RH melody. Tempo marked 54. 'As slow as feels right.'"
+    cleffy: >
+      Slower still. 54 bpm. Breathe between notes.
+    interaction:
+      type: rhythm
+      sequence: ["F#4","A4","G4","F#4","E4"]
+      durations: ["half","half","half","half","whole"]
+      tempo: 54
+
+  - id: 12
+    mode: see
+    type: both_hands_together
+    figure: "Grand staff. RH held notes floating above LH's slow waltz. Alignment dots showing RH F# starts on beat 1 of bar 1, LH plays D-A-D underneath."
+    cleffy: >
+      Put them together.
+      RH holds F-sharp for a full bar (three beats). Underneath — LH plays D, A, D.
+      RH moves to A in bar 2. LH keeps waltzing.
+
+  - id: 13
+    mode: play
+    type: both_hands_guided
+    figure: "Grand staff. Guides ON. Tempo 60."
+    cleffy: >
+      Both hands. Guides on. Slow.
+      RH holds. LH waltzes underneath.
+      Feel how the LH fills the space while the RH sustains.
+    interaction:
+      type: song
+      sequence: [["F#4","D2"],"A3","D3",["A4","D2"],"A3","D3",["G4","D2"],"A3","D3",["F#4","D2"],"A3","D3",["E4","D2"],"A3","D3"]
+      guides: true
+      tempo: 60
+
+  - id: 14
+    mode: play
+    type: both_hands_no_guides
+    figure: "Grand staff. No guides. Same tempo."
+    cleffy: >
+      Again. No guides. Just you, the music, the quiet.
+    interaction:
+      type: song
+      sequence: [["F#4","D2"],"A3","D3",["A4","D2"],"A3","D3",["G4","D2"],"A3","D3",["F#4","D2"],"A3","D3",["E4","D2"],"A3","D3"]
+      guides: false
+      tempo: 58
+    followup_cleffy: >
+      That.
+      That's Satie. Slow, spacious, quiet.
+      There's a mood in this piece that didn't exist before 1888.
+
+  - id: 15
+    mode: hear
+    type: pre_check
+    figure: "Banner — last check before Act 19 closes."
+    cleffy: >
+      Three quick ones.
+
+  - id: 16
+    mode: see
+    type: wrap
+    figure: "Celebration card — ACT 19 COMPLETE. Satie's face sketched small. A trophy. Cleffy at the piano, eyes half-closed."
+    cleffy: >
+      Act 19, done. Sight-reading has a toolkit now.
+      Eyes ahead. Recovery without stopping. Rhythm before notes.
+      And Satie — a different kind of playing. Slow. Honest. Patient.
+      Next up — chords. I-IV-V. The three chords behind most of popular music.
+
+practice_this_week:
+  real_piano:
+    - "Gymnopédie opening, once a day. Slower than you think is reasonable. Let it breathe."
+    - "Try it with the sustain pedal if you have one. Press when LH hits beat 1. Release and repress each bar."
+    - "Listen to the full Satie recording. Several pianists. Same notes, wildly different feel."
+  virtual_only:
+    - "Replay pages 13-14 slowly. Then try at 54 bpm."
+  estimated_time: "15 min/day — slow work"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "LH pattern D2-A3-D3 highlighted across bars."
+          prompt: "What's the LH shape called?"
+          options: ["A scale", "A waltz bass (low-high-middle)", "A chord"]
+          correct: 1
+        - figure: "RH melody line F#-A-G-F#-E."
+          prompt: "Does this melody mostly move in..."
+          options: ["Steps", "Leaps", "Chords"]
+          correct: 0
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "Opening of Gymnopédie No. 1"
+          prompt: "What's the feel?"
+          options: ["Fast and punchy", "Slow and spacious"]
+          correct: 1
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play the LH waltz: D2, A3, D3. Slow and legato."
+          accept: "Three notes played smoothly in order"
+
+remediation:
+  id: "95.5"
+  title: "Gymnopédie, hands separately"
+  pages: 10
+  opening_cleffy: >
+    Satie is slow, but the hands moving together is tricky the first time.
+    Let's split it. LH waltz on its own. RH melody on its own. Then combine.
+
+completion:
+  cleffy: >
+    First Satie. Quiet moment.
+    Act 19 closed. Sight-reading is in your hands now — forever.
+    Next act — chords. The I-IV-V engine.
+  xp: 30
+  unlocks: 96

@@ -1,0 +1,204 @@
+id: 49
+tier: elementary
+act: 10
+title: "LH five-finger positions"
+subtitle: "Low C and low G positions"
+goal: "Comfortably play in LH C position (C3-G3) and LH G position (G2-D3)."
+prereqs: [28, 44]
+method_focus: "hands"
+time_estimate_min: 10
+piece_context: null
+metaphor: "lh-homes"
+vibe: ["gentle", "playful"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Keyboard. Two outlined LH positions: C3-G3 and G2-D3."
+    cleffy: >
+      Your left hand needs homes too. Same idea as RH.
+      Two common LH positions to start: low C and low G.
+
+  - id: 2
+    mode: see
+    type: lh_c_position
+    figure: "Keyboard. C3-D3-E3-F3-G3 highlighted. Numbers 5-4-3-2-1 above (LH fingers)."
+    cleffy: >
+      LH C position. Pinky on C3. Ring on D3. Middle on E3. Pointer on F3. Thumb on G3.
+      Same hand shape as RH C position, just flipped.
+
+  - id: 3
+    mode: see
+    type: lh_g_position
+    figure: "Keyboard. G2-A2-B2-C3-D3 highlighted."
+    cleffy: >
+      LH G position. Pinky on G2 (low G). Ring A2. Middle B2. Pointer C3 (bass C). Thumb D3.
+
+  - id: 4
+    mode: see
+    type: overlap_lh
+    figure: "Both LH positions side by side. D3 highlighted in both."
+    cleffy: >
+      Positions overlap at D3. Thumb in G position = ring in C position.
+
+  - id: 5
+    mode: play
+    type: lh_c_ascend
+    figure: "Keyboard. LH C position. Ascending."
+    cleffy: >
+      LH C position, pinky to thumb. C3 to G3.
+    interaction:
+      type: sequence
+      keys: ["C3", "D3", "E3", "F3", "G3"]
+
+  - id: 6
+    mode: play
+    type: lh_c_descend
+    figure: "Keyboard. Reverse."
+    cleffy: >
+      And back. Thumb to pinky.
+    interaction:
+      type: sequence
+      keys: ["G3", "F3", "E3", "D3", "C3"]
+
+  - id: 7
+    mode: play
+    type: lh_g_ascend
+    figure: "Keyboard. LH G position."
+    cleffy: >
+      Now G position. Pinky on G2, thumb on D3.
+    interaction:
+      type: sequence
+      keys: ["G2", "A2", "B2", "C3", "D3"]
+
+  - id: 8
+    mode: play
+    type: lh_shift
+    figure: "Keyboard. Shift between LH C and LH G positions."
+    cleffy: >
+      Shift. Play LH C position, then move to G position.
+    interaction:
+      type: sequence
+      keys: ["C3", "D3", "E3", "F3", "G3", "G2", "A2", "B2", "C3", "D3"]
+
+  - id: 9
+    mode: see
+    type: on_bass_staff_c
+    figure: "Bass staff with notes of LH C position: C3 (space 2) to G3 (space 4)."
+    cleffy: >
+      LH C position on the bass staff. Bass C (space 2) up to G3 (space 4 above F line).
+
+  - id: 10
+    mode: see
+    type: on_bass_staff_g
+    figure: "Bass staff with notes of LH G position: G2 (line 1) to D3 (line 3)."
+    cleffy: >
+      LH G position on the staff. G (line 1) to D (line 3).
+
+  - id: 11
+    mode: read
+    type: read_lh_c
+    figure: "Bass staff with LH C-position melody."
+    cleffy: >
+      Read in LH C position.
+    interaction:
+      type: sequence
+      keys: ["C3", "D3", "E3", "F3", "G3"]
+
+  - id: 12
+    mode: read
+    type: read_lh_g
+    figure: "Bass staff with LH G-position melody."
+    cleffy: >
+      And in G position.
+    interaction:
+      type: sequence
+      keys: ["G2", "A2", "B2", "C3", "D3"]
+
+  - id: 13
+    mode: hear
+    type: mixed
+    figure: "Mix of LH positions questions."
+    cleffy: >
+      Four rounds.
+    interaction:
+      type: drill
+      rounds: 4
+
+  - id: 14
+    mode: play
+    type: lh_melody
+    figure: "Bass staff with a 4-note melody. LH C position. G3-E3-D3-C3."
+    cleffy: >
+      Real LH melody, C position. G, E, D, C.
+      Thumb, middle, ring, pinky.
+    interaction:
+      type: sequence
+      keys: ["G3", "E3", "D3", "C3"]
+
+  - id: 15
+    mode: hear
+    type: pre_check
+    figure: "Banner."
+    cleffy: >
+      Four quick ones.
+
+  - id: 16
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 49. Keyboard with both LH positions outlined."
+    cleffy: >
+      Two LH homes. Ready for the big two-hand drill tomorrow — Act 10 boss.
+
+practice_this_week:
+  real_piano:
+    - "LH C position, up and back. Ten times."
+    - "LH G position, up and back. Ten times."
+    - "Shift between them."
+  virtual_only:
+    - "Replay pages 5-8"
+  estimated_time: "7 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "LH on C3-D3-E3-F3-G3."
+          prompt: "Which position?"
+          options: ["LH C position", "LH G position"]
+          correct: 0
+        - figure: "LH on G2-A2-B2-C3-D3."
+          prompt: "Which position?"
+          options: ["LH C position", "LH G position"]
+          correct: 1
+        - figure: "LH in C position with pinky on bass C."
+          prompt: "In LH C position, which finger is on bass C?"
+          options: ["1 (thumb)", "5 (pinky)"]
+          correct: 1
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "Five ascending bass notes — C3 D3 E3 F3 G3"
+          prompt: "Did that scale start in LH C position or LH G position?"
+          options: ["LH C position", "LH G position"]
+          correct: 0
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "LH in G position. Play pinky and thumb."
+          accept: "G2 and D3"
+
+remediation:
+  id: "49.5"
+  title: "LH homes, slower"
+  pages: 5
+  opening_cleffy: >
+    Left hand positions take time. Slow walk-through.
+
+completion:
+  cleffy: >
+    LH has homes now. Act 10 boss tomorrow — both hands read together.
+  xp: 20
+  unlocks: 50

@@ -1,0 +1,238 @@
+# ============================================================
+# LESSON 188 · Arpeggios in all keys
+# Tier 5 · Act 38 · Upper-Intermediate · All-keys scales & arpeggios
+# Root-3-5-8 up and down, every key. The four-note shape.
+# ============================================================
+id: 188
+tier: upper-intermediate
+act: 38
+title: "Arpeggios in all keys"
+subtitle: "Act 38 · All-keys scales & arpeggios"
+goal: "Play the four-note major arpeggio — root, third, fifth, octave — ascending and descending in every key."
+prereqs: [187, 147, 163]
+method_focus: "play"
+time_estimate_min: 16
+piece_context: "You did three-note arpeggios back at L163 for Moonlight. Now you widen them to four notes — add the octave on top. Twelve keys. Up and down. The second foundational shape of a pianist's hands."
+metaphor: "all-twelve-doors"
+vibe: ["focused", "serious"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy holding two shapes — a ladder (scale) and a wider rail (arpeggio). Banner: ARPEGGIOS · ALL TWELVE KEYS."
+    cleffy: >
+      Second foundational shape.
+      Scales walk. Arpeggios jump.
+      Root, third, fifth, octave. Four notes per key.
+
+  - id: 2
+    mode: see
+    type: four_note_shape
+    figure: "Staff with C major arpeggio: C-E-G-C. Arrows showing root (1), third (3), fifth (5), octave (8)."
+    cleffy: >
+      The four-note arpeggio.
+      One. Three. Five. Eight.
+      Take every other note of the scale, then jump to the octave to close it.
+
+  - id: 3
+    mode: see
+    type: up_and_down
+    figure: "Keyboard. C E G C going up, then C G E C going back down. Arrows showing both directions."
+    cleffy: >
+      Up and down.
+      Up — one, three, five, eight.
+      Down — eight, five, three, one.
+      Same four notes, mirrored.
+
+  - id: 4
+    mode: see
+    type: fingering_rule
+    figure: "Right hand diagram. Fingering on four-note arpeggio: 1-2-3-5 ascending, 5-3-2-1 descending. Caption: skip finger four."
+    cleffy: >
+      Standard right-hand fingering.
+      Going up — one, two, three, five. Skip four.
+      Going down — five, three, two, one.
+      The octave gets the pinky. Clean.
+
+  - id: 5
+    mode: play
+    type: play_c_arpeggio
+    figure: "Keyboard. C arpeggio up and down — C4 E4 G4 C5 C5 G4 E4 C4."
+    cleffy: >
+      Key one. C major arpeggio.
+      Up, then straight back down.
+    interaction:
+      type: sequence
+      keys: ["C4","E4","G4","C5","C5","G4","E4","C4"]
+
+  - id: 6
+    mode: play
+    type: play_g_arpeggio
+    figure: "Keyboard. G arpeggio. G-B-D-G and back."
+    cleffy: >
+      G. G, B, D, G.
+      All white keys.
+    interaction:
+      type: sequence
+      keys: ["G3","B3","D4","G4","G4","D4","B3","G3"]
+
+  - id: 7
+    mode: play
+    type: play_d_a_arpeggios
+    figure: "Keyboard. D arpeggio then A arpeggio — both up and down. F# and C# highlighted."
+    cleffy: >
+      D and A, back to back.
+      D — D, F-sharp, A, D. A — A, C-sharp, E, A.
+      Middle finger lands on black both times.
+    interaction:
+      type: sequence
+      keys: ["D4","F#4","A4","D5","D5","A4","F#4","D4","A3","C#4","E4","A4","A4","E4","C#4","A3"]
+
+  - id: 8
+    mode: play
+    type: play_e_arpeggio
+    figure: "Keyboard. E arpeggio. E-G#-B-E and back."
+    cleffy: >
+      E major arpeggio. E, G-sharp, B, E.
+    interaction:
+      type: sequence
+      keys: ["E4","G#4","B4","E5","E5","B4","G#4","E4"]
+
+  - id: 9
+    mode: play
+    type: play_f_bb_arpeggios
+    figure: "Keyboard. F arpeggio then Bb arpeggio. Bb highlighted."
+    cleffy: >
+      F and B-flat.
+      F — all white. B-flat — home note is black. Start B-flat on finger two.
+    interaction:
+      type: sequence
+      keys: ["F4","A4","C5","F5","F5","C5","A4","F4","Bb3","D4","F4","Bb4","Bb4","F4","D4","Bb3"]
+
+  - id: 10
+    mode: play
+    type: play_eb_ab_arpeggios
+    figure: "Keyboard. E-flat then A-flat arpeggios. Both start on black."
+    cleffy: >
+      E-flat and A-flat. Both homes are black.
+      Start each on finger two. Pinky on the octave.
+    interaction:
+      type: sequence
+      keys: ["Eb4","G4","Bb4","Eb5","Eb5","Bb4","G4","Eb4","Ab3","C4","Eb4","Ab4","Ab4","Eb4","C4","Ab3"]
+
+  - id: 11
+    mode: play
+    type: play_db_gb_arpeggios
+    figure: "Keyboard. D-flat and G-flat arpeggios. All flats highlighted."
+    cleffy: >
+      D-flat and G-flat. The two flat-heavy homes.
+      D-flat — D-flat, F, A-flat, D-flat. G-flat — G-flat, B-flat, D-flat, G-flat.
+    interaction:
+      type: sequence
+      keys: ["Db4","F4","Ab4","Db5","Db5","Ab4","F4","Db4","Gb3","Bb3","Db4","Gb4","Gb4","Db4","Bb3","Gb3"]
+
+  - id: 12
+    mode: play
+    type: play_b_arpeggio
+    figure: "Keyboard. B arpeggio. B-D#-F#-B and back. Five sharps."
+    cleffy: >
+      B major arpeggio. B, D-sharp, F-sharp, B.
+      The twelfth key. Closes the circle.
+    interaction:
+      type: sequence
+      keys: ["B3","D#4","F#4","B4","B4","F#4","D#4","B3"]
+
+  - id: 13
+    mode: hear
+    type: name_the_arpeggio_drill
+    figure: "Drill banner. Six rounds — one arpeggio per round across all keys."
+    cleffy: >
+      Six rounds. Which arpeggio is this?
+    interaction:
+      type: drill
+      rounds: 6
+      options: ["C", "G", "D", "A", "E", "F", "Bb", "Eb", "Ab", "Db", "Gb", "B"]
+
+  - id: 14
+    mode: play
+    type: chain_three_arpeggios
+    figure: "Keyboard. C, G, F arpeggios in a row, each up and down. Metronome 60."
+    cleffy: >
+      Three keys, back to back. C, G, F. Each up and down.
+      Don't stop between.
+    interaction:
+      type: rhythm
+      sequence: ["C4","E4","G4","C5","C5","G4","E4","C4","G3","B3","D4","G4","G4","D4","B3","G3","F4","A4","C5","F5","F5","C5","A4","F4"]
+      durations: ["eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth","eighth"]
+      tempo: 60
+
+  - id: 15
+    mode: hear
+    type: pre_check
+    figure: "Banner."
+    cleffy: >
+      Three quick ones.
+
+  - id: 16
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 188. Twelve doors each with both shapes — a ladder and a rail — drawn inside. Banner: BOTH SHAPES, EVERY KEY."
+    cleffy: >
+      Scales up. Arpeggios across.
+      Tomorrow — spotting these shapes hiding inside real music.
+
+practice_this_week:
+  real_piano:
+    - "Four arpeggios a day, rotating through the twelve. Up and down, four notes. Metronome 60."
+    - "Pair scale + arpeggio in the same key — one scale, then one arpeggio. Feel the ladder, then the rail."
+    - "Pick your weakest key and play its arpeggio ten times slowly before bed."
+  virtual_only:
+    - "Replay pages 5-12 — all twelve arpeggios"
+  estimated_time: "15 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "C major arpeggio on the staff"
+          prompt: "What four notes make up a four-note arpeggio?"
+          options: ["Root, third, fifth, seventh", "Root, third, fifth, octave", "Root, second, third, fifth"]
+          correct: 1
+        - figure: "Right hand on a C arpeggio"
+          prompt: "Which finger plays the octave going up?"
+          options: ["Finger 4", "Finger 5", "Finger 1"]
+          correct: 1
+        - figure: "B major arpeggio"
+          prompt: "What's the third of a B major arpeggio?"
+          options: ["D", "D-sharp", "E"]
+          correct: 1
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "A G major arpeggio up and down"
+          prompt: "Which arpeggio is this?"
+          options: ["C", "G", "D"]
+          correct: 1
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play the D major arpeggio up and down: D, F-sharp, A, D, then back."
+          accept: "D4 F#4 A4 D5 D5 A4 F#4 D4"
+
+remediation:
+  id: "188.5"
+  title: "Arpeggios, four notes at a time"
+  pages: 8
+  opening_cleffy: >
+    Twelve is a lot. Let's slow it.
+    One arpeggio per page, hands-separate, no metronome.
+    When the shape feels automatic in C, the others fall in line.
+
+completion:
+  cleffy: >
+    Both shapes in twelve keys — scales and arpeggios. Real pianist's hands now.
+    Tomorrow — finding these shapes hiding inside pieces you already know.
+  xp: 20
+  unlocks: 189

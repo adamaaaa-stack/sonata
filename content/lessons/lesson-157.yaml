@@ -1,0 +1,232 @@
+# ============================================================
+# LESSON 157 · Pedal with each chord
+# Tier 4 · Act 32 · Intermediate
+# Change pedal when the harmony changes.
+# ============================================================
+id: 157
+tier: intermediate
+act: 32
+title: "Pedal with each chord"
+subtitle: "Act 32 · Sustain pedal"
+goal: "Change the pedal every time a new chord arrives — release as the new harmony presses down."
+prereqs: [156]
+method_focus: "play"
+time_estimate_min: 13
+piece_context: "Yesterday — one pedal press, one ring. Today — many pedal changes in a row. One per chord. This is how pedal actually works in real music."
+metaphor: "the-blending-pedal"
+vibe: ["focused", "gentle"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy at the piano, one foot on pedal, hands hovering over C and G chord positions. Banner: ONE CHORD, ONE PEDAL."
+    cleffy: >
+      Yesterday — pedal on, pedal off. Once.
+      Today — change pedal every time the chord changes.
+
+  - id: 2
+    mode: see
+    type: the_rule
+    figure: "A diagram. Chord 1 with a pedal marking below. Chord 2 arrives — the pedal marking lifts just before and presses again right after. Caption: 'Change on the new chord.'"
+    cleffy: >
+      The rule.
+      New chord presses — old pedal releases — new pedal presses.
+      All in a fast motion. Like a little duck dip under the new note.
+
+  - id: 3
+    mode: hear
+    type: hear_bad_pedal
+    figure: "Play button. Label: C AND G MIXED — NO PEDAL CHANGE."
+    audio:
+      A: "C major chord held with pedal, then G major chord played while pedal still held — ugly dissonant mix of both chords ringing."
+    cleffy: >
+      Listen. Someone held pedal through both chords.
+      C and G are ringing at the same time.
+      Muddy. Thick. Wrong.
+
+  - id: 4
+    mode: hear
+    type: hear_good_pedal
+    figure: "Play button. Label: C AND G — WITH PEDAL CHANGE."
+    audio:
+      A: "C major chord with pedal, then G major chord with a clean pedal change — each chord rings cleanly without overlap."
+    cleffy: >
+      Same two chords. Pedal changed between them.
+      C rings clean. G rings clean. No mud.
+      That's the job.
+
+  - id: 5
+    mode: see
+    type: timing
+    figure: "A timeline. Chord 1 at beat 1, pedal down. Chord 2 at beat 2 — pedal lifts at beat 2, then presses again right after. Tiny gap shown."
+    cleffy: >
+      Timing. This part is tricky.
+      Lift the pedal JUST as your finger hits the new chord.
+      Press it back down almost immediately. Tiny gap. The ear barely notices.
+
+  - id: 6
+    mode: see
+    type: virtual_reminder
+    figure: "Small card. Split — real piano foot + virtual keyboard toggle. Caption: 'Real piano = press the pedal. Virtual = the app handles the overlap cleanup for you.'"
+    cleffy: >
+      Quick reminder.
+      Real piano — your foot does the work. Lift and press on every chord change.
+      Virtual — the app knows where chords change and handles the ringing for you.
+      Either way, listen for mud.
+
+  - id: 7
+    mode: play
+    type: two_chord_change
+    figure: "Keyboard. C major then G major. Pedal guidance arrows: DOWN at chord 1, UP-DOWN at chord 2."
+    cleffy: >
+      Two chords. C, then G.
+      Pedal down with C. At G — lift and press.
+    interaction:
+      type: sequence
+      keys: ["C4", "E4", "G4", "G4", "B4", "D5"]
+
+  - id: 8
+    mode: play
+    type: three_chord_change
+    figure: "Keyboard. C, F, G chord positions. Pedal changes marked under each."
+    cleffy: >
+      Three chords now. C, F, G.
+      Three pedal changes. One per chord.
+    interaction:
+      type: sequence
+      keys: ["C4", "E4", "G4", "F4", "A4", "C5", "G4", "B4", "D5"]
+
+  - id: 9
+    mode: see
+    type: chord_progression
+    figure: "Staff with four chords labeled: C — Am — F — G. Pedal marks under each. Tempo marking: slow."
+    cleffy: >
+      A common four-chord progression. C, A minor, F, G.
+      Every chord gets its own pedal.
+
+  - id: 10
+    mode: play
+    type: four_chord_progression
+    figure: "Keyboard with the four-chord progression. Pedal icons cycling on each chord."
+    cleffy: >
+      Play the progression. Slow. Pedal change on every new chord.
+      Listen for clean between chords.
+    interaction:
+      type: song
+      sequence: [["C4","E4","G4"], ["A3","C4","E4"], ["F3","A3","C4"], ["G3","B3","D4"]]
+      guides: true
+      tempo: 50
+
+  - id: 11
+    mode: play
+    type: same_progression_faster
+    figure: "Same four chords. Tempo 60."
+    cleffy: >
+      A little faster. Sixty.
+      The pedal has to move faster too.
+    interaction:
+      type: song
+      sequence: [["C4","E4","G4"], ["A3","C4","E4"], ["F3","A3","C4"], ["G3","B3","D4"]]
+      guides: true
+      tempo: 60
+
+  - id: 12
+    mode: hear
+    type: spot_the_mud
+    figure: "Two play buttons. Label: WHICH ONE HAS A MISSED PEDAL CHANGE?"
+    audio:
+      A: "Same 4-chord progression cleanly pedaled"
+      B: "Same 4-chord progression but pedal is held through chord 3 — F rings into G causing mud"
+    cleffy: >
+      Two recordings. One is clean. One has a missed pedal change — a muddy moment.
+      Listen for the mud.
+    interaction:
+      type: drill
+      rounds: 3
+      options: ["First", "Second"]
+
+  - id: 13
+    mode: play
+    type: no_guides_progression
+    figure: "Same four-chord progression. No guide dots. Tempo 60."
+    cleffy: >
+      No guides. Your ear checks the pedal now.
+      If you hear mud — pedal stayed down too long.
+    interaction:
+      type: song
+      sequence: [["C4","E4","G4"], ["A3","C4","E4"], ["F3","A3","C4"], ["G3","B3","D4"]]
+      guides: false
+      tempo: 60
+    followup_cleffy: >
+      Four chords, four pedals, one clean chain.
+
+  - id: 14
+    mode: hear
+    type: pre_check
+    figure: "Banner — three quick ones."
+    cleffy: >
+      Three to close.
+
+  - id: 15
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 157. Four chord boxes in a row, each with its own pedal dip under it."
+    cleffy: >
+      One chord, one pedal. That's the default.
+      Tomorrow — train your ears. Pedal on or off? You'll hear the difference.
+
+practice_this_week:
+  real_piano:
+    - "The four-chord progression — C Am F G — every day. Focus on the pedal change, not the chords."
+    - "Listen for mud. If two chords overlap, you missed the change. Slow down and try again."
+    - "Try the progression C G Am F as well. Different chords, same pedal rule."
+  virtual_only:
+    - "Replay pages 10, 11, 13 — listen for the clean break between chords"
+  estimated_time: "10 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "A chord progression with pedal marks"
+          prompt: "How often should the pedal change?"
+          options: ["Once per bar", "Once per chord change", "Once per note"]
+          correct: 1
+        - figure: "The pedal-change timing diagram"
+          prompt: "When do you lift the pedal?"
+          options: ["Just before the new chord", "As the new chord presses down", "After the new chord has been ringing"]
+          correct: 1
+        - figure: "Muddy-sounding chord"
+          prompt: "Two chords ringing together means:"
+          options: ["Good pedaling", "The pedal stayed down too long", "The pedal wasn't pressed"]
+          correct: 1
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "C chord into G chord with no pedal change — two chords ringing together"
+          prompt: "Does this sound clean?"
+          options: ["Yes", "No — muddy"]
+          correct: 1
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play C — F — G chords with a pedal change on each."
+          accept: "C, F, G chords played with clean separation between each chord"
+
+remediation:
+  id: "157.5"
+  title: "Two chords at a time"
+  pages: 7
+  opening_cleffy: >
+    Four chord changes is a lot of foot work.
+    We'll back up to two chords only — C and G — until the pedal change feels automatic.
+    Then add a third, then a fourth.
+
+completion:
+  cleffy: >
+    New chord, new pedal. Rule learned.
+    Tomorrow — ear training. Is the pedal on? Or off? You decide.
+  xp: 17
+  unlocks: 158

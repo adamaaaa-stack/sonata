@@ -1,0 +1,212 @@
+# ============================================================
+# LESSON 131 · Sixteenth notes
+# Tier 4 · Act 27 · Intermediate · Advanced rhythm
+# Four notes per beat. The next step after eighths.
+# ============================================================
+id: 131
+tier: intermediate
+act: 27
+title: "Sixteenth notes"
+subtitle: "Act 27 · Four notes per beat"
+goal: "Recognize, count, and play sixteenth notes — four per beat."
+prereqs: [130, 51, 125]
+method_focus: "rhythm"
+time_estimate_min: 12
+piece_context: "Tier 4 rhythm act begins. You already know eighths — two per beat. Sixteenths split that in half again. Four per beat. The building block of every fast passage."
+metaphor: "faster-smaller-pieces"
+vibe: ["focused", "playful"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Stack of note durations on a staff — whole, half, quarter, eighth, sixteenth. Each labeled with how many per beat. Title: SMALLER PIECES."
+    cleffy: >
+      New act. Rhythm sharpens up.
+      Quarter — one per beat. Eighth — two. Sixteenth — four.
+      Each level, cut the piece in half.
+
+  - id: 2
+    mode: see
+    type: shape
+    figure: "Single sixteenth note drawn — filled oval, stem, TWO flags. Then four sixteenths beamed together with a double beam."
+    cleffy: >
+      Shape: filled oval, stem, two flags.
+      When sixteenths are in a row, the flags become a double beam.
+      Two beams instead of one — that's how you spot them.
+
+  - id: 3
+    mode: see
+    type: count
+    figure: "Bar of 4/4. Four beats, each broken into 4 sixteenth notes. Count printed below: 1-e-and-a 2-e-and-a 3-e-and-a 4-e-and-a."
+    cleffy: >
+      Count: one-e-and-a, two-e-and-a, three-e-and-a, four-e-and-a.
+      The number is the beat. The "and" is the halfway point — same as eighths.
+      "E" and "a" are the new ones. They fill in the quarters of the beat.
+
+  - id: 4
+    mode: hear
+    type: listen_sixteenths
+    figure: "Metronome at 60. Below: 16 sixteenth notes on Middle C across one bar."
+    audio:
+      A: "Metronome at 60 + 16 sixteenth notes on Middle C, one bar"
+    cleffy: >
+      Listen. Four taps per click.
+      That's sixteenths.
+
+  - id: 5
+    mode: hear
+    type: eighth_vs_sixteenth
+    figure: "Two play buttons. A: eight eighths in a bar. B: sixteen sixteenths in a bar."
+    audio:
+      A: "8 eighth notes on C, tempo 60"
+      B: "16 sixteenth notes on C, tempo 60"
+    cleffy: >
+      Same bar length. Twice the notes in the second one.
+      Eighths underneath, sixteenths on top.
+
+  - id: 6
+    mode: see
+    type: on_the_staff
+    figure: "Staff. Bar with one quarter, then four beamed sixteenths, then one half note. Time signature 4/4."
+    cleffy: >
+      On the staff. Look for the double beam.
+      One thick beam — eighths. Two thick beams — sixteenths.
+
+  - id: 7
+    mode: play
+    type: play_sixteenths_slow
+    figure: "Keyboard. Middle C. Metronome at 50. Four sixteenths per beat, one bar total."
+    cleffy: >
+      Play C. Four taps per click. Slow metronome.
+      Say the count out loud: one-e-and-a, two-e-and-a.
+    interaction:
+      type: rhythm
+      sequence: ["C4","C4","C4","C4","C4","C4","C4","C4","C4","C4","C4","C4","C4","C4","C4","C4"]
+      durations: ["sixteenth","sixteenth","sixteenth","sixteenth","sixteenth","sixteenth","sixteenth","sixteenth","sixteenth","sixteenth","sixteenth","sixteenth","sixteenth","sixteenth","sixteenth","sixteenth"]
+      tempo: 50
+
+  - id: 8
+    mode: play
+    type: quarter_plus_sixteenths
+    figure: "Bar: quarter, quarter, four sixteenths, four sixteenths. Counts under each beat."
+    cleffy: >
+      Mix. Two quarters, then two beats of sixteenths.
+      Feel the shift — slow, slow, fast fast fast fast.
+    interaction:
+      type: rhythm
+      sequence: ["C4","C4","C4","C4","C4","C4","C4","C4","C4","C4"]
+      durations: ["quarter","quarter","sixteenth","sixteenth","sixteenth","sixteenth","sixteenth","sixteenth","sixteenth","sixteenth"]
+      tempo: 55
+
+  - id: 9
+    mode: see
+    type: drill_identify
+    figure: "Round counter 1 of 4. Staff with either a quarter, eighth pair, or sixteenth group."
+    cleffy: >
+      Four rounds. Which note?
+    interaction:
+      type: drill
+      rounds: 4
+      options: ["Quarter", "Two eighths", "Four sixteenths"]
+
+  - id: 10
+    mode: play
+    type: scale_in_sixteenths
+    figure: "Staff. One bar in 4/4. Sixteenth notes: C D E F G A B C, ascending. Beamed in groups of four."
+    cleffy: >
+      Scale up. Eight notes — a half-bar of sixteenths.
+      Two beats. Count one-e-and-a, two-e-and-a.
+    interaction:
+      type: rhythm
+      sequence: ["C4","D4","E4","F4","G4","A4","B4","C5"]
+      durations: ["sixteenth","sixteenth","sixteenth","sixteenth","sixteenth","sixteenth","sixteenth","sixteenth"]
+      tempo: 55
+
+  - id: 11
+    mode: hear
+    type: count_notes
+    figure: "Round counter 1 of 3. A bar plays on each round."
+    cleffy: >
+      Three rounds. How many notes in the bar?
+    interaction:
+      type: drill
+      rounds: 3
+      options: ["4", "8", "16"]
+
+  - id: 12
+    mode: play
+    type: mix_eighths_sixteenths
+    figure: "Bar: two eighths, then four sixteenths, then a half. Counts labeled."
+    cleffy: >
+      Two eighths, four sixteenths, one half. All in one bar.
+      Slow and clean.
+    interaction:
+      type: rhythm
+      sequence: ["C4","D4","E4","F4","G4","A4","C4"]
+      durations: ["eighth","eighth","sixteenth","sixteenth","sixteenth","sixteenth","half"]
+      tempo: 55
+
+  - id: 13
+    mode: hear
+    type: pre_check
+    figure: "Banner."
+    cleffy: >
+      Four quick ones.
+
+  - id: 14
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 131. Four beamed sixteenths drawn on a staff. Caption: one-e-and-a."
+    cleffy: >
+      Sixteenths. Four per beat. Double beam is the flag.
+      Tomorrow — dotted eighth plus sixteenth. The galloping rhythm.
+
+practice_this_week:
+  real_piano:
+    - "Metronome at 50. Tap Middle C four times per click. Say the count out loud — one-e-and-a, two-e-and-a."
+    - "Play C-D-E-F as eighth notes. Then again as sixteenths. Feel how the speed doubles."
+  virtual_only:
+    - "Replay pages 7, 10, 12"
+  estimated_time: "8 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "Four notes beamed with a double beam"
+          prompt: "What kind of notes?"
+          options: ["Eighths", "Sixteenths", "Quarters"]
+          correct: 1
+        - figure: "One beat, broken into four equal parts"
+          prompt: "How many sixteenths fit in one beat?"
+          options: ["2", "3", "4"]
+          correct: 2
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "16 sixteenth notes on Middle C, one bar at tempo 60"
+          prompt: "How many notes in the bar?"
+          options: ["8", "12", "16"]
+          correct: 2
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play four sixteenth notes on Middle C in one beat at 55 bpm."
+          accept: "C4 × 4 at sixteenth duration, tempo ~55"
+
+remediation:
+  id: "131.5"
+  title: "Sixteenths, very slow"
+  pages: 7
+  opening_cleffy: >
+    Four notes per beat takes practice. Drop the metronome to 40.
+    We'll count every piece — one-e-and-a — out loud, before we play.
+
+completion:
+  cleffy: >
+    Sixteenths unlocked. Rhythm just doubled its vocabulary.
+    Tomorrow — the galloping rhythm. Dotted eighth and sixteenth, together.
+  xp: 18
+  unlocks: 132

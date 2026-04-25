@@ -1,0 +1,253 @@
+# ============================================================
+# LESSON 243 · Moonlight 1 — bars 43-60
+# Tier 6 · Act 49 · Advanced · Moonlight, complete
+# Return of the main theme. A' section — modulated, developed.
+# Student already knows the shape. Feels like coming home.
+# ============================================================
+id: 243
+tier: advanced
+act: 49
+title: "Moonlight 1 — bars 43-60"
+subtitle: "Act 49 · Moonlight, complete"
+goal: "Play the A' section — the opening theme returns, with deeper bass and subtle harmonic shifts. Coming home."
+prereqs: [242, 241]
+method_focus: "combine"
+time_estimate_min: 17
+piece_context: "Act 49. You played the middle section. Now the A' section — the main theme returns. It's the opening theme, but altered. The harmony isn't identical. The piece has been through something. It sounds like coming home, but you're different now. Eighteen bars — 43 through 60. The shape is familiar. The details are new."
+metaphor: "returning-home"
+vibe: ["reflective", "quiet", "focused"]
+piece:
+  title: "Moonlight Sonata, 1st mvt (bars 43-60)"
+  composer: "Beethoven (1801)"
+  key_center: "C-sharp minor — opening theme returns with subtle harmonic shifts"
+  time_signature: "alla breve"
+  difficulty: "advanced — return of A section, deeper bass, subtle harmonic shifts"
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy at the piano. Map behind him — bars 1-42 lit gold. Bars 43-60 dim, pulsing. Banner: 'THE THEME RETURNS.'"
+    cleffy: >
+      The main theme returns.
+      You know this shape. You played it at lesson 170. And 171. And again at 175.
+      Now it comes back — different. You're different too.
+
+  - id: 2
+    mode: see
+    type: the_return
+    figure: "Two scores, side by side. Left — bars 1-8 (the opening). Right — bars 43-50 (the return). Shapes match but harmony differs slightly."
+    cleffy: >
+      A side by side.
+      Left — the opening. The theme you've known for seventy-three lessons.
+      Right — the return. Same shape. Different colors. The piece has been somewhere.
+
+  - id: 3
+    mode: hear
+    type: listen_comparison
+    figure: "Three buttons. A: bars 1-8 opening. B: bars 43-50 return. C: them back-to-back."
+    audio:
+      A: "Moonlight, opening 8 bars"
+      B: "Moonlight, bars 43-50 — the return of the theme"
+      C: "Both, played back to back with a short pause"
+    cleffy: >
+      Listen. Same theme, twice.
+      The second time feels different. Heavier. Tired. Home.
+      That's what development does. The notes are similar. The meaning changes.
+
+  - id: 4
+    mode: see
+    type: why_it_feels_like_home
+    figure: "Pyramid diagram. Opening (bright), middle (wandering), return (settled). Arrows showing emotional arc. Caption: 'after the journey, the theme feels like a resolution.'"
+    cleffy: >
+      Why it feels like home.
+      You heard the theme. You left it behind for nineteen bars. Now it's back.
+      The ear relaxes. It knows this place. Even the small differences feel right.
+
+  - id: 5
+    mode: see
+    type: the_whats_different
+    figure: "Comparison table. Bars 1-8 vs 43-50. Columns: melody rhythm (same), harmony (slightly shifted), bass line (more movement), pedal (more varied)."
+    cleffy: >
+      What's different.
+      Melody rhythm — same dotted line.
+      Harmony — shifted in places. Not identical.
+      Bass — moves more than the opening.
+      Pedal — works harder.
+
+  - id: 6
+    mode: play
+    type: melody_alone_43_50
+    figure: "RH melody bars 43-50. Simplified. Tempo 48."
+    cleffy: >
+      Melody alone. Right hand. Bars 43 through 50.
+      Long-short-short. You know the shape.
+    interaction:
+      type: rhythm
+      sequence: ["G#4","G#4","G#4","G#4","G#4","A4","A4","A4","G#4","G#4","F#4","E4","G#4","G#4","G#4","G#4"]
+      durations: ["dotted_quarter","eighth","quarter","dotted_quarter","eighth","quarter","dotted_quarter","eighth","quarter","dotted_quarter","eighth","quarter","dotted_quarter","eighth","quarter","half"]
+      tempo: 48
+
+  - id: 7
+    mode: play
+    type: lh_alone_43_50
+    figure: "LH octaves and bass walks, bars 43-50. More movement than the opening. Tempo 48."
+    cleffy: >
+      Left hand alone. More motion than the opening.
+      Octaves, some walks between. Eight bars.
+    interaction:
+      type: rhythm
+      sequence: ["C#2","C#2","B1","B1","A2","A2","F#2","F#2","G#2","G#2","C#2","C#2","F#2","F#2","G#2","C#2"]
+      durations: ["half","half","half","half","half","half","half","half","half","half","half","half","half","half","half","half"]
+      tempo: 48
+
+  - id: 8
+    mode: play
+    type: hands_together_43_46
+    figure: "Grand staff. Bars 43-46. Full texture — engine, melody, LH. Refined pedal. Tempo 46. Guides on."
+    cleffy: >
+      Both hands. Bars 43 through 46.
+      Melody on top. Engine in the middle. Bass below.
+      Pedal from yesterday — apply it.
+    interaction:
+      type: song
+      sequence: [["C#2","C#3","G#4"],"C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4","C#4","E4",["C#2","C#3","G#4"],"C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4","C#4","E4",["B1","B2","G#4"],"B3","D#4","F#4","B3","D#4","A4","B3","D#4","G#4","B3","D#4",["B1","B2","A4"],"B3","D#4","F#4","B3","D#4","A4","B3","D#4","G#4","B3","D#4"]
+      guides: true
+      tempo: 46
+
+  - id: 9
+    mode: play
+    type: hands_together_47_50
+    figure: "Grand staff. Bars 47-50. Full texture. Tempo 46."
+    cleffy: >
+      Bars 47 through 50. Continue the theme.
+      Listen — the harmony starts pulling slightly differently than the opening did.
+    interaction:
+      type: song
+      sequence: [["A2","A3","G#4"],"A3","C#4","E4","A3","C#4","G#4","A3","C#4","A4",["F#2","F#3","A4"],"F#3","A3","C#4","F#3","A3","A4","F#3","A3","G#4",["G#2","G#3","G#4"],"G#3","B#3","D#4","G#3","B#3","F#4","G#3","B#3","E4",["C#2","C#3","E4"],"C#3","E3","G#3","C#3","E3","G#3","C#3","E3","G#3"]
+      guides: true
+      tempo: 46
+
+  - id: 10
+    mode: see
+    type: bars_51_60_preview
+    figure: "Map of bars 51-60. Harmony pivots — C-sharp minor → F-sharp minor → back. Bass gets busier. Pedal busier."
+    cleffy: >
+      Bars 51 through 60.
+      The theme winds further. Bass gets busier. Harmonies shift more often.
+      Ten bars. The piece settling into its final stretch.
+
+  - id: 11
+    mode: play
+    type: bars_51_55_guided
+    figure: "Grand staff. Bars 51-55. Tempo 44. Guides on."
+    cleffy: >
+      Five bars. Slower — 44.
+      Let the harmony breathe. Don't rush.
+    interaction:
+      type: song
+      sequence: [["F#2","F#3","C#5"],"F#3","A3","C#4","F#3","A3","C#4","F#3","A3","C#4","F#3","A3",["B2","D#3","B4"],"D#3","F#3","B3","D#3","F#3","B3","D#3","F#3","B3","D#3","F#3",["E2","G#2","A4"],"E3","G#3","B3","E3","G#3","B3","E3","G#3","B3","E3","G#3",["A2","C#3","G#4"],"C#3","E3","A3","C#3","E3","A3","C#3","E3","A3","C#3","E3",["D#2","F#2","F#4"],"F#2","A2","D#3","F#2","A2","D#3","F#2","A2","D#3","F#2","A2"]
+      guides: true
+      tempo: 44
+
+  - id: 12
+    mode: play
+    type: bars_56_60_guided
+    figure: "Grand staff. Bars 56-60. The last stretch before coda. Tempo 44."
+    cleffy: >
+      Bars 56 through 60.
+      Coming to the end of this section. The coda sits just past bar 60.
+    interaction:
+      type: song
+      sequence: [["G#2","B2","E4"],"B2","D#3","G#3","B2","D#3","G#3","B2","D#3","G#3","B2","D#3",["C#2","G#2","C#4"],"G#2","C#3","E3","G#2","C#3","E3","G#2","C#3","E3","G#2","C#3",["F#2","A2","C#4"],"A2","C#3","F#3","A2","C#3","F#3","A2","C#3","F#3","A2","C#3",["G#2","B2","D#4"],"B2","D#3","G#3","B2","D#3","G#3","B2","D#3","G#3","B2","D#3",["C#2","E2","G#3"],"E2","G#2","C#3","E2","G#2","C#3","E2","G#2","C#3","E2","G#2"]
+      guides: true
+      tempo: 44
+
+  - id: 13
+    mode: play
+    type: full_bars_43_60
+    figure: "Grand staff. All of bars 43-60. No guides. Tempo 42. Label: adagio sostenuto, a tempo."
+    cleffy: >
+      Eighteen bars. The return, all the way through.
+      No guides. Very slow. Pedal breathing.
+      The main theme is home — slightly changed.
+    interaction:
+      type: song
+      sequence: [["C#2","C#3","G#4"],"C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4","C#4","E4",["C#2","C#3","G#4"],"C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4","C#4","E4",["B1","B2","G#4"],"B3","D#4","F#4","B3","D#4","A4","B3","D#4","G#4","B3","D#4",["B1","B2","A4"],"B3","D#4","F#4","B3","D#4","A4","B3","D#4","G#4","B3","D#4",["A2","A3","G#4"],"A3","C#4","E4","A3","C#4","G#4","A3","C#4","A4",["F#2","F#3","A4"],"F#3","A3","C#4","F#3","A3","A4","F#3","A3","G#4",["G#2","G#3","G#4"],"G#3","B#3","D#4","G#3","B#3","F#4","G#3","B#3","E4",["C#2","C#3","E4"],"C#3","E3","G#3","C#3","E3","G#3","C#3","E3","G#3",["F#2","F#3","C#5"],"F#3","A3","C#4","F#3","A3","C#4","F#3","A3","C#4","F#3","A3",["B2","D#3","B4"],"D#3","F#3","B3","D#3","F#3","B3","D#3","F#3","B3","D#3","F#3",["E2","G#2","A4"],"E3","G#3","B3","E3","G#3","B3","E3","G#3","B3","E3","G#3",["A2","C#3","G#4"],"C#3","E3","A3","C#3","E3","A3","C#3","E3","A3","C#3","E3",["D#2","F#2","F#4"],"F#2","A2","D#3","F#2","A2","D#3","F#2","A2","D#3","F#2","A2",["G#2","B2","E4"],"B2","D#3","G#3","B2","D#3","G#3","B2","D#3","G#3","B2","D#3",["C#2","G#2","C#4"],"G#2","C#3","E3","G#2","C#3","E3","G#2","C#3","E3","G#2","C#3",["F#2","A2","C#4"],"A2","C#3","F#3","A2","C#3","F#3","A2","C#3","F#3","A2","C#3",["G#2","B2","D#4"],"B2","D#3","G#3","B2","D#3","G#3","B2","D#3","G#3","B2","D#3",["C#2","E2","G#3"],"E2","G#2","C#3","E2","G#2","C#3","E2","G#2","C#3","E2","G#2"]
+      guides: false
+      tempo: 42
+    followup_cleffy: >
+      That. Home again.
+      The theme returns. The piece is almost whole.
+      Nine bars left. The coda. Tomorrow.
+
+  - id: 14
+    mode: hear
+    type: pre_check
+    figure: "Banner — mastery check."
+    cleffy: >
+      Three quick ones.
+
+  - id: 15
+    mode: see
+    type: wrap
+    figure: "Postcard — bars 1-60 marked gold. Only bars 61-69 left, pulsing dim. Caption: 'nine bars to the end.'"
+    cleffy: >
+      Sixty bars behind you. Nine left.
+      Tomorrow — the coda. The final quiet descent.
+
+practice_this_week:
+  real_piano:
+    - "Bars 43-60, very slow. Don't push past 42 bpm."
+    - "Play bars 1-8, then immediately play bars 43-50. Hear the two versions of the theme next to each other."
+    - "Play bars 24-60 without stopping, once a day. Middle into return."
+  virtual_only:
+    - "Replay pages 8, 9, 11, 12, and 13."
+  estimated_time: "15 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "Comparison of bars 1-8 and bars 43-50"
+          prompt: "What returns at bar 43?"
+          options: ["A new melody never heard before", "The opening theme, with deeper bass and subtle harmonic shifts", "The coda"]
+          correct: 1
+        - figure: "Harmonic arc showing opening → middle → return"
+          prompt: "Why does the return feel like coming home?"
+          options: ["It's louder", "The ear recognizes the shape after the middle section's wandering", "It's in a different key"]
+          correct: 1
+        - figure: "Two scores side by side — bars 1-8 vs bars 43-50"
+          prompt: "How does the return differ from the opening?"
+          options: ["Identical in every way", "Same shape, slightly different harmony and bass motion", "Completely unrelated"]
+          correct: 1
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "Bars 1-8 then bars 43-50 back to back"
+          prompt: "What's true of these two passages?"
+          options: ["Completely different tunes", "Same theme, second version feels like coming home", "Same tune, identical"]
+          correct: 1
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play bars 43-50 — the return of the main theme — at 46 bpm, with pedal."
+          accept: "Eight bars of theme return, LH octaves and walks, RH engine with dotted melody on top"
+
+remediation:
+  id: "243.5"
+  title: "The return, bar by bar"
+  pages: 8
+  opening_cleffy: >
+    The theme is familiar. The details aren't.
+    We'll slow to 38 and take four bars at a time. Bars 43-46. Bars 47-50. And so on.
+    Your ear knows this shape. Trust it.
+
+completion:
+  cleffy: >
+    Bars 43 through 60 — home.
+    The main theme returned. The piece sixty bars deep.
+    Tomorrow — the coda. Nine bars to the end.
+  xp: 20
+  unlocks: 244

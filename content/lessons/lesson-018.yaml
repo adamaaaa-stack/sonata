@@ -1,0 +1,250 @@
+# ============================================================
+# LESSON 18 · Steps up, steps down
+# Tier 1 · Act 4 · Beginner
+# Central metaphor: DIRECTION MATTERS — SAME MOVE, DIFFERENT FEELING
+# ============================================================
+id: 18
+tier: beginner
+act: 4
+title: "Steps up, steps down"
+subtitle: "Direction matters as much as size"
+goal: "Read a step and know INSTANTLY if it goes up or down, without thinking about it."
+prereqs: [16, 17]
+method_focus: "steps"
+time_estimate_min: 12
+piece_context: null
+metaphor: "climbing-vs-descending"
+vibe: ["gentle", "playful"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Staff with two pairs. Left: step up (line → space above). Right: step down (line → space below)."
+    cleffy: >
+      You know a step is a move between a line and a neighbor space.
+      Today we lock in direction.
+      Same size. Opposite feelings. Up-step and down-step.
+
+  - id: 2
+    mode: see
+    type: up_versus_down
+    figure: "Large staff. An animation — dot steps up one spot, bounces back down. Arrow labels: UP / DOWN."
+    cleffy: >
+      Step up — the note lifts. Higher on the page, higher in sound.
+      Step down — the note drops. Lower on the page, lower in sound.
+      Page direction matches piano direction. Always.
+
+  - id: 3
+    mode: see
+    type: step_up_alone
+    figure: "Staff with one pair: line 2 → space 2 above."
+    cleffy: >
+      Here's a step. Is it going up or down?
+    interaction:
+      type: choice
+      options: ["Up", "Down"]
+      correct: 0
+
+  - id: 4
+    mode: see
+    type: step_down_alone
+    figure: "Staff with one pair: space 3 → line 3 below."
+    cleffy: >
+      This one?
+    interaction:
+      type: choice
+      options: ["Up", "Down"]
+      correct: 1
+
+  - id: 5
+    mode: see
+    type: drill
+    figure: "Round counter 1 of 6. Each round: a step. Up or down?"
+    cleffy: >
+      Six rounds. Quick. Up or down?
+    interaction:
+      type: drill
+      rounds: 6
+      options: ["Up", "Down"]
+
+  - id: 6
+    mode: hear
+    type: sound_direction
+    figure: "Two play buttons."
+    audio:
+      A: "C4 to D4 (step up)"
+      B: "D4 to C4 (step down)"
+    cleffy: >
+      Listen.
+      Going up tends to lift — the feeling rises.
+      Going down tends to settle — it relaxes.
+      You'll feel it differently in different pieces. But the direction always has a flavor.
+
+  - id: 7
+    mode: hear
+    type: hear_drill
+    figure: "Round counter 1 of 4."
+    cleffy: >
+      Four rounds by ear. Step up or step down?
+    interaction:
+      type: drill
+      rounds: 4
+      options: ["Up", "Down"]
+
+  - id: 8
+    mode: play
+    type: play_up
+    figure: "Keyboard. Middle C glowing."
+    cleffy: >
+      Play a step up from Middle C. Thumb on C, pointer on D.
+    interaction:
+      type: sequence
+      keys: ["C4", "D4"]
+
+  - id: 9
+    mode: play
+    type: play_down
+    figure: "Keyboard. E4 glowing."
+    cleffy: >
+      Now a step down from E. Middle finger on E, pointer on D.
+    interaction:
+      type: sequence
+      keys: ["E4", "D4"]
+
+  - id: 10
+    mode: play
+    type: up_down_up
+    figure: "Keyboard. C, D, C, D glowing as a pattern."
+    cleffy: >
+      Step up, step down, step up, step down. C to D, D to C, C to D, D to C.
+      Back and forth. Walking up and down one stair.
+    interaction:
+      type: sequence
+      keys: ["C4", "D4", "C4", "D4"]
+    followup_cleffy: >
+      Feel the little wobble? That's the smallest thing music can do.
+      You just did it.
+
+  - id: 11
+    mode: read
+    type: read_direction
+    figure: "Staff with a pair of step-apart notes. Student plays on the keyboard in the matching direction."
+    cleffy: >
+      See the step. Read the direction. Play a step on the piano going the same way.
+    interaction:
+      type: shape
+      rounds: 3
+
+  - id: 12
+    mode: read
+    type: four_note_melody
+    figure: "Staff with four notes in a little melody: up, up, down, down. All steps."
+    cleffy: >
+      Now a tiny four-note melody. All steps.
+      Up. Up. Down. Down.
+      Read the shape. Play it, anywhere on the piano.
+    interaction:
+      type: sequence
+      shape: ["up", "up", "down", "down"]
+    followup_cleffy: >
+      You just read a melody. Four notes of shape. No names needed.
+
+  - id: 13
+    mode: read
+    type: melody_drill
+    figure: "Round counter 1 of 3. Each round: a new four-note step melody."
+    cleffy: >
+      Three rounds. Different shapes each time. Read and play.
+    interaction:
+      type: drill
+      rounds: 3
+
+  - id: 14
+    mode: hear
+    type: drill
+    figure: "Mix of direction and size drills."
+    cleffy: >
+      Four rounds. Mix of listening and looking.
+    interaction:
+      type: drill
+      rounds: 4
+
+  - id: 15
+    mode: hear
+    type: pre_check
+    figure: "Banner."
+    cleffy: >
+      Four quick ones.
+
+  - id: 16
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 18. A little staff with four-note melody drawn, up/down arrows under each move."
+    cleffy: >
+      Size plus direction. You can read steps in both directions now.
+      Tomorrow — drill day. No new ideas, just faster and faster recognition.
+      The day after, you play Hot Cross Buns. But not by ear this time.
+      From the page.
+
+# ─── Practice this week ────────────────────────────────
+practice_this_week:
+  real_piano:
+    - "Right hand on C-D-E-F-G. Play C-D, then back D-C. Do that ten times. Up-down, up-down."
+    - "Next, up-up-down-down: C-D-E-D-C. Ten times. Tiny step-melody."
+  virtual_only:
+    - "Replay pages 11-13 (the direction drills and the four-note melodies)"
+  estimated_time: "5 min/day"
+
+# ─── Mastery check ──────────────────────────────────────
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 3
+      questions:
+        - figure: "Step going up."
+          prompt: "Up or down?"
+          options: ["Up", "Down"]
+          correct: 0
+        - figure: "Step going down."
+          prompt: "Up or down?"
+          options: ["Up", "Down"]
+          correct: 1
+        - figure: "Another step."
+          prompt: "Up or down?"
+          options: ["Up", "Down"]
+          correct: 0
+    hear:
+      pass_threshold: 2
+      questions:
+        - audio: "C4 to D4"
+          prompt: "Step up or step down?"
+          options: ["Up", "Down"]
+          correct: 0
+        - audio: "F4 to E4"
+          prompt: "Step up or step down?"
+          options: ["Up", "Down"]
+          correct: 1
+    play:
+      pass_threshold: 1
+      questions:
+        - figure: "Staff with step going down."
+          prompt: "Play a step in the same direction (down)."
+          accept: "two adjacent keys descending"
+
+# ─── Remediation ────────────────────────────────────────
+remediation:
+  id: "18.5"
+  title: "Direction drill"
+  pages: 4
+  opening_cleffy: >
+    Direction trips some people up the first time — it feels obvious once it clicks.
+    Just more reps at slightly slower speed.
+
+# ─── Completion ─────────────────────────────────────────
+completion:
+  cleffy: >
+    Up-step and down-step are both second nature now.
+    Almost at the end of Act 4.
+  xp: 20
+  unlocks: 19

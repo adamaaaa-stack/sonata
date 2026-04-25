@@ -1,0 +1,228 @@
+# ============================================================
+# LESSON 187 · Scales: black-key keys
+# Tier 5 · Act 38 · Upper-Intermediate · All-keys scales & arpeggios
+# Four flat keys that start on black: Eb, Ab, Db, Gb.
+# ============================================================
+id: 187
+tier: upper-intermediate
+act: 38
+title: "Scales: black-key keys"
+subtitle: "Act 38 · All-keys scales & arpeggios"
+goal: "Play the major scale starting from the four black-key homes — E-flat, A-flat, D-flat, G-flat — and learn why the fingering shifts."
+prereqs: [186]
+method_focus: "play"
+time_estimate_min: 16
+piece_context: "Yesterday — seven white-starting scales. Today — the four that start on black. The rule changes here. Thumbs avoid black keys when possible, so the fingering slides around. That's the whole idea."
+metaphor: "all-twelve-doors"
+vibe: ["focused", "serious", "honest"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy at the same hallway from L186. Seven doors glow. Four remaining doors are dark — labeled Eb, Ab, Db, Gb. Banner: THE BLACK-KEY STARTS."
+    cleffy: >
+      Four doors left.
+      All start on a black key.
+      Same scale shape. Different fingering story.
+
+  - id: 2
+    mode: see
+    type: the_four_keys
+    figure: "Four labeled black keys with their flat counts: Eb (3b), Ab (4b), Db (5b), Gb (6b). Arrow showing each adds one flat to the last."
+    cleffy: >
+      E-flat has three flats.
+      A-flat has four.
+      D-flat has five.
+      G-flat has six — the most of any major key.
+
+  - id: 3
+    mode: see
+    type: why_fingering_changes
+    figure: "Right hand diagram. Rule at the top: THUMB STAYS OFF BLACK KEYS. Small shapes showing thumb-under landing on a nearby white key in each scale."
+    cleffy: >
+      Here's the rule that changes the fingering.
+      The thumb is short. It lives on white keys whenever possible.
+      When the scale starts on black, the thumb grabs a white key later in the scale. That shifts everything.
+
+  - id: 4
+    mode: see
+    type: eb_fingering_shown
+    figure: "Keyboard with Eb major scale. Fingering labeled: 3-1-2-3-1-2-3-4. Thumb lands on F and Bb... wait, thumb lands on F and Ab (white)."
+    cleffy: >
+      E-flat major fingering — three, one, two, three, one, two, three, four.
+      Start on finger three.
+      Thumb lands on F, then on C. Both white. That's the whole trick.
+
+  - id: 5
+    mode: play
+    type: play_eb_major
+    figure: "Keyboard. Eb major scale Eb4 to Eb5. Eb, Ab, Bb highlighted as black keys."
+    cleffy: >
+      E-flat major. Start on finger three.
+      Three flats — B, E, A.
+    interaction:
+      type: sequence
+      keys: ["Eb4","F4","G4","Ab4","Bb4","C5","D5","Eb5"]
+
+  - id: 6
+    mode: see
+    type: ab_fingering_shown
+    figure: "Keyboard with Ab major scale. Fingering labeled: 3-1-2-3-1-2-3-4. Thumb on C and F."
+    cleffy: >
+      A-flat major. Same fingering as E-flat — three, one, two, three, one, two, three, four.
+      Thumb on C. Thumb on F. Both safely white.
+
+  - id: 7
+    mode: play
+    type: play_ab_major
+    figure: "Keyboard. Ab major scale Ab3 to Ab4."
+    cleffy: >
+      A-flat major. Start on finger three.
+      Four flats — B, E, A, D.
+    interaction:
+      type: sequence
+      keys: ["Ab3","Bb3","C4","Db4","Eb4","F4","G4","Ab4"]
+
+  - id: 8
+    mode: see
+    type: db_fingering_shown
+    figure: "Keyboard with Db major scale. Fingering labeled: 2-3-1-2-3-1-2-3. Thumb on F and C."
+    cleffy: >
+      D-flat major. New fingering — two, three, one, two, three, one, two, three.
+      Start on finger two. Thumb still on F and C.
+      The home note is a black key, so the thumb can't start there.
+
+  - id: 9
+    mode: play
+    type: play_db_major
+    figure: "Keyboard. Db major scale Db4 to Db5. Five flats — Db, Eb, Gb, Ab, Bb highlighted."
+    cleffy: >
+      D-flat major. Start on finger two.
+      Five flats.
+    interaction:
+      type: sequence
+      keys: ["Db4","Eb4","F4","Gb4","Ab4","Bb4","C5","Db5"]
+
+  - id: 10
+    mode: see
+    type: gb_fingering_shown
+    figure: "Keyboard with Gb major scale. Fingering labeled: 2-3-1-2-3-4-1-2. Thumb on B and F."
+    cleffy: >
+      G-flat major. Six flats — the most you'll ever see.
+      Fingering — two, three, one, two, three, four, one, two.
+      Thumb finds the only two white keys in this scale — B (C-flat) and F.
+
+  - id: 11
+    mode: play
+    type: play_gb_major
+    figure: "Keyboard. Gb major scale Gb3 to Gb4. All six flats highlighted."
+    cleffy: >
+      G-flat major. Start on finger two.
+      Almost all black. Feel the shape under your fingers.
+    interaction:
+      type: sequence
+      keys: ["Gb3","Ab3","Bb3","Cb4","Db4","Eb4","F4","Gb4"]
+
+  - id: 12
+    mode: hear
+    type: name_the_key_drill
+    figure: "Drill banner. Four rounds — one scale played per round."
+    cleffy: >
+      Four rounds. Which black-key scale is this?
+    interaction:
+      type: drill
+      rounds: 4
+      options: ["Eb", "Ab", "Db", "Gb"]
+
+  - id: 13
+    mode: play
+    type: chain_eb_ab
+    figure: "Keyboard. E-flat then A-flat back to back. Metronome 55."
+    cleffy: >
+      Two of the friendlier flat scales in a row.
+      E-flat into A-flat. Same fingering on both.
+    interaction:
+      type: sequence
+      keys: ["Eb4","F4","G4","Ab4","Bb4","C5","D5","Eb5","Ab3","Bb3","C4","Db4","Eb4","F4","G4","Ab4"]
+
+  - id: 14
+    mode: play
+    type: gb_once_more
+    figure: "Keyboard. G-flat scale again, slower. Metronome 50."
+    cleffy: >
+      G-flat once more. Slow. Feel how the hand sits on the black keys.
+      Chopin loved this key. You'll see why in a few lessons.
+    interaction:
+      type: sequence
+      keys: ["Gb3","Ab3","Bb3","Cb4","Db4","Eb4","F4","Gb4"]
+
+  - id: 15
+    mode: hear
+    type: pre_check
+    figure: "Banner."
+    cleffy: >
+      Three quick ones.
+
+  - id: 16
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 187. All twelve doors now glowing. Caption: TWELVE DOORS OPEN."
+    cleffy: >
+      All twelve doors open.
+      Tomorrow — arpeggios. Same twelve homes, a different shape.
+
+practice_this_week:
+  real_piano:
+    - "One black-key scale a day, rotating E-flat, A-flat, D-flat, G-flat. Go slow enough that the fingering feels automatic."
+    - "Pair them up — E-flat then A-flat (same fingering), D-flat then G-flat (different fingering each)."
+    - "If G-flat feels wild, that's normal. Six flats takes time to internalize."
+  virtual_only:
+    - "Replay pages 5, 7, 9, 11 — one scale at a time"
+  estimated_time: "15 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "A keyboard with the thumb highlighted"
+          prompt: "What's the fingering rule for black-key scales?"
+          options: ["Thumb on the home note", "Thumb on white keys only", "Thumb only on the first note"]
+          correct: 1
+        - figure: "G-flat major key signature"
+          prompt: "How many flats does G-flat major have?"
+          options: ["Four", "Five", "Six"]
+          correct: 2
+        - figure: "E-flat major and A-flat major scales"
+          prompt: "What do their right-hand fingerings have in common?"
+          options: ["Both start on finger 3", "Both start on finger 1", "They use different fingerings"]
+          correct: 0
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "An E-flat major scale ascending"
+          prompt: "Which key is this?"
+          options: ["E major", "E-flat major", "F major"]
+          correct: 1
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play the E-flat major scale — one octave, right hand, starting on finger 3."
+          accept: "Eb4 F4 G4 Ab4 Bb4 C5 D5 Eb5"
+
+remediation:
+  id: "187.5"
+  title: "Black-key scales, slower"
+  pages: 8
+  opening_cleffy: >
+    Black-key fingering is a whole new habit. Expected.
+    We'll walk it one scale at a time, thumb-under only, no tempo pressure.
+    The hand learns the shape by repetition, not by thinking.
+
+completion:
+  cleffy: >
+    Twelve doors. All open.
+    Tomorrow — arpeggios in all twelve keys. The other foundational shape.
+  xp: 18
+  unlocks: 188

@@ -1,0 +1,228 @@
+# ============================================================
+# LESSON 172 · Moonlight 1 — the melody line
+# Tier 4 · Act 35 · Intermediate
+# Voicing — the top of each triplet becomes the melody.
+# ============================================================
+id: 172
+tier: intermediate
+act: 35
+title: "Moonlight 1 — the melody line"
+subtitle: "Act 35 · Hearing the top voice"
+goal: "Bring out the top note of the triplet figure — the hidden melody line that runs through all eight bars."
+prereqs: [165, 170, 171]
+method_focus: "hear"
+time_estimate_min: 14
+piece_context: "Here's a secret about Moonlight. Even in bars 1-4, before the melody officially enters, there is a melody — hidden in the top note of each triplet. G-sharp, then another G-sharp, then a small shift. When a real pianist plays Moonlight, they bring out those top notes ever so slightly. The piece stops being an engine. It starts being a song."
+metaphor: "top-voice"
+vibe: ["quiet", "focused", "reflective"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy pointing up. A triplet group drawn — three notes stacked low to high. The top note circled in gold."
+    cleffy: >
+      Here's a Moonlight secret.
+      The melody isn't just in bars 5 through 8.
+      It's been there the whole time. Sitting on top of every triplet.
+
+  - id: 2
+    mode: see
+    type: the_top_note
+    figure: "Staff. Four triplet groups from bar 1 of Moonlight: G#3-C#4-E4 | G#3-C#4-E4 | G#3-C#4-E4 | G#3-C#4-E4. The top E4 of each group circled."
+    cleffy: >
+      Here are four triplets from bar 1.
+      Every group has three notes. Look at just the top one.
+      E, E, E, E. That's a voice. That's melody. Hiding.
+
+  - id: 3
+    mode: hear
+    type: hear_both_ways
+    figure: "Two play buttons. One: 'flat — triplets even.' Two: 'top note brought out.'"
+    audio:
+      A: "Bar 1 triplets played with all three notes equal volume."
+      B: "Same bar, same notes, but the top note is slightly louder."
+    cleffy: >
+      Listen to both.
+      First one — all three notes the same weight. Flat.
+      Second one — top note a touch louder. Suddenly there's a melody.
+      Same notes. Very different sound.
+
+  - id: 4
+    mode: see
+    type: what_voicing_means
+    figure: "Diagram. Three fingers pressing a triplet. Arrow pointing at the pinky (finger 5) — 'slightly firmer.' Other two fingers marked 'softer.'"
+    cleffy: >
+      This is called voicing.
+      Making one note in a chord or group sing above the others.
+      In a right-hand triplet, the top note is usually the pinky. Press it a tiny bit firmer.
+      Not louder. Just — firmer. The ear picks it up.
+
+  - id: 5
+    mode: play
+    type: triplet_even
+    figure: "Keyboard. Triplet C#4-E4-G#4. Metronome 50. Label: 'all equal.'"
+    cleffy: >
+      First — play it flat. Three notes, all the same weight.
+      C-sharp, E, G-sharp.
+    interaction:
+      type: rhythm
+      sequence: ["C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4"]
+      durations: ["triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth"]
+      tempo: 50
+
+  - id: 6
+    mode: play
+    type: triplet_voiced
+    figure: "Keyboard. Same triplet. G-sharp (top) highlighted in gold. Label: 'top louder.'"
+    cleffy: >
+      Now voice the top. Same notes. Pinky presses firmer.
+      Listen for the G-sharp on top — a little thread of melody.
+    interaction:
+      type: rhythm
+      sequence: ["C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4"]
+      durations: ["triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth"]
+      tempo: 50
+
+  - id: 7
+    mode: see
+    type: hidden_melody_bars_1_4
+    figure: "Staff. The top-note line across bars 1-4 written alone: E4 E4 E4 E4 | E4 E4 E4 E4 | F#4 F#4 F#4 F#4 | E4 E4 E4 E4. Label: 'the hidden melody, bars 1-4.'"
+    cleffy: >
+      Here's the hidden melody across bars 1-4. Just the top notes.
+      Mostly E. One bar of F-sharp. Back to E.
+      Not dramatic. But it's there. Quiet motion. Like a second voice.
+
+  - id: 8
+    mode: play
+    type: play_top_line_only
+    figure: "Keyboard. The top-note melody line alone."
+    cleffy: >
+      Play just the top line. Right hand, pinky.
+      E, E, E, E. E, E, E, E. F-sharp times four. E times four.
+    interaction:
+      type: sequence
+      keys: ["E4","E4","E4","E4","E4","E4","E4","E4","F#4","F#4","F#4","F#4","E4","E4","E4","E4"]
+
+  - id: 9
+    mode: see
+    type: bars_5_8_top_voice
+    figure: "Staff. Bars 5-8 melody you learned yesterday: G#4-G#4-G#4-G#4-G#4-A4-A4-A4-G#4-G#4-F#4-E4. Arrow: 'same idea. Top voice — now louder.'"
+    cleffy: >
+      Bars 5 to 8 — same trick, bigger.
+      The G-sharp you played yesterday is the top voice, made unmistakable.
+      It was hiding in bars 1-4. Now it speaks.
+
+  - id: 10
+    mode: play
+    type: voiced_triplet_with_top_melody
+    figure: "Bar 5. RH triplet + the held G-sharp melody above it. Label: 'melody note held while triplets roll.'"
+    cleffy: >
+      Bar 5. The melody G-sharp is held on top while the triplet rolls underneath.
+      Pinky stays down. Thumb and middle finger keep the engine going.
+      That's Moonlight. One hand, two things at once.
+    interaction:
+      type: rhythm
+      sequence: ["G#4","C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4","C#4","E4"]
+      durations: ["triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth"]
+      tempo: 50
+
+  - id: 11
+    mode: hear
+    type: listen_for_voice
+    figure: "Play button. Caption: 'Moonlight bars 1-8, professional recording.'"
+    audio:
+      A: "Moonlight bars 1-8 played with clear voicing — top notes audibly above the triplet engine."
+    cleffy: >
+      Close your eyes. Listen for the top voice.
+      From bar 1 onward. Don't listen to the triplets. Listen to whatever sits on top of them.
+      That's the melody. It never left.
+
+  - id: 12
+    mode: play
+    type: bars_5_8_voiced
+    figure: "Bars 5-8 melody with simplified bass. Voicing label — 'bring out the top.'"
+    cleffy: >
+      Play bars 5-8 again. Right hand melody, left hand low C-sharp.
+      This time — pinky firmer on the melody notes. Let them carry.
+    interaction:
+      type: song
+      sequence: [["C#2","G#4"],"G#4","G#4","G#4","G#4","A4","A4","A4","G#4","G#4","F#4","E4"]
+      guides: false
+      tempo: 50
+    followup_cleffy: >
+      Hear that?
+      Same notes as yesterday. Different sound.
+      That's what voicing does.
+
+  - id: 13
+    mode: see
+    type: the_big_idea
+    figure: "Diagram. A triplet engine labelled 'what everyone hears.' A thin gold line floating above it labelled 'what a pianist hears.'"
+    cleffy: >
+      One big idea to take with you.
+      The audience hears the engine rolling.
+      The pianist hears the melody floating on top.
+      Your job — play both at once.
+
+  - id: 14
+    mode: hear
+    type: pre_check
+    figure: "Banner — Lesson 172 mastery check."
+    cleffy: >
+      Three quick ones.
+
+practice_this_week:
+  real_piano:
+    - "Play bar 1 twenty times — once with all three notes equal, once with the top note firmer. Feel the difference."
+    - "Then bars 5-8, melody over a held low C-sharp. Pinky firmer, thumb lighter."
+    - "Listen to a pro recording of Moonlight once this week. Now you know what to listen for."
+  virtual_only:
+    - "Replay pages 5-6 (voicing drill) and page 12 (voiced melody)."
+  estimated_time: "10 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "Three-note triplet, top note circled in gold"
+          prompt: "Which note should be slightly louder to bring out the melody?"
+          options: ["Bottom note", "Middle note", "Top note"]
+          correct: 2
+        - figure: "A triplet C#4-E4-G#4"
+          prompt: "Which finger usually plays the top note?"
+          options: ["Thumb (1)", "Middle (3)", "Pinky (5)"]
+          correct: 2
+        - figure: "The word 'voicing' highlighted"
+          prompt: "What does voicing mean?"
+          options: ["Playing a note firmer so it's heard above others", "Singing along", "Using the sustain pedal"]
+          correct: 0
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "Same bar played flat, then voiced"
+          prompt: "Which version has a clearer melody line?"
+          options: ["The flat version", "The voiced version"]
+          correct: 1
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play bar 1 triplet (C#4, E4, G#4) with the top note slightly firmer."
+          accept: "C#4-E4-G#4 triplet with audible emphasis on G#4"
+
+remediation:
+  id: "172.5"
+  title: "Voicing, one triplet at a time"
+  pages: 7
+  opening_cleffy: >
+    Voicing is a new idea and a small movement. Easy to miss at first.
+    We'll slow way down. One triplet. Flat. Then voiced. Back and forth until you can hear the difference yourself.
+
+completion:
+  cleffy: >
+    You just found the hidden melody.
+    Every time you play Moonlight from here on, the melody is your focus. Not the triplets.
+    Tomorrow — the foot. Pedal changes.
+  xp: 18
+  unlocks: 173

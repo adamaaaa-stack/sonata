@@ -1,0 +1,211 @@
+# ============================================================
+# LESSON 226 · What "performance" means
+# Tier 6 · Act 46 · Advanced · Tier 6 opener
+# The shift from practicing to playing for someone.
+# ============================================================
+id: 226
+tier: advanced
+act: 46
+title: "What performance means"
+subtitle: "Act 46 · Memorization"
+goal: "Understand the shift from practicing a piece to performing it — what changes, what stays, and what Tier 6 is for."
+prereqs: [225]
+method_focus: "combine"
+time_estimate_min: 13
+piece_context: "Tier 6 opens. You finished Clair de Lune yesterday. The road ahead is different. No new pieces, really — just making you good at the ones you already have, ending with Moonlight 1st, full, as your graduation. Today — the word performance, what it actually means, and why it's its own skill."
+metaphor: "practice-vs-performance"
+vibe: ["gentle", "serious", "focused"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy in a warmly lit room. Behind him — a gold banner: TIER 6 · PERFORMANCE & POLISH. A piano with a music stand but no sheet music on it. A small lamp."
+    cleffy: >
+      You finished Tier 5. You can play Clair de Lune.
+      Tier 6 is different. Twenty-five lessons.
+      No new pieces, really. We're going to make you a performer.
+      Final graduation — Moonlight first movement, full, memorized, presented.
+
+  - id: 2
+    mode: see
+    type: the_word
+    figure: "A single word big on the screen: PERFORMANCE. Below, smaller: 'playing for someone.'"
+    cleffy: >
+      Performance.
+      Not practice. Not rehearsal.
+      Playing for someone. One take. No stops.
+
+  - id: 3
+    mode: see
+    type: what_changes
+    figure: "Split panel. LEFT: 'Practice' — sheet music open, stopping mid-bar, restarting, phone on the piano. RIGHT: 'Performance' — no sheet music, hands on the keys, one person listening from a chair."
+    cleffy: >
+      Practice — you stop. You restart. You fix. You try again.
+      Performance — you don't stop.
+      A wrong note in practice is information.
+      A wrong note in performance is a thing that happened. You keep going.
+
+  - id: 4
+    mode: see
+    type: what_stays
+    figure: "Three icons from Tier 5 in a row: voicing, pedal, dynamic arc. Arrow pointing right to a new icon — a person listening."
+    cleffy: >
+      Everything you learned still matters.
+      Voicing. Pedal. Shape. Rubato. The craft.
+      Performance just adds one new ingredient — another person.
+
+  - id: 5
+    mode: see
+    type: the_shift
+    figure: "Two pianists shown. One labeled STUDENT, eyes glued to sheet music. One labeled PERFORMER, eyes up, listening to what they're making."
+    cleffy: >
+      A student plays the notes.
+      A performer plays the room.
+      Same hands. Different attention.
+
+  - id: 6
+    mode: hear
+    type: listen_practice_take
+    figure: "Play button. Caption: 'Clair de Lune — practice take.'"
+    audio:
+      A: "A practice take of Clair de Lune — stopped twice, restarted once, not beautiful but correct"
+    cleffy: >
+      Listen. A practice take.
+      Two stops. A restart. Right notes.
+      It isn't a performance. It's work.
+
+  - id: 7
+    mode: hear
+    type: listen_performance_take
+    figure: "Play button. Caption: 'Clair de Lune — performance take.'"
+    audio:
+      A: "A performance take of Clair de Lune — one small slip, played through, full arc"
+    cleffy: >
+      Same piece. One take.
+      A tiny slip in the B section. Keeps going.
+      That is a performance. Not because it was perfect. Because it kept breathing.
+
+  - id: 8
+    mode: see
+    type: the_tier_ahead
+    figure: "A roadmap of Tier 6. Five acts labeled: ACT 46 MEMORY. ACT 47 PERFORMANCE SKILLS. ACT 48 MOONLIGHT PART 1. ACT 49 MOONLIGHT PART 2. ACT 50 GRADUATION. A gold trophy at the end."
+    cleffy: >
+      Twenty-five lessons. Five acts.
+      This act — how pianists hold a piece in their heads without the page.
+      Next act — recording yourself, playing softly for minutes, rehearsing in silence.
+      Then — Moonlight, full, in two parts.
+      Then — nerves, recovery, dress rehearsal, graduation.
+
+  - id: 9
+    mode: see
+    type: no_new_pieces
+    figure: "A shelf of sheet music. Two dozen pieces labeled — Happy Birthday, Für Elise, Minuet in G, Canon in D, Gymnopédie, Twinkle, Minuet in D, Bagatelle, Nocturne, Schumann, Arabesque, Arietta, Clair de Lune, Moonlight, and more. A lock-box next to the shelf, empty."
+    cleffy: >
+      The honest part.
+      You won't learn many new pieces here.
+      You'll get better at the ones you have.
+      Two dozen named pieces. You'll know some of them cold by the end.
+
+  - id: 10
+    mode: play
+    type: play_one_bar_clair
+    figure: "Keyboard. First bar of Clair de Lune — LH D2, RH F#4 and A4 together. Soft."
+    cleffy: >
+      Play the opening chord of Clair de Lune.
+      You did it yesterday. Still there.
+      This is what Tier 6 is about — what you already have.
+    interaction:
+      type: sequence
+      keys: [["D2","F#4","A4"]]
+
+  - id: 11
+    mode: see
+    type: one_person_listening
+    figure: "A single chair in a softly-lit room, facing a piano. Just one chair. Not a concert hall."
+    cleffy: >
+      Performance doesn't mean a stage.
+      One person in a chair. That's enough.
+      Your partner. A friend. Your kid. The cat, even, if it sits still.
+
+  - id: 12
+    mode: see
+    type: the_map_ahead
+    figure: "A gentle list — Lesson 227 MUSCLE MEMORY. 228 EAR MEMORY. 229 STRUCTURAL MEMORY. 230 MEMORIZE A PIECE. Each with a small icon."
+    cleffy: >
+      This act is about one thing — memory.
+      You met the three kinds briefly in Lesson 219.
+      Now we live in them. Muscle. Ear. Structure.
+      Then you memorize a piece you already play.
+
+  - id: 13
+    mode: hear
+    type: pre_check
+    figure: "Banner."
+    cleffy: >
+      Three quick ones.
+
+  - id: 14
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 226. A small banner: TIER 6 · DAY 1. Below, a quiet moon behind Cleffy at the piano. Text: 'you have what you need.'"
+    cleffy: >
+      Tier 6 is open.
+      Performance is a skill. Just like reading was. Just like counterpoint was.
+      We learn it the same way — slow, patient, one piece at a time.
+      Tomorrow — muscle memory. The kind your fingers hold.
+
+practice_this_week:
+  real_piano:
+    - "Pick a piece you already play well. Play it once, all the way through, no stops — even if you miss a note. Notice the difference from stopping to fix."
+    - "Put one chair in the room with your piano. Leave it there this week. You'll sit at the keys knowing someone could listen."
+  virtual_only:
+    - "Replay pages 6 and 7 — the practice take and the performance take, back to back."
+  estimated_time: "10 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "Split panel — practice vs performance"
+          prompt: "What's the biggest difference between practicing and performing?"
+          options: ["Performance uses different notes", "Performance is one take — you don't stop", "Performance is louder"]
+          correct: 1
+        - figure: "Tier 6 roadmap with no new pieces"
+          prompt: "What will Tier 6 mostly teach?"
+          options: ["Lots of new pieces", "Making the pieces you have beautiful and performable", "Music theory"]
+          correct: 1
+        - figure: "A single chair in a room facing a piano"
+          prompt: "Performance requires…"
+          options: ["A concert hall", "At least one listener — even one person counts", "An audience of fifty"]
+          correct: 1
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "A take with two stops and a restart"
+          prompt: "Is this a performance or a practice take?"
+          options: ["Performance", "Practice"]
+          correct: 1
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play the opening chord of Clair de Lune — D2 under F#4-A4."
+          accept: "D2, F#4, A4 pressed together"
+
+remediation:
+  id: "226.5"
+  title: "Performance — the gentlest version"
+  pages: 6
+  opening_cleffy: >
+    Performance is a big word. It can land heavy.
+    We'll take it lighter. One person. One take. One piece you already know.
+    That's all it is.
+
+completion:
+  cleffy: >
+    Tier 6 — open.
+    Performance is learnable. You're going to learn it.
+    Tomorrow — muscle memory. What your fingers know without asking.
+  xp: 18
+  unlocks: 227

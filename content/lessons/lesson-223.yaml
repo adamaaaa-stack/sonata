@@ -1,0 +1,231 @@
+# ============================================================
+# LESSON 223 · Clair de Lune: climax
+# Tier 5 · Act 45 · Upper-Intermediate · Clair de Lune full (3/5)
+# The one forte moment. The peak. Then it recedes.
+# ============================================================
+id: 223
+tier: upper-intermediate
+act: 45
+title: "Clair de Lune: climax"
+subtitle: "Act 45 · Clair de Lune full"
+goal: "Play the climax of Clair de Lune — the one forte peak in an otherwise whispered piece."
+prereqs: [125, 200, 217, 220, 221, 222]
+method_focus: "combine"
+time_estimate_min: 16
+piece_context: "Day three. Clair de Lune whispers for most of its length. Then, around bar 27, it blooms. One forte. One peak. Everything Debussy has been saving. Then it recedes back to quiet. Today — the bloom."
+metaphor: "debussy-summit"
+vibe: ["serious", "focused", "triumphant"]
+piece:
+  title: "Clair de Lune (climax — simplified)"
+  composer: "Debussy"
+  key_center: "D major (simplified from D-flat)"
+  time_signature: "3/4 (simplified from 9/8)"
+  difficulty: "upper-intermediate — the one loud moment, dynamic arc pp → f → pp"
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy pointing up at a single gold peak on the mountain. Banner: LESSON 223. Piece map — CLIMAX block highlighted."
+    cleffy: >
+      Day three. The climax.
+      Clair de Lune is quiet. Almost the whole way.
+      One moment — it blooms. One forte. That's today.
+
+  - id: 2
+    mode: see
+    type: the_dynamic_arc
+    figure: "A long curve over the full piece map. pp at the left. A peak labeled 'f' in the middle-right. pp at the right. Caption: 'one arc — thirty bars long.'"
+    cleffy: >
+      The shape of the whole piece.
+      Starts *pp*. Stays *pp* through A and most of B.
+      Grows. Grows more. Peaks at the climax — *f*.
+      Then melts back to *pp*.
+      One big curve.
+
+  - id: 3
+    mode: hear
+    type: listen
+    figure: "Play button. Caption: 'climax — approach, peak, release.'"
+    audio:
+      A: "Clair de Lune climax passage: quiet rolling arpeggios growing louder, peaking with a bright forte chord, then dying back to pp within a few bars."
+    cleffy: >
+      Listen. Quiet. Growing. Growing more.
+      Then — bloom. A chord stands up.
+      Then it fades.
+
+  - id: 4
+    mode: see
+    type: the_approach
+    figure: "Grand staff. Two approach bars. LH continues the B-section roll. RH climbs a stepwise line: F#4, A4, B4, D5. A long crescendo hairpin underneath growing from pp to f."
+    cleffy: >
+      The approach. Two bars.
+      Left hand keeps rolling, like in B.
+      Right hand climbs — F-sharp, G, A, then A, B, B, D.
+      A crescendo under it all. Gets louder as the line climbs.
+
+  - id: 5
+    mode: play
+    type: play_approach
+    figure: "Grand staff. Two bars approach. Tempo 48. Crescendo marking. Guides on."
+    cleffy: >
+      Play the approach. Crescendo as the right hand climbs.
+      Start *pp*. End almost *f*.
+    interaction:
+      type: song
+      sequence: [["F#4","D3"],"F#3",["G4","A3"],"F#3",["A4","A3"],"D4",["A4","D3"],"F#3",["B4","A3"],"F#3","B4","D5"]
+      guides: true
+      tempo: 48
+
+  - id: 6
+    mode: see
+    type: the_peak_chord
+    figure: "Grand staff. The climax bar. RH: a full four-note chord D5-A4-F#4-D4. LH: D2-A2 octave-ish. Marked f. Pedal marked."
+    cleffy: >
+      The peak. One big chord.
+      Right hand — four notes. D, A, F-sharp, D — open and bright.
+      Left hand — low D, low A. A deep base.
+      Marked *f*. Forte. Loud. For one moment.
+
+  - id: 7
+    mode: play
+    type: play_peak_chord
+    figure: "Keyboard. Full peak chord highlighted. LH: D2-A2. RH: D4-F#4-A4-D5."
+    cleffy: >
+      Press the peak chord. Both hands together.
+      Not harsh. Full. Warm. Let it ring.
+    interaction:
+      type: sequence
+      keys: [["D2","A2","D4","F#4","A4","D5"]]
+
+  - id: 8
+    mode: see
+    type: the_release
+    figure: "Grand staff. Two release bars. RH: D5, A4, F#4, D4 — stepping down. LH: back to D2 and D3 soft. Diminuendo hairpin from f back to pp."
+    cleffy: >
+      The release. Two bars.
+      Right hand — descends. D, A, F-sharp, D.
+      Left hand — back to low D, quiet.
+      Diminuendo. Forte to *pp* in two bars.
+      The bloom folds back up.
+
+  - id: 9
+    mode: play
+    type: play_release
+    figure: "Grand staff. Two release bars. Tempo 48. Diminuendo marking. Guides on."
+    cleffy: >
+      Play the release. Every note a little softer than the last.
+      End as quietly as you started.
+    interaction:
+      type: song
+      sequence: [["D5","D3"],"A4","F#4","D4",["D4","D2"],"A3","F#3","D3"]
+      guides: true
+      tempo: 48
+
+  - id: 10
+    mode: play
+    type: full_climax
+    figure: "Grand staff. Five bars — two approach, one peak, two release. Full arc. Tempo 46."
+    cleffy: >
+      The whole climax. Five bars.
+      Approach. Peak. Release.
+      One big breath.
+    interaction:
+      type: song
+      sequence: [["F#4","D3"],"F#3",["G4","A3"],"F#3",["A4","A3"],"D4",["A4","D3"],"F#3",["B4","A3"],"F#3","B4","D5",["D2","A2","D4","F#4","A4","D5"],["D5","D3"],"A4","F#4","D4",["D4","D2"],"A3","F#3","D3"]
+      guides: true
+      tempo: 46
+
+  - id: 11
+    mode: play
+    type: full_climax_no_guides
+    figure: "Grand staff. Same five bars. No guides. Tempo 46."
+    cleffy: >
+      No guides. You shape it.
+      *pp* to *f* to *pp*. The biggest moment of the whole piece.
+    interaction:
+      type: song
+      sequence: [["F#4","D3"],"F#3",["G4","A3"],"F#3",["A4","A3"],"D4",["A4","D3"],"F#3",["B4","A3"],"F#3","B4","D5",["D2","A2","D4","F#4","A4","D5"],["D5","D3"],"A4","F#4","D4",["D4","D2"],"A3","F#3","D3"]
+      guides: false
+      tempo: 46
+    followup_cleffy: >
+      The bloom, and the fold.
+      Everything Debussy saved up. One chord.
+
+  - id: 12
+    mode: see
+    type: restraint
+    figure: "Cleffy holding a single golden flower. Caption: 'one moment only.'"
+    cleffy: >
+      One thing about the climax.
+      It only works because the rest of the piece is quiet.
+      If you hammered every bar, this chord would mean nothing.
+      Restraint is what makes the peak a peak.
+
+  - id: 13
+    mode: hear
+    type: pre_check
+    figure: "Banner — Lesson 223 mastery check."
+    cleffy: >
+      Three quick ones.
+
+  - id: 14
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 223. A single gold peak on a dark hillside. Caption: 'CLIMAX.'"
+    cleffy: >
+      Climax — yours.
+      Tomorrow — everything together. A-B-climax-A'. Slow.
+
+practice_this_week:
+  real_piano:
+    - "Climax passage, slow. Practice the crescendo — soft to loud is a skill."
+    - "Play the peak chord ten times. Find the warm sound, not the harsh one."
+  virtual_only:
+    - "Replay pages 10-11 — the full climax arc."
+  estimated_time: "12 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "Dynamic marking: f"
+          prompt: "What does f mean?"
+          options: ["Soft", "Loud", "Fast"]
+          correct: 1
+        - figure: "Long arc over a piece map: pp at left, f in the middle, pp at right"
+          prompt: "How many forte peaks are in Clair de Lune?"
+          options: ["Many", "One", "None"]
+          correct: 1
+        - figure: "A hairpin opening wide"
+          prompt: "What does this mean?"
+          options: ["Crescendo (getting louder)", "Diminuendo (getting softer)", "Accent"]
+          correct: 0
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "Climax passage — crescendo into forte chord, then diminuendo"
+          prompt: "Where is the loudest point?"
+          options: ["Beginning", "Middle", "End"]
+          correct: 1
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play the peak chord — D, A, F#, D, full and warm."
+          accept: "D2-A2-D4-F#4-A4-D5 forte, ringing"
+
+remediation:
+  id: "223.5"
+  title: "Climax, smaller"
+  pages: 7
+  opening_cleffy: >
+    Forte after a lot of pianissimo takes practice.
+    We'll build the crescendo in four steps — pp, p, mp, mf — before we touch f.
+
+completion:
+  cleffy: >
+    The one loud moment. In your hands.
+    Tomorrow — the whole piece, start to end, slow.
+  xp: 19
+  unlocks: 224

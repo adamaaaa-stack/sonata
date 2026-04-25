@@ -1,0 +1,247 @@
+# ============================================================
+# LESSON 230 · Memorize a piece you already play 🎯
+# Tier 6 · Act 46 · Advanced · ACT 46 BOSS
+# Pick one: Nocturne, Arietta, or Gymnopédie.
+# Use all three memory types to memorize it.
+# ============================================================
+id: 230
+tier: advanced
+act: 46
+title: "Memorize a piece you already play"
+subtitle: "Act 46 · Memorization boss"
+goal: "Pick one piece you already know — Nocturne, Arietta, or Gymnopédie — and use all three memory types to begin memorizing it."
+prereqs: [226, 227, 228, 229]
+method_focus: "combine"
+time_estimate_min: 18
+piece_context: "Act 46 boss. The first meta-lesson of Tier 6. You're not learning a new piece — you're using what you just learned about memory on a piece you already play. Three choices, three difficulty levels. Muscle, ear, structure — all three applied to real music you own. This is what the rest of Tier 6 will feel like: taking what's in your hands and making it bigger."
+metaphor: "three-kinds-of-memory"
+vibe: ["gentle", "focused", "celebratory"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy standing in front of three sheet-music stands. Each holds one score — NOCTURNE, ARIETTA, GYMNOPÉDIE. Banner: PICK ONE."
+    cleffy: >
+      Act boss.
+      Pick one piece you already know — Nocturne, Arietta, or Gymnopédie.
+      Today you start memorizing it. Really memorizing it.
+      All three pillars. All three at once.
+
+  - id: 2
+    mode: see
+    type: why_a_piece_you_know
+    figure: "A bookshelf with fourteen pieces on it. Small gold stars on three — Nocturne, Arietta, Gymnopédie."
+    cleffy: >
+      Why pieces you already know?
+      Because memorizing is its own skill. Separate from learning.
+      We're not going to teach you a new piece AND have you memorize it.
+      We'll practice just the memorizing — on music that's already in your hands.
+
+  - id: 3
+    mode: see
+    type: the_three_choices
+    figure: "Three cards side by side. NOCTURNE — 'the longest, most expressive. Hard memory.' ARIETTA — 'tiny, two sections, A then A softer. Easy memory.' GYMNOPÉDIE — 'medium, slow, spacious. Middle ground.'"
+    cleffy: >
+      Three choices.
+      Arietta — tiny piece. Two sections. Easiest to start.
+      Gymnopédie — slow, spacious. Middle.
+      Nocturne — longest, most expressive. Hardest.
+      Pick honestly. Not bravely.
+
+  - id: 4
+    mode: see
+    type: the_plan
+    figure: "A four-step plan. 1. Draw the map. 2. Play A section five times, slow. 3. Sing a phrase before you play it. 4. Close the score."
+    cleffy: >
+      The plan for whichever you pick.
+      One — draw the map. Name the sections.
+      Two — play A five times, slow. Muscle memory.
+      Three — sing a phrase before you play it. Ear memory.
+      Four — close the score. See how much held.
+
+  - id: 5
+    mode: see
+    type: arietta_map
+    figure: "Arietta map on one card. Two boxes — A (8 bars, mp) then A (8 bars, softer). Tiny notes around the edges. 'Sixteen bars total.'"
+    cleffy: >
+      If you picked Arietta — the map.
+      Two passes through the same tune. Second one softer.
+      Sixteen bars total. The shortest graduation piece in your hands.
+
+  - id: 6
+    mode: see
+    type: gymnopedie_map
+    figure: "Gymnopédie map. A section (verse 1) → A' (verse 2 with variation) → cadence. Gentle gold lines."
+    cleffy: >
+      If you picked Gymnopédie — the map.
+      A slow verse. A second verse with tiny variation. A quiet cadence.
+      Spacious. You have time to think.
+
+  - id: 7
+    mode: see
+    type: nocturne_map
+    figure: "Nocturne map. A → A' → B → A'' (with ornaments and coda). Each section a different gold shade."
+    cleffy: >
+      If you picked Nocturne — the map.
+      A. A-prime — ornamented. B — middle. A-double-prime with coda.
+      Four sections. Each one its own mood.
+      Hardest of the three. But your fingers know it.
+
+  - id: 8
+    mode: play
+    type: first_muscle_pass
+    figure: "Keyboard. The opening phrase of the student's chosen piece — placeholder: a simple three-chord progression in D major. Three reps. Slow tempo."
+    cleffy: >
+      First — muscle memory.
+      Opening phrase. Three times, slow.
+      Same fingering every rep.
+    interaction:
+      type: sequence
+      keys: [["D4","F#4","A4"],["D4","F#4","A4"],["D4","F#4","A4"],["A3","C#4","E4"],["A3","C#4","E4"],["A3","C#4","E4"]]
+
+  - id: 9
+    mode: hear
+    type: listen_to_your_piece
+    figure: "Play button. Caption: 'your piece — just the first section. Listen twice.'"
+    audio:
+      A: "A simplified rendering of the opening of the chosen piece — spacious, slow, around 30 seconds"
+    cleffy: >
+      Second — ear memory.
+      Listen to the opening twice. No playing.
+      Then try to hear it again, in your head, with the speaker silent.
+
+  - id: 10
+    mode: play
+    type: play_by_ear
+    figure: "Keyboard. Same opening phrase. No visual guide this time. Cue: 'from your ear.'"
+    cleffy: >
+      Now play the opening from your ear.
+      Don't look at the page.
+      If your ear slips — that's fine. Pause. Hear. Start again.
+    interaction:
+      type: sequence
+      keys: [["D4","F#4","A4"],["A3","C#4","E4"]]
+    followup_cleffy: >
+      Ear leading hands. That's the feel.
+
+  - id: 11
+    mode: see
+    type: name_the_sections
+    figure: "A sticky note being placed on sheet music — bar 9 labeled 'B begins.' Another — bar 17 labeled 'A returns.' Caption: 'label every section.'"
+    cleffy: >
+      Third — structural memory.
+      On your score, find the section boundaries.
+      Write them on sticky notes. Put them on the music.
+      'A starts.' 'B begins.' 'A returns.'
+      Say them out loud as you play.
+
+  - id: 12
+    mode: play
+    type: play_naming_sections
+    figure: "Keyboard. Two chord changes labeled — first as A, second as B. Cue: 'say the section name as you play each.'"
+    cleffy: >
+      Say 'A' as you play the first chord. Say 'B' as you play the second.
+      Out loud. Quiet is fine. The words themselves lock structure in.
+    interaction:
+      type: sequence
+      keys: [["D4","F#4","A4"],["G4","B4","D5"]]
+
+  - id: 13
+    mode: see
+    type: the_honest_timeline
+    figure: "A calendar. Today highlighted — 'day 1.' Days 2–14 stretched out. 'Most pieces memorize in 2–4 weeks of this. Today is a beginning.'"
+    cleffy: >
+      Honest expectation.
+      Most pieces take two to four weeks to memorize well.
+      Today is day one, not the finish.
+      If the opening held today — you're on track. That's all you need.
+
+  - id: 14
+    mode: play
+    type: close_the_score
+    figure: "A piano with the score closed, lying on top. Cleffy nods. Caption: 'three chords, no music in front of you.'"
+    cleffy: >
+      Last one. Close the score.
+      Play just three chords of your piece — from muscle, ear, and structure.
+      Three pillars. One small try.
+    interaction:
+      type: sequence
+      keys: [["D4","F#4","A4"],["G4","B4","D5"],["A3","C#4","E4"]]
+    followup_cleffy: >
+      That. Three chords, no page.
+      That was memory — all three kinds at once.
+
+  - id: 15
+    mode: hear
+    type: pre_check
+    figure: "Banner — act boss mastery check."
+    cleffy: >
+      Three quick ones.
+
+  - id: 16
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 230. A small trophy with 🎯 on it. Three linked icons — hand, ear, map — below. Banner: ACT 46 COMPLETE."
+    cleffy: >
+      Act 46 — complete.
+      You met the three memories. You started memorizing a real piece.
+      This week — keep going. The piece you picked. Ten minutes a day.
+      Next act — recording yourself. Silent rehearsal. Performance skills.
+      Moonlight is coming. Twenty lessons away.
+
+practice_this_week:
+  real_piano:
+    - "Your chosen piece — Nocturne, Arietta, or Gymnopédie. Every day this week, ten minutes. Muscle reps on one section. Sing a phrase. Name the sections out loud."
+    - "Once this week, play as much as you can with the score closed. Stop where you lose it. Open the score. Learn what slipped. Close it again."
+    - "Tell someone which piece you're memorizing. Just say it out loud to a person. It makes the commitment real."
+  virtual_only:
+    - "Replay pages 8, 10, and 14 — the three memory passes on the same opening phrase."
+  estimated_time: "10 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "Three sheet-music stands with Nocturne, Arietta, Gymnopédie"
+          prompt: "Why does Tier 6 ask you to memorize a piece you already know?"
+          options: ["Because new pieces are too hard", "Because memorizing is its own skill, separate from learning", "Because old pieces are easier"]
+          correct: 1
+        - figure: "The four-step plan: draw map, muscle reps, sing, close score"
+          prompt: "What's the first step of the memorization plan?"
+          options: ["Play it fast from memory", "Draw the map — name the sections", "Close the score immediately"]
+          correct: 1
+        - figure: "A calendar showing day 1 of a two-to-four-week timeline"
+          prompt: "How long does memorizing a piece well usually take?"
+          options: ["One practice session", "Two to four weeks of daily work", "A year"]
+          correct: 1
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "A slow, spacious opening of the chosen piece"
+          prompt: "When listening builds your ability to hear the next note in your head, which memory is that?"
+          options: ["Muscle memory", "Ear memory", "Structural memory"]
+          correct: 1
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play three chords from your chosen piece with the score closed. Any three that you can hold."
+          accept: "Any three chords from the student's chosen piece played cleanly from memory"
+
+remediation:
+  id: "230.5"
+  title: "Memorize just the first bar"
+  pages: 8
+  opening_cleffy: >
+    If three chords from memory felt like too much — that's fine.
+    We shrink it. One bar. One chord if that's what holds.
+    Memorizing is patient work. You're not behind.
+
+completion:
+  cleffy: >
+    Act 46 — done. Three pillars met. One piece started.
+    You have a memorization project now. Tend it.
+    Next — recording yourself. Listening back. The start of the real performance work.
+  xp: 30
+  unlocks: 231

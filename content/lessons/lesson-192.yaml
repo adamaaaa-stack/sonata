@@ -1,0 +1,231 @@
+# ============================================================
+# LESSON 192 · The grace note
+# Tier 5 · Act 39 · Upper-Intermediate · Ornaments
+# A tiny crossed-out note that steals a sliver of time.
+# ============================================================
+id: 192
+tier: upper-intermediate
+act: 39
+title: "The grace note"
+subtitle: "Act 39 · Ornaments"
+goal: "Read and play a grace note — a tiny crossed-out note with no time of its own that flicks onto the main note."
+prereqs: [191]
+method_focus: "play"
+time_estimate_min: 13
+piece_context: "Yesterday you met four ornaments. Today, the smallest of them. A grace note looks like a mini eighth note with a slash through its stem, glued just before a regular note. It has no time in the bar. It steals a hair of time from its neighbor, flicks, and is gone."
+metaphor: "notes-that-sparkle"
+vibe: ["gentle", "playful", "focused"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy holding a tiny note on his fingertip, about to flick it onto a regular note. Banner: THE GRACE NOTE."
+    cleffy: >
+      Today — the smallest ornament.
+      A grace note. Tiny. Quick. Gone.
+      So fast the bar doesn't count it.
+
+  - id: 2
+    mode: see
+    type: what_it_looks_like
+    figure: "Staff. A normal quarter note C4, with a tiny crossed-out eighth note B3 immediately before it. The small note is half-size, has a slash through the stem, and a beam touching the main note."
+    cleffy: >
+      Here it is on the page.
+      A mini eighth note with a slash through its stem. Sits just left of a regular note.
+      Half-size. Leaning into its neighbor.
+
+  - id: 3
+    mode: see
+    type: no_time_of_its_own
+    figure: "Two bars side by side. Left bar — four quarter notes on beats 1, 2, 3, 4. Right bar — same four notes, but the third one has a grace note glued in front. Counter below: '1 - 2 - 3 - 4' on both bars. Caption: 'the grace note doesn't add a beat.'"
+    cleffy: >
+      Key idea — a grace note has no time of its own.
+      The bar is still four beats. The grace note steals a sliver from the main note's start.
+      You don't count it. You just flick it.
+
+  - id: 4
+    mode: hear
+    type: listen_without_and_with
+    figure: "Two play buttons. A: main note only. B: same note with a grace note flicked in front."
+    audio:
+      A: "A single Middle C held for one beat"
+      B: "A quick B grace note flicking into a held Middle C — B-C, the B very short"
+    cleffy: >
+      First — plain C.
+      Second — the same C, with a tiny B flicked in front.
+      Hear how the B lives for less than a blink.
+
+  - id: 5
+    mode: see
+    type: steals_from_main
+    figure: "Zoomed timeline of one beat. Normal version: 100% filled with main note. Ornamented version: tiny sliver at the start marked 'grace' then the rest marked 'main'. Caption: same total time."
+    cleffy: >
+      A closer look. One beat, before and after.
+      Before — all main note. After — a sliver of grace, then the rest is main.
+      Total time unchanged. The main note just starts a hair late.
+
+  - id: 6
+    mode: play
+    type: play_main_only
+    figure: "Keyboard. C4 glowing. Text: plain main note, no ornament."
+    cleffy: >
+      Plain first.
+      Play Middle C. Hold for one beat. Get the feel.
+    interaction:
+      type: sequence
+      keys: ["C4"]
+
+  - id: 7
+    mode: play
+    type: play_grace_slow
+    figure: "Keyboard. B3 dim-glowing (small), then C4 bright-glowing (large). Arrow: B flicks, C lands."
+    cleffy: >
+      Now the grace note version. Slow for now.
+      Touch B, then immediately C. Don't hold the B. Flick it.
+    interaction:
+      type: sequence
+      keys: ["B3", "C4"]
+
+  - id: 8
+    mode: play
+    type: play_grace_fast
+    figure: "Same two keys. Arrow now curved and tight — showing the flick is quick."
+    cleffy: >
+      Same two notes. This time — fast.
+      B is almost a click. C is the note you want to hear sing.
+    interaction:
+      type: sequence
+      keys: ["B3", "C4"]
+
+  - id: 9
+    mode: see
+    type: grace_from_above_or_below
+    figure: "Two staves. Top — grace note F leans into a main G (from above). Bottom — grace note A leans into a main G (from below). Caption: grace notes can come from either neighbor."
+    cleffy: >
+      Grace notes can come from above or below.
+      The main note is still the target. The grace note is just the flick that lands there.
+
+  - id: 10
+    mode: play
+    type: grace_from_above
+    figure: "Keyboard. F4 dim-glowing (small), then E4 bright (large). Text: grace note from above."
+    cleffy: >
+      Grace from above. Flick F, land on E.
+      Fast.
+    interaction:
+      type: sequence
+      keys: ["F4", "E4"]
+
+  - id: 11
+    mode: play
+    type: grace_in_phrase
+    figure: "Keyboard. A short melody: D4, E4, (grace F4) G4, E4. Text: grace note tucked inside a phrase."
+    cleffy: >
+      Grace note inside a phrase now.
+      Play D, E. On the next note, flick F into G. Then E.
+      The phrase keeps its beat. The grace lives inside it.
+    interaction:
+      type: sequence
+      keys: ["D4", "E4", "F4", "G4", "E4"]
+    followup_cleffy: >
+      Good.
+      The grace flashed by — but the phrase never broke step.
+
+  - id: 12
+    mode: play
+    type: grace_rhythm_in_time
+    figure: "Staff. Four quarter notes — C, D, E, F — with a grace B3 before the C. Metronome at 60."
+    cleffy: >
+      Now in time. Metronome at 60.
+      Four quarter notes. The grace lives just before beat 1.
+      Don't stretch the bar. Flick and land.
+    interaction:
+      type: rhythm
+      sequence: ["B3", "C4", "D4", "E4", "F4"]
+      durations: ["sixteenth", "quarter", "quarter", "quarter", "quarter"]
+      tempo: 60
+
+  - id: 13
+    mode: hear
+    type: grace_or_no_grace
+    figure: "Four rounds. Banner: 'grace note — yes or no?'"
+    cleffy: >
+      Four rounds. Yes or no — did you hear a grace note?
+    interaction:
+      type: drill
+      rounds: 4
+      options: ["Yes, grace note", "No, plain note"]
+
+  - id: 14
+    mode: hear
+    type: pre_check
+    figure: "Banner."
+    cleffy: >
+      Three quick ones.
+
+  - id: 15
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 192. A tiny crossed note in mid-flight, arcing into a full note. Caption: the flick that disappears."
+    cleffy: >
+      The grace note. A flick before the main note.
+      No time of its own. Stolen seconds. Gone.
+      Tomorrow — the trill. More alternations, but the same idea on steroids.
+
+practice_this_week:
+  real_piano:
+    - "Find a familiar tune. Pick one long note. Add a grace note from the note above — flick it, then land. Keep the beat."
+    - "On Middle C, practice flicking in B, then D, then any neighbor. Fast. Don't hold the grace."
+  virtual_only:
+    - "Replay pages 7, 8, and 12. Feel the flick, not the count."
+  estimated_time: "10 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "A tiny crossed eighth note just before a full quarter note"
+          prompt: "How much time does the grace note take from the bar?"
+          options: ["A full beat", "Half a beat", "None — it steals a sliver from the main note"]
+          correct: 2
+        - figure: "A grace note shown above and a grace note shown below a main note"
+          prompt: "Can a grace note come from above OR below the main note?"
+          options: ["Yes, either direction", "Only from above", "Only from below"]
+          correct: 0
+        - figure: "Two bars. First with plain quarter notes. Second with a grace note before the first quarter."
+          prompt: "Do both bars have the same total number of beats?"
+          options: ["Yes, both are four beats", "No, the second is longer"]
+          correct: 0
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "A Middle C with a B grace note flicked in front"
+          prompt: "Grace note or plain note?"
+          options: ["Plain", "Grace note"]
+          correct: 1
+        - audio: "A plain held Middle C"
+          prompt: "Grace note or plain note?"
+          options: ["Plain", "Grace note"]
+          correct: 0
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play a grace note B3 flicking into Middle C. B is short; C is the note you hold."
+          accept: "B3 then C4 played in quick succession, B shorter than C"
+
+remediation:
+  id: "192.5"
+  title: "Grace notes, one flick at a time"
+  pages: 6
+  opening_cleffy: >
+    The grace note is easy to understand and hard to feel.
+    We'll slow it down — first the two keys, then the flick.
+
+completion:
+  cleffy: >
+    One ornament fully yours.
+    Tomorrow — the trill. More notes, faster, same idea.
+  xp: 17
+  unlocks: 193

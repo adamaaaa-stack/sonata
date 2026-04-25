@@ -1,0 +1,213 @@
+id: 40
+tier: elementary
+act: 8
+title: "Step, skip, leap — all three"
+subtitle: "Act 8 · The full method, at speed"
+goal: "Recognize step, skip, and leap at a glance and by ear. The full Sonata method, locked in."
+prereqs: [16, 17, 21, 36, 37, 38, 39]
+method_focus: "intervals"
+time_estimate_min: 12
+piece_context: "The three moves of the Sonata method are now all yours. Every piece you ever read uses them."
+metaphor: "the-three-moves"
+vibe: ["gentle", "playful", "serious", "celebratory"]
+is_act_boss: true
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy with a trophy. Behind him, three staircases labeled STEP, SKIP, LEAP."
+    cleffy: >
+      Act 8, final lesson. Today you prove you own all three.
+      Step. Skip. Leap. At speed. By eye, by ear, by hand.
+
+  - id: 2
+    mode: see
+    type: recap
+    figure: "Three-panel chart. Step = one spot, kinds switch. Skip = two spots, kinds keep. Leap = three+ spots, bigger jump."
+    cleffy: >
+      Recap.
+      Step — smallest move. Line-to-space or space-to-line.
+      Skip — one bigger. Line-to-line or space-to-space.
+      Leap — three or more spots.
+
+  - id: 3
+    mode: see
+    type: speed_drill_1
+    figure: "Round counter 1 of 8. 2-second time limit. Step, skip, leap."
+    cleffy: >
+      Eight rounds at speed. Trust your eye.
+    interaction:
+      type: drill
+      rounds: 8
+      options: ["Step", "Skip", "Leap"]
+      time_limit: 2
+
+  - id: 4
+    mode: see
+    type: speed_drill_2
+    figure: "Round counter 1 of 6. Still faster."
+    cleffy: >
+      Six more. Quicker this time.
+    interaction:
+      type: drill
+      rounds: 6
+      options: ["Step", "Skip", "Leap"]
+      time_limit: 1
+
+  - id: 5
+    mode: hear
+    type: ear_drill_1
+    figure: "Round counter 1 of 6."
+    cleffy: >
+      Six by ear. Step, skip, or leap?
+    interaction:
+      type: drill
+      rounds: 6
+      options: ["Step", "Skip", "Leap"]
+
+  - id: 6
+    mode: hear
+    type: ear_drill_2
+    figure: "Round counter 1 of 4. Mixed size leaps."
+    cleffy: >
+      Four more. Some of the leaps are small, some big. Still just step/skip/leap.
+    interaction:
+      type: drill
+      rounds: 4
+      options: ["Step", "Skip", "Leap"]
+
+  - id: 7
+    mode: play
+    type: play_each
+    figure: "Keyboard. Prompt rotates: step, skip, leap."
+    cleffy: >
+      Three rounds. I name a move. You play it, any direction.
+    interaction:
+      type: drill
+      rounds: 3
+
+  - id: 8
+    mode: read
+    type: read_three_note
+    figure: "Staff with 3 notes: step up, skip up. Various starting points."
+    cleffy: >
+      Read a 3-note melody. All three moves mixed.
+      See the shape, play the matching shape.
+    interaction:
+      type: sequence
+      shape: ["step_up", "skip_up"]
+
+  - id: 9
+    mode: read
+    type: read_four_note
+    figure: "Staff with 4 notes: step, leap, step."
+    cleffy: >
+      Four-note melody. Step up, leap up, step down.
+    interaction:
+      type: sequence
+      shape: ["step_up", "leap_up", "step_down"]
+
+  - id: 10
+    mode: read
+    type: read_five_note
+    figure: "Staff with 5 notes: step, skip, leap, step, skip."
+    cleffy: >
+      Five notes. All three moves at least once.
+    interaction:
+      type: sequence
+      shape: ["step_up", "skip_up", "leap_up", "step_down", "skip_down"]
+
+  - id: 11
+    mode: see
+    type: both_staves
+    figure: "Grand staff with a treble melody and a bass melody, both using step/skip/leap."
+    cleffy: >
+      The method works on both staves. Always has. Both hands can read any of the three moves.
+
+  - id: 12
+    mode: hear
+    type: mixed_finale
+    figure: "Round counter 1 of 6. Mixed see/hear/play."
+    cleffy: >
+      Six rounds. Every mode.
+    interaction:
+      type: drill
+      rounds: 6
+
+  - id: 13
+    mode: hear
+    type: pre_check
+    figure: "Banner — Act 8 mastery check."
+    cleffy: >
+      Five quick ones. This is the last act 8 step before the real test.
+
+  - id: 14
+    mode: see
+    type: wrap
+    figure: "Celebration card — ACT 8 COMPLETE. Trophy engraved 8/10 acts. Three small feet labeled STEP, SKIP, LEAP dancing."
+    cleffy: >
+      Act 8 closed.
+      The method is completely yours now. Every piece of music you'll ever read is built out of those three moves.
+      Next — the rest of the notes on the treble staff get names, derived from Middle C. Then Mary Had a Little Lamb.
+
+practice_this_week:
+  real_piano:
+    - "RH thumb on Middle C. Play step (C-D), skip (C-E), leap (C-G). Ten times each."
+    - "Mix it: step up, skip down, leap up. Make up your own 4-note melodies."
+    - "LH too: same three moves in the bass range."
+  virtual_only:
+    - "Replay pages 3-6 (the speed drills). Aim for faster, accurate."
+  estimated_time: "10 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 4
+      questions:
+        - figure: "Staff, step up."
+          prompt: "Step, skip, or leap?"
+          options: ["Step", "Skip", "Leap"]
+          correct: 0
+        - figure: "Staff, skip up."
+          prompt: "Step, skip, or leap?"
+          options: ["Step", "Skip", "Leap"]
+          correct: 1
+        - figure: "Staff, leap (4th)."
+          prompt: "Step, skip, or leap?"
+          options: ["Step", "Skip", "Leap"]
+          correct: 2
+        - figure: "Staff, octave leap."
+          prompt: "Step, skip, or leap?"
+          options: ["Step", "Skip", "Leap"]
+          correct: 2
+    hear:
+      pass_threshold: 2
+      questions:
+        - audio: "C4 to D4 (step)"
+          prompt: "Step, skip, or leap?"
+          options: ["Step", "Skip", "Leap"]
+          correct: 0
+        - audio: "C4 to G4 (leap)"
+          prompt: "Step, skip, or leap?"
+          options: ["Step", "Skip", "Leap"]
+          correct: 2
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play a leap up from any note."
+          accept: "two notes 3+ steps apart ascending"
+
+remediation:
+  id: "40.5"
+  title: "All three, once more"
+  pages: 7
+  opening_cleffy: >
+    Act 8 boss. Let's slow it down and do another pass on step, skip, and leap side by side.
+
+completion:
+  cleffy: >
+    The Sonata method is yours. All three moves, both hands, both staves.
+    Eight of ten acts done.
+  xp: 30
+  unlocks: 41

@@ -1,0 +1,202 @@
+id: 72
+tier: elementary
+act: 15
+title: "Contour"
+subtitle: "The shape of a melody"
+goal: "Recognize the overall shape of a melody — up, down, arch, wave — at a glance."
+prereqs: [40, 55]
+method_focus: "patterns"
+time_estimate_min: 10
+piece_context: null
+metaphor: "melody-shape"
+vibe: ["gentle", "playful"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Three short melodies drawn on staves. Above each: a wavy line showing the overall shape."
+    cleffy: >
+      Zoom out. Forget the individual notes.
+      Just look at the general shape the melody makes on the page.
+      That's called contour.
+
+  - id: 2
+    mode: see
+    type: rising
+    figure: "Melody going up steadily, with an arrow up over it."
+    cleffy: >
+      Rising contour. Every note higher than the last (or close).
+
+  - id: 3
+    mode: see
+    type: falling
+    figure: "Melody going down. Arrow pointing down."
+    cleffy: >
+      Falling contour. Downhill.
+
+  - id: 4
+    mode: see
+    type: arch
+    figure: "Melody that goes up and comes back down. Arrow shaped like an arch."
+    cleffy: >
+      Arch. Up, then down. Very common in classical melodies.
+
+  - id: 5
+    mode: see
+    type: wave
+    figure: "Melody that goes up-down-up-down. Wavy line above."
+    cleffy: >
+      Wave. Wobbles around a central pitch.
+
+  - id: 6
+    mode: see
+    type: interactive_rising
+    figure: "A rising melody on staff."
+    cleffy: >
+      Which contour?
+    interaction:
+      type: choice
+      options: ["Rising", "Falling", "Arch", "Wave"]
+      correct: 0
+
+  - id: 7
+    mode: see
+    type: interactive_arch
+    figure: "An arched melody."
+    cleffy: >
+      This?
+    interaction:
+      type: choice
+      options: ["Rising", "Falling", "Arch", "Wave"]
+      correct: 2
+
+  - id: 8
+    mode: see
+    type: drill
+    figure: "Round counter 1 of 6."
+    cleffy: >
+      Six rounds. Identify the contour.
+    interaction:
+      type: drill
+      rounds: 6
+      options: ["Rising", "Falling", "Arch", "Wave"]
+
+  - id: 9
+    mode: hear
+    type: contour_by_ear
+    figure: "Play button."
+    audio:
+      A: "Rising melody"
+      B: "Falling melody"
+      C: "Arched melody"
+      D: "Wavy melody"
+    cleffy: >
+      Ear can hear contour too. Listen to each type.
+
+  - id: 10
+    mode: hear
+    type: ear_drill
+    figure: "Round counter 1 of 4."
+    cleffy: >
+      Four by ear. Which contour?
+    interaction:
+      type: drill
+      rounds: 4
+      options: ["Rising", "Falling", "Arch", "Wave"]
+
+  - id: 11
+    mode: see
+    type: ode_to_joy_contour
+    figure: "Ode to Joy first phrase with the contour drawn above — it's a small arch."
+    cleffy: >
+      Ode to Joy's first phrase is an arch. Starts on E, goes up to G, comes back to D.
+
+  - id: 12
+    mode: see
+    type: amazing_grace_contour
+    figure: "Amazing Grace phrase 1 with arch over it."
+    cleffy: >
+      Amazing Grace phrase 1: F A C C A C A F. Also an arch — up to C, back to F.
+
+  - id: 13
+    mode: play
+    type: play_arch
+    figure: "Keyboard. Play an ascending then descending 5-finger scale — that's an arch."
+    cleffy: >
+      Play an arch. Up the five-finger scale, then back.
+    interaction:
+      type: sequence
+      keys: ["C4","D4","E4","F4","G4","F4","E4","D4","C4"]
+
+  - id: 14
+    mode: hear
+    type: mixed
+    figure: "Four rounds."
+    cleffy: >
+      Mixed.
+    interaction:
+      type: drill
+      rounds: 4
+
+  - id: 15
+    mode: hear
+    type: pre_check
+    figure: "Banner."
+    cleffy: >
+      Four quick ones.
+
+  - id: 16
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 72. Four contour shapes drawn."
+    cleffy: >
+      Four shapes. Now you read the BIG picture of a melody first.
+      Tomorrow — sequences. Same shape, moved.
+
+practice_this_week:
+  real_piano:
+    - "Look at any piece you know. Trace the contour of each phrase. Rising, falling, arched, or wavy?"
+    - "Pick one phrase and play it while thinking about its contour."
+  virtual_only:
+    - "Replay pages 9-10"
+  estimated_time: "5 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "Rising melody"
+          prompt: "Which contour?"
+          options: ["Rising", "Falling", "Arch", "Wave"]
+          correct: 0
+        - figure: "Arch melody"
+          prompt: "Which contour?"
+          options: ["Rising", "Falling", "Arch", "Wave"]
+          correct: 2
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "Falling melody"
+          prompt: "Which contour?"
+          options: ["Rising", "Falling", "Arch"]
+          correct: 1
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play a rising contour — any five notes going up."
+          accept: "5 ascending notes"
+
+remediation:
+  id: "72.5"
+  title: "Contour, slower"
+  pages: 5
+  opening_cleffy: >
+    Four shapes. Slow with visuals.
+
+completion:
+  cleffy: >
+    Contour recognized. You read melodies at the shape level.
+  xp: 20
+  unlocks: 73

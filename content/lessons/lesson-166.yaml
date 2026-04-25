@@ -1,0 +1,208 @@
+# ============================================================
+# LESSON 166 · Minor-key shape
+# Tier 4 · Act 34 · Intermediate · Minor keys + Moonlight intro
+# The lowered third (and sixth) is what makes minor sound dark.
+# ============================================================
+id: 166
+tier: intermediate
+act: 34
+title: "Minor-key shape"
+subtitle: "Act 34 · Minor keys + Moonlight intro"
+goal: "Hear and see why minor sounds darker than major — the lowered third is the color change."
+prereqs: [165, 113]
+method_focus: "hear"
+time_estimate_min: 13
+piece_context: "Act 34 opens the road to Moonlight. You had the twin-keys idea back at L113 — every major has a minor relative. Now you go deeper. What actually makes a scale sound minor? One note. The third."
+metaphor: "lowered-third-shadow"
+vibe: ["reflective", "quiet", "focused"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy standing between a sunlit door and a moonlit door. Banner: ACT 34 · MINOR KEYS."
+    cleffy: >
+      New act.
+      Minor keys. The road to Moonlight.
+      You already know they sound sad. Today — why.
+
+  - id: 2
+    mode: see
+    type: two_scales_side_by_side
+    figure: "Two staves stacked. Top — A major scale: A B C# D E F# G# A. Bottom — A minor scale: A B C D E F G A. Third, sixth, and seventh notes circled on both with arrows down."
+    cleffy: >
+      Look at the two A scales.
+      Major has three sharps. Minor has none.
+      The third, sixth, and seventh got lowered. The third is the one that changes the color.
+
+  - id: 3
+    mode: see
+    type: the_third_is_the_color
+    figure: "Keyboard zoomed to A position. A to C# labeled 'major third' (bright arrow). A to C labeled 'minor third' (dim arrow)."
+    cleffy: >
+      A to C-sharp — major third. Bright.
+      A to C — minor third. One half-step lower. Dark.
+      Same distance from home, different mood.
+
+  - id: 4
+    mode: hear
+    type: hear_major_then_minor
+    figure: "Two play buttons. A major scale, then A minor scale."
+    audio:
+      A: "A major scale ascending"
+      B: "A natural minor scale ascending — all white keys from A"
+    cleffy: >
+      First — A major. Bright.
+      Second — A minor. Sad.
+      Same starting note. Same ending note. Different middle.
+
+  - id: 5
+    mode: play
+    type: play_a_major_third
+    figure: "Keyboard. A and C# glowing. Finger 1 on A, finger 3 on C#."
+    cleffy: >
+      Play the major third. A, then C-sharp.
+      That's the bright sound.
+    interaction:
+      type: sequence
+      keys: ["A4", "C#5"]
+
+  - id: 6
+    mode: play
+    type: play_a_minor_third
+    figure: "Keyboard. A and C glowing. Finger 1 on A, finger 3 on C."
+    cleffy: >
+      Now the minor third. A, then plain C.
+      One half-step lower. Feel the flip.
+    interaction:
+      type: sequence
+      keys: ["A4", "C5"]
+
+  - id: 7
+    mode: see
+    type: natural_minor_formula
+    figure: "Banner: NATURAL MINOR = major with lowered 3, 6, 7. Diagram showing a major scale with arrows pulling three notes down."
+    cleffy: >
+      The formula. Take any major scale. Lower the third. Lower the sixth. Lower the seventh.
+      That's the natural minor. Same staircase, three shadows.
+
+  - id: 8
+    mode: play
+    type: play_a_minor_scale
+    figure: "Keyboard. A B C D E F G A — all white keys."
+    cleffy: >
+      A minor scale. All white keys, A to A.
+      Listen as you climb — hear the sad thirds.
+    interaction:
+      type: sequence
+      keys: ["A3", "B3", "C4", "D4", "E4", "F4", "G4", "A4"]
+
+  - id: 9
+    mode: see
+    type: d_minor_same_rule
+    figure: "Staff. D minor scale: D E F G A Bb C D. Lowered third (F) and lowered sixth (Bb) highlighted."
+    cleffy: >
+      Same rule, different home. D minor.
+      Third is F — not F-sharp. Sixth is B-flat.
+      Darker version of D major.
+
+  - id: 10
+    mode: play
+    type: play_d_minor_scale
+    figure: "Keyboard. D E F G A Bb C D."
+    cleffy: >
+      D minor scale. Watch the B-flat near the top.
+    interaction:
+      type: sequence
+      keys: ["D4", "E4", "F4", "G4", "A4", "Bb4", "C5", "D5"]
+
+  - id: 11
+    mode: hear
+    type: major_or_minor_drill
+    figure: "Six rounds. Banner — 'Third: major or minor?'"
+    cleffy: >
+      Six rounds. One third each.
+      Bright or dark? Major or minor?
+    interaction:
+      type: drill
+      rounds: 6
+      options: ["Major", "Minor"]
+
+  - id: 12
+    mode: play
+    type: chord_major_vs_minor
+    figure: "Keyboard. Two A chords side by side — A-C#-E (major), A-C-E (minor). Play left chord, then right."
+    cleffy: >
+      Two chords. A major, then A minor.
+      Move only the middle finger. Down one half-step. That's the whole change.
+    interaction:
+      type: sequence
+      keys: ["A4", "C#5", "E5", "A4", "C5", "E5"]
+
+  - id: 13
+    mode: hear
+    type: pre_check
+    figure: "Banner."
+    cleffy: >
+      Three quick ones.
+
+  - id: 14
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 166. Moonlit door half-open. Text: one note makes all the difference."
+    cleffy: >
+      Minor keys. The third is the color.
+      Tomorrow — C-sharp minor. Four sharps. The Moonlight key.
+
+practice_this_week:
+  real_piano:
+    - "Play A major scale, then A minor. Listen for the third — the C# vs C. That's the whole flip."
+    - "Play any major chord you know. Lower the middle note by one half-step. Now it's minor."
+  virtual_only:
+    - "Replay pages 5, 6, and 8."
+  estimated_time: "10 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "A major and A minor scales written out"
+          prompt: "Which note is the biggest color change between major and minor?"
+          options: ["The first", "The third", "The fifth"]
+          correct: 1
+        - figure: "A to C-sharp, then A to C"
+          prompt: "Which interval is the minor third?"
+          options: ["A to C-sharp", "A to C"]
+          correct: 1
+        - figure: "A natural minor scale on staff"
+          prompt: "How many sharps or flats does A minor have?"
+          options: ["None", "One sharp", "One flat"]
+          correct: 0
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "An A minor scale"
+          prompt: "Major or minor?"
+          options: ["Major", "Minor"]
+          correct: 1
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play the A minor scale, A to A, all white keys."
+          accept: "A3 B3 C4 D4 E4 F4 G4 A4"
+
+remediation:
+  id: "166.5"
+  title: "Minor, one third at a time"
+  pages: 7
+  opening_cleffy: >
+    Minor is a feel, not a formula — but the formula helps.
+    We'll slow it. One third at a time. Ear first, then keys.
+
+completion:
+  cleffy: >
+    Minor keys — the third is the shadow.
+    Tomorrow — C-sharp minor. Four sharps. The key of Moonlight.
+  xp: 17
+  unlocks: 167

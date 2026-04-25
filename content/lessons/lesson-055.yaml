@@ -1,0 +1,199 @@
+id: 55
+tier: elementary
+act: 11
+title: "Ode to Joy"
+subtitle: "Act 11 · Your first classical melody"
+goal: "Read and play Ode to Joy — a real classical melody from the 9th Symphony."
+prereqs: [40, 44, 51]
+method_focus: "combine"
+time_estimate_min: 14
+piece_context: "Beethoven's Ode to Joy. You've heard it. Now you play it."
+metaphor: "classical-debut"
+vibe: ["gentle", "playful", "celebratory"]
+is_act_boss: true
+piece:
+  title: "Ode to Joy (theme)"
+  composer: "Beethoven"
+  notes: "E E F G | G F E D | C C D E | E D D | E E F G | G F E D | C C D E | D C C"
+  key_center: "C major"
+  time_signature: "4/4"
+  difficulty: "elementary — RH in C position, steps and one skip"
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy holding sheet music titled Ode to Joy (theme from Beethoven's Symphony No. 9)."
+    cleffy: >
+      Ode to Joy. Beethoven wrote it for a symphony and a chorus.
+      You know the tune. Today, you play it.
+
+  - id: 2
+    mode: hear
+    type: listen
+    figure: "Play button."
+    audio:
+      A: "Ode to Joy performed at moderate tempo, RH only"
+    cleffy: >
+      Listen first. Whole tune.
+
+  - id: 3
+    mode: see
+    type: phrase_1_shape
+    figure: "First phrase on staff: E E F G G F E D. All steps. Labels under moves."
+    cleffy: >
+      First phrase. E E F G G F E D.
+      Starts on E. Repeats E. Steps up to F. Step up to G. Back down step by step.
+
+  - id: 4
+    mode: play
+    type: phrase_1
+    figure: "Keyboard, RH in C position."
+    cleffy: >
+      Play phrase 1. Middle, middle, ring, pinky, pinky, ring, middle, pointer.
+    interaction:
+      type: sequence
+      keys: ["E4","E4","F4","G4","G4","F4","E4","D4"]
+
+  - id: 5
+    mode: see
+    type: phrase_2_shape
+    figure: "Second phrase: C C D E E D D. Step by step mostly."
+    cleffy: >
+      Phrase 2. C C D E E D D.
+      Down to C, up to E, back to D.
+
+  - id: 6
+    mode: play
+    type: phrase_2
+    figure: "Keyboard."
+    cleffy: >
+      Play phrase 2.
+    interaction:
+      type: sequence
+      keys: ["C4","C4","D4","E4","E4","D4","D4"]
+
+  - id: 7
+    mode: see
+    type: phrase_3_same
+    figure: "Third phrase: same as phrase 1."
+    cleffy: >
+      Phrase 3 is identical to phrase 1. Repeats work.
+
+  - id: 8
+    mode: play
+    type: phrase_3
+    figure: "Keyboard."
+    cleffy: >
+      Same notes. Play it.
+    interaction:
+      type: sequence
+      keys: ["E4","E4","F4","G4","G4","F4","E4","D4"]
+
+  - id: 9
+    mode: see
+    type: phrase_4_finale
+    figure: "Phrase 4: C C D E D C C. Ends on C."
+    cleffy: >
+      Final phrase. C C D E D C C. Lands on home — C.
+
+  - id: 10
+    mode: play
+    type: phrase_4
+    figure: "Keyboard."
+    cleffy: >
+      Play the finale.
+    interaction:
+      type: sequence
+      keys: ["C4","C4","D4","E4","D4","C4","C4"]
+
+  - id: 11
+    mode: play
+    type: full_guided
+    figure: "Full Ode to Joy on staff. Guides on, tempo 60."
+    cleffy: >
+      Whole tune, slow, with guides.
+    interaction:
+      type: song
+      sequence: ["E4","E4","F4","G4","G4","F4","E4","D4","C4","C4","D4","E4","E4","D4","D4","E4","E4","F4","G4","G4","F4","E4","D4","C4","C4","D4","E4","D4","C4","C4"]
+      guides: true
+      tempo: 60
+
+  - id: 12
+    mode: play
+    type: full_free
+    figure: "No guides."
+    cleffy: >
+      No guides. Read and play.
+    interaction:
+      type: song
+      sequence: ["E4","E4","F4","G4","G4","F4","E4","D4","C4","C4","D4","E4","E4","D4","D4","E4","E4","F4","G4","G4","F4","E4","D4","C4","C4","D4","E4","D4","C4","C4"]
+      guides: false
+
+  - id: 13
+    mode: play
+    type: at_tempo
+    figure: "At 90 bpm."
+    cleffy: >
+      Now at tempo. 90 bpm.
+    interaction:
+      type: song
+      sequence: ["E4","E4","F4","G4","G4","F4","E4","D4","C4","C4","D4","E4","E4","D4","D4","E4","E4","F4","G4","G4","F4","E4","D4","C4","C4","D4","E4","D4","C4","C4"]
+      guides: false
+      tempo: 90
+
+  - id: 14
+    mode: see
+    type: wrap
+    figure: "Celebration — ACT 11 COMPLETE. Trophy 11/15 acts. Beethoven profile with sheet music."
+    cleffy: >
+      Act 11, sealed. First real classical melody — Beethoven, Ode to Joy.
+      Tomorrow dynamics start. How loud, how soft.
+
+practice_this_week:
+  real_piano:
+    - "Play Ode to Joy once a day, slow."
+    - "Work up to 90 bpm."
+    - "If you know anyone musical, play it for them. Tell them it's your first Beethoven."
+  virtual_only:
+    - "Replay page 11 (guided run) several times"
+  estimated_time: "10-12 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "First phrase of Ode to Joy"
+          prompt: "Is the shape mostly steps or mostly skips?"
+          options: ["Steps", "Skips"]
+          correct: 0
+        - figure: "Last note of the melody"
+          prompt: "What letter does it end on?"
+          options: ["C", "D", "E"]
+          correct: 0
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "Ode to Joy phrase 1"
+          prompt: "Recognize this tune?"
+          options: ["Yes", "No"]
+          correct: 0
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play the first four notes of Ode to Joy."
+          accept: "E4 E4 F4 G4"
+
+remediation:
+  id: "55.5"
+  title: "Ode to Joy, phrase by phrase"
+  pages: 7
+  opening_cleffy: >
+    Beethoven's tune, broken into four phrases, slow.
+
+completion:
+  cleffy: >
+    Act 11. First classical melody. You played Beethoven.
+  xp: 30
+  unlocks: 56

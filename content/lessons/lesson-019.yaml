@@ -1,0 +1,208 @@
+# ============================================================
+# LESSON 19 · Steps drill
+# Tier 1 · Act 4 · Beginner
+# DRILL LESSON — 12 pages, no new concepts, just reps
+# ============================================================
+id: 19
+tier: beginner
+act: 4
+title: "Steps drill"
+subtitle: "Faster, tighter, yours"
+goal: "Drill step recognition until it's reflex — SEE, HEAR, and PLAY, all at speed."
+prereqs: [16, 17, 18]
+method_focus: "steps"
+time_estimate_min: 10
+piece_context: "Tomorrow you read a full song. Today we make sure your step-reading is fast enough to keep up."
+metaphor: null
+vibe: ["gentle", "playful", "serious"]
+lesson_type: "drill"
+
+pages:
+  - id: 1
+    mode: see
+    type: recap
+    figure: "Cleffy at a blank staff."
+    cleffy: >
+      Yesterday we locked in steps.
+      Today — no new rules. Just reps.
+      By the end of this lesson, reading a step should take you no longer than recognizing a face.
+      Let's go.
+
+  - id: 2
+    mode: see
+    type: quickfire
+    figure: "Round counter 1 of 8. Each round: a pair of notes. Step or not? Very short time limit."
+    cleffy: >
+      Eight rounds. Fast. Step, or not a step?
+    interaction:
+      type: drill
+      rounds: 8
+      time_limit: 2
+      options: ["Step", "Not a step"]
+
+  - id: 3
+    mode: see
+    type: direction_quickfire
+    figure: "Round counter 1 of 6."
+    cleffy: >
+      Six more. All of these ARE steps. Up or down?
+    interaction:
+      type: drill
+      rounds: 6
+      time_limit: 2
+      options: ["Up", "Down"]
+
+  - id: 4
+    mode: hear
+    type: ear_quickfire
+    figure: "Round counter 1 of 6."
+    cleffy: >
+      Six by ear. Step or something bigger?
+    interaction:
+      type: drill
+      rounds: 6
+      options: ["Step", "Bigger"]
+
+  - id: 5
+    mode: hear
+    type: ear_direction
+    figure: "Round counter 1 of 6."
+    cleffy: >
+      Six more by ear. All steps. Up or down?
+    interaction:
+      type: drill
+      rounds: 6
+      options: ["Up", "Down"]
+
+  - id: 6
+    mode: play
+    type: play_drill
+    figure: "Keyboard. A prompt appears: 'Step up' or 'Step down'. You play it, any two keys."
+    cleffy: >
+      I'll call a direction. You play a step that way. Anywhere on the keyboard.
+    interaction:
+      type: drill
+      rounds: 4
+
+  - id: 7
+    mode: play
+    type: five_note_walk_up
+    figure: "Keyboard. Start from any note. Play five consecutive steps up (5 notes total)."
+    cleffy: >
+      Five notes going up. Start wherever. Just walk up the stairs, one step at a time.
+    interaction:
+      type: sequence
+      count: 5
+      direction: "up"
+
+  - id: 8
+    mode: play
+    type: five_note_walk_down
+    figure: "Keyboard. Now five notes going down."
+    cleffy: >
+      And five going down.
+    interaction:
+      type: sequence
+      count: 5
+      direction: "down"
+
+  - id: 9
+    mode: read
+    type: short_melody
+    figure: "Staff with a 5-note step melody: up, up, down, up, down."
+    cleffy: >
+      Read this shape. Play it on the piano, any starting note.
+    interaction:
+      type: sequence
+      shape: ["up", "up", "down", "up", "down"]
+
+  - id: 10
+    mode: read
+    type: another_short_melody
+    figure: "Staff with a different 5-note step melody: down, up, up, down, down."
+    cleffy: >
+      New shape. Read, play.
+    interaction:
+      type: sequence
+      shape: ["down", "up", "up", "down", "down"]
+
+  - id: 11
+    mode: hear
+    type: pre_check
+    figure: "Banner."
+    cleffy: >
+      Four quick ones before mastery.
+
+  - id: 12
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 19. A tiny trophy with the number 19 and a glowing step-up pair on a staff."
+    cleffy: >
+      Fast and clean. That's step-reading, basically locked.
+      Tomorrow — the end of Act 4. You read Hot Cross Buns from the page.
+      Not by ear. From the page.
+      That closes a beautiful loop with Lesson 10, and Tier 1 has two more lessons after that.
+
+# ─── Practice this week ────────────────────────────────
+practice_this_week:
+  real_piano:
+    - "Right hand, five-finger position. Play it ascending, C-D-E-F-G, then descending G-F-E-D-C. Five times."
+    - "Try each finger on each step. Get your muscle memory tight."
+  virtual_only:
+    - "Replay this lesson's drills, focusing on the speed rounds"
+  estimated_time: "5 min/day"
+
+# ─── Mastery check ──────────────────────────────────────
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 3
+      questions:
+        - figure: "Step up"
+          prompt: "Step or not?"
+          options: ["Step", "Not a step"]
+          correct: 0
+          time_limit: 2
+        - figure: "Line to line (skip)"
+          prompt: "Step or not?"
+          options: ["Step", "Not a step"]
+          correct: 1
+          time_limit: 2
+        - figure: "Step down"
+          prompt: "Up or down?"
+          options: ["Up", "Down"]
+          correct: 1
+          time_limit: 2
+    hear:
+      pass_threshold: 2
+      questions:
+        - audio: "Step"
+          prompt: "Step or bigger?"
+          options: ["Step", "Bigger"]
+          correct: 0
+        - audio: "Step down"
+          prompt: "Up or down?"
+          options: ["Up", "Down"]
+          correct: 1
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play five steps going up, starting from any note."
+          accept: "5 adjacent white keys ascending"
+
+# ─── Remediation ────────────────────────────────────────
+remediation:
+  id: "19.5"
+  title: "More reps"
+  pages: 4
+  opening_cleffy: >
+    Drill lessons are the place to grind. If one mode (seeing, hearing, or playing) felt slow,
+    that's the one we focus on.
+
+# ─── Completion ─────────────────────────────────────────
+completion:
+  cleffy: >
+    Nineteen lessons. Your step recognition is basically reflex now.
+    That's going to show up in every piece you play for the rest of your life.
+  xp: 15
+  unlocks: 20

@@ -1,0 +1,210 @@
+# ============================================================
+# LESSON 89 · Chord inversions (see)
+# Tier 3 · Act 18 · Low-Intermediate
+# Same chord, different stacking order.
+# ============================================================
+id: 89
+tier: low-intermediate
+act: 18
+title: "Chord inversions (see)"
+subtitle: "Act 18 · Chords"
+goal: "Recognize that a chord can be stacked in three different orders — and still be the same chord."
+prereqs: [88, 87, 86, 75]
+method_focus: "see"
+time_estimate_min: 13
+piece_context: "A C chord is C, E, G. But the order doesn't have to stay that way. Today you learn to spot a C chord even when it's stacked differently. Playing the shapes comes in L101 — today is seeing."
+metaphor: "three-friends-in-a-row"
+vibe: ["gentle", "focused"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Three triad snowmen in a row. First: C-E-G. Second: E-G-C. Third: G-C-E. Labels: ROOT POSITION, 1st INVERSION, 2nd INVERSION. All three labeled C CHORD."
+    cleffy: >
+      A chord can be stacked three different ways.
+      C, E, G. Or E, G, C. Or G, C, E.
+      Same three letters. Still a C chord. Just reshuffled.
+
+  - id: 2
+    mode: see
+    type: root_position
+    figure: "Staff with C-E-G stacked. Root C on the bottom. Label: ROOT POSITION."
+    cleffy: >
+      Root position. The root sits on the bottom.
+      This is the shape you already know from Lesson 86.
+      C, E, G — that's root position of C.
+
+  - id: 3
+    mode: see
+    type: first_inversion
+    figure: "Staff with E-G-C stacked. E at the bottom. Label: 1st INVERSION. Arrow showing C moved up an octave."
+    cleffy: >
+      First inversion. The root jumps to the top.
+      Bottom note is now E. Then G. Then C on top.
+      Still a C chord — the letters are still C, E, G.
+
+  - id: 4
+    mode: see
+    type: second_inversion
+    figure: "Staff with G-C-E stacked. G at the bottom. Label: 2nd INVERSION."
+    cleffy: >
+      Second inversion. The third moves up too. G on the bottom.
+      Then C. Then E on top.
+      Still a C chord. Still those three letters.
+
+  - id: 5
+    mode: see
+    type: keyboard_view
+    figure: "Keyboard shown three times. C-E-G (root pos). E-G-C above it (1st inv). G-C-E above that (2nd inv). Each labeled."
+    cleffy: >
+      On the keyboard, you can see the gaps.
+      Root position — small gap, bigger gap.
+      First inversion — bigger gap on the bottom.
+      Second inversion — big gap in the middle.
+
+  - id: 6
+    mode: hear
+    type: hear_three_shapes
+    figure: "Three play buttons. Root / 1st / 2nd inversion of C."
+    audio:
+      A: "C major root position"
+      B: "C major first inversion"
+      C: "C major second inversion"
+    cleffy: >
+      Listen to all three. Same three letters every time.
+      They sound related. Like the same word, said with a different emphasis.
+
+  - id: 7
+    mode: see
+    type: name_the_bottom
+    figure: "Three triads. Student sees the bottom note of each and has to tell root/1st/2nd. Legend on the side."
+    cleffy: >
+      Here's the trick. Look at the bottom note.
+      If it's the root — root position. Third on bottom — first inversion. Fifth on bottom — second inversion.
+      Bottom note is always the clue.
+
+  - id: 8
+    mode: see
+    type: g_chord_inversions
+    figure: "G chord in three orders. G-B-D (root), B-D-G (1st), D-G-B (2nd). All labeled G CHORD."
+    cleffy: >
+      Same trick for any chord. G chord inverts too.
+      G-B-D. B-D-G. D-G-B.
+      Still G every time.
+
+  - id: 9
+    mode: see
+    type: why_bother
+    figure: "Two short phrases on a staff. Top: C chord → F chord in root position, with a big jump. Bottom: C chord → F chord where F is in 2nd inversion, staying close. Arrow: SMOOTHER."
+    cleffy: >
+      Why do inversions exist?
+      So your hand doesn't have to jump all over the piano.
+      When two chords share a note, inversions let them stay close — smoother.
+
+  - id: 10
+    mode: hear
+    type: same_or_different
+    figure: "Round counter 1 of 4."
+    cleffy: >
+      Four rounds. Two chords play. Are they the same chord (different inversion) or different chords?
+    interaction:
+      type: drill
+      rounds: 4
+      options: ["Same chord, different inversion", "Different chord"]
+
+  - id: 11
+    mode: see
+    type: on_the_staff
+    figure: "Staff showing three inversions of a C chord. Visually — root pos looks like a tight stack, 1st inv has C up top, 2nd inv has a gap."
+    cleffy: >
+      On the staff, you'll spot inversions by shape.
+      Root position is tight. Inversions have one note pushed up — the stack opens up.
+
+  - id: 12
+    mode: see
+    type: spot_the_position
+    figure: "Staff showing E-G-C stacked (first inversion of C). Three labels offered."
+    cleffy: >
+      Quick look — what's on the bottom of this stack? E.
+      E is the third of C. So — first inversion.
+      Still a C chord.
+
+  - id: 13
+    mode: play
+    type: play_root_only
+    figure: "Keyboard. C-E-G root position glowing. Note — PLAY IS NEXT LESSON ARC; TODAY JUST ONE."
+    cleffy: >
+      Today is mostly seeing. But once — play C in root position, just to hold the shape in your hand.
+      C, E, G.
+    interaction:
+      type: sequence
+      keys: [["C4","E4","G4"]]
+
+  - id: 14
+    mode: hear
+    type: pre_check
+    figure: "Banner."
+    cleffy: >
+      Three quick ones.
+
+  - id: 15
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 89. Three C-chord stacks in a line, each labeled. Note at the bottom: Playing inversions — Lesson 101."
+    cleffy: >
+      Inversions. Same chord, different order. Spot them by the bottom note.
+      Tomorrow — act boss. Canon in D.
+      Playing the inversions yourself — that comes later, in Lesson 101.
+
+practice_this_week:
+  real_piano:
+    - "Write out C-E-G, E-G-C, G-C-E on paper. Label each one. Do the same for G-B-D."
+    - "When you listen to music this week, try to notice when a chord sounds 'stable' (root position) vs 'floating' (an inversion). Don't overthink — just notice."
+  virtual_only:
+    - "Replay pages 3-5 and 7 until spotting the bottom note feels automatic."
+  estimated_time: "5 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "Staff with E-G-C stacked."
+          prompt: "This is a C chord. Which inversion?"
+          options: ["Root position", "First inversion", "Second inversion"]
+          correct: 1
+        - figure: "Staff with G-C-E stacked."
+          prompt: "This is a C chord. Which inversion?"
+          options: ["Root position", "First inversion", "Second inversion"]
+          correct: 2
+        - figure: "Staff with C-E-G stacked."
+          prompt: "How do you tell this is root position?"
+          options: ["The root is on the bottom", "The fifth is on the bottom", "It's the tallest stack"]
+          correct: 0
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "C major root position, then C major first inversion"
+          prompt: "Are these the same chord?"
+          options: ["Yes — different inversions of C", "No — two different chords"]
+          correct: 0
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play a C chord in root position — C, E, G together."
+          accept: "C4, E4, G4 simultaneously"
+
+remediation:
+  id: "89.5"
+  title: "Inversions, one shape at a time"
+  pages: 7
+  opening_cleffy: >
+    Three shapes for one chord is a lot at first. Let's just stare at the bottom note — it's the whole trick.
+
+completion:
+  cleffy: >
+    Inversions spotted.
+    Tomorrow — act 18 boss. Canon in D.
+  xp: 18
+  unlocks: 90

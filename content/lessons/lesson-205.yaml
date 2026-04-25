@@ -1,0 +1,279 @@
+# ============================================================
+# LESSON 205 · Chopin Prelude in E minor
+# Tier 5 · Act 41 · Upper-Intermediate · ACT BOSS 🎯
+# Pedal used as color and mood.
+# ============================================================
+id: 205
+tier: upper-intermediate
+act: 41
+title: "Chopin Prelude in E minor"
+subtitle: "Act 41 · Advanced pedal technique"
+goal: "Play a simplified opening of Chopin's Prelude Op. 28 No. 4 in E minor — using the full pedal toolkit to hold mood and color."
+prereqs: [200, 201, 202, 203, 204]
+method_focus: "combine"
+time_estimate_min: 18
+piece_context: "Act 41 boss. Four lessons of pedal technique behind you — half-pedal, flutter, syncopated, dry. Now the most famous pedal piece in the world. Chopin's Prelude in E minor. Eight bars, a low E bass held still while the right-hand chords sink chromatically above. The pedal holds the whole thing together — a long, grieving cloud of sound."
+metaphor: "pedal-as-color"
+vibe: ["quiet", "reflective", "serious"]
+is_act_boss: true
+
+piece:
+  title: "Prelude in E minor, Op. 28 No. 4"
+  composer: "Chopin"
+  key_center: "E minor"
+  time_signature: "2/2"
+  difficulty: "upper-intermediate — very slow, chromatically sinking RH chords, held LH bass, pedal as color"
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy in front of a dark stage with a single spotlight. A music sheet open to Prelude Op. 28 No. 4. Banner: ACT 41 BOSS — CHOPIN PRELUDE IN E MINOR."
+    cleffy: >
+      Act 41 boss.
+      The most famous pedal piece ever written.
+      Chopin. E minor. Eight bars.
+
+  - id: 2
+    mode: see
+    type: the_piece
+    figure: "Staff preview — the opening four bars. RH: re-struck eighth-note chords that lower one voice chromatically, bar by bar. LH: a single low E, held. Marked 'Largo.' Tempo: 44."
+    cleffy: >
+      Chopin wrote this in 1839.
+      Left hand — one low E bass note, held still.
+      Right hand — re-struck chords that sink, half-step by half-step, one voice at a time.
+      Pedal holds every bar. No change until the chord does.
+
+  - id: 3
+    mode: hear
+    type: listen_whole
+    figure: "Play button. Label: 'CHOPIN PRELUDE IN E MINOR — 8 BARS, LARGO.'"
+    audio:
+      A: "The first eight bars of Prelude Op. 28 No. 4 — LH holds a low E bass, RH re-strikes soft chords that slowly sink chromatically, pedal held whole-bar. A deep, mournful cloud of sound that shifts color as each inner voice descends."
+    cleffy: >
+      Listen. Eight bars. Very slow.
+      The left hand is an anchor. The right hand is the weather — sinking.
+      Pedal holds each bar like a long breath.
+
+  - id: 4
+    mode: see
+    type: the_pedal_job
+    figure: "The eight bars sketched as eight rectangles. A curved pedal-down line spans each bar, with a syncopated change at each bar-line. Label: 'one pedal per bar, syncopated at the bar-line.'"
+    cleffy: >
+      Your pedal job.
+      One pedal per bar. Full depth.
+      Syncopated change at each bar-line — fingers first, foot late.
+      Every bar is one color. The bar-line is where the color shifts.
+
+  - id: 5
+    mode: see
+    type: lh_bass
+    figure: "Staff — LH only. A low E2 held as a whole note under each bar. Steady anchor."
+    cleffy: >
+      Simplified left hand first.
+      One note. Low E. Held under every bar.
+      No motion. Just an anchor. Let the right hand do the drama.
+
+  - id: 6
+    mode: play
+    type: play_lh_alone
+    figure: "Keyboard. LH E2 held as a whole note. No pedal yet."
+    cleffy: >
+      LH alone. One low E, held.
+      Tempo — barely moving. 44.
+      No pedal yet. Just the hand.
+    interaction:
+      type: rhythm
+      sequence: ["E2", "E2", "E2", "E2", "E2", "E2", "E2", "E2"]
+      durations: ["whole", "whole", "whole", "whole", "whole", "whole", "whole", "whole"]
+      tempo: 44
+
+  - id: 7
+    mode: see
+    type: rh_chromatic
+    figure: "Staff — RH only. Eight chord voicings across eight bars. Each chord re-struck in eighths. One inner voice drops a semitone at each bar: B3-E4-G4, B3-E4-F#4, A3-E4-F#4, A3-D#4-F#4, A3-D4-F#4, G#3-C#4-F4, G3-C4-E4, F#3-B3-D#4. Half-steps marked."
+    cleffy: >
+      Right hand — simplified chord voicings, one per bar.
+      Each bar, one note in the chord slides down a half-step.
+      This is the grief — three voices, sinking a semitone at a time.
+
+  - id: 8
+    mode: play
+    type: play_rh_alone
+    figure: "Keyboard. RH chromatic chord descent. Each chord re-struck in eighths for one bar, then the next voicing. No pedal."
+    cleffy: >
+      RH alone. Re-struck chords. One voicing per bar, each slightly lower.
+      Feel each shift. A single voice drops. Everything else stays.
+    interaction:
+      type: rhythm
+      sequence: ["B3", "E4", "G4", "B3", "E4", "G4", "B3", "E4", "F#4", "B3", "E4", "F#4", "A3", "E4", "F#4", "A3", "E4", "F#4", "A3", "D#4", "F#4", "A3", "D#4", "F#4"]
+      durations: ["eighth", "eighth", "eighth", "eighth", "eighth", "eighth", "eighth", "eighth", "eighth", "eighth", "eighth", "eighth", "eighth", "eighth", "eighth", "eighth", "eighth", "eighth", "eighth", "eighth", "eighth", "eighth", "eighth", "eighth"]
+      tempo: 44
+
+  - id: 9
+    mode: hear
+    type: hear_rh_with_pedal
+    figure: "Play button. Label: 'RH WITH ONE-PEDAL-PER-BAR.'"
+    audio:
+      A: "Right hand alone — re-struck chords, one voicing per bar sinking chromatically, with syncopated pedal change at each bar-line. Each chord blooms into a held cloud, then dissolves as the next voicing arrives."
+    cleffy: >
+      Listen — RH with pedal.
+      Each chord blooms. Each bar-line is a pedal flip.
+      The pedal paints the color of each voicing.
+
+  - id: 10
+    mode: play
+    type: rh_with_pedal
+    figure: "Keyboard. RH chromatic chord descent. Pedal meter — DOWN for each bar, syncopated change at bar-lines."
+    cleffy: >
+      RH again. This time — pedal every bar.
+      Fingers land on the new voicing. Pedal flips just after. Let it ring.
+    interaction:
+      type: rhythm
+      sequence: ["B3", "E4", "G4", "B3", "E4", "G4", "B3", "E4", "F#4", "B3", "E4", "F#4", "A3", "E4", "F#4", "A3", "E4", "F#4", "A3", "D#4", "F#4", "A3", "D#4", "F#4"]
+      durations: ["eighth", "eighth", "eighth", "eighth", "eighth", "eighth", "eighth", "eighth", "eighth", "eighth", "eighth", "eighth", "eighth", "eighth", "eighth", "eighth", "eighth", "eighth", "eighth", "eighth", "eighth", "eighth", "eighth", "eighth"]
+      tempo: 44
+
+  - id: 11
+    mode: see
+    type: two_hands_map
+    figure: "A grand staff showing the first two bars. LH: low E2 as a whole note. RH: re-struck B3-E4-G4 chord in eighths. Pedal bar marked underneath."
+    cleffy: >
+      Both hands together now.
+      LH — one long low E. RH — shimmer of chord, re-struck.
+      One pedal for the whole bar.
+
+  - id: 12
+    mode: play
+    type: two_hands_one_bar
+    figure: "Keyboard. Bar 1 only. LH E2 held, RH B3-E4-G4 chord repeating above."
+    cleffy: >
+      One bar. Both hands. Pedal down.
+      LH holds E. RH repeats the chord.
+      Slow. Steady.
+    interaction:
+      type: rhythm
+      sequence: ["E2", "B3", "E4", "G4", "B3", "E4", "G4", "B3", "E4", "G4"]
+      durations: ["whole", "eighth", "eighth", "eighth", "eighth", "eighth", "eighth", "eighth", "eighth", "eighth"]
+      tempo: 44
+
+  - id: 13
+    mode: play
+    type: first_four_bars
+    figure: "Keyboard. Bars 1-4. LH: E2 held each bar. RH: chord voicings sinking chromatically — B3-E4-G4, B3-E4-G4, B3-E4-F#4, A3-E4-F#4. Pedal syncopated at each bar-line."
+    cleffy: >
+      First four bars. Both hands.
+      Pedal flip at every bar-line. Fingers first, foot after.
+      Very slow. Sink into the grief.
+    interaction:
+      type: song
+      sequence: [["E2", "B3", "E4", "G4"], "B3", "E4", "G4", ["E2", "B3", "E4", "G4"], "B3", "E4", "G4", ["E2", "B3", "E4", "F#4"], "B3", "E4", "F#4", ["E2", "A3", "E4", "F#4"], "A3", "E4", "F#4"]
+      guides: true
+      tempo: 44
+
+  - id: 14
+    mode: play
+    type: all_eight_bars
+    figure: "Keyboard. Full 8-bar phrase. LH: E2 held every bar (anchor). RH: chord voicings sinking chromatically across eight bars — each bar, one inner voice drops a semitone. Pedal one-per-bar, syncopated."
+    cleffy: >
+      All eight bars. The whole opening.
+      One pedal per bar. Syncopated at the bar-line.
+      This is the piece. Let it sink.
+    interaction:
+      type: song
+      sequence: [["E2", "B3", "E4", "G4"], "B3", "E4", "G4", ["E2", "B3", "E4", "G4"], "B3", "E4", "G4", ["E2", "B3", "E4", "F#4"], "B3", "E4", "F#4", ["E2", "A3", "E4", "F#4"], "A3", "E4", "F#4", ["E2", "A3", "D#4", "F#4"], "A3", "D#4", "F#4", ["E2", "A3", "D4", "F#4"], "A3", "D4", "F#4", ["E2", "G#3", "C#4", "F4"], "G#3", "C#4", "F4", ["E2", "G3", "C4", "E4"], "G3", "C4", "E4"]
+      guides: true
+      tempo: 44
+    followup_cleffy: >
+      That's the opening of one of the most played pieces in all of piano music.
+      Slow, simple, devastating.
+
+  - id: 15
+    mode: hear
+    type: pre_check
+    figure: "Banner — Act 41 boss mastery check."
+    cleffy: >
+      Four quick ones. Act boss — take your time.
+
+  - id: 16
+    mode: see
+    type: wrap
+    figure: "Celebration card — ACT 41 COMPLETE 🎯. Cleffy holding a candle, Chopin silhouette behind. A pyramid of acts showing 41/50 lit. Tier 5 is filling up."
+    cleffy: >
+      Act 41. Closed.
+      Four pedal tools — half, flutter, syncopated, dry. One Chopin Prelude.
+      The right foot is a full instrument now. Not a switch. A brush.
+      Next act — voicing. Making one finger sing louder than the rest, while the others hold the harmony.
+
+practice_this_week:
+  real_piano:
+    - "Play the RH chromatic chord descent alone, every day, with one pedal per bar. Get the syncopated change clean at each bar-line. Five minutes."
+    - "Play the full eight bars at tempo 44. Don't go faster. The slowness is the piece."
+    - "Listen to a professional recording of the Prelude — any pianist, any version. Hear what their pedal does. You'll notice it now."
+    - "If you have any romantic piece in your hands — a Nocturne, a slow waltz — try applying syncopated pedal to every bar change. Compare to how you did it before."
+  virtual_only:
+    - "Replay pages 10, 13, and 14 — feel the one-per-bar pedal."
+  estimated_time: "15 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "The opening bars of Chopin Prelude Op. 28 No. 4 with pedal marks"
+          prompt: "How often does the pedal change?"
+          options: ["Every beat", "Every bar, at the bar-line", "Never"]
+          correct: 1
+        - figure: "The RH chord voicings sinking across eight bars, one inner voice dropping a semitone each bar"
+          prompt: "Which hand is doing the chromatic descent?"
+          options: ["Left hand", "Right hand", "Both hands equally"]
+          correct: 1
+        - figure: "A pedal marking where the foot changes slightly after each new bar begins"
+          prompt: "What technique is this?"
+          options: ["Flutter", "Syncopated pedal", "Half-pedal"]
+          correct: 1
+        - figure: "A tempo marking of 44 BPM"
+          prompt: "How would you describe this speed?"
+          options: ["Fast and energetic", "Very slow — largo", "Medium — moderato"]
+          correct: 1
+    hear:
+      pass_threshold: 2
+      questions:
+        - audio: "The first four bars of the Prelude with pedal held per bar"
+          prompt: "How many pedal changes did you hear?"
+          options: ["One", "Four — one per bar", "Many — one per beat"]
+          correct: 1
+        - audio: "Two versions of the Prelude — one with pedal-on-beat (gaps), one with syncopated pedal (smooth)"
+          prompt: "Which version matches the Chopin tradition?"
+          options: ["The one with gaps", "The smooth one — syncopated pedal"]
+          correct: 1
+        - audio: "The RH chromatic chord descent without pedal, then with pedal-per-bar"
+          prompt: "Which version feels more like the Prelude?"
+          options: ["No pedal", "Pedal held per bar"]
+          correct: 1
+    play:
+      pass_threshold: 2
+      questions:
+        - prompt: "Play the first two bars — LH holds low E, RH re-strikes the B-E-G chord, syncopated pedal at the bar-line."
+          accept: "LH E2 held under RH B3-E4-G4 chord repeating across two bars, with pedal change at bar 2"
+        - prompt: "Play just the RH chromatic chord descent — one voicing per bar, each bar one inner voice dropping a semitone — with syncopated pedal every bar."
+          accept: "Eight chromatically descending RH chord voicings, pedaled once per bar"
+        - prompt: "Play the opening four bars, both hands, with pedal."
+          accept: "Bars 1-4 of the Prelude — LH low E held, RH chord voicings sinking chromatically, syncopated pedal at each bar-line"
+
+remediation:
+  id: "205.5"
+  title: "Prelude in E minor, one bar at a time"
+  pages: 10
+  opening_cleffy: >
+    Act boss. Chopin. Three things happening at once — the low E bass held steady, the right-hand chords sinking chromatically above, the pedal holding each bar whole.
+    We'll build it one hand at a time, one bar at a time. Very slow. No rush.
+    You'll land it.
+
+completion:
+  cleffy: >
+    Act 41 — sealed. Chopin Prelude in your hands.
+    Four pedal tools, one grieving piece. The right foot is yours.
+    Next act — voicing. Your thumb learns to sing.
+  xp: 30
+  unlocks: 206

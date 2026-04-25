@@ -1,0 +1,225 @@
+# ============================================================
+# LESSON 103 · Two-hand coordination
+# Tier 3 · Act 21 · Low-Intermediate
+# Hands doing genuinely different things — LH bass on 1-and-3, RH melody on 2-and-4.
+# ============================================================
+id: 103
+tier: low-intermediate
+act: 21
+title: "Two-hand coordination"
+subtitle: "Act 21 · Both hands, one mind"
+goal: "Play a pattern where the left and right hands do different things at the same time."
+prereqs: [102, 101, 100, 75]
+method_focus: "play"
+time_estimate_min: 14
+piece_context: "Up until now, hands have mostly moved together or one held still. Today they pull apart."
+metaphor: "both-hands-one-mind"
+vibe: ["focused", "serious"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Two hands drawn as two brains, connected by a thin line. Cleffy in the middle, conducting."
+    cleffy: >
+      Until now your hands did the same job, or one held still.
+      Today they pull apart.
+      Left plays when right is resting. Right plays when left is resting.
+
+  - id: 2
+    mode: see
+    type: the_pattern
+    figure: "Grand staff showing 4/4. LH bass C on beats 1 and 3 (quarter notes). RH C-E-G on beats 2 and 4 (quarter notes)."
+    cleffy: >
+      The pattern. 4/4 time.
+      Left hand plays bass C on beats 1 and 3.
+      Right hand plays a C chord on beats 2 and 4.
+      One, two, three, four. LH, RH, LH, RH.
+
+  - id: 3
+    mode: hear
+    type: listen_pattern
+    figure: "Play button. Metronome clicks under it."
+    audio:
+      A: "LH bass C on 1 and 3, RH C-E-G chord on 2 and 4, steady at 60 bpm"
+    cleffy: >
+      Listen. Low note. High chord. Low. High.
+      Pulse never stops. The two hands trade beats.
+
+  - id: 4
+    mode: play
+    type: lh_alone
+    figure: "Keyboard. Bass C glowing. Metronome 60."
+    cleffy: >
+      Left hand alone. Bass C on beats 1 and 3. Rest on 2 and 4.
+      Count out loud: one, two, three, four.
+    interaction:
+      type: rhythm
+      sequence: ["C3","C3"]
+      durations: ["quarter","quarter-rest","quarter","quarter-rest"]
+      tempo: 60
+
+  - id: 5
+    mode: play
+    type: rh_alone
+    figure: "Keyboard. C, E, G glowing. Metronome 60."
+    cleffy: >
+      Right hand alone. C chord on beats 2 and 4. Rest on 1 and 3.
+      Count: one, TWO, three, FOUR.
+    interaction:
+      type: rhythm
+      sequence: [["C4","E4","G4"], ["C4","E4","G4"]]
+      durations: ["quarter-rest","quarter","quarter-rest","quarter"]
+      tempo: 60
+
+  - id: 6
+    mode: see
+    type: how_to_practice
+    figure: "Diagram. Two boxes. Box 1: 'Say the beat out loud.' Box 2: 'Press only on that hand's beat.'"
+    cleffy: >
+      Before both hands — one trick.
+      Say "one, two, three, four" out loud.
+      LH presses on one and three. RH presses on two and four.
+      Your voice stays steady. Your hands take turns.
+
+  - id: 7
+    mode: play
+    type: both_hands_slow
+    figure: "Grand staff. LH bass C on 1, 3. RH C-E-G on 2, 4. Metronome 50."
+    cleffy: >
+      Both hands. Very slow. 50 bpm.
+      Say it out loud as you play.
+    interaction:
+      type: rhythm
+      sequence: ["C3", ["C4","E4","G4"], "C3", ["C4","E4","G4"]]
+      durations: ["quarter","quarter","quarter","quarter"]
+      tempo: 50
+
+  - id: 8
+    mode: play
+    type: both_hands_again
+    figure: "Same grand staff. Metronome still 50."
+    cleffy: >
+      Again. Same tempo. Cleaner this time.
+    interaction:
+      type: rhythm
+      sequence: ["C3", ["C4","E4","G4"], "C3", ["C4","E4","G4"]]
+      durations: ["quarter","quarter","quarter","quarter"]
+      tempo: 50
+    followup_cleffy: >
+      Your hands are doing different things. That's real.
+
+  - id: 9
+    mode: see
+    type: why_its_hard
+    figure: "Brain diagram. Each hand's beat lit up at different moments."
+    cleffy: >
+      It feels strange because your brain wants both hands to do the same thing.
+      Slow practice teaches your brain otherwise.
+      A week of this pattern and it will feel natural.
+
+  - id: 10
+    mode: play
+    type: add_chord_change
+    figure: "Grand staff. Two bars now. Bar 1: LH C on 1, 3, RH C chord on 2, 4. Bar 2: LH G on 1, 3, RH B-D-G (G chord 1st inv) on 2, 4."
+    cleffy: >
+      Two bars. Same pattern. But the chord changes in bar 2.
+      C chord first bar. G chord second bar.
+      Both hands move to a new note at the start of bar 2.
+    interaction:
+      type: rhythm
+      sequence: ["C3", ["C4","E4","G4"], "C3", ["C4","E4","G4"], "G2", ["B3","D4","G4"], "G2", ["B3","D4","G4"]]
+      durations: ["quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter"]
+      tempo: 50
+
+  - id: 11
+    mode: play
+    type: four_bars
+    figure: "Grand staff. Four bars. C, F, G, C progression underneath the pattern."
+    cleffy: >
+      Four bars. C. F. G. C.
+      Pattern stays the same. Chord underneath changes.
+    interaction:
+      type: rhythm
+      sequence: ["C3", ["C4","E4","G4"], "C3", ["C4","E4","G4"], "F2", ["C4","F4","A4"], "F2", ["C4","F4","A4"], "G2", ["B3","D4","G4"], "G2", ["B3","D4","G4"], "C3", ["C4","E4","G4"], "C3", ["C4","E4","G4"]]
+      durations: ["quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter"]
+      tempo: 50
+
+  - id: 12
+    mode: see
+    type: pattern_in_real_music
+    figure: "Score snippet — a simple waltz-adjacent accompaniment. Label: this pattern lives everywhere."
+    cleffy: >
+      This pattern shows up in thousands of songs.
+      Bass note. Chord. Bass. Chord. The engine of folk, pop, classical.
+
+  - id: 13
+    mode: play
+    type: final_play
+    figure: "Four bars again. Tempo 60 now."
+    cleffy: >
+      Once more. 60 bpm.
+    interaction:
+      type: rhythm
+      sequence: ["C3", ["C4","E4","G4"], "C3", ["C4","E4","G4"], "F2", ["C4","F4","A4"], "F2", ["C4","F4","A4"], "G2", ["B3","D4","G4"], "G2", ["B3","D4","G4"], "C3", ["C4","E4","G4"], "C3", ["C4","E4","G4"]]
+      durations: ["quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter"]
+      tempo: 60
+
+  - id: 14
+    mode: hear
+    type: pre_check
+    figure: "Banner."
+    cleffy: >
+      Three quick ones.
+
+  - id: 15
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 103. Two hands drawn trading beats, steady metronome between them."
+    cleffy: >
+      Hands doing different things. Brain catching up.
+      Tomorrow — this same pattern, but we push the tempo.
+
+practice_this_week:
+  real_piano:
+    - "The four-bar pattern (C-F-G-C) every day. Start at 50 bpm. Don't push faster until it feels easy."
+    - "Count out loud. One, two, three, four. Your voice is the anchor."
+  virtual_only:
+    - "Replay pages 7-8 three times. Build the slow version first."
+  estimated_time: "10 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 1
+      questions:
+        - figure: "Grand staff with LH on 1, 3 and RH on 2, 4"
+          prompt: "When does the left hand play?"
+          options: ["Beats 1 and 3", "Beats 2 and 4", "Every beat"]
+          correct: 0
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "Pattern played — bass, chord, bass, chord"
+          prompt: "Do both hands play on the same beat?"
+          options: ["No — they trade", "Yes — always together"]
+          correct: 0
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play one bar: LH bass C on 1 and 3, RH C-E-G chord on 2 and 4. Slow."
+          accept: "LH and RH alternating quarter notes, one bar"
+
+remediation:
+  id: "103.5"
+  title: "One hand, then the other, then together"
+  pages: 9
+  opening_cleffy: >
+    Two-hand coordination is a real wall. Expected. We're going to slow everything down and rebuild the pattern from each hand alone.
+
+completion:
+  cleffy: >
+    Hands doing different things. That was today.
+    Tomorrow — speed it up. Slow, medium, fast.
+  xp: 20
+  unlocks: 104

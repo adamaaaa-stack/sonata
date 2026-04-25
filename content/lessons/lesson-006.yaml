@@ -1,0 +1,239 @@
+# ============================================================
+# LESSON 6 · Finding F
+# Tier 1 · Act 2 · Beginner
+# Central metaphor: A SECOND FLAG ON THE STAIRS
+# ============================================================
+id: 6
+tier: beginner
+act: 2
+title: "Finding F"
+subtitle: "Your second landmark"
+goal: "Find F anywhere on the keyboard — right before every 3-group."
+prereqs: [3, 4]
+method_focus: "piano-geography"
+time_estimate_min: 10
+piece_context: null
+metaphor: "second-landmark-on-stairs"
+vibe: ["gentle", "playful"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Keyboard with a gold flag on C. Cleffy holding a second flag, blue."
+    cleffy: >
+      Act 2 starts now.
+      You found C yesterday. Today we find its partner.
+      A second landmark — one that lives on the other kind of group.
+
+  - id: 2
+    mode: see
+    type: definition
+    figure: "Zoom on a 3-group. The white key directly to the LEFT of it glows blue. Label: F."
+    cleffy: >
+      F lives right before every 3-group.
+      Same idea as C, different group.
+      C — look for two black keys. F — look for three.
+      Same move, different signpost.
+
+  - id: 3
+    mode: see
+    type: comparison
+    figure: "Side-by-side: 2-group with C in gold, 3-group with F in blue."
+    cleffy: >
+      C is before a 2-group. F is before a 3-group.
+      That's the only rule.
+      If you know which group you're looking at, you know which letter you just found.
+
+  - id: 4
+    mode: see
+    type: pattern_scroll
+    figure: "Keyboard scrolls. Every F lights up blue."
+    cleffy: >
+      Every single F on the keyboard, lighting up.
+      There are seven of them. Same pattern as the Cs, just shifted over.
+
+  - id: 5
+    mode: see
+    type: interactive_spot
+    figure: "Keyboard. Multiple 3-groups visible. Tap any F."
+    cleffy: >
+      Tap any F.
+    interaction:
+      type: tap
+      accept: "any F"
+    corrections:
+      - wrong_label: "wrong_white"
+        cleffy: >
+          Look for a 3-group. F is touching the left side of it.
+      - wrong_label: "tapped_c"
+        cleffy: >
+          That's a C — the 2-group landmark. F is the 3-group one.
+
+  - id: 6
+    mode: hear
+    type: demo
+    figure: "Three play buttons — low F, middle F, high F."
+    audio:
+      A: "F2"
+      B: "F4"
+      C: "F6"
+    cleffy: >
+      Low F, middle F, high F. Same letter, different heights.
+
+  - id: 7
+    mode: hear
+    type: c_vs_f
+    figure: "Two play buttons. A plays Middle C, B plays Middle F."
+    audio:
+      A: "C4"
+      B: "F4"
+    cleffy: >
+      Here's C and F in the same area.
+      Listen to both. F is a few stairs higher than C.
+      Not hugely different. But different.
+      Your ear will learn this one over time.
+
+  - id: 8
+    mode: hear
+    type: drill
+    figure: "Round counter 1 of 4. C or F?"
+    cleffy: >
+      Four rounds. Was that C or F?
+      Both in the middle of the piano, so it's a real listen.
+    interaction:
+      type: drill
+      rounds: 4
+      question: "C or F?"
+      options: ["C", "F"]
+
+  - id: 9
+    mode: play
+    type: guided
+    figure: "Keyboard. Middle F glowing blue."
+    cleffy: >
+      Tap middle F.
+    interaction:
+      type: tap
+      key: "F4"
+
+  - id: 10
+    mode: play
+    type: guided
+    figure: "Keyboard. A low F glowing."
+    cleffy: >
+      A low F — left side of the piano.
+    interaction:
+      type: tap
+      accept: "F in lowest 3 octaves"
+
+  - id: 11
+    mode: play
+    type: c_to_f
+    figure: "Keyboard with Middle C (gold) and Middle F (blue) glowing."
+    cleffy: >
+      Play C and then F, right next to each other in the middle.
+      C first, then F.
+    interaction:
+      type: sequence
+      keys: ["C4", "F4"]
+    followup_cleffy: >
+      That distance — C to F — is bigger than a step.
+      We'll meet the proper name for this size of move later. For now, just feel how far apart they are.
+
+  - id: 12
+    mode: play
+    type: free
+    figure: "Full keyboard."
+    cleffy: >
+      Now find any F anywhere. Your pick.
+    interaction:
+      type: tap
+      accept: "any F"
+
+  - id: 13
+    mode: read
+    type: c_or_f_challenge
+    figure: "Card says C or F each round. Student plays the named note."
+    cleffy: >
+      I'll name a note — C or F. You play it, anywhere on the piano.
+      Four rounds.
+    interaction:
+      type: name_and_play
+      rounds: 4
+
+  - id: 14
+    mode: hear
+    type: drill
+    figure: "Round counter 1 of 4. Mix of questions."
+    cleffy: >
+      Last warm-up.
+    interaction:
+      type: drill
+      rounds: 4
+
+  - id: 15
+    mode: hear
+    type: pre_check
+    figure: "Banner."
+    cleffy: >
+      Four quick ones before the test.
+
+  - id: 16
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 6. Keyboard with C (gold) and F (blue) flags both planted. Cleffy holding a small compass."
+    cleffy: >
+      Two landmarks. C and F.
+      Tomorrow we fill in the rest of the letters — five more white-key names.
+      Then the whole keyboard has a name for every note.
+
+# ─── Mastery check ──────────────────────────────────────
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 3
+      questions:
+        - figure: "Keyboard with F circled."
+          prompt: "Is this F?"
+          options: ["Yes", "No"]
+          correct: 0
+        - figure: "Keyboard with C circled (trick question)."
+          prompt: "Is this F?"
+          options: ["Yes", "No"]
+          correct: 1
+        - figure: "Full keyboard."
+          prompt: "Tap any F."
+    hear:
+      pass_threshold: 2
+      questions:
+        - audio: "Middle F"
+          prompt: "Was that C or F?"
+          options: ["C", "F"]
+          correct: 1
+        - audio: "Middle C"
+          prompt: "C or F?"
+          options: ["C", "F"]
+          correct: 0
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play middle F."
+          accept: "F4"
+
+# ─── Remediation ────────────────────────────────────────
+remediation:
+  id: "6.5"
+  title: "F, once more"
+  pages: 5
+  opening_cleffy: >
+    F hides in the 3-group. Let's make sure your eyes find the 3-group fast,
+    and F pops out naturally right before it.
+
+# ─── Completion ─────────────────────────────────────────
+completion:
+  cleffy: >
+    Six lessons. Two landmarks. You know the spine of the keyboard now.
+    Tomorrow the rest of the letters fall into place.
+  xp: 20
+  unlocks: 7

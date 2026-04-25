@@ -1,0 +1,219 @@
+# ============================================================
+# LESSON 79 · Tenuto and marcato
+# Tier 3 · Act 16 · Low-Intermediate · Articulation
+# The last two members of the touch family before the boss.
+# ============================================================
+id: 79
+tier: low-intermediate
+act: 16
+title: "Tenuto and marcato"
+subtitle: "Act 16 · Articulation"
+goal: "Read and play tenuto (held full value) and marcato (firmly marked, stronger than accent)."
+prereqs: [78, 77, 75]
+method_focus: "combine"
+time_estimate_min: 12
+piece_context: "Two more touches. Then the boss piece — Minuet in G. Articulation in real music."
+metaphor: "touch-family"
+vibe: ["focused", "serious"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Staff with two notes. First has a short horizontal line above it. Second has a wedge pointing up (^)."
+    cleffy: >
+      Two new marks today.
+      The dash — tenuto. The upward wedge — marcato.
+
+  - id: 2
+    mode: see
+    type: tenuto_mark
+    figure: "Zoom on a quarter note with a horizontal dash above it. Label: TENUTO."
+    cleffy: >
+      Tenuto. A flat dash above the note.
+      Means — hold this note its full value. Don't shorten it.
+      A little weight, but mostly — stay on it.
+
+  - id: 3
+    mode: see
+    type: tenuto_vs_staccato
+    figure: "Side by side. Left: dash above note (tenuto). Right: dot above note (staccato)."
+    cleffy: >
+      Opposite of staccato.
+      Staccato — shorten. Tenuto — hold its full length.
+      Same-looking marks, opposite meanings. The dash is flat. The dot is round.
+
+  - id: 4
+    mode: hear
+    type: listen_tenuto
+    figure: "Two play buttons."
+    audio:
+      A: "Four quarter notes at normal length"
+      B: "Four quarter notes, each held slightly longer and rounder — tenuto"
+    cleffy: >
+      First — normal. Second — tenuto. Each note sits on the keys a little more.
+      Feels heavier. Feels more important.
+
+  - id: 5
+    mode: play
+    type: play_tenuto
+    figure: "Staff: C D E F, each with a tenuto dash. Keyboard."
+    cleffy: >
+      Play C, D, E, F — tenuto.
+      Sit on each note. Don't rush off it. Press with a little weight.
+    interaction:
+      type: sequence
+      keys: ["C4","D4","E4","F4"]
+
+  - id: 6
+    mode: see
+    type: marcato_mark
+    figure: "Zoom on a quarter note with an upward wedge (^) above it. Label: MARCATO."
+    cleffy: >
+      Marcato. An upward wedge above the note.
+      Means — firmly marked. Stronger than an accent.
+      Louder AND a little short.
+
+  - id: 7
+    mode: see
+    type: marcato_vs_accent
+    figure: "Side by side. Left: > accent. Right: ^ marcato."
+    cleffy: >
+      Accent is a lean. Marcato is a punch.
+      Both louder than the notes around them. Marcato more.
+      Think — big announcement.
+
+  - id: 8
+    mode: hear
+    type: listen_marcato
+    figure: "Two play buttons."
+    audio:
+      A: "Four notes, accent on the 3rd (>)"
+      B: "Four notes, marcato on the 3rd (^)"
+    cleffy: >
+      Accent. Now marcato. Feel the extra weight on marcato?
+      Bigger. More committed.
+
+  - id: 9
+    mode: play
+    type: play_marcato
+    figure: "Staff: G A B C. Marcato on the first G."
+    cleffy: >
+      Play G, A, B, C. Marcato on G.
+      Strong, firm, committed. Then the rest normal.
+    interaction:
+      type: sequence
+      keys: ["G4","A4","B4","C5"]
+
+  - id: 10
+    mode: see
+    type: family_chart
+    figure: "A chart of the touch family. Legato (slur curve). Staccato (dot). Tenuto (dash). Accent (>). Marcato (^)."
+    cleffy: >
+      Touch family so far —
+      Slur for smooth. Dot for short. Dash for held. Wedge-right for lean. Wedge-up for punch.
+      Five touches. Every one changes how the note feels.
+
+  - id: 11
+    mode: hear
+    type: identify_drill
+    figure: "Round counter 1 of 4."
+    cleffy: >
+      Four rounds. Which articulation is it — staccato, tenuto, or marcato?
+    interaction:
+      type: drill
+      rounds: 4
+      options: ["Staccato (short)", "Tenuto (held)", "Marcato (firm)"]
+
+  - id: 12
+    mode: play
+    type: mixed_articulation
+    figure: "Staff: six notes. Mixed marks — tenuto, tenuto, marcato, staccato, staccato, tenuto."
+    cleffy: >
+      Six notes, every touch different.
+      Held. Held. PUNCH. Short. Short. Held.
+    interaction:
+      type: sequence
+      keys: ["C4","D4","E4","F4","G4","A4"]
+
+  - id: 13
+    mode: play
+    type: at_tempo
+    figure: "Mixed articulation phrase. Tempo 80."
+    cleffy: >
+      At tempo. Marks stay clear.
+    interaction:
+      type: rhythm
+      sequence: ["C4","D4","E4","F4","G4","A4"]
+      durations: ["quarter","quarter","quarter","quarter","quarter","half"]
+      tempo: 80
+    followup_cleffy: >
+      Five touches. You have them all.
+
+  - id: 14
+    mode: hear
+    type: pre_check
+    figure: "Banner."
+    cleffy: >
+      Four quick ones.
+
+  - id: 15
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 79. The touch family chart with all five members lit up."
+    cleffy: >
+      The touch family is complete.
+      Tomorrow — you use them. Real piece. Real Baroque. Minuet in G.
+
+practice_this_week:
+  real_piano:
+    - "Play a C scale up and back. First all tenuto. Then all marcato. Then mixed."
+    - "Find a piece of music. Scan for dashes, wedges, dots, slurs, accents. Name each one."
+  virtual_only:
+    - "Replay pages 5, 9, and 12"
+  estimated_time: "8 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "Note with a flat dash above it"
+          prompt: "What does this mark mean?"
+          options: ["Hold full value (tenuto)", "Play short (staccato)", "Play soft"]
+          correct: 0
+        - figure: "Note with an upward wedge ^"
+          prompt: "What does this mark mean?"
+          options: ["Smooth", "Firmly marked (marcato)", "Short"]
+          correct: 1
+        - figure: "Side by side: > and ^"
+          prompt: "Which one is louder and heavier?"
+          options: ["> (accent)", "^ (marcato)"]
+          correct: 1
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "A note played tenuto — full value, with weight"
+          prompt: "Tenuto or staccato?"
+          options: ["Tenuto", "Staccato"]
+          correct: 0
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play G, A, B, C with marcato on the G."
+          accept: "G4 A4 B4 C5 with G punched"
+
+remediation:
+  id: "79.5"
+  title: "Two more touches, slower"
+  pages: 6
+  opening_cleffy: >
+    Tenuto and marcato are subtle differences from what you already know.
+    We'll isolate each one, just a few notes at a time.
+
+completion:
+  cleffy: >
+    Five touches read. Five touches played.
+    Tomorrow — Act 16 boss. Minuet in G. You put the whole family to work.
+  xp: 18
+  unlocks: 80

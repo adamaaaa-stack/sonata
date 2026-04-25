@@ -1,0 +1,232 @@
+# ============================================================
+# LESSON 26 · The bass clef
+# Tier 2 · Act 6 · Elementary
+# Central metaphor: A SECOND STAFF FOR LOWER STAIRS
+# ============================================================
+id: 26
+tier: elementary
+act: 6
+title: "The bass clef"
+subtitle: "A second staff for your left hand"
+goal: "Meet the bass clef and understand it's the staff for lower notes — usually the left hand."
+prereqs: [12, 25]
+method_focus: "notation"
+time_estimate_min: 12
+piece_context: null
+metaphor: "second-staff-lower-stairs"
+vibe: ["gentle", "playful"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy next to two stacked staves. Top one has a treble clef (familiar). Bottom one has a new, heavier clef (unfamiliar)."
+    cleffy: >
+      Welcome to Tier 2.
+      You finished Tier 1 with one staff, one clef, one hand.
+      Today we add the other half of the piano.
+      There's a second staff. It has a different clef. It's for your left hand.
+
+  - id: 2
+    mode: see
+    type: definition
+    figure: "Close-up of the bass clef symbol. Two small dots sit next to a curl that hugs one line."
+    cleffy: >
+      This is the bass clef.
+      Heavier shape than me. Different job.
+      Where I (the treble clef) sit on top of music for higher notes — usually the right hand —
+      the bass clef sits on the bottom, for lower notes — usually the left hand.
+
+  - id: 3
+    mode: see
+    type: why_two
+    figure: "A piano keyboard. Middle highlighted. Arrows point LEFT half to a bass-clef staff and RIGHT half to a treble-clef staff."
+    cleffy: >
+      The piano has so many notes that one staff can't hold them all.
+      So we split it.
+      Lower half of the piano goes on the bass staff.
+      Upper half goes on the treble staff.
+      Two staves. One piano. No overlap — except for one special note in the middle. We'll meet that soon.
+
+  - id: 4
+    mode: see
+    type: compare_clefs
+    figure: "Side-by-side: a treble staff and a bass staff. Both have five lines and four spaces. Same staff, different clef symbol."
+    cleffy: >
+      Here's something friendly. The bass staff is the same shape as the treble staff.
+      Five lines. Four spaces. Exactly what you've already learned.
+      It's just the clef symbol that changes. Everything else about reading it is familiar.
+
+  - id: 5
+    mode: see
+    type: spot_the_clef
+    figure: "Two mini-staves. One has a treble clef, one has a bass clef."
+    cleffy: >
+      Which one is the bass clef — A or B?
+    interaction:
+      type: choice
+      options: ["A", "B"]
+      correct: 1
+
+  - id: 6
+    mode: see
+    type: the_two_dots
+    figure: "Zoomed bass clef. The two dots highlighted in blue. Arrow labels: DOTS."
+    cleffy: >
+      Notice the two dots.
+      They're not decoration. They're a road sign. They point at a line.
+      That line is important — it's the anchor line for the bass clef.
+      We'll name it in the next lesson.
+
+  - id: 7
+    mode: see
+    type: which_line
+    figure: "Bass clef on staff. The two dots flanking a line. Arrow pointing at that line."
+    cleffy: >
+      The line between the dots is the one that matters.
+      Remember that shape — dots hugging a line.
+
+  - id: 8
+    mode: see
+    type: interactive
+    figure: "Bass clef staff with 3 lines highlighted. Student picks the line between the two dots."
+    cleffy: >
+      Which line is between the two dots?
+    interaction:
+      type: choice
+      options: ["Line 2", "Line 3", "Line 4"]
+      correct: 2
+
+  - id: 9
+    mode: hear
+    type: low_sound_demo
+    figure: "Keyboard. A low key around bass F highlighted. Big play button."
+    audio:
+      A: "F3 — bass F, one octave below Middle F"
+    cleffy: >
+      Here's the kind of note that lives on a bass staff. Deeper. More chest-rumble than ear-tingle.
+      Your right hand rarely plays notes this low. Your left hand lives here.
+
+  - id: 10
+    mode: hear
+    type: treble_vs_bass_sound
+    figure: "Two play buttons. A: Middle C (treble range). B: an octave below Middle C (bass range)."
+    audio:
+      A: "C4"
+      B: "C3"
+    cleffy: >
+      Listen. Treble-range C. Bass-range C.
+      Same letter. Different staff. Different feeling.
+
+  - id: 11
+    mode: hear
+    type: which_range
+    figure: "Play button. Two answer buttons."
+    audio:
+      A: "A random bass-range or treble-range note"
+    cleffy: >
+      Which staff would this note live on? Bass (low) or treble (high)?
+    interaction:
+      type: drill
+      rounds: 4
+      options: ["Bass (low)", "Treble (high)"]
+
+  - id: 12
+    mode: see
+    type: left_hand_territory
+    figure: "Keyboard. Left half glowing blue, labeled LEFT HAND / BASS. Right half glowing gold, labeled RIGHT HAND / TREBLE."
+    cleffy: >
+      Here's the practical split.
+      Left half of the keyboard — left hand — bass staff.
+      Right half — right hand — treble staff.
+      Some pieces break this rule. But most follow it.
+
+  - id: 13
+    mode: play
+    type: play_low
+    figure: "Keyboard. A low F3 glowing. Student taps it."
+    cleffy: >
+      Find the low F — left side of the piano, before a 3-group.
+      Tap it with any left-hand finger.
+    interaction:
+      type: tap
+      accept: "F3"
+
+  - id: 14
+    mode: hear
+    type: drill_mixed
+    figure: "Mix of bass/treble questions."
+    cleffy: >
+      Four rounds. Mix.
+    interaction:
+      type: drill
+      rounds: 4
+
+  - id: 15
+    mode: hear
+    type: pre_check
+    figure: "Banner."
+    cleffy: >
+      Four quick ones.
+
+  - id: 16
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 26. Two staves side by side. Treble labeled 'right hand'. Bass labeled 'left hand.' Cleffy pointing at bass clef with a smile."
+    cleffy: >
+      Second staff. Second clef. Left hand's turn.
+      Tomorrow we find a landmark on the bass staff — the bass clef's version of C.
+      Its name is bass F.
+
+# ─── Practice this week ────────────────────────────────
+practice_this_week:
+  real_piano:
+    - "With your LEFT hand, play a few keys on the LEFT side of the piano. Just get your bearings — notice how much deeper they sound."
+    - "Play a low F (before any 3-group on the left half) five times with your left thumb."
+  virtual_only:
+    - "Replay pages 9–11 (the bass-range audio drills) a couple times"
+  estimated_time: "5 min/day"
+
+# ─── Mastery check ──────────────────────────────────────
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "Two mini-staves, one treble one bass."
+          prompt: "Which clef is bass?"
+          options: ["A", "B"]
+          correct: 1
+        - figure: "Bass clef staff, line between the two dots highlighted."
+          prompt: "Is this line the one the dots are hugging?"
+          options: ["Yes", "No"]
+          correct: 0
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "A low F3"
+          prompt: "Would this note live on the bass staff or the treble staff?"
+          options: ["Bass", "Treble"]
+          correct: 0
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Tap any low note on the left side of the keyboard with your left hand."
+          accept: "any key in left half"
+
+# ─── Remediation ────────────────────────────────────────
+remediation:
+  id: "26.5"
+  title: "The bass clef, slower"
+  pages: 5
+  opening_cleffy: >
+    New clef is a big deal — worth a second look.
+    Let's see the two clefs side by side with plenty of zoom.
+
+# ─── Completion ─────────────────────────────────────────
+completion:
+  cleffy: >
+    Second clef, met. Tier 2 is off the ground.
+    Tomorrow we find bass F — the landmark the two dots are pointing at.
+  xp: 20
+  unlocks: 27

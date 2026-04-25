@@ -1,0 +1,211 @@
+id: 66
+tier: elementary
+act: 14
+title: "Why key signatures exist"
+subtitle: "Sharps and flats told to you up front"
+goal: "Understand that a key signature lists which notes are always sharp or flat in a piece — so they don't have to be marked every time."
+prereqs: [61, 62, 64]
+method_focus: "keys"
+time_estimate_min: 10
+piece_context: null
+metaphor: "rules-at-the-door"
+vibe: ["gentle", "serious"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Staff with a single sharp at the start (F#) — that's a key signature of G major."
+    cleffy: >
+      See that sharp sign right after the clef?
+      That's not for the first note. It's for the whole piece.
+      It says: every F in this piece is F-sharp. Unless I tell you otherwise.
+
+  - id: 2
+    mode: see
+    type: why
+    figure: "Split screen. Left: a piece with F# written on EVERY F. Right: same piece with a key signature — no extra symbols needed."
+    cleffy: >
+      Without key signatures, composers would have to write a sharp on every single F.
+      Exhausting. So they put the rule at the beginning and we just read it once.
+
+  - id: 3
+    mode: see
+    type: definition
+    figure: "Key signature shown: one sharp on the F line."
+    cleffy: >
+      A key signature sits right after the clef. Before the time signature.
+      Whatever sharps or flats are listed — they apply to EVERY note on that line or space, in every bar.
+
+  - id: 4
+    mode: see
+    type: g_major_example
+    figure: "Staff with F# in the key signature. Label: G MAJOR."
+    cleffy: >
+      Most common key signature with ONE sharp: G major.
+      It says: every F is sharp. Every F. Always.
+
+  - id: 5
+    mode: see
+    type: f_major_example
+    figure: "Staff with B♭ in the key signature. Label: F MAJOR."
+    cleffy: >
+      Most common key signature with ONE flat: F major.
+      It says: every B is flat.
+
+  - id: 6
+    mode: see
+    type: interactive_g
+    figure: "Staff with F# in key signature. Note on F line."
+    cleffy: >
+      Key says all Fs are sharp. What do you play?
+    interaction:
+      type: choice
+      options: ["F-natural", "F-sharp"]
+      correct: 1
+
+  - id: 7
+    mode: see
+    type: interactive_f
+    figure: "Staff with B♭ key. Note on B line."
+    cleffy: >
+      Key says all Bs are flat. What do you play?
+    interaction:
+      type: choice
+      options: ["B-natural", "B-flat"]
+      correct: 1
+
+  - id: 8
+    mode: see
+    type: natural_overrides
+    figure: "Staff with F# in key signature. A note with explicit ♮ in the middle of a bar."
+    cleffy: >
+      A natural sign can override the key — within its bar.
+      If you see F♮ inside a G-major piece, that F is natural. But only for that bar.
+
+  - id: 9
+    mode: see
+    type: drill_read
+    figure: "Staff with F# key. Various notes."
+    cleffy: >
+      Four rounds. Given a G-major key signature, what do you play for each note?
+    interaction:
+      type: drill
+      rounds: 4
+      options: ["Natural", "Sharp (from key)"]
+
+  - id: 10
+    mode: hear
+    type: major_key_sound
+    figure: "Two play buttons."
+    audio:
+      A: "Scale in C major (no sharps/flats)"
+      B: "Scale in G major (F#)"
+    cleffy: >
+      Listen. C major scale. G major scale (uses F#).
+      Both sound "major" — bright, settled. Just different starting points.
+
+  - id: 11
+    mode: play
+    type: play_g_scale
+    figure: "Keyboard. G A B C D (5-finger scale in G). Key signature shows F#."
+    cleffy: >
+      Play a 5-finger scale in G — just G A B C D.
+      No F in these five notes, so no sharps actually come up — but the key is G.
+    interaction:
+      type: sequence
+      keys: ["G4","A4","B4","C5","D5"]
+
+  - id: 12
+    mode: play
+    type: play_f_scale
+    figure: "Keyboard. F G A B♭ C (5-finger scale in F). Key has B♭. The B in this position is B-flat."
+    cleffy: >
+      F major 5-finger — F G A B-flat C. Notice the B is flat.
+    interaction:
+      type: sequence
+      keys: ["F4","G4","A4","Bb4","C5"]
+
+  - id: 13
+    mode: hear
+    type: which_key
+    figure: "Four rounds. Short phrase, pick the key."
+    cleffy: >
+      Four rounds. Does this phrase have a sharp or a flat in its key?
+    interaction:
+      type: drill
+      rounds: 4
+      options: ["Sharp (G major)", "Flat (F major)", "Neither (C major)"]
+
+  - id: 14
+    mode: hear
+    type: mixed
+    figure: "Four rounds."
+    cleffy: >
+      Mixed.
+    interaction:
+      type: drill
+      rounds: 4
+
+  - id: 15
+    mode: hear
+    type: pre_check
+    figure: "Banner."
+    cleffy: >
+      Four quick ones.
+
+  - id: 16
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 66. Staff with F# key at the start."
+    cleffy: >
+      Key signatures — one rule at the door, applies to the whole piece.
+      Tomorrow — G major in detail. A whole piece with F# as a given.
+
+practice_this_week:
+  real_piano:
+    - "Play a G-major 5-finger position. G A B C D, ascending and back."
+    - "Play an F-major 5-finger position. F G A B-flat C. Notice the B-flat black key."
+    - "Try playing Ode to Joy starting on G (G A B C etc) — without the sharps."
+  virtual_only:
+    - "Replay pages 11-12"
+  estimated_time: "7 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "Staff with F# in the key signature"
+          prompt: "Does this piece have sharps or flats?"
+          options: ["Sharps", "Flats", "Neither"]
+          correct: 0
+        - figure: "G major key signature. Note on F line."
+          prompt: "What do you play?"
+          options: ["F-natural", "F-sharp"]
+          correct: 1
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "G major scale ascending"
+          prompt: "Does this scale sound major (bright, settled) or sad?"
+          options: ["Major (bright)", "Sad"]
+          correct: 0
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play G-A-B-C-D."
+          accept: "G4 A4 B4 C5 D5"
+
+remediation:
+  id: "66.5"
+  title: "Key signatures, slower"
+  pages: 5
+  opening_cleffy: >
+    The "rule at the door" idea takes a minute. Slow walkthrough.
+
+completion:
+  cleffy: >
+    Key signatures make sense now.
+  xp: 20
+  unlocks: 67

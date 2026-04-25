@@ -1,0 +1,260 @@
+# ============================================================
+# LESSON 195 · Ornament drill
+# Tier 5 · Act 39 · Upper-Intermediate · ACT BOSS 🎯
+# See, hear, and play every common ornament.
+# ============================================================
+id: 195
+tier: upper-intermediate
+act: 39
+title: "Ornament drill"
+subtitle: "Act 39 · Ornaments"
+goal: "See, hear, and play each of the four common ornaments cleanly — trill, mordent, turn, grace note — all at moderate tempo."
+prereqs: [191, 192, 193, 194]
+method_focus: "combine"
+time_estimate_min: 16
+piece_context: "Act 39 boss. Four lessons of ornaments, sitting on top of each other. Today you prove you can see one, hear one, and play one — fast and clean. Not one piece, not one style. Every common decoration, back to back. The sparkle rack."
+metaphor: "notes-that-sparkle"
+vibe: ["focused", "playful", "triumphant"]
+is_act_boss: true
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy in front of a gold rack holding four decorated notes — one trill, one mordent, one turn, one grace note. Banner: ACT 39 BOSS — THE ORNAMENT DRILL."
+    cleffy: >
+      Act 39 boss.
+      Four ornaments. See, hear, play. All of them.
+      No piece today. Just sparkle.
+
+  - id: 2
+    mode: see
+    type: the_rack
+    figure: "Four panels in a row. 1: 'tr' — trill. 2: short squiggle — mordent. 3: sideways S — turn. 4: tiny crossed note — grace note. Each with a one-line definition."
+    cleffy: >
+      Your rack of four.
+      Trill — rapid alternation. Mordent — main, upper, main. Turn — upper, main, lower, main. Grace — tiny flick.
+      Names on sight, first.
+
+  - id: 3
+    mode: hear
+    type: listen_to_rack
+    figure: "Four play buttons in a row, each labeled with an ornament name."
+    audio:
+      A: "A trill on Middle C with D"
+      B: "A mordent on Middle C — C, D, C"
+      C: "A turn around Middle C — D, C, B, C"
+      D: "A B grace note flicking into Middle C"
+    cleffy: >
+      Now on the ear.
+      Four sparkles. One after the other.
+      Get the flavor of each before you play them.
+
+  - id: 4
+    mode: see
+    type: the_exam_today
+    figure: "Banner — 'THE TEST.' Below: each ornament as a symbol, then what to play, then at what tempo. Four rows."
+    cleffy: >
+      Here's the plan.
+      One page per ornament. See it. Hear it. Play it. Move on.
+      Then all four in a row. Then a drill.
+
+  - id: 5
+    mode: play
+    type: drill_trill
+    figure: "Keyboard. C4 and D4. Banner: 1 OF 4 — TRILL. Eight even alternations, land on C."
+    cleffy: >
+      Trill. Eight alternations on C and D. Land on C.
+      Even, then clean. Not fast.
+    interaction:
+      type: rhythm
+      sequence: ["C4", "D4", "C4", "D4", "C4", "D4", "C4", "D4", "C4"]
+      durations: ["sixteenth", "sixteenth", "sixteenth", "sixteenth", "sixteenth", "sixteenth", "sixteenth", "sixteenth", "quarter"]
+      tempo: 80
+
+  - id: 6
+    mode: play
+    type: drill_mordent
+    figure: "Keyboard. C4, D4, C4 in a tight cluster. Banner: 2 OF 4 — MORDENT."
+    cleffy: >
+      Mordent on C. Three notes — C, D, C.
+      Quick. In one beat.
+    interaction:
+      type: rhythm
+      sequence: ["C4", "D4", "C4"]
+      durations: ["sixteenth", "sixteenth", "eighth"]
+      tempo: 80
+
+  - id: 7
+    mode: play
+    type: drill_turn
+    figure: "Keyboard. D4, C4, B3, C4. Banner: 3 OF 4 — TURN."
+    cleffy: >
+      Turn around C. Four notes — D, C, B, C.
+      Upper, main, lower, main.
+    interaction:
+      type: rhythm
+      sequence: ["D4", "C4", "B3", "C4"]
+      durations: ["sixteenth", "sixteenth", "sixteenth", "eighth"]
+      tempo: 80
+
+  - id: 8
+    mode: play
+    type: drill_grace
+    figure: "Keyboard. B3 small/dim, then C4 big/bright. Banner: 4 OF 4 — GRACE NOTE."
+    cleffy: >
+      Grace note into C. Flick B, land on C.
+      B is almost a click. C sings.
+    interaction:
+      type: rhythm
+      sequence: ["B3", "C4"]
+      durations: ["sixteenth", "quarter"]
+      tempo: 80
+
+  - id: 9
+    mode: hear
+    type: identify_all_four
+    figure: "Round counter. Eight rounds. Banner: 'which ornament did you hear?'"
+    cleffy: >
+      Eight rounds. Name the ornament.
+    interaction:
+      type: drill
+      rounds: 8
+      options: ["Trill", "Mordent", "Turn", "Grace note"]
+
+  - id: 10
+    mode: play
+    type: all_four_in_a_row
+    figure: "Keyboard. Sequence laid out: trill (C-D eight times, C), gap, mordent (C-D-C), gap, turn (D-C-B-C), gap, grace (B-C). Tempo 80."
+    cleffy: >
+      All four, back to back.
+      Trill, then mordent, then turn, then grace.
+      Short rest between each — just enough to reset.
+    interaction:
+      type: rhythm
+      sequence: ["C4", "D4", "C4", "D4", "C4", "D4", "C4", "D4", "C4", "C4", "D4", "C4", "D4", "C4", "B3", "C4", "B3", "C4"]
+      durations: ["sixteenth", "sixteenth", "sixteenth", "sixteenth", "sixteenth", "sixteenth", "sixteenth", "sixteenth", "quarter", "sixteenth", "sixteenth", "eighth", "sixteenth", "sixteenth", "sixteenth", "eighth", "sixteenth", "quarter"]
+      tempo: 80
+    followup_cleffy: >
+      That was the whole rack.
+      Four different shapes, four different feels, one phrase.
+
+  - id: 11
+    mode: see
+    type: era_check
+    figure: "Banner: 'Baroque or Romantic?' Two columns with one clue each — composer and year."
+    cleffy: >
+      Quick reminder from yesterday.
+      Baroque — start on the upper note.
+      Romantic — start on the main note.
+      Same symbols. Two dialects.
+
+  - id: 12
+    mode: play
+    type: baroque_style_trill
+    figure: "Keyboard. D4 first, then alternation. Banner: BAROQUE style."
+    cleffy: >
+      One Baroque trill to seal it in.
+      Start on D. Land on C. Upper-first.
+    interaction:
+      type: rhythm
+      sequence: ["D4", "C4", "D4", "C4", "D4", "C4", "C4"]
+      durations: ["sixteenth", "sixteenth", "sixteenth", "sixteenth", "sixteenth", "sixteenth", "quarter"]
+      tempo: 80
+
+  - id: 13
+    mode: play
+    type: romantic_style_trill
+    figure: "Keyboard. C4 first, then alternation. Banner: ROMANTIC style."
+    cleffy: >
+      Now Romantic.
+      Start on C. Land on C. Main-first.
+    interaction:
+      type: rhythm
+      sequence: ["C4", "D4", "C4", "D4", "C4", "D4", "C4"]
+      durations: ["sixteenth", "sixteenth", "sixteenth", "sixteenth", "sixteenth", "sixteenth", "quarter"]
+      tempo: 80
+
+  - id: 14
+    mode: hear
+    type: pre_check
+    figure: "Banner — Act 39 boss mastery check."
+    cleffy: >
+      Four quick ones. Act boss — take your time.
+
+  - id: 15
+    mode: see
+    type: wrap
+    figure: "Celebration card — ACT 39 COMPLETE 🎯. Cleffy holding a tiny gold rack with four sparkling notes. A pyramid of acts showing 39/50 lit."
+    cleffy: >
+      Act 39. Closed.
+      Four ornaments. Four symbols. Two eras. All in your hands.
+      Your melodies can sparkle now. A long note can become a trill. A simple arrival can get a grace flick.
+      Next act — the Nocturne. Chopin's breath. Rubato, phrasing, voicing. The stuff that makes music breathe.
+
+practice_this_week:
+  real_piano:
+    - "Pick any piece you know. Find three long notes. Add an ornament to each — one trill, one mordent, one grace note. Keep the beat."
+    - "Run the full rack every day: eight alternations of a trill, one mordent, one turn, one grace. Five minutes, once a day."
+    - "On any Bach you're working on, try a Baroque trill. On any Chopin, try a Romantic one. Feel how the rule fits the music."
+  virtual_only:
+    - "Replay pages 5, 6, 7, 8, and 10 — the rack, and then all four together."
+  estimated_time: "14 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "A note with 'tr' and a wavy line above"
+          prompt: "Which ornament is this?"
+          options: ["Trill", "Mordent", "Turn"]
+          correct: 0
+        - figure: "A sideways-S symbol above a quarter note"
+          prompt: "Which ornament is this?"
+          options: ["Trill", "Mordent", "Turn"]
+          correct: 2
+        - figure: "A tiny crossed eighth note just before a regular quarter note"
+          prompt: "Which ornament is this?"
+          options: ["Mordent", "Grace note", "Turn"]
+          correct: 1
+    hear:
+      pass_threshold: 2
+      questions:
+        - audio: "Three quick notes — main, upper, main"
+          prompt: "Which ornament?"
+          options: ["Mordent", "Turn", "Trill"]
+          correct: 0
+        - audio: "Four quick notes — upper, main, lower, main"
+          prompt: "Which ornament?"
+          options: ["Mordent", "Turn", "Grace note"]
+          correct: 1
+        - audio: "A Baroque-style trill — starts on the upper note"
+          prompt: "Baroque or Romantic?"
+          options: ["Baroque", "Romantic"]
+          correct: 0
+    play:
+      pass_threshold: 2
+      questions:
+        - prompt: "Play a mordent on Middle C — C, D, C, quickly."
+          accept: "C4 D4 C4 played in fast succession"
+        - prompt: "Play a turn around Middle C — D, C, B, C."
+          accept: "D4 C4 B3 C4 played in order"
+        - prompt: "Play eight even alternations of a trill on C and D, landing on C."
+          accept: "C4 D4 alternating eight times, landing on C4"
+
+remediation:
+  id: "195.5"
+  title: "Ornaments, one rack at a time"
+  pages: 11
+  opening_cleffy: >
+    Act boss — expected to stretch you. Four ornaments is a lot to keep straight.
+    We'll take one shelf at a time. Name, sound, shape, play. No rush. You'll land it.
+
+completion:
+  cleffy: >
+    Act 39 sealed. The rack is full.
+    Trill. Mordent. Turn. Grace. Two eras. Four symbols. All yours.
+    Next — Chopin. The act where the melody starts to breathe.
+  xp: 30
+  unlocks: 196

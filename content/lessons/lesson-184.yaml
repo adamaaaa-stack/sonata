@@ -1,0 +1,239 @@
+# ============================================================
+# LESSON 184 · Invention at tempo
+# Tier 5 · Act 37 · Upper-Intermediate
+# Slow → moderato. A controlled climb.
+# ============================================================
+id: 184
+tier: upper-intermediate
+act: 37
+title: "Invention at tempo"
+subtitle: "Act 37 · Bach Invention deeper"
+goal: "Bring the Invention subject from adagio (60) up to moderato (96), one small step at a time."
+prereqs: [183, 182, 181]
+method_focus: "play"
+time_estimate_min: 15
+piece_context: "You have the shapes. You have the imitation. You have the two-voice independence. Now — speed. Not a leap. A climb. Six bpm at a time. If it falls apart, back down. Then up again."
+metaphor: "imitation"
+vibe: ["focused", "honest"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "A metronome with an arrow starting at 60 climbing through 66, 72, 80, 88, 96. Banner: ADAGIO TO MODERATO."
+    cleffy: >
+      Today — tempo.
+      Start slow. End moderato.
+      Not a jump. A climb.
+
+  - id: 2
+    mode: see
+    type: the_method
+    figure: "Five rungs of a ladder. Each rung labeled with a tempo — 60, 72, 80, 88, 96. Caption: only climb when the rung below is clean."
+    cleffy: >
+      The rule.
+      Only go faster when the current tempo is clean.
+      Any mistake — back down a notch.
+      Slow learning beats fast mess.
+
+  - id: 3
+    mode: see
+    type: what_stays_the_same
+    figure: "Three boxes: NOTES the same. RHYTHM the same. SHAPE the same. Only TEMPO changes."
+    cleffy: >
+      The notes don't change. The rhythm doesn't change. The shape doesn't change.
+      Only the speed.
+      Everything else stays put.
+
+  - id: 4
+    mode: hear
+    type: listen_60
+    figure: "Play button. Metronome at 60."
+    audio:
+      A: "The Invention subject played at adagio, 60 bpm — very slow and clear"
+    cleffy: >
+      Sixty. Adagio.
+      Very slow. Every note audible.
+
+  - id: 5
+    mode: play
+    type: play_60
+    figure: "Grand staff. Subject in both voices. Metronome 60."
+    cleffy: >
+      Play at sixty. Both voices, back to back — right then left.
+      Find your breath here before we climb.
+    interaction:
+      type: rhythm
+      sequence: ["C5","D5","E5","F5","D5","E5","C5","C4","D4","E4","F4","D4","E4","C4"]
+      durations: ["eighth","eighth","eighth","eighth","eighth","eighth","quarter","eighth","eighth","eighth","eighth","eighth","eighth","quarter"]
+      tempo: 60
+
+  - id: 6
+    mode: hear
+    type: listen_72
+    figure: "Play button. Metronome at 72."
+    audio:
+      A: "The Invention subject played at 72 bpm — noticeably more flowing"
+    cleffy: >
+      Seventy-two.
+      Still slow. But moving now.
+
+  - id: 7
+    mode: play
+    type: play_72
+    figure: "Grand staff. Metronome 72."
+    cleffy: >
+      Your turn. Seventy-two.
+      If you stumble, stay here. If you don't, we climb.
+    interaction:
+      type: rhythm
+      sequence: ["C5","D5","E5","F5","D5","E5","C5","C4","D4","E4","F4","D4","E4","C4"]
+      durations: ["eighth","eighth","eighth","eighth","eighth","eighth","quarter","eighth","eighth","eighth","eighth","eighth","eighth","quarter"]
+      tempo: 72
+
+  - id: 8
+    mode: play
+    type: play_80
+    figure: "Grand staff. Metronome 80. Caption: andante."
+    cleffy: >
+      Eighty. Andante.
+      Walking pace. Breathe with it.
+    interaction:
+      type: rhythm
+      sequence: ["C5","D5","E5","F5","D5","E5","C5","C4","D4","E4","F4","D4","E4","C4"]
+      durations: ["eighth","eighth","eighth","eighth","eighth","eighth","quarter","eighth","eighth","eighth","eighth","eighth","eighth","quarter"]
+      tempo: 80
+
+  - id: 9
+    mode: see
+    type: checkpoint
+    figure: "A thought-bubble card. Cleffy: is it clean? If yes — climb. If no — go back to 72 for one more try."
+    cleffy: >
+      Checkpoint.
+      Is it clean? Every note landing? Right voice leading?
+      If yes — keep climbing. If no — drop back one rung.
+
+  - id: 10
+    mode: play
+    type: play_88
+    figure: "Grand staff. Metronome 88."
+    cleffy: >
+      Eighty-eight.
+      Getting real now. Stay relaxed. Shoulders down.
+    interaction:
+      type: rhythm
+      sequence: ["C5","D5","E5","F5","D5","E5","C5","C4","D4","E4","F4","D4","E4","C4"]
+      durations: ["eighth","eighth","eighth","eighth","eighth","eighth","quarter","eighth","eighth","eighth","eighth","eighth","eighth","quarter"]
+      tempo: 88
+
+  - id: 11
+    mode: hear
+    type: listen_96
+    figure: "Play button. Metronome at 96. Caption: MODERATO."
+    audio:
+      A: "The Invention subject played at moderato, 96 bpm — brisk, confident, this is the target tempo"
+    cleffy: >
+      Ninety-six. Moderato.
+      That's our target.
+      Hear how the shape of the subject clicks at this speed?
+
+  - id: 12
+    mode: play
+    type: play_96
+    figure: "Grand staff. Metronome 96. Caption: target tempo."
+    cleffy: >
+      Ninety-six. Moderato.
+      Play it. Both voices.
+      If it falls apart — no shame. Back down to eighty-eight.
+    interaction:
+      type: rhythm
+      sequence: ["C5","D5","E5","F5","D5","E5","C5","C4","D4","E4","F4","D4","E4","C4"]
+      durations: ["eighth","eighth","eighth","eighth","eighth","eighth","quarter","eighth","eighth","eighth","eighth","eighth","eighth","quarter"]
+      tempo: 96
+    followup_cleffy: >
+      Moderato Bach.
+      That's where this lives.
+
+  - id: 13
+    mode: play
+    type: final_run
+    figure: "Grand staff. Metronome 96. No guides. Caption: one clean run."
+    cleffy: >
+      One more. No guides. Ninety-six.
+      This is the tempo we play the whole thing at tomorrow.
+    interaction:
+      type: song
+      sequence: ["C5","D5","E5","F5","D5","E5","C5","C4","D4","E4","F4","D4","E4","C4"]
+      guides: false
+      tempo: 96
+
+  - id: 14
+    mode: hear
+    type: pre_check
+    figure: "Banner — pre-check."
+    cleffy: >
+      Three quick ones.
+
+  - id: 15
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 184. A climbed ladder with a flag at the top: 96 BPM. Bach's manuscript at the base of the ladder."
+    cleffy: >
+      Adagio to moderato. In five steps.
+      Tomorrow — the whole Invention. Twenty-one bars. Both hands. End to end.
+      Don't read ahead. Just rest.
+
+practice_this_week:
+  real_piano:
+    - "Practice the subject with a metronome. Start at 60. Climb 6-8 bpm only when the current speed is perfect. This is how you learn all tempo-building music."
+    - "If 96 falls apart, drop to 72 and rebuild. Never force it through. Speed follows cleanness."
+  virtual_only:
+    - "Replay pages 5, 7, 10, 12 — feel the climb"
+  estimated_time: "15 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "A ladder of tempos — 60, 72, 80, 88, 96"
+          prompt: "What's the rule for climbing the ladder?"
+          options: ["Go up every minute", "Only go up when the current tempo is clean", "Start at the top and work down"]
+          correct: 1
+        - figure: "A metronome at 96"
+          prompt: "What tempo marking is this?"
+          options: ["Adagio", "Andante", "Moderato"]
+          correct: 2
+        - figure: "A pianist playing at 88, making mistakes"
+          prompt: "What should they do?"
+          options: ["Push through to 96", "Drop back to 80 and rebuild", "Give up"]
+          correct: 1
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "The Invention subject at 60 vs 96"
+          prompt: "Which tempo is moderato?"
+          options: ["The slow one — 60", "The faster one — 96"]
+          correct: 1
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play the subject in both voices at moderato — 96 bpm."
+          accept: "subject in both voices played cleanly at or near 96 bpm"
+
+remediation:
+  id: "184.5"
+  title: "Climbing, one rung at a time"
+  pages: 8
+  opening_cleffy: >
+    Tempo building is hard. Most people push too fast.
+    Let's take it one rung at a time. Three reps at each tempo before moving up.
+    No skipping rungs.
+
+completion:
+  cleffy: >
+    Adagio to moderato. You climbed it.
+    Tomorrow — the whole thing. Start to finish. Act 37 boss.
+    Sleep on it.
+  xp: 19
+  unlocks: 185

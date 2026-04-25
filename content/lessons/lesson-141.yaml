@@ -1,0 +1,238 @@
+# ============================================================
+# LESSON 141 · pp to ff
+# Tier 4 · Act 29 · Intermediate
+# The full dynamic range, six markings stacked.
+# ============================================================
+id: 141
+tier: intermediate
+act: 29
+title: "pp to ff"
+subtitle: "Act 29 · Dynamics & tempo"
+goal: "Read and play the full dynamic range — pp, p, mp, mf, f, ff — six voices from whisper to thunder."
+prereqs: [140, 56, 58]
+method_focus: "dynamics"
+time_estimate_min: 13
+piece_context: "Act 29 opens. Rhythm is done. Now — expression. You know p and f from way back in Tier 2. Today the range opens up. Six markings, whisper to thunder."
+metaphor: "range-of-voices"
+vibe: ["gentle", "focused", "reflective"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy at the piano. Above him, six labels stacked in a column — pp, p, mp, mf, f, ff — growing from a whisper icon to a thunder icon. Banner: ACT 29. DYNAMICS."
+    cleffy: >
+      Act 29.
+      Rhythm is behind you. Now — expression.
+      You know loud and soft. Today the range widens.
+
+  - id: 2
+    mode: see
+    type: the_chart
+    figure: "A vertical chart. Six rows stacked. From top to bottom: ff (fortissimo / very loud), f (forte / loud), mf (mezzo-forte / medium loud), mp (mezzo-piano / medium soft), p (piano / soft), pp (pianissimo / very soft). Volume bars grow on the right."
+    cleffy: >
+      Six voices.
+      At the top — ff. Fortissimo. Very loud.
+      Then f — forte. Loud.
+      mf — mezzo-forte. Medium loud.
+      mp — mezzo-piano. Medium soft.
+      p — piano. Soft.
+      pp — pianissimo. Very soft.
+
+  - id: 3
+    mode: see
+    type: the_italian
+    figure: "Three Italian word cards. 'mezzo' = medium. 'piano' = soft. 'forte' = loud. A suffix '-issimo' at the bottom labeled 'very'."
+    cleffy: >
+      Three Italian words.
+      Mezzo — medium.
+      Piano — soft.
+      Forte — loud.
+      Stick 'issimo' on the end — very.
+      That's the whole system.
+
+  - id: 4
+    mode: hear
+    type: hear_the_range
+    figure: "Play button. Six middle-C notes played in a row, each one louder than the last. Labels under each: pp, p, mp, mf, f, ff."
+    audio:
+      A: "Middle C played six times, each at increasing volume from pianissimo to fortissimo"
+    cleffy: >
+      Listen to the ramp.
+      Same note. Six volumes.
+      Whisper to thunder.
+
+  - id: 5
+    mode: play
+    type: play_p_and_pp
+    figure: "Keyboard. Middle C highlighted. Two markings on the staff — p, then pp. Volume meter bars shown."
+    cleffy: >
+      Two soft voices.
+      Play C soft. Then play C even softer.
+      pp is almost nothing. Barely a sound.
+    interaction:
+      type: sequence
+      keys: ["C4", "C4"]
+
+  - id: 6
+    mode: play
+    type: play_f_and_ff
+    figure: "Keyboard. Middle C highlighted. Two markings — f, then ff."
+    cleffy: >
+      Two loud voices.
+      Play C loud. Then play C louder still.
+      ff is thunder — but never harsh. Full, not angry.
+    interaction:
+      type: sequence
+      keys: ["C4", "C4"]
+
+  - id: 7
+    mode: see
+    type: the_middle_two
+    figure: "Chart zoomed on mp and mf. 'mp — medium soft, lean toward quiet'. 'mf — medium loud, lean toward strong'. An arrow between them labeled 'the busy middle'."
+    cleffy: >
+      mp and mf — the middle two.
+      Most music actually lives here.
+      Not whisper, not thunder. Just speaking.
+
+  - id: 8
+    mode: play
+    type: play_mp_mf
+    figure: "Keyboard. C D E highlighted. Staff: C marked mp, D marked mf, E marked mf."
+    cleffy: >
+      Three notes. First one medium-soft. Next two medium-loud.
+      Small step up in volume — not a jump.
+    interaction:
+      type: sequence
+      keys: ["C4", "D4", "E4"]
+
+  - id: 9
+    mode: play
+    type: the_ramp
+    figure: "Staff with six notes: C D E F G A. Each one marked pp, p, mp, mf, f, ff in order."
+    cleffy: >
+      Six notes. Climb the dynamic ladder.
+      Start at pp. Finish at ff.
+      One step louder each note.
+    interaction:
+      type: sequence
+      keys: ["C4", "D4", "E4", "F4", "G4", "A4"]
+
+  - id: 10
+    mode: play
+    type: the_ramp_down
+    figure: "Staff with six notes: A G F E D C. Each one marked ff, f, mf, mp, p, pp in order."
+    cleffy: >
+      Now the other way. Thunder back down to whisper.
+      Six notes. Lose a little on every one.
+    interaction:
+      type: sequence
+      keys: ["A4", "G4", "F4", "E4", "D4", "C4"]
+
+  - id: 11
+    mode: hear
+    type: identify_drill
+    figure: "Four rounds. Banner — 'Which dynamic?' Options shown per round."
+    cleffy: >
+      Four rounds.
+      Listen. Name the marking.
+    interaction:
+      type: drill
+      rounds: 4
+      options: ["pp", "p", "mp", "mf", "f", "ff"]
+
+  - id: 12
+    mode: play
+    type: skip_the_middle
+    figure: "Staff: four notes C E G E. First marked pp, last marked ff, middle two unmarked."
+    cleffy: >
+      Pianissimo to fortissimo. Direct.
+      The middle notes are your bridge.
+      Grow the sound as you climb.
+    interaction:
+      type: sequence
+      keys: ["C4", "E4", "G4", "E4"]
+
+  - id: 13
+    mode: play
+    type: full_range_phrase
+    figure: "Staff: eight notes. Dynamic markings under: pp, p, mp, mf, f, ff, f, mf. A shape that rises then settles."
+    cleffy: >
+      A whole phrase. Eight notes.
+      Whisper, build, arrive, ease back.
+      This is how real pieces breathe.
+    interaction:
+      type: sequence
+      keys: ["C4", "D4", "E4", "F4", "G4", "A4", "G4", "F4"]
+    followup_cleffy: >
+      That. Six voices, one line.
+
+  - id: 14
+    mode: hear
+    type: pre_check
+    figure: "Banner."
+    cleffy: >
+      Three quick ones.
+
+  - id: 15
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 141. Six dynamic markings stacked in a column, each glowing. Banner: RANGE UNLOCKED."
+    cleffy: >
+      Six voices, known.
+      pp to ff — the full range.
+      Tomorrow — sudden changes. Subito.
+
+practice_this_week:
+  real_piano:
+    - "Play Middle C six times. Each one a different dynamic — pp, p, mp, mf, f, ff. Feel the difference in your hand."
+    - "Take any piece you know. Pick one phrase. Play it at pp. Then the same phrase at ff. Listen to what changes."
+  virtual_only:
+    - "Replay pages 9, 10, 13"
+  estimated_time: "10 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "Dynamic marking ff"
+          prompt: "What does ff mean?"
+          options: ["Very soft", "Medium loud", "Very loud"]
+          correct: 2
+        - figure: "Dynamic marking mp"
+          prompt: "What does mp mean?"
+          options: ["Medium soft", "Medium loud", "Very soft"]
+          correct: 0
+        - figure: "Six markings in a column: pp, p, mp, mf, f, ff"
+          prompt: "Which is the loudest?"
+          options: ["ff", "f", "mp"]
+          correct: 0
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "A note played pianissimo"
+          prompt: "Which dynamic?"
+          options: ["pp", "mf", "ff"]
+          correct: 0
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play six notes ascending, each one louder — pp to ff."
+          accept: "C4 D4 E4 F4 G4 A4 with growing volume"
+
+remediation:
+  id: "141.5"
+  title: "pp to ff, one step at a time"
+  pages: 7
+  opening_cleffy: >
+    Six voices is a lot at once. We'll take two at a time.
+    pp and p first. Then mp and mf. Then f and ff.
+    By the end, all six will feel different in your hand.
+
+completion:
+  cleffy: >
+    Full dynamic range — yours.
+    Tomorrow — subito. Sudden changes, no warning.
+  xp: 18
+  unlocks: 142

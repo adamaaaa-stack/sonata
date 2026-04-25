@@ -1,0 +1,218 @@
+id: 36
+tier: elementary
+act: 8
+title: "Leaps"
+subtitle: "The third move in the method"
+goal: "Recognize a leap — three or more spots apart — by sight, sound, and play."
+prereqs: [16, 21]
+method_focus: "leaps"
+time_estimate_min: 12
+piece_context: null
+metaphor: "jumping-multiple-stairs"
+vibe: ["gentle", "playful", "serious"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy on a staircase jumping THREE steps at once."
+    cleffy: >
+      Step. Skip. Leap.
+      You've known those three words since Lesson 1. Today we finish the set.
+      A leap is three or more spots on the staff.
+  - id: 2
+    mode: see
+    type: definition
+    figure: "Three staff pairs shown. A: line to next space (step). B: line to next line (skip). C: line to TWO lines up (leap)."
+    cleffy: >
+      Step — one spot. Smallest move.
+      Skip — two spots. Hops over one.
+      Leap — three or more. Jumps over a bunch.
+  - id: 3
+    mode: see
+    type: leap_examples
+    figure: "Four leap pairs on staff — 4th, 5th, 6th, octave — each labeled."
+    cleffy: >
+      Leaps come in different sizes. The smallest leap jumps over two spots.
+      The biggest we'll see for now is an octave — same letter, one floor up.
+      All of these are leaps.
+  - id: 4
+    mode: see
+    type: interactive
+    figure: "Staff: line 1 to line 3 (leap)."
+    cleffy: >
+      Step, skip, or leap?
+    interaction:
+      type: choice
+      options: ["Step", "Skip", "Leap"]
+      correct: 2
+  - id: 5
+    mode: see
+    type: interactive
+    figure: "Staff: line 1 to space 1."
+    cleffy: >
+      And this?
+    interaction:
+      type: choice
+      options: ["Step", "Skip", "Leap"]
+      correct: 0
+  - id: 6
+    mode: see
+    type: interactive
+    figure: "Staff: line 2 to line 3."
+    cleffy: >
+      This?
+    interaction:
+      type: choice
+      options: ["Step", "Skip", "Leap"]
+      correct: 1
+  - id: 7
+    mode: see
+    type: drill
+    figure: "Round counter 1 of 6."
+    cleffy: >
+      Six rounds. Step, skip, or leap?
+    interaction:
+      type: drill
+      rounds: 6
+      options: ["Step", "Skip", "Leap"]
+  - id: 8
+    mode: hear
+    type: leap_sound
+    figure: "Two play buttons. A: C-E (skip). B: C-G (leap)."
+    audio:
+      A: "C4 to E4"
+      B: "C4 to G4"
+    cleffy: >
+      A skip and a leap side by side.
+      Leap has more air. The gap is bigger. You can hear the distance.
+  - id: 9
+    mode: hear
+    type: drill
+    figure: "Round counter 1 of 4. Step, skip, or leap?"
+    cleffy: >
+      Four by ear.
+    interaction:
+      type: drill
+      rounds: 4
+      options: ["Step", "Skip", "Leap"]
+  - id: 10
+    mode: play
+    type: leap_up
+    figure: "Keyboard. C4 and G4 glowing. Thumb and pinky of RH labeled."
+    cleffy: >
+      Play a leap up. RH thumb on Middle C, pinky on G.
+      Tap C, then G. That's a leap.
+    interaction:
+      type: sequence
+      keys: ["C4", "G4"]
+  - id: 11
+    mode: play
+    type: leap_down
+    figure: "Keyboard. G4 and C4 glowing."
+    cleffy: >
+      Now come back. G to C. Leap down.
+    interaction:
+      type: sequence
+      keys: ["G4", "C4"]
+  - id: 12
+    mode: play
+    type: step_skip_leap
+    figure: "Keyboard. Instruction: step, skip, leap, all starting from C."
+    cleffy: >
+      Show me all three moves from Middle C.
+      Step up (C-D). Then skip up (C-E). Then leap up (C-G).
+    interaction:
+      type: sequence
+      keys: ["C4", "D4", "C4", "E4", "C4", "G4"]
+    followup_cleffy: >
+      Step, skip, leap. All three moves, one hand, all from Middle C.
+      That's the whole Sonata method right there.
+  - id: 13
+    mode: read
+    type: read_leap
+    figure: "Staff with leap pair. Keyboard below."
+    cleffy: >
+      Read the leap. Play a leap up on the piano.
+    interaction:
+      type: shape
+      shape_type: "leap"
+      direction: "up"
+  - id: 14
+    mode: hear
+    type: mixed_drill
+    figure: "Four rounds mixed."
+    cleffy: >
+      Four rounds. Step, skip, or leap — see, hear, play.
+    interaction:
+      type: drill
+      rounds: 4
+  - id: 15
+    mode: hear
+    type: pre_check
+    figure: "Banner."
+    cleffy: >
+      Four quick ones.
+  - id: 16
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 36. Staircase with three feet: one stepping, one skipping, one leaping."
+    cleffy: >
+      All three moves, named and known.
+      Tomorrow we lock in leap shapes — how to spot one at a glance.
+
+practice_this_week:
+  real_piano:
+    - "RH thumb on Middle C, pinky on G. Play C-G (leap up), G-C (leap down). Ten times."
+    - "LH pinky on bass C, thumb on G3. Same thing: bass-C to G3 leap. Ten times."
+    - "Try step-skip-leap from any note. Muscle memory for all three distances."
+  virtual_only:
+    - "Replay pages 10-13 (the play leap drills)"
+  estimated_time: "7 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 3
+      questions:
+        - figure: "Staff, line 1 to line 3."
+          prompt: "Step, skip, or leap?"
+          options: ["Step", "Skip", "Leap"]
+          correct: 2
+        - figure: "Staff, space 2 to space 3."
+          prompt: "Step, skip, or leap?"
+          options: ["Step", "Skip", "Leap"]
+          correct: 1
+        - figure: "Staff, line 2 to space 2."
+          prompt: "Step, skip, or leap?"
+          options: ["Step", "Skip", "Leap"]
+          correct: 0
+    hear:
+      pass_threshold: 2
+      questions:
+        - audio: "C4 to G4"
+          prompt: "Step, skip, or leap?"
+          options: ["Step", "Skip", "Leap"]
+          correct: 2
+        - audio: "C4 to D4"
+          prompt: "Step, skip, or leap?"
+          options: ["Step", "Skip", "Leap"]
+          correct: 0
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play a leap up from Middle C."
+          accept: "C4 and any note 3+ steps above"
+
+remediation:
+  id: "36.5"
+  title: "Leaps, slower"
+  pages: 5
+  opening_cleffy: >
+    Leap is the biggest of the three moves. Extra time is fine. Let's see and hear lots more.
+
+completion:
+  cleffy: >
+    The method is complete. Step, skip, leap — all three, locked in.
+  xp: 20
+  unlocks: 37

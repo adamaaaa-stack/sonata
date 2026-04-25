@@ -1,0 +1,211 @@
+# ============================================================
+# LESSON 96 · Primary chords I–IV–V
+# Tier 3 · Act 20 · Low-Intermediate · Chords & accompaniment
+# The three chords that build most pop and classical music.
+# ============================================================
+id: 96
+tier: low-intermediate
+act: 20
+title: "Primary chords I–IV–V"
+subtitle: "Act 20 · Chords & accompaniment"
+goal: "Meet the three chords that build most pop and classical music — I, IV, and V in C major."
+prereqs: [75, 89, 95]
+method_focus: "combine"
+time_estimate_min: 13
+piece_context: "You've seen triads and inversions. Now the three that do most of the work in Western music — the primary chords. Every pop song you know uses these."
+metaphor: "three-chord-song"
+vibe: ["gentle", "focused"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy holding up three colored chord blocks labeled I, IV, V."
+    cleffy: >
+      Three chords. That's it.
+      Most pop songs. Most hymns. A huge chunk of classical.
+      All built from three chords. Today you meet them.
+
+  - id: 2
+    mode: see
+    type: concept_roman
+    figure: "Staff in C major. C chord, F chord, G chord written as triads. Roman numerals I, IV, V labeled below."
+    cleffy: >
+      Musicians number chords with Roman numerals.
+      I (one), IV (four), V (five).
+      In C major — I is C, IV is F, V is G.
+      Why those numbers? Count up the scale. C is 1. F is 4. G is 5.
+
+  - id: 3
+    mode: see
+    type: chord_I
+    figure: "Keyboard and staff. C-E-G stacked. Label: I (C major). Home chord."
+    cleffy: >
+      Chord I. C, E, G. The home chord of C major.
+      Root-third-fifth, built on the 1st note of the scale.
+      Feels like rest. Like a full stop.
+
+  - id: 4
+    mode: play
+    type: play_I
+    figure: "Keyboard. C4-E4-G4 all glowing."
+    cleffy: >
+      Play the I chord. C, E, G. All three at once.
+    interaction:
+      type: sequence
+      keys: [["C4","E4","G4"]]
+
+  - id: 5
+    mode: see
+    type: chord_IV
+    figure: "Keyboard and staff. F-A-C stacked. Label: IV (F major)."
+    cleffy: >
+      Chord IV. F, A, C. Built on the 4th note of the scale.
+      Feels like motion. Like the song is going somewhere.
+
+  - id: 6
+    mode: play
+    type: play_IV
+    figure: "Keyboard. F4-A4-C5 all glowing."
+    cleffy: >
+      Play the IV chord. F, A, C.
+    interaction:
+      type: sequence
+      keys: [["F4","A4","C5"]]
+
+  - id: 7
+    mode: see
+    type: chord_V
+    figure: "Keyboard and staff. G-B-D stacked. Label: V (G major)."
+    cleffy: >
+      Chord V. G, B, D. Built on the 5th note of the scale.
+      Feels like tension. Like it wants to go home to I.
+
+  - id: 8
+    mode: play
+    type: play_V
+    figure: "Keyboard. G4-B4-D5 all glowing."
+    cleffy: >
+      Play the V chord. G, B, D.
+    interaction:
+      type: sequence
+      keys: [["G4","B4","D5"]]
+
+  - id: 9
+    mode: hear
+    type: hear_I_IV_V
+    figure: "Three play buttons. A: I. B: IV. C: V."
+    audio:
+      A: "C major triad (C-E-G) held"
+      B: "F major triad (F-A-C) held"
+      C: "G major triad (G-B-D) held"
+    cleffy: >
+      Listen. I — rest. IV — lift. V — tension.
+      Same three colors over and over in the music you already love.
+
+  - id: 10
+    mode: play
+    type: I_IV_V_I
+    figure: "Staff: I - IV - V - I. Four chord boxes."
+    cleffy: >
+      Play them in order. I, IV, V, back to I.
+      Hear the story — home, away, pulling, home.
+    interaction:
+      type: sequence
+      keys: [["C4","E4","G4"],["F4","A4","C5"],["G4","B4","D5"],["C4","E4","G4"]]
+    followup_cleffy: >
+      That little loop is the backbone of thousands of songs.
+
+  - id: 11
+    mode: hear
+    type: identify_drill
+    figure: "Round counter 1 of 4."
+    cleffy: >
+      Four rounds. A chord plays. I, IV, or V?
+    interaction:
+      type: drill
+      rounds: 4
+      options: ["I (C)", "IV (F)", "V (G)"]
+
+  - id: 12
+    mode: see
+    type: why_these_three
+    figure: "Scale 1-2-3-4-5-6-7-1 with 1, 4, 5 highlighted gold."
+    cleffy: >
+      Why 1, 4, 5? Between them they cover every note of the scale.
+      C-E-G, F-A-C, G-B-D. Seven notes, all accounted for.
+      That's why you can harmonize almost any tune with just these three.
+
+  - id: 13
+    mode: play
+    type: play_loop_again
+    figure: "Keyboard. I - IV - V - I cycle, repeated twice."
+    cleffy: >
+      One more time through the loop. Twice.
+    interaction:
+      type: sequence
+      keys: [["C4","E4","G4"],["F4","A4","C5"],["G4","B4","D5"],["C4","E4","G4"],["C4","E4","G4"],["F4","A4","C5"],["G4","B4","D5"],["C4","E4","G4"]]
+
+  - id: 14
+    mode: hear
+    type: pre_check
+    figure: "Banner."
+    cleffy: >
+      Three quick ones.
+
+  - id: 15
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 96. Three colored blocks labeled I, IV, V with arrows cycling between them."
+    cleffy: >
+      I, IV, V. Home. Away. Pulling. Home.
+      Tomorrow — where they show up in an actual tune.
+
+practice_this_week:
+  real_piano:
+    - "Play I, IV, V, I in C major every day. Slow. Listen to each chord settle."
+    - "Try it starting on F (I = F, IV = Bb, V = C). Same three-chord shape, new key."
+  virtual_only:
+    - "Replay pages 4, 6, 8, and 10"
+  estimated_time: "8 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "C-E-G triad on staff"
+          prompt: "Which chord is this in C major?"
+          options: ["I", "IV", "V"]
+          correct: 0
+        - figure: "G-B-D triad on staff"
+          prompt: "Which chord is this in C major?"
+          options: ["I", "IV", "V"]
+          correct: 2
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "F major triad (F-A-C)"
+          prompt: "In C major, this is..."
+          options: ["I", "IV", "V"]
+          correct: 1
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play the I chord in C major (C, E, G together)."
+          accept: "C4 E4 G4 simultaneously"
+
+remediation:
+  id: "96.5"
+  title: "I, IV, V slower"
+  pages: 7
+  opening_cleffy: >
+    Three chords is a lot at once.
+    We'll take them one at a time — play, hear, name — then stack them up.
+
+completion:
+  cleffy: >
+    Three chords. Met.
+    Tomorrow — when and why they change inside a song.
+  xp: 18
+  unlocks: 97

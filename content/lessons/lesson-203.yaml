@@ -1,0 +1,234 @@
+# ============================================================
+# LESSON 203 · Pedal: syncopated
+# Tier 5 · Act 41 · Upper-Intermediate · Advanced pedal technique
+# Change on the beat after a new note — standard advanced pedaling.
+# ============================================================
+id: 203
+tier: upper-intermediate
+act: 41
+title: "Pedal: syncopated"
+subtitle: "Act 41 · Advanced pedal technique"
+goal: "Change the pedal just AFTER a new note lands — the standard technique for clean, connected harmony."
+prereqs: [202, 159]
+method_focus: "play"
+time_estimate_min: 14
+piece_context: "This is the one you'll use for the rest of your life. Syncopated pedal — also called legato pedal — is how real pianists change pedal without a gap. Press the new note first; lift and re-press the pedal an instant after."
+metaphor: "right-foot-artistry"
+vibe: ["focused", "serious"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy with a timeline on a whiteboard. An arrow labeled NEW NOTE. A second arrow labeled PEDAL, lagging just behind the first. Banner: SYNCOPATED PEDAL."
+    cleffy: >
+      The most important pedal technique.
+      Change the pedal after the new note — not with it.
+      Also called legato pedal. Same thing.
+
+  - id: 2
+    mode: see
+    type: the_classic_mistake
+    figure: "Timeline. Top row: 'note presses' marked on beats 1, 2, 3, 4. Bottom row: 'pedal changes' marked at the same beats 1, 2, 3, 4. Between each beat: red label 'GAP.'"
+    cleffy: >
+      The classic beginner pedal — change pedal WITH the new note.
+      Problem. For one instant, nothing rings. A tiny gap.
+      A gap between every chord. The legato dies.
+
+  - id: 3
+    mode: see
+    type: the_fix
+    figure: "Same timeline. Top row: 'note presses' on beats 1, 2, 3, 4. Bottom row: 'pedal changes' shifted slightly right — just after each note. Caption: 'note catches the pedal.' Green glow between each note."
+    cleffy: >
+      The fix.
+      Press the new note. Then — lift and re-press the pedal.
+      The new note catches the fresh pedal mid-sustain. No gap. No mud.
+
+  - id: 4
+    mode: hear
+    type: mistake_vs_fix
+    figure: "Two play buttons. A: 'pedal-on-beat' — chord changes with audible gap. B: 'syncopated' — smooth connection."
+    audio:
+      A: "Four chords — C, F, G, C — with pedal changing exactly on each beat. A faint gap sits between each chord."
+      B: "Same four chords — pedal changes slightly after each new chord. Seamless, no gap."
+    cleffy: >
+      Same chords. Two foot patterns.
+      A — pedal changes with the beat. Listen for the gaps.
+      B — pedal changes after the beat. Smooth.
+
+  - id: 5
+    mode: see
+    type: the_motion
+    figure: "Three-part sequence. 1: Finger presses new chord. Pedal DOWN (holding old ring). 2: Pedal UP (clearing). 3: Pedal DOWN again (catching the new chord). Arrow labeled 'split second.'"
+    cleffy: >
+      Three-part motion.
+      Fingers land. Pedal goes up. Pedal goes down.
+      All in a split second. Foot is late. On purpose.
+
+  - id: 6
+    mode: see
+    type: count_it_out
+    figure: "A measure in 4/4. Each beat has a chord label. Under each chord, a tiny 'and' marking the foot change — C (1) chord, pedal change (+1), F (2) chord, pedal change (+2), etc."
+    cleffy: >
+      Count it.
+      Beat 1 — new chord. "And" of 1 — pedal flips.
+      Beat 2 — new chord. "And" of 2 — pedal flips. Every time.
+
+  - id: 7
+    mode: hear
+    type: slow_demo
+    figure: "Play button. Label: 'VERY SLOW — TWO CHORDS, SYNCOPATED PEDAL.'"
+    audio:
+      A: "C major chord with pedal. F major chord lands — a half-beat later pedal lifts and re-presses. Long smooth join."
+    cleffy: >
+      Very slow. Two chords.
+      Hear the second chord arrive.
+      Hear the pedal flip just after — tsssk. Smooth into the next ring.
+
+  - id: 8
+    mode: play
+    type: two_chords
+    figure: "Keyboard. C major then F major. Pedal meter with arrows: DOWN on C (hold), UP after F lands, DOWN again."
+    cleffy: >
+      Two chords. C major, then F major.
+      On F — land fingers first. Lift pedal a half-beat later. Re-press.
+      Don't rush the foot. Late on purpose.
+    interaction:
+      type: rhythm
+      sequence: ["C4", "E4", "G4", "F3", "A3", "C4"]
+      durations: ["half", "half", "half", "half", "half", "half"]
+      tempo: 60
+
+  - id: 9
+    mode: play
+    type: three_chords
+    figure: "Keyboard. C, F, G. Pedal markings: syncopated change between each."
+    cleffy: >
+      Three chords. C, F, G. Syncopated pedal between each.
+      Fingers first. Foot late. Smooth connection.
+    interaction:
+      type: rhythm
+      sequence: ["C4", "E4", "G4", "F3", "A3", "C4", "G3", "B3", "D4"]
+      durations: ["half", "half", "half", "half", "half", "half", "half", "half", "half"]
+      tempo: 60
+
+  - id: 10
+    mode: see
+    type: why_it_works
+    figure: "Two overlapping wave shapes. Old chord's sound fading. New chord's sound rising. Overlap highlighted in gold. Caption: 'the fingers hold the bridge.'"
+    cleffy: >
+      Why it works.
+      When you lift the pedal, the old chord stops ringing in the strings.
+      But your fingers are already on the new chord. The new sound bridges the gap.
+      Pedal re-presses. New chord takes the ring.
+
+  - id: 11
+    mode: play
+    type: four_chord_progression
+    figure: "Keyboard. C, Am, F, G progression. Syncopated pedal throughout."
+    cleffy: >
+      Four chords. C, A minor, F, G.
+      Syncopated pedal between all four. No gaps.
+    interaction:
+      type: rhythm
+      sequence: ["C4", "E4", "G4", "A3", "C4", "E4", "F3", "A3", "C4", "G3", "B3", "D4"]
+      durations: ["half", "half", "half", "half", "half", "half", "half", "half", "half", "half", "half", "half"]
+      tempo: 60
+
+  - id: 12
+    mode: hear
+    type: listen_to_pro
+    figure: "Play button. Label: 'CHOPIN-STYLE PHRASE, SYNCOPATED PEDAL.'"
+    audio:
+      A: "A slow romantic phrase — left hand wide chords, right hand melody — every chord change pedaled syncopated. Smooth as water."
+    cleffy: >
+      Listen. A real phrase, real style.
+      Every chord changes. No gaps anywhere.
+      That's syncopated pedal doing its job.
+
+  - id: 13
+    mode: play
+    type: melody_with_syncopated
+    figure: "Keyboard. A small melody in RH — E G A G E D C. LH chord changes on each beat. Syncopated pedal on every chord change."
+    cleffy: >
+      Small melody. Left-hand chord every two beats.
+      Syncopated pedal at each chord change.
+      The melody should stay connected. No foot-gaps allowed.
+    interaction:
+      type: rhythm
+      sequence: ["C3", "E4", "G4", "F3", "A4", "G4", "G3", "E4", "D4", "C3", "C4"]
+      durations: ["quarter", "quarter", "quarter", "quarter", "quarter", "quarter", "quarter", "quarter", "quarter", "quarter", "quarter"]
+      tempo: 66
+    followup_cleffy: >
+      That's the technique that holds everything together.
+      Every good pianist you've ever heard is doing that, every bar.
+
+  - id: 14
+    mode: hear
+    type: pre_check
+    figure: "Banner — three quick questions."
+    cleffy: >
+      Three quick ones.
+
+  - id: 15
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 203. A timeline with notes on the beat and pedal flips just after each. Banner: SYNCOPATED PEDAL."
+    cleffy: >
+      Syncopated pedal. Fingers first, foot after.
+      The invisible skill behind every smooth pianist.
+      Tomorrow — when NOT to pedal.
+
+practice_this_week:
+  real_piano:
+    - "Sit at the piano. Play C and F major, back to back. Syncopated pedal. Ten times slow. Count: chord — and — chord — and."
+    - "Pick any piece you know with pedal. Replace every pedal change with syncopated. Listen for gaps disappearing."
+    - "Say it out loud while you play: 'finger first, foot late.' Let the words set the timing."
+  virtual_only:
+    - "Replay pages 8, 9, and 11 — feel the lateness in the foot."
+  estimated_time: "12 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "A timeline with note changes on the beat and pedal changes slightly after each"
+          prompt: "What technique is this?"
+          options: ["Pedal-on-beat", "Syncopated pedal", "No pedal"]
+          correct: 1
+        - figure: "A timeline with note changes and pedal changes both happening exactly on the beat"
+          prompt: "What's wrong with this pattern?"
+          options: ["Pedal is too shallow", "There will be tiny gaps between chords", "The pedal is in the wrong foot"]
+          correct: 1
+        - figure: "A three-step diagram: 1 finger lands, 2 pedal up, 3 pedal down"
+          prompt: "What is this sequence?"
+          options: ["Flutter pedal", "Syncopated pedal change", "Half-pedal"]
+          correct: 1
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "Four chords with tiny gaps between each (pedal-on-beat)"
+          prompt: "What's the problem here?"
+          options: ["Pedal is too deep", "Pedal changes are on the beat — causing gaps", "The chords are wrong"]
+          correct: 1
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play C major, then F major. Use syncopated pedal — finger first, pedal lifts and re-presses just after."
+          accept: "C major chord, F major chord, played with pedal changing late between them — smooth connection"
+
+remediation:
+  id: "203.5"
+  title: "Syncopated pedal, slower"
+  pages: 6
+  opening_cleffy: >
+    Syncopated pedal is a timing. It takes reps to feel.
+    We'll do two chords only. Very slow. Say 'finger — foot' out loud every time. Ten in a row.
+
+completion:
+  cleffy: >
+    Syncopated pedal. The hidden hinge of good playing.
+    Tomorrow — the opposite. Where to use NO pedal at all.
+  xp: 18
+  unlocks: 204

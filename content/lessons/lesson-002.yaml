@@ -1,0 +1,282 @@
+# ============================================================
+# LESSON 2 · Meet the piano
+# Tier 1 · Act 1 · Beginner
+# Central metaphor: THE PIANO IS A STAIRCASE ON ITS SIDE
+# ============================================================
+id: 2
+tier: beginner
+act: 1
+title: "Meet the piano"
+subtitle: "A staircase on its side"
+goal: "Learn that the piano is a sideways staircase: low on the left, high on the right. Touch a key for the first time."
+prereqs: [1]
+method_focus: "piano-geography"
+time_estimate_min: 12
+piece_context: null
+metaphor: "piano-as-stairs"
+vibe: ["gentle", "playful"]
+
+# ─── Pages ───────────────────────────────────────────────
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy waving beside a grand piano. Side-on view so you can see the whole keyboard."
+    cleffy: >
+      Welcome back. Yesterday we did all of that with your ears.
+      Today we actually meet the piano.
+      Don't worry about hitting a wrong note. There aren't any. We're just exploring.
+
+  - id: 2
+    mode: see
+    type: definition
+    figure: "Animation — a vertical staircase slowly tilts 90 degrees until it lies flat on its side. Then the stairs morph into piano keys. Same shape, new angle."
+    cleffy: >
+      Here's the whole secret of the piano in one sentence.
+      The piano is a staircase. It's just lying on its side.
+      Low notes live on the left. High notes live on the right.
+      Every key is one stair.
+      Take a step to the right, the note gets higher.
+      Take a step to the left, the note gets lower.
+      That's it. That's the piano.
+
+  - id: 3
+    mode: see
+    type: orientation
+    figure: "Full keyboard, zoomed out. An arrow labeled 'low' points to the far left, an arrow labeled 'high' points to the far right. Gentle glow in the middle."
+    cleffy: >
+      Here's the whole thing. Left end, right end, and a big middle.
+      That's where your hands will usually live — right in the middle.
+      See all those keys? Don't let the number scare you.
+      You already know the shape. It's just stairs.
+
+  - id: 4
+    mode: hear
+    type: demo
+    figure: "Three playback buttons. Left button lit blue. Right button lit red. Middle button lit yellow."
+    audio:
+      A: "Lowest C on the piano (C1)"
+      B: "Highest C on the piano (C8)"
+      C: "Middle C"
+    cleffy: >
+      Listen. Here's the key all the way on the left — the very bottom of the stairs.
+      Huge, rumbly sound.
+      Now the key all the way on the right — the top.
+      Tiny, tingly sound.
+      And here's the middle. That one probably sounds the most like music to you.
+      Because your ears are used to living in the middle.
+
+  - id: 5
+    mode: play
+    type: first_touch
+    figure: "Virtual keyboard, full width. No labels. Every key gently pulsing like it wants to be tapped."
+    cleffy: >
+      Okay. Your turn. Tap any key. Any one.
+      You cannot get this wrong. I promise.
+      Just feel what a piano does.
+    interaction:
+      type: tap
+      accept: "any key"
+    followup_cleffy: >
+      That. Right there. That's you playing piano.
+      Try a few more if you want. Poke around.
+
+  - id: 6
+    mode: play
+    type: directed
+    figure: "Keyboard with the LEFT third glowing blue."
+    cleffy: >
+      Now pick any key on the LEFT side. Down at the bottom of the stairs.
+      Listen to how deep it sounds.
+    interaction:
+      type: tap
+      accept: "any key in left third"
+    followup_cleffy: >
+      Good. That's what low sounds like. Heavy. Like a big drum.
+
+  - id: 7
+    mode: play
+    type: directed
+    figure: "Keyboard with the RIGHT third glowing red."
+    cleffy: >
+      Now pick any key on the RIGHT side. Up at the top.
+    interaction:
+      type: tap
+      accept: "any key in right third"
+    followup_cleffy: >
+      Tiny and bright, right? Like a bell.
+      Same piano. Totally different feeling.
+
+  - id: 8
+    mode: play
+    type: directed
+    figure: "Keyboard with the MIDDLE third glowing yellow."
+    cleffy: >
+      Now pick any key right in the middle.
+      That's the part of the piano where most music lives.
+    interaction:
+      type: tap
+      accept: "any key in middle third"
+    followup_cleffy: >
+      Warm. Singable. That's home base.
+
+  - id: 9
+    mode: hear
+    type: drill
+    figure: "Round counter 1 of 4. Play button. Two answer buttons: Left side, Right side."
+    cleffy: >
+      Four rounds. I'll play a key. You tell me — did it come from the left side of the piano, or the right?
+    interaction:
+      type: drill
+      rounds: 4
+      question: "Where on the piano was that note?"
+      options: ["Left side (low)", "Right side (high)"]
+    corrections:
+      - wrong_label: "left_as_right"
+        cleffy: >
+          That one was low and rumbly. Low lives on the left. Remember — bottom of the stairs.
+      - wrong_label: "right_as_left"
+        cleffy: >
+          That one was bright and tiny. High lives on the right. Top of the stairs.
+
+  - id: 10
+    mode: play
+    type: walk_up
+    figure: "Keyboard with four white keys in the middle glowing, numbered 1-2-3-4 going right."
+    cleffy: >
+      Now we're going up the stairs.
+      Tap those four keys in order, left to right. One, two, three, four.
+      Each one is one step higher than the last.
+    interaction:
+      type: sequence
+      keys: ["any middle C", "D", "E", "F"]
+    followup_cleffy: >
+      Hear it climb? You just played four steps up the stairs.
+      That's a melody. A tiny one. But a real one.
+
+  - id: 11
+    mode: play
+    type: walk_down
+    figure: "Same four keys, now numbered 1-2-3-4 going LEFT."
+    cleffy: >
+      Now let's come back down. Tap them in the other direction.
+    interaction:
+      type: sequence
+      keys: ["F", "E", "D", "C"]
+    followup_cleffy: >
+      Down the stairs. Same keys, different direction.
+      Notice how different it feels? Going down sounds a little sleepier.
+
+  - id: 12
+    mode: read
+    type: see_hear_play
+    figure: "Keyboard on screen. A single key flashes green and plays its note. An arrow shows where it is."
+    cleffy: >
+      Watch what I play. Listen to it. Then tap the same key.
+    interaction:
+      type: echo
+      rounds: 3
+    followup_cleffy: >
+      See, hear, play. That's the whole loop. We'll do that a lot.
+
+  - id: 13
+    mode: play
+    type: steps_preview
+    figure: "Keyboard. Two adjacent white keys in the middle glow — a 'step' label floats above them."
+    cleffy: >
+      Remember steps from yesterday? On a piano, a step is just the next stair over.
+      Tap two keys right next to each other, going right. Any two.
+    interaction:
+      type: sequence
+      direction: "right"
+    followup_cleffy: >
+      That's a step up. Took one stair. No hopping.
+      Try a step going DOWN now. Two keys next to each other, going left.
+
+  - id: 14
+    mode: hear
+    type: drill
+    figure: "Round counter 1 of 4. Play button. Two answer buttons: Step up, Step down."
+    cleffy: >
+      Four more. I'll play two notes. You tell me if they went a step up or a step down.
+    interaction:
+      type: drill
+      rounds: 4
+      question: "Step up or step down?"
+      options: ["Up", "Down"]
+
+  - id: 15
+    mode: hear
+    type: pre_check
+    figure: "Banner — One quick check before we wrap up."
+    cleffy: >
+      Four quick ones. Same as before — this isn't the real test, just checking how it lands.
+
+  - id: 16
+    mode: see
+    type: wrap
+    figure: "Postcard card — Lesson 2, you met the piano. Cleffy standing on top of a tipped-over staircase, arms raised."
+    cleffy: >
+      That's it. You touched the piano for the first time.
+      Low left, high right, middle is home.
+      Tomorrow, we start noticing the black keys. They're not scary. They're a map.
+      See you then.
+
+# ─── Mastery check ──────────────────────────────────────
+# First lesson with PLAY. Pass all three sections.
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "Keyboard image with a key circled on the LEFT third."
+          prompt: "Is this key on the low side or the high side?"
+          options: ["Low side", "High side"]
+          correct: 0
+        - figure: "Keyboard image with a key circled on the right end."
+          prompt: "This key will sound..."
+          options: ["Deep and rumbly", "Bright and tiny"]
+          correct: 1
+        - figure: "Keyboard image with a key circled in the middle."
+          prompt: "Where on the piano does most music live?"
+          options: ["Far left", "Middle", "Far right"]
+          correct: 1
+
+    hear:
+      pass_threshold: 2
+      questions:
+        - audio: "A low note (C2)"
+          prompt: "Did that come from the left or right side of the piano?"
+          options: ["Left", "Right"]
+          correct: 0
+        - audio: "A high note (C7)"
+          prompt: "What about this one?"
+          options: ["Left", "Right"]
+          correct: 1
+
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Tap any key on the LEFT side of the piano."
+          accept: "any key in left third of keyboard"
+
+# ─── Remediation ────────────────────────────────────────
+remediation:
+  id: "2.5"
+  title: "The piano, one more time"
+  pages: 5
+  opening_cleffy: >
+    Hey. No big deal. The piano is a new thing — takes a minute to get your bearings.
+    Let's go through it again, slower. The stairs aren't going anywhere.
+  rules:
+    - "Each section re-presented with extra visual highlights"
+    - "Audio plays at 80% speed for the hear section"
+
+# ─── Completion ─────────────────────────────────────────
+completion:
+  cleffy: >
+    Two lessons down. You've used your ears AND your hands now.
+    Tomorrow, we crack open the black keys. They hold a secret.
+  xp: 20
+  unlocks: 3

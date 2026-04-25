@@ -1,0 +1,234 @@
+# ============================================================
+# LESSON 189 · Scale-in-a-phrase
+# Tier 5 · Act 38 · Upper-Intermediate · All-keys scales & arpeggios
+# Spot scale fragments inside real music — Invention, Clair de Lune.
+# ============================================================
+id: 189
+tier: upper-intermediate
+act: 38
+title: "Scale-in-a-phrase"
+subtitle: "Act 38 · All-keys scales & arpeggios"
+goal: "Recognize scale fragments hiding inside real music — and play them as one motion instead of six separate notes."
+prereqs: [188, 146]
+method_focus: "see"
+time_estimate_min: 14
+piece_context: "Back at L146 you learned to see a scale as one thing. Now — seeing scale fragments in pieces you already know. Bach Invention. Clair de Lune. Once you spot them, the notes stop being individuals. The passage becomes one gesture."
+metaphor: "all-twelve-doors"
+vibe: ["focused", "reflective"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy with a magnifying glass over a music staff. A six-note run is circled; each note has a number (1-2-3-4-5-6). Banner: SCALE HIDING IN PLAIN SIGHT."
+    cleffy: >
+      Real music is full of scales.
+      Not whole scales. Fragments. Four notes, five notes, six.
+      Once you see them, the passage reads as one shape.
+
+  - id: 2
+    mode: see
+    type: why_it_matters
+    figure: "Two versions of the same passage. Top — six separate note names listed. Bottom — a bracket over all six with the label SCALE FRAGMENT."
+    cleffy: >
+      Look at the same bar two ways.
+      Top — six notes. Six decisions. Slow.
+      Bottom — one scale fragment. One decision. Fast.
+      Your eyes need the bottom view.
+
+  - id: 3
+    mode: see
+    type: invention_fragment
+    figure: "Staff — Bach Invention bar 2, right hand: the sixteenth-note run C-D-E-F-G-A-B-C. Bracket labeled: C major scale, one octave."
+    cleffy: >
+      Bach Invention, bar two. Right hand.
+      Eight sixteenth notes.
+      It's not eight notes. It's the C major scale, up an octave.
+
+  - id: 4
+    mode: hear
+    type: hear_invention_fragment
+    figure: "Play button. Caption: Invention bar 2 — the scale run."
+    audio:
+      A: "A C major scale played in sixteenth notes ascending from C4 to C5 at 80 bpm"
+    cleffy: >
+      Listen for the scale under the tempo.
+      You already know this shape. Bach just put it in a sixteenth-note suit.
+
+  - id: 5
+    mode: play
+    type: play_invention_fragment
+    figure: "Keyboard. C major scale one octave, labeled as Invention material. Metronome 60."
+    cleffy: >
+      Play it as a scale. Not as eight separate notes.
+      One shape, start to finish.
+    interaction:
+      type: sequence
+      keys: ["C4","D4","E4","F4","G4","A4","B4","C5"]
+
+  - id: 6
+    mode: see
+    type: clair_de_lune_fragment
+    figure: "Staff — Clair de Lune, opening right hand: Db-Eb-F-Gb descending pattern written out. Bracket labeled: Db major scale fragment (top four notes coming down)."
+    cleffy: >
+      Clair de Lune, opening bars. Right hand.
+      What looks like a melody is actually the top of a D-flat major scale — coming down.
+      Debussy is using the scale as a falling shape.
+
+  - id: 7
+    mode: hear
+    type: hear_cdl_fragment
+    figure: "Play button. Caption: Clair de Lune opening — the scale fragment."
+    audio:
+      A: "A descending Db major scale fragment — Ab5 Gb5 F5 Eb5 Db5 — played slowly, molto espressivo"
+    cleffy: >
+      Listen. It sounds like longing.
+      What makes it sound like longing? It's a scale, falling.
+      The shape does half the expressive work.
+
+  - id: 8
+    mode: play
+    type: play_cdl_fragment
+    figure: "Keyboard. Five descending notes — Ab5 Gb5 F5 Eb5 Db5. Metronome 50, soft."
+    cleffy: >
+      Five notes, coming down. Soft.
+      Let the scale shape carry the feel.
+    interaction:
+      type: sequence
+      keys: ["Ab5","Gb5","F5","Eb5","Db5"]
+
+  - id: 9
+    mode: see
+    type: scale_fragment_in_bass
+    figure: "Bass staff — Bach Invention, a left-hand moment: G-A-B-C ascending. Bracket labeled: scale fragment, left hand."
+    cleffy: >
+      Scale fragments live in the left hand too.
+      This is the bass of the Invention — four notes, C major, going up.
+      Same shape you've been drilling. Just written for the other hand.
+
+  - id: 10
+    mode: play
+    type: play_bass_fragment
+    figure: "Keyboard. G3-A3-B3-C4 ascending, left hand."
+    cleffy: >
+      Four notes. Left hand. G to C.
+      Hear it as a scale fragment, not four notes.
+    interaction:
+      type: sequence
+      keys: ["G3","A3","B3","C4"]
+
+  - id: 11
+    mode: hear
+    type: identify_fragment_drill
+    figure: "Drill banner. Five rounds. Each round plays a short passage — student says whether it contains a scale fragment, an arpeggio fragment, or neither."
+    cleffy: >
+      Five rounds. Scale, arpeggio, or neither?
+    interaction:
+      type: drill
+      rounds: 5
+      options: ["Scale", "Arpeggio", "Neither"]
+
+  - id: 12
+    mode: see
+    type: reading_strategy
+    figure: "A passage on the staff. Three brackets across it: scale, leap, scale. Caption: READ IN CHUNKS, NOT NOTES."
+    cleffy: >
+      Reading strategy.
+      Eyes land on the first note. Ask — scale? Arpeggio? Leap?
+      Then read the whole chunk as that shape.
+      You'll always be one chunk ahead of your hands.
+
+  - id: 13
+    mode: play
+    type: play_mixed_phrase
+    figure: "Keyboard. Phrase with two scale fragments joined by a leap: C-D-E-F, then jump to G, then G-A-B-C."
+    cleffy: >
+      Two scale fragments with a leap between.
+      Read each fragment as one shape.
+    interaction:
+      type: sequence
+      keys: ["C4","D4","E4","F4","G4","A4","B4","C5"]
+
+  - id: 14
+    mode: play
+    type: invention_in_context
+    figure: "Full Bach Invention bar 2 notation. Metronome 55."
+    cleffy: >
+      One more pass at the Invention run.
+      This time — feel it as a single falling-into-place gesture.
+      Not eight notes. One scale.
+    interaction:
+      type: rhythm
+      sequence: ["C4","D4","E4","F4","G4","A4","B4","C5"]
+      durations: ["sixteenth","sixteenth","sixteenth","sixteenth","sixteenth","sixteenth","sixteenth","sixteenth"]
+      tempo: 55
+
+  - id: 15
+    mode: hear
+    type: pre_check
+    figure: "Banner."
+    cleffy: >
+      Three quick ones.
+
+  - id: 16
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 189. A score with scale and arpeggio fragments circled throughout. Caption: once you see them, you see them everywhere."
+    cleffy: >
+      Scales live inside pieces. So do arpeggios.
+      Tomorrow — act boss. All twelve keys. Fast.
+
+practice_this_week:
+  real_piano:
+    - "Pull out any piece you know — Invention, Clair de Lune opening, Prelude in C. Find one scale fragment in it. Play that fragment as one shape."
+    - "Do the same for arpeggio fragments. Pieces are 60% scales and arpeggios in disguise."
+    - "Read a new passage with this question first: where are the scales? Eyes before fingers."
+  virtual_only:
+    - "Replay pages 3-8 — both fragments in context"
+  estimated_time: "12 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "Eight sixteenth notes ascending: C-D-E-F-G-A-B-C"
+          prompt: "What shape is this?"
+          options: ["An arpeggio", "A C major scale fragment", "A chromatic run"]
+          correct: 1
+        - figure: "Five descending notes Ab-Gb-F-Eb-Db"
+          prompt: "What shape is this?"
+          options: ["An arpeggio", "A Db major scale fragment, falling", "A leap pattern"]
+          correct: 1
+        - figure: "A passage with a bracketed scale fragment"
+          prompt: "Why read it as one shape instead of note by note?"
+          options: ["It's faster and you read further ahead", "It sounds louder", "It's easier to memorize"]
+          correct: 0
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "A short melody containing a four-note ascending scale fragment"
+          prompt: "Does this phrase contain a scale fragment?"
+          options: ["Yes", "No"]
+          correct: 0
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play a C major scale fragment — C, D, E, F, G — as one shape, smooth."
+          accept: "C4 D4 E4 F4 G4 played as one gesture"
+
+remediation:
+  id: "189.5"
+  title: "Finding shapes, slower"
+  pages: 7
+  opening_cleffy: >
+    This is a new way of seeing. Takes a few passes.
+    We'll look at three short passages — one scale, one arpeggio, one mixed.
+    Eyes first, fingers second.
+
+completion:
+  cleffy: >
+    Scales and arpeggios — not just exercises. They are the building blocks of everything.
+    Tomorrow — act boss. All twelve keys, scales and arpeggios, fast.
+  xp: 18
+  unlocks: 190

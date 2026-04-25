@@ -1,0 +1,219 @@
+id: 42
+tier: elementary
+act: 9
+title: "Treble spaces, derived from C"
+subtitle: "F, A, C, E — the four spaces"
+goal: "Name every space of the treble staff by counting from Middle C. All five lines and four spaces now named."
+prereqs: [41]
+method_focus: "notation"
+time_estimate_min: 10
+piece_context: null
+metaphor: "count-from-anchor"
+vibe: ["gentle", "playful"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Treble staff with lines labeled (E G B D F) and question marks on the spaces."
+    cleffy: >
+      Five lines, named. Four spaces to go.
+      Same trick — count from Middle C. No mnemonics.
+
+  - id: 2
+    mode: see
+    type: from_c_to_f
+    figure: "Treble staff. Middle C → D → E (line 1) → F (space 1). Each labeled."
+    cleffy: >
+      Start at Middle C. Step up: D. Step up: E (line 1). Step up: F.
+      F is the first space on the treble staff.
+
+  - id: 3
+    mode: see
+    type: all_spaces
+    figure: "Treble staff with all four spaces labeled: F, A, C, E from bottom to top."
+    cleffy: >
+      From F, skip up — lands on A. Skip up — C. Skip up — E.
+      Four spaces: F, A, C, E. Bottom to top.
+
+  - id: 4
+    mode: see
+    type: why_skips_again
+    figure: "Staff with space 1 and space 2 highlighted. Ghost note on the line between."
+    cleffy: >
+      Same reason as lines — space to space is a skip.
+      Both lines and spaces are every other letter.
+
+  - id: 5
+    mode: see
+    type: interactive_space_1
+    figure: "Treble staff, note in space 1 (F)."
+    cleffy: >
+      Which letter?
+    interaction:
+      type: choice
+      options: ["E", "F", "G", "A"]
+      correct: 1
+
+  - id: 6
+    mode: see
+    type: interactive_space_3
+    figure: "Treble staff, note in space 3 (C)."
+    cleffy: >
+      This one?
+    interaction:
+      type: choice
+      options: ["B", "C", "D", "E"]
+      correct: 1
+
+  - id: 7
+    mode: see
+    type: drill
+    figure: "Round counter 1 of 6."
+    cleffy: >
+      Six rounds. Name the space.
+    interaction:
+      type: drill
+      rounds: 6
+      options: ["F", "A", "C", "E"]
+
+  - id: 8
+    mode: see
+    type: line_vs_space_mix
+    figure: "Treble staff with random note (line or space)."
+    cleffy: >
+      Now mix. Line or space? Name it.
+    interaction:
+      type: drill
+      rounds: 6
+      options: ["E", "F", "G", "A", "B", "C", "D"]
+
+  - id: 9
+    mode: hear
+    type: hear_space_notes
+    figure: "Space notes with audio."
+    audio:
+      A: "F4 (space 1)"
+      B: "A4 (space 2)"
+      C: "C5 (space 3)"
+      D: "E5 (space 4)"
+    cleffy: >
+      The four space notes. F, A, C, E.
+
+  - id: 10
+    mode: play
+    type: play_spaces
+    figure: "Keyboard. F4 glowing. Staff shows space 1."
+    cleffy: >
+      Play F. The key just after E, on the treble staff, space 1.
+    interaction:
+      type: tap
+      key: "F4"
+
+  - id: 11
+    mode: play
+    type: play_a
+    figure: "Keyboard. A4 glowing."
+    cleffy: >
+      Now A. Space 2.
+    interaction:
+      type: tap
+      key: "A4"
+
+  - id: 12
+    mode: play
+    type: play_c5
+    figure: "Keyboard. C5 glowing (ONE OCTAVE above Middle C). Staff shows space 3."
+    cleffy: >
+      C in space 3 — that's the C one octave above Middle C.
+      Same letter, different floor.
+    interaction:
+      type: tap
+      key: "C5"
+
+  - id: 13
+    mode: read
+    type: see_hear_play
+    figure: "Staff with a space note."
+    cleffy: >
+      Three rounds. See a space note. Play it. Name it.
+    interaction:
+      type: see_hear_play
+      rounds: 3
+
+  - id: 14
+    mode: hear
+    type: mixed_drill
+    figure: "Mixed naming questions."
+    cleffy: >
+      Four rounds.
+    interaction:
+      type: drill
+      rounds: 4
+
+  - id: 15
+    mode: hear
+    type: pre_check
+    figure: "Banner."
+    cleffy: >
+      Five quick ones.
+
+  - id: 16
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 42. Treble staff with every line AND space labeled."
+    cleffy: >
+      Every note on the treble staff now has a name.
+      Tomorrow — ledger lines, for notes outside the staff.
+
+practice_this_week:
+  real_piano:
+    - "Label a staff on paper: lines E G B D F, spaces F A C E."
+    - "Play each space note on the piano going up: F, A, C, E."
+    - "Mix: play one line note, one space note, alternating."
+  virtual_only:
+    - "Replay pages 7-8 (mixed naming drills)"
+  estimated_time: "7 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 3
+      questions:
+        - figure: "Treble staff, note in space 1."
+          prompt: "Which letter?"
+          options: ["E", "F", "G", "A"]
+          correct: 1
+        - figure: "Treble staff, note in space 3."
+          prompt: "Which letter?"
+          options: ["A", "B", "C", "D"]
+          correct: 2
+        - figure: "Treble staff, note in space 4."
+          prompt: "Which letter?"
+          options: ["C", "D", "E", "F"]
+          correct: 2
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "A4 (space 2)"
+          prompt: "Which space note?"
+          options: ["F", "A", "C", "E"]
+          correct: 1
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play C in space 3 (one octave above Middle C)."
+          accept: "C5"
+
+remediation:
+  id: "42.5"
+  title: "Treble spaces, slower"
+  pages: 5
+  opening_cleffy: >
+    Four spaces, one letter at a time. Let's count from Middle C each one.
+
+completion:
+  cleffy: >
+    Every line, every space, named. The treble staff is yours.
+  xp: 20
+  unlocks: 43

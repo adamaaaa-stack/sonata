@@ -1,0 +1,232 @@
+# ============================================================
+# LESSON 246 · Performance nerves
+# Tier 6 · Act 50 · Advanced · Final act
+# How to play when your hands shake.
+# ============================================================
+id: 246
+tier: advanced
+act: 50
+title: "Performance nerves"
+subtitle: "Act 50 · The final act"
+goal: "How to play when your hands shake — breathing, ritual, reframing adrenaline as excitement."
+prereqs: [245]
+method_focus: "combine"
+time_estimate_min: 14
+piece_context: "Act 50 opens. The last five lessons. L245 was the full Moonlight, slow, no stopping. Today — the honest conversation about nerves. Every pianist, including the famous ones, has hands that shake. The trick isn't making it stop. It's playing anyway."
+metaphor: "shaking-hands"
+vibe: ["honest", "gentle", "serious"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy sitting at the piano, both hands resting on the fallboard. A small visible tremor drawn on one hand. Caption: 'the thing nobody warned you about.'"
+    cleffy: >
+      Your hands shake before you play for someone.
+      Heart thumps. Mouth dries. Fingers feel like they belong to someone else.
+      Every pianist you've ever heard of — same thing.
+      Today we talk about it.
+
+  - id: 2
+    mode: see
+    type: the_truth
+    figure: "A list of names — Horowitz, Rubinstein, Brendel, Lang Lang, Richter. Next to each name, a small shaking-hand icon."
+    cleffy: >
+      Horowitz famously suffered stage fright.
+      Rubinstein said the terror never left him — seventy years of playing.
+      The nerves don't go away.
+      You learn to play with them.
+
+  - id: 3
+    mode: see
+    type: what_nerves_are
+    figure: "A diagram. Heart racing, breath shallow, palms cold. Arrow labeled 'adrenaline.' Below: 'your body thinks the audience is a bear.'"
+    cleffy: >
+      Here's what's happening.
+      Adrenaline. Your body's old survival chemical.
+      It doesn't know the difference between a tiger and a grandmother with a cup of tea.
+      To your nervous system, both are threats. Same response.
+      That's the whole thing.
+
+  - id: 4
+    mode: see
+    type: the_reframe
+    figure: "Two labels for the same feeling. Left: 'FEAR' in red. Right: 'EXCITEMENT' in gold. Same heartbeat, same breath — different story."
+    cleffy: >
+      Adrenaline feels the same as excitement.
+      Exactly the same. Same chemical. Same heart rate.
+      The only difference is the word you put on it.
+      'I'm scared' becomes 'I'm ready.'
+      Sounds small. It isn't.
+
+  - id: 5
+    mode: see
+    type: the_breath
+    figure: "A simple diagram. Inhale 4 counts — hold 4 — exhale 6 counts. Repeat three times. Caption: 'the only thing that actually works.'"
+    cleffy: >
+      One tool. Box breathing, slow variant.
+      In for four. Hold for four. Out for six.
+      Three rounds before you play.
+      The long exhale slows your heart. Real, physical, measurable.
+      Not magic. Biology.
+
+  - id: 6
+    mode: hear
+    type: listen_breath
+    figure: "A soft timer — in-4, hold-4, out-6. Three rounds."
+    audio:
+      A: "Soft bell, four seconds of silence for in-breath, hold, six seconds for out-breath. Repeated three times."
+    cleffy: >
+      Try it now. Eyes closed if you like.
+      In, four. Hold, four. Out, six.
+      Three rounds. No talking. Just the breath.
+
+  - id: 7
+    mode: see
+    type: the_ritual
+    figure: "Four small icons in a row. 1. Hands warm (rub together). 2. Three breaths. 3. Think the first bar in your head. 4. Press the first note."
+    cleffy: >
+      A pre-play ritual. Same thing, every time.
+      One — rub your hands together till they're warm.
+      Two — three slow breaths.
+      Three — hear the first bar in your head.
+      Four — start.
+      Repeat for every performance you ever give.
+      Rituals don't stop nerves. They give them somewhere to go.
+
+  - id: 8
+    mode: play
+    type: ritual_run_moonlight
+    figure: "Moonlight opening, first two bars. Tempo 50. Guides on. A small timer on the side — 'breathe 3x first.'"
+    cleffy: >
+      Try the ritual now. Real.
+      Warm hands. Three breaths. Hear bar one in your head.
+      Then play.
+    interaction:
+      type: song
+      sequence: [["C#2","C#3"],"C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4",["C#2","C#3"],"C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4"]
+      guides: true
+      tempo: 50
+
+  - id: 9
+    mode: see
+    type: shaking_anyway
+    figure: "Two hands hovering over the keyboard, slightly trembling. Below them: the keys pressing anyway, music coming out. Caption: 'the hands can shake. The music still plays.'"
+    cleffy: >
+      Here's the secret nobody tells you.
+      The hands can shake and the piece still works.
+      Your fingers know the piece. Muscle memory doesn't need steady hands.
+      Let them shake. Play anyway.
+
+  - id: 10
+    mode: play
+    type: play_with_nerves_frame
+    figure: "Moonlight bars 1-4. No guides. Tempo 48. Caption: 'imagine someone in the room.'"
+    cleffy: >
+      One more run. Imagine one person in the room — someone kind.
+      They're listening.
+      Ritual first. Then play. Don't stop if something slips.
+    interaction:
+      type: song
+      sequence: [["C#2","C#3"],"C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4",["C#2","C#3"],"C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4",["B1","B2"],"B3","D#4","F#4","B3","D#4","F#4","B3","D#4","F#4",["E2","E3"],"E3","G#3","B3","E3","G#3","B3","E3","G#3","B3"]
+      guides: false
+      tempo: 48
+    followup_cleffy: >
+      That.
+      Even a little adrenaline changes how the piece feels under your hands.
+      Now you know the feeling. And you played anyway.
+
+  - id: 11
+    mode: see
+    type: the_myth
+    figure: "A crossed-out brain with a big 'think harder' label. Next to it: a pair of hands. Arrow from hands, not brain, to the keys."
+    cleffy: >
+      One more myth to drop.
+      Thinking harder does not help nerves. It makes them worse.
+      When nerves hit, drop into the body.
+      Feel your feet on the floor. Feel the keys under your fingers.
+      Out of the head. Into the hands.
+
+  - id: 12
+    mode: see
+    type: last_word_nerves
+    figure: "A small framed quote. 'The day I don't get nervous is the day I stop.' — unattributed, real pianist. Caption below: 'nerves mean you care.'"
+    cleffy: >
+      Last thing.
+      Nerves mean you care. If you didn't care, there'd be no adrenaline.
+      Treat them like a sign you're about to do something that matters.
+      Because you are.
+
+  - id: 13
+    mode: hear
+    type: pre_check
+    figure: "Banner — mastery check."
+    cleffy: >
+      Three quick ones.
+
+  - id: 14
+    mode: see
+    type: wrap
+    figure: "Cleffy at the piano, hands glowing slightly — steady now. Caption: 'you are ready.'"
+    cleffy: >
+      Nerves don't go away. You learned the ritual.
+      Breathe, warm, hear, play.
+      Tomorrow — what to do when you stumble.
+      Because you will. Everyone does.
+
+practice_this_week:
+  real_piano:
+    - "Moonlight opening once a day, with the pre-play ritual. Every time. Even when no one's watching."
+    - "Do the breath exercise before any hard phrase you practice. Three rounds."
+    - "If you have a friend — play Moonlight bars 1-8 for them. Just the eight bars. No announcement. Watch what your hands do."
+  virtual_only:
+    - "Replay pages 8 and 10 — ritual then play-through."
+  estimated_time: "12 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "Breath pattern: in-4, hold-4, out-6"
+          prompt: "Why does the exhale matter most?"
+          options: ["Long exhale slows the heart rate", "It's louder", "It's the longest"]
+          correct: 0
+        - figure: "Two feeling labels — FEAR and EXCITEMENT"
+          prompt: "What's the difference in your body?"
+          options: ["Different chemicals", "None — same adrenaline, different name", "Fear is slower"]
+          correct: 1
+        - figure: "Four ritual icons — hands, breath, hear, play"
+          prompt: "What's the fourth step?"
+          options: ["Start playing", "Warm up fingers more", "Take another breath"]
+          correct: 0
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "A breath pattern — 4 in, 4 hold, 6 out"
+          prompt: "Which part is longest?"
+          options: ["The inhale", "The hold", "The exhale"]
+          correct: 2
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Before playing, do the ritual — warm hands, three breaths, then play bar 1 of Moonlight."
+          accept: "Pause, then C#2-C#3 octave with C#4-E4-G#4 triplets"
+
+remediation:
+  id: "246.5"
+  title: "Nerves, one tool at a time"
+  pages: 6
+  opening_cleffy: >
+    Let's slow this down.
+    One tool at a time. Breath. Ritual. Reframe. We'll try each one alone before stitching them together.
+    Nerves are honest. So are we.
+
+completion:
+  cleffy: >
+    Four lessons until graduation.
+    You know the ritual now. Breathe. Warm. Hear. Play.
+    Your hands can shake. The music still comes out.
+    Tomorrow — stumbles.
+  xp: 21
+  unlocks: 247

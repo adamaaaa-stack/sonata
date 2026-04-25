@@ -1,0 +1,270 @@
+# ============================================================
+# LESSON 16 · Steps
+# Tier 1 · Act 4 · Beginner
+# Central metaphor: A STEP IS A LINE TO THE NEXT SPACE
+# NOTE: Act 4 is where the Sonata method OFFICIALLY starts.
+# ============================================================
+id: 16
+tier: beginner
+act: 4
+title: "Steps"
+subtitle: "The smallest move in music"
+goal: "Recognize a step on the staff at a glance — a line to the next space, or a space to the next line."
+prereqs: [11, 12, 13, 14, 15]
+method_focus: "steps"
+time_estimate_min: 12
+piece_context: "Steps are the most common move in music. Happy Birthday is mostly steps. Für Elise is mostly steps. Moonlight is mostly steps. Own them."
+metaphor: "smallest-stair"
+vibe: ["gentle", "playful", "serious"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy holding up a small sign: THE METHOD BEGINS."
+    cleffy: >
+      You're fifteen lessons in. You have the keyboard. You have the staff. You have Middle C.
+      Now I show you the thing that makes the whole Sonata method work.
+      It starts with the smallest possible move.
+      A step.
+
+  - id: 2
+    mode: see
+    type: definition
+    figure: "Staff with two notes side by side. The first is on line 1. The second is in space 1. A little arrow connects them labeled STEP."
+    cleffy: >
+      A step is a note moving to its neighbor.
+      Line to the very next space. Or space to the very next line.
+      That's it. No gaps. Neighbors only.
+      On the staircase you already know — a step is one stair.
+
+  - id: 3
+    mode: see
+    type: both_directions
+    figure: "Staff with two examples side by side. Left: line → space above (step up). Right: space → line below (step down)."
+    cleffy: >
+      Up or down doesn't matter.
+      Line up to the next space. That's a step up.
+      Space down to the next line. That's a step down.
+      Both are steps. Smallest move possible.
+
+  - id: 4
+    mode: see
+    type: non_example
+    figure: "Three pairs of notes. A: line to next space (step). B: line to next line (NOT a step, something bigger). C: line to two lines up (NOT a step, a much bigger move)."
+    cleffy: >
+      Let me show you what's NOT a step.
+      A — line to next space. That's a step.
+      B — line to next line. That jumped over a space in the middle. Bigger than a step.
+      C — line to two lines up. Too far — that's a much bigger move.
+      A step is always a single jump between one line and the space touching it.
+      Anything bigger is not a step. We'll name the bigger ones over the next few lessons.
+
+  - id: 5
+    mode: see
+    type: interactive
+    figure: "Staff. A pair of notes: line 2 → space 2 above."
+    cleffy: >
+      Is this a step?
+    interaction:
+      type: choice
+      options: ["Yes (step)", "No (something else)"]
+      correct: 0
+
+  - id: 6
+    mode: see
+    type: interactive
+    figure: "Staff. A pair of notes: line 1 → line 2 (skip)."
+    cleffy: >
+      What about these two?
+    interaction:
+      type: choice
+      options: ["Yes (step)", "No (something else)"]
+      correct: 1
+    corrections:
+      - wrong_label: "picked_step"
+        cleffy: >
+          Look closely. Both notes are sitting ON lines. There's a space between them
+          that neither note touches. That's a skip — line to line.
+          A step always goes line-to-space or space-to-line.
+
+  - id: 7
+    mode: see
+    type: drill
+    figure: "Round counter 1 of 6. A pair of notes each round. Step, yes or no?"
+    cleffy: >
+      Six rounds. Quick. Is it a step?
+    interaction:
+      type: drill
+      rounds: 6
+      options: ["Step", "Not a step"]
+
+  - id: 8
+    mode: hear
+    type: what_a_step_sounds_like
+    figure: "Two play buttons. A: Middle C and D (a step). B: Middle C alone."
+    audio:
+      A: "C4 then D4 (step)"
+      B: "C4 alone"
+    cleffy: >
+      Now with your ears.
+      When a step happens on the piano, the two notes are right next to each other.
+      Tiny move. Smooth. Barely a gap.
+      Listen to the first one.
+      Now the second one — just one note.
+      A step is that tiny gap between two neighbor notes.
+
+  - id: 9
+    mode: hear
+    type: step_vs_bigger
+    figure: "Two play buttons. A: C-D (step). B: C-E (skip)."
+    audio:
+      A: "C4 then D4"
+      B: "C4 then E4"
+    cleffy: >
+      Which one is a step?
+    interaction:
+      type: choice
+      options: ["A", "B"]
+      correct: 0
+
+  - id: 10
+    mode: hear
+    type: drill
+    figure: "Round counter 1 of 4. Step or skip?"
+    cleffy: >
+      Four rounds. Step or skip by ear.
+    interaction:
+      type: drill
+      rounds: 4
+      options: ["Step", "Skip"]
+
+  - id: 11
+    mode: play
+    type: play_step_up
+    figure: "Keyboard. Middle C glowing gold. Instruction: play C, then a step up from C."
+    cleffy: >
+      Put your right hand thumb on Middle C.
+      Now play C, then the next white key to the right. That's a step up.
+    interaction:
+      type: sequence
+      keys: ["C4", "D4"]
+    followup_cleffy: >
+      C to D. A step. On the stairs, you went up one.
+
+  - id: 12
+    mode: play
+    type: play_step_down
+    figure: "Keyboard. D4 glowing. Instruction: play D, then step down."
+    cleffy: >
+      Now a step DOWN. Play D, then the white key left of it — which is C.
+    interaction:
+      type: sequence
+      keys: ["D4", "C4"]
+    followup_cleffy: >
+      D to C. Step down. Same move, opposite direction.
+
+  - id: 13
+    mode: read
+    type: see_hear_play
+    figure: "Staff with two notes — line 1 and space 1 above it. Keyboard below."
+    cleffy: >
+      First real reading moment. Those two notes on the staff are a step apart.
+      See the step on the staff. Play a step on the piano. Anywhere you want.
+    interaction:
+      type: shape
+      direction: "up"
+    followup_cleffy: >
+      You just READ a step. Page to piano. No names, no counting.
+      That's the method.
+
+  - id: 14
+    mode: read
+    type: step_drill
+    figure: "Round counter 1 of 4. Each round: a pair of notes on staff. Read the shape, play a matching step."
+    cleffy: >
+      Four rounds. Each one, see the shape — then play a step on the piano matching the direction.
+    interaction:
+      type: drill
+      rounds: 4
+
+  - id: 15
+    mode: hear
+    type: pre_check
+    figure: "Banner."
+    cleffy: >
+      Four quick ones before the test.
+
+  - id: 16
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 16, STEPS. A staircase with one small step highlighted. Cleffy giving a serious nod."
+    cleffy: >
+      That's a step. The smallest move in music.
+      The method has officially started.
+      Tomorrow — the odd/even rule. This is the big idea.
+      Steps are always line-to-space or space-to-line. That means they're EVEN.
+      You'll see why that matters.
+
+# ─── Practice this week ────────────────────────────────
+practice_this_week:
+  real_piano:
+    - "Put your right hand thumb on Middle C. Play C-D-C-D-C-D, slowly, ten times. Just two notes, stepping."
+    - "Move your thumb to F. Play F-G-F-G, ten times. Same shape, different spot on the keyboard."
+    - "Do it with your left hand too, low on the keyboard. Just get comfortable with step-up, step-down."
+  virtual_only:
+    - "Open lesson 16 and replay pages 11–14 (the step drills) a couple times"
+  estimated_time: "5 min/day for 3 days"
+
+# ─── Mastery check ──────────────────────────────────────
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 3
+      questions:
+        - figure: "Staff. Line 1 → space 1 (step up)."
+          prompt: "Is this a step?"
+          options: ["Yes", "No"]
+          correct: 0
+        - figure: "Staff. Line 2 → line 3 (skip — not a step)."
+          prompt: "Is this a step?"
+          options: ["Yes", "No"]
+          correct: 1
+        - figure: "Staff. Space 2 → line 2 below (step down)."
+          prompt: "Is this a step?"
+          options: ["Yes", "No"]
+          correct: 0
+    hear:
+      pass_threshold: 2
+      questions:
+        - audio: "C4 then D4 (step)"
+          prompt: "Step or skip?"
+          options: ["Step", "Skip"]
+          correct: 0
+        - audio: "C4 then E4 (skip)"
+          prompt: "Step or skip?"
+          options: ["Step", "Skip"]
+          correct: 1
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play a step up, anywhere on the keyboard."
+          accept: "two adjacent white keys ascending"
+
+# ─── Remediation ────────────────────────────────────────
+remediation:
+  id: "16.5"
+  title: "Steps, again"
+  pages: 5
+  opening_cleffy: >
+    Steps are the foundation of everything that comes next, so it's worth
+    an extra lap. Let's see lots more examples, side by side.
+
+# ─── Completion ─────────────────────────────────────────
+completion:
+  cleffy: >
+    Step nailed. Smallest move locked in.
+    Tomorrow — why steps are always line-to-space or space-to-line.
+    The odd/even rule that makes reading fast.
+  xp: 20
+  unlocks: 17

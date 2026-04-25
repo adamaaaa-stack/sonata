@@ -1,0 +1,210 @@
+id: 91
+tier: low-intermediate
+act: 19
+title: "Reading 4 bars ahead"
+subtitle: "Act 19 · Sight-reading"
+goal: "Your eyes should always be ahead of your hands."
+prereqs: [75, 90]
+method_focus: "see"
+time_estimate_min: 12
+piece_context: "You've been reading note-by-note. Sight-reading is different. Your eyes scout ahead while your hands finish what they already know."
+metaphor: "eyes-as-scouts"
+vibe: ["focused", "honest"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy pointing down at a staff. Two circles on the music: one around the bar the hand is playing, one four bars further right, glowing."
+    cleffy: >
+      New skill today. Sight-reading.
+      Eyes live ahead of hands. Always.
+
+  - id: 2
+    mode: see
+    type: concept
+    figure: "Staff with 8 bars. Bar 1 marked HANDS. Bar 4 marked EYES. Arrow labeled SCOUTS AHEAD."
+    cleffy: >
+      Your hands play bar 1.
+      Your eyes are already on bar 4 or 5.
+      That gap is the whole trick.
+
+  - id: 3
+    mode: see
+    type: why_it_works
+    figure: "Split panel. Left: eyes glued to current note, hands stumbling. Right: eyes ahead, hands flowing."
+    cleffy: >
+      If your eyes wait on the note you're playing, you freeze at every new one.
+      If your eyes scout ahead, your hands already know what's coming.
+      One feels panicky. One feels calm.
+
+  - id: 4
+    mode: hear
+    type: listen_stumbling
+    figure: "Play button. Label: EYES FROZEN."
+    audio:
+      A: "A halting performance — pauses at every note, uneven"
+    cleffy: >
+      This is what eyes-stuck-on-current-note sounds like.
+      Stop-start. Panicked.
+
+  - id: 5
+    mode: hear
+    type: listen_flowing
+    figure: "Play button. Label: EYES AHEAD."
+    audio:
+      A: "A steady, smooth performance at moderate tempo"
+    cleffy: >
+      And this is eyes-ahead. Steady. Even when it's slow, it moves.
+
+  - id: 6
+    mode: see
+    type: first_exercise
+    figure: "Four bars of simple stepwise RH melody in C major. Quarter notes: C D E F | G F E D | C D E F | G A G F."
+    cleffy: >
+      Four bars. All steps. C major.
+      First — just look. Scan left to right. Find the highest note. Find the lowest.
+
+  - id: 7
+    mode: play
+    type: play_eyes_ahead_1
+    figure: "Same four bars. A moving highlight one bar AHEAD of the note being played."
+    cleffy: >
+      Play it slow. Here's the rule — keep your eyes on the bar to the RIGHT of your hand.
+      Slow tempo. 60 bpm.
+    interaction:
+      type: rhythm
+      sequence: ["C4","D4","E4","F4","G4","F4","E4","D4","C4","D4","E4","F4","G4","A4","G4","F4"]
+      durations: ["quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter"]
+      tempo: 60
+
+  - id: 8
+    mode: see
+    type: the_gap
+    figure: "Diagram: HANDS on bar 1, EYES on bar 2, gap labeled 'scout distance'."
+    cleffy: >
+      The distance between eyes and hands is your scout distance.
+      At first — one bar. Later — two, three, four.
+      Bigger gap, smoother playing.
+
+  - id: 9
+    mode: play
+    type: play_eyes_ahead_2
+    figure: "Eight bars of stepwise LH + RH. Highlight leads by two bars now."
+    cleffy: >
+      Longer passage. Keep eyes TWO bars ahead.
+      Don't stop if you blur a note. Just keep moving.
+    interaction:
+      type: rhythm
+      sequence: ["C4","E4","G4","E4","D4","F4","A4","F4","E4","G4","B4","G4","F4","A4","C5","A4"]
+      durations: ["quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter"]
+      tempo: 55
+
+  - id: 10
+    mode: see
+    type: what_eyes_do
+    figure: "Close-up of an eye with arrows: 1. contour (up/down), 2. landmarks (middle C, bass F), 3. accidentals, 4. rhythm shape."
+    cleffy: >
+      What do the eyes actually look for?
+      Shape. Landmarks. Accidentals. Rhythm.
+      Not every note. The PATTERN.
+
+  - id: 11
+    mode: play
+    type: pattern_scan
+    figure: "Four bars. Student sees them for 5 seconds, then plays."
+    cleffy: >
+      Scan first. Look at the whole thing. Then play.
+      You'll read better when you already know what's coming.
+    interaction:
+      type: sequence
+      keys: ["G4","A4","B4","C5","B4","A4","G4","F4","E4","F4","G4","A4"]
+
+  - id: 12
+    mode: see
+    type: honest_note
+    figure: "Cleffy shrugging, hand open."
+    cleffy: >
+      It feels weird at first.
+      Hands doing one thing. Eyes doing another.
+      That's the whole skill. Gets easier every time.
+
+  - id: 13
+    mode: play
+    type: longer_passage
+    figure: "12 bars of simple melody. Highlight leads 3 bars ahead."
+    cleffy: >
+      One longer run. Eyes ahead. Tempo stays slow.
+      Stumble? Hands keep moving. Eyes keep scouting.
+    interaction:
+      type: rhythm
+      sequence: ["C4","D4","E4","F4","G4","E4","C4","E4","F4","G4","A4","B4","C5","A4","F4","A4","G4","F4","E4","D4","C4","E4","G4","C5"]
+      durations: ["quarter","quarter","quarter","quarter","quarter","quarter","half","quarter","quarter","quarter","quarter","quarter","quarter","quarter","half","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","whole"]
+      tempo: 60
+    followup_cleffy: >
+      Eyes were ahead. You felt it.
+
+  - id: 14
+    mode: hear
+    type: pre_check
+    figure: "Banner."
+    cleffy: >
+      Three quick ones.
+
+  - id: 15
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 91. Cleffy with eyes drawn big, pointing forward."
+    cleffy: >
+      Day one of sight-reading.
+      Eyes scout. Hands follow.
+      Tomorrow — making the gap bigger.
+
+practice_this_week:
+  real_piano:
+    - "Pick any easy piece you've learned. Play it with eyes ALWAYS a bar ahead of your hands."
+    - "Open any method book. Play each exercise once, slow, eyes-ahead. Don't go back."
+  virtual_only:
+    - "Replay pages 7, 9, 13"
+  estimated_time: "10 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "Staff with 8 bars, one bar highlighted for hands, one bar highlighted ahead for eyes."
+          prompt: "Where should your eyes be while your hands play bar 1?"
+          options: ["Bar 1", "Bar 3 or 4", "The last bar"]
+          correct: 1
+        - figure: "Split image: stopped-at-note vs flowing."
+          prompt: "Which picture shows good sight-reading?"
+          options: ["Eyes locked on current note", "Eyes scouting ahead"]
+          correct: 1
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "Halting, start-stop performance"
+          prompt: "Eyes ahead or eyes stuck?"
+          options: ["Stuck", "Ahead"]
+          correct: 0
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play 4 bars of stepwise C major (provided), keeping eyes a bar ahead."
+          accept: "4 bars played at steady tempo, no long freezes"
+
+remediation:
+  id: "91.5"
+  title: "Eyes ahead, one bar at a time"
+  pages: 7
+  opening_cleffy: >
+    New habit — breaking a year of eye-on-hand reading is hard.
+    We'll slow it down. One bar scout distance. Steady tempo. Just that.
+
+completion:
+  cleffy: >
+    Scouts out. Hands calm.
+    Tomorrow — we make the habit permanent.
+  xp: 18
+  unlocks: 92

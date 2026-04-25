@@ -1,0 +1,222 @@
+# ============================================================
+# LESSON 191 · Ornaments intro
+# Tier 5 · Act 39 · Upper-Intermediate · Ornaments
+# The little decorations that sparkle above a melody.
+# ============================================================
+id: 191
+tier: upper-intermediate
+act: 39
+title: "Ornaments intro"
+subtitle: "Act 39 · Ornaments"
+goal: "Recognize the common ornaments on the page — trill, mordent, turn, grace note — and know what each one asks you to do."
+prereqs: [190, 185]
+method_focus: "see"
+time_estimate_min: 13
+piece_context: "Act 38 gave you scales and arpeggios in every key. Act 39 adds the sparkle on top. Ornaments are the small decorations composers write above their notes — tiny extra flurries that make a simple melody feel alive. This week, you learn to spot them. The symbols. The names. What each one means before you try to play it."
+metaphor: "notes-that-sparkle"
+vibe: ["gentle", "playful", "focused"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy sprinkling tiny gold stars above a staff line. Banner: ACT 39 — ORNAMENTS."
+    cleffy: >
+      New act.
+      Ornaments. The little decorations that sit above a note.
+      Tiny flurries of sound that make a plain melody sparkle.
+
+  - id: 2
+    mode: see
+    type: what_is_an_ornament
+    figure: "Two staves. Top — a plain quarter note C. Bottom — the same C with 'tr' above it. Arrow: 'same note, now decorated.'"
+    cleffy: >
+      An ornament is a small extra motion on top of a main note.
+      The main note is still there. The ornament adds a quick curl of sound.
+      Baroque composers loved them. Chopin loved them. You meet them now.
+
+  - id: 3
+    mode: see
+    type: meet_the_four
+    figure: "Four boxes in a row. 1: 'tr' — trill. 2: '~' (short squiggle) — mordent. 3: '~' (longer turn symbol, like an S on its side) — turn. 4: tiny crossed eighth note — grace note."
+    cleffy: >
+      Four common ornaments. Learn their faces today.
+      Trill. Mordent. Turn. Grace note.
+      Four little flurries, four different shapes on the page.
+
+  - id: 4
+    mode: see
+    type: the_trill
+    figure: "Staff. A whole note C with 'tr' written above it and a wavy line extending to the right. Label: TRILL."
+    cleffy: >
+      First — the trill. Written as 'tr' above the note.
+      Rapid alternation between the main note and the one just above it.
+      Like shivering between two keys. Fast. Sparkling.
+
+  - id: 5
+    mode: see
+    type: the_mordent
+    figure: "Staff. A quarter note C with a short squiggle (~) above it. Label: MORDENT. Small arrow showing main note - upper note - main note."
+    cleffy: >
+      The mordent. A tiny squiggle above the note.
+      Main note, upper neighbor, main note — quick.
+      Three notes in the blink of an eye.
+
+  - id: 6
+    mode: see
+    type: the_turn
+    figure: "Staff. A quarter note C with a sideways-S turn symbol above it. Label: TURN. Arrow: upper - main - lower - main."
+    cleffy: >
+      The turn. A sideways 'S' above the note.
+      Four notes curling around the main one. Upper, main, lower, main.
+      Like spinning around home and landing back.
+
+  - id: 7
+    mode: see
+    type: the_grace_note
+    figure: "Staff. A normal quarter note C, with a tiny crossed-out eighth note B just before it. Label: GRACE NOTE."
+    cleffy: >
+      The grace note. A tiny note just before a main note. Crossed through.
+      Snaps in quickly — steals only a sliver of time from the main note.
+      You get the full lesson on it tomorrow.
+
+  - id: 8
+    mode: hear
+    type: listen_to_each
+    figure: "Four play buttons labeled trill, mordent, turn, grace note. All on Middle C."
+    audio:
+      A: "Middle C with a trill — rapid C-D-C-D-C-D alternation over one beat"
+      B: "Middle C with a mordent — quick C-D-C"
+      C: "Middle C with a turn — D-C-B-C curling around the main note"
+      D: "Middle C preceded by a quick B grace note — B-C"
+    cleffy: >
+      Listen to each. Same main note. Four different sparkles.
+      Trill shivers. Mordent pops. Turn curls. Grace note flicks.
+
+  - id: 9
+    mode: play
+    type: play_main_note_first
+    figure: "Keyboard. C4 glowing. Text: 'no ornament yet — just the main note.'"
+    cleffy: >
+      Before the flurries, play the plain note.
+      Middle C. Held.
+      Every ornament you'll meet sits on top of a main note like this one.
+    interaction:
+      type: sequence
+      keys: ["C4"]
+
+  - id: 10
+    mode: play
+    type: play_mordent_slow
+    figure: "Keyboard. C4, D4, C4 glowing in order. Squiggle above. Text: a slow mordent — main, upper, main."
+    cleffy: >
+      Try a mordent — slow.
+      C, D, C. Three notes in a row.
+      At tempo they blur into a flick. For now, just the shape.
+    interaction:
+      type: sequence
+      keys: ["C4", "D4", "C4"]
+
+  - id: 11
+    mode: play
+    type: play_turn_slow
+    figure: "Keyboard. D4, C4, B3, C4 glowing in order. Turn symbol above. Text: slow turn around Middle C."
+    cleffy: >
+      Now a turn — slow.
+      Upper, main, lower, main. D, C, B, C.
+      Four notes curling around home.
+    interaction:
+      type: sequence
+      keys: ["D4", "C4", "B3", "C4"]
+
+  - id: 12
+    mode: see
+    type: symbol_recap
+    figure: "Four rows. Each row shows the symbol and a one-line definition. tr — trill (rapid alternation). ~ short — mordent (main-upper-main). S-shape — turn (upper-main-lower-main). Tiny crossed note — grace note (flick before main)."
+    cleffy: >
+      The four faces, side by side.
+      Trill. Mordent. Turn. Grace note.
+      You don't have to play them fast yet. Just know them on sight.
+
+  - id: 13
+    mode: hear
+    type: identify_drill
+    figure: "Round counter. Four rounds."
+    cleffy: >
+      Four rounds. Which ornament did you hear?
+    interaction:
+      type: drill
+      rounds: 4
+      options: ["Trill", "Mordent", "Turn", "Grace note"]
+
+  - id: 14
+    mode: hear
+    type: pre_check
+    figure: "Banner."
+    cleffy: >
+      Three quick ones.
+
+  - id: 15
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 191. Four tiny gold stars above a staff, each labeled with its ornament name."
+    cleffy: >
+      Four ornaments. Four faces on the page.
+      Tomorrow — the grace note, up close. The tiniest sparkle of the four.
+
+practice_this_week:
+  real_piano:
+    - "Pick any piece you know. Find a long note near a cadence. Add a mordent — main, upper, main — and hear how it decorates the line."
+    - "On Middle C, practice the four ornament shapes slowly: C (main), C-D-C (mordent), D-C-B-C (turn), B-C (grace). Learn the finger patterns."
+  virtual_only:
+    - "Replay pages 3, 8, and 13. Say the name out loud each time you see a symbol."
+  estimated_time: "10 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "A note with 'tr' written above it"
+          prompt: "Which ornament is this?"
+          options: ["Trill", "Mordent", "Grace note"]
+          correct: 0
+        - figure: "A quarter note with a small squiggle (~) above it"
+          prompt: "Which ornament is this?"
+          options: ["Turn", "Mordent", "Trill"]
+          correct: 1
+        - figure: "A tiny crossed eighth note just before a regular quarter note"
+          prompt: "Which ornament is this?"
+          options: ["Trill", "Turn", "Grace note"]
+          correct: 2
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "A sustained note with rapid alternation between two pitches"
+          prompt: "Which ornament did you just hear?"
+          options: ["Grace note", "Trill", "Turn"]
+          correct: 1
+        - audio: "Three quick notes — main, upper neighbor, main"
+          prompt: "Which ornament is this?"
+          options: ["Mordent", "Turn", "Trill"]
+          correct: 0
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play a slow mordent on Middle C — C, D, C."
+          accept: "C4 D4 C4 played in order"
+
+remediation:
+  id: "191.5"
+  title: "The four ornaments, one at a time"
+  pages: 7
+  opening_cleffy: >
+    Four new symbols in one sitting is a lot.
+    We'll take them one at a time. Name, picture, sound, shape. No rush.
+
+completion:
+  cleffy: >
+    Four sparkles unlocked. Trill. Mordent. Turn. Grace note.
+    Tomorrow — the grace note, close up.
+  xp: 17
+  unlocks: 192

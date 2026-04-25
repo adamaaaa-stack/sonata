@@ -1,0 +1,211 @@
+# ============================================================
+# LESSON 168 · Reading in C# minor
+# Tier 4 · Act 34 · Intermediate · Minor keys + Moonlight intro
+# Short phrases. Same interval shapes as before — new key colors.
+# ============================================================
+id: 168
+tier: intermediate
+act: 34
+title: "Reading in C-sharp minor"
+subtitle: "Act 34 · Minor keys + Moonlight intro"
+goal: "Read and play short phrases in C-sharp minor — the shapes you know, now with four sharps in play."
+prereqs: [167, 166]
+method_focus: "see"
+time_estimate_min: 13
+piece_context: "You know the key. You played the scale. Now read it. The interval shapes are the same — steps look like steps, skips look like skips — but every F, C, G, and D is sharp. Same alphabet, new accent."
+metaphor: "same-shapes-new-color"
+vibe: ["focused", "quiet"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy pointing at a staff in C# minor. Banner: READING IN C# MINOR."
+    cleffy: >
+      Same key. Now we read it.
+      The shapes haven't changed. The colors have.
+
+  - id: 2
+    mode: see
+    type: shapes_vs_colors
+    figure: "Two staves. Top — three notes in C major: C D E (step, step). Bottom — same shape in C# minor: C# D# E (step, step). Intervals labeled identically on both."
+    cleffy: >
+      Two little phrases. Same shape.
+      Top — C, D, E. Bottom — C-sharp, D-sharp, E.
+      Same steps. Different keys. That's all.
+
+  - id: 3
+    mode: see
+    type: key_signature_reminder
+    figure: "Staff with C# minor key signature at the front. Arrows from each sharp to the first F, C, G, D note in the phrase below."
+    cleffy: >
+      Key signature up front. Four sharps.
+      Every F — sharp. Every C — sharp. Every G — sharp. Every D — sharp.
+      It doesn't repeat in the music. You just know.
+
+  - id: 4
+    mode: see
+    type: phrase_one
+    figure: "Staff in C# minor. Four notes: C#4, E4, G#4, E4. Stepwise and skipwise motion marked."
+    cleffy: >
+      First phrase. Four notes.
+      C-sharp, E, G-sharp, E.
+      Up a third, up a third, down a third. Outlines the home chord.
+
+  - id: 5
+    mode: play
+    type: play_phrase_one
+    figure: "Keyboard. C#4 E4 G#4 E4."
+    cleffy: >
+      Play it. C-sharp, E, G-sharp, E.
+      That shape is half of Moonlight already.
+    interaction:
+      type: sequence
+      keys: ["C#4", "E4", "G#4", "E4"]
+
+  - id: 6
+    mode: see
+    type: phrase_two
+    figure: "Staff in C# minor. Six notes: C# D# E F# G# A. A rising line, mostly steps."
+    cleffy: >
+      Second phrase. Six notes, rising.
+      Plain F on the page — still F-sharp. Plain D on the page — still D-sharp.
+
+  - id: 7
+    mode: play
+    type: play_phrase_two
+    figure: "Keyboard. C#4 D#4 E4 F#4 G#4 A4 highlighted in order."
+    cleffy: >
+      Rising six. Watch the black keys.
+    interaction:
+      type: sequence
+      keys: ["C#4", "D#4", "E4", "F#4", "G#4", "A4"]
+
+  - id: 8
+    mode: see
+    type: phrase_three
+    figure: "Staff in C# minor. Eight notes: G#4 F#4 E4 D#4 C#4 B3 A3 G#3. Descending line."
+    cleffy: >
+      Third phrase. Descending.
+      Eight notes. All the way down from G-sharp to G-sharp an octave below.
+
+  - id: 9
+    mode: play
+    type: play_phrase_three
+    figure: "Keyboard. G#4 F#4 E4 D#4 C#4 B3 A3 G#3 highlighted in order."
+    cleffy: >
+      Play it down. Slow.
+      Let each sharp land clean.
+    interaction:
+      type: sequence
+      keys: ["G#4", "F#4", "E4", "D#4", "C#4", "B3", "A3", "G#3"]
+
+  - id: 10
+    mode: see
+    type: phrase_four
+    figure: "Staff in C# minor. Six notes with skips: C#4 G#4 C#5 G#4 E4 C#4. A contour outlining the C# minor chord in two octaves."
+    cleffy: >
+      Fourth phrase. Bigger leaps.
+      C-sharp, G-sharp, C-sharp above, back down. All chord tones.
+
+  - id: 11
+    mode: play
+    type: play_phrase_four
+    figure: "Keyboard spanning an octave. C#4 G#4 C#5 G#4 E4 C#4."
+    cleffy: >
+      Reach up to the high C-sharp. Then back down through E to home.
+    interaction:
+      type: sequence
+      keys: ["C#4", "G#4", "C#5", "G#4", "E4", "C#4"]
+
+  - id: 12
+    mode: hear
+    type: hear_a_melody
+    figure: "Play button. Label: short C# minor melody."
+    audio:
+      A: "Slow melody in C-sharp minor, 8 notes, stepwise with one skip — sad, noble tone"
+    cleffy: >
+      Listen. A short C-sharp minor melody.
+      That's the mood Beethoven lives in for Moonlight.
+
+  - id: 13
+    mode: play
+    type: play_combined_phrase
+    figure: "Staff in C# minor. Longer combined phrase: C#4 E4 G#4 A4 G#4 F#4 E4 D#4 C#4. Mix of steps and skips."
+    cleffy: >
+      One longer phrase. Nine notes.
+      Up by thirds, then walk back down the scale to home.
+    interaction:
+      type: sequence
+      keys: ["C#4", "E4", "G#4", "A4", "G#4", "F#4", "E4", "D#4", "C#4"]
+    followup_cleffy: >
+      That phrase was all C-sharp minor. No accidentals written in the music.
+      The key signature did all the work.
+
+  - id: 14
+    mode: hear
+    type: pre_check
+    figure: "Banner."
+    cleffy: >
+      Three quick ones.
+
+  - id: 15
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 168. C# minor phrase on a staff, glowing. Text: READING THE SHADOW KEY."
+    cleffy: >
+      Reading C-sharp minor. Same shapes, new color.
+      Tomorrow — the dotted rhythm that sits on top. The Moonlight melody itself.
+
+practice_this_week:
+  real_piano:
+    - "Play phrases 1 through 4 from today. Slow. Every sharp crisp."
+    - "Pick any short melody you know. Try reading it as if it were in C-sharp minor — every F, C, G, D sharp."
+  virtual_only:
+    - "Replay pages 5, 7, 9, 11, and 13."
+  estimated_time: "12 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "Staff in C# minor with a plain D note (no accidental)"
+          prompt: "What do you play?"
+          options: ["D-natural", "D-sharp"]
+          correct: 1
+        - figure: "Phrase: C#, E, G#, E"
+          prompt: "What chord does this phrase outline?"
+          options: ["C major", "C-sharp minor", "A minor"]
+          correct: 1
+        - figure: "C# minor key signature"
+          prompt: "How many different sharp notes are in this key?"
+          options: ["Three", "Four", "Five"]
+          correct: 1
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "A short melody in C-sharp minor"
+          prompt: "Major or minor?"
+          options: ["Major", "Minor"]
+          correct: 1
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play the phrase C#4, E4, G#4, E4."
+          accept: "C#4 E4 G#4 E4"
+
+remediation:
+  id: "168.5"
+  title: "C-sharp minor, one phrase at a time"
+  pages: 8
+  opening_cleffy: >
+    Four sharps in every phrase is a lot to track.
+    We'll take them one phrase at a time. Keys first, reading second.
+
+completion:
+  cleffy: >
+    Reading in C-sharp minor. Done.
+    Tomorrow — dotted rhythms in this key. The Moonlight melody, without the pedal or the arpeggios.
+  xp: 18
+  unlocks: 169

@@ -1,0 +1,231 @@
+# ============================================================
+# LESSON 209 · Voicing drill
+# Tier 5 · Act 42 · Upper-Intermediate · Voicing
+# Same chord. Different voice each round.
+# ============================================================
+id: 209
+tier: upper-intermediate
+act: 42
+title: "Voicing drill"
+subtitle: "Act 42 · Voicing"
+goal: "Play the same C major chord three times, each time emphasizing a different voice — top, middle, bottom — on command."
+prereqs: [208, 207, 206]
+method_focus: "play"
+time_estimate_min: 13
+piece_context: "Drill day. Three voicings, one chord. Your hand has to re-tilt on demand. This is the skill Träumerei needs tomorrow — and every piece with a hidden melody for the rest of your life."
+metaphor: "voice-within-chord"
+vibe: ["focused", "playful"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy in front of three glowing C chords in a row — top note gold, middle note gold, bottom note gold. Banner: ONE CHORD, THREE VOICES."
+    cleffy: >
+      Drill day.
+      One chord. Three voices. Your choice each round.
+      Top, middle, bottom — re-tilt the hand on command.
+
+  - id: 2
+    mode: see
+    type: the_rack
+    figure: "Three panels in a row. 1: C-E-G, G circled gold. 2: C-E-G, E circled gold. 3: C-E-G, C circled gold. Labels: 'TOP · MIDDLE · BOTTOM.'"
+    cleffy: >
+      Three versions of the same chord.
+      Same three keys — C, E, G. Every time.
+      Only the weight changes. Pinky, middle, thumb.
+
+  - id: 3
+    mode: hear
+    type: listen_to_three
+    figure: "Three play buttons. A: top. B: middle. C: bottom."
+    audio:
+      A: "C-E-G chord with top G firmer."
+      B: "Same chord with middle E firmer."
+      C: "Same chord with bottom C firmer."
+    cleffy: >
+      Listen to all three.
+      Same notes. Three different chords, really.
+      The ear picks the loudest. That's the melody.
+
+  - id: 4
+    mode: see
+    type: hand_tilt_map
+    figure: "Three cartoon hands in a row. 1: tilted toward pinky. 2: centered, finger 3 deep. 3: tilted toward thumb."
+    cleffy: >
+      Hand positions for each.
+      Top — lean pinky side. Middle — sink finger 3. Bottom — lean thumb side.
+      Three small tilts. Practice switching between them.
+
+  - id: 5
+    mode: play
+    type: top_round
+    figure: "Keyboard. C-E-G. G4 glowing gold. Banner: 'ROUND 1 · TOP.'"
+    cleffy: >
+      Round one — top. Pinky sings.
+      Lean right. Brush the thumb.
+    interaction:
+      type: sequence
+      keys: [["C4","E4","G4"]]
+
+  - id: 6
+    mode: play
+    type: middle_round
+    figure: "Keyboard. C-E-G. E4 glowing gold. Banner: 'ROUND 2 · MIDDLE.'"
+    cleffy: >
+      Round two — middle. Finger 3 sinks.
+      Thumb and pinky brush.
+    interaction:
+      type: sequence
+      keys: [["C4","E4","G4"]]
+
+  - id: 7
+    mode: play
+    type: bottom_round
+    figure: "Keyboard. C-E-G. C4 glowing gold. Banner: 'ROUND 3 · BOTTOM.'"
+    cleffy: >
+      Round three — bottom. Thumb sinks.
+      Lean left. Brush the pinky.
+    interaction:
+      type: sequence
+      keys: [["C4","E4","G4"]]
+    followup_cleffy: >
+      Three different chords out of the same three keys.
+      Different hand, each time.
+
+  - id: 8
+    mode: see
+    type: chain_them
+    figure: "Staff. Four chords in a row, same C-E-G each time. Top note glow → middle → bottom → top. Labels under each."
+    cleffy: >
+      Now chain them.
+      Top, middle, bottom, top. Four chords, four tilts.
+      Like spinning a dial.
+
+  - id: 9
+    mode: play
+    type: voicing_chain
+    figure: "Keyboard. Four chord strikes. Labels: top, middle, bottom, top."
+    cleffy: >
+      Four chords. Re-tilt each time.
+      Top. Middle. Bottom. Top.
+    interaction:
+      type: rhythm
+      sequence: [["C4","E4","G4"], ["C4","E4","G4"], ["C4","E4","G4"], ["C4","E4","G4"]]
+      durations: ["half","half","half","half"]
+      tempo: 50
+    followup_cleffy: >
+      Your hand just did four different things with the same keys.
+      That's voicing. On demand.
+
+  - id: 10
+    mode: hear
+    type: identify_drill
+    figure: "Round counter. Six rounds. 'Which voice sang?'"
+    cleffy: >
+      Six rounds. Top, middle, or bottom?
+    interaction:
+      type: drill
+      rounds: 6
+      options: ["Top", "Middle", "Bottom"]
+
+  - id: 11
+    mode: play
+    type: random_order
+    figure: "Keyboard. Sequence: middle, bottom, top, middle. Labels change row by row."
+    cleffy: >
+      Now out of order.
+      Middle. Bottom. Top. Middle. Keep the tempo steady.
+    interaction:
+      type: rhythm
+      sequence: [["C4","E4","G4"], ["C4","E4","G4"], ["C4","E4","G4"], ["C4","E4","G4"]]
+      durations: ["half","half","half","half"]
+      tempo: 50
+
+  - id: 12
+    mode: play
+    type: faster_chain
+    figure: "Keyboard. Four chords, at 70 bpm. Mixed voicings."
+    cleffy: >
+      Faster. Same mix. Tempo 70.
+      Don't lose the voicing just because the tempo goes up.
+    interaction:
+      type: rhythm
+      sequence: [["C4","E4","G4"], ["C4","E4","G4"], ["C4","E4","G4"], ["C4","E4","G4"]]
+      durations: ["quarter","quarter","quarter","quarter"]
+      tempo: 70
+    followup_cleffy: >
+      That was the whole dial.
+      Three voices, any order, at tempo.
+
+  - id: 13
+    mode: hear
+    type: pre_check
+    figure: "Banner — Lesson 209 mastery check."
+    cleffy: >
+      Three quick ones.
+
+  - id: 14
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 209. A single chord with three glowing notes stacked, small arrows labeled 'top · middle · bottom.'"
+    cleffy: >
+      One chord, three voices, on demand.
+      Tomorrow — Schumann. A piece where the melody lives inside. Act boss.
+
+practice_this_week:
+  real_piano:
+    - "Play C-E-G ten times. Top, middle, bottom — in any order you call out. Say the voice out loud before you press."
+    - "Try it on a G chord (G-B-D). A D chord (D-F#-A). Three voicings in every chord you know."
+  virtual_only:
+    - "Replay pages 5-7 and page 9."
+  estimated_time: "10 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "Three identical C-E-G chords, one with top gold, one with middle gold, one with bottom gold"
+          prompt: "What's different about these three chords?"
+          options: ["The notes", "The key signature", "Which note is voiced"]
+          correct: 2
+        - figure: "A hand tilted toward the thumb"
+          prompt: "Which voicing is this hand preparing?"
+          options: ["Top", "Middle", "Bottom"]
+          correct: 2
+        - figure: "A hand with finger 3 sinking deeper than fingers 1 and 5"
+          prompt: "Which voicing is this?"
+          options: ["Top", "Middle", "Bottom"]
+          correct: 1
+    hear:
+      pass_threshold: 2
+      questions:
+        - audio: "A chord with the bottom note firmer"
+          prompt: "Which voice sang?"
+          options: ["Top", "Middle", "Bottom"]
+          correct: 2
+        - audio: "A chord with the middle note firmer"
+          prompt: "Which voice sang?"
+          options: ["Top", "Middle", "Bottom"]
+          correct: 1
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play C-E-G three times. First top voiced, then middle, then bottom."
+          accept: "Three C4-E4-G4 chords with distinct emphasis on G4, E4, C4 respectively"
+
+remediation:
+  id: "209.5"
+  title: "One chord, three voices — slower"
+  pages: 7
+  opening_cleffy: >
+    Three voicings back-to-back is new. The hand re-tilt takes a minute to feel.
+    We'll slow it down. One voice at a time. Say it out loud before you press.
+
+completion:
+  cleffy: >
+    Three voices on demand. The dial spins.
+    Tomorrow — Schumann's Träumerei. Act boss. The masterclass in inner melody.
+  xp: 18
+  unlocks: 210

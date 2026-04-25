@@ -1,0 +1,260 @@
+# ============================================================
+# LESSON 160 · Prelude in C with pedal 🎯 ACT 32 BOSS
+# Tier 4 · Act 32 · Intermediate
+# BWV 846 first 4 bars — now with a pedal change per bar.
+# ============================================================
+id: 160
+tier: intermediate
+act: 32
+title: "Prelude in C with pedal"
+subtitle: "Act 32 · Sustain pedal"
+goal: "Play the first four bars of Bach's Prelude in C — same notes as L130, now with a pedal change on each bar's harmony."
+prereqs: [130, 156, 157, 158, 159]
+method_focus: "combine"
+time_estimate_min: 16
+piece_context: "You played these four bars thirty lessons ago, dry. Today you return with a right foot in the mix. One pedal change per bar — because each bar is one harmony. The piece blooms."
+metaphor: "the-blending-pedal"
+vibe: ["celebratory", "quiet", "focused"]
+is_act_boss: true
+piece:
+  title: "Prelude in C, BWV 846"
+  composer: "J.S. Bach"
+  key_center: "C major"
+  time_signature: "4/4"
+  difficulty: "intermediate — same notes as L130, pedal added on each harmonic change"
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy holding the same yellowed Bach manuscript from Lesson 130. A small pedal icon glowing at the bottom. Banner: ACT 32 BOSS · PRELUDE IN C · WITH PEDAL."
+    cleffy: >
+      Act 32 boss.
+      You know this piece. You played it in Lesson 130. Dry.
+      Today you come back with a foot.
+
+  - id: 2
+    mode: see
+    type: what_changes
+    figure: "Two cards side by side. Left: L130 — Prelude, dry, no pedal. Right: L160 — Prelude, with pedal, one change per bar."
+    cleffy: >
+      Same four bars. Same notes. Same fingers.
+      What's new — one pedal change per bar.
+      Each bar is one chord. So each bar gets one pedal.
+
+  - id: 3
+    mode: hear
+    type: listen_with_pedal
+    figure: "Play button. Label: PRELUDE IN C — BARS 1-4 — WITH PEDAL."
+    audio:
+      A: "Bach Prelude in C bars 1-4, played with a clean pedal change on each bar's new harmony — rich, blooming, each bar rings as one chord"
+    cleffy: >
+      Listen.
+      Same piece you know. Now every bar blooms.
+      Pedal holds the broken chord together. Each bar becomes one ringing chord.
+
+  - id: 4
+    mode: see
+    type: why_pedal_here
+    figure: "One bar of the Prelude written out. All 8 notes belong to one C major chord. Pedal bracket under the whole bar. Caption: 'One harmony = one pedal.'"
+    cleffy: >
+      Why the pedal works here.
+      Every note in bar 1 is part of one C major chord.
+      Hold pedal — all eight notes ring together as C major.
+      No mud. Just one big chord, rolled out.
+
+  - id: 5
+    mode: see
+    type: the_four_bars
+    figure: "All four bars of the Prelude on a grand staff. Pedal brackets under each bar. Chord labels above: C — Dm7 — G7 — C."
+    cleffy: >
+      The four bars and their chords.
+      Bar 1 — C major. Bar 2 — D minor 7. Bar 3 — G7. Bar 4 — C major.
+      Four chords. Four pedal changes. One per bar.
+
+  - id: 6
+    mode: see
+    type: pedal_timing
+    figure: "Zoomed view of bar 1 into bar 2. Pedal line drops under bar 1. At the exact start of bar 2 — pedal lifts and presses again (syncopated). New pedal line under bar 2."
+    cleffy: >
+      Timing — syncopated pedal, from yesterday.
+      At the downbeat of each new bar — pedal hiccups.
+      Up as the new bass note strikes. Down right after.
+
+  - id: 7
+    mode: see
+    type: virtual_note
+    figure: "Split. Real piano: foot pedaling on each downbeat. Virtual: app does the pedal automatically as you play each bar."
+    cleffy: >
+      Real piano — your foot on every downbeat. Bar 1, bar 2, bar 3, bar 4.
+      Virtual — the app pedals with you, bar by bar. You focus on the notes.
+
+  - id: 8
+    mode: play
+    type: bar_1_with_pedal
+    figure: "Grand staff bar 1. Pedal bracket under. Tempo 60."
+    cleffy: >
+      Bar 1. Pedal down as you play the first note.
+      Let all eight notes ring into each other. Pure C major.
+    interaction:
+      type: song
+      sequence: [["C3","E3"],"G3","C4","E4","G3","C4","E4","G3","C4","E4"]
+      guides: true
+      tempo: 60
+
+  - id: 9
+    mode: play
+    type: bar_2_with_pedal
+    figure: "Grand staff bar 2. Pedal bracket under. Tempo 60."
+    cleffy: >
+      Bar 2. At the new bass note — pedal hiccup.
+      Up, then down. All eight notes of bar 2 ring together as D minor 7.
+    interaction:
+      type: song
+      sequence: [["C3","D3"],"A3","D4","F4","A3","D4","F4","A3","D4","F4"]
+      guides: true
+      tempo: 60
+
+  - id: 10
+    mode: play
+    type: bars_1_and_2_together
+    figure: "Grand staff bars 1-2. Two pedal brackets, syncopated change between."
+    cleffy: >
+      Both bars now. Pedal changes right on the downbeat of bar 2.
+      Listen — should hear C major ring, then clean break, then D minor ring.
+    interaction:
+      type: song
+      sequence: [["C3","E3"],"G3","C4","E4","G3","C4","E4","G3","C4","E4",["C3","D3"],"A3","D4","F4","A3","D4","F4","A3","D4","F4"]
+      guides: true
+      tempo: 60
+
+  - id: 11
+    mode: play
+    type: bars_3_and_4
+    figure: "Grand staff bars 3-4. Pedal brackets under each."
+    cleffy: >
+      Bars 3 and 4. G7 then home. Two more pedal changes.
+    interaction:
+      type: song
+      sequence: [["B2","D3"],"G3","D4","F4","G3","D4","F4","G3","D4","F4",["C3","E3"],"G3","C4","E4","G3","C4","E4","G3","C4","E4"]
+      guides: true
+      tempo: 60
+
+  - id: 12
+    mode: play
+    type: all_four_guided
+    figure: "Grand staff. Four bars, four pedal changes. Guides on. Tempo 60."
+    cleffy: >
+      All four bars. Pedal on every downbeat.
+      Slow. Don't chase tempo. Chase clean pedal changes.
+    interaction:
+      type: song
+      sequence: [["C3","E3"],"G3","C4","E4","G3","C4","E4","G3","C4","E4",["C3","D3"],"A3","D4","F4","A3","D4","F4","A3","D4","F4",["B2","D3"],"G3","D4","F4","G3","D4","F4","G3","D4","F4",["C3","E3"],"G3","C4","E4","G3","C4","E4","G3","C4","E4"]
+      guides: true
+      tempo: 60
+
+  - id: 13
+    mode: hear
+    type: compare_to_L130
+    figure: "Two play buttons. L130 version — dry. L160 version — pedaled. Question: 'Hear the difference?'"
+    audio:
+      A: "Bars 1-4 of the Prelude played dry — the L130 sound, crisp arpeggios"
+      B: "Bars 1-4 of the Prelude played with pedal — each bar a bloom of chord"
+    cleffy: >
+      Same notes. Two different pieces, almost.
+      The pedal version is how Bach is usually played today.
+      Dry Bach is also lovely — but this is the standard modern sound.
+
+  - id: 14
+    mode: play
+    type: at_tempo_with_pedal
+    figure: "Grand staff. All four bars. Quarter = 66. No guides. Pedal brackets still shown."
+    cleffy: >
+      Bach's tempo — 66. No guides.
+      Your foot knows the shape now. Four pedal changes. One per bar.
+    interaction:
+      type: song
+      sequence: [["C3","E3"],"G3","C4","E4","G3","C4","E4","G3","C4","E4",["C3","D3"],"A3","D4","F4","A3","D4","F4","A3","D4","F4",["B2","D3"],"G3","D4","F4","G3","D4","F4","G3","D4","F4",["C3","E3"],"G3","C4","E4","G3","C4","E4","G3","C4","E4"]
+      guides: false
+      tempo: 66
+    followup_cleffy: >
+      That.
+      Same Bach. Foot added. The piece is bigger now.
+
+  - id: 15
+    mode: hear
+    type: pre_check
+    figure: "Banner — act 32 boss mastery check."
+    cleffy: >
+      Four quick ones. Act boss — take your time.
+
+  - id: 16
+    mode: see
+    type: wrap
+    figure: "Celebration card — ACT 32 COMPLETE 🎯. Cleffy tipping his hat. The L130 Bach manuscript next to him, now with little pedal marks drawn under each bar. Banner: 32/50 ACTS DONE."
+    cleffy: >
+      Act 32. Closed.
+      Your right foot is a musician now.
+      Pedal basics. Pedal per chord. Pedal hearing. Pedal mistakes. And Bach, with pedal.
+      You have earned the right to pedal every piece going forward — wisely.
+      Next act — triplets in detail. The Moonlight Sonata is getting close.
+
+practice_this_week:
+  real_piano:
+    - "The first four bars of the Prelude, every day this week. Pedal change on every bar. Start at 55 bpm, build to 66."
+    - "Play bar 1 alone, ten times. Feel the foot hiccup on the downbeat of an imaginary bar 2. Then do the same with bar 2, 3, and 4."
+    - "Listen to Glenn Gould play the Prelude. He plays it almost dry. Listen to Lang Lang play it — fully pedaled. Two legitimate choices. Both beautiful."
+  virtual_only:
+    - "Replay pages 12 and 14 — the guided and unguided full runs"
+  estimated_time: "15 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "Four bars of the Prelude with chord labels"
+          prompt: "How many pedal changes in the first four bars?"
+          options: ["One", "Two", "Four", "Eight"]
+          correct: 2
+        - figure: "One bar of the Prelude"
+          prompt: "Why can you hold pedal through the whole bar?"
+          options: ["Because the bar is short", "Because every note belongs to the same chord", "Because Bach said so"]
+          correct: 1
+        - figure: "Downbeat of a new bar with a pedal hiccup"
+          prompt: "When does the pedal release?"
+          options: ["Before the downbeat", "Exactly at the downbeat of the new bar", "Well after the downbeat"]
+          correct: 1
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "Prelude bars 1-4 with clean pedal changes"
+          prompt: "Does this sound clean or muddy?"
+          options: ["Clean", "Muddy"]
+          correct: 0
+        - audio: "Prelude played dry vs played pedaled"
+          prompt: "Which has more bloom and warmth?"
+          options: ["The dry version", "The pedaled version"]
+          correct: 1
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play the first two bars of the Prelude — with a clean pedal change between bar 1 and bar 2."
+          accept: "Bar 1 (C3 E3 + G3 C4 E4 pattern) and bar 2 (C3 D3 + A3 D4 F4 pattern) with clean separation"
+
+remediation:
+  id: "160.5"
+  title: "Prelude with pedal, bar by bar"
+  pages: 10
+  opening_cleffy: >
+    Act boss. Combining hands you already know with a foot that's four days old.
+    We'll go bar by bar again. Bar 1 alone, with pedal, ten times. Then bar 2 alone. Then stitch them together.
+    The foot will catch up.
+
+completion:
+  cleffy: >
+    Act 32 sealed. The sustain pedal is yours.
+    The Prelude you learned dry is now a piece that blooms.
+    Next — triplets. The Moonlight Sonata is getting closer every act.
+  xp: 30
+  unlocks: 161

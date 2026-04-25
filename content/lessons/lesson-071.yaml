@@ -1,0 +1,208 @@
+id: 71
+tier: elementary
+act: 15
+title: "Five-finger scales"
+subtitle: "The building block of every scale"
+goal: "Play five-finger scales in C, G, and F major smoothly, ascending and descending."
+prereqs: [44, 49, 67, 68]
+method_focus: "patterns"
+time_estimate_min: 10
+piece_context: null
+metaphor: "scale-skeleton"
+vibe: ["gentle", "serious"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Keyboard with C-D-E-F-G highlighted — a 5-finger ladder."
+    cleffy: >
+      Before full scales come five-finger scales. Just the first five notes.
+      They're the skeleton of every scale, and your hand is already shaped for them.
+
+  - id: 2
+    mode: see
+    type: c_5_finger
+    figure: "Keyboard. C D E F G. Numbers 1-5."
+    cleffy: >
+      C major 5-finger — C D E F G.
+      All white keys. Thumb to pinky in C position.
+
+  - id: 3
+    mode: play
+    type: c_5_ascend_descend
+    figure: "Keyboard. C position."
+    cleffy: >
+      Play C D E F G, then back G F E D C.
+    interaction:
+      type: sequence
+      keys: ["C4","D4","E4","F4","G4","F4","E4","D4","C4"]
+
+  - id: 4
+    mode: see
+    type: g_5_finger
+    figure: "Keyboard. G A B C D. Numbers 1-5."
+    cleffy: >
+      G major 5-finger — G A B C D.
+      Still all white keys in this 5-note range (F doesn't appear).
+
+  - id: 5
+    mode: play
+    type: g_5
+    figure: "Keyboard. G position."
+    cleffy: >
+      Play G A B C D and back.
+    interaction:
+      type: sequence
+      keys: ["G4","A4","B4","C5","D5","C5","B4","A4","G4"]
+
+  - id: 6
+    mode: see
+    type: f_5_finger
+    figure: "Keyboard. F G A B♭ C. Fourth note is black."
+    cleffy: >
+      F major 5-finger — F G A B-flat C.
+      Fourth note is the black key. Ring finger plays B-flat.
+
+  - id: 7
+    mode: play
+    type: f_5
+    figure: "Keyboard. F position with B♭ highlighted."
+    cleffy: >
+      Play F G A B-flat C and back.
+    interaction:
+      type: sequence
+      keys: ["F4","G4","A4","Bb4","C5","Bb4","A4","G4","F4"]
+
+  - id: 8
+    mode: hear
+    type: three_scales
+    figure: "Three playback cards."
+    audio:
+      A: "C 5-finger"
+      B: "G 5-finger"
+      C: "F 5-finger"
+    cleffy: >
+      Listen to all three. Same shape. Different starting note. One has a black key.
+
+  - id: 9
+    mode: see
+    type: same_shape
+    figure: "Three keyboards side by side with C, G, F 5-finger scales highlighted. Same shape, different spots."
+    cleffy: >
+      Notice — on the piano, F major's 5-finger has a black key in the middle.
+      C and G major have all white keys (in their first 5 notes).
+      Your hand shape is the same regardless.
+
+  - id: 10
+    mode: play
+    type: both_hands_c
+    figure: "Keyboard. Two hands on C positions — RH on Middle C area, LH on bass C area."
+    cleffy: >
+      Both hands on C major 5-finger. Together.
+    interaction:
+      type: sequence
+      keys: [["C4","C3"],["D4","D3"],["E4","E3"],["F4","F3"],["G4","G3"]]
+
+  - id: 11
+    mode: play
+    type: both_hands_g
+    figure: "Both hands on G 5-finger."
+    cleffy: >
+      Both hands on G 5-finger.
+    interaction:
+      type: sequence
+      keys: [["G4","G3"],["A4","A3"],["B4","B3"],["C5","C4"],["D5","D4"]]
+
+  - id: 12
+    mode: read
+    type: read_c_scale_both_hands
+    figure: "Grand staff with C 5-finger scale in both clefs."
+    cleffy: >
+      Read both staves. Play both hands.
+    interaction:
+      type: sequence
+      keys: [["C4","C3"],["D4","D3"],["E4","E3"],["F4","F3"],["G4","G3"]]
+
+  - id: 13
+    mode: hear
+    type: mixed
+    figure: "Four rounds."
+    cleffy: >
+      Four rounds. Which scale?
+    interaction:
+      type: drill
+      rounds: 4
+      options: ["C 5-finger", "G 5-finger", "F 5-finger"]
+
+  - id: 14
+    mode: hear
+    type: mixed_drill
+    figure: "Four rounds."
+    cleffy: >
+      Mixed.
+    interaction:
+      type: drill
+      rounds: 4
+
+  - id: 15
+    mode: hear
+    type: pre_check
+    figure: "Banner."
+    cleffy: >
+      Four quick ones.
+
+  - id: 16
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 71. Three 5-finger scales lined up."
+    cleffy: >
+      Three scales in your hands. Tomorrow — contour. How melody shapes look on the page.
+
+practice_this_week:
+  real_piano:
+    - "C 5-finger, up and back, both hands. Ten times."
+    - "G 5-finger, same. Ten times."
+    - "F 5-finger — go slow because of the black key."
+  virtual_only:
+    - "Replay pages 3, 5, 7"
+  estimated_time: "10 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "Keyboard with C-D-E-F-G highlighted"
+          prompt: "Which 5-finger scale?"
+          options: ["C", "G", "F"]
+          correct: 0
+        - figure: "Keyboard with F-G-A-B♭-C highlighted"
+          prompt: "Which 5-finger scale?"
+          options: ["C", "G", "F"]
+          correct: 2
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "F 5-finger"
+          prompt: "Is there a black key in this scale?"
+          options: ["Yes", "No"]
+          correct: 0
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play the G 5-finger scale up and back."
+          accept: "G-A-B-C-D-C-B-A-G"
+
+remediation:
+  id: "71.5"
+  title: "Five-finger scales, slower"
+  pages: 5
+  opening_cleffy: >
+    One scale at a time, slow.
+
+completion:
+  cleffy: >
+    Three 5-finger scales locked. Patterns start opening up.
+  xp: 20
+  unlocks: 72

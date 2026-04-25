@@ -1,0 +1,193 @@
+# ============================================================
+# LESSON 81 · Why fingering matters
+# Tier 3 · Act 17 · Low-intermediate
+# First lesson of the fingering act. Planning which finger plays which key.
+# ============================================================
+id: 81
+tier: low-intermediate
+act: 17
+title: "Why fingering matters"
+subtitle: "Act 17 · Fingering"
+goal: "Understand that which finger plays which key is a plan, not an accident."
+prereqs: [75, 80]
+method_focus: "play"
+time_estimate_min: 12
+piece_context: "Act 17 is about your hand. Not the notes — your hand. What fingers land where, and why it matters."
+metaphor: "hand-as-choreography"
+vibe: ["gentle", "focused"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy pointing to a hand hovering over a keyboard. Tiny numbers 1-5 floating above the fingers."
+    cleffy: >
+      New act. New idea.
+      Not which notes. Which fingers.
+      Every note you play is played by a specific finger. That choice matters.
+
+  - id: 2
+    mode: see
+    type: concept
+    figure: "Staff with C-D-E-F-G. Finger numbers 1-2-3-4-5 written above each note."
+    cleffy: >
+      Look. Five notes. Five fingers. One finger per note.
+      That's a fingering. A plan for the hand.
+
+  - id: 3
+    mode: see
+    type: choreography_metaphor
+    figure: "Dancer silhouette next to a hand silhouette. Both have numbered positions."
+    cleffy: >
+      Think of it as choreography.
+      Dancers don't decide mid-move which foot lands where. Neither do pianists.
+      The hand has a plan before the first note.
+
+  - id: 4
+    mode: play
+    type: bad_fingering_demo
+    figure: "Keyboard. C-D-E-F-G glowing. Prompt: play all five notes using ONLY finger 2."
+    cleffy: >
+      Try this. Play C-D-E-F-G using only your pointer — finger 2.
+      Move your whole hand for each note.
+    interaction:
+      type: sequence
+      keys: ["C4","D4","E4","F4","G4"]
+
+  - id: 5
+    mode: play
+    type: good_fingering_demo
+    figure: "Keyboard. Same notes. This time fingers 1-2-3-4-5 labeled."
+    cleffy: >
+      Now again. One finger per note. Thumb on C, pointer on D, middle on E, ring on F, pinky on G.
+      Hand stays still. Fingers do the work.
+    interaction:
+      type: sequence
+      keys: ["C4","D4","E4","F4","G4"]
+    followup_cleffy: >
+      Feel the difference?
+      Same notes. Way smoother with a plan.
+
+  - id: 6
+    mode: see
+    type: why_it_matters
+    figure: "Two staves side by side. Left: hand scrambling. Right: hand calm, fingers falling in order."
+    cleffy: >
+      Good fingering means the hand doesn't scramble.
+      It means you can play faster. Smoother. With less effort.
+      Bad fingering means you stumble over your own hand.
+
+  - id: 7
+    mode: see
+    type: written_fingerings
+    figure: "Staff with notes and small numbers 1, 3, 5 printed above. Composer fingerings."
+    cleffy: >
+      Composers and editors write fingerings above the notes. Small numbers.
+      1 is thumb. 5 is pinky. Same for both hands — always counted from the thumb.
+
+  - id: 8
+    mode: play
+    type: follow_fingerings
+    figure: "Staff with C-E-G. Finger numbers 1-3-5 above each note. Keyboard below."
+    cleffy: >
+      Play these three notes using the fingerings written.
+      Thumb on C. Middle on E. Pinky on G.
+    interaction:
+      type: sequence
+      keys: ["C4","E4","G4"]
+
+  - id: 9
+    mode: see
+    type: planning_principle
+    figure: "Cleffy sketching on paper. A line of notes. Arrows pointing to each. Finger number above each arrow."
+    cleffy: >
+      Before you play something new — look at it. Plan the fingers.
+      Start. End. And the tricky spots in the middle.
+
+  - id: 10
+    mode: play
+    type: plan_then_play
+    figure: "Staff: G-A-B-C-D (5 steps up from G). No finger numbers yet. Prompt: plan fingers, then play."
+    cleffy: >
+      Five notes — G, A, B, C, D.
+      Before you play: plan. What finger on G? Thumb. Then 2, 3, 4, 5.
+      Now play.
+    interaction:
+      type: sequence
+      keys: ["G4","A4","B4","C5","D5"]
+
+  - id: 11
+    mode: play
+    type: plan_descending
+    figure: "Staff: D-C-B-A-G. Prompt: plan from the END backward."
+    cleffy: >
+      Now backward. D-C-B-A-G.
+      Plan from the last note. If G is the end, pinky should not be on D.
+      Start pinky on D? No. Start with finger 5 on D, land on thumb for G. 5-4-3-2-1.
+    interaction:
+      type: sequence
+      keys: ["D5","C5","B4","A4","G4"]
+
+  - id: 12
+    mode: hear
+    type: pre_check
+    figure: "Banner — quick check."
+    cleffy: >
+      Three quick ones.
+
+  - id: 13
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 81. A hand with finger numbers glowing, keys underneath."
+    cleffy: >
+      Fingering is choreography. A plan for your hand.
+      Tomorrow — the first big trick. Thumb-under. For when five fingers aren't enough.
+
+practice_this_week:
+  real_piano:
+    - "Play any five-note pattern you know. Before you play, name the finger on each note out loud."
+    - "Play C-D-E-F-G with the wrong fingering, then the right one. Feel the difference."
+  virtual_only:
+    - "Replay pages 4-5 (bad vs good fingering)"
+  estimated_time: "5 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "Note C with finger number 1 written above"
+          prompt: "Which finger plays this note?"
+          options: ["Thumb", "Pointer", "Pinky"]
+          correct: 0
+        - figure: "Staff C-D-E-F-G with fingerings 1-2-3-4-5"
+          prompt: "How many different fingers play these notes?"
+          options: ["1", "3", "5"]
+          correct: 2
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "Smooth five-note run vs choppy five-note run"
+          prompt: "Which one sounds more planned?"
+          options: ["First", "Second"]
+          correct: 0
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play C-D-E-F-G using one finger per note, thumb on C."
+          accept: "Five notes ascending, hand still"
+
+remediation:
+  id: "81.5"
+  title: "Fingering, slower"
+  pages: 6
+  opening_cleffy: >
+    Choreography for the hand.
+    Let's slow down. One finger at a time.
+
+completion:
+  cleffy: >
+    Fingering makes sense now. A plan, not an accident.
+    Tomorrow: thumb-under. The first hand trick.
+  xp: 15
+  unlocks: 82

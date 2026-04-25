@@ -1,0 +1,265 @@
+# ============================================================
+# LESSON 240 · Moonlight 1 — bars 1-23 through · ACT 48 BOSS 🎯
+# Tier 6 · Act 48 · Advanced
+# First big chunk of the graduation piece — played through, no stopping.
+# ============================================================
+id: 240
+tier: advanced
+act: 48
+title: "Moonlight 1 — bars 1-23 through"
+subtitle: "Act 48 · First big chunk"
+goal: "Play bars 1 through 23 of Moonlight Sonata 1st movement, start to finish, no stopping. The first big chunk."
+prereqs: [175, 236, 237, 238, 239]
+method_focus: "play"
+time_estimate_min: 20
+piece_context: "Act 48 boss. Twenty-three bars of Moonlight, played through without stopping. Statement (bars 1-12) plus first modulation (bars 13-23). A full third of the movement. No new notes — all material has been covered in 237, 238, 239. Today is about stringing it together. Endurance at pianissimo, pedal clean for nearly a minute and a half, voicing consistent, no break in the engine when the harmonies change."
+metaphor: "moonlight-extended"
+vibe: ["serious", "quiet", "focused", "triumphant"]
+is_act_boss: true
+piece:
+  title: "Moonlight Sonata, 1st mvt (bars 1-23)"
+  composer: "Beethoven (1801)"
+  key_center: "C-sharp minor (modulating through E major, B major)"
+  time_signature: "alla breve (2/2), felt in 4"
+  difficulty: "advanced — first full chunk of graduation piece, no stopping"
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy at the piano. Behind him, a staff showing 23 bars of Moonlight, the bar lines marking off where they came from in earlier lessons. Banner: ACT 48 BOSS — FIRST BIG CHUNK."
+    cleffy: >
+      Act 48 boss.
+      Twenty-three bars of Moonlight. Start to finish. No stopping.
+      This is a third of the whole movement. The first big chunk.
+
+  - id: 2
+    mode: see
+    type: honest_framing
+    figure: "Two boxes. Left — 'what today is NOT': new material, full speed, the whole movement. Right — 'what today IS': 23 bars played through, slow, pianissimo, with feeling.'"
+    cleffy: >
+      Honest part.
+      Today is NOT new notes. Everything has been played already.
+      Today is NOT full speed. That comes later.
+      Today IS: twenty-three bars, no stopping, in one breath.
+
+  - id: 3
+    mode: see
+    type: the_map
+    figure: "A horizontal map. Bars 1-4: engine alone. Bars 5-8: melody enters. Bars 9-12: melody continues. Bars 13-15: the turn. Bars 16-19: E major light. Bars 20-23: coming home. Each segment colored slightly differently."
+    cleffy: >
+      The map.
+      Bars 1 to 4 — engine. No melody.
+      Bars 5 to 8 — melody enters.
+      Bars 9 to 12 — melody continues.
+      Bars 13 to 15 — the turn.
+      Bars 16 to 19 — the E major light.
+      Bars 20 to 23 — coming home.
+      Hold this picture in mind as you play.
+
+  - id: 4
+    mode: hear
+    type: listen_whole
+    figure: "Play button. Caption: 'bars 1-23, real recording.'"
+    audio:
+      A: "Moonlight 1-23 real recording, adagio sostenuto, full voicing and pedal"
+    cleffy: >
+      One final listen before you play it.
+      Hear the full arc. The statement. The first travel. The return home.
+
+  - id: 5
+    mode: play
+    type: warmup_bars_1_4
+    figure: "Bars 1-4 warm-up. Guides on. Tempo 50. pp."
+    cleffy: >
+      Warm up. Bars 1 through 4.
+      Settle the hands. Settle the pedal. Settle the breath.
+    interaction:
+      type: song
+      sequence: [["C#2","C#3"],"C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4",["C#2","C#3"],"C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4",["B1","B2"],"B3","D#4","F#4","B3","D#4","F#4","B3","D#4","F#4","B3","D#4","F#4",["E2","E3"],"E3","G#3","B3","E3","G#3","B3","E3","G#3","B3","E3","G#3","B3"]
+      guides: true
+      tempo: 50
+
+  - id: 6
+    mode: play
+    type: warmup_bars_17_19
+    figure: "Bars 17-19 warm-up — the E major brightness. Guides on. Tempo 50."
+    cleffy: >
+      Warm up the modulation too. Bars 17 through 19.
+      The brief E major light. Hands know these by now.
+    interaction:
+      type: song
+      sequence: [["B2","B3"],"B3","D#4","F#4","B3","D#4","F#4","B3","D#4","F#4","B3","D#4","F#4",["E2","E3"],"E3","G#3","B3","E3","G#3","B3","E3","G#3","B3","E3","G#3","B3",["B2","B3"],"B3","D#4","F#4","B3","D#4","F#4","B3","D#4","F#4","B3","D#4","F#4"]
+      guides: true
+      tempo: 50
+
+  - id: 7
+    mode: see
+    type: one_breath
+    figure: "A long horizontal line, 23 bars marked across it. An arrow labeled 'one breath' spans the whole line. No breaks."
+    cleffy: >
+      The rule today.
+      One breath across 23 bars.
+      No stopping. No reset. If the hands stumble — keep going.
+      The engine never stops.
+
+  - id: 8
+    mode: play
+    type: bars_1_23_guided
+    figure: "All 23 bars. Guides on. Tempo 48. pp. Pedal at every bar. No stopping."
+    cleffy: >
+      Here it is. All 23, guides on.
+      Don't rush the modulation. Don't hurry the return.
+      Quiet hands. Full pedal. Eyes ahead.
+    interaction:
+      type: song
+      sequence: [["C#2","C#3"],"C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4",["C#2","C#3"],"C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4",["B1","B2"],"B3","D#4","F#4","B3","D#4","F#4","B3","D#4","F#4",["E2","E3"],"E3","G#3","B3","E3","G#3","B3","E3","G#3","B3",["A2","A3","G#4"],"A3","C#4","E4","A3","C#4","G#4","A3","C#4",["F#2","F#3","A4"],"F#3","A3","C#4","F#3","A3","A4","F#3","A3",["G#2","G#3","G#4"],"G#3","B#3","D#4","G#3","B#3","F#4","G#3","B#3",["C#2","C#3","E4"],"C#3","E3","G#3","C#3","E3","G#3","C#3","E3",["C#2","C#3","G#4"],"C#3","E3","G#3","C#3","E3","G#3","C#3","E3","G#4",["C#2","C#3","A4"],"C#3","E3","G#3","C#3","E3","G#3","C#3","E3","B4",["F#2","F#3","B4"],"F#3","A3","C#4","F#3","A3","A4","F#3","A3","G#4",["G#2","G#3","G#4"],"G#3","B#3","D#4","G#3","B#3","D#4","G#3","B#3","D#4",["A2","A3"],"A3","C#4","E4","A3","C#4","E4","A3","C#4","E4",["A2","A3"],"A3","C#4","E4","A3","C#4","E4","A3","C#4","E4",["G#2","G#3"],"G#3","B3","E4","G#3","B3","E4","G#3","B3","E4",["F#2","F#3"],"F#3","A3","C#4","F#3","A3","C#4","F#3","A3","C#4",["B2","B3"],"B3","D#4","F#4","B3","D#4","F#4","B3","D#4","F#4",["E2","E3"],"E3","G#3","B3","E3","G#3","B3","E3","G#3","B3",["B2","B3"],"B3","D#4","F#4","B3","D#4","F#4","B3","D#4","F#4",["E2","E3"],"E3","G#3","B3","E3","G#3","B3","E3","G#3","B3",["F#2","F#3"],"F#3","A3","C#4","F#3","A3","C#4","F#3","A3","C#4",["G#2","G#3"],"G#3","B#3","D#4","G#3","B#3","D#4","G#3","B#3","D#4",["C#2","C#3"],"C#3","E3","G#3","C#3","E3","G#3","C#3","E3","G#3"]
+      guides: true
+      tempo: 48
+    followup_cleffy: >
+      First pass. Guides were on.
+      One more time — unguided.
+
+  - id: 9
+    mode: play
+    type: bars_1_23_no_guides
+    figure: "All 23 bars. No guides. Tempo 48. pp. Caption: 'delicatissimamente.'"
+    cleffy: >
+      No guides. Read the page. Play the piece.
+      Delicatissimamente. Most delicately.
+      The whole chunk in one breath.
+    interaction:
+      type: song
+      sequence: [["C#2","C#3"],"C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4",["C#2","C#3"],"C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4",["B1","B2"],"B3","D#4","F#4","B3","D#4","F#4","B3","D#4","F#4",["E2","E3"],"E3","G#3","B3","E3","G#3","B3","E3","G#3","B3",["A2","A3","G#4"],"A3","C#4","E4","A3","C#4","G#4","A3","C#4",["F#2","F#3","A4"],"F#3","A3","C#4","F#3","A3","A4","F#3","A3",["G#2","G#3","G#4"],"G#3","B#3","D#4","G#3","B#3","F#4","G#3","B#3",["C#2","C#3","E4"],"C#3","E3","G#3","C#3","E3","G#3","C#3","E3",["C#2","C#3","G#4"],"C#3","E3","G#3","C#3","E3","G#3","C#3","E3","G#4",["C#2","C#3","A4"],"C#3","E3","G#3","C#3","E3","G#3","C#3","E3","B4",["F#2","F#3","B4"],"F#3","A3","C#4","F#3","A3","A4","F#3","A3","G#4",["G#2","G#3","G#4"],"G#3","B#3","D#4","G#3","B#3","D#4","G#3","B#3","D#4",["A2","A3"],"A3","C#4","E4","A3","C#4","E4","A3","C#4","E4",["A2","A3"],"A3","C#4","E4","A3","C#4","E4","A3","C#4","E4",["G#2","G#3"],"G#3","B3","E4","G#3","B3","E4","G#3","B3","E4",["F#2","F#3"],"F#3","A3","C#4","F#3","A3","C#4","F#3","A3","C#4",["B2","B3"],"B3","D#4","F#4","B3","D#4","F#4","B3","D#4","F#4",["E2","E3"],"E3","G#3","B3","E3","G#3","B3","E3","G#3","B3",["B2","B3"],"B3","D#4","F#4","B3","D#4","F#4","B3","D#4","F#4",["E2","E3"],"E3","G#3","B3","E3","G#3","B3","E3","G#3","B3",["F#2","F#3"],"F#3","A3","C#4","F#3","A3","C#4","F#3","A3","C#4",["G#2","G#3"],"G#3","B#3","D#4","G#3","B#3","D#4","G#3","B#3","D#4",["C#2","C#3"],"C#3","E3","G#3","C#3","E3","G#3","C#3","E3","G#3"]
+      guides: false
+      tempo: 48
+    followup_cleffy: >
+      That. Twenty-three bars of Moonlight. Played through.
+      First big chunk. Sealed.
+
+  - id: 10
+    mode: see
+    type: what_just_happened
+    figure: "A card. Text: 'You just played one third of the Moonlight Sonata.' Below: 'Full movement is 69 bars. You have 23.' A progress bar at 33%."
+    cleffy: >
+      Look at what just happened.
+      Moonlight's first movement is 69 bars long.
+      You just played 23 of them, in one pass, without stopping.
+      One third of the way through your graduation piece.
+
+  - id: 11
+    mode: play
+    type: bars_1_23_with_feel
+    figure: "All 23 bars once more. Tempo 48. No guides. Caption: 'with feel.' pp with small hairpin at the melody entry."
+    cleffy: >
+      One more pass. This time — with feel.
+      Bars 1 to 4 — the engine, barely audible.
+      Bar 5 — the melody arrives. Let it breathe.
+      Bar 17 — the light leaks in. Don't rush past it.
+      Bar 23 — home.
+    interaction:
+      type: song
+      sequence: [["C#2","C#3"],"C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4",["C#2","C#3"],"C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4",["B1","B2"],"B3","D#4","F#4","B3","D#4","F#4","B3","D#4","F#4",["E2","E3"],"E3","G#3","B3","E3","G#3","B3","E3","G#3","B3",["A2","A3","G#4"],"A3","C#4","E4","A3","C#4","G#4","A3","C#4",["F#2","F#3","A4"],"F#3","A3","C#4","F#3","A3","A4","F#3","A3",["G#2","G#3","G#4"],"G#3","B#3","D#4","G#3","B#3","F#4","G#3","B#3",["C#2","C#3","E4"],"C#3","E3","G#3","C#3","E3","G#3","C#3","E3",["C#2","C#3","G#4"],"C#3","E3","G#3","C#3","E3","G#3","C#3","E3","G#4",["C#2","C#3","A4"],"C#3","E3","G#3","C#3","E3","G#3","C#3","E3","B4",["F#2","F#3","B4"],"F#3","A3","C#4","F#3","A3","A4","F#3","A3","G#4",["G#2","G#3","G#4"],"G#3","B#3","D#4","G#3","B#3","D#4","G#3","B#3","D#4",["A2","A3"],"A3","C#4","E4","A3","C#4","E4","A3","C#4","E4",["A2","A3"],"A3","C#4","E4","A3","C#4","E4","A3","C#4","E4",["G#2","G#3"],"G#3","B3","E4","G#3","B3","E4","G#3","B3","E4",["F#2","F#3"],"F#3","A3","C#4","F#3","A3","C#4","F#3","A3","C#4",["B2","B3"],"B3","D#4","F#4","B3","D#4","F#4","B3","D#4","F#4",["E2","E3"],"E3","G#3","B3","E3","G#3","B3","E3","G#3","B3",["B2","B3"],"B3","D#4","F#4","B3","D#4","F#4","B3","D#4","F#4",["E2","E3"],"E3","G#3","B3","E3","G#3","B3","E3","G#3","B3",["F#2","F#3"],"F#3","A3","C#4","F#3","A3","C#4","F#3","A3","C#4",["G#2","G#3"],"G#3","B#3","D#4","G#3","B#3","D#4","G#3","B#3","D#4",["C#2","C#3"],"C#3","E3","G#3","C#3","E3","G#3","C#3","E3","G#3"]
+      guides: false
+      tempo: 48
+    followup_cleffy: >
+      Beautiful.
+      First big chunk of the graduation piece — sealed.
+
+  - id: 12
+    mode: hear
+    type: pre_check
+    figure: "Banner — Act 48 boss mastery check."
+    cleffy: >
+      Four quick ones. Act boss — take your time.
+
+  - id: 13
+    mode: see
+    type: what_comes_next
+    figure: "Map of remaining acts. Act 49: bars 24-42 (middle), pedal refinement, bars 43-60 (return), bars 61-69 (coda), full play-through slow. Act 50: nerves, recovery, near-tempo, dress rehearsal, GRADUATION. Small stars on each."
+    cleffy: >
+      What comes next.
+      Act 49 — bars 24 through 42. The middle. Then the return. Then the coda.
+      Act 50 — nerves, recovery, full at near-tempo, dress rehearsal, then graduation.
+      Ten lessons from Moonlight's first movement, full and played.
+
+  - id: 14
+    mode: see
+    type: wrap
+    figure: "Celebration card — ACT 48 COMPLETE 🎯. Cleffy at the piano, moonlight through the window, the score of Moonlight open to bar 23 with a gold marker. Map of acts: 48/50 complete. Caption: 'first big chunk.'"
+    cleffy: >
+      Act 48. Closed.
+      Twenty-three bars. One third of the movement.
+      The first big chunk of your graduation piece.
+      Two acts left. Forty-six bars left.
+      Next act — the middle, the return, the coda.
+      The moon keeps rising.
+
+practice_this_week:
+  real_piano:
+    - "Bars 1-23 once a day, start to finish. No stopping. Tempo 48."
+    - "If the hands stumble — keep going. That's the new rule. The piece doesn't stop; you don't stop."
+    - "One day this week, record yourself playing all 23 bars. Listen back. Is the pianissimo holding? Is the modulation clear?"
+    - "Listen to the full 1st movement once more, knowing you have the first third in your hands."
+  virtual_only:
+    - "Replay pages 8, 9, 11 — three passes through the whole chunk."
+  estimated_time: "20 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 3
+      questions:
+        - figure: "Timeline: bars 1-23 of Moonlight, marked across the top"
+          prompt: "Approximately what fraction of the first movement is this?"
+          options: ["One half", "One third", "All of it"]
+          correct: 1
+        - figure: "Section map of bars 1-23: 1-4 engine, 5-12 melody, 13-23 modulation"
+          prompt: "In which bars does the first modulation happen?"
+          options: ["Bars 1-4", "Bars 5-8", "Bars 13-23"]
+          correct: 2
+        - figure: "Dynamic marking: pp throughout"
+          prompt: "How loud should all 23 bars be?"
+          options: ["Gradually louder", "Pianissimo throughout", "Medium"]
+          correct: 1
+        - figure: "Italian instruction: delicatissimamente"
+          prompt: "What does this mean?"
+          options: ["Very fast", "Most delicately", "Very loudly"]
+          correct: 1
+    hear:
+      pass_threshold: 2
+      questions:
+        - audio: "A clean take of bars 1-23 vs a muddy take with no pedal changes"
+          prompt: "Which one sounds right for Moonlight?"
+          options: ["The clean one", "The muddy one"]
+          correct: 0
+        - audio: "Bars 1-4 only, then bars 17-19 only"
+          prompt: "Which clip is the E major modulation?"
+          options: ["First", "Second"]
+          correct: 1
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play bars 1 through 23 of Moonlight, start to finish, no stopping, at 48 bpm, pp."
+          accept: "All 23 bars played through without stopping, pedal per bar, pianissimo"
+
+remediation:
+  id: "240.5"
+  title: "Bars 1-23, chunked"
+  pages: 11
+  opening_cleffy: >
+    Act boss — 23 bars in one breath is a lot, the first time through.
+    We'll do bars 1-12 once. Then bars 13-23 once. Then string them, very slow.
+    Tempo drops to 44. Pedal gets even more attention.
+    There's no rush on this — it's a big step and deserves the time.
+
+completion:
+  cleffy: >
+    Act 48 sealed.
+    Twenty-three bars of the Moonlight Sonata. In your hands. Played through.
+    One third of your graduation piece, real and ready.
+    Next act — the middle of the movement. Where the piece really travels.
+    Two acts. Then graduation.
+    The moon's high tonight.
+  xp: 30
+  unlocks: 241

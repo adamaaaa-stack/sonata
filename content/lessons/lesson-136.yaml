@@ -1,0 +1,227 @@
+# ============================================================
+# LESSON 136 · 6/8 time
+# Tier 4 · Act 28 · Intermediate
+# Compound meter — a rolling, lilting feel.
+# ============================================================
+id: 136
+tier: intermediate
+act: 28
+title: "6/8 time"
+subtitle: "Act 28 · Time signatures & meters"
+goal: "Feel 6/8 as a compound meter — two big beats, each split into three — and count a simple melody in that groove."
+prereqs: [135, 131, 24]
+method_focus: "rhythm"
+time_estimate_min: 13
+piece_context: "Act 28 opens. You've lived in 4/4 and 3/4 for a hundred lessons. Today — a new kind of beat. 6/8 feels like rolling, rocking, lilting. Think sea shanties, lullabies, 'Hickory Dickory Dock.' The count goes in twos, but each two splits into three."
+metaphor: "rolling-meter"
+vibe: ["gentle", "playful"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy rocking side to side like a boat. A big 6/8 time signature floats above him. Banner: ACT 28 — 6/8 TIME."
+    cleffy: >
+      New meter today.
+      6/8 time. Compound. Rolling.
+      If 4/4 marches, 6/8 sways.
+
+  - id: 2
+    mode: see
+    type: what_the_numbers_mean
+    figure: "Staff with a big 6/8 time signature. Callouts: top number '6 = six eighth notes per bar'. Bottom number '8 = the eighth note gets one count'."
+    cleffy: >
+      Top number — six.
+      Bottom number — eighth. The eighth note gets one count.
+      So — six eighth notes in each bar.
+
+  - id: 3
+    mode: see
+    type: grouped_in_threes
+    figure: "One bar of 6/8. Six eighth notes, beamed in two groups of three. First group labeled 'ONE-and-a', second group 'TWO-and-a'."
+    cleffy: >
+      Here's the trick.
+      Six eighths — but you feel them in two groups of three.
+      ONE-and-a, TWO-and-a. Two big beats. Each split into three.
+
+  - id: 4
+    mode: see
+    type: compound_vs_simple
+    figure: "Split. Left: 4/4 bar with quarters — 'simple: each beat splits into 2'. Right: 6/8 bar — 'compound: each beat splits into 3'."
+    cleffy: >
+      New word. Compound.
+      Simple meter — each beat splits into two.
+      Compound meter — each beat splits into three.
+      6/8 is compound. That's why it rolls.
+
+  - id: 5
+    mode: hear
+    type: hear_the_groove
+    figure: "Play button. Label: 6/8 PULSE."
+    audio:
+      A: "Six eighth notes grouped as ONE-and-a TWO-and-a, at a lilting tempo"
+    cleffy: >
+      Listen. Feel the two big beats.
+      Not one-two-three-four-five-six even.
+      ONE-and-a, TWO-and-a. A boat on small waves.
+
+  - id: 6
+    mode: hear
+    type: hickory_dickory
+    figure: "Play button. Label: 'Hickory Dickory Dock' — melody in 6/8."
+    audio:
+      A: "Hickory Dickory Dock melody played in 6/8, slow and clear"
+    cleffy: >
+      You know this one. Hickory Dickory Dock.
+      Most nursery tunes in that lilting style — they're in 6/8.
+      Hear the two big beats under the words.
+
+  - id: 7
+    mode: play
+    type: clap_the_pulse
+    figure: "Keyboard. C4 highlighted. Six eighth notes on C4, beamed in two groups of three."
+    cleffy: >
+      Tap the pulse on Middle C. Six eighths per bar.
+      Lean into the first and fourth. That's where the big beats live.
+    interaction:
+      type: rhythm
+      sequence: ["C4","C4","C4","C4","C4","C4"]
+      durations: ["eighth","eighth","eighth","eighth","eighth","eighth"]
+      tempo: 80
+
+  - id: 8
+    mode: see
+    type: melody_on_staff
+    figure: "Treble staff in 6/8. Simple melody: E5 D5 C5 E5 D5 C5 (two groups of three, beamed)."
+    cleffy: >
+      Simple melody. One bar of 6/8.
+      E, D, C. E, D, C. Two groups.
+      Step down from E, three times. Then again.
+
+  - id: 9
+    mode: play
+    type: play_stepwise_6_8
+    figure: "Keyboard. E5 D5 C5 lit in order. Time signature 6/8 above."
+    cleffy: >
+      Play it. Six eighths. Lean on the first and fourth.
+    interaction:
+      type: rhythm
+      sequence: ["E5","D5","C5","E5","D5","C5"]
+      durations: ["eighth","eighth","eighth","eighth","eighth","eighth"]
+      tempo: 80
+
+  - id: 10
+    mode: see
+    type: hickory_shape
+    figure: "Staff in 6/8. Hickory Dickory melody simplified: G4 E4 C5 G4 E4 C5 (or similar three-note figure)."
+    cleffy: >
+      Hickory Dickory shape. Two bars.
+      Same three notes, twice. That's the nursery lilt.
+
+  - id: 11
+    mode: play
+    type: hickory_play
+    figure: "Keyboard with G4, E4, C5 lit in rocking order."
+    cleffy: >
+      Play it. Feel the rock.
+      ONE-and-a, TWO-and-a.
+    interaction:
+      type: rhythm
+      sequence: ["G4","E4","C5","G4","E4","C5"]
+      durations: ["eighth","eighth","eighth","eighth","eighth","eighth"]
+      tempo: 80
+
+  - id: 12
+    mode: play
+    type: quarter_plus_eighth
+    figure: "Staff in 6/8. One bar: quarter, eighth, quarter, eighth. The common 6/8 pattern."
+    cleffy: >
+      Common 6/8 figure. Quarter, eighth. Quarter, eighth.
+      Long-short, long-short. Still two big beats.
+    interaction:
+      type: rhythm
+      sequence: ["C5","C5","C5","C5"]
+      durations: ["quarter","eighth","quarter","eighth"]
+      tempo: 80
+
+  - id: 13
+    mode: play
+    type: mix_with_guides
+    figure: "Staff in 6/8. Melody: E5 (quarter) D5 (eighth) C5 (quarter) D5 (eighth). Guides on."
+    cleffy: >
+      Long-short melody. With guides. Feel the lilt.
+    interaction:
+      type: song
+      sequence: ["E5","D5","C5","D5"]
+      guides: true
+      tempo: 80
+    followup_cleffy: >
+      That roll — that's 6/8.
+
+  - id: 14
+    mode: hear
+    type: pre_check
+    figure: "Banner."
+    cleffy: >
+      Three quick ones.
+
+  - id: 15
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 136. A staff with 6/8 time signature and six beamed eighths. Cleffy on a small boat."
+    cleffy: >
+      6/8. Compound. Two big beats, each split in three.
+      Tomorrow — 3/4 next to 6/8. They look alike. They feel nothing alike.
+
+practice_this_week:
+  real_piano:
+    - "Count 'ONE-and-a, TWO-and-a' out loud while tapping the six eighth notes. Lean into ONE and TWO."
+    - "Play Hickory Dickory Dock's opening three-note figure in both hands, slow. Feel the two-beat pulse."
+  virtual_only:
+    - "Replay pages 7, 11, and 13"
+  estimated_time: "8 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "A 6/8 time signature on a staff"
+          prompt: "How many eighth notes fit in one bar of 6/8?"
+          options: ["Three", "Six", "Eight"]
+          correct: 1
+        - figure: "Six eighth notes beamed in two groups of three"
+          prompt: "How many big beats do you feel per bar?"
+          options: ["Two", "Three", "Six"]
+          correct: 0
+        - figure: "Two time signatures: 4/4 and 6/8"
+          prompt: "Which is a compound meter?"
+          options: ["4/4", "6/8"]
+          correct: 1
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "A phrase in 6/8 with a lilting rock"
+          prompt: "Does this feel like a march or a rock?"
+          options: ["A march", "A rock"]
+          correct: 1
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play six eighth notes on Middle C, leaning on beats 1 and 4."
+          accept: "C4 six times with a felt two-beat pulse"
+
+remediation:
+  id: "136.5"
+  title: "6/8, slower, clapped"
+  pages: 7
+  opening_cleffy: >
+    Compound meter is a new feel. We'll slow down, count out loud, and clap before we play.
+    Every pass, just two words — ONE-and-a, TWO-and-a.
+
+completion:
+  cleffy: >
+    6/8 — felt.
+    Tomorrow — we set it next to 3/4 and see why they're different.
+  xp: 17
+  unlocks: 137

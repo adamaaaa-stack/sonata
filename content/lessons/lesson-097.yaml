@@ -1,0 +1,201 @@
+# ============================================================
+# LESSON 97 · Chord changes in a tune
+# Tier 3 · Act 20 · Low-Intermediate · Chords & accompaniment
+# When and why harmony moves.
+# ============================================================
+id: 97
+tier: low-intermediate
+act: 20
+title: "Chord changes in a tune"
+subtitle: "Act 20 · Chords & accompaniment"
+goal: "Hear when the harmony under a melody shifts, and learn why it moves at all."
+prereqs: [96, 75]
+method_focus: "hear"
+time_estimate_min: 12
+piece_context: "Chords don't stay forever. They change under the melody — usually once per bar, sometimes more. Today you spot where."
+metaphor: "harmony-under-melody"
+vibe: ["gentle", "focused"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "A melody line on top staff. Chord boxes underneath — I, I, IV, V. Arrows showing where each chord sits."
+    cleffy: >
+      You know the three chords.
+      Real songs don't sit on one forever. The chord changes.
+      Today — where it changes, and why.
+
+  - id: 2
+    mode: see
+    type: why_change
+    figure: "Scale 1-2-3-4-5-6-7. The notes of C chord glow, then F chord, then G chord."
+    cleffy: >
+      Each chord fits certain melody notes.
+      I (C-E-G) fits C, E, G in the melody.
+      IV (F-A-C) fits F, A, C.
+      V (G-B-D) fits G, B, D.
+      When the melody moves to notes a chord doesn't hold — the chord has to change.
+
+  - id: 3
+    mode: hear
+    type: same_chord_all_song
+    figure: "Play button. A melody with only the C chord under it the whole time. Some notes clash."
+    audio:
+      A: "Twinkle Twinkle played with I chord held under the whole thing"
+    cleffy: >
+      Listen. Same chord under the whole tune.
+      Some parts sound fine. Some sound wrong. That's why harmony moves.
+
+  - id: 4
+    mode: hear
+    type: with_changes
+    figure: "Play button. Same melody with chords changing."
+    audio:
+      A: "Twinkle Twinkle with I-I-IV-I-V-I-V-I chord changes"
+    cleffy: >
+      Same melody. Chords change where they need to.
+      Feel the difference. Everything fits now.
+
+  - id: 5
+    mode: see
+    type: twinkle_map
+    figure: "Twinkle Twinkle first 4 bars. Bar 1: C C G G (I). Bar 2: A A G (I). Bar 3: F F E E (IV). Bar 4: D D C (I)."
+    cleffy: >
+      Twinkle, first four bars. Chord under each bar.
+      Bar 1: C, C, G, G — all in I. Bar 2: A, A, G — IV would fit, but I still works. Stay on I.
+      Bar 3: F, F, E, E — F doesn't fit I. Change to IV.
+      Bar 4: D, D, C — back to I.
+
+  - id: 6
+    mode: see
+    type: full_pattern
+    figure: "Twinkle first 8 bars with chord symbols: C C F C | G C G C. (Simplified I I IV I V I V I.)"
+    cleffy: >
+      Full pattern for the opening: I, I, IV, I, V, I, V, I.
+      C, C, F, C, G, C, G, C.
+      Eight bars. Four chord changes. That's a real song.
+
+  - id: 7
+    mode: play
+    type: play_chord_sequence
+    figure: "Keyboard. Chord boxes in order: C, C, F, C, G, C, G, C."
+    cleffy: >
+      Play the chord sequence on its own. One chord per bar.
+    interaction:
+      type: sequence
+      keys: [["C4","E4","G4"],["C4","E4","G4"],["F4","A4","C5"],["C4","E4","G4"],["G4","B4","D5"],["C4","E4","G4"],["G4","B4","D5"],["C4","E4","G4"]]
+
+  - id: 8
+    mode: hear
+    type: listen_melody_over_chords
+    figure: "Play button. Twinkle RH melody with the chords you just played underneath."
+    audio:
+      A: "Twinkle Twinkle with clear chord changes on each bar"
+    cleffy: >
+      Now listen. Melody on top. The chords you just played, underneath.
+      Hear where the chord shifts. That's what we listened for.
+
+  - id: 9
+    mode: hear
+    type: spot_the_change
+    figure: "Round counter 1 of 4."
+    cleffy: >
+      Four rounds. Two bars play. Does the chord change between them?
+    interaction:
+      type: drill
+      rounds: 4
+      options: ["Same chord", "Chord changed"]
+
+  - id: 10
+    mode: see
+    type: once_per_bar_rule
+    figure: "Staff with bar lines. A chord symbol sits at the start of each bar."
+    cleffy: >
+      Common rule of thumb — one chord per bar.
+      Simple songs often hold one chord for a whole bar, then move at the bar line.
+      Not always. But a good starting guess.
+
+  - id: 11
+    mode: hear
+    type: identify_chord_drill
+    figure: "Round counter 1 of 4."
+    cleffy: >
+      Four rounds. A bar plays with its chord. I, IV, or V?
+    interaction:
+      type: drill
+      rounds: 4
+      options: ["I", "IV", "V"]
+
+  - id: 12
+    mode: play
+    type: play_with_melody_guide
+    figure: "Grand staff. RH Twinkle melody first 8 bars. LH chord symbols shown."
+    cleffy: >
+      Play the chord sequence again, slowly. The melody will play above on its own.
+      Your job — keep the chords in time.
+    interaction:
+      type: rhythm
+      sequence: [["C4","E4","G4"],["C4","E4","G4"],["F4","A4","C5"],["C4","E4","G4"],["G4","B4","D5"],["C4","E4","G4"],["G4","B4","D5"],["C4","E4","G4"]]
+      durations: ["whole","whole","whole","whole","whole","whole","whole","whole"]
+      tempo: 60
+
+  - id: 13
+    mode: hear
+    type: pre_check
+    figure: "Banner."
+    cleffy: >
+      Three quick ones.
+
+  - id: 14
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 97. A melody line with chord boxes underneath, shifting at bar lines."
+    cleffy: >
+      Chords move because the melody moves past them.
+      Tomorrow — how the left hand actually plays the chord. Blocked.
+
+practice_this_week:
+  real_piano:
+    - "Play the Twinkle chord sequence (C C F C G C G C) once a day. Whole-note chords, one per bar."
+    - "Pick any simple song you know. Try to hear where the chord changes. Sing-along on YouTube helps."
+  virtual_only:
+    - "Replay pages 3, 4, and 7"
+  estimated_time: "8 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 1
+      questions:
+        - figure: "Bar with melody notes F, F, E, E in C major"
+          prompt: "Which chord fits this bar best?"
+          options: ["I (C)", "IV (F)", "V (G)"]
+          correct: 1
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "Two bars — first on I, second on IV"
+          prompt: "Did the chord change between the bars?"
+          options: ["Yes", "No"]
+          correct: 0
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play I, IV, V, I as four whole-note chords."
+          accept: "C-E-G, F-A-C, G-B-D, C-E-G in order"
+
+remediation:
+  id: "97.5"
+  title: "Chord changes, slower"
+  pages: 7
+  opening_cleffy: >
+    Hearing the shift takes a few listens.
+    We'll go two bars at a time, chord by chord, until the moves become obvious.
+
+completion:
+  cleffy: >
+    Chords change where the melody asks them to.
+    Tomorrow — the left hand takes the chord on.
+  xp: 18
+  unlocks: 98

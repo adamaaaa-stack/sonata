@@ -1,0 +1,210 @@
+id: 92
+tier: low-intermediate
+act: 19
+title: "Eyes ahead, always"
+subtitle: "Act 19 · Sight-reading"
+goal: "Never stare at the note you're playing."
+prereqs: [91, 75]
+method_focus: "see"
+time_estimate_min: 12
+piece_context: "Yesterday we introduced eyes-ahead. Today we make it automatic. The rule has no exceptions."
+metaphor: "eyes-as-scouts"
+vibe: ["focused", "serious"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy with a finger over his lips, pointing ahead. The word NEVER painted above the note currently being played."
+    cleffy: >
+      One rule today.
+      Never stare at the note you're playing.
+
+  - id: 2
+    mode: see
+    type: the_rule
+    figure: "Staff. Current note circled with a big red X over it. A note 3 bars ahead with a green eye icon."
+    cleffy: >
+      Where your hand is — don't look there.
+      Where your hand is GOING — that's where eyes live.
+      Flip that habit. Forever.
+
+  - id: 3
+    mode: see
+    type: why_again
+    figure: "Two racetracks. One car with headlights on its own bumper. One car with headlights far down the track."
+    cleffy: >
+      Headlights pointed at your bumper? You can't see turns coming.
+      Headlights pointed down the road? You ride smooth.
+      Same with reading.
+
+  - id: 4
+    mode: hear
+    type: contrast
+    figure: "Two play buttons. A: eyes on note. B: eyes ahead."
+    audio:
+      A: "Choppy, start-stop playback of a simple melody"
+      B: "Smooth, even version of the same melody"
+    cleffy: >
+      Same notes. Two readers.
+      One stares. One scouts.
+
+  - id: 5
+    mode: play
+    type: ghost_hand
+    figure: "Four bars of RH melody. A ghosted ahead-highlight at all times."
+    cleffy: >
+      Warm-up. Play these 4 bars. The highlight is always two notes ahead of your finger.
+      Let your eyes follow the highlight, not your hand.
+    interaction:
+      type: sequence
+      keys: ["C4","E4","G4","E4","D4","F4","A4","F4","E4","G4","C5","G4"]
+
+  - id: 6
+    mode: see
+    type: what_if_i_need_to_look
+    figure: "Cleffy shrugging. Hand on keyboard without eyes looking down."
+    cleffy: >
+      "But I need to look to find the key." No.
+      Your fingers know the keyboard by feel now.
+      Trust them. Your eyes have another job.
+
+  - id: 7
+    mode: play
+    type: hand_feel_test
+    figure: "Keyboard partially covered by a paper strip — you can see the music, but not your hand. RH plays a simple line."
+    cleffy: >
+      Test. Don't look at your hand. Just at the staff.
+      Simple C-major line. Five notes.
+    interaction:
+      type: sequence
+      keys: ["C4","D4","E4","D4","C4"]
+
+  - id: 8
+    mode: play
+    type: hand_feel_longer
+    figure: "Same paper-strip setup. Eight-note line."
+    cleffy: >
+      Longer one. Still no peeking at your hand.
+      If your finger lands wrong — let it. Keep going.
+    interaction:
+      type: sequence
+      keys: ["E4","F4","G4","A4","G4","F4","E4","D4"]
+    followup_cleffy: >
+      Hands knew more than you thought.
+
+  - id: 9
+    mode: see
+    type: two_hand_scout
+    figure: "Grand staff. Both clefs. Two separate eye icons — one scouting RH, one scouting LH."
+    cleffy: >
+      Both hands now. Eyes still scout ahead on both staves at once.
+      Sounds impossible. Isn't.
+
+  - id: 10
+    mode: play
+    type: grand_staff_slow
+    figure: "Four bars of grand staff. RH stepwise melody over LH quarter notes."
+    cleffy: >
+      Both hands. Slow. Eyes one bar ahead.
+      Don't look down. Don't look back.
+    interaction:
+      type: rhythm
+      sequence: [["C4","C3"],["D4","C3"],["E4","C3"],["F4","C3"],["G4","G2"],["F4","G2"],["E4","G2"],["D4","G2"],["C4","C3"],["E4","C3"],["G4","C3"],["E4","C3"],["C4","C3"],["C4","C3"]]
+      durations: ["quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","half","half"]
+      tempo: 55
+
+  - id: 11
+    mode: see
+    type: mistake_rule
+    figure: "Staff with a small X on one note. Below: KEEP MOVING."
+    cleffy: >
+      You'll miss notes. Everyone does.
+      The rule — eyes keep moving. Don't go back to fix it.
+      Fix it next time you see it.
+
+  - id: 12
+    mode: play
+    type: no_going_back
+    figure: "Six bars. Metronome on. Red text: DO NOT GO BACK."
+    cleffy: >
+      Six bars. If you hit wrong — keep going.
+      If your eyes drop to your hand — lift them back up.
+    interaction:
+      type: rhythm
+      sequence: ["G4","A4","B4","C5","B4","A4","G4","F4","E4","F4","G4","A4","B4","C5","D5","C5","B4","A4","G4","F4","E4","D4","C4","C4"]
+      durations: ["quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","half","half"]
+      tempo: 60
+
+  - id: 13
+    mode: see
+    type: the_habit
+    figure: "A path worn into grass. Label: NEW HABIT."
+    cleffy: >
+      Habit takes weeks. Not minutes.
+      Every time you sit down — remind yourself. Eyes ahead.
+      Keep reminding until you stop needing to.
+
+  - id: 14
+    mode: hear
+    type: pre_check
+    figure: "Banner."
+    cleffy: >
+      Three quick ones.
+
+  - id: 15
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 92. Eyes drawn big, mid-keyboard without a hand in sight."
+    cleffy: >
+      Rule: never stare at the note you're playing.
+      Tomorrow — what to do when you trip.
+
+practice_this_week:
+  real_piano:
+    - "Cover your hands with a scarf or cloth while playing something easy. Read only."
+    - "Every practice session, first 2 minutes — just notice where your eyes go. Correct gently."
+  virtual_only:
+    - "Replay pages 7-8, 10, 12"
+  estimated_time: "10 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "A current note with an X over it and a note 3 bars ahead with an eye."
+          prompt: "Where should your eyes be?"
+          options: ["On the current note", "On a note ahead", "On your hand"]
+          correct: 1
+        - figure: "A player with head down, eyes on hand."
+          prompt: "Is this good sight-reading form?"
+          options: ["Yes", "No"]
+          correct: 1
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "Smooth, even melody"
+          prompt: "Eyes ahead or eyes stuck?"
+          options: ["Stuck", "Ahead"]
+          correct: 1
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play a simple 8-note line without looking at your hand."
+          accept: "Line played with eyes on staff, not hand"
+
+remediation:
+  id: "92.5"
+  title: "Eyes up, all the time"
+  pages: 7
+  opening_cleffy: >
+    Habit is stubborn. Eyes drop back to hands without asking.
+    Slower drills. Shorter passages. Same rule. Practiced more.
+
+completion:
+  cleffy: >
+    Eyes stay up. Even when it's hard.
+    Tomorrow — what to do when you stumble.
+  xp: 18
+  unlocks: 93

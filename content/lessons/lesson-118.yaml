@@ -1,0 +1,209 @@
+# ============================================================
+# LESSON 118 · Breath marks
+# Tier 3 · Act 24 · Low-Intermediate · Phrasing
+# The comma above the staff. Lift slightly. Let the phrase breathe.
+# ============================================================
+id: 118
+tier: low-intermediate
+act: 24
+title: "Breath marks"
+subtitle: "Act 24 · Where to breathe"
+goal: "Read a breath mark — the tiny comma above the staff — and lift your hand slightly before the next note."
+prereqs: [117, 116]
+method_focus: "see"
+time_estimate_min: 12
+piece_context: "Singers breathe. Wind players breathe. Pianists don't need to — but they should play as if they did."
+metaphor: "music-breathes"
+vibe: ["gentle", "quiet"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy pointing at a small comma floating above a staff. Title: THE BREATH MARK."
+    cleffy: >
+      A tiny comma. Sits above the staff.
+      It says: lift. Breathe. Then keep going.
+
+  - id: 2
+    mode: see
+    type: why_breathe
+    figure: "Sketch — a singer taking a breath between phrases, a flute player pausing. Underneath: a pianist doing the same with a slight hand lift."
+    cleffy: >
+      Singers have to breathe. Flute players too.
+      The piano doesn't need air. But it should sound like it does.
+      A breath mark tells you where.
+
+  - id: 3
+    mode: see
+    type: the_symbol
+    figure: "Close-up of a staff with a tiny comma (apostrophe-style) floating just above the top line, between two notes. Label: BREATH MARK."
+    cleffy: >
+      Here's the symbol. A little comma or apostrophe, floating above the staff.
+      Between two notes. Always says the same thing — lift, tiny silence, then the next note.
+
+  - id: 4
+    mode: see
+    type: how_to_do_it
+    figure: "Two hand diagrams. Left: finger on key, note playing. Right: hand slightly lifted, gap shown, then finger returning for next note."
+    cleffy: >
+      On the piano — you release the note a hair early. A tiny gap.
+      Not a whole rest. Just enough space for a breath.
+      Then play the next note normally.
+
+  - id: 5
+    mode: hear
+    type: listen_with_without
+    figure: "Two play buttons — WITHOUT BREATH and WITH BREATH."
+    audio:
+      A: "A melody played all connected, no breath between phrases"
+      B: "Same melody, with a clear breath mark lift between the two phrases"
+    cleffy: >
+      Listen. First — no breath. Run-on sentence.
+      Second — breath mark. Space to settle.
+      Hear how the second one feels like music, not a list?
+
+  - id: 6
+    mode: see
+    type: where_they_live
+    figure: "Staff with Mary Had a Little Lamb. Breath marks placed between phrases — after the first E-D-C-D-E-E-E group, and again later."
+    cleffy: >
+      Breath marks live between phrases. Almost always.
+      End of sentence — breath — new sentence.
+
+  - id: 7
+    mode: play
+    type: play_with_breath
+    figure: "Keyboard. Mary Had a Little Lamb, first phrase. Breath mark after E-D-C-D-E-E-E. Second phrase highlighted next."
+    cleffy: >
+      Play the first phrase. Tiny lift at the breath mark. Then the next phrase.
+      E D C D E E E — breathe — D D D.
+    interaction:
+      type: sequence
+      keys: ["E4","D4","C4","D4","E4","E4","E4","D4","D4","D4"]
+
+  - id: 8
+    mode: see
+    type: breath_vs_rest
+    figure: "Two side-by-side examples. One has a quarter rest. One has a breath mark. Labels and durations called out."
+    cleffy: >
+      A rest and a breath mark — not the same.
+      A rest has a measured length. One beat. Two beats.
+      A breath is tiny. You don't count it. You just feel it.
+
+  - id: 9
+    mode: hear
+    type: identify_breath
+    figure: "Three play buttons."
+    audio:
+      A: "A melody with no break"
+      B: "A melody with a clear breath mark lift"
+      C: "A melody with a full quarter rest"
+    cleffy: >
+      Three clips. Which one has the breath mark?
+    interaction:
+      type: drill
+      rounds: 3
+      options: ["No break", "Breath mark", "Full rest"]
+
+  - id: 10
+    mode: play
+    type: play_ode_with_breath
+    figure: "Keyboard. Ode to Joy first two phrases with a breath mark between them."
+    cleffy: >
+      Ode to Joy. Two phrases. Breath between them.
+      E E F G G F E D — lift — E E F G G F E D C.
+      Don't crash through it. Let the first phrase end before the second starts.
+    interaction:
+      type: sequence
+      keys: ["E4","E4","F4","G4","G4","F4","E4","D4","E4","E4","F4","G4","G4","F4","E4","D4","C4"]
+
+  - id: 11
+    mode: see
+    type: size_of_breath
+    figure: "A scale: no break → comma → quarter rest → half rest. Comma is second smallest."
+    cleffy: >
+      Sizes of space, smallest to largest.
+      Connected. Breath mark. Quarter rest. Half rest.
+      The breath is barely there. Just enough for the ear.
+
+  - id: 12
+    mode: play
+    type: play_mary_both_phrases
+    figure: "Keyboard. Mary Had a Little Lamb — full tune with one breath mark between the two phrases."
+    cleffy: >
+      Mary Had a Little Lamb, full.
+      First phrase. Breath. Second phrase. Done.
+    interaction:
+      type: sequence
+      keys: ["E4","D4","C4","D4","E4","E4","E4","D4","D4","D4","E4","G4","G4","E4","D4","C4","D4","E4","E4","E4","E4","D4","D4","E4","D4","C4"]
+    followup_cleffy: >
+      Tiny lift. Big difference.
+
+  - id: 13
+    mode: hear
+    type: pre_check
+    figure: "Banner."
+    cleffy: >
+      Three quick ones.
+
+  - id: 14
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 118. A tiny comma above a staff. Below it: 'lift, breathe, continue.'"
+    cleffy: >
+      Breath marks. Tiny commas. Big difference.
+      Tomorrow — phrase-shaped dynamics. Soft, loud, soft.
+
+practice_this_week:
+  real_piano:
+    - "Play any tune you know. Put a tiny lift between phrases. Not a pause — a lift."
+    - "Try the same tune without any breaths. Hear the difference."
+  virtual_only:
+    - "Replay page 5 — without and with breath."
+  estimated_time: "7 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "Staff with a small comma floating above, between two notes."
+          prompt: "What does this mark mean?"
+          options: ["Lift slightly — breath mark", "Play staccato", "Play loud"]
+          correct: 0
+        - figure: "A breath mark vs a quarter rest."
+          prompt: "What's the difference between a breath mark and a quarter rest?"
+          options: ["A breath is tiny, a rest has a measured length", "They are the same", "A breath is louder"]
+          correct: 0
+        - figure: "Two phrases with a breath mark between them."
+          prompt: "Where do breath marks usually appear?"
+          options: ["Between phrases", "In the middle of a word-like group", "At the beginning of a piece"]
+          correct: 0
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "A melody with a clear breath mark between phrases"
+          prompt: "Did you hear a tiny lift between the two phrases?"
+          options: ["Yes", "No"]
+          correct: 0
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play Mary Had a Little Lamb, first phrase, with a tiny lift at the end."
+          accept: "E4 D4 C4 D4 E4 E4 E4 with a small release after the last E"
+
+remediation:
+  id: "118.5"
+  title: "Breathing at the piano"
+  pages: 6
+  opening_cleffy: >
+    A breath mark is a feel. Small. Honest.
+    We'll take one phrase at a time — listen, lift, listen again.
+
+completion:
+  cleffy: >
+    Your phrases can breathe now.
+    Tomorrow — soft in, loud in the middle, soft out. Dynamics across a phrase.
+  xp: 17
+  unlocks: 119

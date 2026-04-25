@@ -1,0 +1,250 @@
+# ============================================================
+# LESSON 197 · Rubato, seriously
+# Tier 5 · Act 40 · Upper-Intermediate
+# Stretch time and give it back, every phrase.
+# ============================================================
+id: 197
+tier: upper-intermediate
+act: 40
+title: "Rubato, seriously"
+subtitle: "Act 40 · Stretch and give back"
+goal: "Linger on peak notes and arrive slightly early on resolution notes, so every phrase stretches and returns its time — the Chopin way."
+prereqs: [196, 144]
+method_focus: "combine"
+time_estimate_min: 15
+piece_context: "Lesson 144 gave you simple rubato — one stretched note, a little pause. Today we go deeper. Chopin-style rubato has two jobs: linger on the peak, arrive early on the resolution. Stretch here, give it back there. The beat keeps walking underneath. Your melody just bends around it."
+metaphor: "singing-at-the-piano"
+vibe: ["focused", "reflective", "gentle"]
+piece:
+  title: "Nocturne Op. 9 No. 2 in E-flat major (phrase study)"
+  composer: "Frédéric Chopin (1832)"
+  key_center: "E-flat major"
+  time_signature: "12/8 (felt as slow 4)"
+  difficulty: "upper-intermediate — one phrase, deep rubato focus"
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy at the piano, pulling a rubber band gently between two hands. One end labeled 'stretch', the other 'give back'. Banner: RUBATO."
+    cleffy: >
+      Rubato.
+      You met it at 144. Today it goes deep.
+      Chopin's word. It means stolen time.
+      Two jobs. Linger on the peak. Arrive early on the resolution.
+
+  - id: 2
+    mode: see
+    type: the_two_halves
+    figure: "A horizontal timeline split in two. Left half: a note stretched wide. Arrow labeled 'linger — take from the beat'. Right half: a note crunched narrow. Arrow labeled 'give back — arrive sooner'. A metronome at the bottom ticks even the whole time."
+    cleffy: >
+      Two halves.
+      First — a peak note lingers. You take a little extra time on it.
+      Second — a resolution note arrives a touch early. You give that time back.
+      The pulse under it all never changes.
+
+  - id: 3
+    mode: hear
+    type: without_rubato
+    figure: "Play button. Caption: NO RUBATO — even quarters, metronome feel."
+    audio:
+      A: "The seven-note Nocturne phrase from lesson 196, played metronomically even — no stretching, no settling."
+    cleffy: >
+      First, listen without rubato.
+      Every note gets the same time. Nothing special.
+      Notice how flat it feels.
+
+  - id: 4
+    mode: hear
+    type: with_rubato
+    figure: "Play button. Caption: WITH RUBATO — peak lingers, resolution early."
+    audio:
+      A: "The same phrase, this time with the E-flat lingering slightly past its beat, and the final B-flat arriving a hair early. Same average tempo."
+    cleffy: >
+      Now with rubato.
+      The E-flat takes a breath of extra time.
+      The final B-flat lands a little early.
+      Same tempo on average. But it sings now.
+
+  - id: 5
+    mode: see
+    type: where_to_stretch
+    figure: "The seven-note phrase from yesterday. A bracket over the peak E-flat labeled 'LINGER +'. A bracket over the final B-flat labeled 'EARLY −'."
+    cleffy: >
+      Where to stretch. Where to give back.
+      Peak gets the plus. Final B-flat gets the minus.
+      Plus and minus. It balances.
+
+  - id: 6
+    mode: play
+    type: play_linger_only
+    figure: "Keyboard. Phrase shown. The peak Eb5 is held longer than its written value. Metronome ticking 56."
+    cleffy: >
+      Just the linger first.
+      Play the phrase. Hold the E-flat a beat longer than it says.
+      Metronome keeps ticking — ignore it on that one note.
+    interaction:
+      type: rhythm
+      sequence: ["F4", "Bb4", "D5", "Eb5", "D5", "C5", "Bb4"]
+      durations: ["eighth", "quarter", "quarter", "whole", "quarter", "quarter", "half"]
+      tempo: 56
+
+  - id: 7
+    mode: play
+    type: play_give_back
+    figure: "Keyboard. Same phrase. The D, C, Bb4 at the end crunched a little earlier. Metronome 56."
+    cleffy: >
+      Now the giving back.
+      After the peak, the three notes home arrive a touch quicker.
+      You're paying back the time the E-flat borrowed.
+    interaction:
+      type: rhythm
+      sequence: ["F4", "Bb4", "D5", "Eb5", "D5", "C5", "Bb4"]
+      durations: ["eighth", "quarter", "quarter", "whole", "eighth", "eighth", "quarter"]
+      tempo: 56
+
+  - id: 8
+    mode: see
+    type: the_bank_account
+    figure: "A ledger drawn like a bank book. Top row: '+1 second on the E-flat'. Bottom row: '−1 second on the D-C-Bb'. A total line at the bottom: '= 0. Account balanced.'"
+    cleffy: >
+      It's an account.
+      Take one second from the peak. Give one second back on the way home.
+      Your total pulse stays honest. The phrase sounds human.
+
+  - id: 9
+    mode: play
+    type: linger_and_give
+    figure: "Keyboard. Full phrase. Both adjustments together — peak stretched, end crunched. Metronome 56."
+    cleffy: >
+      Both together.
+      Linger on the peak. Arrive early at home.
+      The account balances.
+    interaction:
+      type: rhythm
+      sequence: ["F4", "Bb4", "D5", "Eb5", "D5", "C5", "Bb4"]
+      durations: ["eighth", "quarter", "quarter", "whole", "eighth", "eighth", "quarter"]
+      tempo: 56
+
+  - id: 10
+    mode: see
+    type: a_second_phrase
+    figure: "A new six-note phrase in E-flat: Eb5, F5, G5, Ab5 (peak), G5, F5. Bracket over Ab5: LINGER. Bracket over last F5: EARLY."
+    cleffy: >
+      A second phrase. Same rule.
+      E-flat, F, G, A-flat — climb.
+      G, F — settle.
+      Linger on A-flat. Arrive early on F.
+
+  - id: 11
+    mode: play
+    type: play_second_phrase
+    figure: "Keyboard. New six-note phrase. Metronome 56."
+    cleffy: >
+      Play it. Same two jobs.
+    interaction:
+      type: rhythm
+      sequence: ["Eb5", "F5", "G5", "Ab5", "G5", "F5"]
+      durations: ["quarter", "quarter", "quarter", "whole", "eighth", "quarter"]
+      tempo: 56
+    followup_cleffy: >
+      That.
+      Two phrases. Two balanced accounts.
+
+  - id: 12
+    mode: see
+    type: caution
+    figure: "A small warning sign: 'NOT ALL THE TIME.' Next to it a stopwatch, a heart, a metronome."
+    cleffy: >
+      One caution.
+      Rubato is for the important notes. The peaks. The arrivals.
+      Not every note. If every note stretches, nothing does.
+      A little salt. Not a pile.
+
+  - id: 13
+    mode: play
+    type: final_expressive_pass
+    figure: "Keyboard. The first phrase. No guides. p dynamic. Rubato brackets in place. Metronome 54."
+    cleffy: >
+      Final pass. Phrase one. Soft.
+      Linger. Give back. Sing.
+    interaction:
+      type: rhythm
+      sequence: ["F4", "Bb4", "D5", "Eb5", "D5", "C5", "Bb4"]
+      durations: ["eighth", "quarter", "quarter", "whole", "eighth", "eighth", "quarter"]
+      tempo: 54
+
+  - id: 14
+    mode: hear
+    type: pre_check
+    figure: "Banner — Lesson 197 mastery check."
+    cleffy: >
+      Three quick ones.
+
+  - id: 15
+    mode: see
+    type: wrap
+    figure: "Cleffy holding a stopwatch in one hand and a tiny feather in the other. Banner: 'Stolen and returned.'"
+    cleffy: >
+      Stretch. Give back.
+      Peak. Resolution.
+      Tomorrow — the left hand. Not oom-pah-pah this time. Something wider. Like a guitar.
+
+practice_this_week:
+  real_piano:
+    - "Metronome at 56. Play the seven-note phrase with the metronome ticking. Linger on the E-flat by one click. Arrive a click early on the final B-flat. Listen to the pulse keep going underneath."
+    - "Play any piece you know. Pick one peak note per phrase. Stretch it just a little. Just a little."
+    - "Listen to a recording of the full Nocturne. Count the stretches in the first minute. You won't get them all. That's the point."
+  virtual_only:
+    - "Replay pages 6, 7, 9 — linger, give back, and both."
+  estimated_time: "12 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "A peak note marked with a plus sign, and a resolution note marked with a minus sign"
+          prompt: "Which note gets the extra time?"
+          options: ["The peak (plus)", "The resolution (minus)", "Both equally"]
+          correct: 0
+        - figure: "A ledger showing +1 second and −1 second balancing to zero"
+          prompt: "What does this picture teach about rubato?"
+          options: ["Time you borrow, you give back", "Rubato means slower overall", "Rubato ignores the beat"]
+          correct: 0
+        - figure: "A warning sign saying 'not every note'"
+          prompt: "Why not stretch every note?"
+          options: ["It sounds too slow", "If every note stretches, nothing does", "The metronome breaks"]
+          correct: 1
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "The phrase played metronomically even versus the same phrase with rubato"
+          prompt: "Which version uses rubato?"
+          options: ["The first (even)", "The second (stretched peak, early resolution)"]
+          correct: 1
+        - audio: "A phrase with the peak note clearly lingering longer than written"
+          prompt: "Where did the pianist borrow time?"
+          options: ["On the peak note", "On the last note"]
+          correct: 0
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play the phrase — F, B-flat, D, E-flat, D, C, B-flat — with the E-flat held longer and the final B-flat arriving a touch early."
+          accept: "All seven notes, with an audibly longer Eb5 and a slightly earlier final Bb4"
+
+remediation:
+  id: "197.5"
+  title: "Rubato, with a metronome on"
+  pages: 6
+  opening_cleffy: >
+    Rubato's weird. Your hands want to speed up and slow down evenly.
+    Let's put the metronome on and practice borrowing and returning time while the pulse keeps going. Slow first.
+
+completion:
+  cleffy: >
+    Rubato, deep.
+    Stretch. Give back. Balance.
+    Tomorrow — the left hand goes wide.
+  xp: 18
+  unlocks: 198

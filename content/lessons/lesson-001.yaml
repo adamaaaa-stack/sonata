@@ -1,0 +1,285 @@
+# ============================================================
+# LESSON 1 · How to listen
+# Tier 1 · Act 1 · Beginner
+# Central metaphor: MUSIC IS LIKE STAIRS
+# ============================================================
+id: 1
+tier: beginner
+act: 1
+title: "How to listen"
+subtitle: "Music is like stairs"
+goal: "Train the ear to notice up, down, big steps, small steps, loud, soft."
+prereqs: []
+method_focus: "listening"
+time_estimate_min: 12
+piece_context: null
+metaphor: "stairs"
+vibe: ["gentle", "playful"]
+
+# ─── Pages ───────────────────────────────────────────────
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy front and center, waving."
+    cleffy: >
+      Hi. I'm Cleffy. I'm going to teach you piano.
+      Before we touch a single key, I want to ask you something.
+      When a song gets stuck in your head, what's actually stuck?
+      It's not the words. It's not even the instruments.
+      It's the shape.
+
+  - id: 2
+    mode: see
+    type: definition
+    figure: "An illustration of a staircase. A small dot bounces up one stair at a time, then down. Soft piano notes play in sync with each step."
+    cleffy: >
+      Here's the whole secret. Music is like stairs.
+      Seriously. Every song you've ever heard —
+      the notes are just feet moving up and down a staircase.
+      Sometimes they take one stair at a time. We call that a STEP.
+      Sometimes they hop over a stair. We call that a SKIP.
+      Sometimes they jump over a bunch of stairs. We call that a LEAP.
+      Step, skip, leap. Those three words are going to show up a lot.
+      Remember them.
+
+  - id: 3
+    mode: see
+    type: encouragement
+    figure: "Cleffy smiling, standing at the bottom of a staircase."
+    cleffy: >
+      You've been listening to music your whole life.
+      So you already know how the stairs feel.
+      You just haven't put words to it yet.
+      Let's change that.
+
+  - id: 4
+    mode: hear
+    type: demo
+    figure: "A tall staircase. A dot sits at the very top. Then another dot at the very bottom."
+    audio:
+      A: "C6 single note — very high"
+      B: "C2 single note — very low"
+    cleffy: >
+      Listen. Here's one note way up at the top of the stairs.
+      And here's one all the way down at the bottom.
+      You can already tell which is which.
+      Nobody had to teach you that. High is high. Low is low.
+      Good. Keep that feeling.
+
+  - id: 5
+    mode: hear
+    type: demo
+    figure: "Two playback cards side by side. Card A: dot walking UP three stairs. Card B: dot walking DOWN three stairs."
+    audio:
+      A: "C-D-E ascending"
+      B: "E-D-C descending"
+    cleffy: >
+      Now, not one note. A tiny melody.
+      One of these walks up the stairs. The other walks down.
+      Listen to both. Then tell me which one went up.
+    interaction:
+      type: choice
+      options: ["A", "B"]
+      correct: 0
+    corrections:
+      - wrong: 1
+        cleffy: >
+          Other way. Listen again — the first note starts low
+          and each one goes a little higher. That's walking up the stairs.
+
+  - id: 6
+    mode: hear
+    type: drill
+    figure: "Round counter 1 of 4. One play button. Two answers: Up the stairs, Down the stairs."
+    cleffy: >
+      Four quick ones. Up the stairs or down?
+    interaction:
+      type: drill
+      rounds: 4
+      question: "Up the stairs or down?"
+      options: ["Up", "Down"]
+    completion_cleffy: >
+      Nice. You just did the first job of a musician — noticing which way the music goes.
+      Hold onto that.
+
+  - id: 7
+    mode: hear
+    type: contrast
+    figure: "Two stair figures. Card A: a small dot steps onto every single stair, one at a time. Card B: a dot skips — hopping over one stair each time."
+    audio:
+      A: "C-D-E-F stepwise ascending"
+      B: "C-E-G-B arpeggiated ascending"
+    cleffy: >
+      Watch this. Both of these go up the stairs.
+      But one takes steps. The other takes skips.
+      Listen.
+      Hear it? The first one touches every stair. Step, step, step.
+      The second one hops over stairs. Skip, skip, skip.
+      And if it jumps over a BUNCH of stairs at once, that's a leap. We'll meet those soon.
+      Step, skip, leap. Those are the three moves in music. That's the whole thing.
+
+  - id: 8
+    mode: hear
+    type: drill
+    figure: "Round counter 1 of 4. Play button. Two answers: Step, Skip."
+    cleffy: >
+      Four rounds. Was that a step or a skip?
+    interaction:
+      type: drill
+      rounds: 4
+      question: "Step or skip?"
+      options: ["Step", "Skip"]
+    corrections:
+      - wrong_label: "step_as_skip"
+        cleffy: >
+          That one actually touched every stair. No hopping.
+          When there are no gaps, it's a step.
+      - wrong_label: "skip_as_step"
+        cleffy: >
+          That one had a hop in it. When you hear a gap between the notes,
+          the stairs got skipped. That's a skip.
+
+  - id: 9
+    mode: hear
+    type: demo
+    figure: "Stairs with a giant speaker symbol. One dot stomps loudly up the stairs. Then a feather drifts quietly down."
+    audio:
+      A: "Short phrase, loud"
+      B: "Same phrase, soft"
+    cleffy: >
+      Same stairs, but not the same feeling.
+      You can stomp up. Or you can tiptoe up.
+      Music can be loud, or soft, or anything in between.
+      Loud isn't better. Soft isn't weaker. They just feel different.
+      A lullaby tiptoes on purpose. A parade stomps on purpose.
+
+  - id: 10
+    mode: hear
+    type: demo
+    figure: "Stairs with a clock. One dot sprints up. One dot strolls up slowly."
+    audio:
+      A: "Twinkle Twinkle at 60 bpm"
+      B: "Twinkle Twinkle at 140 bpm"
+    cleffy: >
+      And speed. You can run up the stairs. Or take your time.
+      Same tune. Two different moods.
+      Faster isn't harder. It's just a different feeling.
+
+  - id: 11
+    mode: see
+    type: summary
+    figure: "One staircase with icons around it — up/down arrows, a speaker, a feather, a runner, a turtle, and three feet labeled step, skip, leap."
+    cleffy: >
+      Up and down. Steps, skips, leaps. Loud and soft. Fast and slow.
+      That's almost everything music has. I'm not joking.
+      Mozart, Taylor Swift, whoever — they're all just rearranging those few things.
+      Once your ears can hear them, the page can teach them to you.
+
+  - id: 12
+    mode: hear
+    type: real_music
+    figure: "Clean play button. A faint staircase pattern in the background. No keyboard yet."
+    audio:
+      A: "First 8 bars of Moonlight Sonata 1st movement"
+    cleffy: >
+      Let me play you something real.
+      It's from a piece called Moonlight Sonata, by Beethoven.
+      Don't try to figure out the notes. Just listen for the stairs.
+      Notice when it climbs. Notice when it drops. Notice if it's loud or quiet.
+    followup_cleffy: >
+      Did you hear it? The stairs go up, slowly. Then they come down.
+      And it's quiet the whole time — Beethoven wanted gentle stomps.
+      Here's the wild part.
+      You just read music with your ears.
+      For the rest of this course, we'll just teach you to read the same thing with your eyes.
+
+  - id: 13
+    mode: see
+    type: why
+    figure: "A staircase fades into a musical staff. Same five lines. Same shape."
+    cleffy: >
+      Soon, we'll put music on a page. Like this.
+      Here's what no one tells beginners:
+      the page is just a picture of the stairs.
+      Up on the page means up the stairs. Down on the page means down.
+      If your ears know the stairs, the page is easy. It's just a map.
+      If your ears don't know the stairs, the page is gibberish. That's when people quit piano.
+      We're not going to do that. We started here for a reason.
+
+  - id: 14
+    mode: hear
+    type: drill
+    figure: "Round counter 1 of 6. Play button and two answers per round. The question rotates."
+    cleffy: >
+      Six rounds. I'll mix up the questions. Listen each time, then pick.
+    interaction:
+      type: drill
+      rounds:
+        - { question: "Up or down?",     options: ["Up", "Down"] }
+        - { question: "Loud or soft?",   options: ["Loud", "Soft"] }
+        - { question: "Step or skip?",   options: ["Step", "Skip"] }
+        - { question: "Fast or slow?",   options: ["Fast", "Slow"] }
+        - { question: "Up or down?",     options: ["Up", "Down"] }
+        - { question: "Step or skip?",   options: ["Step", "Skip"] }
+
+  - id: 15
+    mode: hear
+    type: pre_check
+    figure: "A small banner — One quick check before we wrap up."
+    cleffy: >
+      Four quick ones. This isn't the test. Just seeing how it feels.
+
+  - id: 16
+    mode: see
+    type: wrap
+    figure: "Postcard card — Lesson 1, ears first. Cleffy sitting at the bottom of a staircase, content."
+    cleffy: >
+      You did the single hardest thing anyone does in music.
+      You paid attention.
+      Tomorrow we actually meet the piano. Same ears. New toy.
+      See you then.
+
+# ─── Mastery check ──────────────────────────────────────
+mastery_check:
+  sections:
+    hear:
+      pass_threshold: 4
+      questions:
+        - audio: "C-E-G ascending"
+          prompt: "Did that walk up or down the stairs?"
+          options: ["Up", "Down"]
+          correct: 0
+        - audio: "loud_phrase_then_soft_phrase"
+          prompt: "Which came second, loud or soft?"
+          options: ["Loud", "Soft"]
+          correct: 1
+        - audio: "A=C-D-E-F stepwise, B=C-E-G-C arpeggio"
+          prompt: "Which one was steps — A or B?"
+          options: ["A", "B"]
+          correct: 0
+        - audio: "Same tune slow then fast"
+          prompt: "Which one was faster, A or B?"
+          options: ["A", "B"]
+          correct: 1
+
+# ─── Remediation ────────────────────────────────────────
+remediation:
+  id: "1.5"
+  title: "Let's try that again, slower"
+  pages: 5
+  opening_cleffy: >
+    Hey. That's totally normal. Ears are like muscles — they just need a few reps.
+    Let's do these a little slower, and I'll play the stairs so you can hear them twice.
+  rules:
+    - "All audio plays at 70% speed"
+    - "Both demo cards auto-play before the student answers"
+
+# ─── Completion ─────────────────────────────────────────
+completion:
+  cleffy: >
+    One lesson in. Two hundred and forty-nine to go.
+    You picked a good day to start.
+  xp: 20
+  unlocks: 2

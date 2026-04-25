@@ -1,0 +1,253 @@
+# ============================================================
+# LESSON 21 · Skips
+# Tier 1 · Act 5 · Beginner
+# Central metaphor: A SKIP HOPS OVER ONE STAIR
+# ============================================================
+id: 21
+tier: beginner
+act: 5
+title: "Skips"
+subtitle: "Hopping over a stair"
+goal: "Recognize a skip on the staff — line to line, or space to space."
+prereqs: [16, 17, 18, 19, 20]
+method_focus: "skips"
+time_estimate_min: 12
+piece_context: "Happy Birthday is full of skips. So is Für Elise. Most melodies are half steps, half skips. Today you meet the other half."
+metaphor: "hop-over-one"
+vibe: ["gentle", "playful", "serious"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy on a staircase, hopping OVER one step."
+    cleffy: >
+      You know steps. Smallest move — one stair.
+      Today we meet the next one.
+      A skip hops over a single stair.
+      Slightly bigger, still close.
+
+  - id: 2
+    mode: see
+    type: definition
+    figure: "Staff with two notes. First on line 1. Second on line 2. A little arrow labeled SKIP. In the space between them (space 1), a ghost note drawn that got 'skipped over'."
+    cleffy: >
+      A skip is line to the next line. Or space to the next space.
+      The kind STAYS the same — line stays line, space stays space.
+      In the middle, there's one spot that got hopped over.
+      That's a skip.
+
+  - id: 3
+    mode: see
+    type: odd_rule_half
+    figure: "A chart. Step = switch kinds (even). Skip = same kind (odd)."
+    cleffy: >
+      Remember Lesson 17? Steps switch kinds.
+      Skips are the opposite. They stay on the same kind.
+      Line to line — both lines, same kind. Skip.
+      Space to space — both spaces, same kind. Also a skip.
+      That's the odd half of the odd/even rule.
+
+  - id: 4
+    mode: see
+    type: both_directions
+    figure: "Two examples. Left: line 1 → line 2 (skip up). Right: space 3 → space 2 below (skip down)."
+    cleffy: >
+      Skips go up or down, same as steps.
+      Line up to next line. Space down to next space.
+      Just a slightly bigger hop than a step.
+
+  - id: 5
+    mode: see
+    type: non_example
+    figure: "Three pairs. A: line → next space (step, NOT skip). B: line → next line (skip). C: line → line 3 spots up (leap, NOT skip)."
+    cleffy: >
+      What's NOT a skip?
+      A — line to next space. Kinds switched — that's a step.
+      C — line to line with a whole line in between. Too far — that's a leap.
+      B — line to next line. That's our skip. One line gap.
+
+  - id: 6
+    mode: see
+    type: interactive
+    figure: "Staff with pair: space 2 → space 3 above."
+    cleffy: >
+      Skip or not?
+    interaction:
+      type: choice
+      options: ["Skip", "Not a skip"]
+      correct: 0
+
+  - id: 7
+    mode: see
+    type: interactive
+    figure: "Staff with pair: line 2 → space 2 above (step)."
+    cleffy: >
+      And this?
+    interaction:
+      type: choice
+      options: ["Skip", "Not a skip"]
+      correct: 1
+    corrections:
+      - wrong_label: "picked_skip"
+        cleffy: >
+          Look — one's on a line and the other's on a space. Kinds switched.
+          That's a step. Skips stay line-line or space-space.
+
+  - id: 8
+    mode: see
+    type: drill
+    figure: "Round counter 1 of 6. Step, skip, or something else?"
+    cleffy: >
+      Six rounds. Step, skip, or bigger?
+    interaction:
+      type: drill
+      rounds: 6
+      options: ["Step", "Skip", "Bigger"]
+
+  - id: 9
+    mode: hear
+    type: skip_sound
+    figure: "Two play buttons. A: C to D (step). B: C to E (skip)."
+    audio:
+      A: "C4 to D4"
+      B: "C4 to E4"
+    cleffy: >
+      Here's a step and a skip, side by side.
+      Hear it? The skip has a little more air in it. A small hop feeling.
+      The step is so close they almost blur.
+
+  - id: 10
+    mode: hear
+    type: ear_drill
+    figure: "Round counter 1 of 4. Step or skip by ear?"
+    cleffy: >
+      Four rounds by ear.
+    interaction:
+      type: drill
+      rounds: 4
+      options: ["Step", "Skip"]
+
+  - id: 11
+    mode: play
+    type: skip_up
+    figure: "Keyboard. Middle C glowing. The next white key after D (which is E) also glowing. D in between is dimmed."
+    cleffy: >
+      Play a skip up from Middle C.
+      Skip means hop over one white key.
+      Thumb on C, then middle finger on E — you're skipping over D.
+    interaction:
+      type: sequence
+      keys: ["C4", "E4"]
+    followup_cleffy: >
+      C to E. A skip. Hopped over D.
+
+  - id: 12
+    mode: play
+    type: skip_down
+    figure: "Keyboard. E4 glowing. C4 glowing. D between dimmed."
+    cleffy: >
+      Skip down. From E, hop back to C.
+    interaction:
+      type: sequence
+      keys: ["E4", "C4"]
+
+  - id: 13
+    mode: read
+    type: see_hear_play
+    figure: "Staff with a pair — line 1 to line 2. Keyboard below."
+    cleffy: >
+      Read the shape. That's a skip up. Play a skip up on the piano.
+    interaction:
+      type: shape
+      shape_type: "skip"
+      direction: "up"
+
+  - id: 14
+    mode: read
+    type: skip_drill
+    figure: "Round counter 1 of 4. Each round: a skip on the staff, student plays matching skip."
+    cleffy: >
+      Four rounds. See the skip on the staff, play one on the piano.
+    interaction:
+      type: drill
+      rounds: 4
+
+  - id: 15
+    mode: hear
+    type: pre_check
+    figure: "Banner."
+    cleffy: >
+      Four quick ones.
+
+  - id: 16
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 21. A staircase with a dot hopping over one stair. Step and skip both labeled on a staff below."
+    cleffy: >
+      Step switches kinds. Skip keeps kinds.
+      That's the Sonata method's first main rule, locked in.
+      Tomorrow — mix them. Real melodies use both.
+      Three lessons after that — Happy Birthday.
+
+# ─── Practice this week ────────────────────────────────
+practice_this_week:
+  real_piano:
+    - "Right hand, thumb on C. Play C-E, then E-C. That's skip up, skip down. Ten times."
+    - "Move to F. Play F-A, A-F. Same skip move, new location."
+    - "Try step-skip-step: C-D-F. Step up, then skip up. Slow."
+  virtual_only:
+    - "Replay pages 13-14 (the skip drills) a couple times"
+  estimated_time: "5 min/day"
+
+# ─── Mastery check ──────────────────────────────────────
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 3
+      questions:
+        - figure: "Line 1 to line 2"
+          prompt: "Step or skip?"
+          options: ["Step", "Skip"]
+          correct: 1
+        - figure: "Line 2 to space 2"
+          prompt: "Step or skip?"
+          options: ["Step", "Skip"]
+          correct: 0
+        - figure: "Space 1 to space 2"
+          prompt: "Step or skip?"
+          options: ["Step", "Skip"]
+          correct: 1
+    hear:
+      pass_threshold: 2
+      questions:
+        - audio: "C4 to E4"
+          prompt: "Step or skip?"
+          options: ["Step", "Skip"]
+          correct: 1
+        - audio: "F4 to G4"
+          prompt: "Step or skip?"
+          options: ["Step", "Skip"]
+          correct: 0
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play a skip up from any note."
+          accept: "two white keys with one skipped in between"
+
+# ─── Remediation ────────────────────────────────────────
+remediation:
+  id: "21.5"
+  title: "Skips, one more pass"
+  pages: 5
+  opening_cleffy: >
+    Skip vs step is the biggest mix-up point in early reading.
+    Let's walk through lots more side-by-side examples.
+
+# ─── Completion ─────────────────────────────────────────
+completion:
+  cleffy: >
+    Step and skip, both in the bank.
+    That's two of the three moves in music. Leap is coming in a couple weeks.
+  xp: 20
+  unlocks: 22

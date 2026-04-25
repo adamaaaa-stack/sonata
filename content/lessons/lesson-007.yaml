@@ -1,0 +1,244 @@
+# ============================================================
+# LESSON 7 · The musical alphabet
+# Tier 1 · Act 2 · Beginner
+# Central metaphor: 7 LETTERS ON THE STAIRS, LOOPING FOREVER
+# ============================================================
+id: 7
+tier: beginner
+act: 2
+title: "The musical alphabet"
+subtitle: "Seven letters, and then it repeats"
+goal: "Name every white key on the piano — A through G, looping forever."
+prereqs: [4, 6]
+method_focus: "piano-geography"
+time_estimate_min: 10
+piece_context: null
+metaphor: "alphabet-on-the-stairs"
+vibe: ["gentle", "playful"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Full keyboard. C and F labeled. Question marks on the other white keys."
+    cleffy: >
+      You know C. You know F. That's two.
+      There are more. Five more.
+      Today we name them.
+      Good news — it's the regular alphabet, but short. A through G. That's it.
+
+  - id: 2
+    mode: see
+    type: definition
+    figure: "A row: A B C D E F G. Then another A B C D E F G. Then a third."
+    cleffy: >
+      Here's the whole rule.
+      The musical alphabet is seven letters. A, B, C, D, E, F, G.
+      Then it starts over. A, B, C, D, E, F, G. And again.
+      No H. No I. Ever.
+      Just those seven, over and over, forever.
+
+  - id: 3
+    mode: see
+    type: from_c_up
+    figure: "Keyboard. Middle C labeled. Each white key to its right gets labeled as it lights up: D, E, F, G, A, B, C."
+    cleffy: >
+      Start from C. Go right one white key — that's D.
+      Next one — E. Next — F, which you know.
+      Then G. Then A. Then B. Then C again — one octave up.
+      C, D, E, F, G, A, B, C.
+
+  - id: 4
+    mode: see
+    type: from_c_down
+    figure: "Same keyboard, now showing letters going LEFT from Middle C: B, A, G, F, E, D, C."
+    cleffy: >
+      And the other way. Go left from C. The white key to its left is B.
+      Then A, G, F, E, D, C.
+      The letters just walk backwards down the alphabet.
+
+  - id: 5
+    mode: see
+    type: interactive_spot
+    figure: "Keyboard. Prompt: tap the D right next to Middle C."
+    cleffy: >
+      Test. Tap the D right next to Middle C.
+    interaction:
+      type: tap
+      key: "D4"
+    corrections:
+      - wrong_label: "tapped_e"
+        cleffy: >
+          One too far. D is the white key right after C.
+      - wrong_label: "tapped_c"
+        cleffy: >
+          That's C. Go one white key to the right.
+
+  - id: 6
+    mode: see
+    type: interactive_spot
+    figure: "Keyboard. Prompt: tap the A nearest to Middle C."
+    cleffy: >
+      Now A — the closest one to middle.
+    interaction:
+      type: tap
+      accept: "A4"
+    corrections:
+      - wrong_label: "general"
+        cleffy: >
+          Start at C. Count right — D, E, F, G, A. Five keys right of C.
+
+  - id: 7
+    mode: hear
+    type: demo_up
+    figure: "Keyboard. Each note lights up as Cleffy names it — C through C."
+    audio:
+      A: "C major scale ascending, Cleffy naming each letter"
+    cleffy: >
+      I'll play and name them going up. Listen — this is the whole white-key alphabet.
+      C, D, E, F, G, A, B, C.
+      All of them. Eight notes, seven names, landing back on C.
+
+  - id: 8
+    mode: hear
+    type: demo_down
+    figure: "Keyboard. Notes descend with names."
+    audio:
+      A: "C major scale descending with names"
+    cleffy: >
+      Now back down. C, B, A, G, F, E, D, C.
+      Same letters, reverse order.
+
+  - id: 9
+    mode: hear
+    type: drill
+    figure: "Round counter 1 of 4. Seven answer buttons: C, D, E, F, G, A, B."
+    cleffy: >
+      I'll play a white key near the middle. Name it.
+      All seven letters are on the table now.
+    interaction:
+      type: drill
+      rounds: 4
+      options: ["C", "D", "E", "F", "G", "A", "B"]
+
+  - id: 10
+    mode: play
+    type: walk_up
+    figure: "Keyboard. C through G glowing in order."
+    cleffy: >
+      Walk up the stairs. C, D, E, F, G. One white key at a time.
+    interaction:
+      type: sequence
+      keys: ["C4", "D4", "E4", "F4", "G4"]
+    followup_cleffy: >
+      First five letters, in order, out of your hands.
+
+  - id: 11
+    mode: play
+    type: walk_down
+    figure: "Keyboard. G through C glowing."
+    cleffy: >
+      Back down. G, F, E, D, C.
+    interaction:
+      type: sequence
+      keys: ["G4", "F4", "E4", "D4", "C4"]
+
+  - id: 12
+    mode: play
+    type: specific_letter
+    figure: "Card shows: D. Keyboard with no highlights."
+    cleffy: >
+      I name a letter. You play it, anywhere.
+      First — D.
+    interaction:
+      type: tap
+      accept: "any D"
+
+  - id: 13
+    mode: play
+    type: specific_letter_series
+    figure: "Series of letter cards: A, E, G, B."
+    cleffy: >
+      Four more. I name each, you find it.
+    interaction:
+      type: name_and_play
+      letters: ["A", "E", "G", "B"]
+
+  - id: 14
+    mode: read
+    type: drill
+    figure: "Mixed prompts — see, hear, play."
+    cleffy: >
+      Mix of listening and playing. Four rounds.
+    interaction:
+      type: drill
+      rounds: 4
+
+  - id: 15
+    mode: hear
+    type: pre_check
+    figure: "Banner."
+    cleffy: >
+      Four quick ones.
+
+  - id: 16
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 7. A keyboard with every white key labeled with its letter."
+    cleffy: >
+      Every white key on the piano now has a name.
+      Tomorrow, something cool. Every C sounds like every other C — just higher or lower.
+      Same with every D. Same with every letter.
+      That's called an octave. It's the piano's oldest trick.
+
+# ─── Mastery check ──────────────────────────────────────
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 3
+      questions:
+        - figure: "Keyboard with one white key circled (a D)."
+          prompt: "What letter is this?"
+          options: ["C", "D", "E", "F", "G", "A", "B"]
+          correct: 1
+        - figure: "Keyboard with a different key circled (an A)."
+          prompt: "What letter?"
+          options: ["C", "D", "E", "F", "G", "A", "B"]
+          correct: 5
+        - figure: "Full keyboard."
+          prompt: "Tap any E."
+    hear:
+      pass_threshold: 2
+      questions:
+        - audio: "D4 solo"
+          prompt: "Which letter?"
+          options: ["C", "D", "E", "F", "G", "A", "B"]
+          correct: 1
+        - audio: "A4 solo"
+          prompt: "Which letter?"
+          options: ["C", "D", "E", "F", "G", "A", "B"]
+          correct: 5
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play G — anywhere on the piano."
+          accept: "any G"
+
+# ─── Remediation ────────────────────────────────────────
+remediation:
+  id: "7.5"
+  title: "The alphabet, slower"
+  pages: 6
+  opening_cleffy: >
+    Seven letters is a lot to grab at once.
+    Let's walk through them going up and down a few times,
+    with the names hovering above every key. Muscle memory first.
+
+# ─── Completion ─────────────────────────────────────────
+completion:
+  cleffy: >
+    You know every white key on the piano by name now.
+    Seriously. That took you seven days.
+    Some people never get there.
+  xp: 20
+  unlocks: 8

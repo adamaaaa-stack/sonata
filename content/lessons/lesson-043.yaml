@@ -1,0 +1,214 @@
+id: 43
+tier: elementary
+act: 9
+title: "Ledger lines"
+subtitle: "Notes outside the staff"
+goal: "Read notes above and below the treble staff — notes that sit on ledger lines."
+prereqs: [14, 41, 42]
+method_focus: "notation"
+time_estimate_min: 10
+piece_context: null
+metaphor: "stairs-extend-past-the-staff"
+vibe: ["gentle", "playful"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Treble staff. Middle C below on a ledger line (familiar). Above the staff, another note on a ledger line (new)."
+    cleffy: >
+      Middle C sits on a little line below the staff. You've known that since Lesson 14.
+      Those little lines are called ledger lines.
+      Notes above the staff use them too.
+
+  - id: 2
+    mode: see
+    type: definition
+    figure: "Treble staff with ledger lines drawn above and below. Several notes placed on them."
+    cleffy: >
+      Ledger lines extend the staff. Above it. Below it.
+      Each ledger line is just another stair — the staff keeps going, it just doesn't draw every line.
+
+  - id: 3
+    mode: see
+    type: below_staff
+    figure: "Treble staff. Middle C on ledger line 1 below. Below that — B. Further down — A (ledger line 2)."
+    cleffy: >
+      Below the treble staff.
+      Middle C is on the first ledger line below.
+      The note just below that — B (space).
+      Then A, on the second ledger line below.
+
+  - id: 4
+    mode: see
+    type: above_staff
+    figure: "Treble staff with F (top line, labeled). Above it — G (space above staff) — A (first ledger line above) — B (space) — C (second ledger line above, high C)."
+    cleffy: >
+      Above the treble staff.
+      F is the top line. The space above is G. Then A on the first ledger line above.
+      Keep going — B, then C (high C, two octaves above Middle C).
+
+  - id: 5
+    mode: see
+    type: interactive_below
+    figure: "Treble staff, note on ledger line 1 below (Middle C)."
+    cleffy: >
+      Which letter?
+    interaction:
+      type: choice
+      options: ["Middle C", "Low B", "Low A"]
+      correct: 0
+
+  - id: 6
+    mode: see
+    type: interactive_above
+    figure: "Treble staff, note on ledger line 1 above (A5)."
+    cleffy: >
+      This one?
+    interaction:
+      type: choice
+      options: ["G", "A", "B", "C"]
+      correct: 1
+
+  - id: 7
+    mode: see
+    type: drill
+    figure: "Round counter 1 of 5."
+    cleffy: >
+      Five rounds. Name the ledger-line note.
+    interaction:
+      type: drill
+      rounds: 5
+      options: ["Middle C", "B (below)", "A (below)", "G (above)", "A (above)", "B (above)"]
+
+  - id: 8
+    mode: hear
+    type: high_vs_low
+    figure: "Two playback cards."
+    audio:
+      A: "Middle C (below staff)"
+      B: "A5 (above staff)"
+    cleffy: >
+      Listen. Below the staff sounds low. Above sounds high.
+      Extends in both directions naturally.
+
+  - id: 9
+    mode: play
+    type: play_middle_c
+    figure: "Keyboard. Middle C glowing. Staff with note on ledger line below."
+    cleffy: >
+      Play Middle C. You know this one — same old C4.
+    interaction:
+      type: tap
+      key: "C4"
+
+  - id: 10
+    mode: play
+    type: play_a_above
+    figure: "Keyboard. A5 glowing. Staff with note on ledger line above."
+    cleffy: >
+      Now A above the staff. Further right on the piano.
+    interaction:
+      type: tap
+      key: "A5"
+
+  - id: 11
+    mode: read
+    type: see_hear_play
+    figure: "Staff with a ledger-line note (below or above)."
+    cleffy: >
+      Three rounds. See the note, play it.
+    interaction:
+      type: see_hear_play
+      rounds: 3
+
+  - id: 12
+    mode: read
+    type: melody_with_ledger
+    figure: "Staff with 4 notes: Middle C → E → G → A (above staff)."
+    cleffy: >
+      Four notes going up. Starts on Middle C (ledger below), ends on A (ledger above).
+      Play the climb.
+    interaction:
+      type: sequence
+      keys: ["C4", "E4", "G4", "A5"]
+
+  - id: 13
+    mode: see
+    type: why_ledger
+    figure: "Staff with notes way above and below — ledger lines stretching far out."
+    cleffy: >
+      Ledger lines let you write notes that fall outside the five-line staff.
+      Pieces can have notes way up or way down. Ledger lines just keep the grid going.
+
+  - id: 14
+    mode: hear
+    type: mixed_drill
+    figure: "Mix of ledger-line reading."
+    cleffy: >
+      Four rounds.
+    interaction:
+      type: drill
+      rounds: 4
+
+  - id: 15
+    mode: hear
+    type: pre_check
+    figure: "Banner."
+    cleffy: >
+      Four quick ones.
+
+  - id: 16
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 43. Staff with ledger lines drawn above AND below, notes on each."
+    cleffy: >
+      The staff extends in both directions. Now you can read anywhere.
+      Tomorrow — hand positions. Then Mary Had a Little Lamb.
+
+practice_this_week:
+  real_piano:
+    - "On paper, draw a treble staff. Add Middle C on a ledger line below. Add A on a ledger line above."
+    - "Play Middle C and A5 on the piano. Feel the distance between them."
+  virtual_only:
+    - "Replay pages 11-12 (the climbing ledger-line melody)"
+  estimated_time: "5 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "Staff. Note on ledger line below staff."
+          prompt: "Is this Middle C?"
+          options: ["Yes", "No"]
+          correct: 0
+        - figure: "Staff. Note on ledger line ABOVE staff."
+          prompt: "Which letter?"
+          options: ["G", "A", "B"]
+          correct: 1
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "A5 (high note)"
+          prompt: "Is this high (above staff) or low (below staff)?"
+          options: ["High", "Low"]
+          correct: 0
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play Middle C."
+          accept: "C4"
+
+remediation:
+  id: "43.5"
+  title: "Ledger lines, slower"
+  pages: 5
+  opening_cleffy: >
+    Ledger lines are just the staff extended. Let's see them drawn in slow.
+
+completion:
+  cleffy: >
+    Staff extends both ways. You read high notes and low notes now.
+  xp: 20
+  unlocks: 44

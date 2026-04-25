@@ -1,0 +1,232 @@
+# ============================================================
+# LESSON 161 · Triplets in detail
+# Tier 4 · Act 33 · Intermediate · Triplets deeper
+# Even, smooth, no rushing. Three against two.
+# ============================================================
+id: 161
+tier: intermediate
+act: 33
+title: "Triplets in detail"
+subtitle: "Act 33 · Triplets deeper"
+goal: "Play triplets perfectly even — three equal notes inside one beat, no rushing, no dragging."
+prereqs: [133, 160]
+method_focus: "rhythm"
+time_estimate_min: 13
+piece_context: "You met triplets back in L133 — three notes in the time of two. Act 33 goes deeper. The Moonlight Sonata opening is nothing but triplet arpeggios for bars and bars. Before we get there, the triplet has to be perfectly even. That's today."
+metaphor: "three-in-two"
+vibe: ["focused", "quiet"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy with a metronome. A bar of four triplet groups glowing behind him. Banner: ACT 33 — TRIPLETS DEEPER."
+    cleffy: >
+      New act. Triplets again.
+      You know the shape. Three notes, one beat.
+      Now we make them perfect.
+
+  - id: 2
+    mode: see
+    type: why_even_matters
+    figure: "Two triplets side by side. Left — three notes perfectly even spaced. Right — first two crammed, last one late. Red X on the uneven one."
+    cleffy: >
+      The mistake: rushing the first two, dragging the third.
+      Or the opposite — first note, then the last two crammed together.
+      A triplet is three equal pieces. Equal. Not nearly-equal.
+
+  - id: 3
+    mode: see
+    type: three_against_two
+    figure: "A bar of 4/4 split two ways. Top stave — four quarter notes (the beats). Bottom stave — four triplet groups (twelve notes). Gridlines showing where each triplet note falls between the beats."
+    cleffy: >
+      The real math. Three-against-two.
+      Two halves of a beat would be eighths.
+      Three thirds of a beat — a triplet. The middle note lands nowhere familiar.
+
+  - id: 4
+    mode: hear
+    type: hear_metronome_triplets
+    figure: "Metronome at 60, ticking. Underneath — four triplet groups on Middle C playing exactly three taps per click."
+    audio:
+      A: "Metronome at 60 with four triplet groups on C4 — three taps per click, perfectly even"
+    cleffy: >
+      Listen. Click, tap-tap-tap. Click, tap-tap-tap.
+      Three even taps between every click. That's the target.
+
+  - id: 5
+    mode: hear
+    type: even_vs_uneven
+    figure: "Two play buttons. A: perfectly even triplet. B: uneven triplet (first two rushed)."
+    audio:
+      A: "Four even triplets on C at 60 bpm"
+      B: "Four uneven triplets — first two rushed, last one late"
+    cleffy: >
+      First — even. Each note the same size.
+      Second — rushed. The first two crash together.
+      Hear the difference. Learn to catch yourself doing B.
+
+  - id: 6
+    mode: see
+    type: the_chant
+    figure: "Bar of four triplets. Under each group, syllables: ONE-trip-let, TWO-trip-let, THREE-trip-let, FOUR-trip-let. The number on beat, 'trip' between, 'let' just before the next beat."
+    cleffy: >
+      Say it out loud. One-trip-let, two-trip-let.
+      Equal weight on each syllable. Not ONE-trip-let. Just one-trip-let.
+      Say it before you play it.
+
+  - id: 7
+    mode: play
+    type: one_triplet_slow
+    figure: "Keyboard. Middle C. Metronome 50. One triplet."
+    cleffy: >
+      Slow. Fifty on the click. One triplet on C.
+      Say one-trip-let as you play.
+    interaction:
+      type: rhythm
+      sequence: ["C4","C4","C4"]
+      durations: ["triplet_eighth","triplet_eighth","triplet_eighth"]
+      tempo: 50
+
+  - id: 8
+    mode: play
+    type: four_triplets_even
+    figure: "Bar of four triplet groups on C. Metronome 55."
+    cleffy: >
+      Full bar. Four triplets.
+      Every note the same size. If one feels rushed — slow down next pass.
+    interaction:
+      type: rhythm
+      sequence: ["C4","C4","C4","C4","C4","C4","C4","C4","C4","C4","C4","C4"]
+      durations: ["triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth"]
+      tempo: 55
+
+  - id: 9
+    mode: see
+    type: the_feel
+    figure: "A rolling wheel. Three spokes marked 1, trip, let. Caption: triplets roll. Eighths march."
+    cleffy: >
+      Feel it. Eighths march — left right left right.
+      Triplets roll — one-trip-let, one-trip-let.
+      Rolling, not marching. That's the whole lesson.
+
+  - id: 10
+    mode: play
+    type: triplets_on_cde
+    figure: "Bar. Four triplet groups: C-D-E, C-D-E, C-D-E, C-D-E. Metronome 55."
+    cleffy: >
+      Three notes, three fingers. C, D, E.
+      Four groups in a row. Roll.
+    interaction:
+      type: rhythm
+      sequence: ["C4","D4","E4","C4","D4","E4","C4","D4","E4","C4","D4","E4"]
+      durations: ["triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth"]
+      tempo: 55
+
+  - id: 11
+    mode: play
+    type: tempo_up
+    figure: "Same pattern. Metronome 65."
+    cleffy: >
+      A little faster. Sixty-five.
+      Evenness first. Speed never comes before evenness.
+    interaction:
+      type: rhythm
+      sequence: ["C4","D4","E4","C4","D4","E4","C4","D4","E4","C4","D4","E4"]
+      durations: ["triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth"]
+      tempo: 65
+
+  - id: 12
+    mode: hear
+    type: even_or_rushed
+    figure: "Drill banner. Four rounds — each plays a triplet. Pick: even or rushed."
+    cleffy: >
+      Four rounds. Is this triplet even — or rushed?
+    interaction:
+      type: drill
+      rounds: 4
+      options: ["Even", "Rushed"]
+
+  - id: 13
+    mode: play
+    type: eighths_to_triplets
+    figure: "Bar: two beats of eighths on C, then two beats of triplets on C. The subdivision change."
+    cleffy: >
+      First half — eighths. Two per beat.
+      Second half — triplets. Three per beat.
+      Feel the roll kick in.
+    interaction:
+      type: rhythm
+      sequence: ["C4","C4","C4","C4","C4","C4","C4","C4","C4","C4"]
+      durations: ["eighth","eighth","eighth","eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth","triplet_eighth"]
+      tempo: 55
+    followup_cleffy: >
+      That switch is the real test. Keep the beat steady. Change the subdivision inside it.
+
+  - id: 14
+    mode: hear
+    type: pre_check
+    figure: "Banner."
+    cleffy: >
+      Three quick ones.
+
+  - id: 15
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 161. Triplet glowing with three equal spokes. Banner: EVEN, SMOOTH, NO RUSHING."
+    cleffy: >
+      Triplets. Even. Rolled. Not rushed.
+      Tomorrow — triplet shapes. Rising, falling, rocking.
+
+practice_this_week:
+  real_piano:
+    - "Metronome at 55. Play four triplets on C. Say 'one-trip-let, two-trip-let' out loud with each group."
+    - "Record yourself on your phone. Listen back. Are they really even? The ear catches what the hand misses."
+  virtual_only:
+    - "Replay pages 8, 10, and 13"
+  estimated_time: "10 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "Bar with four triplet groups"
+          prompt: "How many notes fit inside one beat of a triplet group?"
+          options: ["2", "3", "4"]
+          correct: 1
+        - figure: "A triplet labeled 'one-trip-let'"
+          prompt: "Which syllable lands on the beat?"
+          options: ["one", "trip", "let"]
+          correct: 0
+        - figure: "Two triplets — one even, one rushed"
+          prompt: "Which is correct?"
+          options: ["The even one", "The rushed one"]
+          correct: 0
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "Two triplets played — one even, one uneven"
+          prompt: "Which is even?"
+          options: ["First", "Second"]
+          correct: 0
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play four even triplets on C4 at 55 bpm."
+          accept: "Four triplet groups on C4, even spacing, tempo 55"
+
+remediation:
+  id: "161.5"
+  title: "Triplets, chant then play"
+  pages: 7
+  opening_cleffy: >
+    Rhythm is ear first, hand second.
+    We'll chant "one-trip-let" for a full minute before touching a key.
+
+completion:
+  cleffy: >
+    Even triplets. The foundation of Moonlight.
+    Tomorrow — shapes. Rising, falling, rocking.
+  xp: 17
+  unlocks: 162

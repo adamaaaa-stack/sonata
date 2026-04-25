@@ -1,0 +1,239 @@
+# ============================================================
+# LESSON 231 · Recording yourself
+# Tier 6 · Act 47 · Advanced · Recording & dynamics at scale
+# The phone on the music stand. The camera as teacher.
+# ============================================================
+id: 231
+tier: advanced
+act: 47
+title: "Recording yourself"
+subtitle: "Act 47 · The camera as teacher"
+goal: "Record a run-through on your phone, then listen back — and hear what your live ear missed."
+prereqs: [230]
+method_focus: "play"
+time_estimate_min: 14
+piece_context: "Act 47 begins. You memorized a piece in Act 46 — now we polish. First tool for polish: a phone. Recording yourself is the most honest teacher you'll ever meet. It hears what you didn't."
+metaphor: "camera-as-teacher"
+vibe: ["honest", "reflective"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy with a phone propped on a music stand, screen facing the keys. A little red REC dot. Banner: THE CAMERA AS TEACHER."
+    cleffy: >
+      Act 47. The polish act.
+      First polish tool — a phone.
+      Press record. Play. Listen back. Hear everything.
+
+  - id: 2
+    mode: see
+    type: why_record
+    figure: "Two drawings side by side. Left: a player mid-piece, ear-arrows pointing only at the fingers, missing everything else. Right: the same player later, headphones on, ear-arrows catching rushed bars, a flubbed chord, a tempo drift."
+    cleffy: >
+      Live, your ear is busy.
+      It's finding the next note. Tracking the pedal. Watching the hand.
+      It misses things. A rushed bar. A flubbed chord. A tempo that drifts.
+      The recording doesn't miss.
+
+  - id: 3
+    mode: see
+    type: how_simple
+    figure: "A minimalist phone. Three-step diagram. 1: prop it up. 2: hit record. 3: play. Nothing fancy. No mic. No app."
+    cleffy: >
+      Equipment — your phone. That's it.
+      Prop it up. Open the camera. Hit record. Play.
+      No studio. No mic. Nothing fancy.
+      This is the most useful tool you own.
+
+  - id: 4
+    mode: see
+    type: what_to_listen_for
+    figure: "A checklist with five items: tempo drift, rushed passages, missed notes, dynamic flatness, pedal mud."
+    cleffy: >
+      Five things to listen for when you play it back.
+      Tempo drift — did you speed up in the easy parts?
+      Rushed passages — did one section sprint?
+      Missed notes — did you fudge one and keep going?
+      Dynamic flatness — does it all sound the same volume?
+      Pedal mud — did the harmony blur where it shouldn't?
+
+  - id: 5
+    mode: hear
+    type: example_live_vs_playback
+    figure: "Two play buttons. A: the player's live impression of a phrase — 'it felt fine.' B: the same phrase played back — one bar obviously rushed, final note clipped."
+    audio:
+      A: "A Nocturne phrase played — sounds fine in the moment"
+      B: "The same phrase on playback — the second bar is visibly rushed, the final note is clipped short"
+    cleffy: >
+      Same phrase, twice.
+      First — how it felt while playing. Fine, right?
+      Second — how it actually sounded. The second bar rushed. The last note clipped.
+      The player didn't hear the rush live. On playback, obvious.
+
+  - id: 6
+    mode: see
+    type: the_honest_truth
+    figure: "A single line of text on a dark background: 'the first playback is always humbling.' Below — Cleffy with a soft half-smile."
+    cleffy: >
+      Fair warning.
+      The first time you hear yourself back — it will hurt a little.
+      You'll sound messier than you felt.
+      That's not bad news. That's the gap you're going to close.
+
+  - id: 7
+    mode: play
+    type: short_take
+    figure: "Keyboard. A short four-bar phrase — C major arpeggio pattern. Banner: TAKE 1. Tempo 60."
+    cleffy: >
+      Short take first. Four bars.
+      Arpeggio up and back. Right hand only.
+      Imagine a phone recording. Play it once, clean.
+    interaction:
+      type: song
+      sequence: ["C4","E4","G4","C5","G4","E4","C4","E4","G4","C5","G4","E4","C4","C4","C4","C4"]
+      guides: true
+      tempo: 60
+
+  - id: 8
+    mode: hear
+    type: listen_your_take
+    figure: "A play button — 'your take.' A mocked-up waveform on screen."
+    audio:
+      A: "The four-bar arpeggio played back — one note slightly late, the last bar a hair rushed"
+    cleffy: >
+      Pretend that's your take.
+      One note was slightly late. The last bar rushed a little.
+      Would you have caught that while playing? Probably not.
+      Playback catches it.
+
+  - id: 9
+    mode: play
+    type: take_two
+    figure: "Keyboard. Same four bars. Banner: TAKE 2 — fix the rushed bar. Tempo 60."
+    cleffy: >
+      Take two. Same phrase. Slower on the last bar.
+      This is the loop. Record. Listen. Fix. Record again.
+    interaction:
+      type: song
+      sequence: ["C4","E4","G4","C5","G4","E4","C4","E4","G4","C5","G4","E4","C4","C4","C4","C4"]
+      guides: false
+      tempo: 60
+
+  - id: 10
+    mode: see
+    type: the_loop
+    figure: "A four-step loop diagram — RECORD, LISTEN, NOTE ONE THING, FIX. Arrows pointing in a circle back to RECORD."
+    cleffy: >
+      The loop.
+      Record. Listen. Note one thing. Fix it. Record again.
+      One thing per pass. Not ten.
+      One by one is how it gets clean.
+
+  - id: 11
+    mode: see
+    type: dont_binge_record
+    figure: "Cleffy shaking his head at a graph — 'attempts vs quality.' The line spikes high at attempt 1 and 2, drops off a cliff by attempt 15."
+    cleffy: >
+      One warning.
+      Three takes is useful. Thirty takes is destructive.
+      After a while, your fingers get tired and your ear gets numb.
+      Record. Listen. Fix. Move on. Come back tomorrow.
+
+  - id: 12
+    mode: play
+    type: longer_take
+    figure: "Grand staff. A longer eight-bar phrase — simple melody + block chords. Banner: TAKE 3 — longer. Tempo 55."
+    cleffy: >
+      Longer take. Eight bars.
+      Right hand melody, left hand chords.
+      Play it through. Don't stop if you stumble — the recording wants the whole arc.
+    interaction:
+      type: song
+      sequence: [["C4","C3"],"D4","E4","F4",["G4","G3"],"F4","E4","D4",["C4","C3"],"E4","G4","E4",["F4","F3"],"A4","F4","D4",["G4","G3"],"F4","E4","D4",["C4","C3"],"C4","C4","C4"]
+      guides: true
+      tempo: 55
+    followup_cleffy: >
+      That was your eight-bar take.
+      In practice — now you'd stop, hit playback, and listen for one thing to fix.
+
+  - id: 13
+    mode: see
+    type: also_video
+    figure: "Split screen. Left: audio-only, a waveform. Right: video with a hand shown from above — showing wrist tension and a flat finger. Caption: 'video catches the body stuff.'"
+    cleffy: >
+      Audio catches the sound stuff.
+      Video catches the body stuff — tense shoulders, a collapsed wrist, a finger playing flat.
+      Record video when you can. The phone on a music stand works.
+
+  - id: 14
+    mode: hear
+    type: pre_check
+    figure: "Banner — mastery check."
+    cleffy: >
+      Three quick ones.
+
+  - id: 15
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 231. A phone on a music stand, red REC dot. Caption: 'the camera is the teacher.'"
+    cleffy: >
+      Recording yourself. The most useful practice tool there is.
+      Every professional does it. Now so do you.
+      Tomorrow — planning the dynamic arc across a whole piece.
+
+practice_this_week:
+  real_piano:
+    - "Record yourself playing your memorized piece from Lesson 230. One take. Listen back the same day."
+    - "Write down ONE thing you want to fix. Only one. Work on that this week."
+    - "Record again at the end of the week. Compare. Hear the change."
+  virtual_only:
+    - "Replay pages 7, 9, 12 — the short takes and the longer take."
+  estimated_time: "12 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "Five items: tempo drift, rushed passages, missed notes, dynamic flatness, pedal mud"
+          prompt: "What is this list?"
+          options: ["Things to listen for on playback", "Things to play louder", "Things the piano does wrong"]
+          correct: 0
+        - figure: "A loop diagram: RECORD → LISTEN → NOTE ONE THING → FIX → back to RECORD"
+          prompt: "What's the recommended practice loop?"
+          options: ["Record once, move on", "Record, listen, note one thing, fix, repeat", "Record thirty takes"]
+          correct: 1
+        - figure: "A phone on a music stand with a red REC dot"
+          prompt: "What equipment is needed to record yourself?"
+          options: ["A studio microphone", "A pro audio interface", "A phone"]
+          correct: 2
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "Two takes of the same phrase — one clean, one with a rushed second bar"
+          prompt: "Which take has the rushed bar?"
+          options: ["First", "Second"]
+          correct: 1
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play the four-bar arpeggio — C-E-G-C up, G-E-C down — steady, as if being recorded."
+          accept: "The four-bar arpeggio pattern played at steady tempo"
+
+remediation:
+  id: "231.5"
+  title: "Recording yourself, simpler"
+  pages: 6
+  opening_cleffy: >
+    Recording feels awkward the first time. That's normal.
+    We'll start with one bar. Just one. Play it, imagine the red dot, play it again.
+    The tool is simple — the discomfort is what we're practicing through.
+
+completion:
+  cleffy: >
+    Act 47 opens with an honest tool.
+    A phone. A red dot. An ear that doesn't lie.
+    Tomorrow — planning the loud-and-soft shape of a whole piece.
+  xp: 18
+  unlocks: 232

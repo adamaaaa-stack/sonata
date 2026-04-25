@@ -1,0 +1,235 @@
+# ============================================================
+# LESSON 221 · Clair de Lune: A section
+# Tier 5 · Act 45 · Upper-Intermediate · Clair de Lune full (1/5)
+# The opening. And its return. Building toward the tier boss.
+# ============================================================
+id: 221
+tier: upper-intermediate
+act: 45
+title: "Clair de Lune: A section"
+subtitle: "Act 45 · Clair de Lune full"
+goal: "Play the A section of Clair de Lune — the opening you first met in L125, now extended and polished."
+prereqs: [125, 200, 215, 216, 217, 219, 220]
+method_focus: "combine"
+time_estimate_min: 16
+piece_context: "Act 45. Five lessons to build Clair de Lune, complete. Today — the A section. The famous opening. You already played it as the Tier 3 boss, 96 lessons ago. Extend it. Polish it. In D major, same simplification as before."
+metaphor: "debussy-summit"
+vibe: ["quiet", "reflective", "focused"]
+piece:
+  title: "Clair de Lune (A section — simplified)"
+  composer: "Debussy"
+  key_center: "D major (simplified from D-flat)"
+  time_signature: "3/4 (simplified from 9/8)"
+  difficulty: "upper-intermediate — descending thirds, held pedal tones, soft touch, returning phrase"
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy at the foot of a small mountain. Banner: ACT 45 · CLAIR DE LUNE FULL. Caption: 'five lessons to the summit.'"
+    cleffy: >
+      New act. The last big piece before the tier boss — because the tier boss IS this piece.
+      Five lessons. A section. B section. Climax. Play-through. Boss.
+      You know how this one opens already. You played it at the end of Tier 3.
+
+  - id: 2
+    mode: see
+    type: the_map
+    figure: "A piece map. Five labeled blocks in a row: A (opening), B (arpeggiated middle), CLIMAX (forte peak), A' (return), coda. A arrow under block A: 'today.'"
+    cleffy: >
+      The shape of Clair de Lune.
+      A — the opening. Soft, drifting thirds over a low pedal note.
+      B — an arpeggiated middle. Flowing, rolling.
+      Climax — one forte peak, near the end.
+      A' — the opening returns, quieter than before.
+      Today — A.
+
+  - id: 3
+    mode: hear
+    type: listen
+    figure: "Play button. Caption: 'A section — opening and return.'"
+    audio:
+      A: "Clair de Lune A section played softly, pedaled — opening phrase, a second phrase, then a gentle return of the opening."
+    cleffy: >
+      Listen. The opening you know. A second phrase that follows.
+      Then the opening comes back, even softer.
+      That's the whole A section.
+
+  - id: 4
+    mode: see
+    type: the_opening_recall
+    figure: "Grand staff. The four bars from L125 — RH descending thirds A-F#, G-E, F#-D, then F#-A floating up. LH holds D2. Marked pp."
+    cleffy: >
+      Here it is. The four bars from Tier 3.
+      Right-hand thirds drifting down. Left hand — one low D, held.
+      D major. Two sharps. F-sharp and C-sharp.
+
+  - id: 5
+    mode: play
+    type: play_opening_recall
+    figure: "Grand staff. Four bars. Both hands. Tempo 44. Guides on."
+    cleffy: >
+      Play the opening. The one you already know.
+      Left hand presses D. Right hand lays each third on top.
+      Soft. Very soft.
+    interaction:
+      type: song
+      sequence: [["D2","F#4","A4"],["E4","G4"],["D4","F#4"],["F#4","A4"]]
+      guides: true
+      tempo: 44
+
+  - id: 6
+    mode: see
+    type: the_second_phrase
+    figure: "Grand staff. Four new bars. RH: new descending pair pattern — E-G, D-F#, C#-E, D-F#. LH: moves A1 then D2 under the line. Dynamic: still pp, with a tiny hairpin near the middle."
+    cleffy: >
+      After the opening, a second phrase.
+      Right hand keeps moving in thirds. E-G. D-F-sharp. C-sharp-E. Back up to D-F-sharp.
+      Left hand moves too — low A underneath, then back to D.
+      Still whispering.
+
+  - id: 7
+    mode: play
+    type: play_second_phrase_rh
+    figure: "RH only. Four pairs: E-G, D-F#, C#-E, D-F#. Tempo 44."
+    cleffy: >
+      Right hand alone. Four new pairs.
+      E-G. D-F-sharp. C-sharp-E. D-F-sharp.
+      Soft fingers.
+    interaction:
+      type: sequence
+      keys: ["E4","G4","D4","F#4","C#4","E4","D4","F#4"]
+
+  - id: 8
+    mode: play
+    type: play_second_phrase_full
+    figure: "Grand staff. Four bars. LH moves A1 to D2. RH thirds. Tempo 42. Guides on."
+    cleffy: >
+      Both hands. Left hand moves now.
+      Low A under the first two pairs. Back to low D for the last two.
+      Don't press hard. Let it float.
+    interaction:
+      type: song
+      sequence: [["A1","E4","G4"],["D4","F#4"],["D2","C#4","E4"],["D4","F#4"]]
+      guides: true
+      tempo: 42
+
+  - id: 9
+    mode: see
+    type: the_return
+    figure: "Grand staff. The same four opening bars again — RH thirds, LH D2 held. A label above: 'the return — even quieter.' Dynamic: ppp."
+    cleffy: >
+      Now the opening comes back. Exact same notes.
+      But quieter than the first time. *ppp* — pianississimo. Three p's.
+      As if it's drifting away.
+
+  - id: 10
+    mode: play
+    type: play_return
+    figure: "Grand staff. Opening four bars. Tempo 42. Dynamic ppp."
+    cleffy: >
+      Play the return. Softer than the first time.
+      Barely touch the keys. Let the pedal do the singing.
+    interaction:
+      type: song
+      sequence: [["D2","F#4","A4"],["E4","G4"],["D4","F#4"],["F#4","A4"]]
+      guides: true
+      tempo: 42
+
+  - id: 11
+    mode: play
+    type: full_a_section
+    figure: "Grand staff. All twelve bars of the A section. Tempo 42. Guides on. Dynamic arc: pp — slight swell — pp — ppp."
+    cleffy: >
+      The whole A section. Twelve bars.
+      Opening. Second phrase. Return.
+      Slow. Soft. Unhurried.
+    interaction:
+      type: song
+      sequence: [["D2","F#4","A4"],["E4","G4"],["D4","F#4"],["F#4","A4"],["A1","E4","G4"],["D4","F#4"],["D2","C#4","E4"],["D4","F#4"],["D2","F#4","A4"],["E4","G4"],["D4","F#4"],["F#4","A4"]]
+      guides: true
+      tempo: 42
+
+  - id: 12
+    mode: play
+    type: full_a_no_guides
+    figure: "Grand staff. No glowing keys. Tempo 42."
+    cleffy: >
+      No guides. You read, you play.
+      Still soft. Still unhurried.
+    interaction:
+      type: song
+      sequence: [["D2","F#4","A4"],["E4","G4"],["D4","F#4"],["F#4","A4"],["A1","E4","G4"],["D4","F#4"],["D2","C#4","E4"],["D4","F#4"],["D2","F#4","A4"],["E4","G4"],["D4","F#4"],["F#4","A4"]]
+      guides: false
+      tempo: 42
+    followup_cleffy: >
+      The A section. Longer than Tier 3's version.
+      You have the bones of Clair de Lune now.
+
+  - id: 13
+    mode: hear
+    type: pre_check
+    figure: "Banner — Lesson 221 mastery check."
+    cleffy: >
+      Three quick ones.
+
+  - id: 14
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 221. A moon over still water. Caption: 'A SECTION.'"
+    cleffy: >
+      A section — yours.
+      Tomorrow — the B section. The arpeggiated middle. Different shape entirely.
+
+practice_this_week:
+  real_piano:
+    - "Clair de Lune A section, slow, once a day. Softer every time through."
+    - "Revisit the L125 opening. Notice how small it feels now."
+  virtual_only:
+    - "Replay pages 11-12 — full A section, with and without guides."
+  estimated_time: "12 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "A key signature with two sharps"
+          prompt: "What key is our simplified Clair de Lune in?"
+          options: ["G major", "D major", "B-flat major"]
+          correct: 1
+        - figure: "Dynamic marking: ppp"
+          prompt: "What does ppp mean?"
+          options: ["Medium soft", "Very soft", "As soft as possible"]
+          correct: 2
+        - figure: "A piece map with blocks labelled A, B, CLIMAX, A'"
+          prompt: "Where is the A section in this piece?"
+          options: ["The middle", "The opening and return", "The loud part"]
+          correct: 1
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "Opening four bars, then a return four bars that's even softer"
+          prompt: "Which version is softer — the first or the return?"
+          options: ["The first", "The return"]
+          correct: 1
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play the opening third — F-sharp and A together, very soft."
+          accept: "F#4 and A4 together, quietly"
+
+remediation:
+  id: "221.5"
+  title: "A section, one phrase at a time"
+  pages: 7
+  opening_cleffy: >
+    Same twelve bars. Slower rebuild.
+    Opening alone. Then second phrase alone. Then return. Then stitched.
+
+completion:
+  cleffy: >
+    A section in hand. Twelve bars, quiet, drifting.
+    Tomorrow — B. The rolling middle.
+  xp: 18
+  unlocks: 222

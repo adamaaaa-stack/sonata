@@ -1,0 +1,230 @@
+# ============================================================
+# LESSON 238 · Moonlight 1 — bars 13-23
+# Tier 6 · Act 48 · Advanced
+# NEW MATERIAL. First modulation. Still C#m, touches E major and B major.
+# ============================================================
+id: 238
+tier: advanced
+act: 48
+title: "Moonlight 1 — bars 13-23"
+subtitle: "Act 48 · The first modulation"
+goal: "Play bars 13 through 23 of Moonlight 1 — the first modulation. Still rooted in C-sharp minor, but touches E major and B major for the first time."
+prereqs: [237]
+method_focus: "combine"
+time_estimate_min: 18
+piece_context: "Real new ground. Bars 13-23 are the passage where Beethoven first lets the music travel. Section A has been C-sharp minor all the way through. Here, the harmony starts to shift — the music touches E major (the relative major, briefly bright), and B major (the dominant of E). The piece is opening a window. Still quiet. Still the same triplet engine. But the colors change. Simplified for playing — full texture, new harmonies one at a time."
+metaphor: "moonlight-extended"
+vibe: ["reflective", "serious", "quiet"]
+piece:
+  title: "Moonlight Sonata, 1st mvt (bars 13-23)"
+  composer: "Beethoven (1801)"
+  key_center: "C-sharp minor (touching E major, B major)"
+  time_signature: "alla breve (2/2), felt in 4"
+  difficulty: "advanced — new harmonies, first modulation, simplified texture"
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy at the piano. A window behind him that was closed in previous lessons now cracked open. Banner: bars 13-23 · new ground."
+    cleffy: >
+      Real new ground today.
+      Eleven bars. First time the piece changes color.
+      The window cracks open.
+
+  - id: 2
+    mode: see
+    type: what_changes
+    figure: "Two columns. Left — 'so far (bars 1-12)': all C-sharp minor, same harmonic world. Right — 'bars 13-23': touches E major (relative major, brighter), touches B major (dominant of E). Same engine underneath."
+    cleffy: >
+      Bars 1 through 12 lived in one key. C-sharp minor.
+      Bars 13 through 23 travel.
+      The music brightens through B major and touches F-sharp minor before resolving.
+      The engine keeps rolling. The colors shift.
+
+  - id: 3
+    mode: hear
+    type: listen_bars_13_23
+    figure: "Play button. Caption: 'bars 13-23 — real recording, adagio sostenuto.'"
+    audio:
+      A: "Moonlight bars 13-23, real recording, adagio sostenuto — the first modulation, E major and B major touches"
+    cleffy: >
+      Listen. Eleven bars you haven't heard alone before.
+      Hear how it feels brighter in the middle.
+      Hear how it comes back down to C-sharp minor territory by the end.
+
+  - id: 4
+    mode: see
+    type: bars_13_15_zoom
+    figure: "Bars 13-15 on grand staff. LH octaves shift: A bar 13, A bar 14 continues, then a descent. RH: triplet engine continues, melody line moves. Caption: 'the turn begins.'"
+    cleffy: >
+      Bars 13 to 15. The small turn you heard in the overview.
+      Left hand steps down. The melody eases.
+      Still C-sharp minor, but leaning somewhere new.
+
+  - id: 5
+    mode: play
+    type: bars_13_15_play
+    figure: "Bars 13-15. Both hands. Pedal per bar. Tempo 48. Guides on."
+    cleffy: >
+      Three bars. Slow. Guides on.
+      Quiet hands. Pedal clean.
+    interaction:
+      type: song
+      sequence: [["A2","A3"],"A3","C#4","E4","A3","C#4","E4","A3","C#4","E4","A3","C#4","E4",["A2","A3"],"A3","C#4","E4","A3","C#4","E4","A3","C#4","E4","A3","C#4","E4",["G#2","G#3"],"G#3","B3","E4","G#3","B3","E4","G#3","B3","E4","G#3","B3","E4"]
+      guides: true
+      tempo: 48
+
+  - id: 6
+    mode: see
+    type: bars_16_19_zoom
+    figure: "Bars 16-19 on grand staff. Key color shift — brief E major territory. LH: F#, then B. RH: engine continues with triplets outlining the new chords. Caption: 'the light leaks in.'"
+    cleffy: >
+      Bars 16 to 19. Here's where it opens out.
+      E major touches in. A briefly-brighter color.
+      Then B major — the dominant. Further still.
+      Nothing loud. Just — a shift in light.
+
+  - id: 7
+    mode: play
+    type: bars_16_19_play
+    figure: "Bars 16-19. Both hands, engine + LH, pedal. Tempo 48. Guides on."
+    cleffy: >
+      Four bars. The opening-out.
+      Eyes on the left hand — it's moving more than before.
+    interaction:
+      type: song
+      sequence: [["F#2","F#3"],"F#3","A3","C#4","F#3","A3","C#4","F#3","A3","C#4","F#3","A3","C#4",["B2","B3"],"B3","D#4","F#4","B3","D#4","F#4","B3","D#4","F#4","B3","D#4","F#4",["E2","E3"],"E3","G#3","B3","E3","G#3","B3","E3","G#3","B3","E3","G#3","B3",["B2","B3"],"B3","D#4","F#4","B3","D#4","F#4","B3","D#4","F#4","B3","D#4","F#4"]
+      guides: true
+      tempo: 48
+
+  - id: 8
+    mode: see
+    type: bars_20_23_zoom
+    figure: "Bars 20-23 on grand staff. Coming home. LH descends stepwise back toward C-sharp. RH engine continues. Caption: 'returning to the home color.'"
+    cleffy: >
+      Bars 20 to 23. Coming home.
+      The music walks back toward C-sharp minor.
+      By bar 23, we're almost at a landing.
+
+  - id: 9
+    mode: play
+    type: bars_20_23_play
+    figure: "Bars 20-23. Both hands, pedal. Tempo 48. Guides on."
+    cleffy: >
+      Four bars. The return toward home.
+      Steady. Let the left hand guide.
+    interaction:
+      type: song
+      sequence: [["E2","E3"],"E3","G#3","B3","E3","G#3","B3","E3","G#3","B3","E3","G#3","B3",["F#2","F#3"],"F#3","A3","C#4","F#3","A3","C#4","F#3","A3","C#4","F#3","A3","C#4",["G#2","G#3"],"G#3","B#3","D#4","G#3","B#3","D#4","G#3","B#3","D#4","G#3","B#3","D#4",["C#2","C#3"],"C#3","E3","G#3","C#3","E3","G#3","C#3","E3","G#3","C#3","E3","G#3"]
+      guides: true
+      tempo: 48
+
+  - id: 10
+    mode: play
+    type: bars_13_23_all
+    figure: "Bars 13-23. Eleven bars. Guides on. Tempo 46. pp."
+    cleffy: >
+      All eleven. Tempo 46. Guides on.
+      The first modulation of the piece, in one stretch.
+    interaction:
+      type: song
+      sequence: [["A2","A3"],"A3","C#4","E4","A3","C#4","E4","A3","C#4","E4","A3","C#4","E4",["A2","A3"],"A3","C#4","E4","A3","C#4","E4","A3","C#4","E4","A3","C#4","E4",["G#2","G#3"],"G#3","B3","E4","G#3","B3","E4","G#3","B3","E4","G#3","B3","E4",["F#2","F#3"],"F#3","A3","C#4","F#3","A3","C#4","F#3","A3","C#4","F#3","A3","C#4",["B2","B3"],"B3","D#4","F#4","B3","D#4","F#4","B3","D#4","F#4","B3","D#4","F#4",["E2","E3"],"E3","G#3","B3","E3","G#3","B3","E3","G#3","B3","E3","G#3","B3",["B2","B3"],"B3","D#4","F#4","B3","D#4","F#4","B3","D#4","F#4","B3","D#4","F#4",["E2","E3"],"E3","G#3","B3","E3","G#3","B3","E3","G#3","B3","E3","G#3","B3",["F#2","F#3"],"F#3","A3","C#4","F#3","A3","C#4","F#3","A3","C#4","F#3","A3","C#4",["G#2","G#3"],"G#3","B#3","D#4","G#3","B#3","D#4","G#3","B#3","D#4","G#3","B#3","D#4",["C#2","C#3"],"C#3","E3","G#3","C#3","E3","G#3","C#3","E3","G#3","C#3","E3","G#3"]
+      guides: true
+      tempo: 46
+
+  - id: 11
+    mode: play
+    type: bars_13_23_no_guides
+    figure: "Bars 13-23. No guides. Tempo 46. pp."
+    cleffy: >
+      No guides. Read the page.
+      Feel when the color shifts. Don't rush through those moments.
+    interaction:
+      type: song
+      sequence: [["A2","A3"],"A3","C#4","E4","A3","C#4","E4","A3","C#4","E4","A3","C#4","E4",["A2","A3"],"A3","C#4","E4","A3","C#4","E4","A3","C#4","E4","A3","C#4","E4",["G#2","G#3"],"G#3","B3","E4","G#3","B3","E4","G#3","B3","E4","G#3","B3","E4",["F#2","F#3"],"F#3","A3","C#4","F#3","A3","C#4","F#3","A3","C#4","F#3","A3","C#4",["B2","B3"],"B3","D#4","F#4","B3","D#4","F#4","B3","D#4","F#4","B3","D#4","F#4",["E2","E3"],"E3","G#3","B3","E3","G#3","B3","E3","G#3","B3","E3","G#3","B3",["B2","B3"],"B3","D#4","F#4","B3","D#4","F#4","B3","D#4","F#4","B3","D#4","F#4",["E2","E3"],"E3","G#3","B3","E3","G#3","B3","E3","G#3","B3","E3","G#3","B3",["F#2","F#3"],"F#3","A3","C#4","F#3","A3","C#4","F#3","A3","C#4","F#3","A3","C#4",["G#2","G#3"],"G#3","B#3","D#4","G#3","B#3","D#4","G#3","B#3","D#4","G#3","B#3","D#4",["C#2","C#3"],"C#3","E3","G#3","C#3","E3","G#3","C#3","E3","G#3","C#3","E3","G#3"]
+      guides: false
+      tempo: 46
+    followup_cleffy: >
+      Eleven new bars of Moonlight, in your hands.
+      Tomorrow — we linger in the key itself.
+
+  - id: 12
+    mode: see
+    type: what_you_just_did
+    figure: "A summary card. 'Today you played: 11 new bars. First modulation of the piece. Brief E major. Brief B major. Return to C-sharp minor.' A small moon rising."
+    cleffy: >
+      Take stock.
+      Eleven bars. First modulation. New harmonic ground.
+      Bars 1 through 23 are now real notes in your hands.
+
+  - id: 13
+    mode: hear
+    type: pre_check
+    figure: "Banner."
+    cleffy: >
+      Three quick ones.
+
+  - id: 14
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 238. Bars 1-23 on a long staff, a golden marker advancing from bar 12 to bar 23. Cleffy under a moon with the window cracked open."
+    cleffy: >
+      Twenty-three bars now.
+      Tomorrow — we slow down and sit with the key itself.
+      C-sharp minor. Why Beethoven chose it. What it does to the ear.
+
+practice_this_week:
+  real_piano:
+    - "Bars 13-23 every day. Slow. Don't join them to bars 1-12 yet — we do that at the boss."
+    - "Pay attention to the E major moment around bars 17-19. Hear how it brightens."
+    - "Pedal cleanly. No blur between bars. If it muddies, slow down further."
+  virtual_only:
+    - "Replay pages 5, 7, 9, 11 — each small section, then the full run."
+  estimated_time: "15 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "Key path: C#m → E major → B major → C#m"
+          prompt: "What does 'modulation' mean in this passage?"
+          options: ["Playing louder", "Moving briefly to new keys", "Changing tempo"]
+          correct: 1
+        - figure: "Relative major / minor diagram — C# minor and E major share a key signature"
+          prompt: "What is the relative major of C-sharp minor?"
+          options: ["C major", "E major", "G major"]
+          correct: 1
+        - figure: "Bars 13-23 with pp throughout"
+          prompt: "How loud should the modulation passage be?"
+          options: ["Crescendo to forte", "Stay pianissimo", "Accent the new keys"]
+          correct: 1
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "Bars 13-15 (still minor) then bars 17-19 (briefly E major)"
+          prompt: "Which clip sounds a little brighter?"
+          options: ["First", "Second"]
+          correct: 1
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play bars 20-23 — the return toward C-sharp minor — at 46 bpm, pedal per bar."
+          accept: "Bars 20-23 of Moonlight, both hands, pedaled"
+
+remediation:
+  id: "238.5"
+  title: "Bars 13-23, three pieces at a time"
+  pages: 9
+  opening_cleffy: >
+    New material. First modulation. Honest — this is the biggest step since lesson 175.
+    We'll take bars 13-15, 16-19, and 20-23 each alone. Slower. Hands apart first.
+    Don't force the full stretch until each feels steady.
+
+completion:
+  cleffy: >
+    Eleven new bars. First modulation in your hands.
+    Tomorrow — the color of C-sharp minor itself. Why this key. Why this mood.
+  xp: 22
+  unlocks: 239

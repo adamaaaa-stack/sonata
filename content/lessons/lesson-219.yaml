@@ -1,0 +1,218 @@
+# ============================================================
+# LESSON 219 · Memorization intro
+# Tier 5 · Act 44 · Upper-Intermediate · Memorization
+# How pianists actually memorize music. INTRO — Tier 6 goes deeper.
+# ============================================================
+id: 219
+tier: upper-intermediate
+act: 44
+title: "Memorization intro"
+subtitle: "Act 44 · Three kinds of memory"
+goal: "Meet the three kinds of memory pianists use — muscle, ear, and structural — and try each one on a short phrase."
+prereqs: [218]
+method_focus: "combine"
+time_estimate_min: 13
+piece_context: "A first look at memorization. Tier 6 will spend a whole act on this. Today is a short intro — the three kinds of memory, named, tried, understood. You don't need to memorize anything today. Just meet the tools."
+metaphor: "long-line"
+vibe: ["gentle", "focused", "honest"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Three labeled boxes stacked: MUSCLE MEMORY (a hand), EAR MEMORY (an ear), STRUCTURAL MEMORY (a map). Banner: THREE KINDS."
+    cleffy: >
+      Memorization.
+      A quick look today. Tier 6 goes deeper.
+      Three kinds of memory. Meet them.
+
+  - id: 2
+    mode: see
+    type: not_one_thing
+    figure: "A pianist mid-performance. Three speech bubbles above: 'my fingers know,' 'my ears know,' 'my head knows.' All at once."
+    cleffy: >
+      Memorizing isn't one thing.
+      Real pianists use three kinds of memory at once.
+      When one slips, another catches you.
+
+  - id: 3
+    mode: see
+    type: muscle_memory
+    figure: "A hand on a keyboard, with the fingers glowing as if playing without looking. Caption: MUSCLE MEMORY — your hands know the shapes."
+    cleffy: >
+      First — muscle memory.
+      Your hands know the shapes. The key-to-key distances. The finger patterns.
+      Built by repetition.
+
+  - id: 4
+    mode: play
+    type: try_muscle_first
+    figure: "Keyboard. 5-note phrase. Cue: play it 3 times in a row. Feel the shape."
+    cleffy: >
+      Try it. Play this five-note shape three times in a row.
+      Look at your hand. Don't look at the screen.
+      By the third time, your fingers should remember.
+    interaction:
+      type: sequence
+      keys: ["G4","A4","B4","A4","G4","G4","A4","B4","A4","G4","G4","A4","B4","A4","G4"]
+
+  - id: 5
+    mode: see
+    type: ear_memory
+    figure: "An ear icon, with musical notes flowing into it. Below, those same notes flowing back out of a head. Caption: EAR MEMORY — you hear what comes next before it plays."
+    cleffy: >
+      Second — ear memory.
+      You can hear the next phrase before you play it.
+      Like knowing how a song goes.
+
+  - id: 6
+    mode: hear
+    type: ear_memory_demo
+    figure: "A play button. The first 5 notes of Happy Birthday."
+    audio:
+      A: "Happy Birthday — opening phrase — first five notes"
+    cleffy: >
+      Listen. You know this one.
+      Even if you've never played it today, you can hear what comes next.
+      That's ear memory. You have it already for songs you know.
+
+  - id: 7
+    mode: play
+    type: play_by_ear_memory
+    figure: "Keyboard. Happy Birthday first phrase outlined. No visual guides the second time."
+    cleffy: >
+      Try it. Play Happy Birthday's opening.
+      G G A G C B.
+      Your ears lead your fingers.
+    interaction:
+      type: sequence
+      keys: ["G4","G4","A4","G4","C5","B4"]
+
+  - id: 8
+    mode: see
+    type: structural_memory
+    figure: "A simple map of a piece: A SECTION (bars 1-8) — B SECTION (9-16) — A SECTION AGAIN (17-24). Arrows showing flow. Caption: STRUCTURAL MEMORY — the shape of the whole."
+    cleffy: >
+      Third — structural memory.
+      Knowing the map. Verse, chorus, verse. A, B, A.
+      Not the notes — the form.
+
+  - id: 9
+    mode: see
+    type: why_structure_helps
+    figure: "A pianist holding a map of a piece. Caption: 'If you get lost, you know where you are.'"
+    cleffy: >
+      Why this matters.
+      If your fingers slip mid-performance, structure rescues you.
+      You know where you are. You know what comes next section, even if you missed a note.
+
+  - id: 10
+    mode: see
+    type: the_three_together
+    figure: "Three overlapping circles — muscle, ear, structural — with a gold star in the middle where they overlap. Caption: 'Strongest when all three lock in.'"
+    cleffy: >
+      The goal — all three at once.
+      Fingers know. Ears know. Head knows.
+      When one falters, the others hold you up.
+
+  - id: 11
+    mode: play
+    type: try_all_three
+    figure: "Keyboard. An 8-bar phrase. Shape labeled A-B-A (2 bars - 4 bars - 2 bars)."
+    cleffy: >
+      Try all three on a short phrase.
+      Play it through. Your hands learn. Your ears hear. Notice the A-B-A shape.
+    interaction:
+      type: sequence
+      keys: ["C4","E4","G4","E4","F4","A4","G4","F4","E4","D4","C4","E4","G4","E4"]
+    followup_cleffy: >
+      Three kinds of knowing, all at once.
+
+  - id: 12
+    mode: see
+    type: the_honest_part
+    figure: "Cleffy seated. Speech bubble: 'Memorizing one piece well takes weeks, not minutes.' Calendar showing 3 weeks marked off."
+    cleffy: >
+      The honest part.
+      Memorizing one piece well takes weeks. Not minutes.
+      Today is just the introduction. Tier 6 — you'll memorize a real piece.
+
+  - id: 13
+    mode: hear
+    type: drill_which_kind
+    figure: "Round counter. 3 rounds. Banner: WHICH KIND OF MEMORY?"
+    cleffy: >
+      Three rounds. Which kind of memory is being described?
+    interaction:
+      type: drill
+      rounds: 3
+      options: ["Muscle memory", "Ear memory", "Structural memory"]
+
+  - id: 14
+    mode: hear
+    type: pre_check
+    figure: "Banner."
+    cleffy: >
+      Three quick ones.
+
+  - id: 15
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 219. Three small icons — hand, ear, map — linked by lines. Below: 'muscle, ear, structure.'"
+    cleffy: >
+      Three kinds of memory. Named.
+      Tomorrow — Grieg. Arietta. Tiny piece, huge expression.
+
+practice_this_week:
+  real_piano:
+    - "Take one phrase of a piece you know. Play it with your eyes closed — that's muscle memory in action."
+    - "Sing the phrase first, then play it without reading. That's ear memory."
+    - "Name the sections of a piece you're learning — A, B, A, or verse/chorus. That's structural memory."
+  virtual_only:
+    - "Replay page 11 — try playing the A-B-A phrase a few times and notice what's getting easier."
+  estimated_time: "10 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "An icon of a hand on a keyboard playing without looking."
+          prompt: "Which kind of memory is this?"
+          options: ["Muscle memory", "Ear memory", "Structural memory"]
+          correct: 0
+        - figure: "A pianist hearing the next phrase in their head before playing it."
+          prompt: "Which kind of memory is this?"
+          options: ["Muscle memory", "Ear memory", "Structural memory"]
+          correct: 1
+        - figure: "A map of a piece: A section, B section, A section."
+          prompt: "Which kind of memory is this?"
+          options: ["Muscle memory", "Ear memory", "Structural memory"]
+          correct: 2
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "A familiar tune — Happy Birthday — playing its first phrase"
+          prompt: "Can you hear what the next note would be? That's which kind of memory?"
+          options: ["Muscle memory", "Ear memory"]
+          correct: 1
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play Happy Birthday's opening — G G A G C B — by ear, without reading it."
+          accept: "G4 G4 A4 G4 C5 B4 played in order"
+
+remediation:
+  id: "219.5"
+  title: "Three memories, one at a time"
+  pages: 6
+  opening_cleffy: >
+    Three kinds is a lot to meet in one lesson.
+    We'll take one at a time. Muscle. Ear. Structure. Slower.
+
+completion:
+  cleffy: >
+    Three ways to hold a piece in your head.
+    Tomorrow — act boss. Grieg's Arietta. Tiny and huge.
+  xp: 17
+  unlocks: 220

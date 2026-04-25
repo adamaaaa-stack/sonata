@@ -1,0 +1,237 @@
+# ============================================================
+# LESSON 154 · Coordination drill
+# Tier 4 · Act 31 · Intermediate
+# Same two-hand pattern at 60 → 80 → 100 bpm.
+# ============================================================
+id: 154
+tier: intermediate
+act: 31
+title: "Coordination drill"
+subtitle: "Act 31 · Slow, moderate, fast"
+goal: "Take the two-hand patterns from this act and push them from slow to fast without losing independence."
+prereqs: [153, 152, 151]
+method_focus: "play"
+time_estimate_min: 13
+piece_context: "Three days of two-hand independence. Today — push the tempo. The pattern is the same. Your hands have to keep their separate clocks at 60, 80, and 100 bpm."
+metaphor: "two-hands-two-minds"
+vibe: ["focused", "playful"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy at a metronome dial. Three marks on the dial: 60, 80, 100. A finger hovering at 60."
+    cleffy: >
+      Three days of independence.
+      Today — push the speed.
+      60. 80. 100. Same pattern, faster clocks.
+
+  - id: 2
+    mode: see
+    type: the_pattern
+    figure: "Grand staff, 4/4. LH whole-note chord C-E-G. RH quarter-note melody C5-D5-E5-D5. The same pattern from Lesson 152."
+    cleffy: >
+      The pattern. From Lesson 152.
+      LH holds. RH walks.
+      Nothing new on the page. The work is in the speed.
+
+  - id: 3
+    mode: hear
+    type: listen_three_tempos
+    figure: "Three play buttons stacked. 60 bpm / 80 bpm / 100 bpm."
+    audio:
+      A: "Same pattern — LH C chord held, RH C5-D5-E5-D5 — played three times, first at 60, then 80, then 100 bpm."
+    cleffy: >
+      Three tempos of the same bar.
+      Slow. Medium. Fast.
+      Notice — at 100 it still breathes. Speed isn't panic.
+
+  - id: 4
+    mode: play
+    type: at_60
+    figure: "Grand staff. Pattern. Metronome 60."
+    cleffy: >
+      First pass. 60 bpm.
+      Warm up. Keep LH down.
+    interaction:
+      type: rhythm
+      sequence: [["C3","E3","G3","C5"], "D5", "E5", "D5"]
+      durations: ["quarter","quarter","quarter","quarter"]
+      tempo: 60
+
+  - id: 5
+    mode: play
+    type: at_60_two_bars
+    figure: "Grand staff. Two bars: C chord, G chord. 60 bpm."
+    cleffy: >
+      Two bars. 60 bpm. Chord change in bar 2.
+    interaction:
+      type: rhythm
+      sequence: [["C3","E3","G3","C5"], "D5", "E5", "D5", ["G2","B2","D3","G4"], "A4", "B4", "A4"]
+      durations: ["quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter"]
+      tempo: 60
+
+  - id: 6
+    mode: see
+    type: before_speed
+    figure: "A checklist. Three items: 'LH stays down.' 'Count out loud.' 'Don't tense the shoulders.'"
+    cleffy: >
+      Before you push the tempo — three things.
+      Left hand stays down through the bar.
+      Count out loud.
+      If your shoulders climb toward your ears, stop and shake them out.
+
+  - id: 7
+    mode: play
+    type: at_80
+    figure: "Grand staff. Pattern. Metronome 80."
+    cleffy: >
+      Now 80. Same pattern.
+    interaction:
+      type: rhythm
+      sequence: [["C3","E3","G3","C5"], "D5", "E5", "D5"]
+      durations: ["quarter","quarter","quarter","quarter"]
+      tempo: 80
+
+  - id: 8
+    mode: play
+    type: at_80_two_bars
+    figure: "Same two bars. 80 bpm."
+    cleffy: >
+      Two bars at 80. Chord change included.
+    interaction:
+      type: rhythm
+      sequence: [["C3","E3","G3","C5"], "D5", "E5", "D5", ["G2","B2","D3","G4"], "A4", "B4", "A4"]
+      durations: ["quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter"]
+      tempo: 80
+    followup_cleffy: >
+      80 is moderate — most music lives near here.
+
+  - id: 9
+    mode: see
+    type: what_breaks_at_100
+    figure: "Cleffy with a hand up. Two common errors drawn: 1) LH lifting early. 2) Hands locking to the same beat."
+    cleffy: >
+      At 100, two things usually break first.
+      LH releases early — chord stops ringing under the melody.
+      Both hands lock together — independence collapses.
+      Watch for those. Slow back down if either happens.
+
+  - id: 10
+    mode: play
+    type: at_100
+    figure: "Grand staff. Pattern. Metronome 100."
+    cleffy: >
+      100 bpm. Fast, but not scary.
+    interaction:
+      type: rhythm
+      sequence: [["C3","E3","G3","C5"], "D5", "E5", "D5"]
+      durations: ["quarter","quarter","quarter","quarter"]
+      tempo: 100
+
+  - id: 11
+    mode: play
+    type: at_100_two_bars
+    figure: "Grand staff. Two bars. 100 bpm."
+    cleffy: >
+      Two bars at 100. Keep LH pressed. Keep counting.
+    interaction:
+      type: rhythm
+      sequence: [["C3","E3","G3","C5"], "D5", "E5", "D5", ["G2","B2","D3","G4"], "A4", "B4", "A4"]
+      durations: ["quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter"]
+      tempo: 100
+
+  - id: 12
+    mode: play
+    type: reverse_texture_80
+    figure: "Grand staff. LH melody C3-D3-E3-D3, RH chord C4-E4-G4 held. Metronome 80. (Yesterday's pattern.)"
+    cleffy: >
+      Quick switch. Yesterday's pattern. 80 bpm.
+      LH melody. RH chord.
+    interaction:
+      type: rhythm
+      sequence: [["C3","C4","E4","G4"], "D3", "E3", "D3"]
+      durations: ["quarter","quarter","quarter","quarter"]
+      tempo: 80
+
+  - id: 13
+    mode: play
+    type: final_at_90
+    figure: "Grand staff. Back to LH chord / RH melody. Two bars. Tempo 90 (between 80 and 100)."
+    cleffy: >
+      One more. 90 bpm. The pocket.
+    interaction:
+      type: rhythm
+      sequence: [["C3","E3","G3","C5"], "D5", "E5", "D5", ["G2","B2","D3","G4"], "A4", "B4", "A4"]
+      durations: ["quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter"]
+      tempo: 90
+
+  - id: 14
+    mode: hear
+    type: pre_check
+    figure: "Banner."
+    cleffy: >
+      Three quick ones.
+
+  - id: 15
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 154. Metronome arm swinging. Three marks glowing: 60, 80, 100. Banner: DRILL COMPLETE."
+    cleffy: >
+      Slow, moderate, fast. Same pattern.
+      Tomorrow — Für Elise. The full piece.
+      You've known the opening for 80 lessons. Tomorrow the rest.
+
+practice_this_week:
+  real_piano:
+    - "Pick one tempo each day. Monday 60. Tuesday 80. Wednesday 100. Circle back the next week."
+    - "If 100 falls apart, don't muscle through. Drop to 90. Earn it back."
+    - "Do both textures — LH chord / RH melody, and its reverse. Alternate days."
+  virtual_only:
+    - "Replay pages 7, 10, 11 in order. 60, 80, 100."
+  estimated_time: "10 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "Metronome dial showing 60, 80, 100"
+          prompt: "Which tempo is 'moderate' — where most music lives?"
+          options: ["60", "80", "100"]
+          correct: 1
+        - figure: "Checklist — LH stays down, count out loud, relax shoulders"
+          prompt: "Why count out loud during fast practice?"
+          options: ["To anchor the beat", "To distract from mistakes", "For fun"]
+          correct: 0
+        - figure: "Two common errors at fast tempo"
+          prompt: "What breaks first when you push the speed?"
+          options: ["Independence — hands lock together", "Tempo itself", "Key signature"]
+          correct: 0
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "Same pattern at 60 and then 100 bpm"
+          prompt: "Is the pattern the same at both speeds?"
+          options: ["Yes", "No"]
+          correct: 0
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play one bar of LH chord / RH melody pattern at 80 bpm."
+          accept: "Pattern played cleanly with independence at 80"
+
+remediation:
+  id: "154.5"
+  title: "Inch up, don't leap"
+  pages: 7
+  opening_cleffy: >
+    Speed collapses independence faster than anything. Normal.
+    We'll move 60 → 65 → 70 → 75 → 80, step by step. No jumps.
+
+completion:
+  cleffy: >
+    Slow to fast. Same pattern, three clocks.
+    Tomorrow — Für Elise. Full.
+  xp: 18
+  unlocks: 155

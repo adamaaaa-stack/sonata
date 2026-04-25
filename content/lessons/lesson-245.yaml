@@ -1,0 +1,279 @@
+# ============================================================
+# LESSON 245 · Moonlight 1 — all bars, slow · ACT 49 BOSS 🎯
+# Tier 6 · Act 49 · Advanced · Moonlight, complete
+# Full movement, no stopping, carefully.
+# Endurance + full-piece fluency. Last act boss before graduation.
+# ============================================================
+id: 245
+tier: advanced
+act: 49
+title: "Moonlight 1 — all bars, slow"
+subtitle: "Act 49 · Moonlight, complete"
+goal: "Play the complete first movement of Moonlight Sonata — all 69 bars — slow, no stopping, carefully."
+prereqs: [240, 241, 242, 243, 244]
+method_focus: "combine"
+time_estimate_min: 25
+piece_context: "Act 49 boss. Last act boss of the whole curriculum. The next act — 50 — is graduation week. Today is the first time you play all 69 bars of Moonlight, end to end, no stopping. Slow. Carefully. Not at tempo — that's Act 50. Today is endurance and full-piece fluency. You've played every bar already in pieces. Now they live as one piece."
+metaphor: "full-piece-fluency"
+vibe: ["serious", "triumphant", "quiet", "reflective"]
+is_act_boss: true
+piece:
+  title: "Moonlight Sonata, 1st mvt (complete — slow)"
+  composer: "Beethoven (1801)"
+  key_center: "C-sharp minor (with modulations through the B section)"
+  time_signature: "alla breve"
+  difficulty: "advanced — full movement, slow tempo, simplified score"
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy standing at the top of a mountain. The full Moonlight score — all 69 bars — unfurled behind him. Banner: 'ACT 49 BOSS · ALL 69 BARS.'"
+    cleffy: >
+      Last act boss. The last one before graduation.
+      Tomorrow is graduation week.
+      Today — every bar of Moonlight. Slow. No stopping. Start to finish.
+
+  - id: 2
+    mode: see
+    type: what_this_is
+    figure: "Two boxes. Left — 'what today is NOT': full speed, perfect, a performance. Right — 'what today IS': all 69 bars, slow, carefully, no stopping."
+    cleffy: >
+      The honest framing.
+      Today IS: all sixty-nine bars, end to end, slow, carefully, no stopping.
+      Today is NOT: at tempo. Not yet. That comes next week.
+      Today is NOT: perfect. Things will wobble. Keep going anyway.
+
+  - id: 3
+    mode: see
+    type: the_whole_map
+    figure: "Full horizontal map of the movement. Bars 1-23: opening (blue). Bars 24-42: middle (purple). Bars 43-60: return (blue). Bars 61-69: coda (fading to black)."
+    cleffy: >
+      The whole map. Four sections.
+      Bars 1-23 — opening. The texture and first theme.
+      Bars 24-42 — middle. Modulations. New melodic line.
+      Bars 43-60 — return. Theme comes home.
+      Bars 61-69 — coda. The descent to silence.
+
+  - id: 4
+    mode: hear
+    type: listen_full
+    figure: "Play button. Caption: 'full first movement, real recording, slow reference.'"
+    audio:
+      A: "Moonlight Sonata 1st movement, complete, real recording — simplified reference tempo"
+    cleffy: >
+      Listen. All the way through.
+      Don't count. Don't analyze. Just let the shape wash over you.
+      This is what you're about to play.
+
+  - id: 5
+    mode: see
+    type: the_rules_for_today
+    figure: "Four rules on screen. 1. No stopping. 2. Very slow — 40 bpm. 3. Wrong notes — keep going. 4. Let silence breathe at the coda."
+    cleffy: >
+      The rules for today.
+      One — no stopping. If something wobbles, keep going.
+      Two — very slow. Forty on the click.
+      Three — wrong notes happen. Step over them. Don't go back.
+      Four — let the final chord ring. Don't cut the silence short.
+
+  - id: 6
+    mode: play
+    type: warmup_opening_4_bars
+    figure: "Bars 1-4. Warmup. Tempo 44."
+    cleffy: >
+      Warmup. The first four bars you ever played.
+      Let the hands remember.
+    interaction:
+      type: song
+      sequence: [["C#2","C#3"],"C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4",["C#2","C#3"],"C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4",["B1","B2"],"B3","D#4","F#4","B3","D#4","F#4","B3","D#4","F#4","B3","D#4","F#4",["E2","G#2"],"E3","G#3","B3","E3","G#3","B3","E3","G#3","B3","E3","G#3","B3"]
+      guides: true
+      tempo: 44
+
+  - id: 7
+    mode: play
+    type: section_a_1_23
+    figure: "Bars 1-23. Section A — opening through first transition. Tempo 42. Guides on."
+    cleffy: >
+      Section A. Bars 1 through 23.
+      Known territory. The engine. The first melody. The first modulation.
+      Keep the triplets steady. No rush.
+    interaction:
+      type: song
+      sequence: [["C#2","C#3"],"C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4",["C#2","C#3"],"C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4",["B1","B2"],"B3","D#4","F#4","B3","D#4","F#4","B3","D#4","F#4",["E2","G#2"],"E3","G#3","B3","E3","G#3","B3","E3","G#3","B3",["A2","A3","G#4"],"A3","C#4","E4","A3","C#4","G#4","A3","C#4",["F#2","F#3","A4"],"F#3","A3","C#4","F#3","A3","A4","F#3","A3",["G#2","G#3","G#4"],"G#3","B#3","D#4","G#3","B#3","F#4","G#3","B#3",["C#2","C#3","E4"],"C#3","E3","G#3","C#3","E3","G#3","C#3","E3",["C#2","C#3","G#4"],"C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4",["C#2","C#3","E4"],"C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4",["B1","B2","D#4"],"B3","D#4","F#4","B3","D#4","F#4","B3","D#4","F#4",["E2","G#2","B3"],"E3","G#3","B3","E3","G#3","B3","E3","G#3","B3",["A2","C#3","G#4"],"A3","C#4","E4","A3","C#4","E4","A3","C#4","E4",["F#2","A2","C#4"],"F#3","A3","C#4","F#3","A3","C#4","F#3","A3","C#4",["B2","D#3","F#4"],"D#3","F#3","B3","D#3","F#3","B3","D#3","F#3","B3",["E2","G#2","B3"],"E3","G#3","B3","E3","G#3","B3","E3","G#3","B3",["A2","C#3","A3"],"A3","C#4","E4","A3","C#4","E4","A3","C#4","E4",["D#2","F#2","A3"],"F#3","A3","D#4","F#3","A3","D#4","F#3","A3","D#4",["G#2","B2","B3"],"G#3","B3","D#4","G#3","B3","D#4","G#3","B3","D#4",["G#2","B2","G#3"],"G#3","B3","D#4","G#3","B3","D#4","G#3","B3","D#4",["C#2","E2","G#3"],"E3","G#3","C#4","E3","G#3","C#4","E3","G#3","C#4",["F#2","A2","C#4"],"F#3","A3","C#4","F#3","A3","C#4","F#3","A3","C#4",["C#2","G#2","E4"],"G#3","C#4","E4","G#3","C#4","E4","G#3","C#4","E4"]
+      guides: true
+      tempo: 42
+
+  - id: 8
+    mode: play
+    type: section_b_24_42
+    figure: "Bars 24-42. Middle section. Tempo 42. Guides on."
+    cleffy: >
+      Section B. Bars 24 through 42.
+      The wandering. Engine running. New melody. Flutter pedal.
+      Don't stop between sections.
+    interaction:
+      type: song
+      sequence: [["C#2","E2"],"G#3","C#4","E4","G#3","C#4","E4","G#3","C#4","E4","G#3","C#4","E4",["G#2","B2"],"G#3","B3","E4","G#3","B3","E4","G#3","B3","E4","G#3","B3","E4",["E2","G#2","B4"],"E3","G#3","B3","E3","G#3","B3","E3","G#3","B3","E3","G#3","B3",["G#2","B2","A4"],"G#3","B3","E4","G#3","B3","E4","G#3","B3","E4","G#3","B3","E4",["F#2","A2","G#4"],"F#3","A3","C#4","F#3","A3","C#4","F#3","A3","C#4","F#3","A3","C#4",["B2","D#3","F#4"],"F#3","A3","B3","F#3","A3","B3","F#3","A3","B3","F#3","A3","B3",["G#2","B2","D#4"],"G#3","B3","D#4","G#3","B3","D#4","G#3","B3","D#4","G#3","B3","D#4",["F#2","A2","C#4"],"F#3","A3","C#4","F#3","A3","C#4","F#3","A3","C#4","F#3","A3","C#4",["E2","G#2","B3"],"G#3","B3","E4","G#3","B3","E4","G#3","B3","E4","G#3","B3","E4",["D#2","F#2","A3"],"F#3","A3","D#4","F#3","A3","D#4","F#3","A3","D#4","F#3","A3","D#4",["C#2","E2","G#3"],"E3","G#3","C#4","E3","G#3","C#4","E3","G#3","C#4","E3","G#3","C#4",["B1","D#2","F#3"],"D#3","F#3","B3","D#3","F#3","B3","D#3","F#3","B3","D#3","F#3","B3",["E2","G#2","B3"],"E3","G#3","B3","E3","G#3","B3","E3","G#3","B3","E3","G#3","B3",["F#2","A2","C#4"],"F#3","A3","C#4","F#3","A3","C#4","F#3","A3","C#4","F#3","A3","C#4",["G#2","B2","D#4"],"G#3","B3","D#4","G#3","B3","D#4","G#3","B3","D#4","G#3","B3","D#4",["G#2","B2","C#4"],"G#3","B3","C#4","G#3","B3","C#4","G#3","B3","C#4","G#3","B3","C#4",["C#2","G#2","E4"],"G#3","C#4","E4","G#3","C#4","E4","G#3","C#4","E4","G#3","C#4","E4"]
+      guides: true
+      tempo: 42
+
+  - id: 9
+    mode: play
+    type: section_a_prime_43_60
+    figure: "Bars 43-60. Return — A' section. Tempo 42. Guides on."
+    cleffy: >
+      Section A-prime. Bars 43 through 60.
+      Theme returns. Home-ish. Deeper bass. The piece knows where it's going.
+    interaction:
+      type: song
+      sequence: [["C#2","C#3","G#4"],"C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4","C#4","E4",["C#2","C#3","G#4"],"C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4","C#4","E4",["B1","B2","G#4"],"B3","D#4","F#4","B3","D#4","A4","B3","D#4","G#4","B3","D#4",["B1","B2","A4"],"B3","D#4","F#4","B3","D#4","A4","B3","D#4","G#4","B3","D#4",["A2","A3","G#4"],"A3","C#4","E4","A3","C#4","G#4","A3","C#4","A4",["F#2","F#3","A4"],"F#3","A3","C#4","F#3","A3","A4","F#3","A3","G#4",["G#2","G#3","G#4"],"G#3","B#3","D#4","G#3","B#3","F#4","G#3","B#3","E4",["C#2","C#3","E4"],"C#3","E3","G#3","C#3","E3","G#3","C#3","E3","G#3",["F#2","F#3","C#5"],"F#3","A3","C#4","F#3","A3","C#4","F#3","A3","C#4","F#3","A3",["B2","D#3","B4"],"D#3","F#3","B3","D#3","F#3","B3","D#3","F#3","B3","D#3","F#3",["E2","G#2","A4"],"E3","G#3","B3","E3","G#3","B3","E3","G#3","B3","E3","G#3",["A2","C#3","G#4"],"C#3","E3","A3","C#3","E3","A3","C#3","E3","A3","C#3","E3",["D#2","F#2","F#4"],"F#2","A2","D#3","F#2","A2","D#3","F#2","A2","D#3","F#2","A2",["G#2","B2","E4"],"B2","D#3","G#3","B2","D#3","G#3","B2","D#3","G#3","B2","D#3",["C#2","G#2","C#4"],"G#2","C#3","E3","G#2","C#3","E3","G#2","C#3","E3","G#2","C#3",["F#2","A2","C#4"],"A2","C#3","F#3","A2","C#3","F#3","A2","C#3","F#3","A2","C#3",["G#2","B2","D#4"],"B2","D#3","G#3","B2","D#3","G#3","B2","D#3","G#3","B2","D#3",["C#2","E2","G#3"],"E2","G#2","C#3","E2","G#2","C#3","E2","G#2","C#3","E2","G#2"]
+      guides: true
+      tempo: 42
+
+  - id: 10
+    mode: play
+    type: coda_61_69
+    figure: "Bars 61-69. Coda. Tempo 40. Guides on. ppp at end."
+    cleffy: >
+      The coda. Bars 61 through 69.
+      Quiet. Still. Let the last chord ring into silence.
+    interaction:
+      type: song
+      sequence: [["C#2","C#3","G#4"],"C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4","C#4","E4",["C#2","C#3","E4"],"C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4","C#4","E4",["G#1","G#2"],"E3","G#3","C#4","E3","G#3","C#4","E3","G#3","C#4","E3","G#3",["C#2","C#3"],"E3","G#3","C#4","E3","G#3","C#4","E3","G#3","C#4","E3","G#3",["C#2","C#3","E4"],"C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4","C#4","E4",["C#2","G#2","E4"],"G#3","C#4","E4","G#3","C#4","E4","G#3","C#4","E4","G#3","C#4",["C#2","C#3","E4"],"C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4","C#4","E4",["C#2","C#3"],"C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4","C#4","E4",["C#2","C#3","G#3","C#4","E4"]]
+      guides: true
+      tempo: 40
+
+  - id: 11
+    mode: see
+    type: the_big_one
+    figure: "A single word on screen — 'now.' Below: 'Bars 1-69. No stopping. Slow. Carefully.'"
+    cleffy: >
+      Now — the whole thing.
+      All sixty-nine bars. No stopping.
+      If you wobble, keep going. Never stop.
+      You have practiced every section. Trust the hands.
+
+  - id: 12
+    mode: play
+    type: full_movement_guided
+    figure: "The complete first movement. All 69 bars. Guides on. Tempo 40. Label: adagio sostenuto."
+    cleffy: >
+      Full movement. Guides on.
+      Breathe. Start.
+    interaction:
+      type: song
+      sequence: [["C#2","C#3"],"C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4",["C#2","C#3"],"C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4",["B1","B2"],"B3","D#4","F#4","B3","D#4","F#4","B3","D#4","F#4",["E2","G#2"],"E3","G#3","B3","E3","G#3","B3","E3","G#3","B3",["A2","A3","G#4"],"A3","C#4","E4","A3","C#4","G#4","A3","C#4",["F#2","F#3","A4"],"F#3","A3","C#4","F#3","A3","A4","F#3","A3",["G#2","G#3","G#4"],"G#3","B#3","D#4","G#3","B#3","F#4","G#3","B#3",["C#2","C#3","E4"],"C#3","E3","G#3","C#3","E3","G#3","C#3","E3",["C#2","E2"],"G#3","C#4","E4","G#3","C#4","E4","G#3","C#4","E4",["G#2","B2"],"G#3","B3","E4","G#3","B3","E4","G#3","B3","E4",["E2","G#2","B4"],"E3","G#3","B3","E3","G#3","B3","E3","G#3","B3",["G#2","B2","A4"],"G#3","B3","E4","G#3","B3","E4","G#3","B3","E4",["F#2","A2","G#4"],"F#3","A3","C#4","F#3","A3","C#4","F#3","A3","C#4",["B2","D#3","F#4"],"F#3","A3","B3","F#3","A3","B3","F#3","A3","B3",["G#2","B2","D#4"],"G#3","B3","D#4","G#3","B3","D#4","G#3","B3","D#4",["F#2","A2","C#4"],"F#3","A3","C#4","F#3","A3","C#4","F#3","A3","C#4",["E2","G#2","B3"],"G#3","B3","E4","G#3","B3","E4","G#3","B3","E4",["D#2","F#2","A3"],"F#3","A3","D#4","F#3","A3","D#4","F#3","A3","D#4",["C#2","C#3","G#4"],"C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4",["C#2","C#3","G#4"],"C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4",["B1","B2","G#4"],"B3","D#4","F#4","B3","D#4","A4","B3","D#4","G#4",["B1","B2","A4"],"B3","D#4","F#4","B3","D#4","A4","B3","D#4","G#4",["A2","A3","G#4"],"A3","C#4","E4","A3","C#4","G#4","A3","C#4",["F#2","F#3","A4"],"F#3","A3","C#4","F#3","A3","A4","F#3","A3",["G#2","G#3","G#4"],"G#3","B#3","D#4","G#3","B#3","F#4","G#3","B#3",["C#2","C#3","E4"],"C#3","E3","G#3","C#3","E3","G#3","C#3","E3",["F#2","F#3","C#5"],"F#3","A3","C#4","F#3","A3","C#4","F#3","A3",["B2","D#3","B4"],"D#3","F#3","B3","D#3","F#3","B3","D#3","F#3",["E2","G#2","A4"],"E3","G#3","B3","E3","G#3","B3","E3","G#3",["A2","C#3","G#4"],"C#3","E3","A3","C#3","E3","A3","C#3","E3",["D#2","F#2","F#4"],"F#2","A2","D#3","F#2","A2","D#3","F#2","A2",["G#2","B2","E4"],"B2","D#3","G#3","B2","D#3","G#3","B2","D#3",["C#2","G#2","C#4"],"G#2","C#3","E3","G#2","C#3","E3","G#2","C#3",["F#2","A2","C#4"],"A2","C#3","F#3","A2","C#3","F#3","A2","C#3",["G#2","B2","D#4"],"B2","D#3","G#3","B2","D#3","G#3","B2","D#3",["C#2","E2","G#3"],"E2","G#2","C#3","E2","G#2","C#3","E2","G#2",["C#2","C#3","G#4"],"C#4","E4","G#4","C#4","E4","G#4","C#4","E4",["C#2","C#3","E4"],"C#4","E4","G#4","C#4","E4","G#4","C#4","E4",["G#1","G#2"],"E3","G#3","C#4","E3","G#3","C#4","E3","G#3",["C#2","C#3"],"E3","G#3","C#4","E3","G#3","C#4","E3","G#3",["C#2","C#3","E4"],"C#4","E4","G#4","C#4","E4","G#4","C#4","E4",["C#2","G#2","E4"],"G#3","C#4","E4","G#3","C#4","E4","G#3","C#4",["C#2","C#3","E4"],"C#4","E4","G#4","C#4","E4","G#4","C#4","E4",["C#2","C#3"],"C#4","E4","G#4","C#4","E4","G#4","C#4","E4",["C#2","C#3","G#3","C#4","E4"]]
+      guides: true
+      tempo: 40
+    followup_cleffy: >
+      That. All sixty-nine bars, one after another.
+      No stopping. Full movement. First time.
+
+  - id: 13
+    mode: play
+    type: full_movement_no_guides
+    figure: "The complete first movement. No guides. Tempo 40. Label: 'adagio sostenuto — senza sordino — delicatissimamente.'"
+    cleffy: >
+      Once more. No guides.
+      You read the page. You play.
+      Let it breathe. Never rush.
+    interaction:
+      type: song
+      sequence: [["C#2","C#3"],"C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4",["C#2","C#3"],"C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4",["B1","B2"],"B3","D#4","F#4","B3","D#4","F#4","B3","D#4","F#4",["E2","G#2"],"E3","G#3","B3","E3","G#3","B3","E3","G#3","B3",["A2","A3","G#4"],"A3","C#4","E4","A3","C#4","G#4","A3","C#4",["F#2","F#3","A4"],"F#3","A3","C#4","F#3","A3","A4","F#3","A3",["G#2","G#3","G#4"],"G#3","B#3","D#4","G#3","B#3","F#4","G#3","B#3",["C#2","C#3","E4"],"C#3","E3","G#3","C#3","E3","G#3","C#3","E3",["C#2","E2"],"G#3","C#4","E4","G#3","C#4","E4","G#3","C#4","E4",["G#2","B2"],"G#3","B3","E4","G#3","B3","E4","G#3","B3","E4",["E2","G#2","B4"],"E3","G#3","B3","E3","G#3","B3","E3","G#3","B3",["G#2","B2","A4"],"G#3","B3","E4","G#3","B3","E4","G#3","B3","E4",["F#2","A2","G#4"],"F#3","A3","C#4","F#3","A3","C#4","F#3","A3","C#4",["B2","D#3","F#4"],"F#3","A3","B3","F#3","A3","B3","F#3","A3","B3",["G#2","B2","D#4"],"G#3","B3","D#4","G#3","B3","D#4","G#3","B3","D#4",["F#2","A2","C#4"],"F#3","A3","C#4","F#3","A3","C#4","F#3","A3","C#4",["E2","G#2","B3"],"G#3","B3","E4","G#3","B3","E4","G#3","B3","E4",["D#2","F#2","A3"],"F#3","A3","D#4","F#3","A3","D#4","F#3","A3","D#4",["C#2","C#3","G#4"],"C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4",["C#2","C#3","G#4"],"C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4",["B1","B2","G#4"],"B3","D#4","F#4","B3","D#4","A4","B3","D#4","G#4",["B1","B2","A4"],"B3","D#4","F#4","B3","D#4","A4","B3","D#4","G#4",["A2","A3","G#4"],"A3","C#4","E4","A3","C#4","G#4","A3","C#4",["F#2","F#3","A4"],"F#3","A3","C#4","F#3","A3","A4","F#3","A3",["G#2","G#3","G#4"],"G#3","B#3","D#4","G#3","B#3","F#4","G#3","B#3",["C#2","C#3","E4"],"C#3","E3","G#3","C#3","E3","G#3","C#3","E3",["F#2","F#3","C#5"],"F#3","A3","C#4","F#3","A3","C#4","F#3","A3",["B2","D#3","B4"],"D#3","F#3","B3","D#3","F#3","B3","D#3","F#3",["E2","G#2","A4"],"E3","G#3","B3","E3","G#3","B3","E3","G#3",["A2","C#3","G#4"],"C#3","E3","A3","C#3","E3","A3","C#3","E3",["D#2","F#2","F#4"],"F#2","A2","D#3","F#2","A2","D#3","F#2","A2",["G#2","B2","E4"],"B2","D#3","G#3","B2","D#3","G#3","B2","D#3",["C#2","G#2","C#4"],"G#2","C#3","E3","G#2","C#3","E3","G#2","C#3",["F#2","A2","C#4"],"A2","C#3","F#3","A2","C#3","F#3","A2","C#3",["G#2","B2","D#4"],"B2","D#3","G#3","B2","D#3","G#3","B2","D#3",["C#2","E2","G#3"],"E2","G#2","C#3","E2","G#2","C#3","E2","G#2",["C#2","C#3","G#4"],"C#4","E4","G#4","C#4","E4","G#4","C#4","E4",["C#2","C#3","E4"],"C#4","E4","G#4","C#4","E4","G#4","C#4","E4",["G#1","G#2"],"E3","G#3","C#4","E3","G#3","C#4","E3","G#3",["C#2","C#3"],"E3","G#3","C#4","E3","G#3","C#4","E3","G#3",["C#2","C#3","E4"],"C#4","E4","G#4","C#4","E4","G#4","C#4","E4",["C#2","G#2","E4"],"G#3","C#4","E4","G#3","C#4","E4","G#3","C#4",["C#2","C#3","E4"],"C#4","E4","G#4","C#4","E4","G#4","C#4","E4",["C#2","C#3"],"C#4","E4","G#4","C#4","E4","G#4","C#4","E4",["C#2","C#3","G#3","C#4","E4"]]
+      guides: false
+      tempo: 40
+    followup_cleffy: >
+      That.
+      The complete Moonlight Sonata first movement, in your two hands.
+      The first time. There will be many more.
+
+  - id: 14
+    mode: hear
+    type: pre_check
+    figure: "Banner — Act 49 boss mastery check."
+    cleffy: >
+      Four quick ones. Take your time. Act boss.
+
+  - id: 15
+    mode: see
+    type: graduation_is_next
+    figure: "Calendar flip. Act 50 highlighted. GRADUATION WEEK. A small trophy icon at lesson 250."
+    cleffy: >
+      Tomorrow is graduation week.
+      Five lessons. Nerves. Recovery. Moonlight near-tempo. Dress rehearsal. Graduation day.
+      The whole movement is in your hands. Now it just needs to come alive.
+
+  - id: 16
+    mode: see
+    type: wrap
+    figure: "Celebration card — ACT 49 COMPLETE 🎯. Cleffy looking at a low moon through a window. Behind him — a calendar: ACT 50 · GRADUATION WEEK pulsing. Caption: 'The last act boss is closed. One more act to go.'"
+    cleffy: >
+      Act 49 — closed.
+      You played every single bar of Moonlight Sonata's first movement today. All sixty-nine.
+      No stopping. No tempo yet. But you played it.
+      Last act boss behind you. Only graduation week ahead.
+      Rest.
+
+practice_this_week:
+  real_piano:
+    - "Play the whole movement once a day, slow. Don't push past 42 bpm this week."
+    - "If a section wobbles, stop only AFTER you finish the full run. Then work that one spot. Then do a full run again."
+    - "Record yourself playing the whole thing. Listen back with the score in hand. Notice the phrases that breathe. Notice the ones that don't."
+    - "Listen to a complete recording of the Moonlight 1st movement once. Appreciate what you just did."
+  virtual_only:
+    - "Replay pages 12 and 13 — full movement with and without guides."
+  estimated_time: "25 min/day this week — the biggest run you've ever done"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 3
+      questions:
+        - figure: "Map of the full movement: four sections labeled A, B, A', coda"
+          prompt: "What is the structure of Moonlight's 1st movement?"
+          options: ["One long section", "A-B-A' with a coda", "Verse-chorus"]
+          correct: 1
+        - figure: "Tempo marking: 40 bpm, adagio sostenuto"
+          prompt: "What tempo is today's run?"
+          options: ["Full speed", "Very slow — 40 bpm", "Medium"]
+          correct: 1
+        - figure: "Rules card: no stopping, slow, wrong notes OK, ppp at coda"
+          prompt: "What should you do if you hit a wrong note?"
+          options: ["Stop and restart", "Keep going — the run doesn't stop", "Go back to the previous bar"]
+          correct: 1
+        - figure: "The full 69-bar map with pedal markings"
+          prompt: "What pedal techniques appear in the full movement?"
+          options: ["Only full pedal changes", "Full changes, half-pedal, and flutter — varied by section", "No pedal at all"]
+          correct: 1
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "Full first movement, real recording"
+          prompt: "Which describes this piece?"
+          options: ["A loud, fast toccata", "A slow, sustained, quiet piece with a continuous triplet engine", "A loud march"]
+          correct: 1
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play the entire first movement of Moonlight — all 69 bars — at 40 bpm, no stopping."
+          accept: "Full 69 bars played end to end, slow, no full stops, final chord held into silence"
+
+remediation:
+  id: "245.5"
+  title: "The full movement, stitched slowly"
+  pages: 11
+  opening_cleffy: >
+    This is the biggest thing you've ever played. If it wobbled, that's expected.
+    We'll slow to 36 and stitch section by section — A, then A plus B, then A plus B plus A-prime, then the whole thing with the coda.
+    By the end, you will have played all sixty-nine bars in one unbroken run. That's the goal.
+    No hurry.
+
+completion:
+  cleffy: >
+    Act 49 — sealed. The last act boss of the whole curriculum.
+    You played the complete first movement of Moonlight Sonata today. Every bar.
+    Tomorrow is graduation week. Five lessons to the summit.
+    Rest tonight. The moon will be out.
+  xp: 30
+  unlocks: 246

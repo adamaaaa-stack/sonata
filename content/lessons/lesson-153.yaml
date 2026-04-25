@@ -1,0 +1,234 @@
+# ============================================================
+# LESSON 153 · LH melody + RH chords
+# Tier 4 · Act 31 · Intermediate
+# Reverse texture. LH plays a tune, RH holds or plays a chord above.
+# ============================================================
+id: 153
+tier: intermediate
+act: 31
+title: "LH melody + RH chords"
+subtitle: "Act 31 · Swap the roles"
+goal: "Play a melody with the left hand while the right hand holds a chord above — the reverse of yesterday."
+prereqs: [152, 151]
+method_focus: "play"
+time_estimate_min: 14
+piece_context: "Yesterday — RH melody, LH chord. Standard. Today — swap. LH carries the tune while RH holds above. Rarer in piano music, but essential. Some of the most beautiful moments in Schumann, Chopin, Beethoven happen exactly here."
+metaphor: "two-hands-two-minds"
+vibe: ["serious", "focused"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy flipping a coin. One side: 'RH melody / LH chord'. Other side: 'LH melody / RH chord'. Today's side is up."
+    cleffy: >
+      Flip yesterday over.
+      LH sings the melody. RH holds the chord above.
+      Your left hand is not used to leading. Today it does.
+
+  - id: 2
+    mode: see
+    type: the_texture
+    figure: "Grand staff, 4/4. RH: whole-note chord C4-E4-G4. LH: quarter-note melody C3-D3-E3-D3."
+    cleffy: >
+      The reverse picture.
+      RH — whole-note chord, held for the full bar.
+      LH — four quarter notes walking across underneath.
+      The melody is down low now. The chord rings above it.
+
+  - id: 3
+    mode: hear
+    type: listen
+    figure: "Play button. Metronome 60."
+    audio:
+      A: "RH chord C4-E4-G4 held as a whole note. LH melody C3-D3-E3-D3 on each beat. Slow, warm."
+    cleffy: >
+      Listen.
+      Chord on top. Melody moving underneath.
+      Different feel than yesterday. Deeper. More shadowed.
+
+  - id: 4
+    mode: play
+    type: rh_alone_chord
+    figure: "Keyboard. C4, E4, G4 lit. RH block chord."
+    cleffy: >
+      RH alone. Hold the C chord. Four beats. Don't let go.
+    interaction:
+      type: rhythm
+      sequence: [["C4","E4","G4"]]
+      durations: ["whole"]
+      tempo: 60
+
+  - id: 5
+    mode: play
+    type: lh_alone_melody
+    figure: "Keyboard. C3, D3, E3 lit. Metronome 60."
+    cleffy: >
+      LH alone. The melody. C, D, E, D.
+      Take your time. This is your left hand leading — it's a new feeling.
+    interaction:
+      type: rhythm
+      sequence: ["C3","D3","E3","D3"]
+      durations: ["quarter","quarter","quarter","quarter"]
+      tempo: 60
+
+  - id: 6
+    mode: see
+    type: why_hard
+    figure: "Brain diagram. Right hemisphere brighter than left. Caption: 'RH usually leads. Today it doesn't.'"
+    cleffy: >
+      Here's the honest bit.
+      Your right hand has led almost every lesson you've played.
+      Your brain expects it. Today you ask the left hand to take the front — and the right to just hold still.
+      It will feel clumsy at first. That's correct.
+
+  - id: 7
+    mode: play
+    type: both_slow
+    figure: "Grand staff. RH C-E-G whole note. LH C3-D3-E3-D3 quarters. Metronome 50."
+    cleffy: >
+      Both hands. 50 bpm.
+      RH presses the chord once. LH walks the melody underneath.
+    interaction:
+      type: rhythm
+      sequence: [["C3","C4","E4","G4"], "D3", "E3", "D3"]
+      durations: ["quarter","quarter","quarter","quarter"]
+      tempo: 50
+
+  - id: 8
+    mode: play
+    type: both_again
+    figure: "Same staff. 50 bpm."
+    cleffy: >
+      Again. Keep RH down.
+      LH is the one doing the work. Listen for its shape.
+    interaction:
+      type: rhythm
+      sequence: [["C3","C4","E4","G4"], "D3", "E3", "D3"]
+      durations: ["quarter","quarter","quarter","quarter"]
+      tempo: 50
+    followup_cleffy: >
+      Your left hand just sang.
+
+  - id: 9
+    mode: see
+    type: listen_for_the_tune
+    figure: "Same grand staff, but RH chord drawn faded. LH melody line highlighted in gold."
+    cleffy: >
+      A small mental switch.
+      Treat the LH as the voice. Listen to its line.
+      The RH chord is background — like wind behind a singer.
+
+  - id: 10
+    mode: play
+    type: chord_change
+    figure: "Grand staff. Two bars. Bar 1: RH C-E-G chord, LH C3-D3-E3-D3. Bar 2: RH G-B-D chord, LH G2-A2-B2-A2."
+    cleffy: >
+      Two bars. RH chord changes in bar 2. LH melody continues.
+    interaction:
+      type: rhythm
+      sequence: [["C3","C4","E4","G4"], "D3", "E3", "D3", ["G2","G3","B3","D4"], "A2", "B2", "A2"]
+      durations: ["quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter"]
+      tempo: 55
+
+  - id: 11
+    mode: play
+    type: four_bars
+    figure: "Grand staff. Four bars — C, F, G, C. RH chord, LH melody."
+    cleffy: >
+      Four bars. LH carries the tune through all four.
+    interaction:
+      type: rhythm
+      sequence: [["C3","C4","E4","G4"], "D3", "E3", "D3", ["F2","F3","A3","C4"], "G2", "A2", "G2", ["G2","G3","B3","D4"], "A2", "B2", "A2", ["C3","C4","E4","G4"], "D3", "E3", "C3"]
+      durations: ["quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter"]
+      tempo: 55
+
+  - id: 12
+    mode: see
+    type: in_real_music
+    figure: "A score snippet — Schumann-style texture. LH melody line highlighted. Label: 'the left hand as tenor voice.'"
+    cleffy: >
+      Real music does this all the time.
+      Schumann loves it. Chopin uses it for cello-like sighs.
+      When the melody drops to the left hand, the piece changes color.
+
+  - id: 13
+    mode: play
+    type: final
+    figure: "Four bars. Tempo 60."
+    cleffy: >
+      One more. 60 bpm.
+    interaction:
+      type: rhythm
+      sequence: [["C3","C4","E4","G4"], "D3", "E3", "D3", ["F2","F3","A3","C4"], "G2", "A2", "G2", ["G2","G3","B3","D4"], "A2", "B2", "A2", ["C3","C4","E4","G4"], "D3", "E3", "C3"]
+      durations: ["quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter","quarter"]
+      tempo: 60
+
+  - id: 14
+    mode: hear
+    type: pre_check
+    figure: "Banner."
+    cleffy: >
+      Three quick ones.
+
+  - id: 15
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 153. A coin landed LH-up. Cleffy holding it, smiling faintly."
+    cleffy: >
+      Left hand led. Right hand held.
+      Tomorrow — a drill. Same patterns, three speeds. Slow, moderate, fast.
+
+practice_this_week:
+  real_piano:
+    - "The four-bar progression with LH melody every day. Listen for the tune — it's in the bass now."
+    - "Switch texture mid-session. Play yesterday's pattern, then today's back to back. Feel how they differ."
+    - "If the LH melody sounds weak or uneven — slow to 40 bpm. The left hand needs more reps."
+  virtual_only:
+    - "Replay pages 7-8 and page 11."
+  estimated_time: "10 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "Grand staff — RH whole-note chord, LH quarter-note melody"
+          prompt: "Which hand plays the melody?"
+          options: ["Right hand", "Left hand"]
+          correct: 1
+        - figure: "Today's texture vs yesterday's, side by side"
+          prompt: "What's flipped compared to yesterday?"
+          options: ["The melody moved from RH to LH", "The tempo", "The key"]
+          correct: 0
+        - figure: "LH melody line highlighted under a held RH chord"
+          prompt: "What role is the RH playing?"
+          options: ["Lead voice", "Background chord", "Rhythm only"]
+          correct: 1
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "LH melody walking under a held RH chord"
+          prompt: "Where is the melody?"
+          options: ["On top", "Underneath"]
+          correct: 1
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play one bar — RH holds C4-E4-G4 chord, LH plays C3-D3-E3-D3 melody."
+          accept: "RH C-E-G sustained above, LH four quarters moving below"
+
+remediation:
+  id: "153.5"
+  title: "Let the left hand lead, very slow"
+  pages: 8
+  opening_cleffy: >
+    LH leading is new. Expected that it's shaky.
+    We'll play the LH melody alone, loud and proud, until it feels like a real tune. Then layer RH on.
+
+completion:
+  cleffy: >
+    The left hand led today. That's a real unlock.
+    Tomorrow — a drill. Same patterns, pushed slow to fast.
+  xp: 18
+  unlocks: 154

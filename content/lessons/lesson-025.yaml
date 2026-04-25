@@ -1,0 +1,317 @@
+# ============================================================
+# LESSON 25 · Happy Birthday — Tier 1 BOSS 👑
+# Tier 1 · Act 5 · Beginner · TIER BOSS
+# 20 pages (tier boss size)
+# ============================================================
+id: 25
+tier: beginner
+act: 5
+title: "Happy Birthday"
+subtitle: "Tier 1 · The finish line"
+goal: "Read and play Happy Birthday from a page. End of Tier 1. You are officially a piano-reading beginner."
+prereqs: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24]
+method_focus: "combine"
+time_estimate_min: 18
+piece_context: "The first piece you can say you really PLAY. Not just tap the right keys — read it off a page, count the rhythm, use the right fingers. A whole performance, end to end."
+metaphor: "first-summit"
+vibe: ["gentle", "playful", "celebratory", "serious"]
+is_tier_boss: true
+piece:
+  title: "Happy Birthday to You"
+  composer: "Patty Hill & Mildred Hill"
+  key_center: "C major (simplified for beginners)"
+  time_signature: "3/4"
+  difficulty: "beginner — steps + skips, simple rhythms"
+  full_sequence: "G G A G C B | G G A G D C | G G G(high) E C B A | F F E C D C"
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy at the top of a staircase. 24 stairs behind him. A small cake at the top."
+    cleffy: >
+      Twenty-five lessons.
+      You touched a piano for the first time at lesson 2.
+      You read your first note at lesson 15.
+      Today you read a whole song. A real one. One people recognize.
+      Happy Birthday. Let's go.
+
+  - id: 2
+    mode: see
+    type: piece_overview
+    figure: "A clean staff showing the full Happy Birthday melody — 4 lines of music."
+    cleffy: >
+      Here's the whole song. Don't panic at the page.
+      Four lines of music. Mostly steps and skips. A few repeated notes. That's it.
+      We'll build it line by line.
+
+  - id: 3
+    mode: see
+    type: time_signature_note
+    figure: "Close-up of the time signature at the start: 3/4."
+    cleffy: >
+      Quick note. This song is in 3/4, not 4/4.
+      Three beats per bar, not four.
+      Count 1-2-3, 1-2-3. Like a waltz.
+      Everything else you know still works — notes, shapes, durations. Just three beats in each box.
+
+  - id: 4
+    mode: see
+    type: line_1_shape
+    figure: "Only the first line of Happy Birthday: G G A G C B."
+    cleffy: >
+      Line 1. Happy birthday to you.
+      G, G, A, G, C, B.
+      First two notes are the same — repeated note. No move.
+      Then up a step to A. Down a step back to G.
+      Then a leap up to C. Down a step to B.
+      Two repeats, step, step, leap, step. That's the whole first line.
+
+  - id: 5
+    mode: play
+    type: line_1_play
+    figure: "Keyboard with G, A, B, C all glowing. Fingering numbers shown: 5 on G (pinky), 4 on A, 3 on B, 2 on C. (Right hand in G position.)"
+    cleffy: >
+      Right hand in G position. Pinky on G, ring finger on A, middle on B, pointer on C.
+      Play the first line: G, G, A, G, C, B.
+      Slow. Happy. Birthday. To. You.
+    interaction:
+      type: rhythm
+      sequence: ["G4", "G4", "A4", "G4", "C5", "B4"]
+      tempo: 60
+
+  - id: 6
+    mode: see
+    type: line_2_shape
+    figure: "Line 2: G G A G D C."
+    cleffy: >
+      Line 2. Happy birthday to you. Almost the same.
+      G, G, A, G — identical start to line 1.
+      Then D (higher than C) and C (just below D).
+      Leap up, step down.
+
+  - id: 7
+    mode: play
+    type: line_2_play
+    figure: "Keyboard with G, A, C, D glowing. Right-hand position shifting slightly for D."
+    cleffy: >
+      Play line 2. G, G, A, G, D, C. That last pair is higher than line 1.
+    interaction:
+      type: rhythm
+      sequence: ["G4", "G4", "A4", "G4", "D5", "C5"]
+      tempo: 60
+
+  - id: 8
+    mode: play
+    type: lines_1_and_2_together
+    figure: "Staff with both lines visible. Keyboard below."
+    cleffy: >
+      Both lines, back to back.
+    interaction:
+      type: rhythm
+      sequence: ["G4", "G4", "A4", "G4", "C5", "B4", "G4", "G4", "A4", "G4", "D5", "C5"]
+      tempo: 60
+
+  - id: 9
+    mode: see
+    type: line_3_shape
+    figure: "Line 3: G G G(high) E C B A. The third G is an octave higher than the first two."
+    cleffy: >
+      Line 3. Happy birthday dear Sonata.
+      G, G — same as before. Then the third G jumps up a whole octave. That's the famous leap in this song.
+      From that high G, down a skip to E. Down a skip to C. Down a step to B. Down a step to A.
+      Two low G's, a big jump up, then stepping down, down, down.
+
+  - id: 10
+    mode: play
+    type: line_3_play
+    figure: "Keyboard with low G and high G both glowing, plus E, C, B, A. The octave leap is highlighted."
+    cleffy: >
+      Play line 3. Watch out — the third G is a whole octave higher than the first two. Big jump up.
+      Your hand will have to shift up for that high G, then stretch down from E to A on the way home.
+      G, G, high G, E, C, B, A.
+    interaction:
+      type: rhythm
+      sequence: ["G4", "G4", "G5", "E5", "C5", "B4", "A4"]
+      tempo: 55
+
+  - id: 11
+    mode: see
+    type: line_4_shape
+    figure: "Line 4: F F E C D C."
+    cleffy: >
+      Last line. Happy birthday to you.
+      F, F — repeated. Down to E. Leap down to C. Up a step to D. Down a step to C.
+      This is the resolution — ends on C, which is home.
+
+  - id: 12
+    mode: play
+    type: line_4_play
+    figure: "Keyboard with C through F glowing."
+    cleffy: >
+      Play line 4. F, F, E, C, D, C.
+    interaction:
+      type: rhythm
+      sequence: ["F4", "F4", "E4", "C4", "D4", "C4"]
+      tempo: 60
+
+  - id: 13
+    mode: play
+    type: full_song_guided
+    figure: "Full Happy Birthday on staff. Keyboard. Training wheels ON — keys glow before you play."
+    cleffy: >
+      All four lines. Slow. Training wheels on — keys will glow.
+      Breathe. Take your time.
+    interaction:
+      type: song
+      sequence: ["G4","G4","A4","G4","C5","B4","G4","G4","A4","G4","D5","C5","G4","G4","G5","E5","C5","B4","A4","F4","F4","E4","C4","D4","C4"]
+      guides: true
+      tempo: 60
+
+  - id: 14
+    mode: play
+    type: full_song_no_guides
+    figure: "Full song on staff. Keyboard below. NO glowing keys. Just you and the page."
+    cleffy: >
+      Now the real thing. No highlights.
+      Read it. Play it. Happy Birthday, by you.
+    interaction:
+      type: song
+      target_sequence: ["G4","G4","A4","G4","C5","B4","G4","G4","A4","G4","D5","C5","G4","G4","G5","E5","C5","B4","A4","F4","F4","E4","C4","D4","C4"]
+    followup_cleffy: >
+      There.
+      That was Happy Birthday, read off a page, played by you.
+      Twenty-five lessons ago you didn't know what a staff was. Now you just read a song off one.
+
+  - id: 15
+    mode: play
+    type: play_through_at_tempo
+    figure: "Full song. Metronome at 80 bpm."
+    cleffy: >
+      Now at a real tempo. No rush still — 80 beats per minute, waltz-paced.
+      Play it through without stopping. Even if you stumble. Keep going to the end.
+    interaction:
+      type: song
+      sequence: ["G4","G4","A4","G4","C5","B4","G4","G4","A4","G4","D5","C5","G4","G4","G5","E5","C5","B4","A4","F4","F4","E4","C4","D4","C4"]
+      tempo: 80
+
+  - id: 16
+    mode: play
+    type: sing_along
+    figure: "The staff with words under each note: Hap-py birth-day to you..."
+    cleffy: >
+      Bonus. Play it again, and sing along in your head.
+      Hap-py birth-day to you. Hap-py birth-day to you.
+      Hap-py birth-day dear so-and-so. Hap-py birth-day to you.
+    interaction:
+      type: song
+      sequence: ["G4","G4","A4","G4","C5","B4","G4","G4","A4","G4","D5","C5","G4","G4","G5","E5","C5","B4","A4","F4","F4","E4","C4","D4","C4"]
+      tempo: 80
+
+  - id: 17
+    mode: hear
+    type: pre_check
+    figure: "Banner — last check before the boss."
+    cleffy: >
+      Five quick ones. This is the Tier 1 boss so it's a little bigger than the act tests.
+
+  - id: 18
+    mode: see
+    type: reflection
+    figure: "A staircase with 25 stairs, each one labeled with the lesson number. Cleffy at the top with a small golden trophy."
+    cleffy: >
+      Look back down the stairs.
+      Twenty-five lessons.
+      You learned to listen, to look at a piano, to find any note, to read a staff,
+      to use the Sonata method, to count rhythm, and to play a real song.
+      Most people who try to learn piano as adults never get here. You did.
+
+  - id: 19
+    mode: see
+    type: what_comes_next
+    figure: "A pyramid with Tier 1 at the base, colored gold. Tiers 2–6 visible but faded above. Tier 4 highlighted briefly — Moonlight 1st movement."
+    cleffy: >
+      Here's what's ahead.
+      Tier 2 brings your left hand in. You'll read both staves at once.
+      Tier 4 — Moonlight 1st movement. That's life-changing.
+      But you don't have to finish the whole course. Every tier is a real achievement.
+      Where you stop is up to you.
+
+  - id: 20
+    mode: see
+    type: wrap
+    figure: "Celebration card — TIER 1 COMPLETE 👑. A big golden trophy. Cleffy holding a cake with candles on it."
+    cleffy: >
+      Tier 1. Complete.
+      You play piano now.
+      Not just 'I can tap some keys.' You actually read music and play it.
+      Take a day off if you want. Then come back — Tier 2 starts with your left hand, and it's going to be fun.
+      See you in Act 6.
+
+# ─── Practice this week ────────────────────────────────
+practice_this_week:
+  real_piano:
+    - "Play Happy Birthday through, once a day. Slow. From the page if possible."
+    - "Try playing it for a family member or friend. A real little performance."
+    - "If you want a challenge — try it starting on a different note. Pick F. Shape stays the same."
+  virtual_only:
+    - "Replay the full song pages (13–15) a couple times"
+  estimated_time: "10-15 min/day this week — celebrate"
+
+# ─── Mastery check ──────────────────────────────────────
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 4
+      questions:
+        - figure: "The first line of Happy Birthday on a staff"
+          prompt: "Which move is between the 4th and 5th notes (G to C)?"
+          options: ["Step", "Skip", "Bigger than a skip"]
+          correct: 2
+        - figure: "A half note on a staff"
+          prompt: "How long does it last?"
+          options: ["1 beat", "2 beats", "3 beats", "4 beats"]
+          correct: 1
+        - figure: "A bar in 3/4 time"
+          prompt: "How many beats per bar?"
+          options: ["2", "3", "4"]
+          correct: 1
+        - figure: "A pair of notes: line 1 to line 2"
+          prompt: "Step or skip?"
+          options: ["Step", "Skip"]
+          correct: 1
+    hear:
+      pass_threshold: 2
+      questions:
+        - audio: "The first line of Happy Birthday"
+          prompt: "Was the last move (C to B) a step up, step down, or something bigger?"
+          options: ["Step up", "Step down", "Something bigger"]
+          correct: 1
+        - audio: "A step and a skip played in order"
+          prompt: "Step first, skip first, or two skips?"
+          options: ["Step first", "Skip first", "Two skips"]
+          correct: 0
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play the first line of Happy Birthday (G G A G C B) from memory or the page."
+          accept: "G4 G4 A4 G4 C5 B4 in order"
+
+# ─── Remediation ────────────────────────────────────────
+remediation:
+  id: "25.5"
+  title: "Happy Birthday, bar by bar"
+  pages: 10
+  opening_cleffy: >
+    No shame. This was a big one. Let's take it apart and rebuild — two bars at a time,
+    with every note labeled and every rhythm clapped. You'll get there.
+
+# ─── Completion ─────────────────────────────────────────
+completion:
+  cleffy: >
+    Happy Birthday. Tier 1. Done.
+    You're a piano reader now. You'll always be one. That's not something anyone can take from you.
+    Big rest tonight. Tomorrow, Tier 2 opens — and your left hand starts earning its keep.
+  xp: 100   # tier boss = bigger bonus
+  unlocks: 26
+  tier_complete: 1

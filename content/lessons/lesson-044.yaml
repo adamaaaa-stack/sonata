@@ -1,0 +1,213 @@
+id: 44
+tier: elementary
+act: 9
+title: "RH five-finger positions"
+subtitle: "C position and G position"
+goal: "Comfortably play in both C position and G position with your right hand."
+prereqs: [9, 43]
+method_focus: "hands"
+time_estimate_min: 10
+piece_context: null
+metaphor: "hand-homes"
+vibe: ["gentle", "playful"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Hand hovering over keyboard. Two outlined spots labeled C POSITION and G POSITION."
+    cleffy: >
+      Your right hand has a few places it likes to sit.
+      The two most common are called C position and G position.
+      Each one gets five fingers on five consecutive white keys.
+
+  - id: 2
+    mode: see
+    type: c_position
+    figure: "Keyboard. C4-D4-E4-F4-G4 glowing. Numbers 1-5 above."
+    cleffy: >
+      C position — thumb on Middle C.
+      Pointer on D. Middle on E. Ring on F. Pinky on G.
+      You've been in this one since Lesson 9.
+
+  - id: 3
+    mode: see
+    type: g_position
+    figure: "Keyboard. G4-A4-B4-C5-D5 glowing. Numbers 1-5 above."
+    cleffy: >
+      G position — thumb on G (same G that's under your pinky in C position).
+      Pointer on A. Middle on B. Ring on C (high C, one octave above Middle). Pinky on D.
+      You just shifted right three white keys.
+
+  - id: 4
+    mode: see
+    type: overlap
+    figure: "Keyboard. C position and G position side-by-side, with G highlighted in both."
+    cleffy: >
+      Notice — G is the thumb in G position, and it was the pinky in C position.
+      The positions overlap at G.
+
+  - id: 5
+    mode: play
+    type: c_position_ascend
+    figure: "Keyboard. C position highlighted. Fingers numbered."
+    cleffy: >
+      Play C position ascending. Thumb through pinky.
+    interaction:
+      type: sequence
+      keys: ["C4", "D4", "E4", "F4", "G4"]
+
+  - id: 6
+    mode: play
+    type: g_position_ascend
+    figure: "Keyboard. G position highlighted."
+    cleffy: >
+      Now G position. Thumb through pinky. G, A, B, C, D.
+    interaction:
+      type: sequence
+      keys: ["G4", "A4", "B4", "C5", "D5"]
+
+  - id: 7
+    mode: play
+    type: shift_between
+    figure: "Keyboard. C position, then G position, then C position again."
+    cleffy: >
+      Shift between them. Play C position (thumb on C). Then lift your hand and move thumb to G.
+      Play G position.
+    interaction:
+      type: sequence
+      keys: ["C4", "D4", "E4", "F4", "G4", "G4", "A4", "B4", "C5", "D5"]
+
+  - id: 8
+    mode: see
+    type: on_staff_c
+    figure: "Treble staff showing all 5 notes of C position: Middle C (ledger), D (space below staff), E (line 1), F (space 1), G (line 2)."
+    cleffy: >
+      C position on the staff. Middle C at the bottom (ledger), up to G (line 2).
+
+  - id: 9
+    mode: see
+    type: on_staff_g
+    figure: "Treble staff showing G position: G (line 2), A (space 2), B (line 3), C (space 3), D (line 4)."
+    cleffy: >
+      G position on the staff. G (line 2) at the bottom, up to D (line 4).
+      Stays inside the staff — no ledger lines needed.
+
+  - id: 10
+    mode: read
+    type: read_c_position
+    figure: "Staff with 5 notes: C-D-E-F-G (C position). Keyboard below."
+    cleffy: >
+      Read this line in C position. Play it.
+    interaction:
+      type: sequence
+      keys: ["C4", "D4", "E4", "F4", "G4"]
+
+  - id: 11
+    mode: read
+    type: read_g_position
+    figure: "Staff with 5 notes: G-A-B-C-D (G position)."
+    cleffy: >
+      Same thing, G position.
+    interaction:
+      type: sequence
+      keys: ["G4", "A4", "B4", "C5", "D5"]
+
+  - id: 12
+    mode: play
+    type: position_choice
+    figure: "Staff with a melody in C position. Prompt to pick the position."
+    cleffy: >
+      I show you a melody. Which position would your hand use?
+    interaction:
+      type: choice
+      options: ["C position", "G position"]
+      correct: 0
+
+  - id: 13
+    mode: play
+    type: melody_in_g
+    figure: "Staff with 4-note melody in G position: G-B-A-G. Keyboard below."
+    cleffy: >
+      Melody in G position. Hand on G-A-B-C-D.
+      Play G, B, A, G. Thumb, middle, pointer, thumb.
+    interaction:
+      type: sequence
+      keys: ["G4", "B4", "A4", "G4"]
+
+  - id: 14
+    mode: hear
+    type: mixed_drill
+    figure: "Position identification + playing questions."
+    cleffy: >
+      Four rounds.
+    interaction:
+      type: drill
+      rounds: 4
+
+  - id: 15
+    mode: hear
+    type: pre_check
+    figure: "Banner."
+    cleffy: >
+      Four quick ones.
+
+  - id: 16
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 44. Keyboard with C position and G position outlined as two hand shapes."
+    cleffy: >
+      Two hand homes for the right hand. C position and G position.
+      Tomorrow — you play Mary Had a Little Lamb. All in one position.
+
+practice_this_week:
+  real_piano:
+    - "C position. Play C-D-E-F-G ascending, then descending. Ten times."
+    - "G position. Play G-A-B-C-D ascending and back. Ten times."
+    - "Shift between them: C position then G position, three times."
+  virtual_only:
+    - "Replay pages 5-7 (ascending and shifting drills)"
+  estimated_time: "7 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "Keyboard with C-D-E-F-G highlighted."
+          prompt: "Which position?"
+          options: ["C position", "G position"]
+          correct: 0
+        - figure: "Keyboard with G-A-B-C-D highlighted."
+          prompt: "Which position?"
+          options: ["C position", "G position"]
+          correct: 1
+        - figure: "RH in C position with thumb on Middle C."
+          prompt: "In C position, which finger is on Middle C?"
+          options: ["1 (thumb)", "5 (pinky)"]
+          correct: 0
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "Five ascending notes — C D E F G"
+          prompt: "Did that scale start in C position or G position?"
+          options: ["C position", "G position"]
+          correct: 0
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Put RH in G position. Play G, A, B."
+          accept: "G4 A4 B4"
+
+remediation:
+  id: "44.5"
+  title: "Hand positions, slower"
+  pages: 5
+  opening_cleffy: >
+    Two positions is enough to start. Let's practice shifting between them slowly.
+
+completion:
+  cleffy: >
+    Two hand homes. Next up — Mary Had a Little Lamb, in C position.
+  xp: 20
+  unlocks: 45

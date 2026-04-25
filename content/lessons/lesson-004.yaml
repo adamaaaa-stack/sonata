@@ -1,0 +1,247 @@
+# ============================================================
+# LESSON 4 · Finding C
+# Tier 1 · Act 1 · Beginner
+# Central metaphor: C IS THE FIRST FLAG ON THE STAIRS
+# ============================================================
+id: 4
+tier: beginner
+act: 1
+title: "Finding C"
+subtitle: "Your first landmark"
+goal: "Find C anywhere on the keyboard — right before every 2-group."
+prereqs: [3]
+method_focus: "piano-geography"
+time_estimate_min: 10
+piece_context: null
+metaphor: "landmark-on-stairs"
+vibe: ["gentle", "playful"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy in front of the keyboard. One white key glows gold."
+    cleffy: >
+      You know the black-key map. Good.
+      Now we put our first flag in the ground.
+      Every building needs a front door. Every map needs a landmark.
+      Ours is a white key called C.
+
+  - id: 2
+    mode: see
+    type: definition
+    figure: "Zoom on one 2-group. The white key directly to the LEFT of it glows gold. Label: C."
+    cleffy: >
+      C is the white key that sits right before every 2-group.
+      Right before. On the left. Touching it.
+      Every 2-group has a C hiding next to it, waiting to be found.
+      That's the whole rule.
+
+  - id: 3
+    mode: see
+    type: pattern_scroll
+    figure: "Keyboard scrolls. Every C lights up gold as it passes."
+    cleffy: >
+      Watch the whole piano light up.
+      Every single C, low to high. There's a lot of them.
+      Seven, actually. They're all the same letter, just in different parts of the piano.
+
+  - id: 4
+    mode: see
+    type: interactive_spot
+    figure: "Zoomed keyboard. Multiple 2-groups visible. Prompt: tap any C."
+    cleffy: >
+      Your turn. Tap any C.
+      Remember — the white key right before a 2-group.
+    interaction:
+      type: tap
+      accept: "any C"
+    corrections:
+      - wrong_label: "tapped_wrong_white"
+        cleffy: >
+          Close — but look for the 2-group right next to it.
+          C is the one touching the left side of two black keys.
+
+  - id: 5
+    mode: see
+    type: interactive_spot_right
+    figure: "Different zoom, new 2-groups. Tap any C on the RIGHT side."
+    cleffy: >
+      Now find a C on the high side — the right end of the piano.
+    interaction:
+      type: tap
+      accept: "any C in right half"
+
+  - id: 6
+    mode: hear
+    type: demo
+    figure: "Three play buttons — low C, Middle C, high C."
+    audio:
+      A: "C2 solo"
+      B: "C4 (Middle C) solo"
+      C: "C6 solo"
+    cleffy: >
+      All of these are C.
+      This one's low. This one's in the middle. This one's high.
+      Different octaves, same letter, same feeling — just taller or shorter.
+
+  - id: 7
+    mode: hear
+    type: middle_c_focus
+    figure: "Keyboard with Middle C pulsing gold. The words Middle C appear beside it."
+    audio:
+      A: "Middle C (C4) solo, held"
+    cleffy: >
+      This one is special. It's the C right in the middle of the piano.
+      We call it Middle C.
+      It's going to show up every lesson for the rest of the course.
+      Get comfortable with it.
+
+  - id: 8
+    mode: play
+    type: guided
+    figure: "Keyboard. Middle C glowing."
+    cleffy: >
+      Tap Middle C. Right there — the one in the middle.
+    interaction:
+      type: tap
+      key: "C4"
+    followup_cleffy: >
+      That's home base for the rest of your piano life.
+
+  - id: 9
+    mode: play
+    type: guided
+    figure: "Keyboard. Lowest C glowing, way on the left."
+    cleffy: >
+      Now the lowest C on the piano. Way left.
+    interaction:
+      type: tap
+      key: "C1"
+    followup_cleffy: >
+      Deep, right? That's about as low as C gets.
+
+  - id: 10
+    mode: play
+    type: guided
+    figure: "Highest C glowing, right end."
+    cleffy: >
+      Highest C, right end.
+    interaction:
+      type: tap
+      key: "C8"
+    followup_cleffy: >
+      Same letter. Wildly different sound.
+
+  - id: 11
+    mode: play
+    type: free
+    figure: "Full keyboard, no highlights."
+    cleffy: >
+      Now tap any C — you pick.
+    interaction:
+      type: tap
+      accept: "any C"
+
+  - id: 12
+    mode: play
+    type: sequence
+    figure: "Keyboard with all 8 Cs gently pulsing."
+    cleffy: >
+      Fun one. Tap three different Cs in a row — any three.
+      Low, middle, high — or whatever order you want.
+    interaction:
+      type: sequence
+      count: 3
+      accept: "3 different Cs"
+    followup_cleffy: >
+      You just played C three times in three different parts of the piano.
+      Same note. Different heights. That's an octave relationship, and we'll get to it.
+
+  - id: 13
+    mode: hear
+    type: drill
+    figure: "Round counter 1 of 4. Play button. Answers: Low C, High C."
+    cleffy: >
+      Four rounds. Low C or high C?
+    interaction:
+      type: drill
+      rounds: 4
+      options: ["Low C", "High C"]
+
+  - id: 14
+    mode: read
+    type: see_hear_play
+    figure: "Keyboard. Cleffy plays a C. An arrow points to it briefly. Then student plays the same one."
+    cleffy: >
+      Watch where I play. Listen. Then tap the same one.
+    interaction:
+      type: echo
+      rounds: 3
+      target: "any C"
+
+  - id: 15
+    mode: hear
+    type: pre_check
+    figure: "Banner."
+    cleffy: >
+      Four quick ones. Just a warm-up.
+
+  - id: 16
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 4, you found C. Cleffy planting a gold flag on a C key."
+    cleffy: >
+      You planted the flag.
+      Tomorrow we make sure you can find C without thinking — fast, anywhere.
+      Then we learn a second landmark. Its name is F.
+
+# ─── Mastery check ──────────────────────────────────────
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 3
+      questions:
+        - figure: "Keyboard with a white key circled (is C)."
+          prompt: "Is this a C?"
+          options: ["Yes", "No"]
+          correct: 0
+        - figure: "Keyboard with a white key circled (not C)."
+          prompt: "Is this a C?"
+          options: ["Yes", "No"]
+          correct: 1
+        - figure: "Full keyboard."
+          prompt: "Tap any C."
+    hear:
+      pass_threshold: 2
+      questions:
+        - audio: "Middle C"
+          prompt: "Was that near the middle of the piano, or far from it?"
+          options: ["Middle", "Far"]
+          correct: 0
+        - audio: "Low C (C2)"
+          prompt: "Low or high C?"
+          options: ["Low", "High"]
+          correct: 0
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play Middle C."
+          accept: "C4"
+
+# ─── Remediation ────────────────────────────────────────
+remediation:
+  id: "4.5"
+  title: "C, once more, together"
+  pages: 5
+  opening_cleffy: >
+    Hey. C is everywhere, but it can take a minute to spot the first time.
+    Let's go again — slower, with lots of 2-groups on the screen.
+
+# ─── Completion ─────────────────────────────────────────
+completion:
+  cleffy: >
+    Four lessons down. You can find C on any piano, anywhere.
+    Most people can't say that. Nice.
+  xp: 20
+  unlocks: 5

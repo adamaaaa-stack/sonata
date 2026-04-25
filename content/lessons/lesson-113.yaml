@@ -1,0 +1,213 @@
+# ============================================================
+# LESSON 113 · Relative minors intro
+# Tier 3 · Act 23 · Low-Intermediate · New keys + transposition
+# Every major key has a twin — a relative minor 3 half-steps below.
+# ============================================================
+id: 113
+tier: low-intermediate
+act: 23
+title: "Relative minors"
+subtitle: "Act 23 · Every major key has a twin"
+goal: "Hear that every major key has a matching minor key — same notes, different home."
+prereqs: [112, 111, 75]
+method_focus: "hear"
+time_estimate_min: 13
+piece_context: "You've been in major keys the whole time. Now the shadow. A minor key uses the same notes as a major one — it just starts in a different spot and sounds sad instead of bright."
+metaphor: "twin-keys"
+vibe: ["reflective", "quiet"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy standing between two doors. One bright and sunlit (major). One dim and blue (minor). Title: TWIN KEYS."
+    cleffy: >
+      Every major key has a twin.
+      Same seven notes. Different feel.
+      Bright one — major. Dim one — minor.
+
+  - id: 2
+    mode: hear
+    type: listen_major_then_minor
+    figure: "Two play buttons. A: C major scale. B: A minor scale."
+    audio:
+      A: "C major scale from C"
+      B: "A minor scale from A (natural minor, white keys)"
+    cleffy: >
+      Same seven white keys, both times.
+      First — starting on C. Bright. Major.
+      Second — starting on A. Sad. Minor.
+      Identical notes. Different home.
+
+  - id: 3
+    mode: see
+    type: the_rule
+    figure: "Keyboard. C highlighted, then arrow down three half-steps to A. Label: 'Relative minor = 3 half-steps down.'"
+    cleffy: >
+      The trick — count down three half-steps from the major key.
+      C down three is A. So C major's twin is A minor.
+
+  - id: 4
+    mode: see
+    type: three_pairs
+    figure: "Table. C major / A minor. G major / E minor. F major / D minor. Each with its shared key signature."
+    cleffy: >
+      Three pairs you'll see everywhere.
+      C major — A minor. No sharps, no flats.
+      G major — E minor. One sharp.
+      F major — D minor. One flat.
+
+  - id: 5
+    mode: play
+    type: play_c_scale
+    figure: "Keyboard. C D E F G A B C."
+    cleffy: >
+      C major scale. White keys, C to C.
+    interaction:
+      type: sequence
+      keys: ["C4","D4","E4","F4","G4","A4","B4","C5"]
+
+  - id: 6
+    mode: play
+    type: play_a_minor
+    figure: "Keyboard. A B C D E F G A."
+    cleffy: >
+      Same white keys. Start on A this time.
+      Feel the difference — same notes, new mood.
+    interaction:
+      type: sequence
+      keys: ["A3","B3","C4","D4","E4","F4","G4","A4"]
+
+  - id: 7
+    mode: hear
+    type: ab_test_c_a
+    figure: "Two play buttons."
+    audio:
+      A: "C major scale played both ways"
+      B: "A minor scale played both ways"
+    cleffy: >
+      Listen again. Same notes, different landing.
+      Major wants to rest on C. Minor wants to rest on A.
+
+  - id: 8
+    mode: see
+    type: g_and_e_minor
+    figure: "Staff. G major key signature (F#). Two scales side by side — G to G, and E to E."
+    cleffy: >
+      G major has one sharp — F-sharp.
+      Its twin is E minor. Same F-sharp. Starts on E.
+
+  - id: 9
+    mode: play
+    type: play_e_minor
+    figure: "Keyboard. E F# G A B C D E."
+    cleffy: >
+      E minor scale. Starts on E. Every F is sharp — key is shared with G major.
+    interaction:
+      type: sequence
+      keys: ["E4","F#4","G4","A4","B4","C5","D5","E5"]
+
+  - id: 10
+    mode: hear
+    type: ab_test_g_e
+    figure: "Two play buttons."
+    audio:
+      A: "G major scale"
+      B: "E minor scale"
+    cleffy: >
+      G first — bright. Then E minor — shadowy.
+      Same sharp, different feel.
+
+  - id: 11
+    mode: hear
+    type: major_or_minor_drill
+    figure: "Round counter 1 of 4."
+    cleffy: >
+      Four rounds. Bright or sad? Major or minor?
+    interaction:
+      type: drill
+      rounds: 4
+      options: ["Major", "Minor"]
+
+  - id: 12
+    mode: see
+    type: f_and_d_minor
+    figure: "Staff. F major key signature (B♭). Two scales — F to F, and D to D."
+    cleffy: >
+      F major has one flat. Its twin is D minor.
+      Same flat, same seven notes. D minor just starts lower down.
+
+  - id: 13
+    mode: play
+    type: play_d_minor
+    figure: "Keyboard. D E F G A B♭ C D."
+    cleffy: >
+      D minor scale. Every B is flat — shared with F major.
+    interaction:
+      type: sequence
+      keys: ["D4","E4","F4","G4","A4","Bb4","C5","D5"]
+
+  - id: 14
+    mode: hear
+    type: pre_check
+    figure: "Banner."
+    cleffy: >
+      Four quick ones.
+
+  - id: 15
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 113. Three pairs of doors: C/A, G/E, F/D. Major bright, minor shaded."
+    cleffy: >
+      Three pairs of twins.
+      C and A. G and E. F and D.
+      Same notes, different homes. Tomorrow — taking a tune and moving it to a new home. Transposition.
+
+practice_this_week:
+  real_piano:
+    - "Play C major scale, then A minor scale. Same white keys — just a different starting note."
+    - "Play a short tune you know, then try landing it on A instead of C. Notice the mood flip."
+  virtual_only:
+    - "Replay pages 6, 9, and 13"
+  estimated_time: "10 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "Table of major/minor pairs"
+          prompt: "What is the relative minor of C major?"
+          options: ["A minor", "D minor", "E minor", "F minor"]
+          correct: 0
+        - figure: "Key signature with one sharp"
+          prompt: "This key signature belongs to G major and which minor?"
+          options: ["A minor", "D minor", "E minor"]
+          correct: 2
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "A minor scale ascending"
+          prompt: "Major or minor?"
+          options: ["Major", "Minor"]
+          correct: 1
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play the A minor scale from A to A — all white keys."
+          accept: "A3 B3 C4 D4 E4 F4 G4 A4"
+
+remediation:
+  id: "113.5"
+  title: "Twin keys, slower"
+  pages: 7
+  opening_cleffy: >
+    Major and minor is the biggest mood-flip in music.
+    We'll slow it — one pair at a time, ear first.
+
+completion:
+  cleffy: >
+    Three pairs of twins known. Major and minor.
+    Tomorrow — taking a tune and moving it to a new key. Transposition.
+  xp: 18
+  unlocks: 114

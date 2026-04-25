@@ -1,0 +1,241 @@
+# ============================================================
+# LESSON 193 · Trill mechanics
+# Tier 5 · Act 39 · Upper-Intermediate · Ornaments
+# Rapid alternation between main note and upper neighbor.
+# ============================================================
+id: 193
+tier: upper-intermediate
+act: 39
+title: "Trill mechanics"
+subtitle: "Act 39 · Ornaments"
+goal: "Build a clean trill — rapid alternation between a main note and its upper neighbor, controlled and even."
+prereqs: [192]
+method_focus: "play"
+time_estimate_min: 14
+piece_context: "Yesterday — the grace note, one flick and done. Today — trills. The ornament that doesn't flick once. It alternates. Four, eight, twelve times in the space of a beat. Today isn't about speed. It's about evenness. Fast and messy means nothing. Slow and even is the goal, and speed follows."
+metaphor: "notes-that-sparkle"
+vibe: ["focused", "playful", "honest"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy with two fingers bouncing rapidly on adjacent keys. Blur lines showing the motion. Banner: TRILL MECHANICS."
+    cleffy: >
+      Trill day.
+      Two notes, alternating fast. Main and upper neighbor, over and over.
+      Sounds like shimmer.
+
+  - id: 2
+    mode: see
+    type: what_a_trill_is
+    figure: "Staff. A long note C4 with 'tr' above and a wavy squiggle extending to the right. Below the staff, the 'hidden' sequence: C-D-C-D-C-D-C-D over the span of that note."
+    cleffy: >
+      A trill is a shorthand.
+      The page shows one note with 'tr'. What you play is that note alternating with the one above it.
+      One symbol, many notes underneath.
+
+  - id: 3
+    mode: see
+    type: which_neighbor
+    figure: "Staff. C4 with tr above — arrow pointing up to D4. Caption: trill on C = alternate with D (the nearest note up in the current key)."
+    cleffy: >
+      Which note is the neighbor? The one just above — in the current key.
+      Trill on C in C major? Alternate with D.
+      Trill on C in F major? Still D. The key decides the exact neighbor.
+
+  - id: 4
+    mode: hear
+    type: listen_slow_to_fast
+    figure: "Three play buttons. A: four alternations slow. B: eight alternations medium. C: as-many-as-possible fast."
+    audio:
+      A: "C4 and D4 alternating slowly — C-D-C-D, four alternations over two seconds"
+      B: "C4 and D4 alternating medium speed — eight alternations over one second"
+      C: "C4 and D4 alternating rapidly — as many as possible in one second"
+    cleffy: >
+      Same trill. Three speeds.
+      Slow. Medium. Fast.
+      Listen to the evenness in each. Messy-fast sounds worse than clean-slow.
+
+  - id: 5
+    mode: see
+    type: the_fingers
+    figure: "Cartoon right hand. Finger 1 on C, finger 2 on D. Arrows: 1 down, 2 down, 1 down, 2 down. Caption: alternate the two fingers, one at a time."
+    cleffy: >
+      The fingers. For a trill on C with D above, use 1 and 2, or 2 and 3.
+      One finger per key. Alternate, don't overlap.
+      Small motion. Close to the keys.
+
+  - id: 6
+    mode: play
+    type: four_alternations
+    figure: "Keyboard. C4 and D4. Counter: 4 alternations total."
+    cleffy: >
+      Four alternations. Slowly.
+      C, D, C, D. Clear. Even.
+      Speed is not the job yet.
+    interaction:
+      type: rhythm
+      sequence: ["C4", "D4", "C4", "D4"]
+      durations: ["eighth", "eighth", "eighth", "eighth"]
+      tempo: 70
+
+  - id: 7
+    mode: play
+    type: eight_alternations
+    figure: "Keyboard. Same two keys. Counter: 8 alternations."
+    cleffy: >
+      Now eight. Same tempo on the clock, but doubled up.
+      Keep them even. If one wobbles, slow down.
+    interaction:
+      type: rhythm
+      sequence: ["C4", "D4", "C4", "D4", "C4", "D4", "C4", "D4"]
+      durations: ["sixteenth", "sixteenth", "sixteenth", "sixteenth", "sixteenth", "sixteenth", "sixteenth", "sixteenth"]
+      tempo: 70
+
+  - id: 8
+    mode: see
+    type: evenness_over_speed
+    figure: "Two columns. Left: 'messy fast' — uneven blocks of different sizes. Right: 'clean slow' — identical blocks in a row. Caption: even beats fast, every time."
+    cleffy: >
+      The honest rule of trills.
+      Clean and slow beats fast and messy. Every time.
+      Speed follows evenness. Not the other way around.
+
+  - id: 9
+    mode: play
+    type: twelve_alternations
+    figure: "Keyboard. Same two keys. Counter: 12 alternations. Tempo 80."
+    cleffy: >
+      Twelve this time. A little faster.
+      Light fingers. Stay close to the keys. Don't lift high.
+    interaction:
+      type: rhythm
+      sequence: ["C4", "D4", "C4", "D4", "C4", "D4", "C4", "D4", "C4", "D4", "C4", "D4"]
+      durations: ["sixteenth", "sixteenth", "sixteenth", "sixteenth", "sixteenth", "sixteenth", "sixteenth", "sixteenth", "sixteenth", "sixteenth", "sixteenth", "sixteenth"]
+      tempo: 80
+
+  - id: 10
+    mode: play
+    type: trill_landing
+    figure: "Keyboard. C4 and D4 alternating, ending on C4. Text: 'end on the main note.'"
+    cleffy: >
+      A trill lands back on the main note when it ends.
+      Play six alternations, then one more C to finish.
+      Hear the resolution.
+    interaction:
+      type: rhythm
+      sequence: ["C4", "D4", "C4", "D4", "C4", "D4", "C4"]
+      durations: ["sixteenth", "sixteenth", "sixteenth", "sixteenth", "sixteenth", "sixteenth", "quarter"]
+      tempo: 80
+
+  - id: 11
+    mode: play
+    type: trill_on_different_note
+    figure: "Keyboard. G4 and A4. Text: trill on G — still the upper neighbor rule."
+    cleffy: >
+      Try it on a new note. Trill on G.
+      Neighbor is A. Eight alternations, land on G.
+    interaction:
+      type: rhythm
+      sequence: ["G4", "A4", "G4", "A4", "G4", "A4", "G4", "A4", "G4"]
+      durations: ["sixteenth", "sixteenth", "sixteenth", "sixteenth", "sixteenth", "sixteenth", "sixteenth", "sixteenth", "quarter"]
+      tempo: 80
+
+  - id: 12
+    mode: see
+    type: practice_ladder
+    figure: "A ladder with rungs. Rung 1: '4 alternations.' Rung 2: '8 alternations.' Rung 3: '12.' Rung 4: 'as many as you can, even.' Caption: climb in order."
+    cleffy: >
+      The trill practice ladder.
+      Four even. Then eight. Then twelve. Then as many as you can keep even.
+      If a rung gets wobbly — drop one rung. Fix it. Climb again.
+
+  - id: 13
+    mode: play
+    type: free_trill
+    figure: "Keyboard. C4 and D4. No count shown. Timer — one second. Text: 'as many as you can, clean.'"
+    cleffy: >
+      One second. Trill on C with D. As many as you can — cleanly.
+      If it gets muddy, stop. Quality first.
+    interaction:
+      type: rhythm
+      sequence: ["C4", "D4", "C4", "D4", "C4", "D4", "C4", "D4", "C4", "D4", "C4", "D4", "C4", "D4", "C4", "D4"]
+      durations: ["sixteenth", "sixteenth", "sixteenth", "sixteenth", "sixteenth", "sixteenth", "sixteenth", "sixteenth", "sixteenth", "sixteenth", "sixteenth", "sixteenth", "sixteenth", "sixteenth", "sixteenth", "sixteenth"]
+      tempo: 90
+    followup_cleffy: >
+      That. A trill, built from the ground up.
+      Don't chase speed yet. Evenness first. Always.
+
+  - id: 14
+    mode: hear
+    type: pre_check
+    figure: "Banner."
+    cleffy: >
+      Three quick ones.
+
+  - id: 15
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 193. A wavy line with little stars along it. Caption: two fingers, a thousand shimmers."
+    cleffy: >
+      Trills. Alternate, don't press. Even beats fast.
+      Tomorrow — the tricky part. The same 'tr' symbol can mean two different things, depending on the era.
+
+practice_this_week:
+  real_piano:
+    - "Trill on Middle C with D. Every day. Four alternations, then eight, then twelve. Stop the moment it gets uneven."
+    - "Try a trill on any long note in a piece you know. Land back on the main note when it ends."
+    - "Play with metronome. 60 bpm. Four sixteenths per beat. Feel the even click."
+  virtual_only:
+    - "Replay pages 6, 7, 9, and 13. Climb the ladder."
+  estimated_time: "12 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "A whole note with 'tr' and a wavy line above"
+          prompt: "What does this ornament ask you to do?"
+          options: ["Play the note once, loud", "Alternate rapidly between the main note and the one just above", "Play a grace note before it"]
+          correct: 1
+        - figure: "A trill on C in C major"
+          prompt: "Which note is the upper neighbor?"
+          options: ["B", "D", "E"]
+          correct: 1
+        - figure: "Two trills — one uneven, one even"
+          prompt: "Which is the goal?"
+          options: ["Fast but uneven", "Slow and even"]
+          correct: 1
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "A clean, even trill on C and D"
+          prompt: "Was the trill even or uneven?"
+          options: ["Even", "Uneven"]
+          correct: 0
+        - audio: "Eight alternations between two notes, ending on the lower note"
+          prompt: "Did the trill land on the main note?"
+          options: ["Yes", "No"]
+          correct: 0
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play eight even alternations between C4 and D4, ending on C."
+          accept: "C4 D4 alternating eight times, landing on C4, evenly timed"
+
+remediation:
+  id: "193.5"
+  title: "Trills, four notes at a time"
+  pages: 8
+  opening_cleffy: >
+    Trills are a feel. Fingers learn before brains do.
+    We'll start at four alternations, very slow. Evenness first, speed much later.
+
+completion:
+  cleffy: >
+    A real trill — not just a word.
+    Tomorrow — the same symbol, two different eras, two different rules.
+  xp: 18
+  unlocks: 194

@@ -1,0 +1,228 @@
+# ============================================================
+# LESSON 229 · Structural memory
+# Tier 6 · Act 46 · Advanced · Memorization
+# Knowing the form — A-B-A, verse-chorus — as a map.
+# ============================================================
+id: 229
+tier: advanced
+act: 46
+title: "Structural memory"
+subtitle: "Act 46 · Memorization"
+goal: "Learn to hold a piece by its map — sections, repeats, returns — so you always know where you are."
+prereqs: [228, 227]
+method_focus: "see"
+time_estimate_min: 14
+piece_context: "Third of three memory types. Structural memory is the most robust. Not the notes — the form. A section, B section, return. If your fingers slip and your ear goes blank, structure tells you where you are. Together with the other two, it makes a piece unshakable."
+metaphor: "three-kinds-of-memory"
+vibe: ["gentle", "focused", "serious"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy holding a small folded map. On the map — three labeled regions: A, B, A'. Banner: STRUCTURAL MEMORY."
+    cleffy: >
+      Structural memory.
+      Not the notes. The map.
+      Where you are in the piece, always.
+
+  - id: 2
+    mode: see
+    type: the_three_so_far
+    figure: "Three pillars. First labeled MUSCLE (hand icon). Second labeled EAR (ear icon). Third — drawn as a tall map — labeled STRUCTURE. A gold roof rests on all three."
+    cleffy: >
+      Muscle memory. Ear memory. And now — structure.
+      Three pillars. One roof — the performance.
+      If one pillar slips, the roof still stands.
+
+  - id: 3
+    mode: see
+    type: what_is_form
+    figure: "A diagram. Three boxes in a row — A (8 bars) · B (8 bars) · A (8 bars). Arrows labeled 'return,' 'new material,' 'return.'"
+    cleffy: >
+      Form is the big shape.
+      Most pieces are built from a few sections that repeat.
+      A-B-A. Verse-chorus-verse. Theme-variation-theme.
+      Name the sections — and you have a map.
+
+  - id: 4
+    mode: see
+    type: clair_map
+    figure: "Clair de Lune's map. A section (12 bars) → B section (8 bars) → CLIMAX (5 bars) → A' return (8 bars). Dynamic arc pp → f → ppp drawn over the top."
+    cleffy: >
+      Clair de Lune — you already know this map.
+      A drifts. B rolls. Climax blooms. A returns quieter.
+      Four sections. One shape.
+
+  - id: 5
+    mode: see
+    type: nocturne_map
+    figure: "Nocturne Op. 9 No. 2 map. A (first theme) → A' (ornamented return) → B (middle) → A'' (final return with coda). Colors for each section."
+    cleffy: >
+      Nocturne — you played this too.
+      A returns three times, each time slightly different.
+      Knowing 'this is the third A' tells you more than knowing 'bar 27.'
+
+  - id: 6
+    mode: see
+    type: arietta_map
+    figure: "Grieg Arietta map. Just two labels: A (verse) → A (verse repeated, softer). A small heart in between."
+    cleffy: >
+      Arietta — simpler still.
+      Two passes through the same tune. Second one quieter.
+      Even tiny pieces have structure.
+
+  - id: 7
+    mode: see
+    type: why_it_rescues
+    figure: "A pianist stumbling — one finger slips, notes go wrong. A thought bubble above their head: 'still the B section. Still 4 bars left. Still coming home to A.' The map in their head glows."
+    cleffy: >
+      Here's why structure rescues performance.
+      You slip. Your hand forgets. Your ear goes blank for a second.
+      But you know — you're in the B section. Four bars left before A returns.
+      You find the next landmark. You land there.
+
+  - id: 8
+    mode: hear
+    type: listen_with_map
+    figure: "Play button. Caption: 'Clair de Lune — listen with the map in front of you.' The map from page 4 shown underneath."
+    audio:
+      A: "A simplified Clair de Lune excerpt — A section, transitioning to B, about thirty seconds"
+    cleffy: >
+      Listen. Follow the map.
+      Hear when A ends and B begins.
+      Section changes are usually a new feel — new texture, new dynamic, new key.
+
+  - id: 9
+    mode: play
+    type: play_two_sections_labeled
+    figure: "Keyboard. Two short passages side by side. LEFT: 'A — soft chords, C5 E5 G5.' RIGHT: 'B — rolling, C4 E4 G4 C5.' Each labeled clearly."
+    cleffy: >
+      Two tiny sections. A then B.
+      Name each as you play.
+      'This is A. This is B.'
+    interaction:
+      type: sequence
+      keys: [["C5","E5","G5"],["C5","E5","G5"],"C4","E4","G4","C5","C4","E4","G4","C5"]
+
+  - id: 10
+    mode: see
+    type: landmarks
+    figure: "A section boundary drawn on sheet music — a thick line between bars. Labels: 'bar 13 — B begins. Bar 21 — climax. Bar 26 — A returns.' Each labeled in gold."
+    cleffy: >
+      Landmarks.
+      Specific bars where something changes — a new section, a key change, the climax.
+      When you know your landmarks, you can always rejoin the piece.
+
+  - id: 11
+    mode: see
+    type: how_to_build
+    figure: "A checklist. 1. Listen to the piece with the score. 2. Draw the map — on paper, with section names. 3. Name each section out loud while you practice. 4. Practice starting from each section, not just the top."
+    cleffy: >
+      Four steps to build structural memory.
+      Listen with the score. Draw the map yourself. Name sections out loud. Practice starting from each section — not always the beginning.
+
+  - id: 12
+    mode: play
+    type: start_from_b
+    figure: "Keyboard. A three-chord B-section starting point — G major, first inversion chord shape. Caption: 'start from here — not the top.'"
+    cleffy: >
+      Most students only know how to start from bar 1.
+      Practice starting from B. From the climax. From A'.
+      Try this one — the B section of your mini map.
+    interaction:
+      type: sequence
+      keys: [["G4","B4","D5"],"E5","D5","C5"]
+
+  - id: 13
+    mode: see
+    type: all_three_together
+    figure: "Three pillars again — muscle, ear, structure — this time with gold threads weaving between them. A roof labeled 'performance' sits firmly on top. Caption: 'strongest when all three are there.'"
+    cleffy: >
+      All three. At once.
+      Fingers know the shape — muscle.
+      Ear hears what's next — ear.
+      Head knows the map — structure.
+      One slips. The others hold.
+
+  - id: 14
+    mode: hear
+    type: which_is_which
+    figure: "Four rounds. Banner — 'WHICH KIND OF MEMORY?'"
+    cleffy: >
+      Four rounds. Name which memory each describes.
+    interaction:
+      type: drill
+      rounds: 4
+      options: ["Muscle memory", "Ear memory", "Structural memory"]
+
+  - id: 15
+    mode: hear
+    type: pre_check
+    figure: "Banner."
+    cleffy: >
+      Three quick ones.
+
+  - id: 16
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 229. Three icons — a hand, an ear, a map — linked by gold threads. Banner: THREE PILLARS. Below: 'tomorrow — you memorize a piece.'"
+    cleffy: >
+      Structural memory. Pillar three.
+      All three pillars in place.
+      Tomorrow — act boss. You pick a piece you already know. You memorize it using all three.
+
+practice_this_week:
+  real_piano:
+    - "Take a piece you're learning. On paper, draw its map — A, B, A, or verse/chorus. Name every section."
+    - "Practice starting the piece from the middle — from B, or from the climax. Not always from bar 1."
+    - "While you play, say the section name out loud: 'A — A — B — A.' Build the map into your body."
+  virtual_only:
+    - "Replay pages 4, 5, and 6 — three piece maps you already know."
+  estimated_time: "10 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "A three-section map with A, B, A' labels"
+          prompt: "What is structural memory?"
+          options: ["Remembering every note in order", "Knowing the form of the piece — its sections and returns", "Memorizing the fingering"]
+          correct: 1
+        - figure: "Three pillars — muscle, ear, structure — holding a roof labeled 'performance'"
+          prompt: "Which memory tends to be the most robust under pressure?"
+          options: ["Muscle — it's built by repetition", "Structural — you always know where you are", "Ear — it's loudest"]
+          correct: 1
+        - figure: "A pianist recovering mid-stumble by thinking 'still in the B section, A returns in 4 bars'"
+          prompt: "How does structural memory help when you slip?"
+          options: ["It tells you every exact note", "It lets you find the next landmark and rejoin the piece", "It makes the slip invisible"]
+          correct: 1
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "A 30-second excerpt moving from one section to another — clear change in texture"
+          prompt: "Did the section change?"
+          options: ["Yes — a new section started", "No — same section throughout"]
+          correct: 0
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play a C major chord, then a G major chord, and say which section each would be in your mini map — A or B."
+          accept: "C major (A) and G major (B) played in order"
+
+remediation:
+  id: "229.5"
+  title: "Structural memory, one section at a time"
+  pages: 7
+  opening_cleffy: >
+    Maps can feel abstract. We'll draw one together.
+    Two sections. A and B. That's all a map needs to start.
+
+completion:
+  cleffy: >
+    Three pillars — in place.
+    Muscle. Ear. Structure.
+    Tomorrow — the act boss. You memorize a real piece, using all three.
+  xp: 18
+  unlocks: 230

@@ -1,0 +1,318 @@
+# ============================================================
+# LESSON 125 · Clair de Lune (opening) — Tier 3 BOSS 👑
+# Tier 3 · Act 25 · Low-Intermediate · TIER BOSS
+# 20 pages. Second summit. Two tiers behind.
+# ============================================================
+id: 125
+tier: low-intermediate
+act: 25
+title: "Clair de Lune (opening)"
+subtitle: "Tier 3 · The second summit"
+goal: "Read and play the opening bars of Debussy's Clair de Lune — simplified to D major. End of Tier 3."
+prereqs: [75, 80, 85, 90, 95, 100, 105, 110, 115, 120, 121, 122, 123, 124]
+method_focus: "combine"
+time_estimate_min: 20
+piece_context: "Debussy's most famous piece. Moonlight, in French. The opening is slow, quiet, unfinished-sounding. The original key is D-flat major — six flats. We're playing it in D major for now. Same shape, easier reading."
+metaphor: "second-summit"
+vibe: ["quiet", "reflective", "celebratory"]
+is_tier_boss: true
+piece:
+  title: "Clair de Lune (opening bars — simplified)"
+  composer: "Debussy"
+  key_center: "D major (simplified from D-flat)"
+  time_signature: "3/4 (simplified from 9/8)"
+  difficulty: "low-intermediate — slow, soft, thirds in the right hand over a low pedal tone"
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy at the top of a second pyramid. Behind him, two tiers — Tier 1 and Tier 2 — marked in gold. Tier 3 marked in gold too. A small moon above."
+    cleffy: >
+      Second summit.
+      Tier 1 took you from nothing to reading one staff.
+      Tier 2 gave you the grand staff and both hands.
+      Tier 3 gave you craft.
+      Today — Clair de Lune. The piece everyone recognizes.
+
+  - id: 2
+    mode: see
+    type: piece_intro
+    figure: "Cover-style image. 'Clair de Lune — Claude Debussy, 1890.' A moon over water."
+    cleffy: >
+      Claude Debussy. French. Wrote this in his twenties.
+      The title means 'moonlight.'
+      It's about atmosphere more than notes. Slow. Soft. Unsure of itself.
+
+  - id: 3
+    mode: see
+    type: key_note
+    figure: "Two staves side by side. Left: D-flat major with 5 flats, label 'original'. Right: D major with 2 sharps, label 'ours'. Arrow between them."
+    cleffy: >
+      One note about the key. Debussy wrote it in D-flat — five flats.
+      A lot. You'll play that version someday.
+      Today we're in D major. Two sharps. F-sharp and C-sharp. Same shape, easier reading.
+
+  - id: 4
+    mode: hear
+    type: listen
+    figure: "Play button. An elegant still frame."
+    audio:
+      A: "Clair de Lune opening bars played very softly, pedaled"
+    cleffy: >
+      Listen. This is the opening.
+      Very soft. Very slow. Space between the notes.
+      No hurry anywhere.
+
+  - id: 5
+    mode: see
+    type: the_texture
+    figure: "A two-staff excerpt. Top staff: slow descending thirds in the right hand. Bottom staff: a single long D note. Everything marked pp."
+    cleffy: >
+      Here's how the opening is built.
+      Right hand — two notes at once, thirds, drifting down slowly.
+      Left hand — one low D. Held forever.
+      The whole thing marked *pp*. That means very, very soft.
+
+  - id: 6
+    mode: see
+    type: rh_thirds_explained
+    figure: "Close-up of RH staff: A-F# played together, then G-E, then F#-D. Each pair bracketed and labelled '3rd'."
+    cleffy: >
+      The right hand plays thirds — two notes a 3rd apart, at the same time.
+      First pair: A and F-sharp. Next: G and E. Next: F-sharp and D.
+      Three stepwise pairs, moving down.
+      Same shape you've been playing since Act 22.
+
+  - id: 7
+    mode: play
+    type: rh_first_third
+    figure: "Keyboard. A4 and F#4 glowing together."
+    cleffy: >
+      Play the first pair. A and F-sharp together. Right hand.
+      Use fingers 3 and 1. Soft. Barely touch the keys.
+    interaction:
+      type: sequence
+      keys: ["F#4","A4"]
+
+  - id: 8
+    mode: play
+    type: rh_three_thirds
+    figure: "Keyboard. Three pairs light up in order: A-F#, G-E, F#-D."
+    cleffy: >
+      All three pairs, in order. Slow. Down a step each time.
+      A-F-sharp. G-E. F-sharp-D.
+    interaction:
+      type: sequence
+      keys: ["F#4","A4","E4","G4","D4","F#4"]
+
+  - id: 9
+    mode: see
+    type: lh_pedal_note
+    figure: "Bass staff: a single D2 held as a dotted whole note. Label: 'hold through the phrase'."
+    cleffy: >
+      Left hand is easy. One note. Low D.
+      Press it once at the start of the phrase. Hold it.
+      It's the floor the right hand drifts over.
+
+  - id: 10
+    mode: play
+    type: play_lh_d
+    figure: "Keyboard. D2 glowing in the bass."
+    cleffy: >
+      Left hand. Low D. Press and hold.
+      Just one note. Feel the depth.
+    interaction:
+      type: sequence
+      keys: ["D2"]
+
+  - id: 11
+    mode: play
+    type: hands_together_first_pair
+    figure: "Grand staff. RH: A-F# third. LH: D2 held underneath."
+    cleffy: >
+      Both hands. Left hand presses D first. Then right hand lays the A-F-sharp third on top.
+      Like a stone dropped into a pool.
+    interaction:
+      type: sequence
+      keys: ["D2","F#4","A4"]
+
+  - id: 12
+    mode: see
+    type: full_opening
+    figure: "Grand staff: four bars. RH plays three slow descending thirds, then lifts and drifts up to a higher pair. LH holds D throughout. Dynamic mark: pp. Slow tempo mark."
+    cleffy: >
+      Four bars. Everything you just played, laid out.
+      Left hand — one low D, held through all four bars.
+      Right hand — three descending thirds, a breath, then one more pair high up.
+      The last pair floats up instead of down. A little sigh.
+
+  - id: 13
+    mode: play
+    type: play_rh_full_opening
+    figure: "Right hand only. Six pairs, then one floating pair: A-F#, G-E, F#-D, (lift), F#-A."
+    cleffy: >
+      Right hand only. Three descending thirds. Lift. One pair up high.
+      A-F-sharp, G-E, F-sharp-D, then F-sharp-A on top.
+      Quiet. Slow.
+    interaction:
+      type: sequence
+      keys: ["F#4","A4","E4","G4","D4","F#4","F#4","A4"]
+
+  - id: 14
+    mode: play
+    type: full_opening_slow
+    figure: "Grand staff. Full opening. Tempo 40. Dynamic: pp. Both hands."
+    cleffy: >
+      Both hands. Tempo 40. Very slow.
+      Left hand presses D and holds it.
+      Right hand places each pair gently on top.
+      Feel it float, not press.
+    interaction:
+      type: song
+      sequence: [["D2","F#4","A4"],["E4","G4"],["D4","F#4"],["F#4","A4"]]
+      guides: true
+      tempo: 40
+
+  - id: 15
+    mode: play
+    type: full_opening_no_guides
+    figure: "Grand staff. No glowing keys. Just the page."
+    cleffy: >
+      Now no guides. You read, you play.
+      Slow as you need. The piece is slow anyway.
+    interaction:
+      type: song
+      sequence: [["D2","F#4","A4"],["E4","G4"],["D4","F#4"],["F#4","A4"]]
+      guides: false
+      tempo: 40
+    followup_cleffy: >
+      That.
+      That was Debussy.
+      The opening of the most famous impressionist piano piece ever written — in your hands.
+
+  - id: 16
+    mode: play
+    type: with_shape
+    figure: "Same four bars. A long dynamic hairpin — barely-there start, slight swell at the top pair, sigh at the end."
+    cleffy: >
+      One more time. Now with breath.
+      Start barely audible. A tiny swell when the top pair arrives. Sigh at the end.
+      This is phrasing — Tier 3's gift.
+    interaction:
+      type: song
+      sequence: [["D2","F#4","A4"],["E4","G4"],["D4","F#4"],["F#4","A4"]]
+      guides: false
+      tempo: 40
+
+  - id: 17
+    mode: hear
+    type: pre_check
+    figure: "Banner — Tier 3 boss mastery check."
+    cleffy: >
+      Five quick ones. Tier boss — take your time.
+
+  - id: 18
+    mode: see
+    type: reflection
+    figure: "A pyramid showing Tier 1 (gold), Tier 2 (gold), Tier 3 (gold). Cleffy at the top. Seven small icons at his feet — one for each piece played."
+    cleffy: >
+      Look back.
+      Tier 1 — one staff, one hand, first song. Happy Birthday.
+      Tier 2 — both clefs, both hands, real pieces. Für Elise.
+      Tier 3 — craft. Articulation. Fingering. Chords. Phrasing.
+      Seven pieces in your hands now.
+      Minuet in G. Canon in D. Gymnopédie. Happy Birthday harmonized. Twinkle harmonized. Minuet in D. Beethoven Bagatelle.
+      And now the opening of Clair de Lune.
+      A hundred and twenty-five lessons. Two tiers behind you.
+
+  - id: 19
+    mode: see
+    type: whats_next
+    figure: "Pyramid preview with Tier 4 highlighted. Four piece thumbnails: Prelude in C, The Entertainer, Nocturne, Moonlight opening."
+    cleffy: >
+      Tier 4 — intermediate.
+      This is where you become a pianist, not a piano student.
+      Bach's Prelude in C — a whole piece made of broken chords.
+      The Entertainer — Scott Joplin, syncopation, ragtime.
+      Chopin's Nocturne — Op. 9 No. 2, one of the most beautiful phrases in music.
+      Moonlight Sonata, first movement — the opening eight bars.
+      You don't have to start tomorrow. You've earned a pause.
+
+  - id: 20
+    mode: see
+    type: wrap
+    figure: "Celebration card — TIER 3 COMPLETE 👑. Big golden trophy. Cleffy under a moon, holding sheet music that says Clair de Lune."
+    cleffy: >
+      Tier 3. Complete.
+      You play piano with craft now. Touch. Fingering. Harmony. Expression.
+      Not just the right notes — the right notes the right way.
+      That's a real pianist's job.
+      Rest tonight. Moon's up. Tier 4 opens when you're ready.
+
+practice_this_week:
+  real_piano:
+    - "Opening of Clair de Lune, once a day. Very slow. Very soft. No rush to speed it up."
+    - "Play it for someone. Turn the lights down. Tell them it's Debussy."
+    - "Revisit one piece from each tier — Happy Birthday, Für Elise, Minuet in G. Notice how small they feel now."
+  virtual_only:
+    - "Replay pages 14-16 until the opening feels automatic"
+  estimated_time: "15 min/day this week — celebrate"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 3
+      questions:
+        - figure: "Two notes stacked: F-sharp and A"
+          prompt: "What is the distance between these notes?"
+          options: ["2nd (step)", "3rd (skip)", "5th"]
+          correct: 1
+        - figure: "Dynamic marking: pp"
+          prompt: "What does pp mean?"
+          options: ["Very soft", "Medium", "Very loud"]
+          correct: 0
+        - figure: "Bass staff: a whole note D held across four bars"
+          prompt: "How is this left-hand note played?"
+          options: ["Pressed once, held the whole time", "Pressed on every beat", "Pressed softly then released immediately"]
+          correct: 0
+        - figure: "Key signature with two sharps"
+          prompt: "Which key is this lesson in?"
+          options: ["G major", "D major", "B-flat major"]
+          correct: 1
+    hear:
+      pass_threshold: 2
+      questions:
+        - audio: "Clair de Lune opening"
+          prompt: "Is this piece played loud or soft?"
+          options: ["Very soft", "Very loud"]
+          correct: 0
+        - audio: "Two descending thirds in a row"
+          prompt: "Is this moving up or down?"
+          options: ["Up", "Down"]
+          correct: 1
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play the first third — F-sharp and A together, right hand."
+          accept: "F#4 and A4 played simultaneously"
+
+remediation:
+  id: "125.5"
+  title: "Clair de Lune, one pair at a time"
+  pages: 10
+  opening_cleffy: >
+    Big piece. Big moment.
+    Let's take it apart. One third at a time, then one hand at a time, then slowly together.
+    There's no rush on this one. The piece itself is unhurried.
+
+completion:
+  cleffy: >
+    Tier 3, sealed.
+    You play with craft now. Real touch, real shape, real sound.
+    One hundred and twenty-five lessons. Half the road.
+    Big breath. Then Tier 4 whenever you're ready.
+    The moon's not going anywhere.
+  xp: 100
+  unlocks: 126
+  tier_complete: 3

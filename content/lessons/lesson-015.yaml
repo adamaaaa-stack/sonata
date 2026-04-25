@@ -1,0 +1,235 @@
+# ============================================================
+# LESSON 15 · Reading Middle C
+# Tier 1 · Act 3 · Beginner · ACT BOSS 🎯
+# Central metaphor: YOU JUST READ YOUR FIRST NOTE
+# ============================================================
+id: 15
+tier: beginner
+act: 3
+title: "Reading Middle C"
+subtitle: "Act 3 · You just read music"
+goal: "See Middle C, hear Middle C, play Middle C — without thinking. Fast and confident."
+prereqs: [11, 12, 13, 14]
+method_focus: "notation"
+time_estimate_min: 12
+piece_context: "Most people never learn to read sheet music. Today you do — one note at a time, starting here."
+metaphor: "first-real-read"
+vibe: ["gentle", "playful", "celebratory", "serious"]
+is_act_boss: true
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy standing between a trophy and a staff. The staff has Middle C on it."
+    cleffy: >
+      End of Act 3.
+      You met the staff. You met me, the treble clef. You learned line vs space.
+      You met Middle C.
+      Today you prove you can read that one note, fast and cold.
+      This is a smaller checkpoint than Act 1's — but it's the most important one so far.
+      You're about to read music. For real. Let's go.
+
+  - id: 2
+    mode: see
+    type: recap
+    figure: "Four small panels: the five-line staff, the treble clef, line-vs-space, Middle C on a ledger line."
+    cleffy: >
+      Quick recap.
+      L11 — the staff is stairs on paper.
+      L12 — the treble clef is me, and the loop hugs the G line as a landmark.
+      L13 — notes are either on a line or in a space, and shape matters more than names.
+      L14 — Middle C is our anchor. Below the staff, on its own little line.
+      Use all of it today.
+
+  - id: 3
+    mode: see
+    type: quick_recognize
+    figure: "Staff. Middle C flashes briefly, then disappears."
+    cleffy: >
+      Recognize Middle C in under two seconds.
+    interaction:
+      type: choice
+      options: ["Middle C", "Not Middle C"]
+      correct: 0
+      time_limit: 2
+
+  - id: 4
+    mode: see
+    type: distractor_drill
+    figure: "Staff. Each round shows a note — sometimes Middle C, sometimes a neighbor."
+    cleffy: >
+      Four rounds. Is this Middle C? Yes or no. Quick.
+    interaction:
+      type: drill
+      rounds: 4
+      options: ["Yes", "No"]
+
+  - id: 5
+    mode: hear
+    type: ear_recognize
+    figure: "Play button. No staff shown."
+    audio:
+      A: "Either Middle C or another note"
+    cleffy: >
+      Now with your ears only. I'll play a single note. Is it Middle C?
+    interaction:
+      type: drill
+      rounds: 4
+      options: ["Yes", "No"]
+
+  - id: 6
+    mode: play
+    type: find_middle_c
+    figure: "Full keyboard, no highlights."
+    cleffy: >
+      Your turn. Find Middle C on the piano.
+    interaction:
+      type: tap
+      key: "C4"
+
+  - id: 7
+    mode: read
+    type: see_hear_play
+    figure: "Staff with Middle C. Keyboard below."
+    cleffy: >
+      See. Hear. Play. Three rounds.
+      Middle C on the staff — middle C on the piano — same note.
+    interaction:
+      type: see_hear_play
+      target_key: "C4"
+      rounds: 3
+
+  - id: 8
+    mode: play
+    type: repeat_play
+    figure: "Staff with four Middle Cs in a row. Keyboard below."
+    cleffy: >
+      The staff shows Middle C, four times in a row. Play it four times.
+    interaction:
+      type: sequence
+      keys: ["C4", "C4", "C4", "C4"]
+    followup_cleffy: >
+      Same note. Same key. Same sound. You just READ a mini-piece.
+      Boring as it is, it's a real read.
+
+  - id: 9
+    mode: hear
+    type: contrast_drill
+    figure: "Two play buttons. A = Middle C. B = a note one step above (D4)."
+    cleffy: >
+      Which one is Middle C — the first or the second?
+    interaction:
+      type: drill
+      rounds: 3
+      options: ["A (first)", "B (second)"]
+
+  - id: 10
+    mode: read
+    type: speed_round
+    figure: "Staff. Middle C appears. Keyboard below. You have 3 seconds to play it."
+    cleffy: >
+      Speed round. When Middle C appears on the staff, play it fast. Three rounds.
+    interaction:
+      type: drill
+      target_key: "C4"
+      rounds: 3
+      time_limit: 3
+
+  - id: 11
+    mode: play
+    type: mini_performance
+    figure: "A short ledger-line-only staff with several Middle Cs in rhythm: one long note, then two shorter, then a longer one."
+    cleffy: >
+      Your first tiny mini-piece.
+      Three notes, all Middle C, slightly different lengths. Follow the dots.
+      Don't stress timing — just hit Middle C each time a dot lights up.
+    interaction:
+      type: rhythm
+      note: "C4"
+      count: 3
+
+  - id: 12
+    mode: hear
+    type: drill
+    figure: "Round counter 1 of 4. Mixed questions."
+    cleffy: >
+      One last warm-up. Four rounds, mixed.
+    interaction:
+      type: drill
+      rounds: 4
+
+  - id: 13
+    mode: hear
+    type: pre_check
+    figure: "Banner."
+    cleffy: >
+      Four quick ones. Almost done with Act 3.
+
+  - id: 14
+    mode: see
+    type: wrap
+    figure: "Celebration card — Act 3 complete. Trophy with 3/10 acts engraved. Cleffy holding up a pristine sheet of paper with a Middle C on it."
+    cleffy: >
+      That's Act 3. You just read music.
+      I know it's one note. I know it's going slow.
+      But this was the whole point — building one rock-solid anchor.
+      Starting tomorrow, we use it. We add steps, skips, and leaps —
+      and every one of them is measured from Middle C.
+      The Sonata method officially begins in Act 4.
+      See you there.
+
+# ─── Mastery check ──────────────────────────────────────
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 3
+      questions:
+        - figure: "Staff with Middle C."
+          prompt: "Is this Middle C?"
+          options: ["Yes", "No"]
+          correct: 0
+        - figure: "Staff with a note on the bottom line (E)."
+          prompt: "Is this Middle C?"
+          options: ["Yes", "No"]
+          correct: 1
+        - figure: "Staff with a note in space 1 (F)."
+          prompt: "Is this Middle C?"
+          options: ["Yes", "No"]
+          correct: 1
+    hear:
+      pass_threshold: 2
+      questions:
+        - audio: "Middle C"
+          prompt: "Is that Middle C?"
+          options: ["Yes", "No"]
+          correct: 0
+        - audio: "D4"
+          prompt: "Is that Middle C?"
+          options: ["Yes", "No"]
+          correct: 1
+    play:
+      pass_threshold: 1
+      questions:
+        - figure: "Staff showing Middle C."
+          prompt: "See the note. Play it."
+          accept: "C4"
+
+# ─── Remediation ────────────────────────────────────────
+remediation:
+  id: "15.5"
+  title: "Act 3, one more look"
+  pages: 6
+  opening_cleffy: >
+    Act 3 is the one where sheet music clicks. It's normal if it takes two passes.
+    Let's walk through everything again — staff, clef, line-space, Middle C —
+    slowly, all connected.
+
+# ─── Completion ─────────────────────────────────────────
+completion:
+  cleffy: >
+    Act 3, closed. You read music.
+    A small amount of music — but real music, on a real staff, with a real anchor.
+    Next up is the Sonata method, for real. Step, skip, leap — all measured from where you are right now.
+  xp: 30   # bigger bonus for act boss
+  unlocks: 16

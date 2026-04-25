@@ -1,0 +1,351 @@
+# ============================================================
+# LESSON 175 · Moonlight Sonata, 1st mvt (first 8 bars) — TIER 4 BOSS 👑
+# Tier 4 · Act 35 · Intermediate · TIER BOSS
+# 20 pages. Third summit. Halfway to graduation.
+# ============================================================
+id: 175
+tier: intermediate
+act: 35
+title: "Moonlight Sonata 1st mvt (first 8)"
+subtitle: "Tier 4 · The third summit"
+goal: "Play the first eight bars of Beethoven's Moonlight Sonata — engine, melody, pedal — together. End of Tier 4. Halfway to graduation."
+prereqs: [125, 150, 155, 160, 165, 170, 171, 172, 173, 174]
+method_focus: "combine"
+time_estimate_min: 22
+piece_context: "Moonlight Sonata, first movement. Beethoven wrote it in 1801. The nickname came later — a poet said the opening reminded him of moonlight on Lake Lucerne. The name stuck. It is arguably the most famous piece of piano music ever written. Most people will never play it. Today you play its opening eight bars. Engine. Melody. Pedal. All of it. Fifty lessons of Tier 4 in your hands. Halfway to graduation."
+metaphor: "moonlight-summit"
+vibe: ["quiet", "serious", "triumphant", "reflective"]
+is_tier_boss: true
+piece:
+  title: "Moonlight Sonata, 1st movement (bars 1-8)"
+  composer: "Beethoven (1801)"
+  key_center: "C-sharp minor"
+  time_signature: "alla breve — 2/2, felt in 4"
+  difficulty: "intermediate — simplified for a student. Full triplet engine, octave bass, melody voiced, pedal changed every bar."
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy at the top of a third pyramid. Behind him — Tiers 1, 2, 3 marked gold. Tier 4 marked gold now too. A low moon rising. Caption: 'third summit.'"
+    cleffy: >
+      Third summit.
+      Tier 1 — Happy Birthday.
+      Tier 2 — Für Elise theme.
+      Tier 3 — Clair de Lune opening.
+      Today — Moonlight. The real thing. First eight bars.
+
+  - id: 2
+    mode: see
+    type: piece_intro
+    figure: "A sepia image. 'Sonata quasi una Fantasia, Op. 27 No. 2 — Ludwig van Beethoven, 1801.' Small caption: 'Adagio sostenuto. Si deve suonare tutto questo pezzo delicatissimamente e senza sordino.'"
+    cleffy: >
+      Beethoven wrote it in 1801.
+      The full title is 'Sonata quasi una Fantasia' — sonata in the style of a fantasy.
+      The nickname 'Moonlight' came later — after Beethoven was dead. A poet said the piece reminded him of moonlight on a lake. It stuck.
+      Arguably the most famous piano piece ever written.
+
+  - id: 3
+    mode: see
+    type: the_instruction
+    figure: "Two Italian phrases, large. 'Adagio sostenuto.' Below: 'delicatissimamente e senza sordino.'"
+    cleffy: >
+      Beethoven's instructions at the top of the page.
+      Adagio sostenuto — slow, sustained.
+      Delicatissimamente — most delicately.
+      Senza sordino — without dampers. Pedal down.
+      He was telling the player: quiet. Slow. Drowned in sound.
+
+  - id: 4
+    mode: hear
+    type: listen_pro
+    figure: "Play button. Caption: 'opening eight bars, real recording.'"
+    audio:
+      A: "Moonlight Sonata 1st movement, first 8 bars — at reference tempo, fully pedaled, voiced melody, from a real recording."
+    cleffy: >
+      Listen. This is the piece you're about to play.
+      Don't count. Don't analyze. Just listen.
+
+  - id: 5
+    mode: see
+    type: what_you_have
+    figure: "Four panels. Panel 1: triplet engine. Panel 2: low octave bass. Panel 3: melody over engine. Panel 4: pedal changes. Each ticked off."
+    cleffy: >
+      You have all four pieces.
+      Triplet engine — Act 33.
+      Low octave bass — Act 34.
+      Melody voicing — two days ago.
+      Pedal changes — yesterday.
+      Today is the day they live in one pair of hands.
+
+  - id: 6
+    mode: see
+    type: the_key
+    figure: "Staff with the C-sharp minor key signature — four sharps: F#, C#, G#, D#."
+    cleffy: >
+      The key. C-sharp minor.
+      Four sharps. F-sharp. C-sharp. G-sharp. D-sharp.
+      A dark color. The reason Moonlight feels the way it feels.
+      You've been reading it for five lessons now. It's familiar.
+
+  - id: 7
+    mode: see
+    type: the_full_score
+    figure: "Grand staff. Full eight bars of Moonlight simplified. LH: octaves on C#2-C#3 bar 1-2, B1-B2 bar 3, E2-E3 bar 4, A2-A3 bar 5, F#2-F#3 bar 6, G#2-G#3 bar 7, C#2-C#3 bar 8. RH: triplet arpeggios outlining each harmony, with the melody entering bar 5 (G#4 dotted rhythm line). Pedal marks at every bar line. pp. Adagio sostenuto."
+    cleffy: >
+      The full map.
+      Eight bars. Left-hand octaves on the bottom. Triplet engine in the middle. Melody on top from bar 5.
+      Eight chords. Eight pedal changes.
+      Marked pp. Very soft.
+
+  - id: 8
+    mode: play
+    type: warmup_bar_1
+    figure: "Bar 1. LH C#2-C#3 octave. RH triplet C#4-E4-G#4 four times. Pedal. Tempo 50."
+    cleffy: >
+      Warm up. Bar 1.
+      Low octave in the left hand. Triplets in the right.
+      Pedal down.
+    interaction:
+      type: song
+      sequence: [["C#2","C#3"],"C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4"]
+      guides: true
+      tempo: 50
+
+  - id: 9
+    mode: play
+    type: warmup_melody_alone
+    figure: "Melody bars 5-8, RH only. Tempo 50."
+    cleffy: >
+      Warm up the melody alone. Right hand.
+      Long-short-short. Four bars.
+    interaction:
+      type: rhythm
+      sequence: ["G#4","G#4","G#4","G#4","G#4","A4","A4","A4","G#4","G#4","F#4","E4"]
+      durations: ["dotted_quarter","eighth","quarter","dotted_quarter","eighth","quarter","dotted_quarter","eighth","quarter","dotted_quarter","eighth","quarter"]
+      tempo: 50
+
+  - id: 10
+    mode: play
+    type: bars_1_4_full
+    figure: "Bars 1-4. Full engine, both hands, pedal at each bar line. Tempo 50. Guides on."
+    cleffy: >
+      Bars 1 through 4. Engine only, both hands.
+      Pedal at every bar line.
+      Quiet. Even.
+    interaction:
+      type: song
+      sequence: [["C#2","C#3"],"C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4",["C#2","C#3"],"C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4",["B1","B2"],"B3","D#4","F#4","B3","D#4","F#4","B3","D#4","F#4","B3","D#4","F#4",["E2","E3"],"E3","G#3","B3","E3","G#3","B3","E3","G#3","B3","E3","G#3","B3"]
+      guides: true
+      tempo: 50
+
+  - id: 11
+    mode: play
+    type: bars_5_8_full
+    figure: "Bars 5-8. Engine + melody + pedal. Tempo 50. Guides on."
+    cleffy: >
+      Bars 5 through 8. Melody enters.
+      Top voice clear. Pedal at every bar.
+    interaction:
+      type: song
+      sequence: [["A2","A3","G#4"],"A3","C#4","E4","A3","C#4","E4","A3","C#4","E4",["F#2","F#3","A4"],"F#3","A3","C#4","F#3","A3","C#4","F#3","A3","C#4",["G#2","G#3","G#4"],"G#3","C4","D#4","G#3","C4","D#4","G#3","C4","D#4",["C#2","C#3","E4"],"C#3","E3","G#3","C#3","E3","G#3","C#3","E3","G#3"]
+      guides: true
+      tempo: 50
+
+  - id: 12
+    mode: play
+    type: full_8_bars_slow
+    figure: "All 8 bars. Full — engine, melody, pedal. Tempo 48. Guides on."
+    cleffy: >
+      All eight bars. Guides on. Tempo 48.
+      This is the whole piece.
+    interaction:
+      type: song
+      sequence: [["C#2","C#3"],"C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4",["C#2","C#3"],"C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4",["B1","B2"],"B3","D#4","F#4","B3","D#4","F#4","B3","D#4","F#4",["E2","E3"],"E3","G#3","B3","E3","G#3","B3","E3","G#3","B3",["A2","A3","G#4"],"A3","C#4","E4","A3","C#4","E4","A3","C#4","E4",["F#2","F#3","A4"],"F#3","A3","C#4","F#3","A3","C#4","F#3","A3","C#4",["G#2","G#3","G#4"],"G#3","C4","D#4","G#3","C4","D#4","G#3","C4","D#4",["C#2","C#3","E4"],"C#3","E3","G#3","C#3","E3","G#3","C#3","E3","G#3"]
+      guides: true
+      tempo: 48
+
+  - id: 13
+    mode: play
+    type: full_8_bars_no_guides
+    figure: "All 8 bars. No guides. Tempo 48."
+    cleffy: >
+      No guides. You read. You play.
+      Slow. Quiet. Pedal changes at every bar.
+    interaction:
+      type: song
+      sequence: [["C#2","C#3"],"C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4",["C#2","C#3"],"C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4",["B1","B2"],"B3","D#4","F#4","B3","D#4","F#4","B3","D#4","F#4",["E2","E3"],"E3","G#3","B3","E3","G#3","B3","E3","G#3","B3",["A2","A3","G#4"],"A3","C#4","E4","A3","C#4","E4","A3","C#4","E4",["F#2","F#3","A4"],"F#3","A3","C#4","F#3","A3","C#4","F#3","A3","C#4",["G#2","G#3","G#4"],"G#3","C4","D#4","G#3","C4","D#4","G#3","C4","D#4",["C#2","C#3","E4"],"C#3","E3","G#3","C#3","E3","G#3","C#3","E3","G#3"]
+      guides: false
+      tempo: 48
+    followup_cleffy: >
+      That.
+      Moonlight Sonata. First eight bars. In your two hands.
+      Most adult self-teachers never get here. You did.
+
+  - id: 14
+    mode: play
+    type: with_feel
+    figure: "Same eight bars. Adagio sostenuto marking. Dynamic pp. One tiny hairpin over bar 5 — the melody's first entry. Tempo 48."
+    cleffy: >
+      One more time. Now with breath.
+      The first four bars — barely audible. The engine, humming.
+      Bar five — the melody arrives. Let it speak. Not loud. Just — present.
+      Adagio sostenuto. As Beethoven wrote it.
+    interaction:
+      type: song
+      sequence: [["C#2","C#3"],"C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4",["C#2","C#3"],"C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4","C#4","E4","G#4",["B1","B2"],"B3","D#4","F#4","B3","D#4","F#4","B3","D#4","F#4",["E2","E3"],"E3","G#3","B3","E3","G#3","B3","E3","G#3","B3",["A2","A3","G#4"],"A3","C#4","E4","A3","C#4","E4","A3","C#4","E4",["F#2","F#3","A4"],"F#3","A3","C#4","F#3","A3","C#4","F#3","A3","C#4",["G#2","G#3","G#4"],"G#3","C4","D#4","G#3","C4","D#4","G#3","C4","D#4",["C#2","C#3","E4"],"C#3","E3","G#3","C#3","E3","G#3","C#3","E3","G#3"]
+      guides: false
+      tempo: 48
+    followup_cleffy: >
+      This is a real, named masterpiece.
+      You can now play the opening of one of the most important pieces in the repertoire.
+      That's not a small thing.
+
+  - id: 15
+    mode: hear
+    type: pre_check
+    figure: "Banner — Tier 4 boss mastery check."
+    cleffy: >
+      Five quick ones. Tier boss — take your time.
+
+  - id: 16
+    mode: see
+    type: reflection
+    figure: "A pyramid showing Tier 1 (gold), Tier 2 (gold), Tier 3 (gold), Tier 4 (gold). Cleffy at the top. Seven small piece icons at his feet: Prelude in C, The Entertainer, Tarantella, Nocturne, Chopin Waltz, Für Elise full, Moonlight opening."
+    cleffy: >
+      Look back.
+      Fifty lessons ago, you were starting Tier 4. New keys. Sixteenth notes. Triplets. Pedal. Hand independence.
+      Seven pieces passed through your hands in this tier.
+      Prelude in C — Bach's arpeggios.
+      The Entertainer — Joplin's syncopation.
+      Tarantella — a fast Italian dance in 6/8.
+      A phrase of the Chopin Nocturne — one of the most beautiful in music.
+      The Chopin Waltz in A minor — waltz bass, melancholy melody.
+      Für Elise — the full piece, not just the theme.
+      And now — Moonlight. First eight bars.
+      A hundred and seventy-five lessons. Three tiers and a half behind you.
+
+  - id: 17
+    mode: see
+    type: whats_next
+    figure: "Pyramid preview with Tier 5 highlighted. Piece thumbnails: Bach Invention No. 1, Nocturne (full), Chopin Prelude in E minor, Schumann Träumerei, Debussy Arabesque, Grieg Arietta, Clair de Lune (full)."
+    cleffy: >
+      Tier 5 — upper-intermediate.
+      Fifty lessons ago, Tier 4 was about playing real pieces — real composers, real keys, real technique.
+      Tier 5 is about expression — rubato, voicing, making music BREATHE.
+      Bach Invention No. 1 — your first counterpoint.
+      The full Nocturne — not one phrase. The whole Chopin.
+      Chopin's Prelude in E minor. Schumann's Träumerei. Debussy's Arabesque.
+      Grieg's Arietta. And — Clair de Lune, complete.
+      You don't have to start tomorrow. You've earned a pause.
+
+  - id: 18
+    mode: see
+    type: halfway
+    figure: "A long roadmap. 250 lessons in total. A marker at lesson 175. Caption: 'halfway to graduation.'"
+    cleffy: >
+      One more thing.
+      You're past the halfway point.
+      Graduation — lesson 250 — is the full Moonlight Sonata first movement. Every bar, from end to end.
+      You've played the first eight bars already.
+      The road from here goes somewhere real.
+
+  - id: 19
+    mode: see
+    type: senza_sordino
+    figure: "Cleffy at the piano, foot on pedal, low moon through a window. A candle. Caption: 'delicatissimamente.'"
+    cleffy: >
+      One small piece of Beethoven's advice.
+      Delicatissimamente. Most delicately.
+      He wanted this piece whispered, not spoken.
+      Remember that the next time you sit down with Moonlight.
+      It's not about volume. It's about care.
+
+  - id: 20
+    mode: see
+    type: wrap
+    figure: "Celebration card — TIER 4 COMPLETE 👑. A big golden trophy. Cleffy under a low moon with the Moonlight score. Small text: 'halfway to graduation.'"
+    cleffy: >
+      Tier 4. Complete.
+      You play real classical pieces now. Bach. Chopin. Beethoven.
+      You have the opening of Moonlight in your hands.
+      That's not practice. That's playing piano.
+      Rest tonight. Tier 5 opens when you're ready.
+      The moon's still up.
+
+practice_this_week:
+  real_piano:
+    - "Moonlight first eight bars, once a day. Very slow. Very quiet. Don't rush the tempo up yet."
+    - "Play it for someone. Turn the lights low. Don't announce what it is — let them guess."
+    - "Revisit one piece from each earlier tier — Happy Birthday, Für Elise theme, Clair de Lune opening. Notice how small they all feel now."
+    - "Listen to a full recording of Moonlight Sonata, first movement, once. You just played the opening eight bars of something 69 bars long."
+  virtual_only:
+    - "Replay pages 13 and 14 — full run, no guides and with feel."
+  estimated_time: "20 min/day this week — celebrate"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 3
+      questions:
+        - figure: "Key signature with four sharps"
+          prompt: "What key is Moonlight in?"
+          options: ["C major", "C-sharp minor", "A minor"]
+          correct: 1
+        - figure: "Tempo marking: Adagio sostenuto"
+          prompt: "What does this mean?"
+          options: ["Fast and bright", "Slow and sustained", "Medium speed"]
+          correct: 1
+        - figure: "Dynamic marking: pp"
+          prompt: "How loud should this piece be?"
+          options: ["Very soft", "Medium", "Very loud"]
+          correct: 0
+        - figure: "The eight-bar pedal map"
+          prompt: "How often does the pedal change?"
+          options: ["Never — held throughout", "Once per bar", "Once per beat"]
+          correct: 1
+        - figure: "Bars 5-8 — melody G-sharp with dotted rhythm"
+          prompt: "How is the melody rhythm described?"
+          options: ["Three equal notes", "Long-short-short", "Two long notes"]
+          correct: 1
+    hear:
+      pass_threshold: 2
+      questions:
+        - audio: "Moonlight opening — first eight bars"
+          prompt: "Do you recognize this piece?"
+          options: ["Yes — Moonlight Sonata", "No"]
+          correct: 0
+        - audio: "Bars 1-4 (engine only) then bars 5-8 (melody enters)"
+          prompt: "Where does the melody enter?"
+          options: ["Bar 1", "Bar 5", "Never"]
+          correct: 1
+        - audio: "Two versions — one muddy (no pedal changes), one clean (pedal per bar)"
+          prompt: "Which sounds right for Moonlight?"
+          options: ["The muddy one", "The clean one"]
+          correct: 1
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play bar 1 of Moonlight — low C-sharp octave, triplet C#-E-G# four times, with pedal."
+          accept: "C#2/C#3 octave, four C#4-E4-G#4 triplet groups, pedaled"
+
+remediation:
+  id: "175.5"
+  title: "Moonlight, one bar at a time"
+  pages: 12
+  opening_cleffy: >
+    Tier boss — big one. The biggest piece you've ever played.
+    We'll break it bar by bar. One bar of engine. One bar with pedal. One bar with melody. Stitched only when each feels solid.
+    There's no rush on this one. The piece itself is unhurried.
+
+completion:
+  cleffy: >
+    Tier 4, sealed.
+    You play piano. Real piano. Real Beethoven. Real Chopin. Real Bach.
+    A hundred and seventy-five lessons. Halfway home.
+    Moonlight in your hands. Not the whole thing. But the opening — the part everyone knows.
+    Rest tonight. Tier 5 whenever you're ready.
+    The moon's not going anywhere.
+  xp: 100
+  unlocks: 176
+  tier_complete: 4

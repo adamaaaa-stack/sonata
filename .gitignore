@@ -34,3 +34,12 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Audio batch (served from S3, not bundled)
+/public/audio/
+
+# Local Qwen3-TTS model files (not part of app)
+/Qwen3-TTS/
+
+# TTS dev tooling lives outside the app
+/tts/

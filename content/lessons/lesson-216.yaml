@@ -1,0 +1,226 @@
+# ============================================================
+# LESSON 216 · Romantic phrase shape
+# Tier 5 · Act 44 · Upper-Intermediate · Romantic phrasing + Grieg
+# Long lines, long breaths.
+# ============================================================
+id: 216
+tier: upper-intermediate
+act: 44
+title: "Romantic phrase shape"
+subtitle: "Act 44 · Long lines"
+goal: "Hear and play phrases that stretch across 8 to 16 bars — not the short Classical sentences, the long Romantic breath."
+prereqs: [215, 119]
+method_focus: "combine"
+time_estimate_min: 14
+piece_context: "New act. Four lessons of Romantic expression, then Grieg's Arietta as the boss. Today — the first shift. Classical phrases are short sentences. Romantic phrases are paragraphs. Learn to breathe across a longer span."
+metaphor: "long-line"
+vibe: ["gentle", "reflective", "focused"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Cleffy at the piano. Above him, two arcs drawn — a short one labeled CLASSICAL (4 bars), a long one labeled ROMANTIC (12 bars). Banner: LONG LINES."
+    cleffy: >
+      New act. Four lessons, then Grieg.
+      Today — the long line.
+      Classical phrases are short. Romantic phrases stretch.
+
+  - id: 2
+    mode: see
+    type: the_difference
+    figure: "Side-by-side staves. Left: Mozart-style — four tidy 4-bar phrases, each with its own arch. Right: Chopin-style — one enormous 16-bar arch over the whole system."
+    cleffy: >
+      Look at both.
+      Mozart — four short sentences. Breath after each.
+      Chopin — one long thought. The breath waits.
+
+  - id: 3
+    mode: hear
+    type: listen_short_vs_long
+    figure: "Two play buttons. A: Classical. B: Romantic."
+    audio:
+      A: "A Mozart-style melody with clear 4-bar phrase breaks"
+      B: "A Chopin-style melody that sustains one arc across 12 bars without obvious breaths"
+    cleffy: >
+      Listen. First the Classical shape. Short breaths.
+      Then the Romantic. One long one.
+      Feel the difference in your chest.
+
+  - id: 4
+    mode: see
+    type: the_long_breath
+    figure: "A 12-bar phrase drawn as a single huge arc. Start p, climb through bars 5-7, peak at bar 8, descend through bars 9-12. No internal breath marks."
+    cleffy: >
+      The Romantic breath.
+      You start. You keep going. You don't let go until the whole sentence is done.
+      One breath. Twelve bars. Patience.
+
+  - id: 5
+    mode: hear
+    type: hear_the_arc
+    figure: "A long Chopin-like phrase plays. A visual arc traces along as it moves — rising, peaking, falling."
+    audio:
+      A: "A 12-bar Romantic melody with a gentle climb to a mid-phrase peak, then a long descent"
+    cleffy: >
+      One sentence, twelve bars.
+      Notice where it rises. Notice where it lands.
+      You should be able to sing it in one breath — even if that breath is long.
+
+  - id: 6
+    mode: play
+    type: play_short_phrase_first
+    figure: "Keyboard. A small 4-bar Classical phrase. C4 D4 E4 F4 G4 F4 E4 D4."
+    cleffy: >
+      Start with the short one.
+      Four bars. Simple arch. Breath at the end.
+    interaction:
+      type: sequence
+      keys: ["C4","D4","E4","F4","G4","F4","E4","D4"]
+
+  - id: 7
+    mode: see
+    type: plan_the_long_one
+    figure: "A longer 8-bar phrase drawn on the staff. Arch marked: p at start, build through bars 3-5, peak at bar 6, soften to p by bar 8. Pencil annotations shown."
+    cleffy: >
+      Now longer. Eight bars.
+      Before you play — plan.
+      Where does it rise? Where does it peak? Where does it land?
+
+  - id: 8
+    mode: play
+    type: play_long_phrase
+    figure: "Keyboard. 8-bar ascending-then-descending line. Peak at the E5. Long arch drawn above the whole thing."
+    cleffy: >
+      Eight bars. One breath.
+      Soft start. Grow slowly. Peak on the E. Release all the way to the last C.
+      Don't stop growing in the middle. Don't rush the descent.
+    interaction:
+      type: sequence
+      keys: ["C4","E4","G4","C5","D5","E5","D5","C5","B4","G4","E4","C4"]
+    followup_cleffy: >
+      Longer than you're used to. That's the point.
+
+  - id: 9
+    mode: see
+    type: where_to_not_breathe
+    figure: "Same 8-bar phrase. Little breath-mark ticks shown between every bar — each one has a red X through it. A single breath mark at the very end has a check."
+    cleffy: >
+      Resist the little breaths.
+      Bar-lines aren't breaths in Romantic music.
+      The only real breath is at the end of the sentence.
+
+  - id: 10
+    mode: hear
+    type: drill_which_style
+    figure: "Round counter. 4 rounds. Banner: CLASSICAL OR ROMANTIC?"
+    cleffy: >
+      Four rounds. Short breaths or long?
+    interaction:
+      type: drill
+      rounds: 4
+      options: ["Classical (short)", "Romantic (long)"]
+
+  - id: 11
+    mode: play
+    type: play_with_dynamics
+    figure: "Keyboard. Same 8-bar phrase. Dynamic arc labeled: p — cresc — mf — dim — p. Long, slow shaping."
+    cleffy: >
+      Same eight bars. Now shape the dynamics.
+      p at the start. Slow crescendo. mf around the peak. Slow diminuendo home.
+      The growth is gentle. Not a staircase — a hill.
+    interaction:
+      type: sequence
+      keys: ["C4","E4","G4","C5","D5","E5","D5","C5","B4","G4","E4","C4"]
+
+  - id: 12
+    mode: see
+    type: sing_first
+    figure: "Cleffy with a hand over his chest. Speech bubble: 'If I can't sing it, I can't play it.'"
+    cleffy: >
+      The old trick.
+      Before you play a long line, sing it. Out loud or in your head.
+      If your voice can hold the arc, your hands can too.
+
+  - id: 13
+    mode: play
+    type: play_one_more
+    figure: "Keyboard. A new 8-bar line, now with LH drone on C2. Long arch."
+    cleffy: >
+      One more. Same shape, different notes.
+      LH holds a low C. RH sings the long line.
+    interaction:
+      type: song
+      sequence: [["C2","E4"],["C2","G4"],["C2","C5"],["C2","B4"],["C2","A4"],["C2","G4"],["C2","E4"],["C2","C4"]]
+      guides: true
+      tempo: 70
+    followup_cleffy: >
+      Long breath. Held all the way.
+
+  - id: 14
+    mode: hear
+    type: pre_check
+    figure: "Banner."
+    cleffy: >
+      Three quick ones.
+
+  - id: 15
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 216. One enormous arch over a long Romantic phrase. Below: 'one breath, many bars.'"
+    cleffy: >
+      The long line. Romantic breath.
+      Tomorrow — plan a big arc over 16 bars. Climb and release.
+
+practice_this_week:
+  real_piano:
+    - "Pick any slow piece you know. Try playing eight bars as one phrase — no little breaths between bars."
+    - "Sing the melody first, out loud. Then play it. Notice if your hands breathe less when your voice does."
+  virtual_only:
+    - "Replay page 8 and page 11 — the long phrase, with and without dynamics."
+  estimated_time: "10 min/day"
+
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "Two phrases. Left: four 4-bar arches. Right: one 16-bar arch."
+          prompt: "Which one is the Romantic shape?"
+          options: ["Left (four short arches)", "Right (one long arch)", "Both the same"]
+          correct: 1
+        - figure: "A long phrase with small breath marks drawn between every bar."
+          prompt: "In a Romantic phrase, what's wrong with this?"
+          options: ["Too many breaths — the line should hold", "Too few notes", "Wrong key"]
+          correct: 0
+        - figure: "A 12-bar phrase with a single long arc drawn above."
+          prompt: "What does the arc tell you?"
+          options: ["Play it loud throughout", "One breath, across all twelve bars", "Breathe every two bars"]
+          correct: 1
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "A long Chopin-style phrase sustaining across many bars without obvious breaks"
+          prompt: "Classical short breaths or Romantic long line?"
+          options: ["Classical short breaths", "Romantic long line"]
+          correct: 1
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play the 8-bar line — C E G C D E D C B G E C — as one long breath, with a gentle arch."
+          accept: "All 12 notes played with growth toward the E5 and release toward the final C4, no obvious gap"
+
+remediation:
+  id: "216.5"
+  title: "The long breath, gentler"
+  pages: 7
+  opening_cleffy: >
+    The long line is a stretch. It takes patience your fingers don't have yet.
+    We'll start with four bars. Then six. Then eight. Slowly.
+
+completion:
+  cleffy: >
+    The first Romantic breath.
+    Tomorrow — plan the whole 16-bar arc. Climb, peak, release.
+  xp: 18
+  unlocks: 217

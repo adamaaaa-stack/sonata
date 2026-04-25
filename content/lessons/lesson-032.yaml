@@ -1,0 +1,244 @@
+# ============================================================
+# LESSON 32 · LH rhythm
+# Tier 2 · Act 7 · Elementary
+# Central metaphor: RHYTHM IS UNIVERSAL
+# ============================================================
+id: 32
+tier: elementary
+act: 7
+title: "Rhythm in the left hand"
+subtitle: "Quarters and halves, but lower"
+goal: "Read and play quarter and half notes in the left hand, in time with a metronome."
+prereqs: [23, 24, 30, 31]
+method_focus: "rhythm"
+time_estimate_min: 12
+piece_context: null
+metaphor: "rhythm-is-universal"
+vibe: ["gentle", "playful"]
+
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: "Two staves stacked. Metronome in the corner. Quarter notes across both staves in time."
+    cleffy: >
+      Rhythm works the same everywhere.
+      Quarter note is still one beat. Half note is still two. Whole note is still four.
+      What changes in the left hand? Nothing. The rules don't care which hand plays.
+
+  - id: 2
+    mode: see
+    type: bass_durations
+    figure: "Bass staff. Quarter, half, whole notes drawn — same shapes as on the treble staff."
+    cleffy: >
+      Same three shapes you already know.
+      Filled quarter. Empty half. No-stem whole.
+      On the bass staff — identical.
+
+  - id: 3
+    mode: see
+    type: identify_duration
+    figure: "Bass staff with a quarter note."
+    cleffy: >
+      Quick check. Which duration?
+    interaction:
+      type: choice
+      options: ["Quarter (1 beat)", "Half (2 beats)", "Whole (4 beats)"]
+      correct: 0
+
+  - id: 4
+    mode: see
+    type: identify_duration_2
+    figure: "Bass staff with a half note."
+    cleffy: >
+      This one?
+    interaction:
+      type: choice
+      options: ["Quarter", "Half", "Whole"]
+      correct: 1
+
+  - id: 5
+    mode: hear
+    type: lh_quarters
+    figure: "Bass staff with four quarter notes on bass F. Metronome ticking at 60 bpm."
+    audio:
+      A: "4 bass F quarter notes in time with metronome"
+    cleffy: >
+      Listen to four quarter notes played on bass F. Each one lasts one click.
+
+  - id: 6
+    mode: hear
+    type: lh_halves
+    figure: "Bass staff with two half notes on bass C. Metronome at 60 bpm."
+    audio:
+      A: "2 bass C half notes, each lasting 2 clicks"
+    cleffy: >
+      Now two half notes. Each one holds through two clicks.
+
+  - id: 7
+    mode: play
+    type: play_quarters
+    figure: "Bass staff with 4 quarter notes on bass C. LH pinky (5) labeled. Metronome at 60 bpm."
+    cleffy: >
+      Left-hand pinky on bass C.
+      Play four quarter notes, one per click.
+    interaction:
+      type: rhythm
+      sequence: ["C3", "C3", "C3", "C3"]
+      durations: ["quarter", "quarter", "quarter", "quarter"]
+      tempo: 60
+
+  - id: 8
+    mode: play
+    type: play_halves
+    figure: "Bass staff with 2 half notes on bass F. LH pointer (2) labeled."
+    cleffy: >
+      Pointer finger on bass F.
+      Two half notes. Each held through two clicks.
+    interaction:
+      type: rhythm
+      sequence: ["F3", "F3"]
+      durations: ["half", "half"]
+      tempo: 60
+
+  - id: 9
+    mode: play
+    type: mixed_durations
+    figure: "Bass staff. Two bars. Bar 1: quarter, quarter, half. Bar 2: half, half."
+    cleffy: >
+      Mix them. Two bars of 4/4.
+      Bar 1: quarter, quarter, half (one click, one click, two clicks).
+      Bar 2: half, half.
+    interaction:
+      type: rhythm
+      sequence: ["C3", "C3", "C3", "F3", "F3"]
+      durations: ["quarter", "quarter", "half", "half", "half"]
+      tempo: 60
+
+  - id: 10
+    mode: read
+    type: read_rhythm_melody
+    figure: "Bass staff with 4 notes and rhythm: C3 half, D3 half, E3 quarter, D3 quarter, C3 half. Bar-lines drawn."
+    cleffy: >
+      Real bass melody now, with rhythm AND pitch.
+      Read the shape. Read the time. Play it with LH.
+    interaction:
+      type: rhythm
+      sequence: ["C3", "D3", "E3", "D3", "C3"]
+      durations: ["half", "half", "quarter", "quarter", "half"]
+      tempo: 60
+
+  - id: 11
+    mode: play
+    type: steady_pulse
+    figure: "Bass staff with 8 quarter notes alternating bass C and bass F. Metronome."
+    cleffy: >
+      Eight quarter notes, alternating bass C and bass F. Steady.
+      Don't rush. Don't drag. Match the metronome.
+    interaction:
+      type: rhythm
+      sequence: ["C3", "F3", "C3", "F3", "C3", "F3", "C3", "F3"]
+      durations: ["quarter", "quarter", "quarter", "quarter", "quarter", "quarter", "quarter", "quarter"]
+      tempo: 60
+
+  - id: 12
+    mode: hear
+    type: count_drill
+    figure: "Round counter 1 of 3. Each round: a bass-staff bar plays. How many beats?"
+    cleffy: >
+      Three rounds. Bass bar plays. How many beats in each bar?
+    interaction:
+      type: drill
+      rounds: 3
+      options: ["3 beats", "4 beats", "6 beats"]
+
+  - id: 13
+    mode: play
+    type: first_bar_of_mwra
+    figure: "Bass staff. One bar with bass C as a whole note (4 beats). This is actually Bar 1 of the LH of Merrily We Roll Along, simplified."
+    cleffy: >
+      Preview of tomorrow's lesson.
+      The left hand in Merrily We Roll Along is almost stupidly simple. Mostly it just holds bass C.
+      Play bass C as a whole note — four beats, pinky on C3.
+    interaction:
+      type: rhythm
+      sequence: ["C3"]
+      durations: ["whole"]
+      tempo: 60
+
+  - id: 14
+    mode: hear
+    type: drill_mixed
+    figure: "Mix of duration ID and bass rhythm questions."
+    cleffy: >
+      Four rounds.
+    interaction:
+      type: drill
+      rounds: 4
+
+  - id: 15
+    mode: hear
+    type: pre_check
+    figure: "Banner."
+    cleffy: >
+      Four quick ones.
+
+  - id: 16
+    mode: see
+    type: wrap
+    figure: "Postcard — Lesson 32. Bass staff with a metronome beside it, steady tick marks."
+    cleffy: >
+      Left hand can read rhythm too.
+      Tomorrow — the grand staff. Both hands, both staves, same page. The big one.
+
+# ─── Practice this week ────────────────────────────────
+practice_this_week:
+  real_piano:
+    - "Left hand, pinky on bass C. Play four quarter notes with a metronome at 60 bpm."
+    - "Then two half notes on bass F. Hold each through two clicks."
+    - "Mix: quarter, quarter, half (one bar of 4/4). Repeat ten times."
+  virtual_only:
+    - "Replay pages 7–10 (the LH rhythm exercises)"
+  estimated_time: "7 min/day"
+
+# ─── Mastery check ──────────────────────────────────────
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: "Bass staff, a quarter note."
+          prompt: "How long is this note?"
+          options: ["1 beat", "2 beats", "4 beats"]
+          correct: 0
+        - figure: "Bass staff, a half note."
+          prompt: "How long is this note?"
+          options: ["1 beat", "2 beats", "4 beats"]
+          correct: 1
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: "Four quarter notes on bass F"
+          prompt: "How many notes did you hear?"
+          options: ["2", "3", "4"]
+          correct: 2
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: "Play bass C four times as quarter notes in time with the metronome."
+          accept: "C3 × 4 with quarter durations at set tempo"
+
+# ─── Remediation ────────────────────────────────────────
+remediation:
+  id: "32.5"
+  title: "LH rhythm, slower"
+  pages: 5
+  opening_cleffy: >
+    Rhythm in a new hand feels weird the first time. Very slow metronome, basic patterns.
+
+# ─── Completion ─────────────────────────────────────────
+completion:
+  cleffy: >
+    Left hand plays, left hand counts. Ready for the big one.
+  xp: 20
+  unlocks: 33
