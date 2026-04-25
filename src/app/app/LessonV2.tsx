@@ -28,6 +28,7 @@ import { FigureRouter, hasRenderedFigure } from "./LessonV2Figures";
 import { AudioSamples, playAudioDescription, parseAudioToNotes } from "./LessonV2Audio";
 import { DrillInteractionCard } from "./LessonV2Drill";
 import { MicListenCard } from "./LessonV2Mic";
+import { HandTrackerOverlay } from "./LessonV2HandTracker";
 import { PianoKeyboard } from "./PianoKeyboard";
 import {
   noteToMidi as libNoteToMidi,
@@ -1533,7 +1534,24 @@ export function LessonV2Screen({
 
   // ---------- Phase: mastery ----------
   if (phase === "mastery" && lesson.mastery_check) {
-    return <MasteryPhase lesson={lesson} onExit={() => setPhase("pages")} onDone={(s) => { setScore(s); setPhase("complete"); }} />;
+    return (
+      <>
+        <HandTrackerOverlay
+          onFingerPress={(e) => {
+            // eslint-disable-next-line no-console
+            console.log("[finger]", e.hand, "finger", e.finger);
+          }}
+        />
+        <MasteryPhase
+          lesson={lesson}
+          onExit={() => setPhase("pages")}
+          onDone={(s) => {
+            setScore(s);
+            setPhase("complete");
+          }}
+        />
+      </>
+    );
   }
 
   // ---------- Phase: complete ----------
@@ -1566,6 +1584,17 @@ export function LessonV2Screen({
         fontFamily: "var(--sans, system-ui, sans-serif)",
       }}
     >
+      {/* Floating hand-tracker preview. Auto-starts; user can collapse. */}
+      <HandTrackerOverlay
+        onFingerPress={(e) => {
+          // For now, just log so we can see fingering events fire on the
+          // device. A future commit will pair this with mic-detected notes
+          // so we can grade fingering ("you played F4 with finger 4
+          // instead of finger 3").
+          // eslint-disable-next-line no-console
+          console.log("[finger]", e.hand, "finger", e.finger, "x", e.x.toFixed(2));
+        }}
+      />
       {/* Header */}
       <div
         style={{

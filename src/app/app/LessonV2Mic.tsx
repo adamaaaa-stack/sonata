@@ -86,28 +86,21 @@ export function MicListenCard({
     };
   }, []);
 
-  // Auto-start strategy:
-  //   - Consent already granted (localStorage flag): start immediately on
-  //     mount. iOS allows getUserMedia silently after the first granted
-  //     prompt for the origin, so this is a non-event.
-  //   - No consent yet: render a deliberate "Enable mic" pill that the
-  //     student taps. We DON'T arm a global pointerdown handler — that
-  //     made the iOS permission prompt appear during random taps (e.g.
-  //     pressing a piano key) and the page looked frozen until the user
-  //     dealt with the prompt. Now the prompt only ever appears from a
-  //     deliberate Enable Mic tap.
-  // The `polyphonic` flag is in the deps because chord pages need the
-  // big TF.js model — we want a fresh start when the page swaps engines.
+  // Always-on mic. Try to start on every mount, regardless of any prior
+  // consent flag. iOS returns the stream silently if the user already
+  // granted permission for this origin; if not, getUserMedia rejects and
+  // we surface the error in the pill.
+  //
+  // The previous gesture-driven auto-start was unreliable: navigating to
+  // the lesson is itself a gesture, but the activation window can expire
+  // before our useEffect runs on slower devices (cold-start iPad). We
+  // attempt the call immediately; if iOS rejects for "user activation
+  // required", the user can tap the pill once and we never prompt again.
   // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     if (typeof window === "undefined") return;
     if (listening) return;
-    const consent = window.localStorage.getItem("sonata.mic.consent");
-    if (consent !== "yes") return; // wait for explicit Enable tap
-    const t = window.setTimeout(() => {
-      void startListening();
-    }, 100);
-    return () => window.clearTimeout(t);
+    void startListening();
   }, [polyphonic]);
 
   async function startListening() {
