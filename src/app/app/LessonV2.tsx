@@ -36,6 +36,7 @@ import {
   playNotes,
   playCorrectSound,
   playWrongSound,
+  playWrongFingering,
   loadPianoSamples,
   isPianoReady,
   unlockAudio,
@@ -1494,10 +1495,69 @@ export function LessonV2Screen({
     key: number;
   } | null>(null);
   const micPressKeyRef = useRef(0);
+
+  // Recent finger-press events from the hand tracker. Keeps the last
+  // ~500ms so we can pair them with mic-detected notes.
+  type FingerEvent = { hand: "left" | "right"; finger: number; t: number };
+  const recentFingersRef = useRef<FingerEvent[]>([]);
+  function recordFingerPress(e: FingerEvent) {
+    const now = performance.now();
+    // Drop entries older than 600ms — we only need the most recent.
+    recentFingersRef.current = recentFingersRef.current.filter(
+      (x) => now - x.t < 600
+    );
+    recentFingersRef.current.push(e);
+  }
+
+  function expectedFingerForPage(): number | null {
+    const it = page?.interaction as unknown as { finger?: unknown } | undefined;
+    if (!it) return null;
+    const f = typeof it.finger === "number" ? it.finger : null;
+    if (f != null && f >= 1 && f <= 5) return f;
+    return null;
+  }
+
   function micToKeyboard(midi: number) {
     micPressKeyRef.current += 1;
     setMicPressTrigger({ midi, key: micPressKeyRef.current });
+    // Fingering grading: only when the page declares an expected finger AND
+    // we have a recent finger-press event from the hand tracker. We pair
+    // them up to a 250ms window, which is the typical eye-hand-mic latency.
+    const expected = expectedFingerForPage();
+    if (expected == null) return;
+    const now = performance.now();
+    const fp = [...recentFingersRef.current]
+      .reverse()
+      .find((x) => now - x.t < 250);
+    if (!fp) return;
+    if (fp.finger !== expected) {
+      // Visual flash + beep — but only AFTER the existing pitch grader has
+      // had a chance to handle the note. The setTimeout(0) defers so the
+      // green "correct pitch" flash isn't drowned by a wrong-finger flash
+      // firing simultaneously.
+      setTimeout(() => playWrongFingering(), 0);
+      setWrongFingerNote({
+        midi,
+        playedFinger: fp.finger,
+        expectedFinger: expected,
+        key: micPressKeyRef.current,
+      });
+    }
   }
+
+  // Visual flash for wrong-fingering: shows a small chip near the note for
+  // ~1.5s with the expected vs played finger numbers.
+  const [wrongFingerNote, setWrongFingerNote] = useState<{
+    midi: number;
+    playedFinger: number;
+    expectedFinger: number;
+    key: number;
+  } | null>(null);
+  useEffect(() => {
+    if (!wrongFingerNote) return;
+    const t = setTimeout(() => setWrongFingerNote(null), 1800);
+    return () => clearTimeout(t);
+  }, [wrongFingerNote]);
 
   function handlePianoPress(midi: number) {
     if (!isPlayPage || sequenceDone) return;
@@ -1584,17 +1644,55 @@ export function LessonV2Screen({
         fontFamily: "var(--sans, system-ui, sans-serif)",
       }}
     >
-      {/* Floating hand-tracker preview. Auto-starts; user can collapse. */}
+      {/* Floating hand-tracker preview. Auto-starts; user can collapse.
+          Finger-press events feed into recentFingersRef so micToKeyboard
+          can pair them with detected notes for fingering grading. */}
       <HandTrackerOverlay
-        onFingerPress={(e) => {
-          // For now, just log so we can see fingering events fire on the
-          // device. A future commit will pair this with mic-detected notes
-          // so we can grade fingering ("you played F4 with finger 4
-          // instead of finger 3").
-          // eslint-disable-next-line no-console
-          console.log("[finger]", e.hand, "finger", e.finger, "x", e.x.toFixed(2));
-        }}
+        onFingerPress={(e) =>
+          recordFingerPress({
+            hand: e.hand,
+            finger: e.finger,
+            t: performance.now(),
+          })
+        }
       />
+      {/* Wrong-fingering flash chip — appears briefly when the student
+          plays the right note with the wrong finger. */}
+      {wrongFingerNote && (
+        <div
+          key={wrongFingerNote.key}
+          style={{
+            position: "fixed",
+            top: 80,
+            left: "50%",
+            transform: "translateX(-50%)",
+            background: "#fef3c7",
+            border: "2px solid #d97706",
+            color: "#78350f",
+            padding: "8px 14px",
+            borderRadius: 999,
+            fontSize: 13,
+            fontWeight: 800,
+            zIndex: 60,
+            boxShadow: "0 4px 12px rgba(0,0,0,0.15)",
+            display: "flex",
+            alignItems: "center",
+            gap: 6,
+            animation: "sonataFingerNudge 1.6s ease-out forwards",
+          }}
+        >
+          <style>{`
+            @keyframes sonataFingerNudge {
+              0%   { opacity: 0; transform: translate(-50%, -8px); }
+              15%  { opacity: 1; transform: translate(-50%, 0); }
+              85%  { opacity: 1; transform: translate(-50%, 0); }
+              100% { opacity: 0; transform: translate(-50%, -4px); }
+            }
+          `}</style>
+          ✋ Try finger {wrongFingerNote.expectedFinger} instead of{" "}
+          {wrongFingerNote.playedFinger}
+        </div>
+      )}
       {/* Header */}
       <div
         style={{

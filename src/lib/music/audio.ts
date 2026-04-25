@@ -280,3 +280,28 @@ export function playWrongSound(): void {
   osc.connect(gain); gain.connect(ctx.destination);
   osc.start(now); osc.stop(now + 0.15);
 }
+
+/**
+ * Wrong-FINGERING beep — softer and tonally different from playWrongSound,
+ * which is reserved for "wrong pitch". This fires when the right note was
+ * played but with the wrong finger. We want the student to notice without
+ * feeling failed, since pitch is correct.
+ *
+ * Two short descending sine "uh-uh" tones, like a polite "nope".
+ */
+export function playWrongFingering(): void {
+  const ctx = getAudioCtx();
+  const now = ctx.currentTime;
+  [440, 392].forEach((freq, i) => {
+    const osc = ctx.createOscillator();
+    const gain = ctx.createGain();
+    osc.type = 'sine';
+    osc.frequency.value = freq;
+    gain.gain.setValueAtTime(0.08, now + i * 0.1);
+    gain.gain.exponentialRampToValueAtTime(0.001, now + i * 0.1 + 0.09);
+    osc.connect(gain);
+    gain.connect(ctx.destination);
+    osc.start(now + i * 0.1);
+    osc.stop(now + i * 0.1 + 0.09);
+  });
+}
