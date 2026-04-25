@@ -519,6 +519,14 @@ function questionFigureHint(figure: string | undefined): number | null {
     .replace(/\b([A-G])[-\s]?sharp\b/gi, "$1#")
     .replace(/\b([A-G])[-\s]?flat\b/gi, "$1b");
 
+  const lower = figure.toLowerCase();
+  // Pattern-based hints: 2-group / 3-group descriptions don't reference a
+  // specific MIDI, so we pick a representative key from the cluster (middle
+  // octave) so the student has something concrete glowing on the bottom
+  // piano.
+  if (/2[-\s]?group/.test(lower)) return 61; // C#4 — first key of a 2-group
+  if (/3[-\s]?group/.test(lower)) return 66; // F#4 — first key of a 3-group
+
   const highlightRe =
     /(circled|highlighted|glowing|glows|marked|flag|planted|shining|lit\s+up)/gi;
   const highlights: number[] = [];
@@ -557,6 +565,19 @@ function questionFigureHint(figure: string | undefined): number | null {
   }
 }
 
+/**
+ * For pattern figures ("2-group circled", "3-group circled"), return the FULL
+ * cluster of MIDIs to highlight (so the bottom piano shows a 2- or 3-key
+ * glowing group, not just one key). Returns null when not pattern-shaped.
+ */
+function questionFigureCluster(figure: string | undefined): number[] | null {
+  if (!figure) return null;
+  const lower = figure.toLowerCase();
+  if (/2[-\s]?group/.test(lower)) return [61, 63]; // C#4, D#4
+  if (/3[-\s]?group/.test(lower)) return [66, 68, 70]; // F#4, G#4, A#4
+  return null;
+}
+
 function QuestionCard({
   q,
   section,
@@ -566,7 +587,8 @@ function QuestionCard({
   q: MasteryQuestion;
   section: "see" | "hear" | "play";
   onAnswer: (correct: boolean) => void;
-  onHighlightChange?: (midi: number | null) => void;
+  /** Set of MIDIs to glow on the bottom piano (or null to clear). */
+  onHighlightChange?: (midis: number[] | null) => void;
 }) {
   const [choice, setChoice] = useState<number | null>(null);
   const [revealed, setRevealed] = useState(false);
@@ -581,12 +603,20 @@ function QuestionCard({
     }
   }, [q.audio]);
 
-  // Tell the parent which key to highlight on the bottom piano (if any).
+  // Tell the parent which key(s) to highlight on the bottom piano. Cluster
+  // figures (2-group / 3-group) light up the whole group; specific notes
+  // light up just that note.
+  const figCluster = useMemo(() => questionFigureCluster(q.figure), [q.figure]);
   const figHint = useMemo(() => questionFigureHint(q.figure), [q.figure]);
+  const figureMidis = useMemo<number[] | null>(() => {
+    if (figCluster && figCluster.length > 0) return figCluster;
+    if (figHint != null) return [figHint];
+    return null;
+  }, [figCluster, figHint]);
   useEffect(() => {
-    onHighlightChange?.(figHint);
+    onHighlightChange?.(figureMidis);
     return () => onHighlightChange?.(null);
-  }, [figHint, onHighlightChange]);
+  }, [figureMidis, onHighlightChange]);
 
   function pick(i: number) {
     if (revealed) return;
@@ -617,17 +647,51 @@ function QuestionCard({
         marginBottom: 12,
       }}
     >
-      {q.figure && figHint != null && (
+      {q.figure && (
         <div
           style={{
-            fontFamily: "Georgia, serif",
-            fontStyle: "italic",
-            fontSize: 13,
-            color: "var(--ink3, #6b7280)",
-            marginBottom: 8,
+            background: "var(--parchment, #faf6ef)",
+            border: "2px dashed var(--ink, #1f2937)",
+            borderRadius: 10,
+            padding: "10px 12px",
+            marginBottom: 12,
+            display: "flex",
+            flexDirection: "column",
+            gap: 4,
           }}
         >
-          Look at the glowing key below.
+          <div
+            style={{
+              fontSize: 10,
+              fontWeight: 800,
+              letterSpacing: "0.18em",
+              color: "var(--ink3, #6b7280)",
+            }}
+          >
+            FIGURE
+          </div>
+          <div
+            style={{
+              fontFamily: "Georgia, serif",
+              fontStyle: "italic",
+              fontSize: 14,
+              lineHeight: 1.4,
+              color: "var(--ink, #1f2937)",
+            }}
+          >
+            {q.figure}
+          </div>
+          {figureMidis && figureMidis.length > 0 && (
+            <div
+              style={{
+                fontSize: 11,
+                color: "#16a34a",
+                fontWeight: 700,
+              }}
+            >
+              ↓ Glowing on the keyboard below
+            </div>
+          )}
         </div>
       )}
       {q.audio && (
@@ -748,7 +812,7 @@ function MasteryCheckScreen({
 }: {
   check: MasteryCheck;
   onDone: (score: { correct: number; total: number }) => void;
-  onHighlightChange?: (midi: number | null) => void;
+  onHighlightChange?: (midis: number[] | null) => void;
 }) {
   const all = useMemo(() => {
     const out: { section: "see" | "hear" | "play"; q: MasteryQuestion }[] = [];
@@ -965,16 +1029,19 @@ function MasteryPhase({
   onExit: () => void;
   onDone: (score: { correct: number; total: number }) => void;
 }) {
-  const [hintMidi, setHintMidi] = useState<number | null>(null);
-  const highlights = useMemo(
-    () => (hintMidi != null ? { [hintMidi]: "#22c55e" } : {}),
-    [hintMidi]
-  );
-  // Decide keyboard range around hint
+  const [hintMidis, setHintMidis] = useState<number[] | null>(null);
+  const highlights = useMemo(() => {
+    if (!hintMidis || hintMidis.length === 0) return {};
+    return Object.fromEntries(hintMidis.map((m) => [m, "#22c55e"]));
+  }, [hintMidis]);
+  // Pulse the first key of the cluster (a single pulse looks tidier than
+  // multiple competing rings).
+  const pulseMidi = hintMidis && hintMidis.length > 0 ? hintMidis[0] : null;
+  // Decide keyboard range around the cluster
   const [startMidi, endMidi] = useMemo(() => {
-    if (hintMidi == null) return [48, 84];
-    return computeKeyboardRange([hintMidi]);
-  }, [hintMidi]);
+    if (!hintMidis || hintMidis.length === 0) return [48, 84];
+    return computeKeyboardRange(hintMidis);
+  }, [hintMidis]);
   if (!lesson.mastery_check) return null;
   return (
     <div
@@ -1024,7 +1091,7 @@ function MasteryPhase({
         <MasteryCheckScreen
           check={lesson.mastery_check}
           onDone={onDone}
-          onHighlightChange={setHintMidi}
+          onHighlightChange={setHintMidis}
         />
       </div>
       <div
@@ -1037,7 +1104,7 @@ function MasteryPhase({
           startMidi={startMidi}
           endMidi={endMidi}
           highlights={highlights}
-          pulseMidi={hintMidi}
+          pulseMidi={pulseMidi}
         />
       </div>
     </div>

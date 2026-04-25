@@ -45,15 +45,23 @@ export function MicListenCard({
   const [error, setError] = useState<string | null>(null);
   const [level, setLevel] = useState(0);
   const [lastHeard, setLastHeard] = useState<number | null>(null);
-  // Sensitivity persists across pages so the user only sets it once.
-  const [sensitivity, setSensitivity] = useState<number>(() => {
-    if (typeof window === "undefined") return 0.5;
-    const stored = window.localStorage.getItem("sonata.mic.sensitivity");
-    const n = stored ? parseFloat(stored) : 0.5;
-    return Number.isFinite(n) ? Math.min(1, Math.max(0, n)) : 0.5;
-  });
+  // Sensitivity persists across pages. We MUST initialise to the same value
+  // server-side and client-side, otherwise React throws hydration errors
+  // (#425/#418/#423) and the page can freeze. Read localStorage in an
+  // effect after mount, not during initial render.
+  const [sensitivity, setSensitivity] = useState<number>(0.5);
   const sensitivityRef = useRef(sensitivity);
   sensitivityRef.current = sensitivity;
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const stored = window.localStorage.getItem("sonata.mic.sensitivity");
+    const n = stored ? parseFloat(stored) : 0.5;
+    if (Number.isFinite(n)) {
+      const clamped = Math.min(1, Math.max(0, n));
+      setSensitivity(clamped);
+      sensitivityRef.current = clamped;
+    }
+  }, []);
   const detectorRef = useRef<MicPitchDetector | null>(null);
 
   useEffect(() => {

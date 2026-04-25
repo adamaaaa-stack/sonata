@@ -70,7 +70,8 @@ export class MicPitchDetector {
   private analyser: AnalyserNode | null = null;
   private detector: ReturnType<typeof PitchyDetector.forFloat32Array> | null = null;
   private buffer: Float32Array<ArrayBuffer> | null = null;
-  private timer: number | null = null;
+  private rafId: number | null = null;
+  private lastTickTime = 0;
 
   private lastCandidate: number | null = null;
   private candidateCount = 0;
@@ -119,10 +120,36 @@ export class MicPitchDetector {
       mozAutoGainControl: false,
       mozNoiseSuppression: false,
     };
+    // Wrap getUserMedia with a hard timeout. On iOS the prompt sometimes
+    // takes seconds to appear, and if Safari is throttled we can hang
+    // indefinitely. Failing fast lets the UI show an error and stop showing
+    // a frozen Listen button.
+    const GUM_TIMEOUT_MS = 8000;
     try {
-      this.stream = await navigator.mediaDevices.getUserMedia({
-        audio: audioConstraints,
-        video: false,
+      this.stream = await new Promise<MediaStream>((resolve, reject) => {
+        let settled = false;
+        const t = window.setTimeout(() => {
+          if (settled) return;
+          settled = true;
+          reject(new Error("Microphone request timed out — try again"));
+        }, GUM_TIMEOUT_MS);
+        navigator.mediaDevices
+          .getUserMedia({ audio: audioConstraints, video: false })
+          .then((s) => {
+            if (settled) {
+              s.getTracks().forEach((tr) => tr.stop());
+              return;
+            }
+            settled = true;
+            window.clearTimeout(t);
+            resolve(s);
+          })
+          .catch((err) => {
+            if (settled) return;
+            settled = true;
+            window.clearTimeout(t);
+            reject(err);
+          });
       });
     } catch (e) {
       this.opts.onError?.(e instanceof Error ? e : new Error(String(e)));
@@ -153,13 +180,28 @@ export class MicPitchDetector {
     this.lastEmittedMidi = null;
     this.quietSince = null;
 
-    this.timer = window.setInterval(() => this.tick(), SAMPLE_INTERVAL_MS);
+    // Use requestAnimationFrame instead of setInterval. setInterval on iOS
+    // WKWebView fires in bursts after thread stalls and competes with
+    // Tone.js's audio scheduler, which is what causes the "press Listen,
+    // page freezes for 30s, then unfreezes" symptom. rAF naturally yields
+    // to the browser event loop and pauses while the tab is hidden.
+    this.lastTickTime = 0;
+    const loop = (now: number) => {
+      if (this.rafId == null) return; // stopped
+      // Rate-limit to ~50Hz (one tick per 20ms) regardless of display refresh.
+      if (now - this.lastTickTime >= SAMPLE_INTERVAL_MS) {
+        this.lastTickTime = now;
+        this.tick();
+      }
+      this.rafId = window.requestAnimationFrame(loop);
+    };
+    this.rafId = window.requestAnimationFrame(loop);
   }
 
   stop(): void {
-    if (this.timer != null) {
-      clearInterval(this.timer);
-      this.timer = null;
+    if (this.rafId != null) {
+      window.cancelAnimationFrame(this.rafId);
+      this.rafId = null;
     }
     if (this.stream) {
       this.stream.getTracks().forEach((t) => t.stop());
