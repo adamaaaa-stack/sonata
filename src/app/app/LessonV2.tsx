@@ -281,6 +281,25 @@ function sequenceMidiSteps(page?: LessonPage): number[][] {
 }
 
 /**
+ * Returns true if the page contains chord steps (multiple simultaneous
+ * notes) — a `song`/`rhythm` whose source `sequence` has at least one
+ * nested array of length > 1. Used to pick the polyphonic detector
+ * (Basic Pitch) for those pages instead of monophonic Pitchy.
+ */
+function pageHasChords(page?: LessonPage): boolean {
+  const it = page?.interaction as unknown as {
+    type?: string;
+    sequence?: unknown[];
+  } | undefined;
+  if (!it) return false;
+  if (it.type !== "song" && it.type !== "rhythm") return false;
+  if (!Array.isArray(it.sequence)) return false;
+  return it.sequence.some(
+    (item) => Array.isArray(item) && (item as unknown[]).length > 1
+  );
+}
+
+/**
  * Human-readable prompt for the mic card on play pages. Picks the most
  * specific phrasing available, falling back to "play along" wording when
  * we have no concrete target.
@@ -1647,6 +1666,7 @@ export function LessonV2Screen({
               minMidi={Math.max(36, rangeStart - 2)}
               maxMidi={Math.min(96, rangeEnd + 2)}
               promptText={playPrompt || "Play along on your real piano."}
+              polyphonic={pageHasChords(page)}
             />
           )}
 

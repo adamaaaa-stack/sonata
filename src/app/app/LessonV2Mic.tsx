@@ -1,22 +1,29 @@
 "use client";
 /**
- * MicListenCard — UI affordance that lets a student perform a play-page
- * exercise on their real piano (acoustic or digital) using microphone
- * pitch detection (Pitchy / McLeod method).
+ * MicListenCard — real-piano play-along UI.
  *
- * Drops onto play pages alongside SequenceProgress. When the student taps
- * "🎤 Use real piano", we:
- *   1. ask for mic permission
- *   2. start MicPitchDetector
- *   3. forward each detected MIDI note to onNote() — same callback as
- *      clicking the on-screen keyboard, so the existing grader handles it
+ * Routes detection to one of two engines based on the `polyphonic` prop:
+ *   - false / default: Pitchy (McLeod, monophonic, ~10ms latency, 5KB)
+ *   - true: Spotify Basic Pitch (TF.js neural net, polyphonic, ~250-500ms
+ *     latency, ~3-5MB lazy-loaded). Used on chord pages where Pitchy
+ *     can't disambiguate stacked notes.
  *
- * No audio is regenerated for this feature; the prompt text on screen
- * is the only instruction the student gets ("Play this on your piano").
+ * Both engines expose start/stop/setSensitivity and emit `onNote(midi)`
+ * events — they're swapped via a shared structural type so the rest of
+ * the lesson code is unchanged.
+ *
+ * No audio is regenerated for this feature; the on-screen prompt is the
+ * only instruction the student gets.
  */
 import React, { useEffect, useRef, useState } from "react";
-import { MicPitchDetector } from "@/lib/music";
-import { NOTES } from "@/lib/music";
+import { MicPitchDetector, NOTES } from "@/lib/music";
+
+// Minimal structural type both detectors satisfy.
+interface DetectorLike {
+  start(): Promise<void>;
+  stop(): void;
+  setSensitivity(s: number): void;
+}
 
 interface MicListenCardProps {
   /** Fires when a stable note is detected. Same shape as on-screen press. */
@@ -28,6 +35,11 @@ interface MicListenCardProps {
   maxMidi?: number;
   /** Optional explicit prompt text. Defaults to "Play this on your piano". */
   promptText?: string;
+  /**
+   * If true, use Spotify Basic Pitch (polyphonic, slower). If false or
+   * undefined, use Pitchy (monophonic, fast). Switch on chord pages.
+   */
+  polyphonic?: boolean;
 }
 
 function midiToName(m: number): string {
@@ -40,6 +52,7 @@ export function MicListenCard({
   minMidi,
   maxMidi,
   promptText,
+  polyphonic = false,
 }: MicListenCardProps) {
   const [listening, setListening] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -62,7 +75,9 @@ export function MicListenCard({
       sensitivityRef.current = clamped;
     }
   }, []);
-  const detectorRef = useRef<MicPitchDetector | null>(null);
+  const detectorRef = useRef<DetectorLike | null>(null);
+  // Status string ("loading model", etc) — only used in polyphonic mode.
+  const [status, setStatus] = useState<string | null>(null);
 
   useEffect(() => {
     return () => {
@@ -73,20 +88,59 @@ export function MicListenCard({
 
   async function startListening() {
     setError(null);
-    const det = new MicPitchDetector({
-      onNote: (e) => {
-        setLastHeard(e.midi);
-        onNote(e.midi);
-      },
-      onLevel: (rms) => setLevel(rms),
-      onError: (err) => {
-        setError(err.message || "Microphone access failed");
-        setListening(false);
-      },
-      minMidi,
-      maxMidi,
-      sensitivity: sensitivityRef.current,
-    });
+    let det: DetectorLike;
+    if (polyphonic) {
+      // Lazy-load the Basic Pitch module (and its TF.js dep) only when the
+      // student actually clicks Listen on a chord page. Avoids paying the
+      // multi-MB JS cost on monophonic lessons.
+      setStatus("loading model…");
+      try {
+        const mod = await import("@/lib/music/basicPitchDetector");
+        det = new mod.BasicPitchDetector({
+          onNote: (e) => {
+            setLastHeard(e.midi);
+            onNote(e.midi);
+          },
+          onLevel: (rms) => setLevel(rms),
+          onStatus: (s) => {
+            if (s === "loading") setStatus("loading model…");
+            else if (s === "ready") setStatus(null);
+            else if (s === "error") setStatus(null);
+          },
+          onError: (err) => {
+            setError(err.message || "Microphone access failed");
+            setListening(false);
+            setStatus(null);
+          },
+          minMidi,
+          maxMidi,
+          sensitivity: sensitivityRef.current,
+        });
+      } catch (e) {
+        setError(
+          e instanceof Error
+            ? `Polyphonic engine failed to load: ${e.message}`
+            : "Polyphonic engine failed to load"
+        );
+        setStatus(null);
+        return;
+      }
+    } else {
+      det = new MicPitchDetector({
+        onNote: (e) => {
+          setLastHeard(e.midi);
+          onNote(e.midi);
+        },
+        onLevel: (rms) => setLevel(rms),
+        onError: (err) => {
+          setError(err.message || "Microphone access failed");
+          setListening(false);
+        },
+        minMidi,
+        maxMidi,
+        sensitivity: sensitivityRef.current,
+      });
+    }
     detectorRef.current = det;
     try {
       await det.start();
@@ -142,9 +196,34 @@ export function MicListenCard({
             letterSpacing: "0.2em",
             fontWeight: 800,
             color: listening ? "#16a34a" : "var(--ink3, #6b7280)",
+            display: "flex",
+            alignItems: "center",
+            gap: 6,
           }}
         >
-          {listening ? "● LISTENING" : "USE REAL PIANO"}
+          <span>
+            {status
+              ? status.toUpperCase()
+              : listening
+              ? "● LISTENING"
+              : "USE REAL PIANO"}
+          </span>
+          {polyphonic && (
+            <span
+              title="Chord-capable engine (slower, polyphonic)"
+              style={{
+                padding: "2px 6px",
+                borderRadius: 8,
+                background: "rgba(212,168,83,0.15)",
+                color: "var(--berry, #d4a853)",
+                border: "1px solid var(--berry, #d4a853)",
+                fontSize: 9,
+                letterSpacing: "0.1em",
+              }}
+            >
+              POLY
+            </span>
+          )}
         </div>
         <button
           type="button"
