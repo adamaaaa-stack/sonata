@@ -75,11 +75,22 @@ export class PeerSession {
       }
       this.remoteStream.addTrack(e.track);
     };
+    // Watch BOTH connectionState and iceConnectionState. Browsers vary —
+    // iOS Safari in particular sometimes never transitions
+    // pc.connectionState past "connecting" for the publisher even when
+    // media is flowing. iceConnectionState=connected/completed is a
+    // more reliable signal that the WebRTC link is up.
+    const reportConnected = () => this.opts.onStatus?.("connected");
     this.pc.onconnectionstatechange = () => {
       const st = this.pc?.connectionState;
-      if (st === "connected") this.opts.onStatus?.("connected");
+      if (st === "connected") reportConnected();
       else if (st === "failed") this.opts.onStatus?.("failed");
       else if (st === "closed") this.opts.onStatus?.("closed");
+    };
+    this.pc.oniceconnectionstatechange = () => {
+      const st = this.pc?.iceConnectionState;
+      if (st === "connected" || st === "completed") reportConnected();
+      else if (st === "failed") this.opts.onStatus?.("failed");
     };
 
     // Publisher attaches its tracks to the connection.
