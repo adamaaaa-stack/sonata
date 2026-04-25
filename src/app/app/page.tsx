@@ -569,6 +569,11 @@ export default function SonataApp() {
   // ---- OSMD score loading ----
   async function loadScore(url: string, container: HTMLDivElement) {
     try {
+      // Clear any existing children (e.g. the React-rendered "Loading
+      // score…" spinner) before OSMD takes over the container — OSMD
+      // doesn't remove pre-existing DOM, so the spinner would otherwise
+      // stay on top of the rendered score.
+      container.innerHTML = '';
       const osmd = await import('opensheetmusicdisplay');
       const instance = new osmd.OpenSheetMusicDisplay(container, {
         backend: 'svg', drawTitle: false, drawSubtitle: false, drawComposer: false,
@@ -579,10 +584,10 @@ export default function SonataApp() {
       // Patch TempoExpressions crash
       try { for (const m of instance.Sheet.SourceMeasures) { if (m.TempoExpressions) m.TempoExpressions.length = 0; } } catch {}
       instance.render();
-      // Dark theme: use CSS filter to invert the entire SVG
-      // This is bulletproof — catches all elements regardless of how OSMD styles them
+      // No more invert filter — notation defaults to black, which is
+      // readable on the cream/parchment v2 background. The previous
+      // invert was a holdover from the dark-themed v1 UI.
       container.querySelectorAll('svg').forEach(svg => {
-        svg.style.filter = 'invert(1)';
         svg.style.background = 'transparent';
       });
       osmdInstanceRef.current = instance;
