@@ -463,6 +463,12 @@ export default function SonataApp() {
   // ---- TTS auto-play on lesson step change ----
   useEffect(() => {
     if (state.screen === 'lesson' && state.lessonPhase === 'concepts') {
+      // V2 lessons have their own narration via the bottom audio element —
+      // skip v1's TTS engine entirely so we don't get two voices at once.
+      if (findLessonV2(state.currentLesson)) {
+        stopSpeaking();
+        return;
+      }
       const lesson = lessons.find(l => l.id === state.currentLesson);
       if (lesson && lesson.steps[state.lessonStep]) {
         const audioFile = `/audio/L${state.currentLesson}-S${state.lessonStep + 1}.mp3`;

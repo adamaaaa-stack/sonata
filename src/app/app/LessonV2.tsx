@@ -912,7 +912,7 @@ export function LessonV2Screen({
     if (!isPianoReady()) loadPianoSamples().catch(() => {});
   }, []);
 
-  // On page change: reset sequence state, auto-play narration.
+  // On page change: stop previous audio, reset state, auto-play new narration.
   useEffect(() => {
     seqProgressRef.current = 0;
     setSeqProgress(0);
@@ -921,12 +921,32 @@ export function LessonV2Screen({
     setSequenceDone(false);
     setDemoPlaying(false);
     const a = audioRef.current;
-    if (a && page && pageHasNarration(page)) {
+    if (a) {
+      // Hard-stop the previous page's audio before kicking off the new one.
+      // Without this the underlying media element can keep buffering the
+      // prior file while React updates the src prop asynchronously.
+      a.pause();
       a.currentTime = 0;
-      a.play().catch(() => {});
+      // The src has already updated via React's render of the new page; force
+      // the element to actually pick up the new source.
+      try { a.load(); } catch {}
+      if (page && pageHasNarration(page)) {
+        a.play().catch(() => {});
+      }
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pageIdx]);
+
+  // Belt-and-suspenders: when the screen unmounts (Exit / Finish), make sure
+  // no audio leaks into other parts of the app.
+  useEffect(() => {
+    return () => {
+      const a = audioRef.current;
+      if (a) {
+        try { a.pause(); } catch {}
+      }
+    };
+  }, []);
 
   // When the sequence finishes naturally, celebrate + unblock advance.
   useEffect(() => {
