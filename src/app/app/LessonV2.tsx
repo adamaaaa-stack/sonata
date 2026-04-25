@@ -105,6 +105,18 @@ function parseTapAccept(accept?: string): number[] | null {
     return m != null ? [m] : null;
   }
 
+  // "middle X" — center-octave note ("Middle C" → C4, "middle F" → F4, etc).
+  // Also "low X" → octave 3, "high X" → octave 5.
+  const proximity = lower.match(/\b(middle|low|high)\s+([a-g])(#|b)?\b/);
+  if (proximity) {
+    const where = proximity[1];
+    const oct = where === "low" ? 3 : where === "high" ? 5 : 4;
+    const letter = proximity[2].toUpperCase();
+    const acc = proximity[3] || "";
+    const m = safeNoteToMidi(`${letter}${acc}${oct}`);
+    return m != null ? [m] : null;
+  }
+
   // "2-group" / "3-group" alone (without ordering language) → any black key
   // in that cluster type.
   if (lower.includes("2-group") && !lower.includes("top") && !lower.includes("bottom")
@@ -661,21 +673,36 @@ function QuestionCard({
   }
 
   // A play-grading question is one where the student must play a real note.
-  // Detected in two ways: (a) section === "play", or (b) the question has
-  // an `accept` string but no multiple-choice options (some "see"-section
-  // questions like "Tap any F" do this).
-  const isPlayGraded =
-    section === "play" || (!!q.accept && (!q.options || q.options.length === 0));
+  // We detect this several ways because the YAML schema is loose:
+  //   (a) section === "play"
+  //   (b) the question has an `accept` string
+  //   (c) the question has NO multiple-choice options at all — anything in
+  //       the see/hear sections without options must be a play prompt
+  //       ("Tap any F.", "Play Middle C.", etc.)
+  const hasOptions = !!q.options && q.options.length > 0;
+  const isPlayGraded = section === "play" || !!q.accept || !hasOptions;
 
-  // Parse accept string into MIDI list. Reuses the same parser as the lesson
-  // play pages so behaviour is consistent.
+  // Some questions only have a prompt ("Tap any F.") and no explicit accept
+  // string. Strip "Tap " / "Play " / trailing period, and feed whatever's
+  // left to parseTapAccept — it already understands "any F", "Middle C", etc.
+  const inferredAccept = useMemo<string | null>(() => {
+    if (q.accept) return q.accept;
+    if (!q.prompt) return null;
+    return q.prompt
+      .replace(/^(tap|play)\s+/i, "")
+      .replace(/\.$/, "")
+      .trim() || null;
+  }, [q.accept, q.prompt]);
+
+  // Parse accept string into MIDI list. Reuses the same parser as the
+  // lesson play pages so behaviour is consistent.
   const acceptMidis = useMemo<number[] | null>(() => {
     if (!isPlayGraded) return null;
-    if (!q.accept) return null;
-    const single = parseTapAccept(q.accept);
+    if (!inferredAccept) return null;
+    const single = parseTapAccept(inferredAccept);
     if (single && single.length > 0) return single;
     return null;
-  }, [isPlayGraded, q.accept]);
+  }, [isPlayGraded, inferredAccept]);
 
   // Push the accept set up so the parent's bottom keyboard can highlight
   // and grade taps against it.
@@ -843,7 +870,11 @@ function QuestionCard({
               expectedMidi={
                 acceptMidis && acceptMidis.length === 1 ? acceptMidis[0] : null
               }
-              promptText={q.accept ? `Play: ${q.accept}` : "Play any note."}
+              promptText={
+                inferredAccept
+                  ? `Play: ${inferredAccept}`
+                  : q.prompt || "Play any note."
+              }
             />
           )}
           {!revealed && (
