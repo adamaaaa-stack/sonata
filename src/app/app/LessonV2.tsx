@@ -583,12 +583,18 @@ function QuestionCard({
   section,
   onAnswer,
   onHighlightChange,
+  onAcceptChange,
+  pressTrigger,
 }: {
   q: MasteryQuestion;
   section: "see" | "hear" | "play";
   onAnswer: (correct: boolean) => void;
   /** Set of MIDIs to glow on the bottom piano (or null to clear). */
   onHighlightChange?: (midis: number[] | null) => void;
+  /** Set of MIDIs that count as a correct press for play-style questions. */
+  onAcceptChange?: (midis: number[] | null) => void;
+  /** When the parent forwards a piano press, the latest pressed MIDI here. */
+  pressTrigger?: { midi: number; key: number } | null;
 }) {
   const [choice, setChoice] = useState<number | null>(null);
   const [revealed, setRevealed] = useState(false);
@@ -629,12 +635,55 @@ function QuestionCard({
   }
 
   function pickPlay() {
+    if (revealed) return;
     setRevealed(true);
     playCorrectSound();
     setTimeout(() => onAnswer(true), 700);
   }
 
-  const isPlay = section === "play";
+  // A play-grading question is one where the student must play a real note.
+  // Detected in two ways: (a) section === "play", or (b) the question has
+  // an `accept` string but no multiple-choice options (some "see"-section
+  // questions like "Tap any F" do this).
+  const isPlayGraded =
+    section === "play" || (!!q.accept && (!q.options || q.options.length === 0));
+
+  // Parse accept string into MIDI list. Reuses the same parser as the lesson
+  // play pages so behaviour is consistent.
+  const acceptMidis = useMemo<number[] | null>(() => {
+    if (!isPlayGraded) return null;
+    if (!q.accept) return null;
+    const single = parseTapAccept(q.accept);
+    if (single && single.length > 0) return single;
+    return null;
+  }, [isPlayGraded, q.accept]);
+
+  // Push the accept set up so the parent's bottom keyboard can highlight
+  // and grade taps against it.
+  useEffect(() => {
+    onAcceptChange?.(acceptMidis);
+    return () => onAcceptChange?.(null);
+  }, [acceptMidis, onAcceptChange]);
+
+  // When the parent forwards a press from the bottom piano, check it
+  // against our accept set. If it matches, treat it like pickPlay().
+  const lastPressKeyRef = useRef<number | null>(null);
+  useEffect(() => {
+    if (!pressTrigger) return;
+    if (lastPressKeyRef.current === pressTrigger.key) return;
+    lastPressKeyRef.current = pressTrigger.key;
+    if (!isPlayGraded || revealed) return;
+    if (!acceptMidis || acceptMidis.length === 0) {
+      // No accept set — any press counts (free-play question).
+      pickPlay();
+      return;
+    }
+    if (acceptMidis.includes(pressTrigger.midi)) pickPlay();
+    // Wrong note: don't fail the question, just ignore. Lessons elsewhere
+    // do a "wrong" buzz; mastery is forgiving so the kid can retry.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [pressTrigger]);
+
   const canPlayAudio = !!(q.audio && parseAudioToNotes(q.audio));
 
   return (
@@ -749,23 +798,56 @@ function QuestionCard({
         {q.prompt}
       </div>
 
-      {isPlay ? (
-        <button
-          type="button"
-          onClick={pickPlay}
-          disabled={revealed}
-          style={{
-            padding: "10px 20px",
-            border: "2px solid var(--ink, #1f2937)",
-            borderRadius: 999,
-            background: revealed ? "#bbf7d0" : "var(--berry, #d4a853)",
-            cursor: revealed ? "default" : "pointer",
-            fontWeight: 900,
-            fontSize: 14,
-          }}
-        >
-          {revealed ? "✓ Played" : "I played it"}
-        </button>
+      {isPlayGraded ? (
+        <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+          <div
+            style={{
+              fontSize: 13,
+              color: "var(--ink3, #6b7280)",
+              fontStyle: "italic",
+            }}
+          >
+            {revealed
+              ? "✓ Got it!"
+              : "Tap the keyboard below or play on your real piano."}
+          </div>
+          {!revealed && (
+            <MicListenCard
+              onNote={(midi) => {
+                if (revealed) return;
+                if (!acceptMidis || acceptMidis.length === 0) {
+                  pickPlay();
+                  return;
+                }
+                if (acceptMidis.includes(midi)) pickPlay();
+              }}
+              expectedMidi={
+                acceptMidis && acceptMidis.length === 1 ? acceptMidis[0] : null
+              }
+              promptText={q.accept ? `Play: ${q.accept}` : "Play any note."}
+            />
+          )}
+          {!revealed && (
+            <button
+              type="button"
+              onClick={pickPlay}
+              style={{
+                alignSelf: "flex-start",
+                padding: "8px 14px",
+                border: "2px solid var(--ink, #1f2937)",
+                borderRadius: 999,
+                background: "transparent",
+                color: "var(--ink, #1f2937)",
+                fontWeight: 700,
+                fontSize: 12,
+                cursor: "pointer",
+                opacity: 0.7,
+              }}
+            >
+              Skip — I played it
+            </button>
+          )}
+        </div>
       ) : (
         <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
           {(q.options || []).map((opt, i) => {
@@ -809,10 +891,14 @@ function MasteryCheckScreen({
   check,
   onDone,
   onHighlightChange,
+  onAcceptChange,
+  pressTrigger,
 }: {
   check: MasteryCheck;
   onDone: (score: { correct: number; total: number }) => void;
   onHighlightChange?: (midis: number[] | null) => void;
+  onAcceptChange?: (midis: number[] | null) => void;
+  pressTrigger?: { midi: number; key: number } | null;
 }) {
   const all = useMemo(() => {
     const out: { section: "see" | "hear" | "play"; q: MasteryQuestion }[] = [];
@@ -867,6 +953,8 @@ function MasteryCheckScreen({
         section={cur.section}
         onAnswer={onAnswer}
         onHighlightChange={onHighlightChange}
+        onAcceptChange={onAcceptChange}
+        pressTrigger={pressTrigger}
       />
       <div
         style={{
@@ -1030,18 +1118,46 @@ function MasteryPhase({
   onDone: (score: { correct: number; total: number }) => void;
 }) {
   const [hintMidis, setHintMidis] = useState<number[] | null>(null);
+  const [acceptMidis, setAcceptMidis] = useState<number[] | null>(null);
+  // Forward-press state — every keyboard tap bumps `key` so the question
+  // card sees a fresh trigger even when the same MIDI is pressed twice.
+  const [pressTrigger, setPressTrigger] = useState<{
+    midi: number;
+    key: number;
+  } | null>(null);
+  const pressKeyRef = useRef(0);
+
   const highlights = useMemo(() => {
-    if (!hintMidis || hintMidis.length === 0) return {};
-    return Object.fromEntries(hintMidis.map((m) => [m, "#22c55e"]));
-  }, [hintMidis]);
-  // Pulse the first key of the cluster (a single pulse looks tidier than
-  // multiple competing rings).
-  const pulseMidi = hintMidis && hintMidis.length > 0 ? hintMidis[0] : null;
-  // Decide keyboard range around the cluster
+    const out: Record<number, string> = {};
+    // Hints (figure-described keys) glow green.
+    if (hintMidis) for (const m of hintMidis) out[m] = "#22c55e";
+    // Accept set (play-graded answers) glow gold so the student sees what
+    // counts. Hint colour wins if both apply.
+    if (acceptMidis) {
+      for (const m of acceptMidis) {
+        if (out[m] == null) out[m] = "#fde68a";
+      }
+    }
+    return out;
+  }, [hintMidis, acceptMidis]);
+
+  const pulseMidi =
+    hintMidis && hintMidis.length > 0
+      ? hintMidis[0]
+      : acceptMidis && acceptMidis.length === 1
+      ? acceptMidis[0]
+      : null;
+
   const [startMidi, endMidi] = useMemo(() => {
-    if (!hintMidis || hintMidis.length === 0) return [48, 84];
-    return computeKeyboardRange(hintMidis);
-  }, [hintMidis]);
+    const all = [...(hintMidis || []), ...(acceptMidis || [])];
+    if (all.length === 0) return [48, 84];
+    return computeKeyboardRange(all);
+  }, [hintMidis, acceptMidis]);
+
+  function handlePianoPress(midi: number) {
+    pressKeyRef.current += 1;
+    setPressTrigger({ midi, key: pressKeyRef.current });
+  }
   if (!lesson.mastery_check) return null;
   return (
     <div
@@ -1092,6 +1208,8 @@ function MasteryPhase({
           check={lesson.mastery_check}
           onDone={onDone}
           onHighlightChange={setHintMidis}
+          onAcceptChange={setAcceptMidis}
+          pressTrigger={pressTrigger}
         />
       </div>
       <div
@@ -1105,6 +1223,7 @@ function MasteryPhase({
           endMidi={endMidi}
           highlights={highlights}
           pulseMidi={pulseMidi}
+          onClick={handlePianoPress}
         />
       </div>
     </div>
