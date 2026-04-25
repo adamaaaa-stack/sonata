@@ -100,12 +100,32 @@ export class PeerSession {
       if (status !== "SUBSCRIBED") return;
       this.opts.onStatus?.("waiting");
       // Announce presence so the other peer can begin negotiation.
-      await this.send({ type: "hello", from: this.opts.role });
-      // Publisher initiates offer once the channel is ready and we've
-      // seen the consumer say hello (or vice versa). The first peer to
-      // see the OTHER's hello creates the offer.
+      // Race fix: Supabase broadcasts don't replay, so if peer A subscribes
+      // first and sends hello before peer B is ready, B never hears it.
+      // We retry hello every 1.5s until either we've seen the peer OR
+      // negotiation has progressed past the offer stage. Stops after 30s
+      // to avoid spamming the channel forever.
+      void this.send({ type: "hello", from: this.opts.role });
+      this.helloRetryTimer = window.setInterval(() => {
+        if (this.peerSeen || !this.channel) {
+          if (this.helloRetryTimer != null) {
+            clearInterval(this.helloRetryTimer);
+            this.helloRetryTimer = null;
+          }
+          return;
+        }
+        void this.send({ type: "hello", from: this.opts.role });
+      }, 1500);
+      window.setTimeout(() => {
+        if (this.helloRetryTimer != null) {
+          clearInterval(this.helloRetryTimer);
+          this.helloRetryTimer = null;
+        }
+      }, 30000);
     });
   }
+
+  private helloRetryTimer: number | null = null;
 
   private async send(m: SignalMessage): Promise<void> {
     if (!this.channel) return;
@@ -145,6 +165,10 @@ export class PeerSession {
   }
 
   stop(): void {
+    if (this.helloRetryTimer != null) {
+      clearInterval(this.helloRetryTimer);
+      this.helloRetryTimer = null;
+    }
     if (this.pc) {
       this.pc.getSenders().forEach((s) => s.track?.stop());
       this.pc.close();
