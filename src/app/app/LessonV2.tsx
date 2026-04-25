@@ -78,12 +78,76 @@ function collectHighlightNotes(interaction?: Interaction): string[] {
 }
 
 /**
+ * Parse a `tap` interaction `accept` string into the set of MIDI numbers
+ * that count as a correct hit. Examples we handle:
+ *   "F3"                              → [53]
+ *   "any C"                           → all C notes 24..96
+ *   "any C in lowest 3 octaves"       → C2, C3, C4
+ *   "any 2-group across all octaves"  → all C#/D# black-key pairs
+ *   "any 3-group across all octaves"  → all F#/G#/A# black-key triples
+ *   "any key in left third"           → MIDI 24..47
+ *   "any key in middle third"         → MIDI 48..71
+ *   "any key in right third"          → MIDI 72..96
+ *   "any key"                         → 24..96
+ * Anything we can't parse returns null so the caller can fall back to
+ * `page.highlights` (which the compile script auto-extracts from figure
+ * descriptions like "Middle C glowing").
+ */
+function parseTapAccept(accept?: string): number[] | null {
+  if (!accept || typeof accept !== "string") return null;
+  const lower = accept.toLowerCase().trim();
+
+  // Specific note like "F3" / "C#4" / "Bb5"
+  const specific = accept.match(/^([A-G](?:#|b)?)(\d)$/);
+  if (specific) {
+    const m = safeNoteToMidi(accept);
+    return m != null ? [m] : null;
+  }
+
+  const allMidis = (lo: number, hi: number, pcs?: number[]) => {
+    const out: number[] = [];
+    for (let m = lo; m <= hi; m++) {
+      if (!pcs || pcs.includes(m % 12)) out.push(m);
+    }
+    return out;
+  };
+
+  // "2-group" = C# and D#; "3-group" = F#, G#, A#
+  if (lower.includes("2-group")) return allMidis(24, 96, [1, 3]);
+  if (lower.includes("3-group")) return allMidis(24, 96, [6, 8, 10]);
+
+  // Octave-range filters
+  let lo = 24, hi = 96;
+  if (lower.includes("lowest 3 octaves") || lower.includes("left third")) { lo = 24; hi = 47; }
+  else if (lower.includes("highest 3 octaves") || lower.includes("right third")) { lo = 72; hi = 96; }
+  else if (lower.includes("middle third")) { lo = 48; hi = 71; }
+
+  // "any X" or "X in ..." pitch class
+  const pcMatch = lower.match(/(?:any\s+)?\b([a-g])(#|b|\s+sharp|\s+flat)?\b(?=\s|$|\s+in)/);
+  if (pcMatch && (lower.includes("any ") || /^[a-g]/.test(lower))) {
+    const letter = pcMatch[1].toUpperCase();
+    const accidental = pcMatch[2]?.trim().toLowerCase() || "";
+    const pcStr = letter + (accidental.startsWith("s") || accidental === "#" ? "#" : accidental.startsWith("f") || accidental === "b" ? "b" : "");
+    const pc = safeNoteToMidi(pcStr + "4");
+    if (pc != null) return allMidis(lo, hi, [pc % 12]);
+  }
+
+  // "any key" with no pitch class — region only
+  if (lower.includes("any key") || lower === "any") return allMidis(lo, hi);
+
+  return null;
+}
+
+/**
  * Return an array of "acceptable midi sets" — one element per step in the
  * sequence. For sequence-type, each step is a single-note set. For
  * rhythm/song with chords (nested arrays), a step is the whole chord —
- * pressing ANY note in the chord counts as hitting that step.
+ * pressing ANY note in the chord counts as hitting that step. For tap-type,
+ * we synthesise N steps where each accepts any note in the parsed target
+ * set (count from interaction.count, default 1).
  */
-function sequenceMidiSteps(interaction?: Interaction): number[][] {
+function sequenceMidiSteps(page?: LessonPage): number[][] {
+  const interaction = page?.interaction;
   if (!interaction) return [];
   if (interaction.type === "sequence") {
     const keys = (interaction as { keys?: unknown }).keys;
@@ -105,7 +169,40 @@ function sequenceMidiSteps(interaction?: Interaction): number[][] {
     }
     return steps;
   }
+  // `tap` is not in the canonical Interaction union (it's a content-side
+  // type used by the YAML lesson schema for "play any matching note"
+  // exercises), so we duck-type it via the raw shape.
+  const itAny = interaction as unknown as {
+    type?: string;
+    accept?: string;
+    count?: number;
+  };
+  if (itAny.type === "tap") {
+    let targets = parseTapAccept(itAny.accept);
+    // Fallback: figure-described targets baked into page.highlights at compile time.
+    if (!targets && page?.highlights) {
+      const ids = Object.keys(page.highlights)
+        .map(Number)
+        .filter((n) => Number.isFinite(n));
+      if (ids.length > 0) targets = ids;
+    }
+    if (!targets || targets.length === 0) return [];
+    const count = Math.max(1, Number(itAny.count) || 1);
+    return Array.from({ length: count }, () => [...targets!]);
+  }
   return [];
+}
+
+/** Human-readable prompt for the mic card on tap pages. */
+function tapPromptFor(page?: LessonPage): string | null {
+  const it = page?.interaction as unknown as { type?: string; accept?: string } | undefined;
+  if (!it || it.type !== "tap") return null;
+  if (it.accept) return `Play: ${it.accept}`;
+  // Empty tap with figure-described highlights
+  if (page?.highlights && Object.keys(page.highlights).length > 0) {
+    return "Play the highlighted note on your piano.";
+  }
+  return "Play any note.";
 }
 
 // Keyboard range that shows all notes in a sequence + some padding.
@@ -881,16 +978,20 @@ export function LessonV2Screen({
     [page?.interaction]
   );
   const steps = useMemo(
-    () => sequenceMidiSteps(page?.interaction),
-    [page?.interaction]
+    () => sequenceMidiSteps(page),
+    [page]
   );
+  const tapPrompt = useMemo(() => tapPromptFor(page), [page]);
   // Flat list of the first accepted note per step — used for demo playback,
   // range computation, and the progress-pip display.
   const midis = useMemo(() => steps.map((s) => s[0]), [steps]);
   const isPlayPage = page?.mode === "play" && steps.length > 0;
   const expectedStep = isPlayPage && !sequenceDone ? steps[seqProgress] : null;
   // We pulse the first note of the accepted step — good enough for chords.
-  const expectedMidi = expectedStep ? expectedStep[0] : null;
+  // For tap pages with a wide target set (e.g. "any C"), suppress the pulse
+  // hint so we don't lie about which specific octave to play.
+  const isWideTapStep = !!expectedStep && expectedStep.length > 4;
+  const expectedMidi = expectedStep && !isWideTapStep ? expectedStep[0] : null;
   const sequenceComplete = isPlayPage && seqProgress >= steps.length;
   const blockAdvance = isPlayPage && !sequenceDone;
 
@@ -1244,7 +1345,9 @@ export function LessonV2Screen({
               minMidi={Math.max(36, rangeStart - 2)}
               maxMidi={Math.min(96, rangeEnd + 2)}
               promptText={
-                steps.length > 1
+                tapPrompt
+                  ? tapPrompt
+                  : steps.length > 1
                   ? `Play this ${steps.length}-note sequence on your real piano.`
                   : "Play this on your real piano."
               }
