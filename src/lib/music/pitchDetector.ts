@@ -38,13 +38,25 @@ export interface MicPitchOptions {
   minMidi?: number;
   /** Highest MIDI to accept (default 96 / C7). */
   maxMidi?: number;
+  /**
+   * Sensitivity scale 0..1 (default 0.5). Higher = picks up softer notes
+   * but more false positives. Used to trim QUIET_THRESHOLD and CLARITY
+   * gates at runtime so iPads / quiet rooms can be tuned by the user.
+   */
+  sensitivity?: number;
 }
 
 const FFT_SIZE = 2048;
 const SAMPLE_INTERVAL_MS = 20;
-const CLARITY_THRESHOLD = 0.85;
+// Lowered from 0.85 → 0.75 because iOS WKWebView routes the mic through a
+// voice-processed pipeline that subtly degrades pitch clarity even with all
+// processing flags off. 0.75 is still strict enough to reject room noise.
+const CLARITY_THRESHOLD = 0.75;
 const STABLE_FRAMES = 3; // ~60ms of consistent pitch before emitting
-const QUIET_THRESHOLD = 0.005;
+// Lowered from 0.005 → 0.0015 because iPad's auto-gain compresses dynamic
+// range, so soft piano hits land much quieter at the AnalyserNode than they
+// do on desktop. A real piano in a quiet room still clears 0.0015 easily.
+const QUIET_THRESHOLD = 0.0015;
 const QUIET_HOLD_MS = 80;
 
 function freqToMidi(freq: number): number {
@@ -73,16 +85,43 @@ export class MicPitchDetector {
     return this.ctx != null;
   }
 
+  /** Update sensitivity at runtime — slider can call this without restarting. */
+  setSensitivity(s: number): void {
+    this.opts.sensitivity = Math.min(1, Math.max(0, s));
+  }
+
   async start(): Promise<void> {
     if (this.ctx) return;
+    // iOS WKWebView in particular ignores some constraint flags silently
+    // and applies voice-optimised audio processing that mangles musical
+    // pitches. We pass every known opt-out plus a couple of vendor-prefixed
+    // ones that older iOS versions actually honour. Any rejected fields
+    // are no-ops, so this is safe across browsers.
+    type AudioConstraintsExt = MediaTrackConstraints & {
+      googEchoCancellation?: boolean;
+      googAutoGainControl?: boolean;
+      googNoiseSuppression?: boolean;
+      googHighpassFilter?: boolean;
+      googTypingNoiseDetection?: boolean;
+      mozAutoGainControl?: boolean;
+      mozNoiseSuppression?: boolean;
+    };
+    const audioConstraints: AudioConstraintsExt = {
+      echoCancellation: false,
+      noiseSuppression: false,
+      autoGainControl: false,
+      channelCount: 1,
+      googEchoCancellation: false,
+      googAutoGainControl: false,
+      googNoiseSuppression: false,
+      googHighpassFilter: false,
+      googTypingNoiseDetection: false,
+      mozAutoGainControl: false,
+      mozNoiseSuppression: false,
+    };
     try {
       this.stream = await navigator.mediaDevices.getUserMedia({
-        audio: {
-          echoCancellation: false,
-          noiseSuppression: false,
-          autoGainControl: false,
-          channelCount: 1,
-        },
+        audio: audioConstraints,
         video: false,
       });
     } catch (e) {
@@ -150,7 +189,14 @@ export class MicPitchDetector {
 
     const now = performance.now();
 
-    if (rms < QUIET_THRESHOLD) {
+    // Sensitivity: 0 → very strict (use baseline thresholds), 1 → very loose
+    // (1/4 the silence threshold, 0.6 clarity floor). Default 0.5 keeps the
+    // baseline values exactly as configured above.
+    const sens = Math.min(1, Math.max(0, this.opts.sensitivity ?? 0.5));
+    const quietGate = QUIET_THRESHOLD * (1 - sens * 0.75);
+    const clarityGate = CLARITY_THRESHOLD - sens * 0.15;
+
+    if (rms < quietGate) {
       if (this.quietSince == null) this.quietSince = now;
       if (now - this.quietSince > QUIET_HOLD_MS) {
         this.lastEmittedMidi = null;
@@ -166,7 +212,7 @@ export class MicPitchDetector {
       this.ctx.sampleRate
     );
 
-    if (clarity < CLARITY_THRESHOLD || pitch <= 0 || !Number.isFinite(pitch)) {
+    if (clarity < clarityGate || pitch <= 0 || !Number.isFinite(pitch)) {
       this.lastCandidate = null;
       this.candidateCount = 0;
       return;

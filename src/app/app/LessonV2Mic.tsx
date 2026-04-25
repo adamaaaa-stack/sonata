@@ -45,6 +45,15 @@ export function MicListenCard({
   const [error, setError] = useState<string | null>(null);
   const [level, setLevel] = useState(0);
   const [lastHeard, setLastHeard] = useState<number | null>(null);
+  // Sensitivity persists across pages so the user only sets it once.
+  const [sensitivity, setSensitivity] = useState<number>(() => {
+    if (typeof window === "undefined") return 0.5;
+    const stored = window.localStorage.getItem("sonata.mic.sensitivity");
+    const n = stored ? parseFloat(stored) : 0.5;
+    return Number.isFinite(n) ? Math.min(1, Math.max(0, n)) : 0.5;
+  });
+  const sensitivityRef = useRef(sensitivity);
+  sensitivityRef.current = sensitivity;
   const detectorRef = useRef<MicPitchDetector | null>(null);
 
   useEffect(() => {
@@ -68,6 +77,7 @@ export function MicListenCard({
       },
       minMidi,
       maxMidi,
+      sensitivity: sensitivityRef.current,
     });
     detectorRef.current = det;
     try {
@@ -75,6 +85,14 @@ export function MicListenCard({
       setListening(true);
     } catch {
       // onError already handled it
+    }
+  }
+
+  function changeSensitivity(s: number) {
+    setSensitivity(s);
+    detectorRef.current?.setSensitivity(s);
+    if (typeof window !== "undefined") {
+      window.localStorage.setItem("sonata.mic.sensitivity", String(s));
     }
   }
 
@@ -189,14 +207,47 @@ export function MicListenCard({
           </div>
           <div
             style={{
-              fontSize: 11,
-              color: "var(--ink3, #6b7280)",
-              fontStyle: "italic",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-between",
+              gap: 8,
             }}
           >
-            {lastHeard != null
-              ? `Heard: ${midiToName(lastHeard)}`
-              : "Play a note…"}
+            <div
+              style={{
+                fontSize: 11,
+                color: "var(--ink3, #6b7280)",
+                fontStyle: "italic",
+              }}
+            >
+              {lastHeard != null
+                ? `Heard: ${midiToName(lastHeard)}`
+                : "Play a note…"}
+            </div>
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: 6,
+                fontSize: 10,
+                color: "var(--ink3, #6b7280)",
+              }}
+            >
+              <span style={{ fontWeight: 700 }}>Mic</span>
+              <input
+                type="range"
+                min={0}
+                max={1}
+                step={0.05}
+                value={sensitivity}
+                onChange={(e) => changeSensitivity(parseFloat(e.target.value))}
+                style={{ width: 80 }}
+                aria-label="Microphone sensitivity"
+              />
+              <span style={{ fontWeight: 700, minWidth: 24 }}>
+                {Math.round(sensitivity * 100)}
+              </span>
+            </div>
           </div>
         </>
       )}

@@ -77,47 +77,46 @@ function collectHighlightNotes(interaction?: Interaction): string[] {
   return [];
 }
 
+// Keyboard MIDI range we accept across all "any-note" play modes.
+const ANY_LO = 24;
+const ANY_HI = 96;
+
+function allMidis(lo: number, hi: number, pcs?: number[]): number[] {
+  const out: number[] = [];
+  for (let m = lo; m <= hi; m++) {
+    if (!pcs || pcs.includes(m % 12)) out.push(m);
+  }
+  return out;
+}
+
 /**
- * Parse a `tap` interaction `accept` string into the set of MIDI numbers
- * that count as a correct hit. Examples we handle:
- *   "F3"                              → [53]
- *   "any C"                           → all C notes 24..96
- *   "any C in lowest 3 octaves"       → C2, C3, C4
- *   "any 2-group across all octaves"  → all C#/D# black-key pairs
- *   "any 3-group across all octaves"  → all F#/G#/A# black-key triples
- *   "any key in left third"           → MIDI 24..47
- *   "any key in middle third"         → MIDI 48..71
- *   "any key in right third"          → MIDI 72..96
- *   "any key"                         → 24..96
- * Anything we can't parse returns null so the caller can fall back to
- * `page.highlights` (which the compile script auto-extracts from figure
- * descriptions like "Middle C glowing").
+ * Parse an `accept` string into a single set of MIDI numbers (a single-step
+ * predicate). Handles single-token / pitch-class / region patterns. Returns
+ * null when the string isn't single-step shaped (e.g. "3-group ascending"
+ * is multi-step and goes through parseAcceptToSteps).
  */
 function parseTapAccept(accept?: string): number[] | null {
   if (!accept || typeof accept !== "string") return null;
   const lower = accept.toLowerCase().trim();
 
   // Specific note like "F3" / "C#4" / "Bb5"
-  const specific = accept.match(/^([A-G](?:#|b)?)(\d)$/);
-  if (specific) {
+  if (/^[A-G](?:#|b)?\d$/.test(accept)) {
     const m = safeNoteToMidi(accept);
     return m != null ? [m] : null;
   }
 
-  const allMidis = (lo: number, hi: number, pcs?: number[]) => {
-    const out: number[] = [];
-    for (let m = lo; m <= hi; m++) {
-      if (!pcs || pcs.includes(m % 12)) out.push(m);
-    }
-    return out;
-  };
-
-  // "2-group" = C# and D#; "3-group" = F#, G#, A#
-  if (lower.includes("2-group")) return allMidis(24, 96, [1, 3]);
-  if (lower.includes("3-group")) return allMidis(24, 96, [6, 8, 10]);
+  // "2-group" / "3-group" alone (without ordering language) → any black key
+  // in that cluster type.
+  if (lower.includes("2-group") && !lower.includes("top") && !lower.includes("bottom")
+      && !lower.includes("ascending") && !lower.includes("descending")) {
+    return allMidis(ANY_LO, ANY_HI, [1, 3]);
+  }
+  if (lower.includes("3-group") && !lower.includes("ascending") && !lower.includes("descending")) {
+    return allMidis(ANY_LO, ANY_HI, [6, 8, 10]);
+  }
 
   // Octave-range filters
-  let lo = 24, hi = 96;
+  let lo = ANY_LO, hi = ANY_HI;
   if (lower.includes("lowest 3 octaves") || lower.includes("left third")) { lo = 24; hi = 47; }
   else if (lower.includes("highest 3 octaves") || lower.includes("right third")) { lo = 72; hi = 96; }
   else if (lower.includes("middle third")) { lo = 48; hi = 71; }
@@ -139,6 +138,70 @@ function parseTapAccept(accept?: string): number[] | null {
 }
 
 /**
+ * Parse a multi-step `accept` description into ordered steps. Examples:
+ *   "3 different Cs"               → [anyC, anyC, anyC]
+ *   "5 different Cs"               → 5× anyC
+ *   "two of the same letter, …"    → 2× anyKey (loose)
+ *   "2-group top then bottom"      → [anyD#, anyC#]
+ *   "3-group ascending"            → [anyF#, anyG#, anyA#]
+ *   "3-group descending"           → [anyA#, anyG#, anyF#]
+ * Returns null if the string isn't multi-step shaped.
+ */
+function parseAcceptToSteps(accept?: string): number[][] | null {
+  if (!accept || typeof accept !== "string") return null;
+  const lower = accept.toLowerCase().trim();
+
+  // "N different Xs"
+  const nDiff = lower.match(/(\d+)\s+different\s+([a-g])(#|b)?s?/);
+  if (nDiff) {
+    const n = Math.min(8, Math.max(1, parseInt(nDiff[1], 10)));
+    const letter = nDiff[2].toUpperCase();
+    const acc = nDiff[3] || "";
+    const pc = safeNoteToMidi(letter + acc + "4");
+    if (pc != null) {
+      const set = allMidis(ANY_LO, ANY_HI, [pc % 12]);
+      return Array.from({ length: n }, () => [...set]);
+    }
+  }
+
+  // "two of the same letter, one octave apart"
+  const sameLetter = lower.match(/(\d+|two|three|four)\s+of\s+the\s+same\s+letter/);
+  if (sameLetter) {
+    const word = sameLetter[1];
+    const map: Record<string, number> = { two: 2, three: 3, four: 4 };
+    const n = Number(word) || map[word] || 2;
+    const any = allMidis(ANY_LO, ANY_HI);
+    return Array.from({ length: n }, () => [...any]);
+  }
+
+  // "2-group top then bottom" → D# (top of 2-group) then C# (bottom)
+  if (lower.includes("2-group") && lower.includes("top") && lower.includes("bottom")) {
+    return [allMidis(ANY_LO, ANY_HI, [3]), allMidis(ANY_LO, ANY_HI, [1])];
+  }
+  if (lower.includes("2-group") && lower.includes("bottom") && lower.includes("top")) {
+    return [allMidis(ANY_LO, ANY_HI, [1]), allMidis(ANY_LO, ANY_HI, [3])];
+  }
+
+  // "3-group ascending" → F#, G#, A#
+  if (lower.includes("3-group") && lower.includes("ascending")) {
+    return [
+      allMidis(ANY_LO, ANY_HI, [6]),
+      allMidis(ANY_LO, ANY_HI, [8]),
+      allMidis(ANY_LO, ANY_HI, [10]),
+    ];
+  }
+  if (lower.includes("3-group") && lower.includes("descending")) {
+    return [
+      allMidis(ANY_LO, ANY_HI, [10]),
+      allMidis(ANY_LO, ANY_HI, [8]),
+      allMidis(ANY_LO, ANY_HI, [6]),
+    ];
+  }
+
+  return null;
+}
+
+/**
  * Return an array of "acceptable midi sets" — one element per step in the
  * sequence. For sequence-type, each step is a single-note set. For
  * rhythm/song with chords (nested arrays), a step is the whole chord —
@@ -148,61 +211,105 @@ function parseTapAccept(accept?: string): number[] | null {
  */
 function sequenceMidiSteps(page?: LessonPage): number[][] {
   const interaction = page?.interaction;
-  if (!interaction) return [];
-  if (interaction.type === "sequence") {
-    const keys = (interaction as { keys?: unknown }).keys;
-    if (!Array.isArray(keys)) return [];
-    return (keys as string[])
+
+  // Duck-typed view of the interaction — content uses fields not in the
+  // canonical Interaction union (tap.accept, etc).
+  const itAny = (interaction as unknown as {
+    type?: string;
+    accept?: string;
+    count?: number;
+    keys?: unknown;
+    sequence?: unknown[];
+  }) || undefined;
+
+  // 1. Explicit `keys` array (sequence type)
+  if (itAny?.type === "sequence" && Array.isArray(itAny.keys)) {
+    const out = (itAny.keys as string[])
       .map((k) => [safeNoteToMidi(k)].filter((m): m is number => m != null))
       .filter((s) => s.length > 0);
+    if (out.length > 0) return out;
   }
-  if (interaction.type === "rhythm" || interaction.type === "song") {
-    const seq = (interaction as { sequence?: unknown[] }).sequence;
-    if (!Array.isArray(seq)) return [];
+
+  // 2. Pitched sequence array (rhythm/song)
+  if ((itAny?.type === "rhythm" || itAny?.type === "song") && Array.isArray(itAny.sequence)) {
     const steps: number[][] = [];
-    for (const item of seq) {
+    for (const item of itAny.sequence) {
       const strs = typeof item === "string" ? [item] : Array.isArray(item) ? item : [];
       const midis = (strs as string[])
         .map(safeNoteToMidi)
         .filter((m): m is number => m != null);
       if (midis.length) steps.push(midis);
     }
-    return steps;
+    if (steps.length > 0) return steps;
   }
-  // `tap` is not in the canonical Interaction union (it's a content-side
-  // type used by the YAML lesson schema for "play any matching note"
-  // exercises), so we duck-type it via the raw shape.
-  const itAny = interaction as unknown as {
-    type?: string;
-    accept?: string;
-    count?: number;
-  };
-  if (itAny.type === "tap") {
-    let targets = parseTapAccept(itAny.accept);
-    // Fallback: figure-described targets baked into page.highlights at compile time.
-    if (!targets && page?.highlights) {
-      const ids = Object.keys(page.highlights)
-        .map(Number)
-        .filter((n) => Number.isFinite(n));
-      if (ids.length > 0) targets = ids;
+
+  // 3. Multi-step accept string ("3 different Cs", "3-group ascending", …)
+  if (itAny?.accept) {
+    const multi = parseAcceptToSteps(itAny.accept);
+    if (multi && multi.length > 0) return multi;
+  }
+
+  // 4. Single-step accept string ("F3", "any C", "any key in middle third")
+  if (itAny?.accept) {
+    const single = parseTapAccept(itAny.accept);
+    if (single && single.length > 0) {
+      const count = Math.max(1, Number(itAny.count) || 1);
+      return Array.from({ length: count }, () => [...single]);
     }
-    if (!targets || targets.length === 0) return [];
-    const count = Math.max(1, Number(itAny.count) || 1);
-    return Array.from({ length: count }, () => [...targets!]);
   }
+
+  // 5. Figure-described targets baked into page.highlights at compile time
+  if (page?.highlights) {
+    const ids = Object.keys(page.highlights)
+      .map(Number)
+      .filter((n) => Number.isFinite(n));
+    if (ids.length > 0) {
+      const count = Math.max(1, Number(itAny?.count) || 1);
+      return Array.from({ length: count }, () => [...ids]);
+    }
+  }
+
+  // 6. Universal fallback — only on play-mode pages, accept any keyboard
+  // note. Lets the student perform the exercise even when content didn't
+  // specify a target (free-play, find-by-figure, finger-call, etc).
+  if (page?.mode === "play") {
+    const count = Math.max(1, Number(itAny?.count) || 1);
+    return Array.from({ length: count }, () => allMidis(ANY_LO, ANY_HI));
+  }
+
   return [];
 }
 
-/** Human-readable prompt for the mic card on tap pages. */
-function tapPromptFor(page?: LessonPage): string | null {
+/**
+ * Human-readable prompt for the mic card on play pages. Picks the most
+ * specific phrasing available, falling back to "play along" wording when
+ * we have no concrete target.
+ */
+function playPromptFor(page?: LessonPage, stepCount = 0): string | null {
+  if (page?.mode !== "play") return null;
   const it = page?.interaction as unknown as { type?: string; accept?: string } | undefined;
-  if (!it || it.type !== "tap") return null;
-  if (it.accept) return `Play: ${it.accept}`;
-  // Empty tap with figure-described highlights
-  if (page?.highlights && Object.keys(page.highlights).length > 0) {
+
+  // Specific accept string — surface it verbatim, it's already user-facing.
+  if (it?.accept) return `Play: ${it.accept}`;
+
+  // Pitched sequence/song/rhythm — count carries the info.
+  if (it?.type === "sequence" && stepCount > 1) {
+    return `Play this ${stepCount}-note sequence on your real piano.`;
+  }
+  if (it?.type === "song" && stepCount > 0) return "Play the song on your real piano.";
+  if (it?.type === "rhythm" && stepCount > 0) return "Play the rhythm on your real piano.";
+
+  // Tap with figure-described highlights ("Middle C glowing")
+  if (it?.type === "tap" && page?.highlights && Object.keys(page.highlights).length > 0) {
     return "Play the highlighted note on your piano.";
   }
-  return "Play any note.";
+
+  // Universal fallback — exists for finger-call, free-play, no-interaction
+  // pages. The on-screen figure / cleffy tells them WHAT to play; the mic
+  // just listens.
+  if (it?.type === "finger_call") return "Play whichever note Cleffy calls.";
+  if (it?.type === "name_and_play") return "Play each note as you name it.";
+  return "Play along on your real piano.";
 }
 
 // Keyboard range that shows all notes in a sequence + some padding.
@@ -981,7 +1088,10 @@ export function LessonV2Screen({
     () => sequenceMidiSteps(page),
     [page]
   );
-  const tapPrompt = useMemo(() => tapPromptFor(page), [page]);
+  const playPrompt = useMemo(
+    () => playPromptFor(page, steps.length),
+    [page, steps.length]
+  );
   // Flat list of the first accepted note per step — used for demo playback,
   // range computation, and the progress-pip display.
   const midis = useMemo(() => steps.map((s) => s[0]), [steps]);
@@ -992,8 +1102,14 @@ export function LessonV2Screen({
   // hint so we don't lie about which specific octave to play.
   const isWideTapStep = !!expectedStep && expectedStep.length > 4;
   const expectedMidi = expectedStep && !isWideTapStep ? expectedStep[0] : null;
+  // Fully-open steps come from the universal fallback (free-play / finger-
+  // call / no-target pages). The mic card still listens and the grader still
+  // counts hits, but we don't block the Next button — the on-screen prompt,
+  // not us, decides when the student is "done".
+  const isFullyOpenPlay =
+    isPlayPage && steps.length > 0 && steps[0].length > 30;
   const sequenceComplete = isPlayPage && seqProgress >= steps.length;
-  const blockAdvance = isPlayPage && !sequenceDone;
+  const blockAdvance = isPlayPage && !sequenceDone && !isFullyOpenPlay;
 
   const [rangeStart, rangeEnd] = useMemo(() => {
     const hi = page?.highlights || {};
@@ -1344,13 +1460,7 @@ export function LessonV2Screen({
               expectedMidi={expectedMidi}
               minMidi={Math.max(36, rangeStart - 2)}
               maxMidi={Math.min(96, rangeEnd + 2)}
-              promptText={
-                tapPrompt
-                  ? tapPrompt
-                  : steps.length > 1
-                  ? `Play this ${steps.length}-note sequence on your real piano.`
-                  : "Play this on your real piano."
-              }
+              promptText={playPrompt || "Play along on your real piano."}
             />
           )}
 
