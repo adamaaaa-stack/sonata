@@ -6,7 +6,15 @@
  * Relies on sonata.css CSS variables for responsive sizing.
  */
 import React, { useRef, useState } from "react";
-import { NOTES, isBlack, playPianoKey, spawnFloatNote } from "@/lib/music";
+import {
+  NOTES,
+  isBlack,
+  playPianoKey,
+  spawnFloatNote,
+  unlockAudio,
+  loadPianoSamples,
+  isPianoReady,
+} from "@/lib/music";
 import { hLight } from "@/lib/haptics";
 
 export interface PianoKeyboardProps {
@@ -38,7 +46,26 @@ export function PianoKeyboard({
   const touchedRef = useRef(false);
   const containerRef = useRef<HTMLDivElement>(null);
 
+  // Track the last press time per key to swallow accidental double-fire
+  // (e.g. browsers that emit both touchstart AND a synthesized click).
+  const lastPressRef = useRef<Record<number, number>>({});
+
   function handlePress(m: number) {
+    // Defensive de-dupe: ignore a second press of the same key within 80ms.
+    const now =
+      typeof performance !== "undefined" ? performance.now() : Date.now();
+    if (now - (lastPressRef.current[m] || 0) < 80) return;
+    lastPressRef.current[m] = now;
+
+    // Unlock the AudioContext on every press — mount-time unlock can be
+    // ignored by the browser if no user gesture preceded it. After a page
+    // transition the context may also have been suspended.
+    try { unlockAudio(); } catch {}
+    if (!isPianoReady()) {
+      // Kick off a load (idempotent) so subsequent presses can ring.
+      loadPianoSamples().catch(() => {});
+    }
+
     hLight();
     playPianoKey(m);
     onClick?.(m);
