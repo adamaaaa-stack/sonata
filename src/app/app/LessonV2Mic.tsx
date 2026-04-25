@@ -86,26 +86,48 @@ export function MicListenCard({
     };
   }, []);
 
-  // Auto-start when the user has previously consented to mic access.
-  // Tracked in localStorage so consent persists across pages/reloads.
-  // First-time experience: user taps the "🎤 Listen" button; on success
-  // we set sonata.mic.consent=yes; from then on, every play / mastery
-  // page that mounts a MicListenCard auto-starts immediately. They can
-  // still tap Stop to pause.
+  // Auto-start strategy — three tiers:
+  //   1. Consent already granted (localStorage flag set on previous success):
+  //      attempt immediate start. iOS allows getUserMedia silently after
+  //      the first granted prompt for the origin.
+  //   2. No consent yet: arm a one-shot capture-phase listener for any
+  //      pointerdown / keydown anywhere on the page. The first user gesture
+  //      satisfies iOS's "user activation" requirement, so we start the mic
+  //      from inside that handler. No manual Listen button needed.
+  //   3. If the gesture-driven start fails (mic denied, no device, etc) we
+  //      fall back to a manual button.
   // The `polyphonic` flag is in the deps because chord pages need the
   // big TF.js model — we want a fresh start when the page swaps engines.
   // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     if (typeof window === "undefined") return;
-    if (listening) return; // already running
+    if (listening) return;
     const consent = window.localStorage.getItem("sonata.mic.consent");
-    if (consent !== "yes") return;
-    // Defer one tick so the rest of the page mounts first — keeps the
-    // mic-prompt-on-iOS noise off the critical path.
-    const t = window.setTimeout(() => {
+
+    if (consent === "yes") {
+      const t = window.setTimeout(() => {
+        void startListening();
+      }, 100);
+      return () => window.clearTimeout(t);
+    }
+
+    // No consent yet — wait for any user gesture, then auto-start.
+    let triggered = false;
+    function onGesture() {
+      if (triggered) return;
+      triggered = true;
+      cleanup();
       void startListening();
-    }, 100);
-    return () => window.clearTimeout(t);
+    }
+    function cleanup() {
+      document.removeEventListener("pointerdown", onGesture, true);
+      document.removeEventListener("touchstart", onGesture, true);
+      document.removeEventListener("keydown", onGesture, true);
+    }
+    document.addEventListener("pointerdown", onGesture, true);
+    document.addEventListener("touchstart", onGesture, true);
+    document.addEventListener("keydown", onGesture, true);
+    return cleanup;
   }, [polyphonic]);
 
   async function startListening() {
@@ -194,111 +216,126 @@ export function MicListenCard({
   // Visual level meter — clamp 0..1, expand the dynamic range we care about.
   const meterPct = Math.min(100, Math.max(0, level * 600));
 
+  // Compact pill-style indicator. The big Listen button is gone — auto-start
+  // covers the common case. The pill is interactive: tap to stop/restart.
+  const pillBg = listening
+    ? "rgba(22,163,74,0.10)"
+    : status
+    ? "rgba(212,168,83,0.10)"
+    : error
+    ? "rgba(220,38,38,0.10)"
+    : "rgba(107,114,128,0.10)";
+  const pillBorder = listening
+    ? "#16a34a"
+    : status
+    ? "var(--berry, #d4a853)"
+    : error
+    ? "#dc2626"
+    : "rgba(0,0,0,0.15)";
+  const pillFg = listening
+    ? "#16a34a"
+    : status
+    ? "var(--berry, #d4a853)"
+    : error
+    ? "#dc2626"
+    : "var(--ink3, #6b7280)";
+
   return (
     <div
       style={{
         width: "100%",
-        background: listening ? "var(--cream, #fff8ee)" : "var(--parchment, #faf6ef)",
-        border: `3px solid ${listening ? "#16a34a" : "var(--ink, #1f2937)"}`,
-        borderRadius: 16,
-        padding: "clamp(12px, 3vw, 16px)",
         display: "flex",
         flexDirection: "column",
-        gap: 10,
-        transition: "border-color 0.2s, background 0.2s",
+        gap: 8,
       }}
     >
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
-          gap: 12,
-        }}
-      >
-        <div
-          style={{
-            fontSize: 11,
-            letterSpacing: "0.2em",
-            fontWeight: 800,
-            color: listening ? "#16a34a" : "var(--ink3, #6b7280)",
-            display: "flex",
-            alignItems: "center",
-            gap: 6,
-          }}
-        >
-          <span>
-            {status
-              ? status.toUpperCase()
-              : listening
-              ? "● LISTENING"
-              : "USE REAL PIANO"}
-          </span>
-          {polyphonic && (
-            <span
-              title="Chord-capable engine (slower, polyphonic)"
-              style={{
-                padding: "2px 6px",
-                borderRadius: 8,
-                background: "rgba(212,168,83,0.15)",
-                color: "var(--berry, #d4a853)",
-                border: "1px solid var(--berry, #d4a853)",
-                fontSize: 9,
-                letterSpacing: "0.1em",
-              }}
-            >
-              POLY
-            </span>
-          )}
-        </div>
-        <button
-          type="button"
-          onClick={listening ? stopListening : startListening}
-          style={{
-            padding: "8px 14px",
-            border: "2px solid var(--ink, #1f2937)",
-            borderRadius: 999,
-            background: listening ? "#fecaca" : "var(--berry, #d4a853)",
-            color: "var(--ink, #1f2937)",
-            fontWeight: 900,
-            fontSize: 13,
-            cursor: "pointer",
-            boxShadow: "0 2px 0 var(--ink, #1f2937)",
-            display: "flex",
-            alignItems: "center",
-            gap: 6,
-          }}
-        >
-          {listening ? "■ Stop" : "🎤 Listen"}
-        </button>
-      </div>
-
+      {/* Prompt — what the student is supposed to play */}
       <div
         style={{
           fontFamily: "Georgia, serif",
-          fontSize: "clamp(13px, 3.5vw, 15px)",
-          lineHeight: 1.4,
+          fontSize: "clamp(14px, 3.5vw, 16px)",
+          lineHeight: 1.35,
           color: "var(--ink, #1f2937)",
+          fontWeight: 700,
         }}
       >
-        {promptText || "Play this on your piano (acoustic or digital)."}
+        {promptText || "Play this on your piano."}
         {expectedMidi != null && (
           <>
             {" "}
-            <span style={{ fontWeight: 800 }}>
-              Next note: {midiToName(expectedMidi)}
+            <span style={{ fontWeight: 800, color: "var(--berry, #d4a853)" }}>
+              ({midiToName(expectedMidi)})
             </span>
           </>
         )}
       </div>
 
-      {listening && (
-        <>
-          {/* Level meter */}
+      {/* Status pill — small, clickable to stop/start, replaces the
+          giant Listen button. Always visible so the student knows mic state. */}
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          gap: 8,
+          flexWrap: "wrap",
+        }}
+      >
+        <button
+          type="button"
+          onClick={listening ? stopListening : startListening}
+          style={{
+            padding: "4px 10px",
+            border: `1.5px solid ${pillBorder}`,
+            borderRadius: 999,
+            background: pillBg,
+            color: pillFg,
+            fontWeight: 800,
+            fontSize: 11,
+            letterSpacing: "0.1em",
+            cursor: "pointer",
+            display: "flex",
+            alignItems: "center",
+            gap: 4,
+          }}
+          title={listening ? "Tap to mute mic" : "Tap to enable mic"}
+        >
+          {status ? (
+            <>⏳ {status.toUpperCase()}</>
+          ) : listening ? (
+            <>● LISTENING{lastHeard != null ? ` · ${midiToName(lastHeard)}` : ""}</>
+          ) : error ? (
+            <>⚠ MIC ERROR — TAP TO RETRY</>
+          ) : (
+            <>🎤 TAP ANYWHERE TO ENABLE MIC</>
+          )}
+        </button>
+
+        {polyphonic && (
+          <span
+            title="Chord-capable engine (slower, polyphonic)"
+            style={{
+              padding: "3px 6px",
+              borderRadius: 999,
+              background: "rgba(212,168,83,0.15)",
+              color: "var(--berry, #d4a853)",
+              border: "1px solid var(--berry, #d4a853)",
+              fontSize: 9,
+              letterSpacing: "0.1em",
+              fontWeight: 800,
+            }}
+          >
+            POLY
+          </span>
+        )}
+
+        {/* Compact level meter — only when listening */}
+        {listening && (
           <div
             style={{
-              width: "100%",
-              height: 8,
+              flex: 1,
+              minWidth: 60,
+              maxWidth: 120,
+              height: 4,
               background: "rgba(0,0,0,0.08)",
               borderRadius: 999,
               overflow: "hidden",
@@ -318,32 +355,34 @@ export function MicListenCard({
               }}
             />
           </div>
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "space-between",
-              gap: 8,
-            }}
-          >
-            <div
+        )}
+
+        {listening && (
+          <details style={{ marginLeft: "auto" }}>
+            <summary
               style={{
-                fontSize: 11,
+                fontSize: 10,
                 color: "var(--ink3, #6b7280)",
-                fontStyle: "italic",
+                cursor: "pointer",
+                userSelect: "none",
               }}
             >
-              {lastHeard != null
-                ? `Heard: ${midiToName(lastHeard)}`
-                : "Play a note…"}
-            </div>
+              ⚙
+            </summary>
             <div
               style={{
+                position: "absolute",
+                background: "var(--cream, #fff8ee)",
+                border: "1px solid var(--ink, #1f2937)",
+                borderRadius: 8,
+                padding: "6px 10px",
                 display: "flex",
                 alignItems: "center",
                 gap: 6,
                 fontSize: 10,
                 color: "var(--ink3, #6b7280)",
+                marginTop: 4,
+                zIndex: 10,
               }}
             >
               <span style={{ fontWeight: 700 }}>Mic</span>
@@ -354,29 +393,26 @@ export function MicListenCard({
                 step={0.05}
                 value={sensitivity}
                 onChange={(e) => changeSensitivity(parseFloat(e.target.value))}
-                style={{ width: 80 }}
+                style={{ width: 70 }}
                 aria-label="Microphone sensitivity"
               />
               <span style={{ fontWeight: 700, minWidth: 24 }}>
                 {Math.round(sensitivity * 100)}
               </span>
             </div>
-          </div>
-        </>
-      )}
+          </details>
+        )}
+      </div>
 
       {error && (
         <div
           style={{
-            fontSize: 12,
+            fontSize: 11,
             color: "#dc2626",
-            background: "rgba(220,38,38,0.08)",
-            padding: 8,
-            borderRadius: 8,
+            fontStyle: "italic",
           }}
         >
-          {error}. Tap the lock icon in the address bar to allow microphone
-          access, then try again.
+          {error}
         </div>
       )}
     </div>
