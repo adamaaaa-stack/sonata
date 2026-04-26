@@ -401,11 +401,19 @@ export function RhythmRaceCard({
 }
 
 // ─────────────────────────────────────────────────────────────────────────
-// 3. Drag interaction — v1: drag a note onto a staff line/space
+// 3. Drag interaction — drag a real notehead onto a real staff
+//
+// Uses the same SVG-based notation primitives as StaffMini in
+// LessonV2Figures.tsx: thin parallel lines, a unicode treble-clef glyph,
+// oval noteheads with a slight rotation. The dragging note is a real
+// notehead floating with the pointer; on drop it snaps onto the closest
+// line/space and renders as if engraved there.
 // ─────────────────────────────────────────────────────────────────────────
 
+// Pitch → line/space lookup for the treble clef (bottom-up). Used to
+// validate `staff_pitch` drag targets and to look up the canonical
+// y-position when previewing a drop.
 const STAFF_PITCH_TO_LINE: Record<string, { line?: number; space?: number }> = {
-  // Treble clef, bottom-up
   E4: { line: 1 },
   F4: { space: 1 },
   G4: { line: 2 },
@@ -416,6 +424,25 @@ const STAFF_PITCH_TO_LINE: Record<string, { line?: number; space?: number }> = {
   E5: { space: 4 },
   F5: { line: 5 },
 };
+
+// Geometry — keep these in one place so the drop hit-test and the
+// rendered notehead stay aligned.
+const STAFF_W = 360;
+const STAFF_LINE_SPACING = 14;     // vertical gap between staff lines
+const STAFF_PAD_TOP = 50;          // ledger-line headroom + breathing room
+const STAFF_PAD_BOTTOM = 50;
+const STAFF_HEIGHT_TOTAL =
+  STAFF_PAD_TOP + STAFF_LINE_SPACING * 4 + STAFF_PAD_BOTTOM;
+
+// Y position of each staff line, top-to-bottom. line 5 is the top line.
+function lineY(line: 1 | 2 | 3 | 4 | 5): number {
+  return STAFF_PAD_TOP + (5 - line) * STAFF_LINE_SPACING;
+}
+// Y position of each staff space (centre between two lines). Space 1 is
+// the bottom-most space, between lines 1 and 2.
+function spaceY(space: 1 | 2 | 3 | 4): number {
+  return STAFF_PAD_TOP + (5 - space - 0.5) * STAFF_LINE_SPACING;
+}
 
 function describeItem(item: DragItem): string {
   if (item.kind === "note") return item.pitch;
@@ -441,6 +468,32 @@ function isDropCorrect(
     return tgt.line === droppedOn.line && tgt.space === droppedOn.space;
   }
   return false;
+}
+
+/** A real-looking SVG notehead. Filled gold by default; tinted on drop. */
+function Notehead({
+  cx,
+  cy,
+  fill = "#E8A93C",
+  stroke = "#1f2937",
+}: {
+  cx: number;
+  cy: number;
+  fill?: string;
+  stroke?: string;
+}) {
+  return (
+    <ellipse
+      cx={cx}
+      cy={cy}
+      rx={6.5}
+      ry={5}
+      fill={fill}
+      stroke={stroke}
+      strokeWidth={1.4}
+      transform={`rotate(-15 ${cx} ${cy})`}
+    />
+  );
 }
 
 export function DragInteractionCard({
@@ -511,7 +564,7 @@ export function DragInteractionCard({
       <div style={{ marginTop: 16, display: "flex", justifyContent: "center" }}>
         <DraggableNote
           label={describeItem(interaction.item)}
-          locked={resolved === "correct"}
+          locked={resolved !== "none"}
         />
       </div>
     </div>
@@ -532,8 +585,6 @@ function DraggableNote({ label, locked }: { label: string; locked: boolean }) {
   const onPointerMove = (e: React.PointerEvent) => {
     if (!drag) return;
     setDrag({ x: e.clientX, y: e.clientY });
-    // Find the staff zone under the pointer and tell it we're hovering.
-    // (The drop target listens via window pointer events; see below.)
     document.dispatchEvent(
       new CustomEvent("sonata-drag-move", {
         detail: { x: e.clientX, y: e.clientY },
@@ -550,27 +601,56 @@ function DraggableNote({ label, locked }: { label: string; locked: boolean }) {
     setDrag(null);
   };
 
-  const noteStyle: React.CSSProperties = {
-    width: 56,
-    height: 40,
-    borderRadius: "50%",
-    background: locked ? "rgba(15,15,15,0.2)" : "var(--ink, #1f2937)",
-    color: "var(--cream, #fff8ee)",
+  // Real notehead — same shape as the StaffMini renderer, with a label
+  // chip below so the student knows which pitch they're holding.
+  const idleSize = 70;
+  const inner = (
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        gap: 4,
+      }}
+    >
+      <svg width={28} height={22} viewBox="0 0 28 22" style={{ overflow: "visible" }}>
+        <Notehead
+          cx={14}
+          cy={11}
+          fill={locked ? "rgba(15,15,15,0.2)" : "#1f2937"}
+          stroke="#1f2937"
+        />
+      </svg>
+      <div
+        style={{
+          fontFamily: "var(--mono, monospace)",
+          fontSize: 11,
+          fontWeight: 800,
+          color: "var(--ink, #1f2937)",
+          background: "var(--cream, #fff8ee)",
+          border: "1.5px solid var(--ink, #1f2937)",
+          borderRadius: 999,
+          padding: "1px 8px",
+          letterSpacing: "0.04em",
+        }}
+      >
+        {label}
+      </div>
+    </div>
+  );
+
+  const baseStyle: React.CSSProperties = {
+    width: idleSize,
+    minHeight: idleSize,
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    fontFamily: "var(--mono, monospace)",
-    fontSize: 16,
-    fontWeight: 900,
     cursor: locked ? "default" : "grab",
     touchAction: "none",
     userSelect: "none",
-    transform: drag ? `scale(1.15)` : "scale(1)",
-    transition: "transform 120ms",
-    position: "relative",
-    boxShadow: drag
-      ? "0 6px 16px rgba(0,0,0,0.25)"
-      : "0 2px 0 var(--ink, #1f2937)",
+    transform: drag ? "scale(1.2)" : "scale(1)",
+    transition: drag ? "none" : "transform 120ms",
+    opacity: locked && !drag ? 0.4 : 1,
   };
 
   return (
@@ -582,16 +662,17 @@ function DraggableNote({ label, locked }: { label: string; locked: boolean }) {
       style={
         drag
           ? {
-              ...noteStyle,
+              ...baseStyle,
               position: "fixed",
-              left: drag.x - 28,
-              top: drag.y - 20,
+              left: drag.x - idleSize / 2,
+              top: drag.y - idleSize / 2,
               zIndex: 10000,
+              filter: "drop-shadow(0 8px 12px rgba(0,0,0,0.3))",
             }
-          : noteStyle
+          : baseStyle
       }
     >
-      ♩ {label}
+      {inner}
     </div>
   );
 }
@@ -607,23 +688,51 @@ function StaffDropTarget({
   droppedZone: { line?: number; space?: number } | null;
   resolved: "none" | "correct" | "wrong";
 }) {
-  const ref = useRef<HTMLDivElement | null>(null);
+  const ref = useRef<SVGSVGElement | null>(null);
   const [hover, setHover] = useState<{ line?: number; space?: number } | null>(
     null
   );
 
-  // Listen for drag move/drop events dispatched by the DraggableNote.
+  // Map a client-coordinate point onto the staff's line/space grid using
+  // the SVG's getBoundingClientRect. The hit-test is generous: anywhere
+  // within ±half-a-line-spacing of a line's centre snaps to that line;
+  // otherwise to the surrounding space. Outside the staff returns null.
+  const pointerToZone = (
+    x: number,
+    y: number
+  ): { line?: number; space?: number } | null => {
+    const svg = ref.current;
+    if (!svg) return null;
+    const rect = svg.getBoundingClientRect();
+    if (x < rect.left || x > rect.right) return null;
+    if (y < rect.top - 30 || y > rect.bottom + 30) return null;
+    const localY =
+      ((y - rect.top) / rect.height) * STAFF_HEIGHT_TOTAL;
+    // Closest line within half a spacing.
+    for (let ln = 1; ln <= 5; ln++) {
+      const ly = lineY(ln as 1 | 2 | 3 | 4 | 5);
+      if (Math.abs(localY - ly) < STAFF_LINE_SPACING * 0.45) {
+        return { line: ln };
+      }
+    }
+    // Otherwise the closest space.
+    for (let sp = 1; sp <= 4; sp++) {
+      const sy = spaceY(sp as 1 | 2 | 3 | 4);
+      if (Math.abs(localY - sy) < STAFF_LINE_SPACING * 0.5) {
+        return { space: sp };
+      }
+    }
+    return null;
+  };
+
   useEffect(() => {
     function handleMove(e: Event) {
       const detail = (e as CustomEvent).detail as { x: number; y: number };
-      if (!ref.current) return;
-      const zone = pointerToZone(ref.current, detail.x, detail.y);
-      setHover(zone);
+      setHover(pointerToZone(detail.x, detail.y));
     }
     function handleDrop(e: Event) {
       const detail = (e as CustomEvent).detail as { x: number; y: number };
-      if (!ref.current) return;
-      const zone = pointerToZone(ref.current, detail.x, detail.y);
+      const zone = pointerToZone(detail.x, detail.y);
       setHover(null);
       if (zone) onDrop(zone);
     }
@@ -633,121 +742,147 @@ function StaffDropTarget({
       document.removeEventListener("sonata-drag-move", handleMove);
       document.removeEventListener("sonata-drag-drop", handleDrop);
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [onDrop]);
 
-  const lines = [1, 2, 3, 4, 5]; // bottom to top
+  // Resolve target into preview coords for the wrong-drop hint.
+  const correctZone: { line?: number; space?: number } | null = (() => {
+    if (target.kind === "staff_line") return { line: target.line };
+    if (target.kind === "staff_space") return { space: target.space };
+    if (target.kind === "staff_pitch") {
+      const t = STAFF_PITCH_TO_LINE[target.pitch];
+      return t ? { line: t.line, space: t.space } : null;
+    }
+    return null;
+  })();
+  const showCorrectHint = resolved === "wrong";
 
-  // Highlight the correct zone after a wrong drop.
-  const highlightCorrect = resolved === "wrong";
-  const correctLine =
-    target.kind === "staff_line"
-      ? target.line
-      : target.kind === "staff_pitch"
-      ? STAFF_PITCH_TO_LINE[target.pitch]?.line
-      : undefined;
-  // (Spaces could be highlighted similarly, but v1 only marks the
-  // correct line for now — keeps the visual simpler.)
+  // Resolve y for any zone (line or space).
+  function zoneY(z: { line?: number; space?: number }): number | null {
+    if (z.line) return lineY(z.line as 1 | 2 | 3 | 4 | 5);
+    if (z.space) return spaceY(z.space as 1 | 2 | 3 | 4);
+    return null;
+  }
+
+  // X positions
+  const clefX = 28;
+  const noteX = 220;
+  const staffX1 = 16;
+  const staffX2 = STAFF_W - 16;
+
+  // Currently rendered notehead (hover or dropped).
+  const activeZone = hover ?? droppedZone ?? null;
+  const activeY = activeZone ? zoneY(activeZone) : null;
+  const correctY = correctZone ? zoneY(correctZone) : null;
 
   return (
     <div
-      ref={ref}
       style={{
-        position: "relative",
-        height: 200,
         background: "var(--parchment, #faf6ef)",
         border: "2px solid var(--ink, #1f2937)",
         borderRadius: 12,
-        padding: "30px 20px",
+        padding: "10px 14px 14px",
       }}
     >
-      {/* Staff lines (bottom to top) */}
-      {lines.map((ln) => {
-        const isHovering = hover?.line === ln;
-        const isCorrect = highlightCorrect && correctLine === ln;
-        const isDropped = droppedZone?.line === ln;
-        return (
-          <div
-            key={`line-${ln}`}
-            style={{
-              position: "absolute",
-              left: 20,
-              right: 20,
-              bottom: 30 + (ln - 1) * 35,
-              height: 4,
-              background: isCorrect
-                ? "var(--mint, #6ec1a3)"
-                : isHovering
-                ? "var(--gold, #d4a853)"
-                : "var(--ink, #1f2937)",
-              transition: "background 180ms",
-              boxShadow: isHovering ? "0 0 12px var(--gold, #d4a853)" : "none",
-            }}
-          >
-            {(isHovering || isCorrect || isDropped) && (
-              <div
-                style={{
-                  position: "absolute",
-                  left: "50%",
-                  top: -10,
-                  transform: "translate(-50%, -50%)",
-                  width: 24,
-                  height: 24,
-                  borderRadius: "50%",
-                  background: isCorrect
-                    ? "var(--mint, #6ec1a3)"
-                    : isDropped
-                    ? "var(--ink, #1f2937)"
-                    : "var(--gold, #d4a853)",
-                  border: "2px solid var(--ink, #1f2937)",
-                }}
-              />
-            )}
-          </div>
-        );
-      })}
-      {/* Hint label */}
+      <svg
+        ref={ref}
+        viewBox={`0 0 ${STAFF_W} ${STAFF_HEIGHT_TOTAL}`}
+        width="100%"
+        style={{ display: "block", touchAction: "none" }}
+      >
+        {/* Five staff lines */}
+        {[1, 2, 3, 4, 5].map((ln) => {
+          const y = lineY(ln as 1 | 2 | 3 | 4 | 5);
+          const isHover = hover?.line === ln;
+          const isCorrect = showCorrectHint && correctZone?.line === ln;
+          return (
+            <line
+              key={`ln-${ln}`}
+              x1={staffX1}
+              x2={staffX2}
+              y1={y}
+              y2={y}
+              stroke={
+                isCorrect
+                  ? "#16a34a"
+                  : isHover
+                  ? "#d4a853"
+                  : "#1f2937"
+              }
+              strokeWidth={isCorrect || isHover ? 1.6 : 1.1}
+            />
+          );
+        })}
+
+        {/* Treble clef glyph — same as StaffMini uses */}
+        <text
+          x={clefX}
+          y={lineY(2) + 14}
+          fontSize={STAFF_LINE_SPACING * 4.6}
+          fontFamily="serif"
+          fontWeight={700}
+          fill="#1f2937"
+        >
+          {"\uD834\uDD1E"}
+        </text>
+
+        {/* Space hover hint — translucent gold band between two lines */}
+        {hover?.space && (
+          <rect
+            x={staffX1}
+            y={spaceY(hover.space as 1 | 2 | 3 | 4) - STAFF_LINE_SPACING / 2}
+            width={staffX2 - staffX1}
+            height={STAFF_LINE_SPACING}
+            fill="#d4a853"
+            opacity={0.18}
+          />
+        )}
+
+        {/* Wrong-drop: show where the right answer was */}
+        {showCorrectHint && correctY != null && (
+          <Notehead
+            cx={noteX}
+            cy={correctY}
+            fill="#bbf7d0"
+            stroke="#16a34a"
+          />
+        )}
+
+        {/* Live preview while hovering, or final landing */}
+        {activeY != null && (
+          <Notehead
+            cx={noteX}
+            cy={activeY}
+            fill={
+              resolved === "correct"
+                ? "#bbf7d0"
+                : resolved === "wrong"
+                ? "#fecaca"
+                : "#E8A93C"
+            }
+            stroke={
+              resolved === "correct"
+                ? "#16a34a"
+                : resolved === "wrong"
+                ? "#dc2626"
+                : "#1f2937"
+            }
+          />
+        )}
+      </svg>
+
       <div
         style={{
-          position: "absolute",
-          bottom: 6,
-          left: 0,
-          right: 0,
           textAlign: "center",
           fontSize: 11,
           fontWeight: 700,
           color: "var(--ink3, #6b7280)",
           letterSpacing: "0.12em",
+          marginTop: 4,
         }}
       >
         DRAG ONTO THE STAFF
       </div>
     </div>
   );
-}
-
-function pointerToZone(
-  el: HTMLElement,
-  x: number,
-  y: number
-): { line?: number; space?: number } | null {
-  const rect = el.getBoundingClientRect();
-  if (x < rect.left || x > rect.right || y < rect.top || y > rect.bottom) {
-    return null;
-  }
-  // Lines are at bottom + (ln-1)*35, padding bottom 30. Compute relative.
-  const fromBottom = rect.bottom - y;
-  const baseOffset = 30; // matches padding-bottom
-  const lineSpacing = 35;
-  // Check if pointer is within ~12px of any line center
-  for (let ln = 1; ln <= 5; ln++) {
-    const center = baseOffset + (ln - 1) * lineSpacing;
-    if (Math.abs(fromBottom - center) < 14) return { line: ln };
-  }
-  // Otherwise, find the space (between two lines)
-  for (let sp = 1; sp <= 4; sp++) {
-    const lower = baseOffset + (sp - 1) * lineSpacing;
-    const upper = baseOffset + sp * lineSpacing;
-    if (fromBottom > lower + 14 && fromBottom < upper - 14) return { space: sp };
-  }
-  return null;
 }
