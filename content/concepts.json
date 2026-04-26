@@ -1,0 +1,304 @@
+{
+  "_meta": {
+    "version": 1,
+    "tiers_covered": ["beginner"],
+    "total": 41,
+    "notes": "Ontology of beginner-tier piano concepts. Each concept has prereqs forming a DAG. Path generator does topological sort: given a piece's required_concepts and a user's mastered_concepts, output the ordered set of concepts to teach. Lesson generator turns each concept into a 6-page lesson YAML. EVERY lesson must use the steps/skips/leaps method vocabulary regardless of topic — see docs/v2-architecture.md."
+  },
+  "concepts": [
+    {
+      "id": "two_group",
+      "name": "The 2-group",
+      "kind": "geography",
+      "description": "Pair of black keys. Visual anchor for finding C and D.",
+      "prereqs": []
+    },
+    {
+      "id": "three_group",
+      "name": "The 3-group",
+      "kind": "geography",
+      "description": "Triplet of black keys. Visual anchor for finding F.",
+      "prereqs": []
+    },
+    {
+      "id": "black_keys",
+      "name": "Black keys",
+      "kind": "geography",
+      "description": "Repeating 2-group + 3-group pattern across the keyboard.",
+      "prereqs": ["two_group", "three_group"]
+    },
+    {
+      "id": "white_keys",
+      "name": "White keys",
+      "kind": "geography",
+      "description": "The seven letter names A-G, repeating.",
+      "prereqs": []
+    },
+    {
+      "id": "middle_c",
+      "name": "Middle C",
+      "kind": "geography",
+      "description": "Anchor note in the centre of the keyboard, found from a 2-group.",
+      "prereqs": ["two_group", "white_keys"]
+    },
+    {
+      "id": "finding_f",
+      "name": "Finding F",
+      "kind": "geography",
+      "description": "F is the white key just left of any 3-group.",
+      "prereqs": ["three_group", "white_keys"]
+    },
+    {
+      "id": "finding_g",
+      "name": "Finding G",
+      "kind": "geography",
+      "description": "G is the white key one step right of F.",
+      "prereqs": ["finding_f", "step_interval"]
+    },
+    {
+      "id": "step_interval",
+      "name": "Step",
+      "kind": "interval",
+      "description": "Move to the immediately adjacent letter. The most fundamental motion.",
+      "prereqs": ["white_keys"]
+    },
+    {
+      "id": "skip_interval",
+      "name": "Skip",
+      "kind": "interval",
+      "description": "Skip one letter. Two stairs at a time.",
+      "prereqs": ["step_interval"]
+    },
+    {
+      "id": "leap_interval",
+      "name": "Leap",
+      "kind": "interval",
+      "description": "Any interval larger than a skip.",
+      "prereqs": ["skip_interval"]
+    },
+    {
+      "id": "octave",
+      "name": "Octave",
+      "kind": "interval",
+      "description": "Same letter, different floor. Eight white keys apart.",
+      "prereqs": ["middle_c", "leap_interval"]
+    },
+    {
+      "id": "ascending",
+      "name": "Ascending motion",
+      "kind": "interval",
+      "description": "Going up the staircase — pitch rising.",
+      "prereqs": ["step_interval"]
+    },
+    {
+      "id": "descending",
+      "name": "Descending motion",
+      "kind": "interval",
+      "description": "Going down the staircase — pitch falling.",
+      "prereqs": ["step_interval"]
+    },
+    {
+      "id": "right_hand",
+      "name": "Right hand",
+      "kind": "hand",
+      "description": "Plays melody usually. Fingers numbered 1-5 (thumb to pinky).",
+      "prereqs": []
+    },
+    {
+      "id": "left_hand",
+      "name": "Left hand",
+      "kind": "hand",
+      "description": "Plays bass usually. Fingers numbered 1-5 (thumb to pinky).",
+      "prereqs": []
+    },
+    {
+      "id": "finger_numbers",
+      "name": "Finger numbers",
+      "kind": "hand",
+      "description": "1=thumb, 2=index, 3=middle, 4=ring, 5=pinky on each hand.",
+      "prereqs": ["right_hand", "left_hand"]
+    },
+    {
+      "id": "c_position_rh",
+      "name": "C position (right hand)",
+      "kind": "hand_position",
+      "description": "Right hand thumb on Middle C, fingers stepping up to G.",
+      "prereqs": ["middle_c", "finger_numbers", "step_interval"]
+    },
+    {
+      "id": "c_position_lh",
+      "name": "C position (left hand)",
+      "kind": "hand_position",
+      "description": "Left hand pinky on C below Middle C, thumb on G below Middle C.",
+      "prereqs": ["finding_g", "finger_numbers", "step_interval"]
+    },
+    {
+      "id": "treble_clef",
+      "name": "Treble clef",
+      "kind": "notation",
+      "description": "G clef. Curls around the G line — anchors the staff.",
+      "prereqs": ["finding_g"]
+    },
+    {
+      "id": "bass_clef",
+      "name": "Bass clef",
+      "kind": "notation",
+      "description": "F clef. Two dots flank the F line — anchors the bass staff.",
+      "prereqs": ["finding_f"]
+    },
+    {
+      "id": "staff_lines",
+      "name": "Staff lines",
+      "kind": "notation",
+      "description": "Five horizontal lines. Notes sit on lines or in spaces.",
+      "prereqs": ["treble_clef"]
+    },
+    {
+      "id": "staff_spaces",
+      "name": "Staff spaces",
+      "kind": "notation",
+      "description": "Four spaces between staff lines.",
+      "prereqs": ["staff_lines"]
+    },
+    {
+      "id": "line_to_space",
+      "name": "Line to space (a step)",
+      "kind": "notation",
+      "description": "Moving from a line to an adjacent space is a STEP on the staircase.",
+      "prereqs": ["staff_spaces", "step_interval"]
+    },
+    {
+      "id": "line_to_line",
+      "name": "Line to line (a skip)",
+      "kind": "notation",
+      "description": "Moving from one line to the next line is a SKIP.",
+      "prereqs": ["staff_lines", "skip_interval"]
+    },
+    {
+      "id": "middle_c_on_staff",
+      "name": "Middle C on the staff",
+      "kind": "notation",
+      "description": "Middle C sits on a ledger line just below the treble staff.",
+      "prereqs": ["treble_clef", "middle_c", "ledger_lines"]
+    },
+    {
+      "id": "ledger_lines",
+      "name": "Ledger lines",
+      "kind": "notation",
+      "description": "Tiny extra lines for notes above or below the staff.",
+      "prereqs": ["staff_lines"]
+    },
+    {
+      "id": "grand_staff",
+      "name": "Grand staff",
+      "kind": "notation",
+      "description": "Treble staff above, bass staff below, joined for piano.",
+      "prereqs": ["treble_clef", "bass_clef"]
+    },
+    {
+      "id": "sharp",
+      "name": "Sharp (#)",
+      "kind": "notation",
+      "description": "A sharp moves the note up a half-step (one black key right).",
+      "prereqs": ["step_interval", "black_keys"]
+    },
+    {
+      "id": "flat",
+      "name": "Flat (b)",
+      "kind": "notation",
+      "description": "A flat moves the note down a half-step (one black key left).",
+      "prereqs": ["step_interval", "black_keys"]
+    },
+    {
+      "id": "natural",
+      "name": "Natural sign",
+      "kind": "notation",
+      "description": "Cancels a sharp or flat — back to the white key.",
+      "prereqs": ["sharp", "flat"]
+    },
+    {
+      "id": "key_signature_c",
+      "name": "Key of C major",
+      "kind": "notation",
+      "description": "No sharps, no flats. All white keys.",
+      "prereqs": ["middle_c", "white_keys"]
+    },
+    {
+      "id": "key_signature_g",
+      "name": "Key of G major",
+      "kind": "notation",
+      "description": "One sharp (F#).",
+      "prereqs": ["sharp", "finding_g"]
+    },
+    {
+      "id": "key_signature_f",
+      "name": "Key of F major",
+      "kind": "notation",
+      "description": "One flat (Bb).",
+      "prereqs": ["flat", "finding_f"]
+    },
+    {
+      "id": "beat",
+      "name": "Beat",
+      "kind": "rhythm",
+      "description": "The pulse — a steady step in time.",
+      "prereqs": []
+    },
+    {
+      "id": "quarter_note",
+      "name": "Quarter note",
+      "kind": "rhythm",
+      "description": "One beat. The basic step on the rhythm staircase.",
+      "prereqs": ["beat"]
+    },
+    {
+      "id": "half_note",
+      "name": "Half note",
+      "kind": "rhythm",
+      "description": "Two beats. Two steps in time.",
+      "prereqs": ["quarter_note"]
+    },
+    {
+      "id": "whole_note",
+      "name": "Whole note",
+      "kind": "rhythm",
+      "description": "Four beats. A long stretched step.",
+      "prereqs": ["half_note"]
+    },
+    {
+      "id": "dotted_half_note",
+      "name": "Dotted half note",
+      "kind": "rhythm",
+      "description": "Half note plus a dot — three beats. A longer step on the rhythm staircase.",
+      "prereqs": ["half_note", "quarter_note"]
+    },
+    {
+      "id": "quarter_rest",
+      "name": "Quarter rest",
+      "kind": "rhythm",
+      "description": "One beat of silence. Skip a step in time.",
+      "prereqs": ["quarter_note"]
+    },
+    {
+      "id": "time_signature_4_4",
+      "name": "4/4 time",
+      "kind": "rhythm",
+      "description": "Four beats per bar. Four stairs in a row.",
+      "prereqs": ["quarter_note", "beat"]
+    },
+    {
+      "id": "time_signature_3_4",
+      "name": "3/4 time",
+      "kind": "rhythm",
+      "description": "Three beats per bar. Like a waltz.",
+      "prereqs": ["quarter_note", "beat"]
+    },
+    {
+      "id": "tempo",
+      "name": "Tempo",
+      "kind": "rhythm",
+      "description": "How fast the beats step by — slow walk, brisk walk, run.",
+      "prereqs": ["beat"]
+    }
+  ]
+}
