@@ -2,15 +2,18 @@
 
 ## Pitch
 
-> *"Pick a song you want to play. We'll teach you, step by step, using our
-> method. As few as 20 lessons or as many as 150 — whatever it takes."*
+> *"Upload your sheet music. We'll build you a custom lesson plan to
+> play it — using our method, tuned to your skill. Finish the plan,
+> upload the next song, repeat."*
 
 The product is no longer "250 fixed lessons." The product is **the method
-applied to your goal**. Sonata generates a personalised path from where
-you are (your skill) to where you want to go (your piece).
+applied to whatever YOU want to play**. Sonata generates a personalised
+path from your current skill level to playing the specific piece you
+upload.
 
 Distinguishing feature: every other piano app has a fixed catalog. Sonata
-has a generated curriculum.
+has **no catalog** — every user's curriculum is generated for the song
+they brought to the table.
 
 ---
 
@@ -176,6 +179,14 @@ Defaulted to empty set if user skips ("complete beginner").
 ## API routes (Next.js)
 
 ```
+POST /api/piece/upload
+  body: multipart with image/PDF
+  returns: { piece_id, parsed: {title, key, time_sig, concepts, melody}, audio_preview_url }
+
+POST /api/piece/[piece_id]/correct
+  body: { difficulty?, hand?, concepts? }   // user overrides VLM mistakes
+  returns: { piece_id, parsed: {...} }
+
 POST /api/skill/assess
   body: { responses: [...] }
   returns: { mastered_concepts: [...] }
@@ -194,6 +205,80 @@ POST /api/admin/cache-fill          (locked, dev-only)
 The LLM generation runs server-side in the API route to keep the
 OpenRouter API key off the client. TTS does NOT run server-side —
 all audio is generated on-device by Kokoro (see TTS section).
+
+---
+
+## Sheet music ingestion (the killer feature)
+
+Every piece comes from user upload. No curated library, no preset paths.
+
+### Pipeline
+
+```
+1. User uploads image / PDF
+2. Server-side VLM call (Gemini 2.5 Pro Vision via OpenRouter, or similar)
+   Prompt: "extract title, key, time signature, hand range, rhythm
+   complexity, articulations, list of musical concepts a beginner
+   would need to play this, and a simplified single-voice MIDI sequence."
+3. VLM returns structured JSON
+4. Server validates + tags piece with concept ids matched to ontology
+5. Stored as user.pieces[]
+6. Path generator runs against piece.required_concepts
+```
+
+### What we extract from the sheet
+
+```json
+{
+  "title": "Hot Cross Buns",
+  "key": "C",
+  "time_signature": "4/4",
+  "tempo_hint": 100,
+  "difficulty_estimate": "beginner",
+  "hand": "right",
+  "concepts": [
+    "middle_c", "step_interval", "quarter_note", "half_note",
+    "treble_clef", "right_hand_position_c"
+  ],
+  "melody": [
+    {"note": "E4", "duration": "quarter"},
+    {"note": "D4", "duration": "quarter"},
+    {"note": "C4", "duration": "half"},
+    /* ... */
+  ]
+}
+```
+
+The `melody` list becomes the data for the FINAL lesson in the path —
+where the student actually plays the piece they uploaded.
+
+### Confirm-and-correct UX
+
+VLMs make mistakes. After ingestion, show the user:
+- The detected piece info ("title, key, time sig, difficulty")
+- Audio preview (synthesised via Kokoro reading the melody)
+- A "this is wrong, fix it" button
+
+User can override:
+- Difficulty level (easier / harder)
+- Hand (right / left / both)
+- Skip pieces the VLM butchered
+
+### Cost per upload
+
+Gemini 2.5 Pro Vision via OpenRouter: ~$0.10-0.30 per page analysed.
+Average beginner piece: 1-2 pages = ~$0.20.
+
+For pricing math: a $9.99/mo subscriber uploading 5 pieces/month costs
+us $1 in VLM fees. ~$8.99/mo margin per active subscriber. Fine.
+
+### Cheaper alternatives (explore later)
+
+- Gemma 3 Vision / Qwen 3 VL: ~$0.13 input / $0.52 output per M tokens
+- Mistral Pixtral: cheaper still
+- Open-source OMR (Audiveris) as a pre-pass to reduce VLM input
+
+For Phase A: use Gemini 2.5 Pro for accuracy, optimise later.
 
 ---
 
@@ -262,17 +347,46 @@ A14+ is fine), fall back to the browser's built-in `SpeechSynthesisUtterance`
 
 ## UI
 
-### Onboarding flow
+### Core user loop
 
-1. **Welcome screen**: "What do you want to play?"
-2. **Piece selector**: 5-10 curated pieces, one marked as the free trial
-3. **Skill check**: 5-7 quick interactions → concept inventory
-4. **Path preview**: "Here's your path: 23 lessons to play *Twinkle
-   Twinkle*. Generating your custom plan..."
-5. **Generation progress**: Cleffy commentary while server fills any
-   cache misses
-6. **Path map**: World-map style, each lesson is a node, current step
-   highlighted
+```
+sign up
+  ↓
+upload sheet music (photo or PDF)
+  ↓
+Cleffy reads it ("looks like a beginner piece in C major, 4/4 time")
+  ↓
+quick skill check (3-5 interactions to confirm level)
+  ↓
+generate personalised path: N lessons to play this piece
+  ↓
+walk through path (lessons + final lesson is the piece itself)
+  ↓
+complete → "what next? upload another piece"
+  ↓
+back to upload step
+```
+
+### Onboarding (first piece)
+
+1. **Welcome**: "Upload a song you want to learn."
+2. **Upload**: photo / PDF / image picker. Cleffy says "give me a sec to
+   read this..." while the VLM analyses it.
+3. **Confirm read**: "Looks like a beginner piece in C major, 4/4 time.
+   Right hand only. Sound right?" → user confirms or fixes.
+4. **Quick skill check**: 3-5 interactions ("can you find Middle C?",
+   "is this a quarter or a half note?") to populate concept inventory.
+5. **Path preview**: "Here's your path: 23 lessons. We'll get you
+   playing this in about 3 weeks."
+6. **Generation**: Cleffy commentary while server fills cache + any
+   missing lesson YAMLs.
+7. **Path map**: World-map style, each lesson is a node, current step
+   highlighted, final lesson is the actual piece.
+
+### Subsequent pieces (post-first)
+
+Skip steps 4-5 (skill already known from previous path's progress).
+Straight from upload → confirm → path preview → start.
 
 ### Lesson runner
 
@@ -299,37 +413,45 @@ After completing the trial piece:
 
 ## Phased build plan
 
-### Phase A — MVP (target: 2 weeks)
+### Phase A — MVP (target: 2-3 weeks)
 
-- [ ] Concept ontology (40 concepts, beginner-only)
-- [ ] One trial piece (Twinkle Twinkle), manually concept-tagged
-- [ ] Path generator (deterministic, no UI yet)
+- [ ] Concept ontology (40 concepts, beginner tier — covers most uploads)
+- [ ] **Sheet music upload + VLM analysis** (Gemini 2.5 Pro Vision)
+- [ ] Confirm-and-correct UX after VLM read
+- [ ] Path generator (concept gap → ordered lessons)
 - [ ] Lesson generator wired into a server-side cache-fill script
 - [ ] **On-device Kokoro TTS** module (`src/lib/tts/kokoro.ts`)
-- [ ] Trial-piece path runs end-to-end via existing player + Kokoro voice
-- [ ] Skill assessment: yes/no "have you played piano before"
-- [ ] Paywall stub (just a message, no Stripe)
+- [ ] Path runs end-to-end via existing player + Kokoro voice
+- [ ] Final lesson plays the actual uploaded piece
+- [ ] Skill check: 3-5 quick questions on first signup
+- [ ] **Gumroad paywall**: first piece free, subsequent pieces require
+      active subscription (existing `/api/webhooks/gumroad` infrastructure)
 
-End of Phase A: a friend can sign up, learn Twinkle Twinkle through a
-generated path, with Cleffy speaking via on-device Kokoro. Hit a paywall
-stub. Everything works, nothing's polished.
+End of Phase A: a friend signs up, uploads "Hot Cross Buns" or whatever,
+gets a personalised path, walks through it with Cleffy speaking via
+on-device Kokoro, plays the piece at the end. Tries to upload a second
+piece → paywall.
 
-### Phase B — Polish + scale (target: 2 weeks)
+### Phase B — Polish + retention (target: 2 weeks)
 
-- [ ] Concept ontology expanded to ~100
-- [ ] 5-10 pieces in the library
-- [ ] Real placement test (5-7 questions)
+- [ ] Concept ontology expanded to ~100 (covers intermediate uploads too)
 - [ ] World-map UI for path
-- [ ] RevenueCat / Stripe paywall (subscription)
+- [ ] Persistent "my pieces" library showing completed + in-progress
 - [ ] Cleffy persona system: pick a Kokoro voice per persona (Encouraging,
       Coach, Drill Sergeant, Game Show)
 - [ ] WebGPU/WASM fallback chain for older iPads
+- [ ] VLM cost optimisation (try cheaper models, fall back to Gemini Pro
+      only on unclear pages)
+- [ ] Practice-tree streak (the BeReal-style retention mechanic)
 
-### Phase C — Open sheet music (target: post-launch)
+### Phase C — Beyond (target: post-launch)
 
-- [ ] User can upload sheet music photo → OMR + LLM analysis → concept tagging → path
-- [ ] Sheet music library expansion
-- [ ] Cleffy AI commentary in-lesson (real-time response to mistakes)
+- [ ] Cleffy AI commentary in-lesson (real-time response to mistakes
+      via Qwen3 30B A3B + Kokoro voice)
+- [ ] PDF / multi-page sheet music
+- [ ] Auto-generated "review" lessons interleaved with new content
+      (spaced repetition)
+- [ ] Performance recording / share to socials
 
 ---
 
@@ -337,34 +459,50 @@ stub. Everything works, nothing's polished.
 
 At Phase A:
 - LLM cache fill: $0.40 one-time across ALL users forever
+- VLM piece analysis: ~$0.20 per upload (Gemini 2.5 Pro Vision)
 - TTS: $0 (on-device Kokoro)
-- Storage: ~$0.10/mo S3 (lesson YAMLs only — no audio)
+- Storage: ~$0.10/mo S3 (lesson YAMLs + uploaded sheet music)
 - Database: $0 (Supabase free)
 - Vercel: $0 (Hobby)
-- **Total: ~$0.50/mo across all users combined**
 
-At Phase B with paying users:
-- Per active user marginal: ~$0 (everything is on-device or one-time-cached)
-- $9.99/mo subscription − ~$0/mo cost = ~$9.99/mo margin per user
-- Breakeven at zero subscribers — purely device-bound infra
-- Profit dominated by user acquisition, not infra cost
+**Per active user / month:** ~$1 (assuming 5 piece uploads/month avg)
+**Subscription:** $9.99/mo via Gumroad
+**Margin per active user:** ~$8.99/mo
+
+Free tier: first piece free (~$0.20 acquisition cost). User completes,
+hits paywall, decides whether to pay. Acquisition CAC is just the VLM
+cost on the trial piece + ~80MB of Kokoro download bandwidth.
+
+Worst-case heavy user (20 pieces/month): $4 in VLM costs vs $9.99 sub
+= $5.99 margin. Still positive.
 
 ---
 
 ## Decisions locked
 
-- **LLM**: `qwen/qwen3-30b-a3b` via OpenRouter ($0.003/lesson)
+- **LLM (lesson generation)**: `qwen/qwen3-30b-a3b` via OpenRouter ($0.003/lesson)
+- **VLM (sheet music ingestion)**: Gemini 2.5 Pro Vision via OpenRouter (~$0.20/upload)
 - **TTS**: **on-device Kokoro-82M** via Transformers.js (zero cloud TTS)
 - **Default voice**: `af_bella` (Cleffy rebranded around new voice)
 - **Lesson format**: 6 pages, see → hear → play → check → wrap
 - **Cache strategy**: per-concept YAML in S3 (no audio cache needed)
 - **Strangler pattern**: build under `/v2`, retire `/app` later
-- **Trial**: 1 curated piece free, paywall after
+- **Catalog**: NONE — every piece is user-uploaded
+- **Trial**: first uploaded piece free, subsequent uploads paywalled
+- **Payments**: **Gumroad** (existing webhook stays)
 - **Player**: existing `LessonV2.tsx`, unchanged
 
 ## Open questions
 
-- Which 5-10 pieces in the trial library? (Curate manually, easy)
-- Stripe vs RevenueCat for subscriptions? (RevenueCat already in app via
-  `@capgo/native-purchases` — keep using it)
-- World-map UI design — sketch first or build minimal then iterate?
+- **VLM provider for piece analysis** — Gemini 2.5 Pro is the safe pick.
+  Worth A/B testing cheaper Vision models (Pixtral, Qwen 3 VL) on real
+  user uploads to find the best cost/quality.
+- **PDF support** — handle multi-page sheets in v1, or just photos?
+- **What happens if VLM fails to parse** — retry? show "we couldn't read
+  this, try a clearer photo" message? fall back to manual entry?
+- **Skill check format** — quick interactive (3-5 questions) vs trust
+  the user's self-rating?
+- **Practice tree retention mechanic** — Phase A or Phase B?
+- **iOS native voice input on Capacitor** — could replace photo upload
+  with "play me the song you want to learn" using mic + transcription
+  (much later, post-launch experiment)
