@@ -525,12 +525,26 @@ function midiToStaffPos(m: number, clef: "treble" | "bass"): {
 
 function StaffMini({ page }: { page: LessonPage }) {
   const fig = (page.figure || "").toLowerCase();
-  const wantsBass = /bass\s+(staff|clef)|\bbass\b(?!\sclef)/.test(fig) && !/treble/.test(fig);
-  const wantsGrand = /grand\s+staff/.test(fig);
+  const cleffyText = (
+    (page.cleffy || "") +
+    " " +
+    (page.followup_cleffy || "") +
+    " " +
+    (page.completion_cleffy || "")
+  ).toLowerCase();
+  const combined = fig + " " + cleffyText;
+  const wantsBass = /bass\s+(staff|clef)|\bbass\b(?!\sclef)/.test(combined) && !/treble/.test(combined);
+  const wantsGrand = /grand\s+staff/.test(combined);
   const clef: "treble" | "bass" = wantsBass ? "bass" : "treble";
 
-  // Notes: from highlights, fallback to interaction sequence/keys
+  // Notes: from highlights, fallback to interaction sequence/keys, then
+  // try to extract from the figure text itself ("note in space 3", "on
+  // line 2", "two notes — line, then next space up", "line → space",
+  // letter sequences like "C-D-E" or "G G A G").
   let midis: number[] = pageHighlightMidis(page);
+  // Track positions described by line-number / space-number text — these
+  // get drawn at the right staff slot rather than at a specific pitch.
+  const positions: { line?: number; space?: number }[] = [];
   if (midis.length === 0) {
     const it = page.interaction as unknown as { keys?: string[]; sequence?: unknown[] } | undefined;
     if (it) {
@@ -549,11 +563,84 @@ function StaffMini({ page }: { page: LessonPage }) {
       }
     }
   }
+  // Extract pitches from letter sequences in figure text:
+  //   "Phrase 2: D-E-G"      → D4, E4, G4
+  //   "Line 2: G G A G D C"  → G4, G4, A4, G4, D4, C4
+  //   "C-D-E, then D-E-F"    → C4, D4, E4 (first three)
+  //   "E, B, E, G#"          → E4, B4, E4, G#4
+  if (midis.length === 0) {
+    const original = (page.figure || "") + " " + (page.cleffy || "");
+    const tokens = original
+      .split(/[\s,/|]+/)
+      .map((t) => t.trim())
+      .filter((t) => /^[A-Ga-g][#♯♭b]?[0-9]?$/.test(t));
+    if (tokens.length >= 2) {
+      const parsed = tokens
+        .map((t) => {
+          // Default octave 4; if no octave digit, append.
+          const norm = /\d$/.test(t) ? t : t + "4";
+          return noteStringToMidi(
+            norm
+              .replace("♯", "#")
+              .replace("♭", "b")
+              .replace(/^([a-g])/, (_, c) => c.toUpperCase())
+          );
+        })
+        .filter((m): m is number => m != null);
+      // Sanity: only adopt if we got at least 2 notes that are in a
+      // reasonable musical range, to avoid picking up "A row..." or
+      // single-letter prose.
+      if (parsed.length >= 2 && parsed.length <= 12) {
+        midis = parsed;
+      }
+    }
+  }
+  // Extract from figure text — "note in space 3", "on line 2", etc.
+  if (midis.length === 0) {
+    const lineMatches = Array.from(
+      combined.matchAll(/\bline\s*([1-5])\b/g)
+    ).map((m) => Number(m[1]));
+    const spaceMatches = Array.from(
+      combined.matchAll(/\bspace\s*([1-4])\b/g)
+    ).map((m) => Number(m[1]));
+    for (const ln of lineMatches) {
+      if (ln >= 1 && ln <= 5) positions.push({ line: ln });
+    }
+    for (const sp of spaceMatches) {
+      if (sp >= 1 && sp <= 4) positions.push({ space: sp });
+    }
+    // Patterns like "line → line", "line → space", "space → line",
+    // "space → space" that don't have explicit numbers — pick
+    // representative positions.
+    if (positions.length === 0) {
+      if (/line\s*(?:→|->|to|then\s+next?)\s*line/.test(combined)) {
+        positions.push({ line: 2 }, { line: 3 });
+      } else if (/line\s*(?:→|->|to|then\s+next?)\s*space/.test(combined)) {
+        positions.push({ line: 2 }, { space: 2 });
+      } else if (/space\s*(?:→|->|to|then\s+next?)\s*space/.test(combined)) {
+        positions.push({ space: 2 }, { space: 3 });
+      } else if (/space\s*(?:→|->|to|then\s+next?)\s*line/.test(combined)) {
+        positions.push({ space: 2 }, { line: 3 });
+      } else if (/(both\s+on\s+lines?|two\s+notes?\s+(?:on|both\s+on)\s+lines?)/.test(combined)) {
+        positions.push({ line: 2 }, { line: 3 });
+      } else if (/(both\s+in\s+spaces?|two\s+notes?\s+in\s+spaces?)/.test(combined)) {
+        positions.push({ space: 2 }, { space: 3 });
+      } else if (/note\s+on\s+a\s+line/.test(combined) && !midis.length) {
+        positions.push({ line: 3 });
+      } else if (/note\s+in\s+a\s+space/.test(combined) && !midis.length) {
+        positions.push({ space: 2 });
+      }
+    }
+  }
 
-  const W = 360;
-  const lineSpacing = 8;
+  // Sizing — bigger and more readable than the previous tiny staff. The
+  // original was 360px wide with 8px line spacing, hence the "tiny
+  // staff" complaint. Bumped to 480x180 with 16px spacing and a chunky
+  // clef so the figure is the centerpiece of the page, not a footnote.
+  const W = 480;
+  const lineSpacing = 16;
   const staffH = lineSpacing * 4;
-  const padY = 20;
+  const padY = 40;
   const H = wantsGrand ? padY * 2 + staffH * 2 + lineSpacing * 4 : padY * 2 + staffH;
   const staffYTop = padY;
   const bassYTop = wantsGrand ? padY + staffH + lineSpacing * 4 : padY;
@@ -578,19 +665,53 @@ function StaffMini({ page }: { page: LessonPage }) {
   }
 
   function clefGlyph(clefType: "treble" | "bass", yTop: number) {
-    const x = 26;
-    const y = yTop + staffH / 2 + 6;
+    const x = 28;
+    const y = yTop + staffH / 2 + lineSpacing * 0.9;
     return (
       <text
         x={x}
         y={y}
-        fontSize={clefType === "treble" ? 36 : 28}
+        fontSize={clefType === "treble" ? lineSpacing * 4.6 : lineSpacing * 3.4}
         fontFamily="serif"
         fontWeight={700}
         fill="#1f2937"
       >
         {clefType === "treble" ? "𝄞" : "𝄢"}
       </text>
+    );
+  }
+
+  /** Draw a notehead at a given line/space position (1 = bottom line,
+   *  5 = top line; spaces are between). Used for figure-text-derived
+   *  positions where we don't know the actual pitch. */
+  function noteAtPosition(
+    pos: { line?: number; space?: number },
+    xCenter: number,
+    yTop: number,
+    isLineHi: boolean
+  ): React.ReactElement {
+    let y: number;
+    if (pos.line) {
+      y = yTop + staffH - (pos.line - 1) * lineSpacing;
+    } else if (pos.space) {
+      // space N is between line N and line N+1
+      y = yTop + staffH - (pos.space - 0.5) * lineSpacing;
+    } else {
+      y = yTop + staffH / 2;
+    }
+    const r = lineSpacing * 0.55;
+    return (
+      <ellipse
+        key={`pn-${xCenter}-${pos.line ?? "L"}-${pos.space ?? "S"}`}
+        cx={xCenter}
+        cy={y}
+        rx={r + 1.5}
+        ry={r * 0.85}
+        fill={isLineHi ? "#16a34a" : "#E8A93C"}
+        stroke="#1f2937"
+        strokeWidth={1.6}
+        transform={`rotate(-15 ${xCenter} ${y})`}
+      />
     );
   }
 
@@ -671,11 +792,16 @@ function StaffMini({ page }: { page: LessonPage }) {
     return <g key={`grp-${midi}-${xCenter}`}>{els}</g>;
   }
 
-  // Notes laid out evenly between x=70 and W-20
-  const x0 = 70;
+  // Notes laid out evenly between x=100 and W-30. Use whichever source
+  // produced content — explicit MIDI list, or text-derived positions.
+  const x0 = 100;
   const x1 = W - 30;
-  const noteList = midis.length > 0 ? midis : [];
-  const step = noteList.length > 0 ? (x1 - x0) / Math.max(1, noteList.length) : 0;
+  const items: ({ kind: "midi"; midi: number } | { kind: "pos"; pos: { line?: number; space?: number } })[] =
+    midis.length > 0
+      ? midis.map((m) => ({ kind: "midi" as const, midi: m }))
+      : positions.map((p) => ({ kind: "pos" as const, pos: p }));
+  const step =
+    items.length > 0 ? (x1 - x0) / Math.max(1, items.length) : 0;
 
   return (
     <div style={{ width: "100%", maxWidth: W }}>
@@ -684,11 +810,51 @@ function StaffMini({ page }: { page: LessonPage }) {
         {clefGlyph(clef, staffYTop)}
         {wantsGrand && drawStaff(bassYTop)}
         {wantsGrand && clefGlyph("bass", bassYTop)}
-        {noteList.map((m, i) => {
+        {items.map((it, i) => {
           const xCenter = x0 + step * (i + 0.5);
-          const useBass = wantsGrand ? m < 60 : clef === "bass";
-          return noteCircle(m, xCenter, useBass ? "bass" : "treble", useBass ? bassYTop : staffYTop);
+          if (it.kind === "midi") {
+            const useBass = wantsGrand ? it.midi < 60 : clef === "bass";
+            return noteCircle(
+              it.midi,
+              xCenter,
+              useBass ? "bass" : "treble",
+              useBass ? bassYTop : staffYTop
+            );
+          }
+          // Tint position-derived notes by line vs space so the staff
+          // figure VISUALLY communicates the difference between line
+          // and space notes (the whole point of lesson 13).
+          const isLine = it.pos.line != null;
+          return noteAtPosition(it.pos, xCenter, staffYTop, isLine);
         })}
+        {/* Tiny labels under the staff for line/space figures so the
+            student knows which slot each note is in. */}
+        {items.length > 0 &&
+          items.every((x) => x.kind === "pos") &&
+          items.map((it, i) => {
+            if (it.kind !== "pos") return null;
+            const xCenter = x0 + step * (i + 0.5);
+            const label = it.pos.line
+              ? `line ${it.pos.line}`
+              : it.pos.space
+              ? `space ${it.pos.space}`
+              : "";
+            if (!label) return null;
+            return (
+              <text
+                key={`lbl-${i}`}
+                x={xCenter}
+                y={staffYTop + staffH + lineSpacing * 1.4}
+                textAnchor="middle"
+                fontSize={lineSpacing * 0.7}
+                fontFamily="Georgia, serif"
+                fontStyle="italic"
+                fill="#4b5563"
+              >
+                {label}
+              </text>
+            );
+          })}
       </svg>
     </div>
   );
