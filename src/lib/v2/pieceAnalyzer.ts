@@ -50,10 +50,13 @@ You are given a photo or PDF of sheet music. Your job is to:
 3. Transcribe a simplified single-voice melody as a list of (note, duration)
    pairs. Notes use ABC notation: "C4", "F#5", "Bb3", etc. Durations are
    one of: "quarter", "half", "whole", "dotted_half", "eighth", "quarter_rest".
-   Keep this under 64 events for beginner pieces — just enough for the
-   student to play the melody at the end of their lesson plan.
-4. Add free-form NOTES describing anything unusual or hard to read. The
-   user will confirm and correct your guesses.
+   HARD CAP: at most 32 melody events. Just enough for the student to play
+   the opening phrase at the end of their lesson plan.
+4. HARD CAP: at most 8 concept ids — pick the most representative.
+5. Add free-form NOTES (≤ 200 chars) describing anything unusual.
+
+CRITICAL: be terse. Output JSON only — no thinking, no preamble. Every
+extra token risks truncation.
 
 ═══ CONCEPT CATALOGUE ═══
 ${conceptList}
@@ -115,7 +118,13 @@ export async function analyzePiece(
         },
       ],
       temperature: 0.2,
-      max_tokens: 4000,
+      // Gemini 2.5 Pro is a thinking model — reasoning tokens count against
+      // max_tokens. Last run truncated mid-JSON at ~4k. Give plenty of head-
+      // room and ask OpenRouter to skip reasoning entirely for this call.
+      max_tokens: 16000,
+      reasoning: { effort: "low", exclude: true },
+      // Force JSON output where supported (Gemini honours this via OpenRouter).
+      response_format: { type: "json_object" },
     }),
   });
 
