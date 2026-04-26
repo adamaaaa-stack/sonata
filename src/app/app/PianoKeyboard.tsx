@@ -5,7 +5,7 @@
  * Extracted from page.tsx so it can be reused by LessonV2 (and anywhere else).
  * Relies on sonata.css CSS variables for responsive sizing.
  */
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import {
   NOTES,
   isBlack,
@@ -53,6 +53,40 @@ export function PianoKeyboard({
   const [pressed, setPressed] = useState<Set<number>>(new Set());
   const touchedRef = useRef(false);
   const containerRef = useRef<HTMLDivElement>(null);
+
+  // ── Audio→visual pulse: when the lesson code plays a piano note (drill,
+  // demo, sequence, anything via playPianoKey/playNote), audio.ts emits a
+  // window event with the MIDI number. We briefly highlight that key so
+  // the student SEES what they're hearing. Required for "music is like
+  // stairs"-type pages where Cleffy says "up or down" and plays a sequence
+  // — without this the keys are silent visually.
+  const [audioPulseMidis, setAudioPulseMidis] = useState<Set<number>>(
+    new Set()
+  );
+  useEffect(() => {
+    function onPulse(e: Event) {
+      const detail = (e as CustomEvent).detail as { midi?: number } | undefined;
+      const m = detail?.midi;
+      if (typeof m !== "number" || !Number.isFinite(m)) return;
+      setAudioPulseMidis((prev) => {
+        const next = new Set(prev);
+        next.add(m);
+        return next;
+      });
+      // Clear the pulse after a brief flash. Each call schedules its own
+      // teardown so overlapping pulses still individually clear.
+      window.setTimeout(() => {
+        setAudioPulseMidis((prev) => {
+          if (!prev.has(m)) return prev;
+          const next = new Set(prev);
+          next.delete(m);
+          return next;
+        });
+      }, 360);
+    }
+    window.addEventListener("sonata:key-pulse", onPulse);
+    return () => window.removeEventListener("sonata:key-pulse", onPulse);
+  }, []);
 
   // Track the last press time per key to swallow accidental double-fire
   // (e.g. browsers that emit both touchstart AND a synthesized click).
@@ -255,6 +289,16 @@ export function PianoKeyboard({
           70%  { box-shadow: 0 0 0 14px rgba(34,197,94,0); }
           100% { box-shadow: 0 0 0 0 rgba(34,197,94,0); }
         }
+        /* Audio flash — fires whenever the lesson plays a note from
+           code (drill demo, sequence playback, listen samples). The
+           goal is "you SEE what you HEAR" so the eye and ear learn
+           together — softer than the green press pulse so it can't
+           be confused for "this is the key you should play next." */
+        @keyframes sonataKeyAudioFlash {
+          0%   { opacity: 0; transform: scale(1); }
+          10%  { opacity: 0.95; transform: scale(1.04); }
+          100% { opacity: 0; transform: scale(1); }
+        }
       `}</style>
       <div style={{ position: "relative", display: "flex" }}>
         {whiteKeys.map((m) => {
@@ -262,6 +306,7 @@ export function PianoKeyboard({
           const isActive = pressed.has(m);
           const hl = highlights[m];
           const isPulse = pulseMidi === m;
+          const isAudioPulse = audioPulseMidis.has(m);
           return (
             <div
               key={m}
@@ -292,17 +337,23 @@ export function PianoKeyboard({
                 userSelect: "none",
               } as React.CSSProperties}
             >
-              {(hl || isPulse) && (
+              {(hl || isPulse || isAudioPulse) && (
                 <div
                   style={{
                     position: "absolute",
                     inset: 0,
                     borderRadius: "inherit",
-                    background: isPulse ? "#22c55e" : hl,
-                    opacity: isPulse ? 0.7 : 0.35,
+                    background: isAudioPulse
+                      ? "#fbbf24"
+                      : isPulse
+                      ? "#22c55e"
+                      : hl,
+                    opacity: isAudioPulse ? 0.85 : isPulse ? 0.7 : 0.35,
                     pointerEvents: "none",
                     animation: isPulse
                       ? "sonataKeyPulse 1s ease-in-out infinite"
+                      : isAudioPulse
+                      ? "sonataKeyAudioFlash 360ms ease-out"
                       : undefined,
                   }}
                 />
@@ -366,6 +417,7 @@ export function PianoKeyboard({
           const isActive = pressed.has(nb);
           const hl = highlights[nb];
           const isPulse = pulseMidi === nb;
+          const isAudioPulse = audioPulseMidis.has(nb);
           return (
             <div
               key={nb}
@@ -399,17 +451,23 @@ export function PianoKeyboard({
                 userSelect: "none",
               }}
             >
-              {(hl || isPulse) && (
+              {(hl || isPulse || isAudioPulse) && (
                 <div
                   style={{
                     position: "absolute",
                     inset: 0,
                     borderRadius: "inherit",
-                    background: isPulse ? "#22c55e" : hl,
-                    opacity: isPulse ? 0.85 : 0.4,
+                    background: isAudioPulse
+                      ? "#fbbf24"
+                      : isPulse
+                      ? "#22c55e"
+                      : hl,
+                    opacity: isAudioPulse ? 0.95 : isPulse ? 0.85 : 0.4,
                     pointerEvents: "none",
                     animation: isPulse
                       ? "sonataKeyPulse 1s ease-in-out infinite"
+                      : isAudioPulse
+                      ? "sonataKeyAudioFlash 360ms ease-out"
                       : undefined,
                   }}
                 />

@@ -24,6 +24,26 @@ export function getAudioCtx(): AudioContext {
 
 export function isPianoReady(): boolean { return pianoReady; }
 
+// ============================================================
+// AUDIO → VISUAL PULSE BROADCAST
+// Every time a piano note plays (drill, demo, sequence, anything) we
+// dispatch a window event with the MIDI number. Keyboard components
+// (PianoKeyboard, KeyboardMini) subscribe and briefly highlight that
+// key — so the student SEES what they're hearing on the screen, not
+// just hears it. Required for ear-and-eye reinforcement: when Cleffy
+// plays a "low C" or walks up the staircase, the keys should light up.
+// ============================================================
+export function broadcastKeyPulse(midiNum: number): void {
+  if (typeof window === 'undefined') return;
+  try {
+    window.dispatchEvent(
+      new CustomEvent('sonata:key-pulse', { detail: { midi: midiNum } })
+    );
+  } catch {
+    /* SSR / test env — ignore */
+  }
+}
+
 // Precomputed note frequencies for MIDI 21-108
 export const NOTE_FREQS: Record<number, number> = {};
 for (let m = 21; m <= 108; m++) {
@@ -95,6 +115,7 @@ export function loadPianoSamples(): Promise<void> {
 // PLAY PIANO — sampled if loaded, synth fallback otherwise
 // ============================================================
 export function playPianoKey(midiNum: number, duration: number = 2.0): void {
+  broadcastKeyPulse(midiNum);
   if (pianoReady && sampler) {
     try {
       sampler.triggerAttackRelease(midiToNoteName(midiNum), duration);
@@ -105,6 +126,7 @@ export function playPianoKey(midiNum: number, duration: number = 2.0): void {
 }
 
 export function playNote(midiNum: number, duration: number = 0.4): void {
+  broadcastKeyPulse(midiNum);
   if (pianoReady && sampler) {
     try {
       sampler.triggerAttackRelease(midiToNoteName(midiNum), duration);

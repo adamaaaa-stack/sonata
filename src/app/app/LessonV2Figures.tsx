@@ -318,6 +318,36 @@ function KeyboardMini({
 }) {
   const fig = (page.figure || "").toLowerCase();
 
+  // Audio→visual pulse: same event we wire into PianoKeyboard. When the
+  // lesson plays a note, this small figure piano lights up that key for
+  // a moment too, so the student sees what's playing in BOTH the bottom
+  // and the figure-area pianos at once.
+  const [audioPulses, setAudioPulses] = React.useState<Set<number>>(
+    new Set()
+  );
+  React.useEffect(() => {
+    function onPulse(e: Event) {
+      const detail = (e as CustomEvent).detail as { midi?: number } | undefined;
+      const m = detail?.midi;
+      if (typeof m !== "number" || !Number.isFinite(m)) return;
+      setAudioPulses((prev) => {
+        const next = new Set(prev);
+        next.add(m);
+        return next;
+      });
+      window.setTimeout(() => {
+        setAudioPulses((prev) => {
+          if (!prev.has(m)) return prev;
+          const next = new Set(prev);
+          next.delete(m);
+          return next;
+        });
+      }, 360);
+    }
+    window.addEventListener("sonata:key-pulse", onPulse);
+    return () => window.removeEventListener("sonata:key-pulse", onPulse);
+  }, []);
+
   // Pick highlighted keys: explicit highlights first; else infer from figure text.
   let highlighted = pageHighlightMidis(page);
   if (highlighted.length === 0) {
@@ -381,6 +411,7 @@ function KeyboardMini({
         {whites.map((m, i) => {
           const x = i * keyW;
           const isHi = highlighted.includes(m);
+          const isPulsing = audioPulses.has(m);
           const isC = m % 12 === 0;
           return (
             <g key={`w${m}`}>
@@ -389,10 +420,19 @@ function KeyboardMini({
                 y={0}
                 width={keyW - 1}
                 height={H}
-                fill={isHi ? "#E8A93C" : "#FAFAF6"}
+                fill={
+                  isPulsing
+                    ? "#fbbf24"
+                    : isHi
+                    ? "#E8A93C"
+                    : "#FAFAF6"
+                }
                 stroke="#1f2937"
-                strokeWidth={1}
+                strokeWidth={isPulsing ? 2 : 1}
                 rx={2}
+                style={{
+                  transition: "fill 0.15s, stroke-width 0.15s",
+                }}
               />
               {isC && (
                 <text
@@ -415,6 +455,7 @@ function KeyboardMini({
           if (nb > hi || !isBlackMidi(nb)) return null;
           const x = (i + 1) * keyW - blackW / 2;
           const isHi = highlighted.includes(nb);
+          const isPulsing = audioPulses.has(nb);
           return (
             <rect
               key={`b${nb}`}
@@ -422,10 +463,19 @@ function KeyboardMini({
               y={0}
               width={blackW}
               height={blackH}
-              fill={isHi ? "#E8A93C" : "#1f2937"}
+              fill={
+                isPulsing
+                  ? "#fbbf24"
+                  : isHi
+                  ? "#E8A93C"
+                  : "#1f2937"
+              }
               stroke="#0a0a0a"
               strokeWidth={1}
               rx={1.5}
+              style={{
+                transition: "fill 0.15s",
+              }}
             />
           );
         })}

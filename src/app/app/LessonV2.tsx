@@ -1398,8 +1398,28 @@ export function LessonV2Screen({
     const hiMidis = Object.keys(hi)
       .map(Number)
       .filter((n) => Number.isFinite(n));
-    return computeKeyboardRange([...midis, ...hiMidis]);
-  }, [midis, page?.highlights]);
+    const base = computeKeyboardRange([...midis, ...hiMidis]);
+    // For pages whose audio (drill, hear demo, audio sample buttons) may
+    // reference notes outside the immediate sequence — e.g. "low C vs
+    // high C" listening drills, "play any C" pages — force a wide range
+    // so the student sees the full musical area in one view rather than
+    // a zoomed window that hides the keys being talked about.
+    const wantsWide =
+      page?.mode === "hear" ||
+      page?.interaction?.type === "drill" ||
+      !!page?.audio ||
+      /\b(low|high|both ends|whole keyboard|every|all the cs|across the piano)\b/i.test(
+        `${page?.figure ?? ""} ${page?.cleffy ?? ""}`
+      );
+    if (!wantsWide) return base;
+    // Widen to C2..C7 (cover almost the whole keyboard) but keep edges
+    // snapped to white keys.
+    let lo = Math.min(base[0], 36);
+    let hi2 = Math.max(base[1], 96);
+    while (isBlack(lo)) lo--;
+    while (isBlack(hi2)) hi2++;
+    return [lo, hi2];
+  }, [midis, page?.highlights, page?.mode, page?.interaction, page?.audio, page?.figure, page?.cleffy]);
 
   const pianoHighlights = useMemo(
     () => buildHighlights(page?.highlights, justPressed, justWrong),
