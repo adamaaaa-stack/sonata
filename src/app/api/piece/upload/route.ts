@@ -14,7 +14,11 @@ import { randomBytes } from "node:crypto";
 import { NextResponse } from "next/server";
 import { analyzePiece } from "@/lib/v2/pieceAnalyzer";
 
-const PIECES_DIR = path.join(process.cwd(), "content/cache/pieces");
+// Vercel's filesystem is read-only outside `/tmp`. Write there in prod;
+// stash under `content/cache/pieces` for local dev so files are inspectable.
+const PIECES_DIR = process.env.VERCEL
+  ? "/tmp/sonata-pieces"
+  : path.join(process.cwd(), "content/cache/pieces");
 let piecesDirReady = false;
 function ensurePiecesDir(): void {
   if (piecesDirReady) return;
@@ -78,22 +82,35 @@ export async function POST(req: Request) {
     );
   }
 
-  ensurePiecesDir();
   const buf = Buffer.from(await file.arrayBuffer());
   const pieceId = genPieceId();
   const ext = extForType(file.type);
-  const storedPath = path.join(PIECES_DIR, `${pieceId}.${ext}`);
-  fs.writeFileSync(storedPath, buf);
+
+  // Stash the bytes — best-effort. If the FS is read-only (some serverless
+  // tiers ignore /tmp), don't fail the upload over it; the analyzer only
+  // needs the in-memory buffer.
+  try {
+    ensurePiecesDir();
+    fs.writeFileSync(path.join(PIECES_DIR, `${pieceId}.${ext}`), buf);
+  } catch (e) {
+    console.warn(
+      `[piece/upload] could not persist file: ${(e as Error).message}`
+    );
+  }
 
   // Run the VLM analyzer.
   try {
     const analysis = await analyzePiece(buf, file.type);
     // Persist the analysis next to the stored file so we don't have to
-    // re-run the VLM on subsequent reads.
-    fs.writeFileSync(
-      path.join(PIECES_DIR, `${pieceId}.json`),
-      JSON.stringify(analysis, null, 2)
-    );
+    // re-run the VLM on subsequent reads. Best-effort.
+    try {
+      fs.writeFileSync(
+        path.join(PIECES_DIR, `${pieceId}.json`),
+        JSON.stringify(analysis, null, 2)
+      );
+    } catch {
+      /* ignore — analysis is returned in the response anyway */
+    }
     return NextResponse.json(
       { piece_id: pieceId, analysis },
       {

@@ -17,9 +17,12 @@ import { NextResponse } from "next/server";
 import { getConcept } from "@/lib/v2/pathGenerator";
 import { generateLessonForConcept } from "@/lib/v2/lessonGenerator";
 
-// Cache lives in content/cache/lessons. .gitignored. Lazy mkdir on first
-// request — top-level fs side effects break Next's static export.
-const CACHE_DIR = path.join(process.cwd(), "content/cache/lessons");
+// Cache lives in content/cache/lessons (local) or /tmp (Vercel — the
+// rest of the FS is read-only). .gitignored. Lazy mkdir on first request —
+// top-level fs side effects break Next's static export.
+const CACHE_DIR = process.env.VERCEL
+  ? "/tmp/sonata-lessons"
+  : path.join(process.cwd(), "content/cache/lessons");
 let cacheDirReady = false;
 function ensureCacheDir(): void {
   if (cacheDirReady) return;
@@ -49,25 +52,40 @@ export async function POST(req: Request) {
     );
   }
 
-  ensureCacheDir();
-  // Cache hit
-  const cachePath = path.join(CACHE_DIR, `${id}.yaml`);
-  if (fs.existsSync(cachePath)) {
-    const yaml = fs.readFileSync(cachePath, "utf8");
-    return new NextResponse(yaml, {
-      status: 200,
-      headers: {
-        "Content-Type": "application/yaml",
-        "Cache-Control": "public, max-age=86400",
-        "X-Sonata-Cache": "hit",
-      },
-    });
+  // Cache lookup is best-effort — if /tmp is hot we get a hit, otherwise
+  // we just regenerate. Never fail the request over filesystem issues.
+  let cachePath: string | null = null;
+  try {
+    ensureCacheDir();
+    cachePath = path.join(CACHE_DIR, `${id}.yaml`);
+    if (fs.existsSync(cachePath)) {
+      const yaml = fs.readFileSync(cachePath, "utf8");
+      return new NextResponse(yaml, {
+        status: 200,
+        headers: {
+          "Content-Type": "application/yaml",
+          "Cache-Control": "public, max-age=86400",
+          "X-Sonata-Cache": "hit",
+        },
+      });
+    }
+  } catch (e) {
+    console.warn(
+      `[api/lesson] cache lookup failed (continuing): ${(e as Error).message}`
+    );
+    cachePath = null;
   }
 
   // Cache miss → generate
   try {
     const result = await generateLessonForConcept(concept);
-    fs.writeFileSync(cachePath, result.yaml);
+    if (cachePath) {
+      try {
+        fs.writeFileSync(cachePath, result.yaml);
+      } catch {
+        /* best-effort */
+      }
+    }
     return new NextResponse(result.yaml, {
       status: 200,
       headers: {
