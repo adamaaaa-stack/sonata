@@ -1155,8 +1155,34 @@ export function FigureRouter({
     return <Pyramid lessonId={lesson.id} previewTier={preview} />;
   }
 
-  // 3) Staircase when figure OR cleffy text talks about stairs.
-  if (hasKeyword(combined, "staircase", "stairs", "stair")) {
+  // 3) Staircase when figure OR cleffy text talks about stairs / stepping.
+  // Many lesson figures use "Step up", "Step down", "Going up", "Moves up"
+  // — they're talking about ascending/descending motion which our
+  // staircase metaphor visualises perfectly.
+  if (
+    hasKeyword(
+      combined,
+      "staircase",
+      "stairs",
+      "stair",
+      "step up",
+      "step down",
+      "stepping up",
+      "stepping down",
+      "step going up",
+      "step going down",
+      "going up",
+      "going down",
+      "moves up",
+      "moves down",
+      "ascending",
+      "descending",
+      "another step",
+      "one step",
+      "two step",
+      "three step"
+    )
+  ) {
     const steps = /(\d{1,2})\s*(stairs|steps)/i.exec(combined)?.[1];
     const parsed = steps ? parseInt(steps, 10) : 10;
     return (
@@ -1173,8 +1199,12 @@ export function FigureRouter({
     return <CleffyScene mood="waving" />;
   }
 
-  // 5) Wrap / celebration keywords on non-boss pages
-  if (hasKeyword(combined, "celebration", "trophy", "complete", "confetti", "you did it", "well done")) {
+  // 5) Wrap / celebration keywords on non-boss pages. Also catches the
+  // "Postcard — Lesson N" pattern that wraps almost every lesson.
+  if (
+    hasKeyword(combined, "celebration", "trophy", "complete", "confetti", "you did it", "well done", "postcard") ||
+    page.type === "wrap"
+  ) {
     return <CelebrationCard lesson={lesson} />;
   }
 
@@ -1206,7 +1236,12 @@ export function FigureRouter({
     return <RhythmDisplay page={page} />;
   }
 
-  // 8) Staff / clef / notation figures
+  // 8) Staff / clef / notation figures — widened bag. Many lesson
+  // YAMLs say things like "Two notes — both on lines, one line apart"
+  // or "line → next space up" or "Three pairs of notes" — none of
+  // which mention "staff" but are clearly notation. Catch the common
+  // notation vocabulary so these render properly instead of falling
+  // through to plain text.
   if (
     hasKeyword(
       combined,
@@ -1222,8 +1257,39 @@ export function FigureRouter({
       "five-line",
       "line note",
       "space note",
-      "lines and spaces"
-    )
+      "lines and spaces",
+      "on a line",
+      "in a space",
+      "on the line",
+      "in the space",
+      "between two lines",
+      "lines or spaces",
+      "line to space",
+      "space to line",
+      "line to line",
+      "space to space",
+      "line \u2192", // line →
+      "space \u2192", // space →
+      "pair of notes",
+      "pairs of notes",
+      "two notes",
+      "three notes",
+      "four notes",
+      "five notes",
+      "line 1",
+      "line 2",
+      "line 3",
+      "line 4",
+      "line 5",
+      "space 1",
+      "space 2",
+      "space 3",
+      "space 4",
+      "leap"
+    ) ||
+    /\bphrase\s*\d?:/i.test(combined) ||           // "Phrase 2: D-E-G"
+    /\bline\s*\d:/i.test(combined) ||              // "Line 2: G G A G"
+    /\b[A-G]-[A-G]-[A-G]\b/.test(combined)         // "C-D-E", "D-E-G"
   ) {
     return <StaffMini page={page} />;
   }
@@ -1247,10 +1313,18 @@ export function FigureRouter({
       "middle c",
       "the keys",
       "tap any",
-      "play any"
+      "play any",
+      "press any",
+      "any white",
+      "any black",
+      "row:",     // "A row: A B C D E F G"
+      "alphabet"
     ) ||
     /\b[A-G](?:[#b])?[1-7]\b/.test(combined) || // explicit pitch like C4, F#5
-    /\b(C|D|E|F|G|A|B) (key|note)\b/i.test(combined) ||
+    /\b(C|D|E|F|G|A|B) (key|note|chord|major|minor)\b/i.test(combined) ||
+    /\b[A-G]\s+[A-G]\s+[A-G]\b/.test(combined) || // "A B C", "C D E"
+    /\b[A-G][#b]?[0-9]?-[A-G][#b]?[0-9]?-[A-G][#b]?[0-9]?\b/.test(combined) || // "C-D-E", "C3-D3-E3"
+    /\b(LH|RH|left hand|right hand)\b/i.test(combined) || // hand-position figures
     pageHighlightMidis(page).length > 0
   ) {
     return <KeyboardMini page={page} />;

@@ -1367,6 +1367,7 @@ function MenuScreen({ state, dispatch }: { state: AppState; dispatch: React.Disp
     { id: 'drill',    label: 'Drill',    sub: 'Note ID · Intervals',  color: 'coral', glyph: '𝄞', onClick: () => dispatch({ type: 'SET_SCREEN', screen: 'config' }) },
     { id: 'sight',    label: 'Sight',    sub: 'Read & play',          color: 'mint',  glyph: '𝆕', onClick: () => dispatch({ type: 'SET_SCREEN', screen: 'sightReading' }) },
     { id: 'rhythm',   label: 'Rhythm',   sub: 'Tap the pulse',        color: 'lilac', glyph: '♩', onClick: () => dispatch({ type: 'SET_SCREEN', screen: 'rhythm' }) },
+    { id: 'lessons',  label: 'Lessons',  sub: 'Your journey',           color: 'gold', glyph: '𝄢', onClick: () => dispatch({ type: 'SET_SCREEN', screen: 'lessons' }) },
     { id: 'library',  label: 'Library',  sub: 'Browse pieces',           color: 'sky', glyph: '♪', onClick: () => dispatch({ type: 'SET_SCREEN', screen: 'library' }) },
     { id: 'progress', label: 'Progress', sub: `${streak}-day streak`, color: 'berry', glyph: '✦', onClick: () => dispatch({ type: 'SET_SCREEN', screen: 'progress' }) },
   ];

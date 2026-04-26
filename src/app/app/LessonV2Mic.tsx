@@ -403,11 +403,13 @@ export function MicListenCard({
         </button>
       )}
 
-      {/* Status pill — small, clickable to stop/start, replaces the
-          giant Listen button. Always visible so the student knows mic state. */}
+      {/* Status pill — small, clickable to stop/start. Hidden when
+          either of the larger UIs are showing (first-run tap-to-enable
+          card, or the skipped-link), so the student doesn't see two
+          mic controls at the same time. */}
       <div
         style={{
-          display: "flex",
+          display: showFirstRunCard || (skipped && !listening) ? "none" : "flex",
           alignItems: "center",
           gap: 8,
           flexWrap: "wrap",

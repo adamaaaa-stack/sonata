@@ -239,7 +239,45 @@ function sequenceMidiSteps(page?: LessonPage): number[][] {
     count?: number;
     keys?: unknown;
     sequence?: unknown[];
+    letters?: unknown;
+    rounds?: number | unknown[];
   }) || undefined;
+
+  // 0. Custom hand-authored interaction types that the player has no
+  // dedicated renderer for, but whose intent maps cleanly onto sequence
+  // grading. Without these, the page falls through to the universal
+  // free-play fallback at step 6 and the student loses any structure.
+  //
+  //   name_and_play.letters: ["A","E","G","B"]
+  //     Cleffy names a letter; student plays any pitch with that letter.
+  //     One step per letter, accept any-octave match.
+  //
+  //   finger_call.rounds: 5  (or rounds-array)
+  //     Cleffy calls a finger number; student taps the matching key in
+  //     their hand position. We don't know which keys without a hand
+  //     position, so accept any keyboard note for `rounds` count of
+  //     steps. (Better than no progression at all.)
+  if (itAny?.type === "name_and_play" && Array.isArray(itAny.letters)) {
+    const steps: number[][] = [];
+    for (const ltr of itAny.letters as string[]) {
+      const accept = parseTapAccept(`any ${ltr}`);
+      if (accept && accept.length > 0) steps.push(accept);
+    }
+    if (steps.length > 0) return steps;
+  }
+  if (itAny?.type === "finger_call") {
+    const n =
+      typeof itAny.rounds === "number"
+        ? itAny.rounds
+        : Array.isArray(itAny.rounds)
+        ? itAny.rounds.length
+        : 5;
+    if (page?.mode === "play") {
+      return Array.from({ length: Math.max(1, n) }, () =>
+        allMidis(ANY_LO, ANY_HI)
+      );
+    }
+  }
 
   // 1. Explicit `keys` array (sequence type)
   if (itAny?.type === "sequence" && Array.isArray(itAny.keys)) {
@@ -357,14 +395,20 @@ function playPromptFor(page?: LessonPage, stepCount = 0): string | null {
 function computeKeyboardRange(midis: number[]): [number, number] {
   const DEFAULT_LO = 48; // C3
   const DEFAULT_HI = 84; // C6
+  // 88-key piano: A0 (21) to C8 (108). Previously we capped the keyboard
+  // at C7 (96), which silently clipped lessons asking for C8 ("highest
+  // C, right end") so the prompt would show C4 instead. Raise the cap
+  // to 108 and the floor to 21 so any in-range note is reachable.
+  const HARD_LO = 21;
+  const HARD_HI = 108;
   if (midis.length === 0) return [DEFAULT_LO, DEFAULT_HI];
   const noteMin = Math.min(...midis);
   const noteMax = Math.max(...midis);
   // Only widen — never narrow — relative to the default. This keeps the
   // visual width of the keyboard stable across pages whose highlighted
   // notes happen to sit inside the default range.
-  let lo = Math.min(DEFAULT_LO, Math.max(24, noteMin - 5));
-  let hi = Math.max(DEFAULT_HI, Math.min(96, noteMax + 5));
+  let lo = Math.min(DEFAULT_LO, Math.max(HARD_LO, noteMin - 5));
+  let hi = Math.max(DEFAULT_HI, Math.min(HARD_HI, noteMax + 5));
   // Snap to white-key boundaries so the rightmost slot isn't a half-black-key.
   while (isBlack(lo)) lo--;
   while (isBlack(hi)) hi++;
@@ -561,6 +605,13 @@ function SequenceProgress({
  */
 function questionFigureHint(figure: string | undefined): number | null {
   if (!figure) return null;
+  // Negation guard: figure descriptions like "Keyboard with a white key
+  // circled (not C)" should NOT highlight C — the question is testing
+  // whether the student recognises that the marked key isn't a C.
+  // Without this guard the keyword matcher saw "C" and lit up Middle C
+  // anyway, defeating the question.
+  if (/\(\s*not\s+[A-G]\b/i.test(figure)) return null;
+
   const normalized = figure
     .replace(/middle\s*c/gi, "C4")
     .replace(/high\s*c/gi, "C5")
@@ -630,6 +681,7 @@ function questionFigureCluster(figure: string | undefined): number[] | null {
 function QuestionCard({
   q,
   section,
+  lesson,
   onAnswer,
   onHighlightChange,
   onAcceptChange,
@@ -638,6 +690,7 @@ function QuestionCard({
 }: {
   q: MasteryQuestion;
   section: "see" | "hear" | "play";
+  lesson: LessonV2;
   onAnswer: (correct: boolean) => void;
   /** Set of MIDIs to glow on the bottom piano (or null to clear). */
   onHighlightChange?: (midis: number[] | null) => void;
@@ -766,43 +819,40 @@ function QuestionCard({
       {q.figure && (
         <div
           style={{
-            background: "var(--parchment, #faf6ef)",
-            border: "2px dashed var(--ink, #1f2937)",
-            borderRadius: 10,
-            padding: "10px 12px",
-            marginBottom: 12,
             display: "flex",
             flexDirection: "column",
-            gap: 4,
+            alignItems: "center",
+            marginBottom: 12,
+            gap: 6,
           }}
         >
-          <div
-            style={{
-              fontSize: 10,
-              fontWeight: 800,
-              letterSpacing: "0.18em",
-              color: "var(--ink3, #6b7280)",
+          {/* Route mastery question figures through the same FigureRouter
+              the lesson pages use — same keyboard / staff / staircase
+              renderers, same keyword router. The synthetic LessonPage
+              packs the prompt into `cleffy` so the keyword matcher gets
+              the question text as additional signal (e.g. "Is this a C?"
+              joining "white key circled" both surface keyboard). */}
+          <FigureRouter
+            lesson={lesson}
+            page={{
+              id: "mastery",
+              mode: section,
+              type: "mastery",
+              figure: q.figure,
+              cleffy: q.prompt,
+              highlights: figureMidis && figureMidis.length > 0
+                ? Object.fromEntries(figureMidis.map((m) => [m, "#E8A93C"]))
+                : undefined,
             }}
-          >
-            FIGURE
-          </div>
-          <div
-            style={{
-              fontFamily: "Georgia, serif",
-              fontStyle: "italic",
-              fontSize: 14,
-              lineHeight: 1.4,
-              color: "var(--ink, #1f2937)",
-            }}
-          >
-            {q.figure}
-          </div>
+            pageIdx={1}
+          />
           {figureMidis && figureMidis.length > 0 && (
             <div
               style={{
                 fontSize: 11,
                 color: "#16a34a",
                 fontWeight: 700,
+                letterSpacing: "0.06em",
               }}
             >
               ↓ Glowing on the keyboard below
@@ -959,6 +1009,7 @@ function QuestionCard({
 
 function MasteryCheckScreen({
   check,
+  lesson,
   onDone,
   onHighlightChange,
   onAcceptChange,
@@ -966,6 +1017,7 @@ function MasteryCheckScreen({
   pressTrigger,
 }: {
   check: MasteryCheck;
+  lesson: LessonV2;
   onDone: (score: { correct: number; total: number }) => void;
   onHighlightChange?: (midis: number[] | null) => void;
   onAcceptChange?: (midis: number[] | null) => void;
@@ -1023,6 +1075,7 @@ function MasteryCheckScreen({
         key={idx}
         q={cur.q}
         section={cur.section}
+        lesson={lesson}
         onAnswer={onAnswer}
         onHighlightChange={onHighlightChange}
         onAcceptChange={onAcceptChange}
@@ -1509,6 +1562,7 @@ function MasteryPhase({
       <div style={{ flex: 1, overflowY: "auto" }}>
         <MasteryCheckScreen
           check={lesson.mastery_check}
+          lesson={lesson}
           onDone={onDone}
           onHighlightChange={setHintMidis}
           onAcceptChange={setAcceptMidis}

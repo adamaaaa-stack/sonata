@@ -40,6 +40,11 @@ export const CleffyAudioPlayer = forwardRef<
   const [duration, setDuration] = useState(0);
   const [rate, setRate] = useState(1);
   const [scrubbing, setScrubbing] = useState(false);
+  // If the audio file errors out (404 on S3, network failure), we suppress
+  // the entire transport — empty player with 0:00/0:00 and a useless play
+  // button is worse than nothing. A page without audio still has cleffy
+  // text on screen.
+  const [errored, setErrored] = useState(false);
 
   // Wire native events to local state.
   useEffect(() => {
@@ -63,11 +68,15 @@ export const CleffyAudioPlayer = forwardRef<
     function onEnded() {
       setPlaying(false);
     }
+    function onError() {
+      setErrored(true);
+    }
     a.addEventListener("play", onPlay);
     a.addEventListener("pause", onPause);
     a.addEventListener("timeupdate", onTime);
     a.addEventListener("loadedmetadata", onLoaded);
     a.addEventListener("ended", onEnded);
+    a.addEventListener("error", onError);
     // If the metadata is already there (cached), populate immediately.
     if (a.readyState >= 1) onLoaded();
     return () => {
@@ -76,14 +85,16 @@ export const CleffyAudioPlayer = forwardRef<
       a.removeEventListener("timeupdate", onTime);
       a.removeEventListener("loadedmetadata", onLoaded);
       a.removeEventListener("ended", onEnded);
+      a.removeEventListener("error", onError);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [src, scrubbing]);
 
-  // When src changes, reset state.
+  // When src changes, reset state (incl. error state).
   useEffect(() => {
     setTime(0);
     setDuration(0);
+    setErrored(false);
   }, [src]);
 
   function togglePlay() {
@@ -120,6 +131,21 @@ export const CleffyAudioPlayer = forwardRef<
   }
 
   const pct = duration > 0 ? Math.min(1, time / duration) : 0;
+
+  // If the audio errored (typically 404 on S3 for pages that have no
+  // recording), render nothing visible — the cleffy text above the
+  // player is already on screen. We still mount a hidden <audio> so the
+  // parent's audioRef stays valid and a future src change can recover.
+  if (errored) {
+    return (
+      <audio
+        ref={audioRef}
+        src={src}
+        preload="none"
+        style={{ display: "none" }}
+      />
+    );
+  }
 
   return (
     <div

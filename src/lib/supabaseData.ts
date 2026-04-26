@@ -20,8 +20,22 @@ import type { User } from '@supabase/supabase-js';
  */
 export async function checkAuth(): Promise<User | null> {
   for (let i = 0; i < 20; i++) {
-    const { data: { session } } = await supabase.auth.getSession();
-    if (session) return session.user;
+    try {
+      const { data: { session } } = await supabase.auth.getSession();
+      if (session) return session.user;
+    } catch (e) {
+      // Supabase throws here when the stored refresh token is rejected
+      // (typically after ~7 days when the refresh window has lapsed).
+      // Without this catch, the splash awaits forever — the for-loop
+      // dies mid-iteration with an uncaught rejection. Treat any error
+      // as "not signed in" and clear the bad tokens so the next reload
+      // starts clean.
+      console.warn(`[checkAuth] getSession failed (treating as logged out):`, (e as Error).message);
+      try {
+        await supabase.auth.signOut();
+      } catch { /* best effort */ }
+      return null;
+    }
     if (i < 19) {
       await new Promise((r) => setTimeout(r, 100));
     }
