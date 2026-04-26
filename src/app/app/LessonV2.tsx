@@ -26,6 +26,7 @@ import {
 } from "@/lib/music/lessonsV2";
 import { FigureRouter, hasRenderedFigure } from "./LessonV2Figures";
 import { getKokoroVoice, prefetchKokoro } from "@/lib/tts/kokoro";
+import { CleffyAudioPlayer } from "./LessonV2AudioPlayer";
 import { AudioSamples, playAudioDescription, parseAudioToNotes } from "./LessonV2Audio";
 import { DrillInteractionCard } from "./LessonV2Drill";
 import {
@@ -1065,6 +1066,36 @@ function CompletionScreen({
   const xp = lesson.completion?.xp ?? 20;
   const pct = score.total > 0 ? Math.round((score.correct / score.total) * 100) : 100;
   const passed = score.total === 0 || pct >= 60;
+
+  // Animated XP counter — counts up from 0 to the earned amount over
+  // 700ms. Adds a satisfying tick to the celebration.
+  const [xpDisplayed, setXpDisplayed] = useState(0);
+  useEffect(() => {
+    if (!passed) {
+      setXpDisplayed(xp);
+      return;
+    }
+    const start = performance.now();
+    const dur = 800;
+    let raf = 0;
+    const tick = (now: number) => {
+      const t = Math.min(1, (now - start) / dur);
+      // ease-out
+      const eased = 1 - Math.pow(1 - t, 3);
+      setXpDisplayed(Math.round(xp * eased));
+      if (t < 1) raf = requestAnimationFrame(tick);
+    };
+    raf = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(raf);
+  }, [xp, passed]);
+
+  // Boss markers stack the celebration. Graduation = ultimate.
+  const isBoss =
+    !!lesson.is_graduation ||
+    !!lesson.is_tier_boss ||
+    !!lesson.is_mid_boss ||
+    !!lesson.is_act_boss;
+
   return (
     <div
       style={{
@@ -1074,105 +1105,292 @@ function CompletionScreen({
         alignItems: "center",
         justifyContent: "center",
         padding: 32,
-        gap: 22,
-        background: "var(--paper, #f5f0e8)",
+        gap: 18,
+        background:
+          "radial-gradient(circle at 50% 30%, #fef3c7 0%, #f5f0e8 70%)",
+        position: "relative",
+        overflow: "hidden",
       }}
     >
-      <div style={{ fontSize: 88, lineHeight: 1 }}>
+      {/* Confetti — only on a passing run, only fires once on mount */}
+      {passed && <Confetti boss={isBoss} />}
+
+      {/* Big icon */}
+      <div
+        style={{
+          fontSize: 96,
+          lineHeight: 1,
+          animation: passed
+            ? "sonataCompletePop 700ms cubic-bezier(0.34, 1.56, 0.64, 1)"
+            : undefined,
+        }}
+      >
         {lesson.is_graduation
           ? "🏆"
           : lesson.is_tier_boss || lesson.is_mid_boss
           ? "👑"
           : lesson.is_act_boss
           ? "🎯"
-          : "✓"}
+          : passed
+          ? "✓"
+          : "💭"}
       </div>
+
       <div
         style={{
           fontSize: 11,
           letterSpacing: "0.3em",
           fontWeight: 900,
-          color: "var(--ink3, #6b7280)",
+          color: "var(--berry, #c45a8a)",
+          textTransform: "uppercase",
         }}
       >
-        {passed ? "LESSON COMPLETE" : "KEEP PRACTICING"}
+        {passed ? (isBoss ? "Boss complete" : "You did it") : "Keep practising"}
       </div>
+
+      {/* Lesson title */}
       <div
         style={{
           fontFamily: "Georgia, serif",
           fontStyle: "italic",
           fontWeight: 900,
-          fontSize: 34,
+          fontSize: 38,
           textAlign: "center",
-          lineHeight: 1.1,
-          maxWidth: 500,
+          lineHeight: 1.05,
+          maxWidth: 600,
+          letterSpacing: "-0.02em",
         }}
       >
         {lesson.title}
       </div>
+
+      {/* The "you can now ___" badge — the named, specific gain */}
+      {passed && lesson.goal && (
+        <div
+          style={{
+            border: "3px solid var(--ink, #1f2937)",
+            background: "var(--gold, #d4a853)",
+            color: "var(--ink, #1f2937)",
+            borderRadius: 18,
+            padding: "14px 22px",
+            maxWidth: 540,
+            textAlign: "center",
+            boxShadow: "0 4px 0 var(--ink, #1f2937)",
+            animation: "sonataCompleteSlideIn 600ms 200ms ease-out backwards",
+          }}
+        >
+          <div
+            style={{
+              fontSize: 10,
+              fontWeight: 800,
+              letterSpacing: "0.2em",
+              textTransform: "uppercase",
+              opacity: 0.8,
+              marginBottom: 4,
+            }}
+          >
+            You can now
+          </div>
+          <div
+            style={{
+              fontFamily: "Georgia, serif",
+              fontStyle: "italic",
+              fontSize: 18,
+              fontWeight: 700,
+              lineHeight: 1.35,
+            }}
+          >
+            {/* Strip leading verbs to make the goal feel like a finished
+                accomplishment ("Find C anywhere" reads better as a brag
+                than "You can now Find C anywhere"). */}
+            {humaniseGoal(lesson.goal)}
+          </div>
+        </div>
+      )}
+
+      {/* Cleffy's closing line */}
       {lesson.completion?.cleffy && (
         <div
           style={{
             fontFamily: "Georgia, serif",
             fontStyle: "italic",
-            fontSize: 16,
+            fontSize: 17,
             textAlign: "center",
-            maxWidth: 500,
+            maxWidth: 540,
             lineHeight: 1.5,
             color: "var(--ink2, #4b5563)",
             whiteSpace: "pre-line",
+            animation: "sonataCompleteSlideIn 600ms 350ms ease-out backwards",
           }}
         >
           {lesson.completion.cleffy}
         </div>
       )}
+
+      {/* XP / mastery counters */}
       <div
         style={{
           display: "flex",
-          gap: 22,
-          marginTop: 8,
+          gap: 32,
+          marginTop: 12,
           flexWrap: "wrap",
           justifyContent: "center",
+          animation: "sonataCompleteSlideIn 600ms 500ms ease-out backwards",
         }}
       >
         <div style={{ textAlign: "center" }}>
-          <div style={{ fontSize: 28, fontWeight: 900 }}>+{xp}</div>
           <div
-            style={{ fontSize: 10, letterSpacing: "0.2em", fontWeight: 800 }}
+            style={{
+              fontSize: 36,
+              fontWeight: 900,
+              color: "var(--berry, #c45a8a)",
+              fontFamily: "var(--mono, monospace)",
+            }}
           >
-            XP
+            +{xpDisplayed}
+          </div>
+          <div
+            style={{
+              fontSize: 10,
+              letterSpacing: "0.25em",
+              fontWeight: 900,
+              color: "var(--ink3, #6b7280)",
+            }}
+          >
+            XP EARNED
           </div>
         </div>
         {score.total > 0 && (
           <div style={{ textAlign: "center" }}>
-            <div style={{ fontSize: 28, fontWeight: 900 }}>
-              {Math.round((score.correct / score.total) * 100)}%
+            <div
+              style={{
+                fontSize: 36,
+                fontWeight: 900,
+                color: passed ? "#16a34a" : "var(--ink, #1f2937)",
+                fontFamily: "var(--mono, monospace)",
+              }}
+            >
+              {pct}%
             </div>
             <div
-              style={{ fontSize: 10, letterSpacing: "0.2em", fontWeight: 800 }}
+              style={{
+                fontSize: 10,
+                letterSpacing: "0.25em",
+                fontWeight: 900,
+                color: "var(--ink3, #6b7280)",
+              }}
             >
-              MASTERY ({score.correct}/{score.total})
+              MASTERY · {score.correct}/{score.total}
             </div>
           </div>
         )}
       </div>
+
       <button
         type="button"
         onClick={onContinue}
         style={{
-          marginTop: 16,
-          padding: "14px 28px",
-          border: "2px solid var(--ink, #1f2937)",
+          marginTop: 12,
+          padding: "16px 36px",
+          border: "3px solid var(--ink, #1f2937)",
           borderRadius: 999,
-          background: "var(--berry, #d4a853)",
+          background: passed
+            ? "var(--berry, #c45a8a)"
+            : "var(--cream, #fff8ee)",
+          color: passed ? "#fff" : "var(--ink, #1f2937)",
           cursor: "pointer",
           fontWeight: 900,
-          fontSize: 16,
-          boxShadow: "0 4px 0 var(--ink, #1f2937)",
+          fontSize: 18,
+          boxShadow: "0 5px 0 var(--ink, #1f2937)",
+          animation: "sonataCompleteSlideIn 600ms 700ms ease-out backwards",
+          letterSpacing: "0.02em",
         }}
       >
-        Continue →
+        {passed ? "On to the next →" : "Try again"}
       </button>
+
+      <style>{`
+        @keyframes sonataCompletePop {
+          0%   { transform: scale(0); opacity: 0; }
+          70%  { transform: scale(1.15); }
+          100% { transform: scale(1); opacity: 1; }
+        }
+        @keyframes sonataCompleteSlideIn {
+          from { opacity: 0; transform: translateY(12px); }
+          to   { opacity: 1; transform: translateY(0); }
+        }
+      `}</style>
+    </div>
+  );
+}
+
+/**
+ * Make a lesson goal read like a finished accomplishment.
+ *
+ *   "Find C anywhere on the keyboard"  →  "Find C anywhere on the keyboard."
+ *   "Tell at a glance whether..."      →  "Tell at a glance whether..."
+ *
+ * Lessons phrase goals as imperative-future ("Find...", "Tell..., "Read..."),
+ * which read perfectly under a "You can now" header. Strip a trailing
+ * period if the YAML has one to avoid double, and ensure exactly one.
+ */
+function humaniseGoal(goal: string): string {
+  const trimmed = goal.trim().replace(/\.+$/, "");
+  return trimmed + ".";
+}
+
+/**
+ * Lightweight CSS-only confetti — 30 chunks of paper drift down with
+ * staggered delays. No deps, no canvas, no perf concerns.
+ */
+function Confetti({ boss }: { boss: boolean }) {
+  const palette = boss
+    ? ["#fbbf24", "#c45a8a", "#22c55e", "#3b82f6", "#a855f7"]
+    : ["#fbbf24", "#c45a8a", "#22c55e"];
+  const pieces = useMemo(
+    () =>
+      Array.from({ length: boss ? 50 : 30 }, (_, i) => ({
+        left: Math.random() * 100,
+        delay: Math.random() * 600,
+        duration: 1800 + Math.random() * 1200,
+        rotate: Math.random() * 360,
+        color: palette[i % palette.length],
+        size: 6 + Math.random() * 6,
+      })),
+    [boss, palette]
+  );
+
+  return (
+    <div
+      style={{
+        position: "absolute",
+        inset: 0,
+        pointerEvents: "none",
+        overflow: "hidden",
+      }}
+    >
+      {pieces.map((p, i) => (
+        <div
+          key={i}
+          style={{
+            position: "absolute",
+            top: -20,
+            left: `${p.left}%`,
+            width: p.size,
+            height: p.size,
+            background: p.color,
+            transform: `rotate(${p.rotate}deg)`,
+            animation: `sonataConfetti ${p.duration}ms ${p.delay}ms ease-in forwards`,
+            borderRadius: 2,
+          }}
+        />
+      ))}
+      <style>{`
+        @keyframes sonataConfetti {
+          0%   { transform: translateY(-30px) rotate(0deg); opacity: 1; }
+          100% { transform: translateY(110vh) rotate(720deg); opacity: 0; }
+        }
+      `}</style>
     </div>
   );
 }
@@ -1930,13 +2148,7 @@ export function LessonV2Screen({
                 {narrationText}
               </div>
               {audioSrc && (
-                <audio
-                  ref={audioRef}
-                  src={audioSrc}
-                  controls
-                  style={{ width: "100%" }}
-                  preload="auto"
-                />
+                <CleffyAudioPlayer ref={audioRef} src={audioSrc} autoPlay />
               )}
             </div>
           )}

@@ -154,6 +154,7 @@ import { Cleffy } from "./Cleffy";
 // again — see LessonsListScreen / LessonScreen below.
 import { lessonsV2, findLessonV2 } from "@/lib/music/lessonsV2";
 import { LessonV2Screen } from "./LessonV2";
+import { CurriculumMap } from "./CurriculumMap";
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { ChunkyButton, Sticker, StaffBG, FloatingNotes, StreakFlame, DotRow, Candle, ChunkyCard, type ChunkyColor } from "./design";
 import type { User } from "@supabase/supabase-js";
@@ -666,7 +667,13 @@ export default function SonataApp() {
             {state.screen === 'config' && <ConfigScreen dispatch={dispatch} startDrill={startDrill} />}
             {state.screen === 'drill' && <DrillScreen state={state} handleAnswer={handleAnswer} handleEndDrill={handleEndDrill} renderNotation={renderNotation} />}
             {state.screen === 'results' && <ResultsScreen state={state} dispatch={dispatch} />}
-            {state.screen === 'lessons' && <LessonsListScreen state={state} dispatch={dispatch} />}
+            {state.screen === 'lessons' && (
+              <CurriculumMap
+                completed={state.lessonsCompleted}
+                onSelect={(id) => { unlockAudio(); dispatch({ type: 'START_LESSON', id }); }}
+                onBack={() => dispatch({ type: 'SET_SCREEN', screen: 'menu' })}
+              />
+            )}
             {state.screen === 'lesson' && (() => {
               // Route to the rich LessonV2 player for any of the 250
               // hand-authored lessons. Falls through to the legacy v1
@@ -1976,10 +1983,10 @@ function ResultsScreen({ state, dispatch }: { state: AppState; dispatch: React.D
 }
 
 // ============================================================
-// SCREEN: LESSONS LIST
-// The 250 hand-authored lessons, ordered. Tapping a tile dispatches
-// START_LESSON which routes to LessonScreen below.
+// SCREEN: LESSONS LIST  (legacy — replaced by CurriculumMap.
+// Kept in source as a fallback flat-grid view.)
 // ============================================================
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 function LessonsListScreen({ state, dispatch }: { state: AppState; dispatch: React.Dispatch<Action> }) {
   const tileColors: ChunkyColor[] = ['gold', 'mint', 'sky', 'lilac', 'peach', 'coral', 'berry'];
   return (
