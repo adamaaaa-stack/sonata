@@ -1043,6 +1043,540 @@ function QuizScaffold({ figure }: { figure: string }) {
   );
 }
 
+// ---------- MusicSymbolCard ------------------------------------------------
+//
+// Catches dynamics / accidentals / articulation figures. These are common
+// throughout the curriculum but don't map to staff or keyboard renderers
+// — they're music-theory glyphs the student needs to visually recognise.
+// Pulls a SYMBOL out of the figure text (or infers one from keywords) and
+// renders it large with a description chip underneath.
+
+const DYNAMICS_GLYPHS: Record<string, { glyph: string; meaning: string }> = {
+  pp:   { glyph: "𝆺𝆺", meaning: "very soft" },
+  p:    { glyph: "𝆏",   meaning: "soft" },
+  mp:   { glyph: "𝆐𝆏",  meaning: "moderately soft" },
+  mf:   { glyph: "𝆐𝆑",  meaning: "moderately loud" },
+  f:    { glyph: "𝆑",   meaning: "loud" },
+  ff:   { glyph: "𝆑𝆑",  meaning: "very loud" },
+  fff:  { glyph: "𝆑𝆑𝆑", meaning: "as loud as you can" },
+};
+
+const ACCIDENTAL_GLYPHS: Record<string, { glyph: string; meaning: string }> = {
+  sharp:   { glyph: "♯", meaning: "raises a note by a half-step" },
+  flat:    { glyph: "♭", meaning: "lowers a note by a half-step" },
+  natural: { glyph: "♮", meaning: "cancels a sharp or flat" },
+};
+
+const ARTICULATION_GLYPHS: Record<string, { glyph: string; meaning: string }> = {
+  staccato: { glyph: "·",  meaning: "short, detached" },
+  legato:   { glyph: "⌒", meaning: "smooth, connected" },
+  tenuto:   { glyph: "—", meaning: "held for full value" },
+  accent:   { glyph: ">", meaning: "play this note louder" },
+  marcato:  { glyph: "^", meaning: "marked, sharply emphasised" },
+  slur:     { glyph: "⌒", meaning: "smooth phrase across notes" },
+  tie:      { glyph: "‿", meaning: "extends the same pitch" },
+};
+
+interface MusicSymbol {
+  kind: "dynamics" | "accidental" | "articulation";
+  glyph: string;
+  label: string;
+  meaning: string;
+  /** Optional second line (e.g. CRESCENDO arrow direction). */
+  arrow?: "open-right" | "open-left";
+}
+
+function detectMusicSymbol(text: string): MusicSymbol | null {
+  const lower = text.toLowerCase();
+  const trimmed = text.trim();
+
+  // ─── Articulation FIRST (so "Note with a > above" matches accent
+  // before the bare-< / > dynamics catch below) ──────────────────────
+  if (/\bupward wedge\b|\bwedge\b/i.test(text)) {
+    return { kind: "articulation", glyph: "^", label: "Marcato", meaning: ARTICULATION_GLYPHS.marcato.meaning };
+  }
+  if (/\bflat dash\b|\bdash above\b|\btenuto\b/i.test(text)) {
+    return { kind: "articulation", glyph: "—", label: "Tenuto", meaning: ARTICULATION_GLYPHS.tenuto.meaning };
+  }
+  if (/\bdot above\b|\bstaccato\b/i.test(text)) {
+    return { kind: "articulation", glyph: "·", label: "Staccato", meaning: ARTICULATION_GLYPHS.staccato.meaning };
+  }
+  if (/note with a >\s*above|>\s*accent|\baccent\b/i.test(text)) {
+    return { kind: "articulation", glyph: ">", label: "Accent", meaning: ARTICULATION_GLYPHS.accent.meaning };
+  }
+  if (/\b(slur|tie|legato|marcato)\b/i.test(text)) {
+    for (const [name, def] of Object.entries(ARTICULATION_GLYPHS)) {
+      if (new RegExp(`\\b${name}\\b`, "i").test(text)) {
+        return {
+          kind: "articulation",
+          glyph: def.glyph,
+          label: name.charAt(0).toUpperCase() + name.slice(1),
+          meaning: def.meaning,
+        };
+      }
+    }
+  }
+  if (/curved line arching|joined by curve|slurs over/i.test(text)) {
+    return {
+      kind: "articulation",
+      glyph: "⌒",
+      label: "Slur",
+      meaning: "smooth phrase across notes",
+    };
+  }
+
+  // ─── Italian tempo / expression markings ──────────────────────────
+  // These are word-symbols the student needs to recognise (Allegro,
+  // Adagio, Rubato, etc). Render them as a music-symbol card with the
+  // word as the "glyph" so it gets the same big treatment as a forte
+  // marking.
+  const italian = [
+    ["allegro", "fast and lively"],
+    ["andante", "walking pace"],
+    ["adagio", "slow"],
+    ["lento", "slow, drawn out"],
+    ["presto", "very fast"],
+    ["moderato", "moderate"],
+    ["vivace", "lively"],
+    ["rubato", "freely, with flexible time"],
+    ["subito", "suddenly"],
+    ["dolce", "sweetly"],
+    ["legato", "smooth, connected"],
+    ["staccato", "short, detached"],
+  ] as const;
+  for (const [word, meaning] of italian) {
+    if (new RegExp(`\\b${word}\\b`, "i").test(text)) {
+      return {
+        kind: "dynamics",
+        glyph: word.charAt(0).toUpperCase() + word.slice(1),
+        label: word.charAt(0).toUpperCase() + word.slice(1),
+        meaning: meaning,
+      };
+    }
+  }
+  // "sub. p" / "subito p"
+  {
+    const m = /\b(sub\.?|subito)\s*(pp|p|mp|mf|f|ff|fff)\b/i.exec(text);
+    if (m) {
+      const def = DYNAMICS_GLYPHS[m[2].toLowerCase() as keyof typeof DYNAMICS_GLYPHS];
+      if (def) {
+        return {
+          kind: "dynamics",
+          glyph: `sub. ${def.glyph}`,
+          label: `Subito ${m[2].toUpperCase()}`,
+          meaning: `suddenly ${def.meaning}`,
+        };
+      }
+    }
+  }
+
+  // ─── Dynamics ──────────────────────────────────────────────────────
+  // "Dynamic marking: pp" — explicit "Dynamic marking:" prefix
+  {
+    const m = /dynamic\s+marking:?\s*(pp|p|mp|mf|f|ff|fff)\b/i.exec(text);
+    if (m) {
+      const name = m[1].toLowerCase() as keyof typeof DYNAMICS_GLYPHS;
+      const def = DYNAMICS_GLYPHS[name];
+      if (def) return { kind: "dynamics", glyph: def.glyph, label: m[1].toUpperCase(), meaning: def.meaning };
+    }
+  }
+  // "Hairpin < followed by mf followed by >" — pick the prominent mid value
+  if (/hairpin\s+<.*mf|mf.*>/i.test(text)) {
+    return { kind: "dynamics", glyph: DYNAMICS_GLYPHS.mf.glyph, label: "MF", meaning: DYNAMICS_GLYPHS.mf.meaning };
+  }
+  // Hairpins — full keyword OR a bare-glyph figure (e.g. just "<" or ">").
+  if (
+    /\bcrescendo\b|hairpin opening|opens right/i.test(text) ||
+    trimmed === "<"
+  ) {
+    return {
+      kind: "dynamics",
+      glyph: "<",
+      label: "Crescendo",
+      meaning: "get louder",
+      arrow: "open-right",
+    };
+  }
+  if (
+    /\bdiminuendo\b|decrescendo|hairpin closing|closes right/i.test(text) ||
+    trimmed === ">"
+  ) {
+    return {
+      kind: "dynamics",
+      glyph: ">",
+      label: "Diminuendo",
+      meaning: "get softer",
+      arrow: "open-left",
+    };
+  }
+  // <-=- pattern with "louder" / ">- ... softer" pattern
+  if (/<\s*=.*louder|opens.*louder/i.test(text)) {
+    return { kind: "dynamics", glyph: "<", label: "Crescendo", meaning: "get louder", arrow: "open-right" };
+  }
+  if (/>\s*=.*softer|closes.*softer/i.test(text)) {
+    return { kind: "dynamics", glyph: ">", label: "Diminuendo", meaning: "get softer", arrow: "open-left" };
+  }
+  for (const [name, def] of Object.entries(DYNAMICS_GLYPHS)) {
+    const re = new RegExp(
+      `\\b${name}\\b(?:\\s+marking|\\s+at\\s+start|$|\\s|[.,]|\\s+with)`,
+      "i"
+    );
+    if (re.test(text)) {
+      return { kind: "dynamics", glyph: def.glyph, label: name.toUpperCase(), meaning: def.meaning };
+    }
+  }
+  // "Phrase 3 with f" / "Phrase N with mf" — surface the dynamic.
+  {
+    const m = /phrase\s*\d?\s*(?:with|at|in|labeled?)\s+(pp|p|mp|mf|f|ff|fff)\b/i.exec(text);
+    if (m) {
+      const name = m[1].toLowerCase() as keyof typeof DYNAMICS_GLYPHS;
+      const def = DYNAMICS_GLYPHS[name];
+      if (def) {
+        return { kind: "dynamics", glyph: def.glyph, label: m[1].toUpperCase(), meaning: def.meaning };
+      }
+    }
+  }
+
+  // ─── Accidentals ──────────────────────────────────────────────────
+  // Note + accidental glyph alone, e.g. "F♯", "B♭", "F♮"
+  if (/^\s*[A-G][♯♭♮#b]\s*$/.test(trimmed)) {
+    if (/♯|#/.test(trimmed)) return { kind: "accidental", glyph: "♯", label: "Sharp", meaning: ACCIDENTAL_GLYPHS.sharp.meaning };
+    if (/♭/.test(trimmed) || /b$/.test(trimmed)) return { kind: "accidental", glyph: "♭", label: "Flat", meaning: ACCIDENTAL_GLYPHS.flat.meaning };
+    if (/♮/.test(trimmed)) return { kind: "accidental", glyph: "♮", label: "Natural", meaning: ACCIDENTAL_GLYPHS.natural.meaning };
+  }
+  // "Bar 1: F#." / "Bar 2: F (no symbol)." → accidental display
+  if (/\bbar\s*\d:.*[A-G]\s*[♯♭♮#b]?/i.test(text)) {
+    if (/♯|#/.test(text)) return { kind: "accidental", glyph: "♯", label: "Sharp", meaning: ACCIDENTAL_GLYPHS.sharp.meaning };
+    if (/♭/.test(text)) return { kind: "accidental", glyph: "♭", label: "Flat", meaning: ACCIDENTAL_GLYPHS.flat.meaning };
+    if (/♮/.test(text)) return { kind: "accidental", glyph: "♮", label: "Natural", meaning: ACCIDENTAL_GLYPHS.natural.meaning };
+    return { kind: "accidental", glyph: "♮", label: "Natural", meaning: ACCIDENTAL_GLYPHS.natural.meaning };
+  }
+  // "Three accidentals" / "Three accidentals lined up"
+  if (/\baccidentals?\b/i.test(lower)) {
+    return { kind: "accidental", glyph: "♯ ♭ ♮", label: "Accidentals", meaning: "sharp, flat, and natural" };
+  }
+  if (/\b#\b|\bsharps?\b|♯/i.test(lower) && /symbol|sign|mark|accidental|key|signature|close-up|tic-tac-toe/i.test(lower)) {
+    return { kind: "accidental", glyph: "♯", label: "Sharp", meaning: ACCIDENTAL_GLYPHS.sharp.meaning };
+  }
+  if (/♭|\bflat\b/i.test(lower) && /symbol|sign|mark|accidental|key|signature|close-up|lowercase b/i.test(lower)) {
+    return { kind: "accidental", glyph: "♭", label: "Flat", meaning: ACCIDENTAL_GLYPHS.flat.meaning };
+  }
+  if (/♮|\bnatural\b/i.test(lower) && /symbol|sign|mark|accidental|close-up|small rectangle/i.test(lower)) {
+    return { kind: "accidental", glyph: "♮", label: "Natural", meaning: ACCIDENTAL_GLYPHS.natural.meaning };
+  }
+  if (/\bkey signature\b/i.test(lower)) {
+    return { kind: "accidental", glyph: "♯ / ♭", label: "Key signature", meaning: "sharps or flats at the start of every line" };
+  }
+
+  return null;
+}
+
+function MusicSymbolCard({ symbol, figure }: { symbol: MusicSymbol; figure: string }) {
+  const accent =
+    symbol.kind === "dynamics"
+      ? "#c45a8a"
+      : symbol.kind === "accidental"
+      ? "#1f2937"
+      : "#15803d";
+  return (
+    <div
+      style={{
+        width: "100%",
+        maxWidth: 420,
+        background: "var(--parchment, #faf6ef)",
+        border: `3px solid ${accent}`,
+        borderRadius: 18,
+        padding: "20px 22px 22px",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        gap: 10,
+        boxShadow: `0 4px 0 ${accent}40`,
+      }}
+    >
+      <div
+        style={{
+          fontSize: 11,
+          letterSpacing: "0.22em",
+          fontWeight: 800,
+          color: accent,
+          textTransform: "uppercase",
+        }}
+      >
+        {symbol.kind}
+      </div>
+      <div
+        style={{
+          fontFamily: "Georgia, serif",
+          fontWeight: 900,
+          fontSize: 96,
+          color: accent,
+          lineHeight: 0.9,
+          textShadow: "0 2px 0 rgba(0,0,0,0.05)",
+        }}
+      >
+        {symbol.glyph}
+      </div>
+      <div
+        style={{
+          fontFamily: "Georgia, serif",
+          fontStyle: "italic",
+          fontSize: 22,
+          fontWeight: 800,
+          color: "var(--ink, #1f2937)",
+        }}
+      >
+        {symbol.label}
+      </div>
+      <div
+        style={{
+          fontFamily: "Georgia, serif",
+          fontSize: 14,
+          color: "var(--ink2, #4b5563)",
+          textAlign: "center",
+          maxWidth: 320,
+        }}
+      >
+        {symbol.meaning}
+      </div>
+      <div
+        style={{
+          fontSize: 11,
+          color: "var(--ink3, #6b7280)",
+          textAlign: "center",
+          fontStyle: "italic",
+          maxWidth: 360,
+          marginTop: 4,
+        }}
+      >
+        {figure}
+      </div>
+    </div>
+  );
+}
+
+// ---------- PhraseCard ------------------------------------------------------
+//
+// Renders figures that reference a famous melody (Ode to Joy, Für Elise,
+// Jingle Bells, etc.) as a music-themed badge with the title prominent.
+
+const FAMOUS_MELODIES = [
+  "ode to joy",
+  "für elise",
+  "fur elise",
+  "jingle bells",
+  "amazing grace",
+  "canon in d",
+  "minuet in g",
+  "twinkle twinkle",
+  "twinkle, twinkle",
+  "happy birthday",
+  "moonlight sonata",
+  "clair de lune",
+  "mary had a little lamb",
+  "hot cross buns",
+  "row your boat",
+  "frère jacques",
+  "frere jacques",
+  "london bridge",
+];
+
+function detectMelodyReference(text: string): string | null {
+  const lower = text.toLowerCase();
+  for (const m of FAMOUS_MELODIES) {
+    if (lower.includes(m)) {
+      // Title-case the matched name
+      return m
+        .split(" ")
+        .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
+        .join(" ");
+    }
+  }
+  return null;
+}
+
+function PhraseCard({ title, figure }: { title: string; figure: string }) {
+  return (
+    <div
+      style={{
+        width: "100%",
+        maxWidth: 440,
+        background: "var(--parchment, #faf6ef)",
+        border: "3px solid var(--berry, #c45a8a)",
+        borderRadius: 18,
+        padding: "20px 22px",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        gap: 10,
+        boxShadow: "0 4px 0 var(--berry, #c45a8a)40",
+      }}
+    >
+      <div
+        style={{
+          fontSize: 11,
+          letterSpacing: "0.22em",
+          fontWeight: 800,
+          color: "var(--berry, #c45a8a)",
+          textTransform: "uppercase",
+        }}
+      >
+        ♪ Melody
+      </div>
+      <div
+        style={{
+          fontFamily: "Georgia, serif",
+          fontStyle: "italic",
+          fontWeight: 900,
+          fontSize: 32,
+          color: "var(--ink, #1f2937)",
+          textAlign: "center",
+          lineHeight: 1.15,
+          letterSpacing: "-0.01em",
+        }}
+      >
+        {title}
+      </div>
+      <div
+        style={{
+          fontSize: 13,
+          color: "var(--ink2, #4b5563)",
+          textAlign: "center",
+          fontStyle: "italic",
+          maxWidth: 360,
+        }}
+      >
+        {figure}
+      </div>
+    </div>
+  );
+}
+
+// ---------- ContourCard ----------------------------------------------------
+//
+// Visualises a melody's shape (rising, falling, arch, wavy) as a simple
+// SVG contour line. Used when the figure says things like "Arch melody"
+// or "Melody that goes up and comes back down".
+
+type Contour = "rising" | "falling" | "arch" | "valley" | "wavy" | "flat";
+
+function detectContour(text: string): Contour | null {
+  const lower = text.toLowerCase();
+  if (/wavy|zigzag|up-down-up-down|rolling/.test(lower)) return "wavy";
+  if (/arch|arched|goes up.*comes back down|rises then falls/.test(lower)) return "arch";
+  if (/valley|dips|goes down.*comes back up|falls then rises/.test(lower)) return "valley";
+  if (/rising|going up only|climbs|ascending melody|melody.*up\b(?!.*down)/.test(lower)) return "rising";
+  if (/falling|going down only|descending melody|melody.*down\b(?!.*up)/.test(lower)) return "falling";
+  if (/flat melody|stays flat|same note repeated/.test(lower)) return "flat";
+  return null;
+}
+
+function ContourCard({ contour, figure }: { contour: Contour; figure: string }) {
+  // Generate a small SVG path for the contour
+  const W = 260;
+  const H = 90;
+  const path = (() => {
+    switch (contour) {
+      case "rising":
+        return `M 10 ${H - 12} L ${W - 10} 14`;
+      case "falling":
+        return `M 10 14 L ${W - 10} ${H - 12}`;
+      case "arch":
+        return `M 10 ${H - 12} Q ${W / 2} 0 ${W - 10} ${H - 12}`;
+      case "valley":
+        return `M 10 14 Q ${W / 2} ${H} ${W - 10} 14`;
+      case "wavy":
+        return `M 10 ${H / 2} Q ${W / 4} 4, ${W / 2} ${H / 2} T ${W - 10} ${H / 2}`;
+      case "flat":
+        return `M 10 ${H / 2} L ${W - 10} ${H / 2}`;
+    }
+  })();
+  const label =
+    contour === "rising"
+      ? "Rising"
+      : contour === "falling"
+      ? "Falling"
+      : contour === "arch"
+      ? "Arch"
+      : contour === "valley"
+      ? "Valley"
+      : contour === "wavy"
+      ? "Wavy"
+      : "Flat";
+  return (
+    <div
+      style={{
+        width: "100%",
+        maxWidth: 380,
+        background: "var(--parchment, #faf6ef)",
+        border: "3px solid var(--gold, #d4a853)",
+        borderRadius: 18,
+        padding: "16px 20px",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        gap: 8,
+        boxShadow: "0 4px 0 var(--gold, #d4a853)40",
+      }}
+    >
+      <div
+        style={{
+          fontSize: 11,
+          letterSpacing: "0.22em",
+          fontWeight: 800,
+          color: "var(--berry, #c45a8a)",
+        }}
+      >
+        MELODY SHAPE — {label.toUpperCase()}
+      </div>
+      <svg viewBox={`0 0 ${W} ${H}`} width="100%" style={{ maxWidth: W }}>
+        <path
+          d={path}
+          stroke="var(--ink, #1f2937)"
+          strokeWidth={3}
+          fill="none"
+          strokeLinecap="round"
+        />
+        {/* Tiny note dots along the contour */}
+        {[0, 0.25, 0.5, 0.75, 1].map((t, i) => {
+          const x = 10 + t * (W - 20);
+          let y = H / 2;
+          switch (contour) {
+            case "rising": y = (H - 12) - t * (H - 26); break;
+            case "falling": y = 14 + t * (H - 26); break;
+            case "arch": y = (H - 12) - 4 * t * (1 - t) * (H - 26); break;
+            case "valley": y = 14 + 4 * t * (1 - t) * (H - 26); break;
+            case "wavy": y = H / 2 - Math.sin(t * Math.PI * 2) * (H / 3); break;
+            case "flat": y = H / 2; break;
+          }
+          return (
+            <circle
+              key={i}
+              cx={x}
+              cy={y}
+              r={4}
+              fill="var(--berry, #c45a8a)"
+              stroke="var(--ink, #1f2937)"
+              strokeWidth={1.5}
+            />
+          );
+        })}
+      </svg>
+      <div
+        style={{
+          fontSize: 12,
+          fontStyle: "italic",
+          color: "var(--ink2, #4b5563)",
+          textAlign: "center",
+          maxWidth: 320,
+        }}
+      >
+        {figure}
+      </div>
+    </div>
+  );
+}
+
 // ---------- GenericFigureCard ----------------------------------------------
 
 function GenericFigureCard({ figure }: { figure: string }) {
@@ -1230,7 +1764,22 @@ export function FigureRouter({
       "4/4",
       "3/4",
       "2/4",
-      "6/8"
+      "6/8",
+      "sixteenth",
+      "triplet",
+      "triplets",
+      "breath mark",
+      "rest",
+      "rests",
+      "bar 1",
+      "bar 2",
+      "bar 3",
+      "bar 4",
+      "two bars",
+      "three bars",
+      "four bars",
+      "count-line",
+      "downbeat"
     )
   ) {
     return <RhythmDisplay page={page} />;
@@ -1320,11 +1869,22 @@ export function FigureRouter({
       "row:",     // "A row: A B C D E F G"
       "alphabet"
     ) ||
-    /\b[A-G](?:[#b])?[1-7]\b/.test(combined) || // explicit pitch like C4, F#5
+    /\b[A-G](?:[#b])?[1-7]\b/i.test(combined) || // explicit pitch like C4, F#5
     /\b(C|D|E|F|G|A|B) (key|note|chord|major|minor)\b/i.test(combined) ||
-    /\b[A-G]\s+[A-G]\s+[A-G]\b/.test(combined) || // "A B C", "C D E"
-    /\b[A-G][#b]?[0-9]?-[A-G][#b]?[0-9]?-[A-G][#b]?[0-9]?\b/.test(combined) || // "C-D-E", "C3-D3-E3"
+    /\b[A-G]\s+[A-G]\s+[A-G]\b/i.test(combined) || // "A B C", "C D E"
+    /\b[A-G][#b]?[0-9]?-[A-G][#b]?[0-9]?-[A-G][#b]?[0-9]?\b/i.test(combined) || // "C-D-E", "C3-D3-E3"
     /\b(LH|RH|left hand|right hand)\b/i.test(combined) || // hand-position figures
+    /\btriads?\b|\bchord\b|\bchord symbols?\b|\binversion\b/i.test(combined) ||
+    /\bscale\s+\d|\bscale\b/i.test(combined) ||
+    /\bphrases?\b/i.test(combined) ||
+    /\bnote marked \d-\d\b/i.test(combined) || // fingering
+    /\bcircle of fifths\b|\bcircle diagram\b/i.test(combined) ||
+    /\bmelod(y|ies|ic)\b/i.test(combined) ||
+    /\b\d-note (pattern|sequence)\b/i.test(combined) ||
+    /\b(sequence of (?:\d|three|four|five|six)-note patterns?)\b/i.test(combined) ||
+    /\b(A|B|C) section\b/i.test(combined) || // "B section"
+    /\bpedal\b/i.test(combined) ||
+    /\bbeamed?\b/i.test(combined) ||
     pageHighlightMidis(page).length > 0
   ) {
     return <KeyboardMini page={page} />;
@@ -1353,14 +1913,37 @@ export function FigureRouter({
     return <QuizScaffold figure={page.figure || ""} />;
   }
 
-  // 11) Defaults by page mode/type — better than dropping to plain text.
+  // 11) Music symbols — dynamics, accidentals, articulation. These are
+  // common across the curriculum but don't map onto a staff or keyboard;
+  // they're glyphs the student needs to recognise visually. Detected by
+  // a focused keyword/glyph match.
+  {
+    const sym = detectMusicSymbol(combined);
+    if (sym) return <MusicSymbolCard symbol={sym} figure={page.figure || ""} />;
+  }
+
+  // 12) Famous-melody references — "Ode to Joy", "Für Elise", "Jingle
+  // Bells", etc. Render a music-themed badge with the title prominent.
+  {
+    const title = detectMelodyReference(combined);
+    if (title) return <PhraseCard title={title} figure={page.figure || ""} />;
+  }
+
+  // 13) Melody contour — rising / falling / arch / valley / wavy / flat.
+  // Drawn as a simple SVG curve with note dots along it.
+  {
+    const contour = detectContour(combined);
+    if (contour) return <ContourCard contour={contour} figure={page.figure || ""} />;
+  }
+
+  // 14) Defaults by page mode/type — better than dropping to plain text.
   // Any play page should show the keyboard. Hear pages with no other
   // signal probably involve listening to a note, so also keyboard.
   if (page.mode === "play" || page.mode === "hear") {
     return <KeyboardMini page={page} />;
   }
 
-  // 12) Final fallback — stylised description card. Always renders
+  // 15) Final fallback — stylised description card. Always renders
   //     something so the student can read what the figure should show.
   return <GenericFigureCard figure={page.figure || ""} />;
 }

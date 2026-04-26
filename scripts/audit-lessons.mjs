@@ -45,7 +45,11 @@ const FIGURE_KEYWORDS = {
   hand:       ["finger", "thumb", "pinky", "hand", "palm"],
   rhythm:     ["metronome", "time signature", "beat", "tempo", "whole note",
                "half note", "quarter note", "eighth note", "dotted", "rhythm",
-               "4/4", "3/4", "2/4", "6/8"],
+               "4/4", "3/4", "2/4", "6/8",
+               "sixteenth", "triplet", "triplets", "breath mark", "rest", "rests",
+               "bar 1", "bar 2", "bar 3", "bar 4",
+               "two bars", "three bars", "four bars",
+               "count-line", "downbeat"],
   staff:      ["staff", "clef", "treble", "bass clef", "grand staff", "ledger",
                "notation", "music line", "five lines", "five-line",
                "line note", "space note", "lines and spaces",
@@ -140,13 +144,53 @@ function figureWillRender(page) {
   if (hasKeywordAny(text, FIGURE_KEYWORDS.staff)) return "staff";
   if (/\bphrase\s*\d?:/i.test(text)) return "staff";
   if (/\bline\s*\d:/i.test(text)) return "staff";
-  if (/\b[A-G]-[A-G]-[A-G]\b/.test(text)) return "staff";
+  if (/\b[A-G]-[A-G]-[A-G]\b/i.test(text)) return "staff";
   if (hasKeywordAny(text, FIGURE_KEYWORDS.keyboard)) return "keyboard";
-  if (/\b[A-G](?:[#b])?[1-7]\b/.test(text)) return "keyboard"; // explicit pitch
+  if (/\b[A-G](?:[#b])?[1-7]\b/i.test(text)) return "keyboard"; // explicit pitch
   if (/\b(C|D|E|F|G|A|B) (key|note|chord|major|minor)\b/i.test(text)) return "keyboard";
-  if (/\b[A-G]\s+[A-G]\s+[A-G]\b/.test(text)) return "keyboard";
-  if (/\b[A-G][#b]?[0-9]?-[A-G][#b]?[0-9]?-[A-G][#b]?[0-9]?\b/.test(text)) return "keyboard";
+  if (/\b[A-G]\s+[A-G]\s+[A-G]\b/i.test(text)) return "keyboard";
+  if (/\b[A-G][#b]?[0-9]?-[A-G][#b]?[0-9]?-[A-G][#b]?[0-9]?\b/i.test(text)) return "keyboard";
   if (/\b(LH|RH|left hand|right hand)\b/i.test(text)) return "keyboard";
+  // Triad / chord context
+  if (/\btriads?\b|\bchord\b|\bchord symbols?\b|\bvoice-leading\b|\binversion\b/i.test(text)) return "keyboard";
+  // Scale + phrases + fingering
+  if (/\bscale\s+\d|\bscale\b/i.test(text)) return "keyboard";
+  if (/\bphrases?\b/i.test(text)) return "keyboard";
+  if (/\bnote marked \d-\d\b/i.test(text)) return "keyboard";
+  if (/\bcircle of fifths\b|\bcircle diagram\b/i.test(text)) return "keyboard";
+  if (/\bmelod(y|ies|ic)\b/i.test(text)) return "keyboard";
+  if (/\b\d-note (pattern|sequence)\b/i.test(text)) return "keyboard";
+  if (/\bsequence of (?:\d|three|four|five|six)-note patterns?\b/i.test(text)) return "keyboard";
+  if (/\b(A|B|C) section\b/i.test(text)) return "keyboard";
+  if (/\bpedal\b/i.test(text)) return "keyboard";
+  if (/\bbeamed?\b/i.test(text)) return "keyboard";
+  // ─── New renderers (matching the FigureRouter tiers 11/12/13) ─────────
+  // Music symbols — dynamics, accidentals, articulation
+  const trimmed = (page.figure || "").trim();
+  if (/\bcrescendo\b|hairpin opening|opens right/i.test(text) || trimmed === "<") return "music-symbol";
+  if (/\bdiminuendo\b|decrescendo|hairpin closing|closes right/i.test(text) || trimmed === ">") return "music-symbol";
+  if (/<\s*=.*louder|opens.*louder/i.test(text) || />\s*=.*softer|closes.*softer/i.test(text)) return "music-symbol";
+  if (/\b(pp|p|mp|mf|f|ff|fff)\b\s*(marking|at\s+start|symbol|sign|dynamic)/i.test(text)) return "music-symbol";
+  if (/phrase\s*\d?\s*(?:with|at|in|labeled?)\s+(pp|p|mp|mf|f|ff|fff)\b/i.test(text)) return "music-symbol";
+  if (/dynamic\s+marking:?\s*(pp|p|mp|mf|f|ff|fff)\b/i.test(text)) return "music-symbol";
+  if (/hairpin\s+<.*mf|mf.*>/i.test(text)) return "music-symbol";
+  if (/\b(allegro|andante|adagio|lento|presto|moderato|vivace|rubato|subito|dolce|legato|staccato)\b/i.test(text)) return "music-symbol";
+  if (/\b(sub\.?|subito)\s*(pp|p|mp|mf|f|ff|fff)\b/i.test(text)) return "music-symbol";
+  if (/^\s*[A-G][\u266F\u266D\u266E#b]\s*$/.test(trimmed)) return "music-symbol";
+  if (/\bbar\s*\d:.*[A-G]\s*[\u266F\u266D\u266E#b]?/i.test(text)) return "music-symbol";
+  if (/\baccidentals?\b/i.test(text)) return "music-symbol";
+  if (/(\u266F|\u266D|\u266E|\bsharp\b|\bflat\b|\bnatural\b)\s*(symbol|sign|mark|accidental|key|signature|close-up|tic-tac-toe|lowercase b|small rectangle)/i.test(text)) return "music-symbol";
+  if (/\bkey signature\b/i.test(text)) return "music-symbol";
+  if (/\b(staccato|legato|tenuto|accent|marcato|slur|tie)\b/i.test(text)) return "music-symbol";
+  if (/\bupward wedge\b|\bwedge\b|\bflat dash\b|\bdash above\b|\bdot above\b/i.test(text)) return "music-symbol";
+  if (/note with a >\s*above|>\s*accent/i.test(text)) return "music-symbol";
+  if (/curved line arching|joined by curve|slurs over/i.test(text)) return "music-symbol";
+  // Famous melody references
+  if (/\b(ode to joy|f\u00fcr elise|fur elise|jingle bells|amazing grace|canon in d|minuet in g|twinkle twinkle|happy birthday|moonlight sonata|clair de lune|mary had a little lamb|hot cross buns|row your boat|fr\u00e8re jacques|frere jacques|london bridge)\b/i.test(text))
+    return "phrase";
+  // Melody contour
+  if (/wavy|zigzag|up-down-up-down|rolling|arch|arched|goes up.*comes back down|rises then falls|valley|dips|goes down.*comes back up|falls then rises|rising melody|falling melody|stays flat/i.test(text))
+    return "contour";
   if (page.highlights && Object.keys(page.highlights).length > 0) return "keyboard";
   if (hasKeywordAny(text, FIGURE_KEYWORDS.quizScaffold)) return "quizScaffold";
   // Player default: any play/hear page renders KeyboardMini even without keywords.
