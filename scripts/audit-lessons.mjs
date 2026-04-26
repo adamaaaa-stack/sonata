@@ -164,15 +164,23 @@ function figureWillRender(page) {
   if (/\b(A|B|C) section\b/i.test(text)) return "keyboard";
   if (/\bpedal\b/i.test(text)) return "keyboard";
   if (/\bbeamed?\b/i.test(text)) return "keyboard";
+  if (/\bsheet music\b/i.test(text)) return "keyboard";
+  if (/\bsubject\b/i.test(text)) return "keyboard";
+  if (/\bsound diagram\b/i.test(text)) return "keyboard";
+  if (/\b(?:from|starts? on|starting on|ends? on|ending on)\s+[A-G]/i.test(text)) return "keyboard";
+  if (/\b[A-G][#\u266F\u266Db]?\s+to\s+[A-G][#\u266F\u266Db]?\b/i.test(text)) return "keyboard";
+  if (/\b(bach|mozart|haydn|chopin|debussy|schumann|beethoven|brahms|liszt|tchaikovsky|petzold|baroque|classical|romantic)\b/i.test(text)) return "keyboard";
+  // Comma-separated note lists: "E, B, E, G#"
+  if (/\b[A-G][#\u266F\u266Db]?\s*,\s*[A-G][#\u266F\u266Db]?\s*,\s*[A-G][#\u266F\u266Db]?\b/.test(text)) return "keyboard";
   // ─── New renderers (matching the FigureRouter tiers 11/12/13) ─────────
   // Music symbols — dynamics, accidentals, articulation
   const trimmed = (page.figure || "").trim();
   if (/\bcrescendo\b|hairpin opening|opens right/i.test(text) || trimmed === "<") return "music-symbol";
   if (/\bdiminuendo\b|decrescendo|hairpin closing|closes right/i.test(text) || trimmed === ">") return "music-symbol";
   if (/<\s*=.*louder|opens.*louder/i.test(text) || />\s*=.*softer|closes.*softer/i.test(text)) return "music-symbol";
-  if (/\b(pp|p|mp|mf|f|ff|fff)\b\s*(marking|at\s+start|symbol|sign|dynamic)/i.test(text)) return "music-symbol";
-  if (/phrase\s*\d?\s*(?:with|at|in|labeled?)\s+(pp|p|mp|mf|f|ff|fff)\b/i.test(text)) return "music-symbol";
-  if (/dynamic\s+marking:?\s*(pp|p|mp|mf|f|ff|fff)\b/i.test(text)) return "music-symbol";
+  if (/\b(ppp|pp|p|mp|mf|f|ff|fff)\b\s*(marking|at\s+start|symbol|sign|dynamic)/i.test(text)) return "music-symbol";
+  if (/phrase\s*\d?\s*(?:with|at|in|labeled?)\s+(ppp|pp|p|mp|mf|f|ff|fff)\b/i.test(text)) return "music-symbol";
+  if (/dynamic\s+marking:?\s*(ppp|pp|p|mp|mf|f|ff|fff)\b/i.test(text)) return "music-symbol";
   if (/hairpin\s+<.*mf|mf.*>/i.test(text)) return "music-symbol";
   if (/\b(allegro|andante|adagio|lento|presto|moderato|vivace|rubato|subito|dolce|legato|staccato)\b/i.test(text)) return "music-symbol";
   if (/\b(sub\.?|subito)\s*(pp|p|mp|mf|f|ff|fff)\b/i.test(text)) return "music-symbol";
@@ -185,6 +193,28 @@ function figureWillRender(page) {
   if (/\bupward wedge\b|\bwedge\b|\bflat dash\b|\bdash above\b|\bdot above\b/i.test(text)) return "music-symbol";
   if (/note with a >\s*above|>\s*accent/i.test(text)) return "music-symbol";
   if (/curved line arching|joined by curve|slurs over/i.test(text)) return "music-symbol";
+  // Ornaments
+  if (/\btrill\b|\btr\.?\b|\bmordent\b|\bgrace note\b|\bgrace notes?\b|\bappoggiatura\b|\bglissando\b|\bgliss\b/i.test(text)) return "ornament";
+  if (/\bturn\b/i.test(text) && /symbol|ornament|squiggle/i.test(text)) return "ornament";
+  // Section / structure map (widened)
+  if (/(?:three|four|five|six|seven|eight)\s+(?:boxes|panels|bars|cards|columns|rows|chunks|parts|pillars|dials|sections|regions|dots|bullets|points|panes|tiles|chips|slices|colored bars|colour(?:ed)? bars)\s*(?:[\u2014:-]+|\s+(?:labeled|labelled|with|stacked|\u2014))/i.test(text)) return "section-map";
+  if (/bars?\s+\d+\s*[-\u2013to]+\s*\d+\s*[:,\u2014]/i.test(text)) return "section-map";
+  if (/(?:section|piece)\s+(?:map|roadmap)\s+(?:with|of|\u2014|:)/i.test(text)) return "section-map";
+  if (/(?:two|three|four|five|six|seven|eight)\s+(?:markings|notes|chords|symbols|items)\s+in\s+a\s+(?:column|row|line)/i.test(text)) return "section-map";
+  if (/\bpiece map\b|\bgrieg arietta map\b|\b(?:tier|act)\s+\d+\s+(?:roadmap|map)\b/i.test(text)) return "section-map";
+  // Side-by-side comparison
+  if (/side by side[:.,\s]+left:\s*[^.\n]+\.\s*right:/i.test(text)) return "comparison";
+  if (/side by side:?\s*[^\n]+\s+(?:and|vs\.?|versus)\s+[^\n.]+/i.test(text)) return "comparison";
+  if (/split image:?\s*[^\n]+\s+(?:vs\.?|versus|and|then)\s+[^\n.]+/i.test(text)) return "comparison";
+  if (/two\s+(?:staves|voices|phrases|recordings|versions|melodies|cars|sentences|short phrases|pillars|clocks|illustrations|panels|cards|trills|chords|images|panes)/i.test(text)) return "comparison";
+  if (/^[^.,]+\s+vs\.?\s+[^.,\n]+/i.test(text.trim())) return "comparison";
+  // Flashcard
+  if (/flashcard\s*[—-]\s*['"]/i.test(text)) return "flashcard";
+  if (/teacher'?s[-\s]card/i.test(text)) return "flashcard";
+  // Big word
+  if (/single word\s+big[^:]*:\s*['"]?[A-Za-z]+/i.test(text)) return "bigword";
+  if (/the word\s+['"][^'"]+['"]/i.test(text)) return "bigword";
+  if (/italian\s+word:?\s*['"]?[A-Za-z]+/i.test(text)) return "bigword";
   // Famous melody references
   if (/\b(ode to joy|f\u00fcr elise|fur elise|jingle bells|amazing grace|canon in d|minuet in g|twinkle twinkle|happy birthday|moonlight sonata|clair de lune|mary had a little lamb|hot cross buns|row your boat|fr\u00e8re jacques|frere jacques|london bridge)\b/i.test(text))
     return "phrase";
@@ -386,18 +416,9 @@ for (const lesson of lessons) {
             `Mastery ${sec} Q${qi + 1} options is not an array`
           );
         }
-        // Negation in figure that the heuristic gets wrong
-        if (
-          q.figure &&
-          /\(\s*not\s+[A-G]\s*\)/i.test(q.figure)
-        ) {
-          recordIssue(
-            lid,
-            `mc-${sec}-q${qi + 1}`,
-            "mastery-negation-bug",
-            "Mastery question figure says 'not X' but the keyboard hint will still highlight X"
-          );
-        }
+        // (The "(not X)" negation in mastery figures used to mis-highlight
+        // the X. That's now fixed in questionFigureHint via an early
+        // return — no need to flag here.)
       }
     }
   }

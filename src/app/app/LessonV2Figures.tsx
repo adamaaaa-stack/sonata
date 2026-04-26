@@ -1052,13 +1052,14 @@ function QuizScaffold({ figure }: { figure: string }) {
 // renders it large with a description chip underneath.
 
 const DYNAMICS_GLYPHS: Record<string, { glyph: string; meaning: string }> = {
-  pp:   { glyph: "𝆺𝆺", meaning: "very soft" },
-  p:    { glyph: "𝆏",   meaning: "soft" },
-  mp:   { glyph: "𝆐𝆏",  meaning: "moderately soft" },
-  mf:   { glyph: "𝆐𝆑",  meaning: "moderately loud" },
-  f:    { glyph: "𝆑",   meaning: "loud" },
-  ff:   { glyph: "𝆑𝆑",  meaning: "very loud" },
-  fff:  { glyph: "𝆑𝆑𝆑", meaning: "as loud as you can" },
+  ppp:  { glyph: "𝆺𝆺𝆺", meaning: "as soft as you can" },
+  pp:   { glyph: "𝆺𝆺",  meaning: "very soft" },
+  p:    { glyph: "𝆏",    meaning: "soft" },
+  mp:   { glyph: "𝆐𝆏",   meaning: "moderately soft" },
+  mf:   { glyph: "𝆐𝆑",   meaning: "moderately loud" },
+  f:    { glyph: "𝆑",    meaning: "loud" },
+  ff:   { glyph: "𝆑𝆑",   meaning: "very loud" },
+  fff:  { glyph: "𝆑𝆑𝆑",  meaning: "as loud as you can" },
 };
 
 const ACCIDENTAL_GLYPHS: Record<string, { glyph: string; meaning: string }> = {
@@ -1173,7 +1174,7 @@ function detectMusicSymbol(text: string): MusicSymbol | null {
   // ─── Dynamics ──────────────────────────────────────────────────────
   // "Dynamic marking: pp" — explicit "Dynamic marking:" prefix
   {
-    const m = /dynamic\s+marking:?\s*(pp|p|mp|mf|f|ff|fff)\b/i.exec(text);
+    const m = /dynamic\s+marking:?\s*(ppp|pp|p|mp|mf|f|ff|fff)\b/i.exec(text);
     if (m) {
       const name = m[1].toLowerCase() as keyof typeof DYNAMICS_GLYPHS;
       const def = DYNAMICS_GLYPHS[name];
@@ -1216,7 +1217,11 @@ function detectMusicSymbol(text: string): MusicSymbol | null {
   if (/>\s*=.*softer|closes.*softer/i.test(text)) {
     return { kind: "dynamics", glyph: ">", label: "Diminuendo", meaning: "get softer", arrow: "open-left" };
   }
-  for (const [name, def] of Object.entries(DYNAMICS_GLYPHS)) {
+  // Iterate longer keys first so "ppp" is tested before "pp" before "p".
+  const dynamicsOrdered = Object.entries(DYNAMICS_GLYPHS).sort(
+    (a, b) => b[0].length - a[0].length
+  );
+  for (const [name, def] of dynamicsOrdered) {
     const re = new RegExp(
       `\\b${name}\\b(?:\\s+marking|\\s+at\\s+start|$|\\s|[.,]|\\s+with)`,
       "i"
@@ -1227,7 +1232,7 @@ function detectMusicSymbol(text: string): MusicSymbol | null {
   }
   // "Phrase 3 with f" / "Phrase N with mf" — surface the dynamic.
   {
-    const m = /phrase\s*\d?\s*(?:with|at|in|labeled?)\s+(pp|p|mp|mf|f|ff|fff)\b/i.exec(text);
+    const m = /phrase\s*\d?\s*(?:with|at|in|labeled?)\s+(ppp|pp|p|mp|mf|f|ff|fff)\b/i.exec(text);
     if (m) {
       const name = m[1].toLowerCase() as keyof typeof DYNAMICS_GLYPHS;
       const def = DYNAMICS_GLYPHS[name];
@@ -1577,6 +1582,616 @@ function ContourCard({ contour, figure }: { contour: Contour; figure: string }) 
   );
 }
 
+// ---------- OrnamentCard ---------------------------------------------------
+//
+// Renders ornament symbols — trill, mordent, turn, grace note. These
+// appear all through the late-curriculum "ornaments" arc but each has
+// a distinct symbol the student needs to recognise.
+
+const ORNAMENT_GLYPHS: Record<string, { glyph: string; label: string; meaning: string }> = {
+  trill:      { glyph: "𝆖", label: "Trill",      meaning: "rapid alternation between two notes" },
+  mordent:    { glyph: "𝆟", label: "Mordent",    meaning: "quick dip below the main note and back" },
+  turn:       { glyph: "𝆗", label: "Turn",       meaning: "decorate the note: above, main, below, main" },
+  grace:      { glyph: "♬", label: "Grace note", meaning: "a tiny note that leans into the main note" },
+  appoggiatura: { glyph: "♬", label: "Appoggiatura", meaning: "leaning grace note that takes its time from the main note" },
+  glissando:  { glyph: "𝆲", label: "Glissando",  meaning: "slide between two notes" },
+};
+
+function detectOrnament(text: string): { glyph: string; label: string; meaning: string } | null {
+  const lower = text.toLowerCase();
+  if (/\btrill\b|\btr\.?\b/.test(lower)) return ORNAMENT_GLYPHS.trill;
+  if (/\bmordent\b/.test(lower)) return ORNAMENT_GLYPHS.mordent;
+  if (/\bturn\b/.test(lower) && /symbol|ornament|squiggle/.test(lower)) return ORNAMENT_GLYPHS.turn;
+  if (/\bgrace note\b|\bgrace notes?\b/.test(lower)) return ORNAMENT_GLYPHS.grace;
+  if (/\bappoggiatura\b/.test(lower)) return ORNAMENT_GLYPHS.appoggiatura;
+  if (/\bglissando\b|\bgliss\b|\bslide\b/.test(lower)) return ORNAMENT_GLYPHS.glissando;
+  return null;
+}
+
+function OrnamentCard({
+  ornament,
+  figure,
+}: {
+  ornament: { glyph: string; label: string; meaning: string };
+  figure: string;
+}) {
+  return (
+    <div
+      style={{
+        width: "100%",
+        maxWidth: 420,
+        background: "var(--parchment, #faf6ef)",
+        border: "3px solid #6b21a8",
+        borderRadius: 18,
+        padding: "20px 22px 22px",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        gap: 10,
+        boxShadow: "0 4px 0 #6b21a840",
+      }}
+    >
+      <div
+        style={{
+          fontSize: 11,
+          letterSpacing: "0.22em",
+          fontWeight: 800,
+          color: "#6b21a8",
+          textTransform: "uppercase",
+        }}
+      >
+        Ornament
+      </div>
+      <div
+        style={{
+          fontFamily: "Georgia, serif",
+          fontWeight: 900,
+          fontSize: 88,
+          color: "#6b21a8",
+          lineHeight: 0.9,
+        }}
+      >
+        {ornament.glyph}
+      </div>
+      <div
+        style={{
+          fontFamily: "Georgia, serif",
+          fontStyle: "italic",
+          fontSize: 22,
+          fontWeight: 800,
+          color: "var(--ink, #1f2937)",
+        }}
+      >
+        {ornament.label}
+      </div>
+      <div
+        style={{
+          fontFamily: "Georgia, serif",
+          fontSize: 14,
+          color: "var(--ink2, #4b5563)",
+          textAlign: "center",
+          maxWidth: 320,
+        }}
+      >
+        {ornament.meaning}
+      </div>
+      <div
+        style={{
+          fontSize: 11,
+          color: "var(--ink3, #6b7280)",
+          textAlign: "center",
+          fontStyle: "italic",
+          maxWidth: 360,
+          marginTop: 4,
+        }}
+      >
+        {figure}
+      </div>
+    </div>
+  );
+}
+
+// ---------- ComparisonCard ------------------------------------------------
+//
+// Renders side-by-side comparison figures. Lots of mastery questions
+// look like "Side by side: A and B", "Two staves — one with X, one with
+// Y", "Split image: X vs Y". Pull the two halves out of the description
+// and render them as labelled chips with a "vs" divider.
+
+interface ComparisonHalves {
+  left: string;
+  right: string;
+}
+
+function detectComparison(text: string): ComparisonHalves | null {
+  // "Side by side: A and B" / "Side by side. Left: A. Right: B"
+  let m = /side by side[:.,\s]+left:\s*([^.\n]{1,80}?)\.\s*right:\s*([^.\n]{1,80}?)(?:\.|$)/i.exec(text);
+  if (m) return { left: m[1].trim(), right: m[2].trim() };
+
+  m = /side by side:?\s*([^\n]{1,60}?)\s+(?:and|vs\.?|versus)\s+([^\n.]{1,60}?)(?:\.|$)/i.exec(text);
+  if (m) return { left: m[1].trim(), right: m[2].trim() };
+
+  // "Split image: X vs Y" / "Split image: X and Y"
+  m = /split image:?\s*([^\n]{1,60}?)\s+(?:vs\.?|versus|and|then)\s+([^\n.]{1,60}?)(?:\.|$)/i.exec(text);
+  if (m) return { left: m[1].trim(), right: m[2].trim() };
+
+  // "Two staves — one with X, one with Y" / "Two pillars — one cracking, one holding"
+  m = /two\s+(?:staves|voices|phrases|recordings|versions|melodies|cars|sentences|short phrases|pillars|clocks|illustrations|panels|cards|trills|chords|images|panes)[\s—,:-]+(?:one\s+(?:with|that|labeled?)\s+)?([^\n.,]{3,60}?)(?:\s*[,.]\s*|\s+(?:and|then|vs\.?)\s+)(?:one\s+(?:with|that|labeled?)\s+)?([^\n.]{3,60}?)(?:\.|$)/i.exec(
+    text
+  );
+  if (m) return { left: m[1].trim(), right: m[2].trim() };
+
+  // "X vs Y" or "Today's texture vs yesterday's"
+  m = /^([^.,]{3,60})\s+vs\.?\s+([^.,\n]{3,60})/i.exec(text.trim());
+  if (m) return { left: m[1].trim(), right: m[2].trim() };
+
+  return null;
+}
+
+function ComparisonCard({
+  halves,
+  figure,
+}: {
+  halves: ComparisonHalves;
+  figure: string;
+}) {
+  return (
+    <div
+      style={{
+        width: "100%",
+        maxWidth: 460,
+        background: "var(--parchment, #faf6ef)",
+        border: "3px solid var(--berry, #c45a8a)",
+        borderRadius: 18,
+        padding: 18,
+        display: "flex",
+        flexDirection: "column",
+        gap: 12,
+        boxShadow: "0 4px 0 var(--berry, #c45a8a)40",
+      }}
+    >
+      <div
+        style={{
+          fontSize: 11,
+          letterSpacing: "0.22em",
+          fontWeight: 800,
+          color: "var(--berry, #c45a8a)",
+          textAlign: "center",
+        }}
+      >
+        COMPARE
+      </div>
+      <div
+        style={{
+          display: "flex",
+          alignItems: "stretch",
+          gap: 12,
+        }}
+      >
+        {[halves.left, halves.right].map((side, i) => (
+          <React.Fragment key={i}>
+            <div
+              style={{
+                flex: 1,
+                background: "var(--cream, #fff8ee)",
+                border: "2px solid var(--ink, #1f2937)",
+                borderRadius: 12,
+                padding: "14px 12px",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                justifyContent: "center",
+                textAlign: "center",
+                fontFamily: "Georgia, serif",
+                fontStyle: "italic",
+                fontSize: 14,
+                lineHeight: 1.4,
+                color: "var(--ink, #1f2937)",
+                minHeight: 70,
+              }}
+            >
+              <div
+                style={{
+                  fontSize: 9,
+                  fontWeight: 800,
+                  letterSpacing: "0.2em",
+                  color: "var(--ink3, #6b7280)",
+                  marginBottom: 4,
+                  fontFamily: "var(--sans, system-ui)",
+                  fontStyle: "normal",
+                }}
+              >
+                {i === 0 ? "LEFT" : "RIGHT"}
+              </div>
+              {side}
+            </div>
+            {i === 0 && (
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  fontSize: 14,
+                  fontWeight: 900,
+                  color: "var(--berry, #c45a8a)",
+                  fontFamily: "Georgia, serif",
+                  fontStyle: "italic",
+                }}
+              >
+                vs
+              </div>
+            )}
+          </React.Fragment>
+        ))}
+      </div>
+      <div
+        style={{
+          fontSize: 11,
+          color: "var(--ink3, #6b7280)",
+          textAlign: "center",
+          fontStyle: "italic",
+          marginTop: 2,
+        }}
+      >
+        {figure}
+      </div>
+    </div>
+  );
+}
+
+// ---------- SectionMapCard ------------------------------------------------
+//
+// Renders bar/section structure figures like "Three boxes labeled A, B, A"
+// or "Bars 1-6: CLIMB. Bars 7-9: PEAK. Bars 10-12: SETTLE". Drawn as
+// labelled coloured bars stacked horizontally — same metaphor as the
+// timeline-of-bars used in form/structure lessons.
+
+interface SectionEntry {
+  label: string;
+  detail?: string;
+  width?: number; // relative
+}
+
+function detectSectionMap(text: string): SectionEntry[] | null {
+  // Pattern A: "Three boxes labeled A, B, A" / "Three pillars — X, Y, Z"
+  // Match a count word + a section noun + an em-dash or "labeled/with/:"
+  // followed by a comma-separated list. Cover lots of section nouns
+  // because content uses metaphors freely.
+  let m = /(?:three|four|five|six|seven|eight)\s+(?:boxes|panels|bars|cards|columns|rows|chunks|parts|pillars|dials|sections|regions|dots|bullets|points|panes|tiles|chips|slices)\s*(?:[—:-]+|\s+(?:labeled|labelled|with|—))\s*([^.\n]+)/i.exec(
+    text
+  );
+  if (m) {
+    const labels = m[1]
+      .split(/[,/|]+|\s+(?:and|then)\s+/i)
+      .map((s) => s.trim())
+      .filter((s) => s.length > 0 && s.length < 30);
+    if (labels.length >= 2 && labels.length <= 8) {
+      return labels.map((l) => ({ label: l }));
+    }
+  }
+  // Pattern A2: "X-section map with A, B, C labels"
+  m = /(?:three|four|five|six|seven|eight)?\s*(?:section|piece)\s+(?:map|roadmap)\s+(?:with|of|—|:)\s+([^.\n]+?)\s*labels?\b/i.exec(
+    text
+  );
+  if (m) {
+    const labels = m[1]
+      .split(/[,/|]+|\s+(?:and|then)\s+/i)
+      .map((s) => s.trim())
+      .filter((s) => s.length > 0 && s.length < 30);
+    if (labels.length >= 2 && labels.length <= 8) {
+      return labels.map((l) => ({ label: l }));
+    }
+  }
+  // Pattern A3: "Six markings in a column: pp, p, mp, mf, f, ff"
+  m = /(?:two|three|four|five|six|seven|eight)\s+(?:markings|notes|chords|symbols|items)\s+in\s+a\s+(?:column|row|line)\s*[:—]\s*([^.\n]+)/i.exec(
+    text
+  );
+  if (m) {
+    const labels = m[1]
+      .split(/[,/|]+|\s+(?:and|then)\s+/i)
+      .map((s) => s.trim())
+      .filter((s) => s.length > 0 && s.length < 30);
+    if (labels.length >= 2 && labels.length <= 8) {
+      return labels.map((l) => ({ label: l }));
+    }
+  }
+  // Pattern A4: "Piece map. A (12 bars, pp), B (8 bars, pp), CLIMAX (...)"
+  if (/\bpiece map\b|\bgrieg arietta map\b|\b(?:tier|act)\s+\d+\s+(?:roadmap|map)\b/i.test(text)) {
+    const sections: SectionEntry[] = [];
+    const re = /\b([A-Z][A-Za-z'’ ]{0,12}?)\s*\(([^)]+)\)/g;
+    let bm: RegExpExecArray | null;
+    while ((bm = re.exec(text)) !== null) {
+      sections.push({ label: bm[1].trim(), detail: bm[2].trim() });
+      if (sections.length >= 8) break;
+    }
+    if (sections.length >= 2) return sections;
+  }
+
+  // Pattern B: "Bars 1-6: X. Bars 7-9: Y. Bars 10-12: Z."
+  const sections: SectionEntry[] = [];
+  const re = /bars?\s+(\d+)\s*[-–to]+\s*(\d+)\s*[:,—]\s*([^.\n]{1,60}?)(?=[.,;\n]|bars?\s+\d|$)/gi;
+  let bm: RegExpExecArray | null;
+  while ((bm = re.exec(text)) !== null) {
+    const start = parseInt(bm[1], 10);
+    const end = parseInt(bm[2], 10);
+    sections.push({
+      label: `${start}–${end}`,
+      detail: bm[3].trim(),
+      width: Math.max(1, end - start + 1),
+    });
+  }
+  if (sections.length >= 2) return sections;
+
+  // Pattern C: "Three colored bars stacked — X, Y, Z" / "Three regions"
+  m = /(three|four|five|six)\s+(?:colored|colour(?:ed)?)?\s*bars?\s+(?:stacked\s*)?[—:]+\s*([^.\n]+)/i.exec(text);
+  if (m) {
+    const labels = m[2]
+      .split(/[,/|]+|\s+(?:and|then)\s+/i)
+      .map((s) => s.trim())
+      .filter((s) => s.length > 0 && s.length < 30);
+    if (labels.length >= 2 && labels.length <= 8) {
+      return labels.map((l) => ({ label: l }));
+    }
+  }
+
+  return null;
+}
+
+function SectionMapCard({
+  sections,
+  figure,
+}: {
+  sections: SectionEntry[];
+  figure: string;
+}) {
+  const palette = ["#d4a853", "#c45a8a", "#22c55e", "#3b82f6", "#a855f7", "#f97316", "#06b6d4", "#ec4899"];
+  const totalWeight = sections.reduce((s, x) => s + (x.width || 1), 0);
+
+  return (
+    <div
+      style={{
+        width: "100%",
+        maxWidth: 480,
+        background: "var(--parchment, #faf6ef)",
+        border: "3px solid var(--ink, #1f2937)",
+        borderRadius: 18,
+        padding: 18,
+        display: "flex",
+        flexDirection: "column",
+        gap: 10,
+      }}
+    >
+      <div
+        style={{
+          fontSize: 11,
+          letterSpacing: "0.22em",
+          fontWeight: 800,
+          color: "var(--ink3, #6b7280)",
+          textAlign: "center",
+        }}
+      >
+        STRUCTURE
+      </div>
+      <div
+        style={{
+          display: "flex",
+          width: "100%",
+          height: 50,
+          border: "2px solid var(--ink, #1f2937)",
+          borderRadius: 10,
+          overflow: "hidden",
+        }}
+      >
+        {sections.map((s, i) => (
+          <div
+            key={i}
+            style={{
+              flex: (s.width || 1) / totalWeight,
+              background: palette[i % palette.length],
+              color: "#fff",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              fontFamily: "Georgia, serif",
+              fontStyle: "italic",
+              fontWeight: 900,
+              fontSize: 18,
+              textShadow: "0 1px 0 rgba(0,0,0,0.25)",
+              borderRight:
+                i < sections.length - 1 ? "2px solid var(--ink, #1f2937)" : "none",
+            }}
+          >
+            {s.label}
+          </div>
+        ))}
+      </div>
+      {sections.some((s) => s.detail) && (
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            gap: 4,
+            marginTop: 4,
+          }}
+        >
+          {sections.map((s, i) =>
+            s.detail ? (
+              <div
+                key={i}
+                style={{
+                  fontSize: 12,
+                  color: "var(--ink2, #4b5563)",
+                  fontFamily: "Georgia, serif",
+                }}
+              >
+                <span
+                  style={{
+                    fontWeight: 800,
+                    color: palette[i % palette.length],
+                    marginRight: 6,
+                  }}
+                >
+                  {s.label}
+                </span>
+                {s.detail}
+              </div>
+            ) : null
+          )}
+        </div>
+      )}
+      <div
+        style={{
+          fontSize: 11,
+          color: "var(--ink3, #6b7280)",
+          textAlign: "center",
+          fontStyle: "italic",
+          marginTop: 4,
+        }}
+      >
+        {figure}
+      </div>
+    </div>
+  );
+}
+
+// ---------- FlashCard -----------------------------------------------------
+//
+// Renders "Flashcard — '...'" or "A teacher's-card graphic. Rule N: ...".
+// Pulls the quoted/labeled rule out and renders it as a teaching tip.
+
+function detectFlashCard(text: string): string | null {
+  // "Flashcard — 'Drill days are for locking in.'"
+  let m = /flashcard\s*[—-]\s*['"]([^'"]+)['"]/i.exec(text);
+  if (m) return m[1].trim();
+  // "A teacher's-card graphic. Rule 1: if one voice has..."
+  m = /teacher'?s[-\s]card[^.]*\.\s*(?:rule\s*\d+:?\s*)?([^.]{10,180})/i.exec(text);
+  if (m) return m[1].trim();
+  // Bare "Flashcard:" with following sentence
+  m = /^flashcard[:\s—-]+(.+?)(?:\.|$)/i.exec(text.trim());
+  if (m) return m[1].trim();
+  return null;
+}
+
+function FlashCard({ tip, figure }: { tip: string; figure: string }) {
+  return (
+    <div
+      style={{
+        width: "100%",
+        maxWidth: 440,
+        background: "var(--gold, #d4a853)",
+        border: "3px solid var(--ink, #1f2937)",
+        borderRadius: 18,
+        padding: "18px 22px",
+        display: "flex",
+        flexDirection: "column",
+        gap: 10,
+        boxShadow: "0 4px 0 var(--ink, #1f2937)",
+      }}
+    >
+      <div
+        style={{
+          fontSize: 11,
+          letterSpacing: "0.22em",
+          fontWeight: 800,
+          color: "var(--ink, #1f2937)",
+          textAlign: "center",
+        }}
+      >
+        ★ Tip
+      </div>
+      <div
+        style={{
+          fontFamily: "Georgia, serif",
+          fontStyle: "italic",
+          fontWeight: 800,
+          fontSize: 18,
+          color: "var(--ink, #1f2937)",
+          textAlign: "center",
+          lineHeight: 1.4,
+        }}
+      >
+        “{tip}”
+      </div>
+      {figure !== tip && (
+        <div
+          style={{
+            fontSize: 11,
+            color: "var(--ink, #1f2937)",
+            opacity: 0.65,
+            textAlign: "center",
+            fontStyle: "italic",
+            marginTop: 2,
+          }}
+        >
+          {figure}
+        </div>
+      )}
+    </div>
+  );
+}
+
+// ---------- BigWordCard ----------------------------------------------------
+//
+// Renders a single-word emphasis figure like "PERFORMANCE" or
+// "The word 'voicing' highlighted" — surfaces the word large.
+
+function detectBigWord(text: string): string | null {
+  // "A single word big on the screen: PERFORMANCE."
+  let m = /single word\s+big[^:]*:\s*['"]?([A-Za-z]+)['"]?/i.exec(text);
+  if (m) return m[1];
+  // "The word 'voicing' highlighted"
+  m = /the word\s+['"]([^'"]+)['"]/i.exec(text);
+  if (m) return m[1];
+  // "Italian word: rubato"
+  m = /italian\s+word:?\s*['"]?([A-Za-z]+)['"]?/i.exec(text);
+  if (m) return m[1];
+  return null;
+}
+
+function BigWordCard({ word, figure }: { word: string; figure: string }) {
+  return (
+    <div
+      style={{
+        width: "100%",
+        maxWidth: 440,
+        background: "var(--parchment, #faf6ef)",
+        border: "3px solid var(--ink, #1f2937)",
+        borderRadius: 18,
+        padding: "30px 22px",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        gap: 12,
+      }}
+    >
+      <div
+        style={{
+          fontFamily: "Georgia, serif",
+          fontStyle: "italic",
+          fontWeight: 900,
+          fontSize: "clamp(40px, 9vw, 72px)",
+          color: "var(--ink, #1f2937)",
+          letterSpacing: "-0.02em",
+          textAlign: "center",
+          lineHeight: 1,
+        }}
+      >
+        {word}
+      </div>
+      <div
+        style={{
+          fontSize: 12,
+          color: "var(--ink3, #6b7280)",
+          textAlign: "center",
+          fontStyle: "italic",
+          maxWidth: 360,
+        }}
+      >
+        {figure}
+      </div>
+    </div>
+  );
+}
+
 // ---------- GenericFigureCard ----------------------------------------------
 
 function GenericFigureCard({ figure }: { figure: string }) {
@@ -1885,6 +2500,13 @@ export function FigureRouter({
     /\b(A|B|C) section\b/i.test(combined) || // "B section"
     /\bpedal\b/i.test(combined) ||
     /\bbeamed?\b/i.test(combined) ||
+    /\bsheet music\b/i.test(combined) ||
+    /\bsubject\b/i.test(combined) || // fugue subjects, "subject starting on G"
+    /\bsound diagram\b/i.test(combined) ||
+    /\b(?:from|starts? on|starting on|ends? on|ending on)\s+[A-G]/i.test(combined) ||
+    /\b[A-G][#♯♭b]?\s+to\s+[A-G][#♯♭b]?\b/i.test(combined) || // "A to C-sharp"
+    /\b(bach|mozart|haydn|chopin|debussy|schumann|beethoven|brahms|liszt|tchaikovsky|petzold|baroque|classical|romantic)\b/i.test(combined) ||
+    /\b[A-G][#♯♭b]?\s*,\s*[A-G][#♯♭b]?\s*,\s*[A-G][#♯♭b]?\b/.test(combined) || // "E, B, E, G#"
     pageHighlightMidis(page).length > 0
   ) {
     return <KeyboardMini page={page} />;
@@ -1913,6 +2535,13 @@ export function FigureRouter({
     return <QuizScaffold figure={page.figure || ""} />;
   }
 
+  // 10b) Ornaments — trill / mordent / turn / grace note / glissando.
+  // Their glyphs are music-notation specific so they get their own card.
+  {
+    const orn = detectOrnament(combined);
+    if (orn) return <OrnamentCard ornament={orn} figure={page.figure || ""} />;
+  }
+
   // 11) Music symbols — dynamics, accidentals, articulation. These are
   // common across the curriculum but don't map onto a staff or keyboard;
   // they're glyphs the student needs to recognise visually. Detected by
@@ -1934,6 +2563,33 @@ export function FigureRouter({
   {
     const contour = detectContour(combined);
     if (contour) return <ContourCard contour={contour} figure={page.figure || ""} />;
+  }
+
+  // 13a) Section / structure maps — "Three boxes labeled A, B, A",
+  // "Bars 1-6: CLIMB. Bars 7-9: PEAK".
+  {
+    const sections = detectSectionMap(combined);
+    if (sections) return <SectionMapCard sections={sections} figure={page.figure || ""} />;
+  }
+
+  // 13b) Side-by-side comparisons — "Side by side: X and Y", "Two
+  // staves — one with X, one with Y", "X vs Y", etc.
+  {
+    const halves = detectComparison(combined);
+    if (halves) return <ComparisonCard halves={halves} figure={page.figure || ""} />;
+  }
+
+  // 13c) Flashcard / teacher's-card — quoted teaching tips.
+  {
+    const tip = detectFlashCard(combined);
+    if (tip) return <FlashCard tip={tip} figure={page.figure || ""} />;
+  }
+
+  // 13d) Single big word — "PERFORMANCE", "voicing highlighted",
+  // "Italian word: rubato".
+  {
+    const word = detectBigWord(combined);
+    if (word) return <BigWordCard word={word} figure={page.figure || ""} />;
   }
 
   // 14) Defaults by page mode/type — better than dropping to plain text.
