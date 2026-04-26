@@ -21,6 +21,20 @@ import type { LessonV2 } from "@/lib/music/lessonsV2";
 
 const STORAGE_KEY = "sonata.v2.pieces";
 
+/**
+ * Capacitor's iOS WKWebView serves the app from `capacitor://localhost`.
+ * Our API routes only exist on the web origin (Vercel), so we have to
+ * point fetches there explicitly. On the actual web app the relative
+ * path is fine.
+ */
+function apiBase(): string {
+  if (typeof window === "undefined") return "";
+  if (window.location.protocol === "capacitor:") {
+    return "https://learnwithsonata.com";
+  }
+  return "";
+}
+
 // ------------------------------------------------------------------
 // Persistent state — stored locally for now
 // ------------------------------------------------------------------
@@ -88,7 +102,14 @@ export function MySongsScreen({ onBackToMenu }: MySongsScreenProps) {
     setRunningError(null);
     setRunningLoading(true);
     try {
-      const resp = await fetch(`/api/lesson/${conceptId}`);
+      // Always hit the web origin so the iOS Capacitor build calls the
+      // server-rendered API directly (the API isn't bundled in the
+      // static iOS export). See apiBase() helper at top of file.
+      const resp = await fetch(`${apiBase()}/api/lesson`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ concept: conceptId }),
+      });
       if (!resp.ok) {
         const txt = await resp.text();
         throw new Error(`lesson fetch failed: ${resp.status} ${txt}`);
@@ -281,7 +302,7 @@ function UploadCard({
       const fd = new FormData();
       fd.append("file", file);
       setStage("analyzing");
-      const resp = await fetch("/api/piece/upload", { method: "POST", body: fd });
+      const resp = await fetch(`${apiBase()}/api/piece/upload`, { method: "POST", body: fd });
       const j = await resp.json();
       if (!resp.ok) throw new Error(j.error || "upload failed");
       setAnalysis({
@@ -305,7 +326,7 @@ function UploadCard({
     try {
       // Phase A: assume user is a complete beginner (mastered = []).
       // Phase B: pull mastered set from a real placement test.
-      const resp = await fetch("/api/path/generate", {
+      const resp = await fetch(`${apiBase()}/api/path/generate`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ mastered: [], required: analysis.concepts }),

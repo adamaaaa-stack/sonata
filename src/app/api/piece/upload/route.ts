@@ -15,7 +15,12 @@ import { NextResponse } from "next/server";
 import { analyzePiece } from "@/lib/v2/pieceAnalyzer";
 
 const PIECES_DIR = path.join(process.cwd(), "content/cache/pieces");
-fs.mkdirSync(PIECES_DIR, { recursive: true });
+let piecesDirReady = false;
+function ensurePiecesDir(): void {
+  if (piecesDirReady) return;
+  fs.mkdirSync(PIECES_DIR, { recursive: true });
+  piecesDirReady = true;
+}
 
 const ALLOWED_TYPES = new Set([
   "image/png",
@@ -73,6 +78,7 @@ export async function POST(req: Request) {
     );
   }
 
+  ensurePiecesDir();
   const buf = Buffer.from(await file.arrayBuffer());
   const pieceId = genPieceId();
   const ext = extForType(file.type);

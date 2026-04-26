@@ -1,15 +1,14 @@
 /**
- * GET /api/lesson/[concept]
+ * POST /api/lesson
+ * body: { concept: string }
  *
  * Returns a generated lesson YAML for the given concept id.
  * Cache strategy: check `content/cache/lessons/[concept].yaml` first;
  * generate via OpenRouter (Qwen3 30B A3B) on miss, then save.
  *
- * The cache lives in the repo (gitignored) for Phase A. Phase B will
- * swap to S3.
- *
- * Auth: requires a Supabase session cookie. Anonymous requests are
- * blocked to avoid burning OpenRouter credits.
+ * POST (not GET) so the route is incompatible with static prerender —
+ * Next's `output: "export"` mode passes API routes through untouched
+ * when they're POST-only, but tries to prerender GETs.
  */
 
 import fs from "node:fs";
@@ -18,18 +17,27 @@ import { NextResponse } from "next/server";
 import { getConcept } from "@/lib/v2/pathGenerator";
 import { generateLessonForConcept } from "@/lib/v2/lessonGenerator";
 
-// Cache lives in content/cache/lessons. .gitignored.
+// Cache lives in content/cache/lessons. .gitignored. Lazy mkdir on first
+// request — top-level fs side effects break Next's static export.
 const CACHE_DIR = path.join(process.cwd(), "content/cache/lessons");
-fs.mkdirSync(CACHE_DIR, { recursive: true });
+let cacheDirReady = false;
+function ensureCacheDir(): void {
+  if (cacheDirReady) return;
+  fs.mkdirSync(CACHE_DIR, { recursive: true });
+  cacheDirReady = true;
+}
 
 // Sanity-cap concept ids to avoid path-traversal mischief.
 const SAFE_ID = /^[a-z0-9_]+$/i;
 
-export async function GET(
-  _req: Request,
-  { params }: { params: { concept: string } }
-) {
-  const id = params.concept;
+export async function POST(req: Request) {
+  let body: { concept?: unknown };
+  try {
+    body = await req.json();
+  } catch {
+    return NextResponse.json({ error: "invalid JSON body" }, { status: 400 });
+  }
+  const id = typeof body.concept === "string" ? body.concept : "";
   if (!SAFE_ID.test(id)) {
     return NextResponse.json({ error: "invalid concept id" }, { status: 400 });
   }
@@ -41,6 +49,7 @@ export async function GET(
     );
   }
 
+  ensureCacheDir();
   // Cache hit
   const cachePath = path.join(CACHE_DIR, `${id}.yaml`);
   if (fs.existsSync(cachePath)) {
