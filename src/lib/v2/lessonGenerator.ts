@@ -134,7 +134,12 @@ export async function generateLessonForConcept(
   const apiKey = process.env.OPENROUTER_API_KEY;
   if (!apiKey) throw new Error("OPENROUTER_API_KEY is not set");
 
-  const modelId = process.env.LESSON_MODEL_ID || "qwen/qwen3-30b-a3b";
+  // DeepSeek V3.2-Exp: ~$0.14/$0.28 per M, dense 36B params (huge step up
+  // from Qwen3 30B-A3B which only activates 3B per token). Significantly
+  // better at structured output, schema adherence, and pedagogical reasoning
+  // — at lower cost than Gemini 2.0 Flash. Override via LESSON_MODEL_ID.
+  const modelId =
+    process.env.LESSON_MODEL_ID || "deepseek/deepseek-v3.2-exp";
   const referenceBlock = loadReferences();
 
   const userPrompt = `Write a complete Sonata lesson teaching the concept: "${concept.name}".
