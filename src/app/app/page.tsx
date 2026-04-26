@@ -147,7 +147,8 @@ import {
 import type { Question, DrillConfig, RhythmPattern, CatalogEntry, Lesson } from "@/lib/music";
 import { checkAuth, signOut, loadProgress, saveDrillSession, saveLessonComplete, loadLicense } from "@/lib/supabaseData";
 import { Cleffy } from "./Cleffy";
-import { LessonV2Screen } from "./LessonV2";
+// LessonV2Screen is no longer rendered at the top level —
+// MySongsScreen uses it inline.
 import { MySongsScreen } from "./MySongsScreen";
 import { lessonsV2, findLessonV2 } from "@/lib/music/lessonsV2";
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -567,7 +568,9 @@ export default function SonataApp() {
     dispatch({ type: 'START_DRILL', config, questions });
   }
 
-  // ---- OSMD score loading ----
+  // ---- OSMD score loading (unused since the catalog browser was removed —
+  //      kept so legacy LibraryScreen / LessonScreen still compile). ----
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   async function loadScore(url: string, container: HTMLDivElement) {
     try {
       // Clear any existing children (e.g. the React-rendered "Loading
@@ -635,6 +638,7 @@ export default function SonataApp() {
     return notes;
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   async function playScore(tempo: number = 100) {
     const notes = extractScoreNotes();
     if (notes.length === 0) return;
@@ -659,20 +663,8 @@ export default function SonataApp() {
             {state.screen === 'config' && <ConfigScreen dispatch={dispatch} startDrill={startDrill} />}
             {state.screen === 'drill' && <DrillScreen state={state} handleAnswer={handleAnswer} handleEndDrill={handleEndDrill} renderNotation={renderNotation} />}
             {state.screen === 'results' && <ResultsScreen state={state} dispatch={dispatch} />}
-            {state.screen === 'lessons' && <LessonsListScreen state={state} dispatch={dispatch} />}
-            {state.screen === 'lesson' && (() => {
-              const v2 = findLessonV2(state.currentLesson);
-              if (v2) {
-                return (
-                  <LessonV2Screen
-                    lesson={v2}
-                    onExit={() => { stopSpeaking(); dispatch({ type: 'SET_SCREEN', screen: 'lessons' }); }}
-                    onComplete={() => { stopSpeaking(); dispatch({ type: 'COMPLETE_LESSON' }); dispatch({ type: 'SET_SCREEN', screen: 'lessons' }); }}
-                  />
-                );
-              }
-              return <LessonScreen state={state} dispatch={dispatch} renderNotation={renderNotation} loadScore={loadScore} playScore={playScore} />;
-            })()}
+            {/* v1 lesson list + lesson player removed — generated lessons
+                run inline inside MySongsScreen via LessonV2Screen. */}
             {state.screen === 'library' && (
               <MySongsScreen
                 onBackToMenu={() => dispatch({ type: 'SET_SCREEN', screen: 'menu' })}
@@ -1287,6 +1279,7 @@ function MenuScreen({ state, dispatch }: { state: AppState; dispatch: React.Disp
   }, []);
 
   const name = email ? email.split('@')[0].replace(/[._-]+/g, ' ').replace(/\b\w/g, c => c.toUpperCase()) : '';
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const lessonPct = Math.round(state.lessonsCompleted.length / lessonsV2.length * 100);
   const nextLesson = getNextLesson(state.lessonsCompleted);
   const achievements = getAchievements(state);
@@ -1322,10 +1315,9 @@ function MenuScreen({ state, dispatch }: { state: AppState; dispatch: React.Disp
   const featuredPiece = CATALOG.length > 0 ? CATALOG[dayIndex % CATALOG.length] : null;
   const featuredIndex = CATALOG.length > 0 ? (dayIndex % CATALOG.length) : 0;
 
-  // Continue-card data — falls back to "Lessons" tile when no current lesson
-  const continueCard = nextLesson
-    ? { label: 'Lessons', sub: `Lesson ${nextLesson.id} · ${nextLesson.title}`, pct: lessonPct }
-    : { label: 'Lessons', sub: 'Start your journey', pct: 0 };
+  // Continue-card data — points at My Songs (the upload-and-learn flow).
+  // The old "next lesson" curriculum is no longer the primary path.
+  const continueCard = { label: 'My Songs', sub: 'Upload sheet music', pct: 0 };
 
   // Tile data — wires to existing reducer actions
   const tiles: { id: string; label: string; sub: string; color: ChunkyColor; glyph: string; onClick: () => void }[] = [
@@ -1394,7 +1386,7 @@ function MenuScreen({ state, dispatch }: { state: AppState; dispatch: React.Disp
         <ChunkyCard
           color="peach"
           padding={24}
-          onClick={() => { hSelect(); unlockAudio(); if (nextLesson) dispatch({ type: 'START_LESSON', id: nextLesson.id }); else dispatch({ type: 'SET_SCREEN', screen: 'lessons' }); }}
+          onClick={() => { hSelect(); unlockAudio(); dispatch({ type: 'SET_SCREEN', screen: 'library' }); }}
           style={{ gridColumn: 'span 2', minHeight: 220, display: 'flex', flexDirection: 'column', justifyContent: 'space-between', position: 'relative', overflow: 'hidden' }}
         >
           <div aria-hidden="true" style={{ position: 'absolute', top: 10, right: 20, fontSize: 140, fontFamily: 'var(--serif)', color: 'var(--ink)', opacity: 0.15, lineHeight: 1, fontStyle: 'italic' }}>📖</div>
@@ -1940,8 +1932,10 @@ function ResultsScreen({ state, dispatch }: { state: AppState; dispatch: React.D
 }
 
 // ============================================================
-// SCREEN: LESSONS LIST
+// SCREEN: LESSONS LIST  (legacy — replaced by MySongsScreen.
+// Kept in source for reference; never rendered.)
 // ============================================================
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 function LessonsListScreen({ state, dispatch }: { state: AppState; dispatch: React.Dispatch<Action> }) {
   const tileColors: ChunkyColor[] = ['gold', 'mint', 'sky', 'lilac', 'peach', 'coral', 'berry'];
   return (
@@ -2004,8 +1998,11 @@ function LessonsListScreen({ state, dispatch }: { state: AppState; dispatch: Rea
 }
 
 // ============================================================
-// SCREEN: LESSON (concepts / piece / complete)
+// SCREEN: LESSON (concepts / piece / complete)  (legacy v1 player —
+// never rendered now that generated lessons run via LessonV2 inline
+// inside MySongsScreen. Kept for reference.)
 // ============================================================
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 function LessonScreen({ state, dispatch, renderNotation, loadScore, playScore }: {
   state: AppState; dispatch: React.Dispatch<Action>;
   renderNotation: (abc: string, el: HTMLDivElement | null, w?: number, scale?: number) => void;
