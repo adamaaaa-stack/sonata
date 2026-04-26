@@ -228,7 +228,15 @@ export function DrillInteractionCard({
           const count =
             typeof interaction.rounds === "number" ? interaction.rounds : 4;
           const q = interaction.question || "Listen";
-          const opts = interaction.options || ["A", "B"];
+          const opts = interaction.options;
+          // CRITICAL: do NOT fall back to ["A", "B"]. ~64 lessons in the
+          // hand-authored corpus have drill interactions without explicit
+          // options — falling back to literal letter names "A" and "B"
+          // produced bogus tests asking the student about notes that
+          // hadn't been introduced. Without options we have no
+          // pedagogical content to drill, so emit zero rounds and let
+          // the empty-state branch below render a graceful skip.
+          if (!opts || opts.length === 0) return [];
           return Array.from({ length: count }, () => makeRound(q, opts));
         })();
     return built.filter((r): r is Round => r != null);

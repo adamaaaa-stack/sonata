@@ -1065,6 +1065,16 @@ export function FigureRouter({
 }) {
   const fig = page.figure || "";
   const isFirstPage = pageIdx === 0;
+  // The figure text alone often misses obvious clues — Cleffy's narration
+  // says "stairs" or "Middle C" etc. while the figure description is
+  // generic ("a postcard", "notes side by side"). Combine both for
+  // keyword matching so far fewer pages fall through to the plain text
+  // GenericFigureCard.
+  const cleffyText =
+    [page.cleffy, page.completion_cleffy, page.followup_cleffy]
+      .filter(Boolean)
+      .join(" ");
+  const combined = `${fig} ${cleffyText}`;
 
   // 1) Graduation / tier-boss / mid-boss / act-boss — wrap page gets a celebration card.
   if (
@@ -1081,14 +1091,14 @@ export function FigureRouter({
   if (page.type === "whats_next" || page.type === "whats_next_life_after") {
     return <Pyramid lessonId={lesson.id} previewTier={Math.min(currentTierIndex(lesson.id) + 1, 5)} />;
   }
-  if (hasKeyword(fig, "pyramid")) {
-    const preview = hasKeyword(fig, "preview") ? Math.min(currentTierIndex(lesson.id) + 1, 5) : undefined;
+  if (hasKeyword(combined, "pyramid")) {
+    const preview = hasKeyword(combined, "preview") ? Math.min(currentTierIndex(lesson.id) + 1, 5) : undefined;
     return <Pyramid lessonId={lesson.id} previewTier={preview} />;
   }
 
-  // 3) Staircase when the figure talks about stairs.
-  if (hasKeyword(fig, "staircase", "stairs", "stair")) {
-    const steps = /(\d{1,2})\s*(stairs|steps)/i.exec(fig)?.[1];
+  // 3) Staircase when figure OR cleffy text talks about stairs.
+  if (hasKeyword(combined, "staircase", "stairs", "stair")) {
+    const steps = /(\d{1,2})\s*(stairs|steps)/i.exec(combined)?.[1];
     const parsed = steps ? parseInt(steps, 10) : 10;
     return (
       <Staircase
@@ -1105,19 +1115,19 @@ export function FigureRouter({
   }
 
   // 5) Wrap / celebration keywords on non-boss pages
-  if (hasKeyword(fig, "celebration", "trophy", "complete", "confetti")) {
+  if (hasKeyword(combined, "celebration", "trophy", "complete", "confetti", "you did it", "well done")) {
     return <CelebrationCard lesson={lesson} />;
   }
 
   // 6) Hand / finger diagrams
-  if (hasKeyword(fig, "finger", "thumb", "pinky", "hand", "palm")) {
+  if (hasKeyword(combined, "finger", "thumb", "pinky", "hand", "palm")) {
     return <HandDiagram page={page} />;
   }
 
   // 7) Rhythm / time-signature / note-duration figures
   if (
     hasKeyword(
-      fig,
+      combined,
       "metronome",
       "time signature",
       "beat",
@@ -1126,6 +1136,8 @@ export function FigureRouter({
       "half note",
       "quarter note",
       "eighth note",
+      "dotted",
+      "rhythm",
       "4/4",
       "3/4",
       "2/4",
@@ -1138,7 +1150,7 @@ export function FigureRouter({
   // 8) Staff / clef / notation figures
   if (
     hasKeyword(
-      fig,
+      combined,
       "staff",
       "clef",
       "treble",
@@ -1146,16 +1158,23 @@ export function FigureRouter({
       "grand staff",
       "ledger",
       "notation",
-      "music line"
+      "music line",
+      "five lines",
+      "five-line",
+      "line note",
+      "space note",
+      "lines and spaces"
     )
   ) {
     return <StaffMini page={page} />;
   }
 
-  // 9) Keyboard / piano / black-key figures
+  // 9) Keyboard / piano / black-key figures — wide net so anything that
+  // mentions keys, notes by letter, or note groups lands on the keyboard
+  // mini-render rather than falling through to plain text.
   if (
     hasKeyword(
-      fig,
+      combined,
       "keyboard",
       "piano",
       "black-key",
@@ -1163,8 +1182,16 @@ export function FigureRouter({
       "white key",
       "white-key",
       "2-group",
-      "3-group"
+      "3-group",
+      "two-group",
+      "three-group",
+      "middle c",
+      "the keys",
+      "tap any",
+      "play any"
     ) ||
+    /\b[A-G](?:[#b])?[1-7]\b/.test(combined) || // explicit pitch like C4, F#5
+    /\b(C|D|E|F|G|A|B) (key|note)\b/i.test(combined) ||
     pageHighlightMidis(page).length > 0
   ) {
     return <KeyboardMini page={page} />;
@@ -1174,7 +1201,7 @@ export function FigureRouter({
   //     answer chips. Used for see/hear-section quiz pages.
   if (
     hasKeyword(
-      fig,
+      combined,
       "banner",
       "round counter",
       "rounds",
@@ -1185,13 +1212,22 @@ export function FigureRouter({
       "playback card",
       "playback cards",
       "answer button",
-      "answer buttons"
+      "answer buttons",
+      "round 1",
+      "round counter"
     )
   ) {
     return <QuizScaffold figure={page.figure || ""} />;
   }
 
-  // 11) Final fallback — stylised description card. Always renders something
-  //     so the student can read what the figure should show.
+  // 11) Defaults by page mode/type — better than dropping to plain text.
+  // Any play page should show the keyboard. Hear pages with no other
+  // signal probably involve listening to a note, so also keyboard.
+  if (page.mode === "play" || page.mode === "hear") {
+    return <KeyboardMini page={page} />;
+  }
+
+  // 12) Final fallback — stylised description card. Always renders
+  //     something so the student can read what the figure should show.
   return <GenericFigureCard figure={page.figure || ""} />;
 }
