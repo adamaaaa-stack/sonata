@@ -148,6 +148,7 @@ import type { Question, DrillConfig, RhythmPattern, CatalogEntry, Lesson } from 
 import { checkAuth, signOut, loadProgress, saveDrillSession, saveLessonComplete, loadLicense } from "@/lib/supabaseData";
 import { Cleffy } from "./Cleffy";
 import { LessonV2Screen } from "./LessonV2";
+import { MySongsScreen } from "./MySongsScreen";
 import { lessonsV2, findLessonV2 } from "@/lib/music/lessonsV2";
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { ChunkyButton, Sticker, StaffBG, FloatingNotes, StreakFlame, DotRow, Candle, ChunkyCard, type ChunkyColor } from "./design";
@@ -672,7 +673,11 @@ export default function SonataApp() {
               }
               return <LessonScreen state={state} dispatch={dispatch} renderNotation={renderNotation} loadScore={loadScore} playScore={playScore} />;
             })()}
-            {state.screen === 'library' && <LibraryScreen state={state} dispatch={dispatch} loadScore={loadScore} playScore={playScore} />}
+            {state.screen === 'library' && (
+              <MySongsScreen
+                onBackToMenu={() => dispatch({ type: 'SET_SCREEN', screen: 'menu' })}
+              />
+            )}
             {state.screen === 'progress' && <ProgressScreen state={state} dispatch={dispatch} />}
             {state.screen === 'sightReading' && <SightReadingScreen dispatch={dispatch} renderNotation={renderNotation} userId={state.user?.id} />}
             {state.screen === 'rhythm' && <RhythmScreen dispatch={dispatch} userId={state.user?.id} />}
@@ -1327,7 +1332,7 @@ function MenuScreen({ state, dispatch }: { state: AppState; dispatch: React.Disp
     { id: 'drill',    label: 'Drill',    sub: 'Note ID · Intervals',  color: 'coral', glyph: '𝄞', onClick: () => dispatch({ type: 'SET_SCREEN', screen: 'config' }) },
     { id: 'sight',    label: 'Sight',    sub: 'Read & play',          color: 'mint',  glyph: '𝆕', onClick: () => dispatch({ type: 'SET_SCREEN', screen: 'sightReading' }) },
     { id: 'rhythm',   label: 'Rhythm',   sub: 'Tap the pulse',        color: 'lilac', glyph: '♩', onClick: () => dispatch({ type: 'SET_SCREEN', screen: 'rhythm' }) },
-    { id: 'library',  label: 'Library',  sub: `${CATALOG.length} pieces`, color: 'sky', glyph: '♪', onClick: () => dispatch({ type: 'SET_SCREEN', screen: 'library' }) },
+    { id: 'library',  label: 'My Songs', sub: 'Upload sheet music', color: 'sky', glyph: '♪', onClick: () => dispatch({ type: 'SET_SCREEN', screen: 'library' }) },
     { id: 'progress', label: 'Progress', sub: `${streak}-day streak`, color: 'berry', glyph: '✦', onClick: () => dispatch({ type: 'SET_SCREEN', screen: 'progress' }) },
   ];
 
@@ -2423,8 +2428,10 @@ function LessonComplete({ lesson, dispatch }: { lesson: Lesson; dispatch: React.
 }
 
 // ============================================================
-// SCREEN: LIBRARY
+// SCREEN: LIBRARY  (legacy — replaced by MySongsScreen for v2.
+// Kept in source so we can revive the catalog browser if needed.)
 // ============================================================
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 function LibraryScreen({ state, dispatch, loadScore, playScore }: {
   state: AppState; dispatch: React.Dispatch<Action>;
   loadScore: (url: string, container: HTMLDivElement) => Promise<void>;
