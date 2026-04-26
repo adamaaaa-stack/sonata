@@ -2123,6 +2123,7 @@ export function LessonV2Screen({
             <DrillInteractionCard
               key={`drill-${pageIdx}`}
               interaction={page.interaction}
+              lesson={lesson}
             />
           )}
 

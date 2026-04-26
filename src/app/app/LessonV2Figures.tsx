@@ -2437,6 +2437,39 @@ export function FigureRouter({
       panel at all is made upstream by hasRenderedFigure. */
   hasKeyboardNotes?: boolean;
 }) {
+  // "Same again" / "As before" / "Same as last" — placeholders the
+  // author used when a page reuses the prior page's visual. Resolve by
+  // walking back through the lesson for the most recent page with a
+  // substantive figure, then re-route through the router with that page.
+  const rawFig = (page.figure || "").trim();
+  if (
+    /^same again\.?$/i.test(rawFig) ||
+    /^same as (last|before|previous)\b/i.test(rawFig) ||
+    /^as before\.?$/i.test(rawFig) ||
+    /^repeat\.?$/i.test(rawFig)
+  ) {
+    const lookbackPages = lesson.pages || [];
+    const myIdx = lookbackPages.findIndex((p) => p.id === page.id);
+    for (let i = (myIdx >= 0 ? myIdx : lookbackPages.length) - 1; i >= 0; i--) {
+      const prev = lookbackPages[i];
+      if (
+        prev?.figure &&
+        prev.figure.trim().length > 0 &&
+        !/^same again|^as before|^same as|^repeat\.?$/i.test(prev.figure.trim())
+      ) {
+        // Inherit the prior page's figure but keep this page's
+        // interaction / cleffy / highlights so context is right.
+        return (
+          <FigureRouter
+            lesson={lesson}
+            page={{ ...page, figure: prev.figure }}
+            pageIdx={pageIdx}
+          />
+        );
+      }
+    }
+  }
+
   const fig = page.figure || "";
   const isFirstPage = pageIdx === 0;
   // The figure text alone often misses obvious clues — Cleffy's narration

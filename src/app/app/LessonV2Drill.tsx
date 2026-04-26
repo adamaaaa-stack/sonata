@@ -14,6 +14,7 @@ import {
   VEL_LOUD,
   VEL_SOFT,
 } from "@/lib/music";
+import { lessonsV2, type LessonV2 } from "@/lib/music/lessonsV2";
 
 // ---------------- Types ----------------
 
@@ -262,14 +263,54 @@ function makeRound(question: string, options: string[]): Round | null {
 
 export function DrillInteractionCard({
   interaction,
+  lesson,
   onDone,
 }: {
   interaction: DrillInteraction;
+  /** Optional lesson context — when present, recap drills with no
+   *  options of their own borrow options from sibling drills earlier
+   *  in the same lesson. */
+  lesson?: LessonV2;
   onDone?: (score: { correct: number; total: number }) => void;
 }) {
   // Build the round list. Recompute when the interaction changes so drill
   // pages in the same lesson don't share stale rounds.
   const rounds: Round[] = useMemo(() => {
+    // Harvest a recap pool of drill options. First from siblings in
+    // this lesson (most relevant), then from prior lessons (broader
+    // recall) when the current lesson has no eligible siblings.
+    const siblingPool: { question: string; options: string[] }[] = [];
+    function harvestFromLesson(l: LessonV2) {
+      for (const p of l.pages || []) {
+        const it = p.interaction as DrillInteraction | undefined;
+        if (!it || it.type !== "drill") continue;
+        if (it === interaction) continue;
+        if (Array.isArray(it.rounds)) {
+          for (const r of it.rounds) {
+            if (r && Array.isArray(r.options) && r.options.length >= 2) {
+              siblingPool.push({ question: r.question, options: r.options });
+            }
+          }
+        } else if (Array.isArray(it.options) && it.options.length >= 2) {
+          siblingPool.push({
+            question: it.question || "Listen",
+            options: it.options,
+          });
+        }
+      }
+    }
+    if (lesson) harvestFromLesson(lesson);
+    // If the current lesson has nothing to borrow from, walk prior
+    // lessons by id and pull from them. The student is doing a recap;
+    // earlier-lesson concepts are entirely valid material.
+    if (siblingPool.length === 0 && lesson) {
+      for (const l of lessonsV2) {
+        if (l.id >= lesson.id) break;
+        harvestFromLesson(l);
+        if (siblingPool.length >= 8) break; // enough variety
+      }
+    }
+
     const built: (Round | null)[] = Array.isArray(interaction.rounds)
       ? interaction.rounds.map((r) => makeRound(r.question, r.options))
       : (() => {
@@ -277,18 +318,28 @@ export function DrillInteractionCard({
             typeof interaction.rounds === "number" ? interaction.rounds : 4;
           const q = interaction.question || "Listen";
           const opts = interaction.options;
-          // CRITICAL: do NOT fall back to ["A", "B"]. ~64 lessons in the
-          // hand-authored corpus have drill interactions without explicit
-          // options — falling back to literal letter names "A" and "B"
-          // produced bogus tests asking the student about notes that
-          // hadn't been introduced. Without options we have no
-          // pedagogical content to drill, so emit zero rounds and let
-          // the empty-state branch below render a graceful skip.
-          if (!opts || opts.length === 0) return [];
-          return Array.from({ length: count }, () => makeRound(q, opts));
+          // If this drill has its own options, use them directly.
+          if (opts && opts.length > 0) {
+            return Array.from({ length: count }, () => makeRound(q, opts));
+          }
+          // No options of its own — fall back to recap-from-siblings.
+          // Pick a random sibling spec per round so each round can be a
+          // different concept (line/space, then up/down, then loud/soft,
+          // etc — exactly what "Four quick ones" recap drills want).
+          if (siblingPool.length > 0) {
+            return Array.from({ length: count }, () => {
+              const spec = siblingPool[
+                Math.floor(Math.random() * siblingPool.length)
+              ];
+              return makeRound(spec.question, spec.options);
+            });
+          }
+          // Neither own nor siblings have options — emit zero rounds and
+          // let the empty-state branch below render the graceful skip.
+          return [];
         })();
     return built.filter((r): r is Round => r != null);
-  }, [interaction]);
+  }, [interaction, lesson]);
 
   const [idx, setIdx] = useState(0);
   const [picked, setPicked] = useState<number | null>(null);

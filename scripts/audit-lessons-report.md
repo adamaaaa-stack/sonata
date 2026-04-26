@@ -1,6 +1,6 @@
 # Sonata Lesson Audit
 
-Generated: 2026-04-26T15:15:30.912Z
+Generated: 2026-04-26T15:40:43.308Z
 
 Audio checked: no (run with --check-audio for full audio coverage)
 
@@ -11,11 +11,11 @@ Audio checked: no (run with --check-audio for full audio coverage)
 | totalLessons | 250 |
 | totalPages | 3830 |
 | pagesWithFigure | 3830 |
-| pagesFigureRenders | 3804 |
-| pagesFigureFallsThroughToText | 26 |
+| pagesFigureRenders | 3805 |
+| pagesFigureFallsThroughToText | 25 |
 | pagesWithNarration | 3830 |
 | pagesWithAudioMissing | 0 |
-| drillsNoOptions | 63 |
+| drillsNoOptions | 0 |
 | unknownInteractions | 0 |
 | notesOutOfRange | 0 |
 | masteryFiguresUnreachable | 37 |
@@ -24,191 +24,10 @@ Audio checked: no (run with --check-audio for full audio coverage)
 
 | Type | Count |
 |---|---|
-| drill-no-options | 63 |
 | mastery-figure-fallthrough | 37 |
-| figure-fallthrough | 26 |
+| figure-fallthrough | 25 |
 
 ## Issues by lesson
-
-### Lesson 3 — "The black-key map" (1 issue)
-- `drill-no-options` page 14: Drill has no options — will render as graceful skip placeholder
-
-### Lesson 5 — "Any C, anywhere" (1 issue)
-- `drill-no-options` page 12: Drill has no options — will render as graceful skip placeholder
-
-### Lesson 6 — "Finding F" (1 issue)
-- `drill-no-options` page 14: Drill has no options — will render as graceful skip placeholder
-
-### Lesson 7 — "The musical alphabet" (1 issue)
-- `drill-no-options` page 14: Drill has no options — will render as graceful skip placeholder
-
-### Lesson 8 — "Octaves" (1 issue)
-- `drill-no-options` page 14: Drill has no options — will render as graceful skip placeholder
-
-### Lesson 9 — "Finger numbers" (1 issue)
-- `drill-no-options` page 14: Drill has no options — will render as graceful skip placeholder
-
-### Lesson 11 — "The staff" (1 issue)
-- `drill-no-options` page 14: Drill has no options — will render as graceful skip placeholder
-
-### Lesson 12 — "The treble clef" (1 issue)
-- `drill-no-options` page 14: Drill has no options — will render as graceful skip placeholder
-
-### Lesson 13 — "Lines and spaces" (2 issues)
-- `drill-no-options` page 10: Drill has no options — will render as graceful skip placeholder
-- `drill-no-options` page 14: Drill has no options — will render as graceful skip placeholder
-
-### Lesson 14 — "Middle C" (1 issue)
-- `drill-no-options` page 14: Drill has no options — will render as graceful skip placeholder
-
-### Lesson 15 — "Reading Middle C" (2 issues)
-- `drill-no-options` page 10: Drill has no options — will render as graceful skip placeholder
-- `drill-no-options` page 12: Drill has no options — will render as graceful skip placeholder
-
-### Lesson 16 — "Steps" (1 issue)
-- `drill-no-options` page 14: Drill has no options — will render as graceful skip placeholder
-
-### Lesson 17 — "The even rule" (1 issue)
-- `drill-no-options` page 14: Drill has no options — will render as graceful skip placeholder
-
-### Lesson 18 — "Steps up, steps down" (2 issues)
-- `drill-no-options` page 13: Drill has no options — will render as graceful skip placeholder
-- `drill-no-options` page 14: Drill has no options — will render as graceful skip placeholder
-
-### Lesson 19 — "Steps drill" (1 issue)
-- `drill-no-options` page 6: Drill has no options — will render as graceful skip placeholder
-
-### Lesson 21 — "Skips" (1 issue)
-- `drill-no-options` page 14: Drill has no options — will render as graceful skip placeholder
-
-### Lesson 22 — "Steps and skips, together" (2 issues)
-- `drill-no-options` page 13: Drill has no options — will render as graceful skip placeholder
-- `drill-no-options` page 14: Drill has no options — will render as graceful skip placeholder
-
-### Lesson 26 — "The bass clef" (1 issue)
-- `drill-no-options` page 14: Drill has no options — will render as graceful skip placeholder
-
-### Lesson 27 — "Finding bass F" (2 issues)
-- `figure-fallthrough` page 13: Figure won't render visually (will show plain text): "Same again."
-- `drill-no-options` page 14: Drill has no options — will render as graceful skip placeholder
-
-### Lesson 28 — "Your left hand, by the numbers" (1 issue)
-- `drill-no-options` page 14: Drill has no options — will render as graceful skip placeholder
-
-### Lesson 29 — "Bass F and bass C" (1 issue)
-- `drill-no-options` page 14: Drill has no options — will render as graceful skip placeholder
-
-### Lesson 31 — "Skips in the left hand" (1 issue)
-- `drill-no-options` page 14: Drill has no options — will render as graceful skip placeholder
-
-### Lesson 32 — "Rhythm in the left hand" (1 issue)
-- `drill-no-options` page 14: Drill has no options — will render as graceful skip placeholder
-
-### Lesson 34 — "Middle C, on both clefs" (1 issue)
-- `drill-no-options` page 14: Drill has no options — will render as graceful skip placeholder
-
-### Lesson 36 — "Leaps" (1 issue)
-- `drill-no-options` page 14: Drill has no options — will render as graceful skip placeholder
-
-### Lesson 37 — "Leap shapes" (1 issue)
-- `drill-no-options` page 14: Drill has no options — will render as graceful skip placeholder
-
-### Lesson 38 — "Small vs big leap" (1 issue)
-- `drill-no-options` page 14: Drill has no options — will render as graceful skip placeholder
-
-### Lesson 39 — "Leap fingering" (1 issue)
-- `drill-no-options` page 14: Drill has no options — will render as graceful skip placeholder
-
-### Lesson 40 — "Step, skip, leap — all three" (2 issues)
-- `drill-no-options` page 7: Drill has no options — will render as graceful skip placeholder
-- `drill-no-options` page 12: Drill has no options — will render as graceful skip placeholder
-
-### Lesson 41 — "Treble lines, derived from C" (1 issue)
-- `drill-no-options` page 14: Drill has no options — will render as graceful skip placeholder
-
-### Lesson 42 — "Treble spaces, derived from C" (1 issue)
-- `drill-no-options` page 14: Drill has no options — will render as graceful skip placeholder
-
-### Lesson 43 — "Ledger lines" (1 issue)
-- `drill-no-options` page 14: Drill has no options — will render as graceful skip placeholder
-
-### Lesson 44 — "RH five-finger positions" (1 issue)
-- `drill-no-options` page 14: Drill has no options — will render as graceful skip placeholder
-
-### Lesson 46 — "Bass lines, derived from F" (1 issue)
-- `drill-no-options` page 13: Drill has no options — will render as graceful skip placeholder
-
-### Lesson 47 — "Bass spaces, derived from F" (1 issue)
-- `drill-no-options` page 13: Drill has no options — will render as graceful skip placeholder
-
-### Lesson 48 — "Bass ledger lines" (1 issue)
-- `drill-no-options` page 13: Drill has no options — will render as graceful skip placeholder
-
-### Lesson 49 — "LH five-finger positions" (1 issue)
-- `drill-no-options` page 13: Drill has no options — will render as graceful skip placeholder
-
-### Lesson 50 — "Both hands, reading together" (1 issue)
-- `drill-no-options` page 12: Drill has no options — will render as graceful skip placeholder
-
-### Lesson 51 — "Eighth notes" (1 issue)
-- `drill-no-options` page 14: Drill has no options — will render as graceful skip placeholder
-
-### Lesson 52 — "Rests" (1 issue)
-- `drill-no-options` page 14: Drill has no options — will render as graceful skip placeholder
-
-### Lesson 53 — "Dotted notes" (1 issue)
-- `drill-no-options` page 14: Drill has no options — will render as graceful skip placeholder
-
-### Lesson 54 — "Ties vs slurs" (1 issue)
-- `drill-no-options` page 14: Drill has no options — will render as graceful skip placeholder
-
-### Lesson 56 — "Loud and soft" (1 issue)
-- `drill-no-options` page 14: Drill has no options — will render as graceful skip placeholder
-
-### Lesson 57 — "Shape of a phrase" (1 issue)
-- `drill-no-options` page 14: Drill has no options — will render as graceful skip placeholder
-
-### Lesson 58 — "Crescendo and diminuendo" (1 issue)
-- `drill-no-options` page 14: Drill has no options — will render as graceful skip placeholder
-
-### Lesson 59 — "Dynamic drill" (1 issue)
-- `drill-no-options` page 10: Drill has no options — will render as graceful skip placeholder
-
-### Lesson 61 — "Sharps" (1 issue)
-- `drill-no-options` page 14: Drill has no options — will render as graceful skip placeholder
-
-### Lesson 62 — "Flats" (1 issue)
-- `drill-no-options` page 14: Drill has no options — will render as graceful skip placeholder
-
-### Lesson 63 — "Naturals" (1 issue)
-- `drill-no-options` page 14: Drill has no options — will render as graceful skip placeholder
-
-### Lesson 64 — "Accidentals in a bar" (1 issue)
-- `drill-no-options` page 13: Drill has no options — will render as graceful skip placeholder
-
-### Lesson 66 — "Why key signatures exist" (1 issue)
-- `drill-no-options` page 14: Drill has no options — will render as graceful skip placeholder
-
-### Lesson 67 — "G major" (1 issue)
-- `drill-no-options` page 14: Drill has no options — will render as graceful skip placeholder
-
-### Lesson 68 — "F major" (1 issue)
-- `drill-no-options` page 14: Drill has no options — will render as graceful skip placeholder
-
-### Lesson 69 — "Reading in G and F" (1 issue)
-- `drill-no-options` page 14: Drill has no options — will render as graceful skip placeholder
-
-### Lesson 71 — "Five-finger scales" (1 issue)
-- `drill-no-options` page 14: Drill has no options — will render as graceful skip placeholder
-
-### Lesson 72 — "Contour" (1 issue)
-- `drill-no-options` page 14: Drill has no options — will render as graceful skip placeholder
-
-### Lesson 73 — "Sequences" (1 issue)
-- `drill-no-options` page 14: Drill has no options — will render as graceful skip placeholder
-
-### Lesson 74 — "Simple cadences" (1 issue)
-- `drill-no-options` page 14: Drill has no options — will render as graceful skip placeholder
 
 ### Lesson 90 — "Canon in D" (1 issue)
 - `mastery-figure-fallthrough` page mc-see-q3: Mastery see Q3 figure won't match a renderer: "Eight Canon chords labeled with major and minor markings."
@@ -332,6 +151,6 @@ Audio checked: no (run with --check-audio for full audio coverage)
 ### Lesson 250 — "Moonlight Sonata, 1st movement" (1 issue)
 - `mastery-figure-fallthrough` page mc-see-q5: Mastery see Q5 figure won't match a renderer: "A dedication page — Op. 27 No. 2, dedicated to..."
 
-## Lessons with zero issues (162 of 250)
+## Lessons with zero issues (220 of 250)
 
-1, 2, 4, 10, 20, 23, 24, 25, 30, 33, 35, 45, 55, 60, 65, 70, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 91, 93, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 142, 143, 144, 145, 146, 147, 148, 149, 150, 151, 152, 153, 154, 155, 156, 157, 158, 159, 160, 161, 162, 163, 164, 165, 166, 167, 168, 169, 170, 171, 172, 173, 174, 175, 176, 177, 178, 179, 180, 181, 182, 183, 185, 186, 187, 188, 189, 190, 191, 192, 193, 194, 195, 196, 198, 199, 200, 201, 202, 203, 204, 205, 206, 207, 208, 209, 210, 211, 212, 214, 215, 216, 218, 219, 220, 221, 222, 223, 224, 225, 228, 229, 237, 248
+1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 91, 93, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 142, 143, 144, 145, 146, 147, 148, 149, 150, 151, 152, 153, 154, 155, 156, 157, 158, 159, 160, 161, 162, 163, 164, 165, 166, 167, 168, 169, 170, 171, 172, 173, 174, 175, 176, 177, 178, 179, 180, 181, 182, 183, 185, 186, 187, 188, 189, 190, 191, 192, 193, 194, 195, 196, 198, 199, 200, 201, 202, 203, 204, 205, 206, 207, 208, 209, 210, 211, 212, 214, 215, 216, 218, 219, 220, 221, 222, 223, 224, 225, 228, 229, 237, 248

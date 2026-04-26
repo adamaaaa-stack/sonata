@@ -127,7 +127,32 @@ function hasKeywordAny(text, keywords) {
   return false;
 }
 
-function figureWillRender(page) {
+function figureWillRender(page, lesson) {
+  // "Same again" / "As before" / "Repeat" placeholders inherit the
+  // previous page's figure at runtime (see FigureRouter) — count them
+  // as renderable if the lesson has a previous page with a real figure.
+  const fTrim = (page.figure || "").trim();
+  if (
+    /^same again\.?$/i.test(fTrim) ||
+    /^same as (last|before|previous)\b/i.test(fTrim) ||
+    /^as before\.?$/i.test(fTrim) ||
+    /^repeat\.?$/i.test(fTrim)
+  ) {
+    if (lesson?.pages) {
+      const myIdx = lesson.pages.findIndex((p) => p.id === page.id);
+      for (let i = (myIdx >= 0 ? myIdx : lesson.pages.length) - 1; i >= 0; i--) {
+        const prev = lesson.pages[i];
+        if (
+          prev?.figure &&
+          !/^same again|^as before|^same as|^repeat\.?$/i.test((prev.figure || "").trim())
+        ) {
+          return "same-as-prev";
+        }
+      }
+    }
+    return null;
+  }
+
   const text = combinedFigureText(page);
   // Order mirrors FigureRouter's tiers
   if (page.type === "wrap" && (page.is_graduation || page.is_tier_boss || page.is_mid_boss || page.is_act_boss))
@@ -297,7 +322,7 @@ for (const lesson of lessons) {
     // Figure rendering
     if (page.figure) {
       stats.pagesWithFigure++;
-      const renders = figureWillRender(page);
+      const renders = figureWillRender(page, lesson);
       if (renders) {
         stats.pagesFigureRenders++;
       } else {
@@ -335,15 +360,46 @@ for (const lesson of lessons) {
         const hasOptionsOnRoot = Array.isArray(it.options) && it.options.length > 0;
         const hasPerRound =
           Array.isArray(it.rounds) &&
-          it.rounds.every((r) => r && Array.isArray(r.options) && r.options.length > 0);
-        if (!hasOptionsOnRoot && !hasPerRound) {
-          stats.drillsNoOptions++;
-          recordIssue(
-            lid,
-            pid,
-            "drill-no-options",
-            "Drill has no options — will render as graceful skip placeholder"
+          it.rounds.some(
+            (r) => r && Array.isArray(r.options) && r.options.length > 0
           );
+        // A drill is "broken" only if it can't render ANY round —
+        // - no own options, AND
+        // - no per-round options on any round, AND
+        // - no sibling drill in the lesson has options to borrow from
+        //   (the player now harvests sibling options for recap drills)
+        if (!hasOptionsOnRoot && !hasPerRound) {
+          // Player borrows options from siblings in this lesson, AND
+          // from prior lessons if no siblings have options. Only flag
+          // if NO drill anywhere in the corpus up to and including this
+          // lesson has options.
+          function lessonHasUsableDrill(l) {
+            return (l.pages || []).some((p) => {
+              if (!p.interaction || p.interaction === it) return false;
+              if (p.interaction.type !== "drill") return false;
+              const sib = p.interaction;
+              const sibRoot =
+                Array.isArray(sib.options) && sib.options.length > 0;
+              const sibPer =
+                Array.isArray(sib.rounds) &&
+                sib.rounds.some(
+                  (r) => r && Array.isArray(r.options) && r.options.length > 0
+                );
+              return sibRoot || sibPer;
+            });
+          }
+          const anyAvailable =
+            lessonHasUsableDrill(lesson) ||
+            lessons.some((l) => l.id < lesson.id && lessonHasUsableDrill(l));
+          if (!anyAvailable) {
+            stats.drillsNoOptions++;
+            recordIssue(
+              lid,
+              pid,
+              "drill-no-options",
+              "Drill has no options and no sibling drills to recap — will render skip placeholder"
+            );
+          }
         }
       }
       // Notes out of range
