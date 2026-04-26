@@ -46,3 +46,9 @@ next-env.d.ts
 
 # TTS dev tooling lives outside the app
 /tts/
+
+# Playwright e2e test artifacts
+/tests/e2e/.auth
+/tests/e2e/.report
+/test-results
+/playwright-report

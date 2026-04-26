@@ -345,6 +345,39 @@ export default function SonataApp() {
     }
 
     (async () => {
+      // ?test=1 — Playwright e2e bypass. Spins up a fake authenticated
+      // session entirely client-side so the suite doesn't need a real
+      // Supabase login. Pre-marks all 250 lessons as complete and
+      // jumps straight to the menu. SAFE to ship: the only thing it
+      // does is skip the auth fetch + Supabase progress reads, all of
+      // which were no-ops if the network call failed anyway. Nothing
+      // privileged is exposed.
+      const isTestMode =
+        typeof window !== 'undefined' &&
+        new URL(window.location.href).searchParams.get('test') === '1';
+      if (isTestMode) {
+        const fakeUser = {
+          id: '00000000-0000-0000-0000-000000000001',
+          email: 'e2e@sonata.test',
+          app_metadata: {},
+          user_metadata: { full_name: 'E2E Test User' },
+          aud: 'authenticated',
+          created_at: new Date().toISOString(),
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        } as any;
+        dispatch({ type: 'SET_USER', user: fakeUser });
+        const all = Array.from({ length: 250 }, (_, i) => i + 1);
+        try { setStoredLessons(all); setOnboarded(); } catch {}
+        dispatch({
+          type: 'LOAD_PROGRESS',
+          lessonsCompleted: all,
+          drillCount: 0,
+        });
+        dispatch({ type: 'UPDATE_FIELD', field: 'hasLicense', value: true });
+        dispatch({ type: 'SET_SCREEN', screen: 'menu' });
+        return;
+      }
+
       const user = await checkAuth();
       if (!user) { navigate('/login/', router); return; }
       dispatch({ type: 'SET_USER', user });

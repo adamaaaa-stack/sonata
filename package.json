@@ -13,7 +13,11 @@
     "cap:android": "npx cap open android",
     "mobile:ios": "npm run build:mobile && npm run cap:sync && npm run cap:ios",
     "mobile:android": "npm run build:mobile && npm run cap:sync && npm run cap:android",
-    "ship": "npm run build && npm run build:mobile && npx cap sync ios"
+    "ship": "npm run build && npm run build:mobile && npx cap sync ios",
+    "test:e2e": "playwright test",
+    "test:e2e:setup": "playwright test --project=setup --headed",
+    "test:e2e:lessons": "playwright test lessons",
+    "test:e2e:smoke": "playwright test menu drill sight rhythm"
   },
   "dependencies": {
     "@capacitor/android": "^8.3.0",
@@ -42,6 +46,7 @@
     "tone": "^15.1.22"
   },
   "devDependencies": {
+    "@playwright/test": "^1.59.1",
     "@types/js-yaml": "^4.0.9",
     "@types/node": "^20",
     "@types/qrcode": "^1.5.6",
