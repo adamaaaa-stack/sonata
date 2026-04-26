@@ -148,8 +148,10 @@ import type { Question, DrillConfig, RhythmPattern, CatalogEntry, Lesson } from 
 import { checkAuth, signOut, loadProgress, saveDrillSession, saveLessonComplete, loadLicense } from "@/lib/supabaseData";
 import { Cleffy } from "./Cleffy";
 // LessonV2Screen is no longer rendered at the top level —
-// MySongsScreen uses it inline.
-import { MySongsScreen } from "./MySongsScreen";
+// MySongsScreen (the upload-piece flow) is unplugged from navigation;
+// the file remains in the repo for future reference but is no longer
+// imported here. The 250 hand-authored lessons are the primary path
+// again — see LessonsListScreen / LessonScreen below.
 import { lessonsV2, findLessonV2 } from "@/lib/music/lessonsV2";
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { ChunkyButton, Sticker, StaffBG, FloatingNotes, StreakFlame, DotRow, Candle, ChunkyCard, type ChunkyColor } from "./design";
@@ -663,13 +665,9 @@ export default function SonataApp() {
             {state.screen === 'config' && <ConfigScreen dispatch={dispatch} startDrill={startDrill} />}
             {state.screen === 'drill' && <DrillScreen state={state} handleAnswer={handleAnswer} handleEndDrill={handleEndDrill} renderNotation={renderNotation} />}
             {state.screen === 'results' && <ResultsScreen state={state} dispatch={dispatch} />}
-            {/* v1 lesson list + lesson player removed — generated lessons
-                run inline inside MySongsScreen via LessonV2Screen. */}
-            {state.screen === 'library' && (
-              <MySongsScreen
-                onBackToMenu={() => dispatch({ type: 'SET_SCREEN', screen: 'menu' })}
-              />
-            )}
+            {state.screen === 'lessons' && <LessonsListScreen state={state} dispatch={dispatch} />}
+            {state.screen === 'lesson' && <LessonScreen state={state} dispatch={dispatch} renderNotation={renderNotation} loadScore={loadScore} playScore={playScore} />}
+            {state.screen === 'library' && <LibraryScreen state={state} dispatch={dispatch} loadScore={loadScore} playScore={playScore} />}
             {state.screen === 'progress' && <ProgressScreen state={state} dispatch={dispatch} />}
             {state.screen === 'sightReading' && <SightReadingScreen dispatch={dispatch} renderNotation={renderNotation} userId={state.user?.id} />}
             {state.screen === 'rhythm' && <RhythmScreen dispatch={dispatch} userId={state.user?.id} />}
@@ -1315,16 +1313,24 @@ function MenuScreen({ state, dispatch }: { state: AppState; dispatch: React.Disp
   const featuredPiece = CATALOG.length > 0 ? CATALOG[dayIndex % CATALOG.length] : null;
   const featuredIndex = CATALOG.length > 0 ? (dayIndex % CATALOG.length) : 0;
 
-  // Continue-card data — points at My Songs (the upload-and-learn flow).
-  // The old "next lesson" curriculum is no longer the primary path.
-  const continueCard = { label: 'My Songs', sub: 'Upload sheet music', pct: 0 };
+  // Continue-card data — points at the next lesson on the curriculum
+  // path. Lesson 1 if the user is brand new.
+  const continueCard = nextLesson
+    ? {
+        label: nextLesson.title,
+        sub: `Lesson ${nextLesson.id} of ${lessonsV2.length}`,
+        pct: Math.round(
+          (state.lessonsCompleted.length / lessonsV2.length) * 100
+        ),
+      }
+    : { label: 'All lessons done', sub: 'Replay any lesson', pct: 100 };
 
   // Tile data — wires to existing reducer actions
   const tiles: { id: string; label: string; sub: string; color: ChunkyColor; glyph: string; onClick: () => void }[] = [
     { id: 'drill',    label: 'Drill',    sub: 'Note ID · Intervals',  color: 'coral', glyph: '𝄞', onClick: () => dispatch({ type: 'SET_SCREEN', screen: 'config' }) },
     { id: 'sight',    label: 'Sight',    sub: 'Read & play',          color: 'mint',  glyph: '𝆕', onClick: () => dispatch({ type: 'SET_SCREEN', screen: 'sightReading' }) },
     { id: 'rhythm',   label: 'Rhythm',   sub: 'Tap the pulse',        color: 'lilac', glyph: '♩', onClick: () => dispatch({ type: 'SET_SCREEN', screen: 'rhythm' }) },
-    { id: 'library',  label: 'My Songs', sub: 'Upload sheet music', color: 'sky', glyph: '♪', onClick: () => dispatch({ type: 'SET_SCREEN', screen: 'library' }) },
+    { id: 'library',  label: 'Library',  sub: 'Browse pieces',           color: 'sky', glyph: '♪', onClick: () => dispatch({ type: 'SET_SCREEN', screen: 'library' }) },
     { id: 'progress', label: 'Progress', sub: `${streak}-day streak`, color: 'berry', glyph: '✦', onClick: () => dispatch({ type: 'SET_SCREEN', screen: 'progress' }) },
   ];
 
@@ -1386,7 +1392,15 @@ function MenuScreen({ state, dispatch }: { state: AppState; dispatch: React.Disp
         <ChunkyCard
           color="peach"
           padding={24}
-          onClick={() => { hSelect(); unlockAudio(); dispatch({ type: 'SET_SCREEN', screen: 'library' }); }}
+          onClick={() => {
+            hSelect();
+            unlockAudio();
+            if (nextLesson) {
+              dispatch({ type: 'START_LESSON', id: nextLesson.id });
+            } else {
+              dispatch({ type: 'SET_SCREEN', screen: 'lessons' });
+            }
+          }}
           style={{ gridColumn: 'span 2', minHeight: 220, display: 'flex', flexDirection: 'column', justifyContent: 'space-between', position: 'relative', overflow: 'hidden' }}
         >
           <div aria-hidden="true" style={{ position: 'absolute', top: 10, right: 20, fontSize: 140, fontFamily: 'var(--serif)', color: 'var(--ink)', opacity: 0.15, lineHeight: 1, fontStyle: 'italic' }}>📖</div>
@@ -1932,10 +1946,10 @@ function ResultsScreen({ state, dispatch }: { state: AppState; dispatch: React.D
 }
 
 // ============================================================
-// SCREEN: LESSONS LIST  (legacy — replaced by MySongsScreen.
-// Kept in source for reference; never rendered.)
+// SCREEN: LESSONS LIST
+// The 250 hand-authored lessons, ordered. Tapping a tile dispatches
+// START_LESSON which routes to LessonScreen below.
 // ============================================================
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 function LessonsListScreen({ state, dispatch }: { state: AppState; dispatch: React.Dispatch<Action> }) {
   const tileColors: ChunkyColor[] = ['gold', 'mint', 'sky', 'lilac', 'peach', 'coral', 'berry'];
   return (
@@ -1998,11 +2012,9 @@ function LessonsListScreen({ state, dispatch }: { state: AppState; dispatch: Rea
 }
 
 // ============================================================
-// SCREEN: LESSON (concepts / piece / complete)  (legacy v1 player —
-// never rendered now that generated lessons run via LessonV2 inline
-// inside MySongsScreen. Kept for reference.)
+// SCREEN: LESSON (concepts / piece / complete)
+// Loads the LessonV2 lesson by id and runs the page-by-page player.
 // ============================================================
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 function LessonScreen({ state, dispatch, renderNotation, loadScore, playScore }: {
   state: AppState; dispatch: React.Dispatch<Action>;
   renderNotation: (abc: string, el: HTMLDivElement | null, w?: number, scale?: number) => void;
@@ -2425,10 +2437,9 @@ function LessonComplete({ lesson, dispatch }: { lesson: Lesson; dispatch: React.
 }
 
 // ============================================================
-// SCREEN: LIBRARY  (legacy — replaced by MySongsScreen for v2.
-// Kept in source so we can revive the catalog browser if needed.)
+// SCREEN: LIBRARY
+// Catalog of pieces — separate from the lessons curriculum.
 // ============================================================
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 function LibraryScreen({ state, dispatch, loadScore, playScore }: {
   state: AppState; dispatch: React.Dispatch<Action>;
   loadScore: (url: string, container: HTMLDivElement) => Promise<void>;
