@@ -682,6 +682,13 @@ export default function SonataApp() {
                     onComplete={() => {
                       if (!state.lessonsCompleted.includes(v2.id)) {
                         dispatch({ type: 'COMPLETE_LESSON' });
+                        // Persist to Supabase + the local practice-day
+                        // streak. Same calls the legacy player makes so
+                        // progress shows up everywhere it should.
+                        if (state.user) {
+                          saveLessonComplete(state.user.id, v2.id, 1.0);
+                        }
+                        recordPractice(state.user?.id);
                       }
                       dispatch({ type: 'SET_SCREEN', screen: 'lessons' });
                     }}

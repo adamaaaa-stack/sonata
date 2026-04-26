@@ -86,21 +86,23 @@ export function MicListenCard({
     };
   }, []);
 
-  // Always-on mic. Try to start on every mount, regardless of any prior
-  // consent flag. iOS returns the stream silently if the user already
-  // granted permission for this origin; if not, getUserMedia rejects and
-  // we surface the error in the pill.
+  // Auto-start the mic ONLY if the user has previously granted permission
+  // (consent flag stored in localStorage). On the very first mic-needing
+  // page, we require an explicit tap on the "Tap to start listening"
+  // button — otherwise iOS WKWebView shows a native permission dialog
+  // that freezes the WebView mid-render, looking like the app crashed.
   //
-  // The previous gesture-driven auto-start was unreliable: navigating to
-  // the lesson is itself a gesture, but the activation window can expire
-  // before our useEffect runs on slower devices (cold-start iPad). We
-  // attempt the call immediately; if iOS rejects for "user activation
-  // required", the user can tap the pill once and we never prompt again.
+  // After the first successful tap, the consent flag is set and every
+  // subsequent play page auto-starts the mic without UI friction.
   // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     if (typeof window === "undefined") return;
     if (listening) return;
-    void startListening();
+    const consent = window.localStorage.getItem("sonata.mic.consent");
+    if (consent === "yes") {
+      void startListening();
+    }
+    // Else: show the tap-to-enable UI, wait for the student.
   }, [polyphonic]);
 
   async function startListening() {
@@ -198,6 +200,22 @@ export function MicListenCard({
   // Visual level meter — clamp 0..1, expand the dynamic range we care about.
   const meterPct = Math.min(100, Math.max(0, level * 600));
 
+  // Has the student previously granted mic permission for this app? When
+  // false, we show a big tap-to-enable card instead of the tiny pill —
+  // iOS WKWebView's permission prompt freezes the WebView, and a small
+  // pill leaves the student wondering why the app went dead.
+  const [hasConsent, setHasConsent] = useState(false);
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    setHasConsent(
+      window.localStorage.getItem("sonata.mic.consent") === "yes"
+    );
+  }, [listening]);
+
+  // First-run "tap to enable mic" card. Renders before any tiny pill UI so
+  // the student sees a clear, large target on the first play page.
+  const showFirstRunCard = !hasConsent && !listening && !status && !error;
+
   // Compact pill-style indicator. The big Listen button is gone — auto-start
   // covers the common case. The pill is interactive: tap to stop/restart.
   const pillBg = listening
@@ -251,6 +269,56 @@ export function MicListenCard({
           </>
         )}
       </div>
+
+      {/* First-run tap-to-enable card. Shown once, on the first play page
+          where the student has not yet granted mic permission. iOS shows
+          a native permission prompt that freezes the WebView; without
+          this card the student sees a tiny grey pill and assumes the
+          app is broken. */}
+      {showFirstRunCard && (
+        <button
+          type="button"
+          onClick={() => void startListening()}
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            gap: 8,
+            padding: "18px 22px",
+            border: "3px solid var(--ink, #1f2937)",
+            borderRadius: 16,
+            background: "var(--gold, #d4a853)",
+            color: "var(--ink, #1f2937)",
+            fontFamily: "var(--sans, system-ui)",
+            cursor: "pointer",
+            boxShadow: "0 4px 0 var(--ink, #1f2937)",
+            width: "100%",
+            textAlign: "center",
+          }}
+        >
+          <div
+            style={{
+              fontSize: 24,
+              fontWeight: 900,
+              letterSpacing: "-0.01em",
+            }}
+          >
+            🎤 Tap to enable your microphone
+          </div>
+          <div
+            style={{
+              fontSize: 13,
+              fontWeight: 600,
+              opacity: 0.85,
+              maxWidth: 380,
+              lineHeight: 1.4,
+            }}
+          >
+            Sonata listens to your real piano so we can grade what you play.
+            Your iPad will ask for permission — tap Allow.
+          </div>
+        </button>
+      )}
 
       {/* Status pill — small, clickable to stop/start, replaces the
           giant Listen button. Always visible so the student knows mic state. */}
