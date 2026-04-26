@@ -212,9 +212,34 @@ export function MicListenCard({
     );
   }, [listening]);
 
+  // Has the student opted out of mic for this session? We persist a "skip"
+  // flag so the lesson never re-prompts them. They can still tap the pill
+  // to enable mic later.
+  const [skipped, setSkipped] = useState(false);
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    setSkipped(window.localStorage.getItem("sonata.mic.skip") === "yes");
+  }, []);
+
+  function skipMic() {
+    if (typeof window !== "undefined") {
+      window.localStorage.setItem("sonata.mic.skip", "yes");
+    }
+    setSkipped(true);
+  }
+
+  function unskipMic() {
+    if (typeof window !== "undefined") {
+      window.localStorage.removeItem("sonata.mic.skip");
+    }
+    setSkipped(false);
+  }
+
   // First-run "tap to enable mic" card. Renders before any tiny pill UI so
-  // the student sees a clear, large target on the first play page.
-  const showFirstRunCard = !hasConsent && !listening && !status && !error;
+  // the student sees a clear, large target on the first play page. Hidden
+  // if the student has chosen to skip mic for this session.
+  const showFirstRunCard =
+    !hasConsent && !listening && !status && !error && !skipped;
 
   // Compact pill-style indicator. The big Listen button is gone — auto-start
   // covers the common case. The pill is interactive: tap to stop/restart.
@@ -276,47 +301,105 @@ export function MicListenCard({
           this card the student sees a tiny grey pill and assumes the
           app is broken. */}
       {showFirstRunCard && (
-        <button
-          type="button"
-          onClick={() => void startListening()}
+        <div
           style={{
             display: "flex",
             flexDirection: "column",
-            alignItems: "center",
-            gap: 8,
+            gap: 10,
             padding: "18px 22px",
             border: "3px solid var(--ink, #1f2937)",
             borderRadius: 16,
             background: "var(--gold, #d4a853)",
             color: "var(--ink, #1f2937)",
             fontFamily: "var(--sans, system-ui)",
-            cursor: "pointer",
             boxShadow: "0 4px 0 var(--ink, #1f2937)",
             width: "100%",
             textAlign: "center",
           }}
         >
-          <div
+          <button
+            type="button"
+            onClick={() => void startListening()}
             style={{
-              fontSize: 24,
-              fontWeight: 900,
-              letterSpacing: "-0.01em",
+              background: "transparent",
+              border: "none",
+              cursor: "pointer",
+              padding: 0,
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              gap: 6,
+              color: "inherit",
+              fontFamily: "inherit",
             }}
           >
-            🎤 Tap to enable your microphone
-          </div>
-          <div
+            <div
+              style={{
+                fontSize: 22,
+                fontWeight: 900,
+                letterSpacing: "-0.01em",
+              }}
+            >
+              🎤 Tap to enable your microphone
+            </div>
+            <div
+              style={{
+                fontSize: 13,
+                fontWeight: 600,
+                opacity: 0.85,
+                maxWidth: 420,
+                lineHeight: 1.4,
+              }}
+            >
+              Sonata listens to your real piano. Your iPad will pop up a
+              permission dialog — tap Allow. The screen may pause for a
+              moment while it appears.
+            </div>
+          </button>
+          <button
+            type="button"
+            onClick={skipMic}
             style={{
-              fontSize: 13,
-              fontWeight: 600,
-              opacity: 0.85,
-              maxWidth: 380,
-              lineHeight: 1.4,
+              alignSelf: "center",
+              marginTop: 4,
+              background: "rgba(0,0,0,0.08)",
+              border: "1.5px solid rgba(0,0,0,0.4)",
+              borderRadius: 999,
+              padding: "5px 12px",
+              fontSize: 11,
+              fontWeight: 700,
+              cursor: "pointer",
+              color: "var(--ink, #1f2937)",
+              letterSpacing: "0.08em",
             }}
           >
-            Sonata listens to your real piano so we can grade what you play.
-            Your iPad will ask for permission — tap Allow.
-          </div>
+            SKIP MIC FOR NOW
+          </button>
+        </div>
+      )}
+
+      {/* Once skipped, render a thin "mic skipped — tap to enable" link so
+          the student can opt back in later without restarting the lesson. */}
+      {skipped && !listening && (
+        <button
+          type="button"
+          onClick={() => {
+            unskipMic();
+            void startListening();
+          }}
+          style={{
+            background: "transparent",
+            border: "1.5px dashed rgba(0,0,0,0.25)",
+            borderRadius: 10,
+            padding: "8px 12px",
+            fontSize: 12,
+            fontWeight: 700,
+            color: "var(--ink3, #6b7280)",
+            cursor: "pointer",
+            alignSelf: "flex-start",
+          }}
+        >
+          🎤 Mic skipped — tap to enable
         </button>
       )}
 
