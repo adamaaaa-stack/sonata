@@ -98,6 +98,21 @@ function fixInteraction(page, warnings, ctx) {
   }
 }
 
+function collectCleffyText(doc) {
+  const parts = [];
+  if (Array.isArray(doc.pages)) {
+    for (const p of doc.pages) {
+      if (typeof p.cleffy === "string") parts.push(p.cleffy);
+      if (typeof p.followup_cleffy === "string") parts.push(p.followup_cleffy);
+      if (typeof p.completion_cleffy === "string") parts.push(p.completion_cleffy);
+    }
+  }
+  if (doc.completion && typeof doc.completion.cleffy === "string") {
+    parts.push(doc.completion.cleffy);
+  }
+  return parts.join(" ");
+}
+
 function fixPage(page, warnings, idx) {
   const ctx = `page ${idx}`;
   // Fix 6: see + type:"interactive" → type:"interactive_spot"
@@ -145,6 +160,19 @@ export function validateAndFix(rawYaml) {
         );
       }
     }
+  }
+
+  // PEDAGOGICAL NORTH STAR — Sonata teaches piano through the
+  // steps/skips/leaps method. Every lesson must reference this method
+  // vocabulary somewhere in the cleffy text, regardless of what concept
+  // the lesson teaches. If we don't see at least one of these terms,
+  // the lesson is off-method.
+  const METHOD_TERMS = /\b(step|steps|skip|skips|leap|leaps|staircase|stair|2[-\s]?group|3[-\s]?group|middle c)\b/i;
+  const allCleffyText = collectCleffyText(doc);
+  if (allCleffyText && !METHOD_TERMS.test(allCleffyText)) {
+    warnings.push(
+      "PEDAGOGY: lesson never mentions step/skip/leap/staircase/Middle C — off-method, consider regenerating"
+    );
   }
 
   // Final ASCII pass on the whole tree.

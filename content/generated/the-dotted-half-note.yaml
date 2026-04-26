@@ -1,0 +1,111 @@
+id: 999
+tier: beginner
+act: 1
+title: The Dotted Half Note
+subtitle: A long step on the staircase
+goal: Identify and play the dotted half note as a longer step in rhythm.
+prereqs:
+  - 23
+method_focus: rhythm
+time_estimate_min: 8
+piece_context: null
+metaphor: long-step-on-staircase
+vibe:
+  - gentle
+  - playful
+pages:
+  - id: 1
+    mode: see
+    type: hook
+    figure: Keyboard. A single white key glows gold. A dotted half note symbol floats above it.
+    cleffy: >
+      Meet the dotted half note. It's a longer step on the staircase of time. This note lasts longer
+      than a regular half note — it's a half note plus a quarter note. That's two beats plus one
+      beat — three beats total.
+  - id: 2
+    mode: see
+    type: definition
+    figure: "Staff. A half note with a dot to the right of the stem. Label: dotted half note."
+    cleffy: >
+      A dotted half note is a half note with a dot. The dot adds half the note's value. A half note
+      is two beats. The dot adds one beat. Total: three beats. It's like taking a long step on the
+      staircase — one full step plus a half-step.
+  - id: 3
+    mode: hear
+    type: demo
+    figure: Play button. A dotted half note plays, then a regular half note.
+    audio:
+      A: Dotted half note (3 beats)
+      B: Regular half note (2 beats)
+    cleffy: >
+      Listen. The dotted half note is longer. It's like a slow walk — one step, then another. The
+      regular half note is a quick step. Which one is longer?
+  - id: 4
+    mode: play
+    type: guided
+    figure: Keyboard. Middle C glowing. A dotted half note symbol above it.
+    cleffy: |
+      Tap Middle C. Hold it for three beats. Let the note breathe — it's a long step.
+    interaction:
+      type: tap
+      count: 3
+      accept: C4
+  - id: 5
+    mode: play
+    type: practice
+    figure: Staff. A dotted half note on E4. A metronome ticks.
+    cleffy: >
+      Now play E4 for three beats. Follow the metronome. Keep the note steady — it's a long step,
+      not a quick one.
+    interaction:
+      type: sequence
+      keys:
+        - E4
+      count: 3
+  - id: 6
+    mode: see
+    type: wrap
+    figure: Postcard — Lesson 999. A dotted half note on the staff, next to a regular half note.
+    cleffy: >
+      The dotted half note is a long step — three beats total. Tomorrow we meet the dotted quarter
+      note. It's a shorter step, but still longer than a regular quarter. Keep walking the
+      staircase.
+mastery_check:
+  sections:
+    see:
+      pass_threshold: 2
+      questions:
+        - figure: Staff with a dotted half note
+          prompt: How many beats does this note last?
+          options:
+            - "2"
+            - "3"
+            - "4"
+          correct: 1
+        - figure: Staff with a regular half note
+          prompt: How many beats does this note last?
+          options:
+            - "2"
+            - "3"
+            - "4"
+          correct: 0
+    hear:
+      pass_threshold: 1
+      questions:
+        - audio: Dotted half note (3 beats)
+          prompt: Is this a dotted half note?
+          options:
+            - "Yes"
+            - "No"
+          correct: 0
+    play:
+      pass_threshold: 1
+      questions:
+        - prompt: Play a dotted half note on Middle C.
+          accept: C4 held for 3 beats
+completion:
+  cleffy: >
+    You just took a long step on the staircase of time. The dotted half note is a bigger step —
+    three beats total. Tomorrow we meet the dotted quarter note. It's a shorter step, but still
+    longer than a regular quarter.
+  xp: 10

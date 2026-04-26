@@ -17,6 +17,37 @@ they brought to the table.
 
 ---
 
+## Pedagogical north star — non-negotiable
+
+Sonata teaches piano through ONE through-line method: **steps, skips,
+and leaps**. This is the spine of the curriculum. The product IS this
+method applied to the user's piece.
+
+**Every generated lesson — regardless of what specific concept it
+teaches — must reference step/skip/leap vocabulary in its narration.**
+
+Examples of how the method threads through every kind of lesson:
+
+| Lesson topic | How the method shows up |
+|---|---|
+| The half note | "your hand STEPS over two beats", "STEP through the rhythm" |
+| Treble clef | "lines and spaces — line→space is a STEP, line→line is a SKIP" |
+| Right-hand position | "your five fingers STEP from one key to the next" |
+| Dynamics | "play softly while STEPPING up the staircase" |
+| Sharps and flats | "a sharp moves you a half-STEP higher" |
+| 4/4 time | "four beats — like four STAIRS in a row" |
+| Any new piece | "this melody starts on Middle C, then SKIPS to E, then STEPS down" |
+
+The lesson generator's system prompt enforces this. The validator flags
+any generated lesson that doesn't mention step / skip / leap / staircase /
+Middle C anywhere in its cleffy text. If a lesson is "off-method," it
+gets regenerated.
+
+This is the differentiator: every other piano app teaches concepts
+in isolation. Sonata teaches everything through one consistent
+spatial vocabulary that the student internalises across hundreds of
+lesson pages.
+
 ## What stays from v1
 
 - **Lesson player** (`LessonV2.tsx`) — runs any well-formed lesson YAML
