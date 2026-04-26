@@ -105,7 +105,10 @@ export function MySongsScreen({ onBackToMenu }: MySongsScreenProps) {
       // Always hit the web origin so the iOS Capacitor build calls the
       // server-rendered API directly (the API isn't bundled in the
       // static iOS export). See apiBase() helper at top of file.
-      const resp = await fetch(`${apiBase()}/api/lesson`, {
+      // Trailing slash matters — Next is configured with trailingSlash: true
+      // and POST requests don't follow the redirect cleanly across iOS
+      // WKWebView. Hit the canonical URL directly.
+      const resp = await fetch(`${apiBase()}/api/lesson/`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ concept: conceptId }),
@@ -304,7 +307,7 @@ function UploadCard({
       setStage("analyzing");
       let resp: Response;
       try {
-        resp = await fetch(`${apiBase()}/api/piece/upload`, { method: "POST", body: fd });
+        resp = await fetch(`${apiBase()}/api/piece/upload/`, { method: "POST", body: fd });
       } catch (netErr) {
         throw new Error(
           `network: ${(netErr as Error).message}. Check your internet, or whether the Vercel deploy is up.`
@@ -345,7 +348,7 @@ function UploadCard({
     try {
       // Phase A: assume user is a complete beginner (mastered = []).
       // Phase B: pull mastered set from a real placement test.
-      const resp = await fetch(`${apiBase()}/api/path/generate`, {
+      const resp = await fetch(`${apiBase()}/api/path/generate/`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ mastered: [], required: analysis.concepts }),
