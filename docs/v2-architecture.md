@@ -20,7 +20,7 @@ has a generated curriculum.
 - **Figure renderers** (KeyboardMini, StaffMini, RhythmDisplay, HandDiagram, QuizScaffold)
 - **PianoKeyboard** with mic-driven press
 - **Mic detection** (Pitchy + Basic Pitch)
-- **Cleffy character + voice** (ElevenLabs clone)
+- **Cleffy character** (the persona stays — the voice changes, see TTS section)
 - **Lesson YAML schema** (no changes)
 
 ## What changes
@@ -151,13 +151,14 @@ GET /api/lesson/[concept_id]
 1. if S3 has concepts/[id].yaml → return it
 2. else: kick off generator job
    - LLM (Qwen3 30B A3B) → YAML → validator → S3 write
-   - TTS for each page → S3 write
 3. return YAML
 ```
 
+Note: NO server-side TTS. Audio is generated on-device via Kokoro
+(see TTS section). The cache stores YAML only — small, fast, cheap.
+
 Initial cache fill: run generator over the full concept ontology overnight.
-Cost: ~$0.40 LLM + ~$5 TTS (with self-hosted Kokoro for bulk + ElevenLabs
-for hero phrases).
+Cost: ~$0.40 LLM, $0 TTS. Total infra cost across ALL users forever: pennies.
 
 ### Skill assessment
 
@@ -190,11 +191,74 @@ POST /api/admin/cache-fill          (locked, dev-only)
   body: { concept_ids?: [...] }     // omit to fill all
 ```
 
-The actual LLM/TTS generation runs server-side in the API route to keep
-API keys off the client. Use OpenRouter (Qwen3 30B A3B) for LLM, Kokoro
-on Cloud Run for bulk TTS, ElevenLabs for hero phrases.
+The LLM generation runs server-side in the API route to keep the
+OpenRouter API key off the client. TTS does NOT run server-side —
+all audio is generated on-device by Kokoro (see TTS section).
 
 ---
+
+## TTS — on-device Kokoro
+
+Cleffy speaks via **Kokoro-82M, running on the user's device** through
+Transformers.js + WebGPU/WASM. No server-side TTS, no cloud TTS API,
+no ElevenLabs.
+
+### Why Kokoro
+
+- **82M parameters, ~30-50MB ONNX** (depending on quantisation)
+- Open-weights, Apache 2.0
+- Real-time inference on M-series Apple silicon, 2-3s/sentence on A14+
+- Browser-deployable via [Transformers.js](https://huggingface.co/docs/transformers.js)
+- Multiple expressive voices built in
+
+### Voice choice
+
+Cleffy was previously an ElevenLabs voice clone. With on-device Kokoro
+we lose the cloned voice. We pick the warmest stock Kokoro voice and
+brand Cleffy around it.
+
+Default voice: **`af_bella`** (warm, expressive, kid-friendly).
+Override per-persona later when we add the persona system (Coach,
+Drill Sergeant, Game Show host) — different Kokoro voices per persona.
+
+### Architecture
+
+```
+First lesson load:
+  - Browser checks IndexedDB for cached Kokoro model
+  - If absent: download ~50MB ONNX + voice embedding, cache in IDB
+  - Initialize WebGPU pipeline (or fallback to WASM-SIMD)
+
+Per lesson page:
+  - Read cleffy text from lesson YAML
+  - Synth via on-device Kokoro → AudioBuffer
+  - Play through Web Audio API
+  - Optionally cache by content hash in IDB for instant replay
+```
+
+### Implementation pieces
+
+- `src/lib/tts/kokoro.ts` — wrapper around Transformers.js
+  - `loadModel(): Promise<void>` — one-time download + WebGPU init
+  - `speak(text: string, voice?: string): Promise<AudioBuffer>`
+  - `prefetch(): void` — background download on app first launch
+- Hook into `LessonV2`: replace `<audio src=S3>` element with on-the-fly
+  Kokoro synthesis
+- iOS Capacitor: WebGPU support landed in iOS 18; check user's iOS
+  version and fall back to WASM-SIMD if needed (slower but functional)
+
+### Older device fallback
+
+If the iPad is too old to run Kokoro at acceptable speed (very rare —
+A14+ is fine), fall back to the browser's built-in `SpeechSynthesisUtterance`
+(Web Speech API). Quality is worse but ships zero MB and runs anywhere.
+
+### What we DON'T need
+
+- Cloud Run TTS instance — gone
+- ElevenLabs subscription — gone
+- S3 audio bucket — gone (we still need S3 for lesson YAMLs, but no audio)
+- Per-character TTS billing — gone forever
 
 ## UI
 
@@ -241,13 +305,14 @@ After completing the trial piece:
 - [ ] One trial piece (Twinkle Twinkle), manually concept-tagged
 - [ ] Path generator (deterministic, no UI yet)
 - [ ] Lesson generator wired into a server-side cache-fill script
-- [ ] Trial-piece path runs end-to-end via existing player
+- [ ] **On-device Kokoro TTS** module (`src/lib/tts/kokoro.ts`)
+- [ ] Trial-piece path runs end-to-end via existing player + Kokoro voice
 - [ ] Skill assessment: yes/no "have you played piano before"
 - [ ] Paywall stub (just a message, no Stripe)
 
 End of Phase A: a friend can sign up, learn Twinkle Twinkle through a
-generated path, and hit a paywall stub. Everything works, nothing's
-polished.
+generated path, with Cleffy speaking via on-device Kokoro. Hit a paywall
+stub. Everything works, nothing's polished.
 
 ### Phase B — Polish + scale (target: 2 weeks)
 
@@ -255,42 +320,44 @@ polished.
 - [ ] 5-10 pieces in the library
 - [ ] Real placement test (5-7 questions)
 - [ ] World-map UI for path
-- [ ] Stripe paywall (subscription)
-- [ ] Self-hosted Kokoro TTS on Cloud Run
-- [ ] ElevenLabs Starter tier for hero phrases only
+- [ ] RevenueCat / Stripe paywall (subscription)
+- [ ] Cleffy persona system: pick a Kokoro voice per persona (Encouraging,
+      Coach, Drill Sergeant, Game Show)
+- [ ] WebGPU/WASM fallback chain for older iPads
 
 ### Phase C — Open sheet music (target: post-launch)
 
 - [ ] User can upload sheet music photo → OMR + LLM analysis → concept tagging → path
 - [ ] Sheet music library expansion
-- [ ] Cleffy AI commentary in-lesson (Phase A's deferred ask)
+- [ ] Cleffy AI commentary in-lesson (real-time response to mistakes)
 
 ---
 
-## Cost model (per active user / month)
+## Cost model
 
 At Phase A:
 - LLM cache fill: $0.40 one-time across ALL users forever
-- TTS hero phrases: $5-10/mo on ElevenLabs Starter
-- TTS bulk: $5-10/mo on Cloud Run + Kokoro
-- Storage: ~$1/mo S3
+- TTS: $0 (on-device Kokoro)
+- Storage: ~$0.10/mo S3 (lesson YAMLs only — no audio)
 - Database: $0 (Supabase free)
 - Vercel: $0 (Hobby)
-- **Total: ~$15-20/mo across all users combined**
+- **Total: ~$0.50/mo across all users combined**
 
 At Phase B with paying users:
-- Per active user marginal: ~$0.50/mo (mostly Cloud Run scaling)
-- $9.99/mo subscription − $0.50/mo cost = $9.50/mo margin per user
-- Breakeven at single subscriber
+- Per active user marginal: ~$0 (everything is on-device or one-time-cached)
+- $9.99/mo subscription − ~$0/mo cost = ~$9.99/mo margin per user
+- Breakeven at zero subscribers — purely device-bound infra
+- Profit dominated by user acquisition, not infra cost
 
 ---
 
 ## Decisions locked
 
 - **LLM**: `qwen/qwen3-30b-a3b` via OpenRouter ($0.003/lesson)
-- **TTS**: hybrid — Kokoro on Cloud Run (bulk) + ElevenLabs (hero phrases)
+- **TTS**: **on-device Kokoro-82M** via Transformers.js (zero cloud TTS)
+- **Default voice**: `af_bella` (Cleffy rebranded around new voice)
 - **Lesson format**: 6 pages, see → hear → play → check → wrap
-- **Cache strategy**: per-concept, S3-keyed
+- **Cache strategy**: per-concept YAML in S3 (no audio cache needed)
 - **Strangler pattern**: build under `/v2`, retire `/app` later
 - **Trial**: 1 curated piece free, paywall after
 - **Player**: existing `LessonV2.tsx`, unchanged
