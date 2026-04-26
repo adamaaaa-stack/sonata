@@ -22,7 +22,35 @@
  *   - WASM fallback: 5-10x real-time but works on older devices
  */
 
-import type { KokoroTTS } from "kokoro-js";
+// kokoro-js depends on @huggingface/transformers, which uses
+// `import.meta.url` and ships pre-built ONNX runtimes (web + node + wasm)
+// that webpack can't unify into a Next.js bundle. We side-step the
+// bundler entirely by loading kokoro-js from a CDN as a native ES module
+// at runtime — see the dynamic import in `doLoad()`. The TS types are
+// minimal (we only use `KokoroTTS.from_pretrained` + `.generate`), so we
+// declare them inline rather than importing from the npm types package.
+type KokoroTTS = {
+  generate: (
+    text: string,
+    opts: { voice: string; speed?: number }
+  ) => Promise<{
+    toBlob?: () => Blob;
+    audio?: Float32Array;
+    sampling_rate?: number;
+  }>;
+};
+type KokoroModule = {
+  KokoroTTS: {
+    from_pretrained: (
+      modelId: string,
+      opts: {
+        dtype?: string;
+        device?: string;
+        progress_callback?: (info: unknown) => void;
+      }
+    ) => Promise<KokoroTTS>;
+  };
+};
 
 // Hugging Face model id. The Kokoro 82M v1.0 ONNX export is the standard
 // used by kokoro-js. Quantisations: q4 (~30MB), q8 (~80MB), fp16 (~160MB),
@@ -91,13 +119,18 @@ export class KokoroVoice {
       if (!hasGpu) device = "wasm";
     }
 
-    const mod = await import("kokoro-js");
+    // CDN ESM build of kokoro-js. The `webpackIgnore` comment tells Next's
+    // bundler to leave this import alone — the browser resolves it directly
+    // at runtime. Routing through a string variable side-steps TS's static
+    // analysis of URL module specifiers.
+    const cdnUrl = "https://cdn.jsdelivr.net/npm/kokoro-js@1.2.1/+esm";
+    const mod = (await import(/* webpackIgnore: true */ cdnUrl)) as KokoroModule;
     this.tts = await mod.KokoroTTS.from_pretrained(
       this.opts.modelId ?? DEFAULT_MODEL_ID,
       {
         dtype: this.opts.dtype ?? DEFAULT_DTYPE,
         device,
-        progress_callback: this.opts.onProgress as never,
+        progress_callback: this.opts.onProgress as (info: unknown) => void,
       }
     );
   }
@@ -113,20 +146,10 @@ export class KokoroVoice {
     speed = 1
   ): Promise<HTMLAudioElement> {
     if (!this.tts) await this.load();
-    // Kokoro's voice param has a literal-union type; we accept arbitrary
-    // strings so callers can swap voices via env or persona system. Cast
-    // through `as never` is the safe escape.
-    const audio = await this.tts!.generate(text, {
-      voice: voice as never,
-      speed,
-    });
-    // kokoro-js's RawAudio has a .toBlob() method for browser playback.
-    type RawAudioLike = {
-      toBlob?: () => Blob;
-      audio?: Float32Array;
-      sampling_rate?: number;
-    };
-    const ra = audio as unknown as RawAudioLike;
+    // Kokoro's voice param has a literal-union type in the npm typings,
+    // but we declare it loosely above so callers can swap voices freely
+    // (env override, persona system, etc.).
+    const ra = await this.tts!.generate(text, { voice, speed });
     let blobUrl: string;
     if (typeof ra.toBlob === "function") {
       blobUrl = URL.createObjectURL(ra.toBlob());

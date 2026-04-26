@@ -88,7 +88,10 @@ export async function analyzePiece(
   const apiKey = process.env.OPENROUTER_API_KEY;
   if (!apiKey) throw new Error("OPENROUTER_API_KEY is not set");
 
-  const modelId = process.env.PIECE_VLM_ID || "google/gemini-2.5-pro";
+  // Flash is ~13x cheaper than Pro ($0.075/$0.30 per M tokens vs $1.25/$10).
+  // It correctly identifies famous pieces and tags concepts well enough for
+  // our purposes. Override via PIECE_VLM_ID if a specific upload needs Pro.
+  const modelId = process.env.PIECE_VLM_ID || "google/gemini-2.5-flash";
   const concepts = getAllConcepts();
 
   const dataUrl = `data:${contentType};base64,${imageBytes.toString("base64")}`;

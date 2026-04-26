@@ -25,6 +25,7 @@ import {
   pageHasNarration,
 } from "@/lib/music/lessonsV2";
 import { FigureRouter, hasRenderedFigure } from "./LessonV2Figures";
+import { getKokoroVoice, prefetchKokoro } from "@/lib/tts/kokoro";
 import { AudioSamples, playAudioDescription, parseAudioToNotes } from "./LessonV2Audio";
 import { DrillInteractionCard } from "./LessonV2Drill";
 import { MicListenCard } from "./LessonV2Mic";
@@ -1321,10 +1322,19 @@ export function LessonV2Screen({
   lesson,
   onExit,
   onComplete,
+  useKokoro = false,
 }: {
   lesson: LessonV2;
   onExit: () => void;
   onComplete?: (lesson: LessonV2) => void;
+  /**
+   * When true, synthesise Cleffy's narration on-device with Kokoro instead
+   * of loading the pre-rendered ElevenLabs MP3 from S3. Used by the
+   * uploaded-piece flow, where lessons are generated on demand and have
+   * no pre-rendered audio. The first page incurs ~30s of model download
+   * (~80MB, cached in IndexedDB after that).
+   */
+  useKokoro?: boolean;
 }) {
   const [phase, setPhase] = useState<Phase>("pages");
   const [pageIdx, setPageIdx] = useState(0);
@@ -1395,7 +1405,49 @@ export function LessonV2Screen({
   useEffect(() => {
     unlockAudio();
     if (!isPianoReady()) loadPianoSamples().catch(() => {});
-  }, []);
+    if (useKokoro) prefetchKokoro();
+  }, [useKokoro]);
+
+  // ---------- Kokoro on-device narration ----------
+  // For generated lessons we synthesise Cleffy's lines locally instead of
+  // reading from the S3 bucket of pre-rendered ElevenLabs files. The blob
+  // URL is set into `kokoroAudioSrc`, which the audio element below picks
+  // up in place of `pageAudioSrc(...)`.
+  const [kokoroAudioSrc, setKokoroAudioSrc] = useState<string | null>(null);
+  useEffect(() => {
+    if (!useKokoro) return;
+    const text =
+      page?.cleffy || page?.completion_cleffy || page?.followup_cleffy || "";
+    if (!text) {
+      setKokoroAudioSrc(null);
+      return;
+    }
+    let cancelled = false;
+    let lastUrl: string | null = null;
+    (async () => {
+      try {
+        const voice = getKokoroVoice();
+        const el = await voice.speak(text);
+        if (cancelled) {
+          // Page changed before synth finished — drop the result.
+          if (el.src) URL.revokeObjectURL(el.src);
+          return;
+        }
+        lastUrl = el.src;
+        setKokoroAudioSrc(el.src);
+      } catch (e) {
+        // Swallow — the page still renders, just without narration audio.
+        // Don't block the lesson over a TTS failure.
+        console.warn("[kokoro] synth failed:", (e as Error).message);
+        if (!cancelled) setKokoroAudioSrc(null);
+      }
+    })();
+    return () => {
+      cancelled = true;
+      if (lastUrl) URL.revokeObjectURL(lastUrl);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [useKokoro, pageIdx]);
 
   // On page change: stop previous audio, reset state, auto-play new narration.
   useEffect(() => {
@@ -1561,7 +1613,9 @@ export function LessonV2Screen({
   const narrationText =
     page.cleffy || page.completion_cleffy || page.followup_cleffy || "";
   const audioSrc = pageHasNarration(page)
-    ? pageAudioSrc(lesson.id, page.id)
+    ? useKokoro
+      ? kokoroAudioSrc
+      : pageAudioSrc(lesson.id, page.id)
     : null;
 
   return (

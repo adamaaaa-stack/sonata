@@ -158,6 +158,7 @@ export function MySongsScreen({ onBackToMenu }: MySongsScreenProps) {
         lesson={running.lesson}
         onExit={() => setRunning(null)}
         onComplete={completeLesson}
+        useKokoro
       />
     );
   }
