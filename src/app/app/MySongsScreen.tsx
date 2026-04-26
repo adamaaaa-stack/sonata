@@ -302,12 +302,31 @@ function UploadCard({
       const fd = new FormData();
       fd.append("file", file);
       setStage("analyzing");
-      const resp = await fetch(`${apiBase()}/api/piece/upload`, { method: "POST", body: fd });
-      const j = await resp.json();
-      if (!resp.ok) throw new Error(j.error || "upload failed");
+      let resp: Response;
+      try {
+        resp = await fetch(`${apiBase()}/api/piece/upload`, { method: "POST", body: fd });
+      } catch (netErr) {
+        throw new Error(
+          `network: ${(netErr as Error).message}. Check your internet, or whether the Vercel deploy is up.`
+        );
+      }
+      let j: { piece_id?: string; analysis?: Record<string, unknown>; error?: string };
+      try {
+        j = (await resp.json()) as typeof j;
+      } catch {
+        const txt = await resp.text().catch(() => "(no body)");
+        throw new Error(`server returned ${resp.status} (not JSON): ${txt.slice(0, 200)}`);
+      }
+      if (!resp.ok) throw new Error(j.error || `upload failed (${resp.status})`);
+      if (!j.piece_id || !j.analysis) {
+        throw new Error("server response missing piece_id or analysis");
+      }
       setAnalysis({
         piece_id: j.piece_id,
-        ...j.analysis,
+        // The server's analysis shape is validated by the route, but TS
+        // can't see through the Record<string, unknown> on this side.
+        // Cast through to the local type — we only display these fields.
+        ...(j.analysis as unknown as Omit<NonNullable<typeof analysis>, "piece_id">),
       });
       setStage("confirm");
     } catch (e) {
