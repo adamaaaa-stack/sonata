@@ -60,33 +60,40 @@ export function PianoKeyboard({
   // the student SEES what they're hearing. Required for "music is like
   // stairs"-type pages where Cleffy says "up or down" and plays a sequence
   // — without this the keys are silent visually.
-  const [audioPulseMidis, setAudioPulseMidis] = useState<Set<number>>(
-    new Set()
+  const [audioPulses, setAudioPulses] = useState<Map<number, number>>(
+    new Map()
   );
   useEffect(() => {
     function onPulse(e: Event) {
-      const detail = (e as CustomEvent).detail as { midi?: number } | undefined;
+      const detail = (e as CustomEvent).detail as
+        | { midi?: number; velocity?: number }
+        | undefined;
       const m = detail?.midi;
       if (typeof m !== "number" || !Number.isFinite(m)) return;
-      setAudioPulseMidis((prev) => {
-        const next = new Set(prev);
-        next.add(m);
+      const v =
+        typeof detail?.velocity === "number" ? detail.velocity : 0.7;
+      setAudioPulses((prev) => {
+        const next = new Map(prev);
+        next.set(m, v);
         return next;
       });
-      // Clear the pulse after a brief flash. Each call schedules its own
-      // teardown so overlapping pulses still individually clear.
+      // Clear after a brief flash. Hold time scales with velocity so
+      // loud hits linger slightly longer than soft ones.
+      const hold = 280 + Math.round(v * 200);
       window.setTimeout(() => {
-        setAudioPulseMidis((prev) => {
+        setAudioPulses((prev) => {
           if (!prev.has(m)) return prev;
-          const next = new Set(prev);
+          const next = new Map(prev);
           next.delete(m);
           return next;
         });
-      }, 360);
+      }, hold);
     }
     window.addEventListener("sonata:key-pulse", onPulse);
     return () => window.removeEventListener("sonata:key-pulse", onPulse);
   }, []);
+  // Back-compat for the rest of the file: check membership via .has().
+  const audioPulseMidis = audioPulses;
 
   // Track the last press time per key to swallow accidental double-fire
   // (e.g. browsers that emit both touchstart AND a synthesized click).
@@ -307,6 +314,7 @@ export function PianoKeyboard({
           const hl = highlights[m];
           const isPulse = pulseMidi === m;
           const isAudioPulse = audioPulseMidis.has(m);
+          const audioVel = audioPulseMidis.get(m) ?? 0.7;
           return (
             <div
               key={m}
@@ -348,12 +356,18 @@ export function PianoKeyboard({
                       : isPulse
                       ? "#22c55e"
                       : hl,
-                    opacity: isAudioPulse ? 0.85 : isPulse ? 0.7 : 0.35,
+                    // Audio-pulse opacity scales with velocity so loud
+                    // hits visually punch and soft hits glow gently.
+                    opacity: isAudioPulse
+                      ? Math.max(0.25, Math.min(0.95, 0.25 + audioVel * 0.7))
+                      : isPulse
+                      ? 0.7
+                      : 0.35,
                     pointerEvents: "none",
                     animation: isPulse
                       ? "sonataKeyPulse 1s ease-in-out infinite"
                       : isAudioPulse
-                      ? "sonataKeyAudioFlash 360ms ease-out"
+                      ? `sonataKeyAudioFlash ${280 + Math.round(audioVel * 200)}ms ease-out`
                       : undefined,
                   }}
                 />
@@ -418,6 +432,7 @@ export function PianoKeyboard({
           const hl = highlights[nb];
           const isPulse = pulseMidi === nb;
           const isAudioPulse = audioPulseMidis.has(nb);
+          const audioVel = audioPulseMidis.get(nb) ?? 0.7;
           return (
             <div
               key={nb}
@@ -462,12 +477,16 @@ export function PianoKeyboard({
                       : isPulse
                       ? "#22c55e"
                       : hl,
-                    opacity: isAudioPulse ? 0.95 : isPulse ? 0.85 : 0.4,
+                    opacity: isAudioPulse
+                      ? Math.max(0.3, Math.min(1, 0.35 + audioVel * 0.65))
+                      : isPulse
+                      ? 0.85
+                      : 0.4,
                     pointerEvents: "none",
                     animation: isPulse
                       ? "sonataKeyPulse 1s ease-in-out infinite"
                       : isAudioPulse
-                      ? "sonataKeyAudioFlash 360ms ease-out"
+                      ? `sonataKeyAudioFlash ${280 + Math.round(audioVel * 200)}ms ease-out`
                       : undefined,
                   }}
                 />

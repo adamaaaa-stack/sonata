@@ -33,11 +33,13 @@ export function isPianoReady(): boolean { return pianoReady; }
 // just hears it. Required for ear-and-eye reinforcement: when Cleffy
 // plays a "low C" or walks up the staircase, the keys should light up.
 // ============================================================
-export function broadcastKeyPulse(midiNum: number): void {
+export function broadcastKeyPulse(midiNum: number, velocity: number = 0.7): void {
   if (typeof window === 'undefined') return;
   try {
     window.dispatchEvent(
-      new CustomEvent('sonata:key-pulse', { detail: { midi: midiNum } })
+      new CustomEvent('sonata:key-pulse', {
+        detail: { midi: midiNum, velocity },
+      })
     );
   } catch {
     /* SSR / test env — ignore */
@@ -114,31 +116,65 @@ export function loadPianoSamples(): Promise<void> {
 // ============================================================
 // PLAY PIANO — sampled if loaded, synth fallback otherwise
 // ============================================================
-export function playPianoKey(midiNum: number, duration: number = 2.0): void {
-  broadcastKeyPulse(midiNum);
+// Tone.Sampler.triggerAttackRelease accepts velocity 0..1 as the 4th
+// argument. We default to a comfortable mezzo-forte. Lessons that teach
+// dynamics ("loud vs soft", forte vs piano) pass explicit values.
+const VEL_DEFAULT = 0.7;
+const VEL_LOUD = 1.0;     // forte / fortissimo — punchy attack
+const VEL_SOFT = 0.18;    // piano / pianissimo — barely there
+const VEL_MEZZO = 0.55;   // mezzo-piano
+
+export { VEL_DEFAULT, VEL_LOUD, VEL_SOFT, VEL_MEZZO };
+
+export function playPianoKey(
+  midiNum: number,
+  duration: number = 2.0,
+  velocity: number = VEL_DEFAULT
+): void {
+  const v = Math.max(0.02, Math.min(1, velocity));
+  broadcastKeyPulse(midiNum, v);
   if (pianoReady && sampler) {
     try {
-      sampler.triggerAttackRelease(midiToNoteName(midiNum), duration);
+      sampler.triggerAttackRelease(
+        midiToNoteName(midiNum),
+        duration,
+        undefined,
+        v
+      );
       return;
     } catch { /* fallback */ }
   }
-  playPianoSynth(midiNum, 0.7, duration);
+  playPianoSynth(midiNum, v, duration);
 }
 
-export function playNote(midiNum: number, duration: number = 0.4): void {
-  broadcastKeyPulse(midiNum);
+export function playNote(
+  midiNum: number,
+  duration: number = 0.4,
+  velocity: number = VEL_DEFAULT
+): void {
+  const v = Math.max(0.02, Math.min(1, velocity));
+  broadcastKeyPulse(midiNum, v);
   if (pianoReady && sampler) {
     try {
-      sampler.triggerAttackRelease(midiToNoteName(midiNum), duration);
+      sampler.triggerAttackRelease(
+        midiToNoteName(midiNum),
+        duration,
+        undefined,
+        v
+      );
       return;
     } catch { /* fallback */ }
   }
-  playPianoSynth(midiNum, 0.5, duration);
+  playPianoSynth(midiNum, v * 0.7, duration);
 }
 
-export function playNotes(midiNums: number[], delay: number = 0.35): void {
+export function playNotes(
+  midiNums: number[],
+  delay: number = 0.35,
+  velocity: number = VEL_DEFAULT
+): void {
   midiNums.forEach((m, i) => {
-    setTimeout(() => playNote(m), i * delay * 1000);
+    setTimeout(() => playNote(m, undefined, velocity), i * delay * 1000);
   });
 }
 

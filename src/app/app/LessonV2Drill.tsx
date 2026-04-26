@@ -11,6 +11,8 @@ import {
   playCorrectSound,
   playWrongSound,
   noteToMidi as libNoteToMidi,
+  VEL_LOUD,
+  VEL_SOFT,
 } from "@/lib/music";
 
 // ---------------- Types ----------------
@@ -155,19 +157,17 @@ function generatePlay(_question: string, option: string): (() => void) | null {
     };
   }
 
-  // Loud / Soft (approximate via number of notes + emphasis; playPianoKey
-  // doesn't expose velocity, so we layer multiple notes for loudness)
+  // Loud / Soft — same phrase, different velocity. The Tone.Sampler now
+  // supports per-note velocity (0..1) so loud and soft are genuine
+  // dynamics differences instead of "chord vs single note." Use a tiny
+  // 3-note rising line so the listener can clearly hear the dynamic
+  // contour, not just one attack.
+  const dynamicsLine = ["C4", "E4", "G4"];
   if (/\bloud\b|forte/.test(o)) {
-    return () => {
-      const ns = midis(["C4", "E4", "G4"]);
-      for (const m of ns) playPianoKey(m);
-    };
+    return () => playNotes(midis(dynamicsLine), 0.35, VEL_LOUD);
   }
-  if (/\bsoft\b|piano\b/.test(o)) {
-    return () => {
-      const m = midi("C4");
-      if (m) playPianoKey(m);
-    };
+  if (/\bsoft\b|\bpiano\b/.test(o)) {
+    return () => playNotes(midis(dynamicsLine), 0.35, VEL_SOFT);
   }
 
   // Fast / Slow

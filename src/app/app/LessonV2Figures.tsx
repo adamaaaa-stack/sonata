@@ -321,28 +321,34 @@ function KeyboardMini({
   // Audio→visual pulse: same event we wire into PianoKeyboard. When the
   // lesson plays a note, this small figure piano lights up that key for
   // a moment too, so the student sees what's playing in BOTH the bottom
-  // and the figure-area pianos at once.
-  const [audioPulses, setAudioPulses] = React.useState<Set<number>>(
-    new Set()
+  // and the figure-area pianos at once. Velocity-aware: louder hits get
+  // a brighter, longer flash.
+  const [audioPulses, setAudioPulses] = React.useState<Map<number, number>>(
+    new Map()
   );
   React.useEffect(() => {
     function onPulse(e: Event) {
-      const detail = (e as CustomEvent).detail as { midi?: number } | undefined;
+      const detail = (e as CustomEvent).detail as
+        | { midi?: number; velocity?: number }
+        | undefined;
       const m = detail?.midi;
       if (typeof m !== "number" || !Number.isFinite(m)) return;
+      const v =
+        typeof detail?.velocity === "number" ? detail.velocity : 0.7;
       setAudioPulses((prev) => {
-        const next = new Set(prev);
-        next.add(m);
+        const next = new Map(prev);
+        next.set(m, v);
         return next;
       });
+      const hold = 280 + Math.round(v * 200);
       window.setTimeout(() => {
         setAudioPulses((prev) => {
           if (!prev.has(m)) return prev;
-          const next = new Set(prev);
+          const next = new Map(prev);
           next.delete(m);
           return next;
         });
-      }, 360);
+      }, hold);
     }
     window.addEventListener("sonata:key-pulse", onPulse);
     return () => window.removeEventListener("sonata:key-pulse", onPulse);
@@ -411,7 +417,9 @@ function KeyboardMini({
         {whites.map((m, i) => {
           const x = i * keyW;
           const isHi = highlighted.includes(m);
-          const isPulsing = audioPulses.has(m);
+          const pulseVel = audioPulses.get(m);
+          const isPulsing = pulseVel != null;
+          const pulseStrength = pulseVel ?? 0.7;
           const isC = m % 12 === 0;
           return (
             <g key={`w${m}`}>
@@ -427,11 +435,12 @@ function KeyboardMini({
                     ? "#E8A93C"
                     : "#FAFAF6"
                 }
+                fillOpacity={isPulsing ? Math.max(0.4, Math.min(1, 0.4 + pulseStrength * 0.6)) : 1}
                 stroke="#1f2937"
                 strokeWidth={isPulsing ? 2 : 1}
                 rx={2}
                 style={{
-                  transition: "fill 0.15s, stroke-width 0.15s",
+                  transition: "fill 0.15s, fill-opacity 0.15s, stroke-width 0.15s",
                 }}
               />
               {isC && (
