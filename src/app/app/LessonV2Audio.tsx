@@ -114,12 +114,11 @@ export function parseAudioToNotes(desc: string | undefined): string[] | null {
       seqNotes.push(/\d$/.test(cap) ? cap : cap + "4");
     }
     if (seqNotes.length >= 2) {
-      if (
-        /\b(descending|descend|going down|downward|down the stairs)\b/i.test(desc) &&
-        !/\bascending\b/i.test(desc)
-      ) {
-        seqNotes.reverse();
-      }
+      // Don't reverse on "descending" keyword — the lesson YAMLs always
+      // list notes in playback order. "E-D-C descending" already
+      // descends; reversing it produced ascending audio. Authors who
+      // want a descending phrase write the notes high-to-low. Trust
+      // them.
       return seqNotes;
     }
   }
@@ -138,13 +137,8 @@ export function parseAudioToNotes(desc: string | undefined): string[] | null {
 
   const withOctaves = notes.map((n) => (/\d$/.test(n) ? n : n + "4"));
 
-  if (
-    /\b(descending|descend|going down|downward|down the stairs)\b/i.test(desc) &&
-    !/\bascending\b/i.test(desc)
-  ) {
-    withOctaves.reverse();
-  }
-
+  // (See note above on the chained-token branch.) Author's order is the
+  // playback order — never reverse on direction keywords.
   return withOctaves;
 }
 
