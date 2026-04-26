@@ -28,6 +28,11 @@ import { FigureRouter, hasRenderedFigure } from "./LessonV2Figures";
 import { getKokoroVoice, prefetchKokoro } from "@/lib/tts/kokoro";
 import { AudioSamples, playAudioDescription, parseAudioToNotes } from "./LessonV2Audio";
 import { DrillInteractionCard } from "./LessonV2Drill";
+import {
+  NoticeBubble,
+  RhythmRaceCard,
+  DragInteractionCard,
+} from "./LessonV2Tier3";
 import { MicListenCard } from "./LessonV2Mic";
 import { PianoKeyboard } from "./PianoKeyboard";
 import {
@@ -1493,20 +1498,36 @@ export function LessonV2Screen({
     }
   }, [sequenceComplete, sequenceDone]);
 
+  // "Did you notice?" pop-up state. When set, a Cleffy bubble overlays
+  // the page until tapped — then we run the deferred advance.
+  const [noticeQueued, setNoticeQueued] = useState<{
+    text: string;
+    after: () => void;
+  } | null>(null);
+
   const next = useCallback(() => {
     if (blockAdvance) return;
-    if (!isLast) {
-      setPageIdx((i) => i + 1);
+    const advance = () => {
+      if (!isLast) {
+        setPageIdx((i) => i + 1);
+        return;
+      }
+      const mc = lesson.mastery_check;
+      const count =
+        (mc?.sections?.see?.questions?.length ?? 0) +
+        (mc?.sections?.hear?.questions?.length ?? 0) +
+        (mc?.sections?.play?.questions?.length ?? 0);
+      if (mc && count > 0) setPhase("mastery");
+      else setPhase("complete");
+    };
+    // If the current page has a "notice" line, surface it in a bubble
+    // first; the user taps to dismiss, then the advance runs.
+    if (page?.notice && page.notice.trim().length > 0) {
+      setNoticeQueued({ text: page.notice.trim(), after: advance });
       return;
     }
-    const mc = lesson.mastery_check;
-    const count =
-      (mc?.sections?.see?.questions?.length ?? 0) +
-      (mc?.sections?.hear?.questions?.length ?? 0) +
-      (mc?.sections?.play?.questions?.length ?? 0);
-    if (mc && count > 0) setPhase("mastery");
-    else setPhase("complete");
-  }, [blockAdvance, isLast, lesson.mastery_check]);
+    advance();
+  }, [blockAdvance, isLast, lesson.mastery_check, page?.notice]);
 
   const prev = useCallback(() => {
     if (!isFirst) setPageIdx((i) => i - 1);
@@ -1550,7 +1571,23 @@ export function LessonV2Screen({
     setMicPressTrigger({ midi, key: micPressKeyRef.current });
   }
 
+  // Unified "any press" tracker — bumped on every keyboard press regardless
+  // of whether sequence grading consumes it. Fed into the tier-3 cards
+  // (RhythmRaceCard) which do their own grading independent of the sequence
+  // play-page flow.
+  const tierPressKeyRef = useRef(0);
+  const [tierPressTrigger, setTierPressTrigger] = useState<{
+    midi: number;
+    key: number;
+  } | null>(null);
+
   function handlePianoPress(midi: number) {
+    // Always emit the unified press event so tier-3 interactions on this
+    // page see the press even if the lesson isn't a "play" page in the
+    // sequence-grading sense.
+    tierPressKeyRef.current += 1;
+    setTierPressTrigger({ midi, key: tierPressKeyRef.current });
+
     if (!isPlayPage || sequenceDone) return;
     const step = steps[seqProgressRef.current];
     if (!step) return;
@@ -1629,6 +1666,19 @@ export function LessonV2Screen({
         fontFamily: "var(--sans, system-ui, sans-serif)",
       }}
     >
+      {/* "Did you notice?" pop-up — shown after pages with a notice
+          field, before advancing. Tap anywhere to dismiss. */}
+      {noticeQueued && (
+        <NoticeBubble
+          text={noticeQueued.text}
+          onDismiss={() => {
+            const { after } = noticeQueued;
+            setNoticeQueued(null);
+            after();
+          }}
+        />
+      )}
+
       {/* Header */}
       <div
         style={{
@@ -1781,6 +1831,32 @@ export function LessonV2Screen({
             <DrillInteractionCard
               key={`drill-${pageIdx}`}
               interaction={page.interaction}
+            />
+          )}
+
+          {/* Race-the-metronome — speeds up each successful round. */}
+          {page.interaction?.type === "rhythm_race" && (
+            <RhythmRaceCard
+              key={`race-${pageIdx}`}
+              interaction={page.interaction}
+              pressTrigger={tierPressTrigger}
+              onComplete={() => {
+                playCorrectSound();
+                setSequenceDone(true);
+              }}
+            />
+          )}
+
+          {/* Drag-and-drop — note onto staff line, etc. */}
+          {page.interaction?.type === "drag" && (
+            <DragInteractionCard
+              key={`drag-${pageIdx}`}
+              interaction={page.interaction}
+              onComplete={(correct) => {
+                if (correct) {
+                  setSequenceDone(true);
+                }
+              }}
             />
           )}
 

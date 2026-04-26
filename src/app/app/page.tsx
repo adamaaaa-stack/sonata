@@ -153,6 +153,7 @@ import { Cleffy } from "./Cleffy";
 // imported here. The 250 hand-authored lessons are the primary path
 // again — see LessonsListScreen / LessonScreen below.
 import { lessonsV2, findLessonV2 } from "@/lib/music/lessonsV2";
+import { LessonV2Screen } from "./LessonV2";
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { ChunkyButton, Sticker, StaffBG, FloatingNotes, StreakFlame, DotRow, Candle, ChunkyCard, type ChunkyColor } from "./design";
 import type { User } from "@supabase/supabase-js";
@@ -666,7 +667,29 @@ export default function SonataApp() {
             {state.screen === 'drill' && <DrillScreen state={state} handleAnswer={handleAnswer} handleEndDrill={handleEndDrill} renderNotation={renderNotation} />}
             {state.screen === 'results' && <ResultsScreen state={state} dispatch={dispatch} />}
             {state.screen === 'lessons' && <LessonsListScreen state={state} dispatch={dispatch} />}
-            {state.screen === 'lesson' && <LessonScreen state={state} dispatch={dispatch} renderNotation={renderNotation} loadScore={loadScore} playScore={playScore} />}
+            {state.screen === 'lesson' && (() => {
+              // Route to the rich LessonV2 player for any of the 250
+              // hand-authored lessons. Falls through to the legacy v1
+              // LessonScreen only if the id isn't in the v2 corpus —
+              // shouldn't happen in normal flow now that LessonsListScreen
+              // iterates lessonsV2.
+              const v2 = findLessonV2(state.currentLesson);
+              if (v2) {
+                return (
+                  <LessonV2Screen
+                    lesson={v2}
+                    onExit={() => dispatch({ type: 'SET_SCREEN', screen: 'lessons' })}
+                    onComplete={() => {
+                      if (!state.lessonsCompleted.includes(v2.id)) {
+                        dispatch({ type: 'COMPLETE_LESSON' });
+                      }
+                      dispatch({ type: 'SET_SCREEN', screen: 'lessons' });
+                    }}
+                  />
+                );
+              }
+              return <LessonScreen state={state} dispatch={dispatch} renderNotation={renderNotation} loadScore={loadScore} playScore={playScore} />;
+            })()}
             {state.screen === 'library' && <LibraryScreen state={state} dispatch={dispatch} loadScore={loadScore} playScore={playScore} />}
             {state.screen === 'progress' && <ProgressScreen state={state} dispatch={dispatch} />}
             {state.screen === 'sightReading' && <SightReadingScreen dispatch={dispatch} renderNotation={renderNotation} userId={state.user?.id} />}

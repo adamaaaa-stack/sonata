@@ -8,7 +8,13 @@ import data from "./lessonsV2.data.json";
 
 export type PageMode = "see" | "hear" | "play";
 
-export type InteractionType = "sequence" | "rhythm" | "song" | "drill";
+export type InteractionType =
+  | "sequence"
+  | "rhythm"
+  | "song"
+  | "drill"
+  | "rhythm_race"
+  | "drag";
 
 export interface InteractionSequence {
   type: "sequence";
@@ -37,11 +43,57 @@ export interface InteractionDrill {
   options?: string[];
 }
 
+/**
+ * Race-the-metronome — repeated short rhythm pattern that speeds up each
+ * successful round. Visual: speedometer-style tempo dial. Wrong note
+ * doesn't fail; the round just resets at the current tempo.
+ */
+export interface InteractionRhythmRace {
+  type: "rhythm_race";
+  /** Notes (or chord arrays) the student plays each round. */
+  sequence: (string | string[])[];
+  /** Beat values per item, same convention as `rhythm`. */
+  durations?: string[];
+  /** Starting BPM. Default 60. */
+  start_tempo?: number;
+  /** BPM increment per successful round. Default 5. */
+  step?: number;
+  /** Number of rounds before the page completes. Default 6. */
+  rounds?: number;
+}
+
+/**
+ * Drag-and-drop interaction. v1 supports the most common pedagogical use
+ * — drag a note onto a staff line/space. Other kinds (finger numbers
+ * onto keys, durations onto notes) can be added later by extending the
+ * item/target unions.
+ */
+export interface InteractionDrag {
+  type: "drag";
+  item: DragItem;
+  target: DragTarget;
+  /** Optional prompt above the drag area. */
+  prompt?: string;
+}
+
+export type DragItem =
+  | { kind: "note"; pitch: string }   // a draggable note head, labelled with pitch letter
+  | { kind: "finger"; number: 1 | 2 | 3 | 4 | 5 }
+  | { kind: "duration"; value: "quarter" | "half" | "whole" };
+
+export type DragTarget =
+  | { kind: "staff_line"; line: 1 | 2 | 3 | 4 | 5; clef?: "treble" | "bass" }
+  | { kind: "staff_space"; space: 1 | 2 | 3 | 4; clef?: "treble" | "bass" }
+  | { kind: "staff_pitch"; pitch: string; clef?: "treble" | "bass" }
+  | { kind: "key"; midi: number };
+
 export type Interaction =
   | InteractionSequence
   | InteractionRhythm
   | InteractionSong
-  | InteractionDrill;
+  | InteractionDrill
+  | InteractionRhythmRace
+  | InteractionDrag;
 
 export interface LessonPage {
   id: number | string; // usually int, occasionally "1a"
@@ -59,6 +111,13 @@ export interface LessonPage {
    * with any live state (press feedback, next-expected pulse).
    */
   highlights?: Record<string | number, string>;
+  /**
+   * "Did you notice?" pop-up. Surfaces a one-line meta observation in a
+   * Cleffy bubble after this page completes, before the next page
+   * renders. Tap to dismiss. Optional — most pages won't have one.
+   * Format: 6-15 words, single sentence, no period required.
+   */
+  notice?: string;
 }
 
 export interface MasteryQuestion {
