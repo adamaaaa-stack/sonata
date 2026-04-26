@@ -34,7 +34,18 @@ interface Round {
   options: string[];
   correctIdx: number;
   play: () => void;
+  /**
+   * Optional visual to render per round — for visual-identification
+   * drills like "Line or space?" / "Step or skip?" where each round
+   * needs its own figure on screen, not just audio.
+   */
+  visual?: VisualKind;
 }
+
+type VisualKind =
+  | { kind: "staff-line"; line: 1 | 2 | 3 | 4 | 5 }
+  | { kind: "staff-space"; space: 1 | 2 | 3 | 4 }
+  | { kind: "staff-pair"; positions: ("line" | "space")[] };
 
 // ---------------- Note helpers ----------------
 
@@ -198,7 +209,44 @@ function generatePlay(_question: string, option: string): (() => void) | null {
   return null;
 }
 
+/**
+ * Some drills are VISUAL identification, not audio identification —
+ * "Line or space?" needs a staff with a notehead in a random slot per
+ * round. Detect those by their option set and emit a visual + a
+ * matching correct index, with a no-op `play` (the question is the
+ * picture itself).
+ */
+function tryMakeVisualRound(question: string, options: string[]): Round | null {
+  const lower = options.map((o) => o.toLowerCase());
+
+  // Line vs Space — random line 1..5 or space 1..4
+  if (
+    lower.length === 2 &&
+    lower.includes("line") &&
+    lower.includes("space")
+  ) {
+    const isLine = Math.random() < 0.5;
+    const idx = lower.indexOf(isLine ? "line" : "space");
+    const visual: VisualKind = isLine
+      ? { kind: "staff-line", line: (1 + Math.floor(Math.random() * 5)) as 1 | 2 | 3 | 4 | 5 }
+      : { kind: "staff-space", space: (1 + Math.floor(Math.random() * 4)) as 1 | 2 | 3 | 4 };
+    return {
+      question,
+      options,
+      correctIdx: idx,
+      play: () => {}, // no-op: the visual IS the question
+      visual,
+    };
+  }
+
+  return null;
+}
+
 function makeRound(question: string, options: string[]): Round | null {
+  // Try visual first — some drills are see-mode and don't need audio.
+  const visual = tryMakeVisualRound(question, options);
+  if (visual) return visual;
+
   const candidates = options
     .map((o, i) => ({ i, play: generatePlay(question, o) }))
     .filter((c): c is { i: number; play: () => void } => c.play != null);
@@ -363,22 +411,29 @@ export function DrillInteractionCard({
         </div>
       </div>
 
-      <button
-        type="button"
-        onClick={replay}
-        style={{
-          padding: "14px 20px",
-          border: "3px solid var(--ink, #1f2937)",
-          borderRadius: 12,
-          background: "var(--berry, #d4a853)",
-          cursor: "pointer",
-          fontWeight: 900,
-          fontSize: 16,
-          boxShadow: "0 3px 0 var(--ink, #1f2937)",
-        }}
-      >
-        {played ? "♪ Replay" : "♪ Play"}
-      </button>
+      {/* Visual rounds (e.g. "Line or space?") render the question
+          AS a staff with the note in the right slot — there's no
+          audio to play, the picture IS the question. */}
+      {cur.visual ? (
+        <DrillVisual visual={cur.visual} />
+      ) : (
+        <button
+          type="button"
+          onClick={replay}
+          style={{
+            padding: "14px 20px",
+            border: "3px solid var(--ink, #1f2937)",
+            borderRadius: 12,
+            background: "var(--berry, #d4a853)",
+            cursor: "pointer",
+            fontWeight: 900,
+            fontSize: 16,
+            boxShadow: "0 3px 0 var(--ink, #1f2937)",
+          }}
+        >
+          {played ? "♪ Replay" : "♪ Play"}
+        </button>
+      )}
 
       <div
         style={{
@@ -426,6 +481,84 @@ export function DrillInteractionCard({
           );
         })}
       </div>
+    </div>
+  );
+}
+
+// ─────────────────────────────────────────────────────────────────────────
+// DrillVisual — per-round staff figure for visual-ID drills.
+// ─────────────────────────────────────────────────────────────────────────
+
+function DrillVisual({ visual }: { visual: VisualKind }) {
+  const W = 360;
+  const lineSpacing = 18;
+  const staffH = lineSpacing * 4;
+  const padY = 30;
+  const H = padY * 2 + staffH;
+  const yTop = padY;
+
+  function lineY(line: number) {
+    return yTop + (5 - line) * lineSpacing;
+  }
+  function spaceY(space: number) {
+    return yTop + (5 - space - 0.5) * lineSpacing;
+  }
+
+  const noteX = W * 0.62;
+  const isLine = visual.kind === "staff-line";
+  const noteY = isLine
+    ? lineY(visual.line)
+    : visual.kind === "staff-space"
+    ? spaceY(visual.space)
+    : staffH / 2;
+  const r = lineSpacing * 0.55;
+
+  return (
+    <div
+      style={{
+        background: "var(--parchment, #faf6ef)",
+        border: "2px solid var(--ink, #1f2937)",
+        borderRadius: 12,
+        padding: "8px 12px",
+      }}
+    >
+      <svg viewBox={`0 0 ${W} ${H}`} width="100%" style={{ display: "block" }}>
+        {/* Five staff lines */}
+        {[1, 2, 3, 4, 5].map((ln) => (
+          <line
+            key={ln}
+            x1={20}
+            x2={W - 14}
+            y1={lineY(ln)}
+            y2={lineY(ln)}
+            stroke="#1f2937"
+            strokeWidth={1.2}
+          />
+        ))}
+        {/* Treble clef */}
+        <text
+          x={28}
+          y={lineY(2) + lineSpacing * 0.9}
+          fontSize={lineSpacing * 4.6}
+          fontFamily="serif"
+          fontWeight={700}
+          fill="#1f2937"
+        >
+          {"\uD834\uDD1E"}
+        </text>
+        {/* The notehead — green if on a line, gold if in a space, so
+            the visual reinforces the answer the student is looking for. */}
+        <ellipse
+          cx={noteX}
+          cy={noteY}
+          rx={r + 1.5}
+          ry={r * 0.85}
+          fill={isLine ? "#16a34a" : "#E8A93C"}
+          stroke="#1f2937"
+          strokeWidth={1.6}
+          transform={`rotate(-15 ${noteX} ${noteY})`}
+        />
+      </svg>
     </div>
   );
 }
