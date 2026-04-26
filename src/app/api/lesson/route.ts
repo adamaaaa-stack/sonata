@@ -136,7 +136,6 @@ export async function POST(req: Request) {
         "X-Sonata-Mastered-Hash": masteredHash,
         "X-Sonata-Tokens": String(result.tokensTotal),
         "X-Sonata-Duration-Ms": String(result.durationMs),
-        "X-Sonata-References": result.referenceIds.join(","),
         "X-Sonata-Warnings": JSON.stringify(result.warnings),
       },
     });
