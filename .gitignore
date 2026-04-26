@@ -38,6 +38,9 @@ next-env.d.ts
 # Audio batch (served from S3, not bundled)
 /public/audio/
 
+# v2 generated lesson cache (regenerated from OpenRouter on demand)
+/content/cache/
+
 # Local Qwen3-TTS model files (not part of app)
 /Qwen3-TTS/
 

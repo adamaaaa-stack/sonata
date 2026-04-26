@@ -79,15 +79,14 @@ function expandWithPrereqs(seeds: string[], mastered: Set<string>): Set<string> 
  */
 function topoSort(needed: Set<string>, mastered: Set<string>): string[] {
   const inDegree = new Map<string, number>();
-  for (const id of needed) {
+  Array.from(needed).forEach((id) => {
     const c = BY_ID.get(id);
-    if (!c) continue;
+    if (!c) return;
     const unmet = c.prereqs.filter((p) => needed.has(p) && !mastered.has(p));
     inDegree.set(id, unmet.length);
-  }
+  });
 
   const out: string[] = [];
-  // Take ready nodes (in-degree 0), sorted by kind order, then alphabetical
   while (inDegree.size > 0) {
     const ready = Array.from(inDegree.entries())
       .filter(([, deg]) => deg === 0)
@@ -100,15 +99,12 @@ function topoSort(needed: Set<string>, mastered: Set<string>): string[] {
         return ko !== 0 ? ko : ca.name.localeCompare(cb.name);
       });
     if (ready.length === 0) {
-      // Cycle in the DAG — should not happen with our data, but be defensive.
-      // Just dump the rest in arbitrary order.
-      for (const id of inDegree.keys()) out.push(id);
+      Array.from(inDegree.keys()).forEach((id) => out.push(id));
       break;
     }
     for (const id of ready) {
       out.push(id);
       inDegree.delete(id);
-      // Decrement in-degree of dependents
       for (const c of ALL_CONCEPTS) {
         if (c.prereqs.includes(id) && inDegree.has(c.id)) {
           inDegree.set(c.id, (inDegree.get(c.id) ?? 0) - 1);
