@@ -108,10 +108,24 @@ export function MySongsScreen({ onBackToMenu }: MySongsScreenProps) {
       // Trailing slash matters — Next is configured with trailingSlash: true
       // and POST requests don't follow the redirect cleanly across iOS
       // WKWebView. Hit the canonical URL directly.
+      // Adaptive context: tell the server which concepts the student
+      // has already mastered (everything on the path BEFORE this one)
+      // and what's still upcoming. The generator uses this to avoid
+      // referencing untaught material as known.
+      const idx = piece.pathConcepts.indexOf(conceptId);
+      const pathIdx = idx >= 0 ? idx : 0;
+      const mastered = piece.pathConcepts.slice(0, pathIdx);
+      const upcoming = piece.pathConcepts.slice(pathIdx + 1);
       const resp = await fetch(`${apiBase()}/api/lesson/`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ concept: conceptId }),
+        body: JSON.stringify({
+          concept: conceptId,
+          mastered,
+          upcoming,
+          pathPosition: pathIdx,
+          pathLength: piece.pathConcepts.length,
+        }),
       });
       if (!resp.ok) {
         const txt = await resp.text();
@@ -119,11 +133,10 @@ export function MySongsScreen({ onBackToMenu }: MySongsScreenProps) {
       }
       const yamlText = await resp.text();
       const lessonObj = yaml.load(yamlText) as LessonV2;
-      const idx = piece.pathConcepts.indexOf(conceptId);
       setRunning({
         pieceId: piece.id,
         conceptId,
-        pathIndex: idx >= 0 ? idx : 0,
+        pathIndex: pathIdx,
         lesson: lessonObj,
       });
     } catch (e) {

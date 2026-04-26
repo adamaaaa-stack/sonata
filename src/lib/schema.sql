@@ -106,6 +106,49 @@ create policy "Users can insert own practice days"
   on practice_days for insert
   with check (auth.uid() = user_id);
 
+-- ============================================================
+-- Cached Lessons
+-- ============================================================
+-- Server-side cache for LLM-generated lesson YAMLs. Keyed on
+-- (concept_id, mastered_hash) so lessons adapt to what the student has
+-- already learned — a student approaching "skips" with only Middle C
+-- mastered gets a different generation than one approaching it with
+-- the whole staircase already known.
+--
+-- mastered_hash is a sha256 of the sorted, comma-joined mastered concept
+-- ids — see src/lib/v2/lessonCache.ts for the canonical implementation.
+-- In practice most students share the canonical prereq set so cache hits
+-- are still high; edge cases regenerate at ~$0.005 each.
+--
+-- Service-role only — no public read or write. /tmp on Vercel was wiping
+-- this on every deploy and forcing regeneration; this table makes the
+-- cache durable.
+drop table if exists cached_lessons cascade;
+create table cached_lessons (
+  concept_id text not null,
+  mastered_hash text not null,
+  yaml text not null,
+  model_id text,
+  tokens_total int,
+  duration_ms int,
+  warnings jsonb default '[]'::jsonb,
+  -- For debugging / analytics: which prereqs did the student have when
+  -- this row was generated? Stored alongside the hash so we can inspect.
+  mastered_concepts jsonb default '[]'::jsonb,
+  path_position int,
+  path_length int,
+  created_at timestamptz default now(),
+  updated_at timestamptz default now(),
+  primary key (concept_id, mastered_hash)
+);
+
+create index if not exists cached_lessons_concept_id
+  on cached_lessons (concept_id);
+
+alter table cached_lessons enable row level security;
+-- No policies: anon + authed users have zero access. Service role
+-- bypasses RLS so the API route writes/reads freely.
+
 -- Licenses (Gumroad license key activation)
 create table if not exists licenses (
   id uuid primary key default gen_random_uuid(),
