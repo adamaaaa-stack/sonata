@@ -158,6 +158,25 @@ pages:
       durations: ["half", "half", "quarter", "quarter"]
       tempo: 60
 
+  - id: "13b"
+    mode: play
+    type: rhythm_race
+    figure: "Speedometer dial above a staff with four quarter notes on Middle C. Metronome ticks."
+    cleffy: >
+      Race time. Same four quarter notes — Middle C, four taps.
+      Each round you nail it, the tempo bumps up. Six rounds total.
+      If you slip, the round resets at the same tempo. No penalty.
+    interaction:
+      type: rhythm_race
+      sequence: ["C4", "C4", "C4", "C4"]
+      durations: ["quarter", "quarter", "quarter", "quarter"]
+      start_tempo: 60
+      step: 8
+      rounds: 6
+    followup_cleffy: >
+      That's the same rhythm at almost double the speed.
+      Faster doesn't mean different — just shorter beats.
+
   - id: 14
     mode: hear
     type: pre_check

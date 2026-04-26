@@ -115,6 +115,24 @@ pages:
       options: ["Space 1", "Space 2", "Space 3", "Space 4"]
       correct: 2
 
+  - id: "9b"
+    mode: play
+    type: drag_practice
+    figure: "Empty staff with five lines. A note head waits below, ready to be moved."
+    cleffy: >
+      Now place one yourself. Drop the note onto line 3 — the middle line.
+      The line should cut right through the middle of it.
+    interaction:
+      type: drag
+      item:
+        kind: note
+        pitch: B4
+      target:
+        kind: staff_line
+        line: 3
+        clef: treble
+      prompt: "Drop the note on line 3."
+
   - id: 10
     mode: hear
     type: glance_drill

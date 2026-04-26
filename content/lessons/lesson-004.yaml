@@ -56,6 +56,7 @@ pages:
     interaction:
       type: tap
       accept: "any C"
+    notice: "Same rule, every time — left of every 2-group, all the way across the piano"
     corrections:
       - wrong_label: "tapped_wrong_white"
         cleffy: >
